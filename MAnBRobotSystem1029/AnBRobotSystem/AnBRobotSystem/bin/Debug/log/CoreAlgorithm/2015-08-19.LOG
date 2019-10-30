@@ -1,0 +1,25 @@
+-- [ERROR]  [2015-08-19 08:42:12,151]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:找不到列 "DateTime" 或用户定义的函数或聚合 "DateTime.Now.ToString"，或者名称不明确。
+********************************************************
+-- [ERROR]  [2015-08-19 08:45:25,617]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:',' 附近有语法错误。
+********************************************************
+-- [ERROR]  [2015-08-19 08:47:09,977]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:'8' 附近有语法错误。
+********************************************************
+-- [ERROR]  [2015-08-19 14:16:55,560]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=49940; handshake=146; 
+********************************************************
+-- [ERROR]  [2015-08-19 14:16:55,560]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:输入字符串的格式不正确。
+********************************************************

@@ -1,0 +1,100 @@
+-- [ERROR]  [2016-08-23 15:33:58,026]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 Read 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 15:33:58,027]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 Read 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 15:33:58,026]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 Read 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 15:33:58,028]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 Read 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 15:33:58,029]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 CheckDataIsReady 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 17:09:50,169]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 Read 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 17:11:20,972]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 Read 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 17:21:08,911]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 CheckDataIsReady 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 17:23:46,137]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:已有打开的与此 Command 相关联的 DataReader，必须首先将它关闭。
+********************************************************
+-- [ERROR]  [2016-08-23 17:44:14,442]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 Read 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 17:46:19,993]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 Read 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 17:46:20,022]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ExecuteNonQuery 要求已打开且可用的 Connection。连接的当前状态为已关闭。
+********************************************************
+-- [ERROR]  [2016-08-23 17:50:21,983]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 Read 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 17:50:44,070]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 Read 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 17:52:01,837]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 Read 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 17:53:44,898]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:在没有任何数据时进行无效的读取尝试。
+********************************************************
+-- [ERROR]  [2016-08-23 17:54:00,558]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 MetaData 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 17:54:06,083]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 MetaData 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 17:54:25,691]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 MetaData 无效。
+********************************************************
+-- [ERROR]  [2016-08-23 17:54:34,601]
+-- [DataAcquisition.SPC_DataAcquisition::Void GetOpcWriteDataList()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 MetaData 无效。
+********************************************************

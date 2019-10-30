@@ -1,0 +1,25 @@
+-- [INFO]  [2015-12-25 14:29:20,937]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_CoreAlgorithm服务更改为：Running
+********************************************************
+-- [INFO]  [2015-12-25 14:29:21,868]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_DataAcquisition服务更改为：StartPending
+********************************************************
+-- [INFO]  [2015-12-25 14:29:22,881]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_DataAcquisition服务更改为：Running
+********************************************************
+-- [INFO]  [2015-12-25 14:31:38,757]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_DataAcquisition服务更改为：Stopped
+********************************************************
+-- [INFO]  [2015-12-25 14:31:39,771]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_CoreAlgorithm服务更改为：Stopped
+********************************************************

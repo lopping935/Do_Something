@@ -1,0 +1,30 @@
+-- [ERROR]  [2014-12-04 17:18:09,485]
+-- [DataAcquisition.Class.SqlServerManage::System.Collections.Generic.List`1[DataAcquisition.Class.OpcDataModlue] GetOpcRlueList()]
+-- [文件]:D:\SinteringPC\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'Rule' 无效。
+********************************************************
+-- [ERROR]  [2014-12-04 17:18:58,815]
+-- [DataAcquisition.Class.SqlServerManage::System.Collections.Generic.List`1[DataAcquisition.Class.OpcDataModlue] GetOpcRlueList()]
+-- [文件]:D:\SinteringPC\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'Rule' 无效。
+********************************************************
+-- [ERROR]  [2014-12-04 17:19:03,276]
+-- [DataAcquisition.Class.SqlServerManage::System.Collections.Generic.List`1[DataAcquisition.Class.OpcDataModlue] GetOpcRlueList()]
+-- [文件]:D:\SinteringPC\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'Rule' 无效。
+********************************************************
+-- [ERROR]  [2014-12-04 17:19:07,098]
+-- [DataAcquisition.Class.SqlServerManage::System.Collections.Generic.List`1[DataAcquisition.Class.OpcDataModlue] GetOpcRlueList()]
+-- [文件]:D:\SinteringPC\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'Rule' 无效。
+********************************************************
+-- [ERROR]  [2014-12-04 17:19:12,122]
+-- [DataAcquisition.Class.SqlServerManage::System.Collections.Generic.List`1[DataAcquisition.Class.OpcDataModlue] GetOpcRlueList()]
+-- [文件]:D:\SinteringPC\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'Rule' 无效。
+********************************************************
+-- [ERROR]  [2014-12-04 17:20:52,264]
+-- [DataAcquisition.Class.SqlServerManage::System.Collections.Generic.List`1[DataAcquisition.Class.OpcDataModlue] GetOpcRlueList()]
+-- [文件]:D:\SinteringPC\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'Rule' 无效。
+********************************************************

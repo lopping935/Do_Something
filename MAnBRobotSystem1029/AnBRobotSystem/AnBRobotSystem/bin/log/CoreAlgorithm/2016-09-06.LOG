@@ -1,0 +1,23 @@
+-- [ERROR]  [2016-09-06 16:48:05,095]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:已成功与服务器建立连接，但是在登录前的握手期间发生错误。 (provider: Shared Memory Provider, error: 0 - 管道的另一端上无任何进程。)
+********************************************************
+-- [ERROR]  [2016-09-06 16:48:05,095]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:已成功与服务器建立连接，但是在登录前的握手期间发生错误。 (provider: Shared Memory Provider, error: 0 - 管道的另一端上无任何进程。)
+********************************************************
+-- [ERROR]  [2016-09-06 16:48:05,111]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:已成功与服务器建立连接，但是在登录前的握手期间发生错误。 (provider: Shared Memory Provider, error: 0 - 管道的另一端上无任何进程。)   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteDataTable(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 116
+   在 CoreAlgorithm.TaskManager.TasksManager.MultithreadDataTable(String sql) 位置 D:\SinteringProControl\Platform\CoreAlgorithm\TaskManager\TasksManagers.cs:行号 78
+   在 CoreAlgorithm.TaskManager.ForecastClass.RunSelfLearning() 位置 D:\SinteringProControl\Platform\CoreAlgorithm\TaskManager\ForecastClass.cs:行号 475
+********************************************************

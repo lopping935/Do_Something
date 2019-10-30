@@ -1,0 +1,40 @@
+-- [ERROR]  [2014-12-31 08:38:01,563]
+-- [AdvancedFunction.ChildForm.RuleManager::Boolean CheckERR()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'PipelineAttribute' 无效。
+********************************************************
+-- [ERROR]  [2014-12-31 08:38:04,714]
+-- [AdvancedFunction.ChildForm.RuleManager::Boolean CheckERR()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'PipelineAttribute' 无效。
+********************************************************
+-- [ERROR]  [2014-12-31 08:41:27,640]
+-- [AdvancedFunction.ChildForm.RuleManager::Boolean CheckERR()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'PipelineAttribute' 无效。
+********************************************************
+-- [ERROR]  [2014-12-31 08:41:40,463]
+-- [AdvancedFunction.ChildForm.RuleManager::Boolean CheckERR()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'PipelineAttribute' 无效。
+********************************************************
+-- [ERROR]  [2014-12-31 08:41:41,758]
+-- [AdvancedFunction.ChildForm.RuleManager::Boolean CheckERR()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'PipelineAttribute' 无效。
+********************************************************
+-- [ERROR]  [2014-12-31 09:14:50,890]
+-- [AdvancedFunction.ChildForm.RuleManager::Boolean CheckERR()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'PipelineAttribute' 无效。
+********************************************************
+-- [ERROR]  [2014-12-31 09:15:10,406]
+-- [AdvancedFunction.ChildForm.RuleManager::Boolean CheckERR()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'PipelineAttribute' 无效。
+********************************************************
+-- [ERROR]  [2014-12-31 09:15:15,164]
+-- [AdvancedFunction.ChildForm.RuleManager::Boolean CheckERR()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'PipelineAttribute' 无效。
+********************************************************

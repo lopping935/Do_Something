@@ -1,0 +1,75 @@
+-- [ERROR]  [2016-09-13 17:02:57,070]
+-- [DataAcquisition.Class.SqlServerManage::System.Collections.Generic.Dictionary`2[System.Int32,System.Collections.Generic.List`1[DataAcquisition.Class.OpcDataModlue]] GetOpcWriteDateList(System.Collections.Generic.List`1[DataAcquisition.Class.OPCConfig])]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'EquipmentAttribute_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2016-09-13 17:02:57,429]
+-- [DataAcquisition.SPC_DataAcquisition::Void OnStart()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:服务没有及时响应启动或控制请求。 (异常来自 HRESULT:0x8007041D)
+********************************************************
+-- [ERROR]  [2016-09-13 17:02:57,444]
+-- [DataAcquisition.SPC_DataAcquisition::Boolean CreateGroup()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对 COM 组件的调用返回了错误 HRESULT E_FAIL。
+********************************************************
+-- [ERROR]  [2016-09-13 17:03:36,059]
+-- [DataAcquisition.Class.SqlServerManage::System.Collections.Generic.Dictionary`2[System.Int32,System.Collections.Generic.List`1[DataAcquisition.Class.OpcDataModlue]] GetOpcWriteDateList(System.Collections.Generic.List`1[DataAcquisition.Class.OPCConfig])]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'EquipmentAttribute_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2016-09-13 17:03:36,169]
+-- [DataAcquisition.SPC_DataAcquisition::Void OnStart()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:服务没有及时响应启动或控制请求。 (异常来自 HRESULT:0x8007041D)
+********************************************************
+-- [ERROR]  [2016-09-13 17:03:36,184]
+-- [DataAcquisition.SPC_DataAcquisition::Boolean CreateGroup()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对 COM 组件的调用返回了错误 HRESULT E_FAIL。
+********************************************************
+-- [ERROR]  [2016-09-13 17:04:57,758]
+-- [DataAcquisition.Class.SqlServerManage::System.Collections.Generic.Dictionary`2[System.Int32,System.Collections.Generic.List`1[DataAcquisition.Class.OpcDataModlue]] GetOpcWriteDateList(System.Collections.Generic.List`1[DataAcquisition.Class.OPCConfig])]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'EquipmentAttribute_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2016-09-13 17:04:57,868]
+-- [DataAcquisition.SPC_DataAcquisition::Void OnStart()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:服务没有及时响应启动或控制请求。 (异常来自 HRESULT:0x8007041D)
+********************************************************
+-- [ERROR]  [2016-09-13 17:04:57,883]
+-- [DataAcquisition.SPC_DataAcquisition::Boolean CreateGroup()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对 COM 组件的调用返回了错误 HRESULT E_FAIL。
+********************************************************
+-- [ERROR]  [2016-09-13 17:05:48,507]
+-- [DataAcquisition.Class.SqlServerManage::System.Collections.Generic.Dictionary`2[System.Int32,System.Collections.Generic.List`1[DataAcquisition.Class.OpcDataModlue]] GetOpcWriteDateList(System.Collections.Generic.List`1[DataAcquisition.Class.OPCConfig])]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'EquipmentAttribute_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2016-09-13 17:05:48,663]
+-- [DataAcquisition.SPC_DataAcquisition::Void OnStart()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:服务没有及时响应启动或控制请求。 (异常来自 HRESULT:0x8007041D)
+********************************************************
+-- [ERROR]  [2016-09-13 17:05:48,694]
+-- [DataAcquisition.SPC_DataAcquisition::Boolean CreateGroup()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对 COM 组件的调用返回了错误 HRESULT E_FAIL。
+********************************************************
+-- [ERROR]  [2016-09-13 17:10:40,463]
+-- [DataAcquisition.Class.SqlServerManage::System.Collections.Generic.Dictionary`2[System.Int32,System.Collections.Generic.List`1[DataAcquisition.Class.OpcDataModlue]] GetOpcWriteDateList(System.Collections.Generic.List`1[DataAcquisition.Class.OPCConfig])]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'EquipmentAttribute_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2016-09-13 17:10:40,604]
+-- [DataAcquisition.SPC_DataAcquisition::Void OnStart()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:服务没有及时响应启动或控制请求。 (异常来自 HRESULT:0x8007041D)
+********************************************************
+-- [ERROR]  [2016-09-13 17:10:40,619]
+-- [DataAcquisition.SPC_DataAcquisition::Boolean CreateGroup()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对 COM 组件的调用返回了错误 HRESULT E_FAIL。
+********************************************************

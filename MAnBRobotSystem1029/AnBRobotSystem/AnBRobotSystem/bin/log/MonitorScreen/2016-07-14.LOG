@@ -1,0 +1,310 @@
+-- [ERROR]  [2016-07-14 16:06:13,307]
+-- [MonitorScreen.WinboxTempPress::Void buttonTime_Click(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'TaskHistoryData_Time1' 无效。
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:32,426]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:34,547]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:36,560]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:38,572]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:40,585]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:42,597]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:44,609]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:46,622]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:48,634]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:50,647]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:52,659]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:54,671]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:56,684]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:22:58,696]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:00,709]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:02,705]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:04,733]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:06,746]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:08,743]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:10,759]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:12,771]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:14,799]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:16,812]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:18,824]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:20,852]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:22,828]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:24,856]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:26,869]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:28,881]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:30,896]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:32,916]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:34,911]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:36,939]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:38,952]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:40,964]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:42,977]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:44,989]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:47,001]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:49,014]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:51,026]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:53,039]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:55,051]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:57,063]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:23:59,076]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:01,088]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:03,101]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:05,113]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:07,125]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:09,138]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:11,150]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:13,163]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:15,175]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:17,187]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:19,200]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:21,212]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:23,225]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:25,237]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:27,249]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:29,262]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:31,274]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************
+-- [ERROR]  [2016-07-14 17:24:33,271]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:采集异常，终点异常，计算失效，终点温度大于380℃
+********************************************************

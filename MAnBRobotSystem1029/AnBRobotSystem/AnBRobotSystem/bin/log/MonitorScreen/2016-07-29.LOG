@@ -1,0 +1,139 @@
+-- [WARN]  [2016-07-29 15:37:51,521]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:采集异常，终点异常，计算失效，终点温度小于300℃
+********************************************************
+-- [WARN]  [2016-07-29 15:37:53,663]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:采集异常，终点异常，计算失效，终点温度小于300℃
+********************************************************
+-- [WARN]  [2016-07-29 15:37:55,689]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:采集异常，终点异常，计算失效，终点温度小于300℃
+********************************************************
+-- [WARN]  [2016-07-29 16:18:41,308]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:采集异常，终点异常，计算失效，终点温度小于300℃
+********************************************************
+-- [WARN]  [2016-07-29 16:18:43,525]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:采集异常，终点异常，计算失效，终点温度小于300℃
+********************************************************
+-- [ERROR]  [2016-07-29 16:29:54,240]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:29:56,065]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:10,448]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:11,509]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:12,570]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:14,582]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:16,595]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:18,607]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:20,619]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:22,632]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:24,644]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:26,657]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:28,669]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:30,681]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:32,694]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:34,706]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:36,719]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:38,731]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-07-29 16:30:40,743]
+-- [MonitorScreen.WinboxTempPress::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************

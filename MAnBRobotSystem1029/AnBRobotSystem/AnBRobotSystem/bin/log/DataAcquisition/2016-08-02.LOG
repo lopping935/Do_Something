@@ -1,0 +1,155 @@
+-- [INFO]  [2016-08-02 17:35:16,739]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:35:16,863]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:35:31,229]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:35:51,230]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:36:11,229]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:36:31,244]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:36:51,259]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:37:11,274]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:37:31,289]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:37:51,304]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:38:11,307]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:38:31,319]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:38:51,333]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:39:11,349]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:39:31,364]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:39:51,370]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:40:11,377]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:40:31,393]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:40:51,408]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:41:11,423]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:41:31,437]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:41:51,437]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:42:11,452]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:42:31,466]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:42:51,480]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:57:39,041]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:57:39,049]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:57:53,992]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:57:53,992]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:58:22,705]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************
+-- [INFO]  [2016-08-02 17:58:22,705]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncWriteComplete(Int32, Int32, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:Tran：1   ClientHandles：0   Error：-1073479674
+********************************************************

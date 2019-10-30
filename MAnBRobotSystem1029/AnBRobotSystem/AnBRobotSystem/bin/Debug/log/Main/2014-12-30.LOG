@@ -1,0 +1,50 @@
+-- [ERROR]  [2014-12-30 16:20:47,565]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_DisRelation_Click(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:',' 附近有语法错误。
+********************************************************
+-- [ERROR]  [2014-12-30 16:21:35,513]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_DisRelation_Click(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:',' 附近有语法错误。
+********************************************************
+-- [ERROR]  [2014-12-30 16:44:47,972]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_DisRelation_Click(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:',' 附近有语法错误。
+********************************************************
+-- [ERROR]  [2014-12-30 16:44:50,882]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_DisRelation_Click(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:',' 附近有语法错误。
+********************************************************
+-- [INFO]  [2014-12-30 17:01:10,516]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_CoreAlgorithm服务更改为：StartPending
+********************************************************
+-- [INFO]  [2014-12-30 17:01:18,567]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_CoreAlgorithm服务更改为：Running
+********************************************************
+-- [INFO]  [2014-12-30 17:02:19,407]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_CoreAlgorithm服务更改为：Stopped
+********************************************************
+-- [INFO]  [2014-12-30 17:02:20,411]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_CoreAlgorithm服务更改为：StartPending
+********************************************************
+-- [INFO]  [2014-12-30 17:02:21,434]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_CoreAlgorithm服务更改为：Running
+********************************************************
+-- [INFO]  [2014-12-30 17:05:06,723]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_CoreAlgorithm服务更改为：Stopped
+********************************************************

@@ -1,0 +1,926 @@
+-- [ERROR]  [2016-05-09 10:14:30,396]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteDataTable(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 116
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 99
+********************************************************
+-- [ERROR]  [2016-05-09 10:14:30,396]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'FCtrl_id'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 138
+********************************************************
+-- [ERROR]  [2016-05-09 10:14:30,396]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteReader(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 133
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 89
+********************************************************
+-- [ERROR]  [2016-05-09 10:14:30,396]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为正在连接。   在 System.Data.ProviderBase.DbConnectionClosedConnecting.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteDataTable(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 116
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 99
+********************************************************
+-- [ERROR]  [2016-05-09 10:14:30,396]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteReader(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 133
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 89
+********************************************************
+-- [ERROR]  [2016-05-09 10:14:30,398]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteReader(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 133
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 89
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:29,691]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   在 System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   在 System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   在 System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   在 System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   在 PublicClass.DbHelper.ExecuteReader(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 134
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 89
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:33,787]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteReader(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 133
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 89
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:34,548]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteReader(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 133
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 89
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:34,605]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无效操作。连接被关闭。   在 System.Data.SqlClient.SqlConnection.GetOpenConnection()
+   在 System.Data.SqlClient.SqlConnection.get_Parser()
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 142
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 138
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:35,525]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteDataTable(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 116
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 99
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:35,567]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 142
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 138
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:36,852]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteDataTable(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 116
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 99
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:39,327]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteDataTable(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 116
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 99
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:39,893]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteDataTable(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 116
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 99
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:39,964]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:已有打开的与此 Command 相关联的 DataReader，必须首先将它关闭。   在 System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   在 System.Data.SqlClient.SqlConnection.ValidateConnectionForExecute(String method, SqlCommand command)
+   在 System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 138
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:40,667]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteDataTable(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 116
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 99
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:41,818]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteDataTable(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 116
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 99
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:42,837]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteReader(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 133
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 89
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:44,780]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无效操作。连接被关闭。   在 System.Data.SqlClient.SqlConnection.GetOpenConnection()
+   在 System.Data.SqlClient.SqlConnection.get_Parser()
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 142
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 138
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:44,820]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'FCtrl_id'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 138
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:44,881]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ExecuteReader 要求已打开且可用的 Connection。连接的当前状态为已关闭。   在 System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   在 PublicClass.DbHelper.ExecuteDataTable(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 121
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 99
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:44,940]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'FCtrl_id'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   在 PublicClass.DbHelper.ExecuteReader(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 134
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 89
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:46,269]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:46,270]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:47,063]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:47,063]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:48,565]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteReader(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 133
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 89
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:49,762]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:50,044]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:52,558]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:54,071]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:57,638]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:15:58,217]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:00,607]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:02,495]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:05,077]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:06,286]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:09,392]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:10,225]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:13,439]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:14,238]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:17,010]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:18,314]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:21,073]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:22,625]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:25,157]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:26,341]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:28,922]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:30,403]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:33,475]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:34,400]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:37,311]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:38,516]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:41,525]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:42,587]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:45,630]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:46,538]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:49,674]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:50,537]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:53,703]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:54,627]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:57,041]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:16:58,644]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:01,266]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:02,689]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:05,710]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:06,682]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:09,358]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:10,678]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:13,607]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:14,731]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:17,589]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:18,732]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:21,655]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:22,793]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:25,342]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:26,871]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:29,978]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:30,959]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:33,980]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:34,951]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:38,249]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:39,007]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:41,878]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:43,007]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:46,267]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:46,994]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:50,090]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:51,046]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:53,446]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:55,210]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:58,362]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:17:59,093]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:02,357]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:03,168]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:06,282]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:07,115]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:10,348]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:11,149]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:14,266]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:15,188]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:18,510]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:19,250]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:22,109]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:23,260]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:25,630]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:27,285]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:29,630]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:31,659]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:33,655]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:35,323]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Value   在 System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-09 10:18:37,681]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列“Task_id”不属于表 。   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 102
+********************************************************

@@ -1,0 +1,5 @@
+-- [ERROR]  [2016-07-12 14:48:11,602]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:索引超出了数组界限。
+********************************************************

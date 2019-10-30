@@ -1,0 +1,235 @@
+-- [ERROR]  [2015-12-31 09:40:24,302]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:27,277]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:29,261]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:31,269]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:33,313]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:35,321]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:37,327]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:39,360]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:41,374]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:43,388]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:45,455]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:47,417]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:49,443]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:51,467]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:53,502]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:55,470]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:57,439]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:40:59,529]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:41:01,469]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:41:03,491]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:41:05,508]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:41:07,501]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:41:09,548]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:41:11,518]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:41:13,533]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:41:15,561]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:41:17,562]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:41:19,567]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:41:21,561]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:41:23,600]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:41:57,144]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:42:00,496]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:42:02,467]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:42:28,689]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:42:31,824]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:42:33,932]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:42:35,940]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:42:37,941]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:43:27,596]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:43:30,578]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:43:32,574]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:43:34,608]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:43:36,617]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:43:38,627]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:43:40,637]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:43:42,653]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************
+-- [ERROR]  [2015-12-31 09:43:44,690]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:E:\维护\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法加载 DLL“DataPreProcess.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+********************************************************

@@ -1,0 +1,75 @@
+-- [ERROR]  [2015-08-20 09:57:46,629]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:未将对象引用设置到对象的实例。
+********************************************************
+-- [ERROR]  [2015-08-20 09:58:39,132]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:未将对象引用设置到对象的实例。
+********************************************************
+-- [ERROR]  [2015-08-20 10:00:59,280]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:未将对象引用设置到对象的实例。
+********************************************************
+-- [ERROR]  [2015-08-20 10:03:35,884]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=19888; handshake=889; 
+********************************************************
+-- [ERROR]  [2015-08-20 10:03:36,626]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:未将对象引用设置到对象的实例。
+********************************************************
+-- [ERROR]  [2015-08-20 10:05:10,039]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:未将对象引用设置到对象的实例。
+********************************************************
+-- [ERROR]  [2015-08-20 10:07:10,983]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:未将对象引用设置到对象的实例。
+********************************************************
+-- [ERROR]  [2015-08-20 10:07:39,786]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:未将对象引用设置到对象的实例。
+********************************************************
+-- [ERROR]  [2015-08-20 10:07:54,127]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:未将对象引用设置到对象的实例。
+********************************************************
+-- [ERROR]  [2015-08-20 10:08:37,676]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:未将对象引用设置到对象的实例。
+********************************************************
+-- [ERROR]  [2015-08-20 10:14:40,890]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:在位置 1 处没有任何行。
+********************************************************
+-- [ERROR]  [2015-08-20 10:25:38,417]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:在位置 1 处没有任何行。
+********************************************************
+-- [ERROR]  [2015-08-20 10:29:48,377]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:在位置 1 处没有任何行。
+********************************************************
+-- [ERROR]  [2015-08-20 16:06:39,626]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:'DataNum' 附近有语法错误。
+********************************************************
+-- [ERROR]  [2015-08-20 16:09:54,009]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:'DataNum' 附近有语法错误。
+********************************************************

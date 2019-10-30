@@ -1,0 +1,70 @@
+-- [ERROR]  [2014-12-11 11:11:08,807]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2014-12-11 11:12:35,849]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2014-12-11 11:14:32,657]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2014-12-11 11:14:32,667]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2014-12-11 11:14:32,667]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2014-12-11 11:14:32,667]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2014-12-11 11:28:24,062]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2014-12-11 11:28:24,073]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2014-12-11 11:28:24,073]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2014-12-11 11:28:24,073]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2014-12-11 14:51:44,160]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:'world' 附近有语法错误。
+********************************************************
+-- [ERROR]  [2014-12-11 14:51:44,224]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:'world' 附近有语法错误。
+********************************************************
+-- [ERROR]  [2014-12-11 14:51:44,240]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:'world' 附近有语法错误。
+********************************************************
+-- [ERROR]  [2014-12-11 14:51:44,282]
+-- [DataAcquisition.af_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:'world' 附近有语法错误。
+********************************************************

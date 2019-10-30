@@ -1,0 +1,5 @@
+-- [WARN]  [2016-08-26 10:26:13,387]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:E:\20160825\烧结\新建文件夹\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:数据量不足，无法建立符合要求的模型训练样本集
+********************************************************

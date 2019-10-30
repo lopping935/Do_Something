@@ -1,0 +1,35 @@
+-- [ERROR]  [2015-09-07 09:52:31,757]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 '非数字' 无效。
+********************************************************
+-- [ERROR]  [2015-09-07 09:52:55,876]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 '非数字' 无效。
+********************************************************
+-- [ERROR]  [2015-09-07 09:53:45,424]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 '非数字' 无效。
+********************************************************
+-- [ERROR]  [2015-09-07 09:55:58,519]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 '非数字' 无效。
+********************************************************
+-- [ERROR]  [2015-09-07 09:57:23,269]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 '非数字' 无效。
+********************************************************
+-- [ERROR]  [2015-09-07 09:58:41,465]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 '非数字' 无效。
+********************************************************
+-- [ERROR]  [2015-09-07 09:59:50,272]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 '非数字' 无效。
+********************************************************

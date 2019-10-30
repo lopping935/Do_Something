@@ -1,0 +1,10 @@
+-- [ERROR]  [2014-12-22 13:50:43,923]
+-- [AdvancedFunction.ChildForm.RuleManager::Boolean CheckERR()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'PipelineAttribute' 无效。
+********************************************************
+-- [ERROR]  [2014-12-22 13:54:04,120]
+-- [AdvancedFunction.ChildForm.RuleManager::Boolean CheckERR()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'PipelineAttribute' 无效。
+********************************************************

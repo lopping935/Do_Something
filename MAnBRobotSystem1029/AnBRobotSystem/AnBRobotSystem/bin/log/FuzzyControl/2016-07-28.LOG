@@ -1,0 +1,720 @@
+-- [ERROR]  [2016-07-28 11:10:05,751]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:06,608]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:08,620]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:10,633]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:12,645]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:14,657]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:16,669]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:18,681]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:20,693]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:22,708]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:24,719]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:26,735]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:28,743]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:30,758]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:32,770]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:34,784]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:36,793]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:38,806]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:40,818]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:42,830]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:44,842]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:46,855]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:48,867]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:50,884]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:52,892]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:54,904]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:56,919]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:10:58,934]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:00,944]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:02,958]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:04,969]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:06,980]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:08,993]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:11,005]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:13,018]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:15,028]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:17,043]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:19,056]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:21,069]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:23,080]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:25,092]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:27,106]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:29,116]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:31,128]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:33,140]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:35,152]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:37,167]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************
+-- [ERROR]  [2016-07-28 11:11:39,180]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:不能将值 NULL 插入列 'TCRateBTPSet'，表 'SinteringProControl.dbo.FuzzyCtrl'；列不允许有 Null 值。INSERT 失败。
+语句已终止。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 PublicClass.DbHelper.ExecuteNonQuery(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 143
+   在 FuzzyControl.TaskManager.TasksManager.MultithreadExecuteNonQuery(String sql) 位置 D:\SinteringProControl\Platform\FuzzyControl\TaskManager\TasksManagers.cs:行号 64
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 261
+********************************************************

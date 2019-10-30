@@ -1,0 +1,19 @@
+-- [ERROR]  [2016-08-16 08:48:37,510]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=72801; handshake=31;    在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteDataTable(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 116
+   在 CoreAlgorithm.TaskManager.TasksManager.MultithreadDataTable(String sql) 位置 D:\SinteringProControl\Platform\CoreAlgorithm\TaskManager\TasksManagers.cs:行号 78
+   在 CoreAlgorithm.TaskManager.ForecastClass.RunSelfLearning() 位置 D:\SinteringProControl\Platform\CoreAlgorithm\TaskManager\ForecastClass.cs:行号 462
+********************************************************
+-- [ERROR]  [2016-08-16 09:25:49,662]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:外部组件发生异常。   在 CoreAlgorithm.TaskManager.ForecastClass.BPNNAlgorithm(Double[] pTheta, BPNNPara BPNNParameter, IntPtr[] InputVar, Double[] NewParameter, Double[] BPNNTestOut)
+   在 CoreAlgorithm.TaskManager.ForecastClass.RunSelfLearning() 位置 D:\SinteringProControl\Platform\CoreAlgorithm\TaskManager\ForecastClass.cs:行号 795
+********************************************************

@@ -1,0 +1,73 @@
+D:\MAnBRobotSetup\Debug\MAnBRobotSystem.exe.config
+D:\MAnBRobotSetup\Debug\MAnBRobotSystem.exe
+D:\MAnBRobotSetup\Debug\MAnBRobotSystem.pdb
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\Interop.OPCAutomation.dll
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.ResolveComReference.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.FormPrint.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.CMessageBox.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.ModelSet.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.print_view.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.YCGBDesignResult.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.Login.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.MdiParent.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.PasswordConfig.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.Properties.Resources.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.UserInfor.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.CopyComplete
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.exe
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.pdb
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\Interop.OPCAutomation.dll
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.ResolveComReference.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.FormPrint.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.CMessageBox.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.ModelSet.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.print_view.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.YCGBDesignResult.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.Login.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.MdiParent.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.PasswordConfig.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.Properties.Resources.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.UserInfor.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.CopyComplete
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.exe
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.pdb
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\Interop.OPCAutomation.dll
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.ResolveComReference.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.FormPrint.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.CMessageBox.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.ModelSet.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.print_view.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.YCGBDesignResult.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.Login.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.MdiParent.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.PasswordConfig.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.Properties.Resources.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.UserInfor.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.CopyComplete
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.exe
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.pdb
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\Interop.OPCAutomation.dll
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.ResolveComReference.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.FormPrint.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.CMessageBox.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.ModelSet.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.print_view.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.ChildForm.YCGBDesignResult.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.Login.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.MdiParent.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.PasswordConfig.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.Properties.Resources.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.UserInfor.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.CopyComplete
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.exe
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.pdb

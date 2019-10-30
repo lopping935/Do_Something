@@ -1,0 +1,10 @@
+-- [ERROR]  [2015-08-21 08:18:38,712]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:索引超出了数组界限。
+********************************************************
+-- [ERROR]  [2015-08-21 15:26:45,745]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法封送处理“parameter #15”: 嵌套的数组不支持封送处理。
+********************************************************

@@ -1,0 +1,210 @@
+-- [ERROR]  [2016-08-01 09:17:19,746]
+-- [MonitorScreen.WinboxTempPress::Void buttonBTP_Click(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:该字符串未被识别为有效的 DateTime。
+********************************************************
+-- [ERROR]  [2016-08-01 09:17:27,556]
+-- [MonitorScreen.WinboxTempPress::Void buttonBTP_Click(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:该字符串未被识别为有效的 DateTime。
+********************************************************
+-- [WARN]  [2016-08-01 15:44:14,039]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:15,597]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:17,611]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:19,608]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:21,634]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:23,673]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:25,659]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:27,672]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:29,683]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:31,695]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:33,733]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:35,721]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:37,736]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:39,749]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:41,758]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:43,787]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:45,783]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:47,798]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:49,807]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:51,811]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:53,860]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:55,844]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:57,856]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:44:59,871]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:45:01,881]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:45:03,912]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:45:05,907]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:45:07,922]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:45:09,930]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:45:11,947]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:45:13,970]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:45:15,966]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:45:17,973]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:45:20,002]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:45:21,992]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:48:16,296]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:采集正在启动，计算失效，
+********************************************************
+-- [WARN]  [2016-08-01 15:49:38,896]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:采集正在启动，计算失效，
+********************************************************
+-- [WARN]  [2016-08-01 15:50:10,670]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:50:29,627]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度大于380℃
+********************************************************
+-- [WARN]  [2016-08-01 15:51:06,767]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:采集正在启动，计算失效，终点温度大于380℃
+********************************************************

@@ -1,0 +1,1665 @@
+-- [ERROR]  [2015-10-08 16:36:07,114]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,123]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,124]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,124]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,124]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,124]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,124]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,124]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,124]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,125]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,125]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,125]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,125]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,125]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,125]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,125]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,125]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,126]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,126]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,126]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,126]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,126]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,126]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,126]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,126]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,126]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,127]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,127]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,127]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,127]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,127]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,127]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,127]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,127]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,128]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,128]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:07,128]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,082]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,082]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,083]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,083]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,084]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,084]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,085]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,085]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,086]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,086]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,087]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,087]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,087]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,088]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,088]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,089]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,089]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,090]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,090]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,091]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,091]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,092]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,092]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,092]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,093]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,094]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,095]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,095]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,096]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,096]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,097]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,097]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,098]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,098]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,098]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,099]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,099]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,100]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,100]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,100]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,101]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,101]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,101]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,101]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,102]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,102]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,102]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,103]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,103]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,103]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,104]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,104]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,104]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,105]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,105]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,105]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,106]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,106]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,106]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,106]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,107]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,107]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,107]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,108]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,108]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,108]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,109]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,109]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,109]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,109]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,110]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,110]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,110]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:16,111]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,155]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,156]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,157]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,158]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,159]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,159]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,160]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,161]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,161]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,162]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,162]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,163]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,164]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,164]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,165]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,165]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,166]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,167]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,167]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,168]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,168]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,169]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,169]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,170]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,171]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,171]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,172]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,172]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,173]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,174]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,174]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,175]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,175]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,176]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,177]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,177]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:36:34,178]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,277]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,277]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,278]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,279]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,279]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,280]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,281]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,281]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,282]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,283]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,283]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,284]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,284]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,285]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,285]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,286]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,287]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,287]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,288]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,289]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,290]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,290]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,291]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,292]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,292]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,293]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,293]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,294]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,295]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,295]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,296]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,296]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,297]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,298]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,298]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,299]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:01,299]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,316]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,317]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,318]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,319]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,319]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,320]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,321]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,321]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,322]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,323]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,323]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,324]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,325]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,325]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,326]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,326]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,327]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,328]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,328]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,329]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,329]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,330]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,331]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,331]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,332]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,332]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,333]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,333]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,334]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,335]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,335]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,336]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,337]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,337]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,338]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,338]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:10,339]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,364]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,365]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,366]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,367]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,367]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,368]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,368]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,369]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,370]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,370]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,371]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,372]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,372]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,373]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,373]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,374]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,375]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,375]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,376]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,376]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,377]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,377]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,378]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,379]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,379]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,380]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,381]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,381]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,382]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,382]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,383]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,384]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,384]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,385]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,385]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,386]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:19,387]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,403]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,404]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,404]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,405]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,405]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,406]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,406]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,407]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,407]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,408]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,408]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,409]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,409]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,410]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,410]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,410]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,411]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,411]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,412]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,412]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,413]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,413]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,414]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,414]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,415]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,415]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,416]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,416]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,417]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,417]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,418]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,418]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,419]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,419]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,420]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,420]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:28,421]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,430]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,430]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,430]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,430]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,431]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,431]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,431]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,431]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,432]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,432]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,432]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,432]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,432]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,433]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,433]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,433]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,433]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,433]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,433]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,434]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,434]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,434]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,434]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,434]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,435]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,435]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,435]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,435]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,435]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,435]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,436]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,436]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,436]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,436]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,437]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,437]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************
+-- [ERROR]  [2015-10-08 16:37:37,437]
+-- [DataAcquisition.SPC_DataAcquisition::Void GroupAsyncReadComplete(Int32, Int32, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef, System.Array ByRef)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:ConnectionString 属性尚未初始化。
+********************************************************

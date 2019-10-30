@@ -1,0 +1,10 @@
+-- [WARN]  [2016-08-16 17:36:46,175]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点异常，计算失效，终点温度小于300℃
+********************************************************
+-- [WARN]  [2016-08-16 17:36:48,273]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点异常，计算失效，终点温度小于300℃
+********************************************************

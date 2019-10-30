@@ -1,0 +1,5 @@
+-- [ERROR]  [2019-05-10 17:38:48,819]
+-- [DataManageSystem.ChildForm.VariableNaming::Void button7_Click(System.Object, System.EventArgs)]
+-- [文件]:D:\DataManageSystem\Platform\SQLPublicClass\LogClass.cs--第27行
+-- [详细]:对象名 'PDTPMOUHP00TEMP' 无效。
+********************************************************
