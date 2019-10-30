@@ -122,6 +122,7 @@ namespace CoreAlgorithm.TaskManager
         // <summary>  
         /// 定位指定的 System.Byte[] 在此实例中的第一个匹配项的索引。  
         /// </summary>  
+        /// kkkkkkk
         /// <param name="srcBytes">源数组</param>  
         /// <param name="searchBytes">查找的数组</param>  
         /// <returns>返回的索引位置；否则返回值为 -1。</returns>
