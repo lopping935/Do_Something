@@ -1,0 +1,14 @@
+D:\AnBRobotSystem\CoreAlgorithmL3\obj\x86\Debug\CoreAlgorithmMES.csprojResolveAssemblyReference.cache
+D:\AnBRobotSystem\CoreAlgorithmL3\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+D:\AnBRobotSystem\CoreAlgorithmL3\obj\x86\Debug\CoreAlgorithm.RDT_CoreAlgorithm.resources
+D:\AnBRobotSystem\CoreAlgorithmL3\obj\x86\Debug\CoreAlgorithmMES.csproj.GenerateResource.Cache
+D:\AnBRobotSystem\CoreAlgorithmL3\obj\x86\Debug\CoreAlgorithm.MES_CoreAlgorithm.resources
+D:\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+D:\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csproj.GenerateResource.Cache
+D:\AnBRobotSetup\Debug\CoreAlgorithmMES.exe.config
+D:\AnBRobotSetup\Debug\CoreAlgorithmMES.exe
+D:\AnBRobotSetup\Debug\CoreAlgorithmMES.pdb
+D:\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.exe
+D:\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.pdb
+D:\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csprojResolveAssemblyReference.cache
+D:\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithm.AnB_CoreAlgorithmMES.resources

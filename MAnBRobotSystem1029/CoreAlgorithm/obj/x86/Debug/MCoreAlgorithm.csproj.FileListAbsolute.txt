@@ -1,0 +1,47 @@
+D:\MAnBRobotSetup\Debug\MCoreAlgorithm.exe.config
+D:\MAnBRobotSetup\Debug\MCoreAlgorithm.exe
+D:\MAnBRobotSetup\Debug\MCoreAlgorithm.pdb
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.MAnB_CoreAlgorithm.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CopyComplete
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.exe
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.pdb
+G:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csprojAssemblyReference.cache
+G:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+G:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.MAnB_CoreAlgorithm.resources
+G:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.GenerateResource.cache
+G:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CoreCompileInputs.cache
+G:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CopyComplete
+G:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.exe
+G:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.pdb
+F:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+F:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.MAnB_CoreAlgorithm.resources
+F:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.GenerateResource.Cache
+F:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.exe
+F:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.pdb
+F:\项目备份\鞍钢中型\MAnBRobotSystem1023 -\MAnBRobotSystem1023 -\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.MAnB_CoreAlgorithm.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.exe
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.pdb
+C:\Users\Administrator\Desktop\MAnBRobotSystem1023.17.30\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CopyComplete
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.MAnB_CoreAlgorithm.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CopyComplete
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.exe
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.pdb
+C:\Users\Administrator\Desktop\MAnBRobotSystem1024\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.MAnB_CoreAlgorithm.resources
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.exe
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.pdb
+C:\Users\Administrator\Desktop\MAnBRobotSystem1025\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CopyComplete
