@@ -66,11 +66,7 @@ namespace AnBRobotSystem.ChildForm
             port.Text = Print1portr.ToString();
             txt_ip.Text = txt_ip1.Text;
         }
-        private void test()
-        {
-
-        }
-        private void manu_Work()
+       private void manu_Work()
         {
             double MAXRECID = 0;// PLANIDNow = 0;                
             string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
