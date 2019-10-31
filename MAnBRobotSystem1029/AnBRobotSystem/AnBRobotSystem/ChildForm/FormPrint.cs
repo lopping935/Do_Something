@@ -66,6 +66,10 @@ namespace AnBRobotSystem.ChildForm
             port.Text = Print1portr.ToString();
             txt_ip.Text = txt_ip1.Text;
         }
+        private void test()
+        {
+
+        }
         private void manu_Work()
         {
             double MAXRECID = 0;// PLANIDNow = 0;                
