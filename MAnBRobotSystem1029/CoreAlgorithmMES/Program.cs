@@ -14,15 +14,15 @@ namespace CoreAlgorithm
         /// </summary>
         static void Main()
         {
-             /* ServiceBase[] ServicesToRun;
+             ServiceBase[] ServicesToRun;
                ServicesToRun = new ServiceBase[] 
                 { 
                     new MAnB_CoreAlgorithmMES() 
                 };
-                ServiceBase.Run(ServicesToRun);*/
-            MAnB_CoreAlgorithmMES objISD = new MAnB_CoreAlgorithmMES();
+                ServiceBase.Run(ServicesToRun);
+            /* MAnB_CoreAlgorithmMES objISD = new MAnB_CoreAlgorithmMES();
               objISD.OnStart(); 
-              System.Threading.Thread.Sleep(120000000);
+              System.Threading.Thread.Sleep(120000000);*/
             //objISD.OnStop();
         }
     }

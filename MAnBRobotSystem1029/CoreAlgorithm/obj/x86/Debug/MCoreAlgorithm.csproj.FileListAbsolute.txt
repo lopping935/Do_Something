@@ -45,3 +45,10 @@ C:\Users\Administrator\Desktop\MAnBRobotSystem1025\CoreAlgorithm\obj\x86\Debug\M
 C:\Users\Administrator\Desktop\MAnBRobotSystem1025\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.exe
 C:\Users\Administrator\Desktop\MAnBRobotSystem1025\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.pdb
 C:\Users\Administrator\Desktop\MAnBRobotSystem1025\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CopyComplete
+D:\github\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+D:\github\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.MAnB_CoreAlgorithm.resources
+D:\github\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.GenerateResource.cache
+D:\github\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CoreCompileInputs.cache
+D:\github\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CopyComplete
+D:\github\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.exe
+D:\github\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.pdb
