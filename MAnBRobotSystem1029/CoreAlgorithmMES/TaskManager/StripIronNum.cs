@@ -74,7 +74,9 @@ namespace CoreAlgorithm.TaskManager
                     #endregion
 
                     #region 选择所有贴标完成 但 三级没有应答的 对三级进行反馈
-                   
+                    #region
+                    /*
+                    原程序
                     if(ss=="1000")
                     { 
                     sql = string.Format("select MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR from TLabelContent WHERE (IMP_FINISH=31 OR IMP_FINISH=32 OR IMP_FINISH=33) AND L3ACK=0 order by REC_ID ASC");
@@ -106,12 +108,47 @@ namespace CoreAlgorithm.TaskManager
                             sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                             tm.MultithreadExecuteNonQuery(sql);
                         }
-                    }
-                   
+                    }*/
                     #endregion
+                    if (ss == "10020")//根据说明改的
+                        {
+                            sql = string.Format("select MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST from TLabelContent WHERE (IMP_FINISH=31 OR IMP_FINISH=32 OR IMP_FINISH=33) AND L3ACK=0 order by REC_ID ASC");
+                            string MACHINE_NO = "",ID_LOT_PROD = "",  ACK = "1", REASON = "",  IND_FIXED="";
+                            Int16 ID_PART_LOT = 0,NUM_BDL = 0,SEQ_LEN = 0,SEQ_OPR = 0,DIM_LEN = 0,NUM_BAR=0,SEQ_LIST=0;
+                            Int32 SEQ_SEND=0;
+                            DataTable dt = tm.MultithreadDataTable(sql);
+                            for (int i = 0; i < dt.Rows.Count; i++)
+                            {
+                                MACHINE_NO = dt.Rows[i]["MACHINE_NO"].ToString();
+                                ID_LOT_PROD = dt.Rows[i]["ID_LOT_PROD"].ToString();
+                                ID_PART_LOT = Int16.Parse(dt.Rows[i]["ID_PART_LOT"].ToString());
+                                NUM_BDL = Int16.Parse(dt.Rows[i]["NUM_BDL"].ToString());
+                                SEQ_LEN = Int16.Parse(dt.Rows[i]["SEQ_LEN"].ToString());
+                                SEQ_OPR = Int16.Parse(dt.Rows[i]["SEQ_OPR"].ToString());
+                                DIM_LEN= Int16.Parse(dt.Rows[i]["DIM_LEN"].ToString());
+                                IND_FIXED= dt.Rows[i]["IND_FIXED"].ToString();
+                                SEQ_SEND = Int32.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
+                                NUM_BAR= Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());
+                                SEQ_LIST = Int16.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
+                                MessageHead = "PRL301A";
+                                time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                                string str = MessageHead + " &" + MACHINE_NO + " &" + ID_LOT_PROD + " &" + ID_PART_LOT.ToString() + " &" + NUM_BDL.ToString() + " &" + SEQ_LEN.ToString() + " &" + SEQ_OPR.ToString() + " &"+DIM_LEN.ToString() + " &" +IND_FIXED+" &"+SEQ_SEND+" &"+NUM_BAR.ToString()+" &"+SEQ_LIST.ToString()+" &"+ ACK + " &" + REASON + " &" + time + " &";
+                                byte[] sendArray = System.Text.Encoding.ASCII.GetBytes(str);
+                                byte OldBytes = 0x20;
+                                byte NewBytes = 0x7F;
+                                byte[] sendArrayNew = ByteReplace(sendArray, OldBytes, NewBytes);
+                                if (sendArrayNew.Length > 0)
+                                {
+                                    MESSocketClient.senddata(sendArrayNew);
+                                    sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                                    tm.MultithreadExecuteNonQuery(sql);
+                                }
+                            }
 
-                    #region 将200条之前的数据更新到历史表 并从当前表中删除
-                    double MaxRecID = 0, count = 0;
+                            #endregion
+
+                            #region 将200条之前的数据更新到历史表 并从当前表中删除
+                            double MaxRecID = 0, count = 0;
                     sql = "select count(*) as count from TLabelContent";
                     dt = tm.MultithreadDataTable(sql);
                     for (int i = 0; i < dt.Rows.Count; i++)
