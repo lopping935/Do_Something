@@ -223,3 +223,7 @@ C:\Users\Administrator\Desktop\MAnBRobotSystem1024\SQLPublicClass\obj\Debug\SQLP
 C:\Users\Administrator\Desktop\MAnBRobotSystem1024\SQLPublicClass\obj\Debug\SQLPublicClass.dll
 C:\Users\Administrator\Desktop\MAnBRobotSystem1024\SQLPublicClass\obj\Debug\SQLPublicClass.pdb
 C:\Users\Administrator\Desktop\MAnBRobotSystem1024\SQLPublicClass\obj\Debug\SQLPublicClass.csproj.CopyComplete
+D:\github\MAnBRobotSystem1029\SQLPublicClass\obj\Debug\SQLPublicClass.csproj.CoreCompileInputs.cache
+D:\github\MAnBRobotSystem1029\SQLPublicClass\obj\Debug\SQLPublicClass.csproj.CopyComplete
+D:\github\MAnBRobotSystem1029\SQLPublicClass\obj\Debug\SQLPublicClass.dll
+D:\github\MAnBRobotSystem1029\SQLPublicClass\obj\Debug\SQLPublicClass.pdb

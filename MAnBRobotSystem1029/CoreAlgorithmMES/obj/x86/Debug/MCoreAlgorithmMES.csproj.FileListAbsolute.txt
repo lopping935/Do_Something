@@ -51,3 +51,11 @@ C:\Users\Administrator\Desktop\MAnBRobotSystem1029\CoreAlgorithmMES\obj\x86\Debu
 C:\Users\Administrator\Desktop\MAnBRobotSystem1029\CoreAlgorithmMES\obj\x86\Debug\MCoreAlgorithmMES.csproj.CopyComplete
 C:\Users\Administrator\Desktop\MAnBRobotSystem1029\CoreAlgorithmMES\obj\x86\Debug\MCoreAlgorithmMES.exe
 C:\Users\Administrator\Desktop\MAnBRobotSystem1029\CoreAlgorithmMES\obj\x86\Debug\MCoreAlgorithmMES.pdb
+D:\github\MAnBRobotSystem1029\CoreAlgorithmMES\obj\x86\Debug\MCoreAlgorithmMES.csprojAssemblyReference.cache
+D:\github\MAnBRobotSystem1029\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+D:\github\MAnBRobotSystem1029\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithm.MAnB_CoreAlgorithmMES.resources
+D:\github\MAnBRobotSystem1029\CoreAlgorithmMES\obj\x86\Debug\MCoreAlgorithmMES.csproj.GenerateResource.cache
+D:\github\MAnBRobotSystem1029\CoreAlgorithmMES\obj\x86\Debug\MCoreAlgorithmMES.csproj.CoreCompileInputs.cache
+D:\github\MAnBRobotSystem1029\CoreAlgorithmMES\obj\x86\Debug\MCoreAlgorithmMES.csproj.CopyComplete
+D:\github\MAnBRobotSystem1029\CoreAlgorithmMES\obj\x86\Debug\MCoreAlgorithmMES.exe
+D:\github\MAnBRobotSystem1029\CoreAlgorithmMES\obj\x86\Debug\MCoreAlgorithmMES.pdb

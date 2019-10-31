@@ -621,8 +621,20 @@ namespace AnBRobotSystem.ChildForm
         }
 
         private void button1_Click(object sender, EventArgs e)
-        { string sendmessage = "";
-            short sendnum = Convert.ToInt16(textBox6.Text);
+        {
+            string sendmessage = "";
+            short sendnum = 0;
+            if (textBox6.Text=="1"|| textBox6.Text == "2")
+            {
+                sendnum = Convert.ToInt16(textBox6.Text);
+            }
+            else
+            {
+                MessageBox.Show("请输入数字1或2！");
+                return;
+            }
+            
+            
             string sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE= {0} WHERE PARAMETER_ID =9", sendnum);
             try
             {
@@ -634,7 +646,8 @@ namespace AnBRobotSystem.ChildForm
                 Log.addLog(log, LogType.ERROR, ex.Message);
             }
             for (int i = 1; i <= sendnum; i++)
-                { if (i == 1)
+                {
+                if (i == 1)
                     {
                     sendmessage = "";
                     if (radioButton1.Checked == true)
@@ -646,7 +659,12 @@ namespace AnBRobotSystem.ChildForm
                     if (radioButton12.Checked == true)
                         sendmessage = sendmessage + "DIM_LEN" + ",";
                     if (radioButton15.Checked == true)
-                        sendmessage = sendmessage + "DES_FIPRO_SECTION" + ",";
+                        sendmessage = sendmessage + "DES_FIPRO_SECTION"+"," ;//
+                    if(sendmessage=="")
+                    {
+                        MessageBox.Show("请在“第一行”进行选择数据！");
+                        return;
+                    }
                     sql = "UPDATE REALTIMETASKDATA SET RTDATA_VALUE='"+ sendmessage+ "',RTDATA_TIME='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' WHERE TASK_ID=1";
                     try
                     {
@@ -682,30 +700,7 @@ namespace AnBRobotSystem.ChildForm
                         Log.addLog(log, LogType.ERROR, ex.Message);
                     }
                 }
-                if (i == 3)
-                {
-                    sendmessage = "";
-                    if (radioButton3.Checked == true)
-                        sendmessage = "ID_HEAT" + ",";
-                    if (radioButton4.Checked == true)
-                        sendmessage = sendmessage + "ID_LOT_PROD" + ",";
-                    if (radioButton7.Checked == true)
-                        sendmessage = sendmessage + "NAME_STLGD" + ",";
-                    if (radioButton10.Checked == true)
-                        sendmessage = sendmessage + "DIM_LEN" + ",";
-                    if (radioButton13.Checked == true)
-                        sendmessage = sendmessage + "DES_FIPRO_SECTION" + ",";
-                    sql = "UPDATE REALTIMETASKDATA SET RTDATA_VALUE='" + sendmessage + "',RTDATA_TIME='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' WHERE TASK_ID=3";
-                    try
-                    {
-                        db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
-                    }
-                    catch (System.Exception ex)
-                    {
-                        log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
-                        Log.addLog(log, LogType.ERROR, ex.Message);
-                    }
-                }
+                
             }
         }
 
