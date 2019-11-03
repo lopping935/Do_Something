@@ -88,7 +88,6 @@ D:\github\MAnBRobotSystem1029\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRo
 D:\github\MAnBRobotSystem1029\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.CopyComplete
 D:\github\MAnBRobotSystem1029\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.exe
 D:\github\MAnBRobotSystem1029\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.pdb
-D:\github\MAnBRobotSystem1029\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csprojAssemblyReference.cache
 D:\project\Do_Something\MAnBRobotSystem1029\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csprojAssemblyReference.cache
 D:\project\Do_Something\MAnBRobotSystem1029\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\Interop.OPCAutomation.dll
 D:\project\Do_Something\MAnBRobotSystem1029\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.ResolveComReference.cache

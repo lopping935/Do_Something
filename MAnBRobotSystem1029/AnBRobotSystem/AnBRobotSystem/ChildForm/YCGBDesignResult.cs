@@ -52,13 +52,16 @@ namespace AnBRobotSystem.ChildForm
                 dataGridView1.DataSource = null;
                 dataGridView1.Rows.Clear();
             }
-            if (dt1.Rows.Count != 0)
+            if (dt1.Rows.Count != 0)//has record,maybe is all didn't used date,maybe all used;when you repain the datagirdview,it would has error
             {
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dataGridView1.DataSource = dt1;
             }
-            else
+            else//the table has 0 record
             {
+                MessageBox.Show("当前数据为空，请检查数据！");
+                return;
+                
                 sqlLabelSel = string.Format("select top 30  REC_ID 流水号,MACHINE_NO	打包机组号,ID_LOT_PROD	生产批号,ID_PART_LOT	分批号,NUM_BDL	捆号, SEQ_LEN    长度顺序号, SEQ_OPR   操作顺序号, DIM_LEN   米长, IND_FIXED    定尺标志, SEQ_SEND   下发顺序号, NUM_BAR   捆内支数, SEQ_LIST   排列序号, LA_BDL_ACT 重量, NO_LICENCE   许可证号, NAME_PROD  产品名称, NAME_STND  执行标准, ID_HEAT    熔炼号, NAME_STLGD  钢牌号, DES_FIPRO_SECTION   断面规格描述, ID_CREW_RL   轧制班别, ID_CREW_CK 检查班别, TMSTP_WEIGH    生产日期, BAR_CODE   条码内容, NUM_HEAD 头签个数, NUM_TAIL 尾签个数,L3TMSTP_SEND MES发送时刻,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE REC_ID>={0} order by ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR ASC", MAXRECID);
                 try { dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel)); }
                 catch (Exception ex)
@@ -197,9 +200,22 @@ namespace AnBRobotSystem.ChildForm
         }
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {for (int i = 0; i <= 3; i++)
+        {
+            int count = 0;
+            if (dataGridView1.RowCount>3)
+            {
+                count = 3;
+            }
+             else
+            {
+                count = dataGridView1.RowCount;
+
+            }
+
+            for (int i = 0; i < count; i++)
             {
                 DataGridViewRow row = dataGridView1.Rows[i];
+                
                 string sql = string.Format("SELECT IMP_FINISH FROM TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1} and NUM_BDL={2} and SEQ_LEN={3} and SEQ_OPR={4};", row.Cells[2].Value.ToString(), Convert.ToInt16(row.Cells[3].Value.ToString()), Convert.ToInt16(row.Cells[4].Value.ToString()), Convert.ToInt16(row.Cells[5].Value.ToString()), Convert.ToInt16(row.Cells[6].Value.ToString()));
                 DbDataReader dr = null;
                 int IMP_FINISH = 3;
@@ -208,13 +224,20 @@ namespace AnBRobotSystem.ChildForm
                 {
                     if (dr["IMP_FINISH"] != DBNull.Value)
                         IMP_FINISH = Convert.ToInt32(dr["IMP_FINISH"].ToString());
+                    else
+
+                    {
+                        MessageBox.Show("数据为空！");
+                        return;
+                    }
                 }
                 dr.Close();
-                if (IMP_FINISH==31|| IMP_FINISH == 32 || IMP_FINISH == 33)
-                dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+                if (IMP_FINISH == 31 || IMP_FINISH == 32 || IMP_FINISH == 33)
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Green;
                 if (IMP_FINISH == 0)
                     dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-            }           
+            }
+         
         }
         private DataRow rowCopy;
         private void ToolStripMenuItem5_Click(object sender, EventArgs e)//复制数据
