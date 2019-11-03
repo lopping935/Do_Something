@@ -106,3 +106,4 @@ D:\project\Do_Something\MAnBRobotSystem1029\AnBRobotSystem\AnBRobotSystem\obj\x8
 D:\project\Do_Something\MAnBRobotSystem1029\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csproj.CopyComplete
 D:\project\Do_Something\MAnBRobotSystem1029\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.exe
 D:\project\Do_Something\MAnBRobotSystem1029\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.pdb
+D:\github\MAnBRobotSystem1029\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\MAnBRobotSystem.csprojAssemblyReference.cache
