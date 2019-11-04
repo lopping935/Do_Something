@@ -144,6 +144,7 @@ namespace AnBRobotSystem.ChildForm
 
         private void ToolStripMenuItem_Click(object sender, EventArgs e)//更新数据
         {
+            try { 
             if (dbUpdate(sqlLabelSel))
                 MessageBox.Show("修改成功！");
             SqlDataAdapter sda = new SqlDataAdapter(sqlLabelSel, conn);
@@ -152,6 +153,13 @@ namespace AnBRobotSystem.ChildForm
             dataGridView1.DataSource = ds.Tables[0];
            
             dataGridView1.RowHeadersVisible = false;
+            }
+            catch(Exception ex)
+            {
+                
+                MessageBox.Show("数据更新有误！",ex.Message.ToString());
+            }
+
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)//插入数据

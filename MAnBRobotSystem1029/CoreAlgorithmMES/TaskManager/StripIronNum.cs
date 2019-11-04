@@ -115,7 +115,7 @@ namespace CoreAlgorithm.TaskManager
                             sql = string.Format("select MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST from TLabelContent WHERE (IMP_FINISH=31 OR IMP_FINISH=32 OR IMP_FINISH=33) AND L3ACK=0 order by REC_ID ASC");
                             string MACHINE_NO = "",ID_LOT_PROD = "",  ACK = "1", REASON = "",  IND_FIXED="";
                             Int16 ID_PART_LOT = 0,NUM_BDL = 0,SEQ_LEN = 0,SEQ_OPR = 0,DIM_LEN = 0,NUM_BAR=0,SEQ_LIST=0;
-                            Int32 SEQ_SEND=0;
+                            double SEQ_SEND=0;
                             DataTable dt = tm.MultithreadDataTable(sql);
                             for (int i = 0; i < dt.Rows.Count; i++)
                             {
@@ -127,7 +127,7 @@ namespace CoreAlgorithm.TaskManager
                                 SEQ_OPR = Int16.Parse(dt.Rows[i]["SEQ_OPR"].ToString());
                                 DIM_LEN= Int16.Parse(dt.Rows[i]["DIM_LEN"].ToString());
                                 IND_FIXED= dt.Rows[i]["IND_FIXED"].ToString();
-                                SEQ_SEND = Int32.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
+                                SEQ_SEND = double.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
                                 NUM_BAR= Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());
                                 SEQ_LIST = Int16.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
                                 MessageHead = "PRL301A";

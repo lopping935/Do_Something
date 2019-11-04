@@ -39,7 +39,7 @@ namespace CoreAlgorithm.TaskManager
             public Int16 SEQ_OPR;//操作顺序号
             public Int16 DIM_LEN; //米长
             public string IND_FIXED;// 定尺标志
-            public Int32 SEQ_SEND;// 下发顺序号
+            public double SEQ_SEND;// 下发顺序号
             public Int16 NUM_BAR;// 捆内支数
             public Int16 SEQ_LIST;// 排列序号
             public double LA_BDL_ACT;// 重量
@@ -273,7 +273,7 @@ namespace CoreAlgorithm.TaskManager
                             LabelDataRecv.SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.ASCII));
                             LabelDataRecv.DIM_LEN=Convert.ToInt16(GetString(HeadIndex[7], EncodingType.ASCII));
                             LabelDataRecv.IND_FIXED=GetString(HeadIndex[8], EncodingType.ASCII);
-                            LabelDataRecv.SEQ_SEND = Convert.ToInt32((HeadIndex[9], EncodingType.ASCII));
+                            LabelDataRecv.SEQ_SEND = Convert.ToDouble((HeadIndex[9], EncodingType.ASCII));
                             LabelDataRecv.NUM_BAR = Convert.ToInt16(GetString(HeadIndex[10] , EncodingType.ASCII));
                             LabelDataRecv.SEQ_LIST = Convert.ToInt16(GetString(HeadIndex[11], EncodingType.ASCII));
                             LabelDataRecv.LA_BDL_ACT = Convert.ToDouble((HeadIndex[12] , EncodingType.ASCII));
@@ -334,7 +334,7 @@ namespace CoreAlgorithm.TaskManager
                             string sqlsend = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), strsend);
                             tm.MultithreadExecuteNonQuery(sqlsend);
                         }   
-                        if(MessageFlg== "L3PR02A")
+                        if(MessageFlg== "L3PR02A")//模式切换
                         {
                             string MACHINE_NO = GetString(HeadIndex[1], EncodingType.ASCII);
                             string ID_LOT_PROD = GetString(HeadIndex[2], EncodingType.ASCII);
