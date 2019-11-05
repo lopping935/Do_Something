@@ -18,19 +18,25 @@ namespace AnBRobotSystem.ChildForm
     public partial class YCGBDesignResult : Form
     {
         IniSqlConfigInfo inisql = new IniSqlConfigInfo(System.AppDomain.CurrentDomain.BaseDirectory + "Config.ini");
-        DbHelper db;  
-
+        DbHelper db;
+        int intindex = 0;
+        SqlDataAdapter adapter;
+        SqlConnection conn;
+        string sqlLabelSel = "";
+        int count = 0;
         public YCGBDesignResult()
         {
             InitializeComponent();
-            db = new DbHelper(inisql.GetConnectionString("SysSQL"));      
+            db = new DbHelper(inisql.GetConnectionString("SysSQL"));
+            conn = new SqlConnection("Data Source=.;Initial Catalog=MDBAnBRobotData;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Connection Timeout=30;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000");
         }
-        string sqlLabelSel = "";
+                      
+
         private void YCGBDesignResult_Load(object sender, EventArgs e)
         {
-            conn = new SqlConnection("Data Source=.;Initial Catalog=MDBAnBRobotData;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Connection Timeout=30;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000");
+            double MAXRECID = 0;// PLANIDNow = 0;  
+
             DataTable dt1 = new DataTable("MyDT");
-            double MAXRECID = 0;// PLANIDNow = 0;                
             string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
             DbDataReader dr = null;
             dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
@@ -41,7 +47,10 @@ namespace AnBRobotSystem.ChildForm
             }
             dr.Close();
             sqlLabelSel = string.Format("select top 100 REC_ID 流水号,MACHINE_NO 打包机组号,ID_LOT_PROD 生产批号,ID_PART_LOT 分批号,NUM_BDL 捆号, SEQ_LEN 长度顺序号, SEQ_OPR 操作顺序号, DIM_LEN 米长, IND_FIXED 定尺标志, SEQ_SEND 下发顺序号, NUM_BAR 捆内支数, SEQ_LIST 排列序号, LA_BDL_ACT 重量, NO_LICENCE 许可证号, NAME_PROD 产品名称, NAME_STND 执行标准, ID_HEAT 熔炼号, NAME_STLGD 钢牌号, DES_FIPRO_SECTION 断面规格描述, ID_CREW_RL 轧制班别, ID_CREW_CK 检查班别, TMSTP_WEIGH 生产日期, BAR_CODE 条码内容, NUM_HEAD 头签个数, NUM_TAIL 尾签个数,L3TMSTP_SEND MES发送时刻,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE REC_ID>={0} order by REC_ID ASC", MAXRECID - 2);
-            try { dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel)); }
+            try
+            {
+                dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel));
+            }
             catch (Exception ex)
             {
                 //log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
@@ -56,11 +65,19 @@ namespace AnBRobotSystem.ChildForm
             {
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dataGridView1.DataSource = dt1;
+                for(int i=0;i<dt1.Rows.Count;i++)
+                {
+                    if (double.Parse(dt1.Rows[i][0].ToString()) == MAXRECID)
+                    {
+                        count = i;
+                        break;
+                    }
+                }
             }
             else//the table has 0 record
             {
-                MessageBox.Show("当前数据为空，请检查数据！");
-                return;
+               // MessageBox.Show("当前数据为空，请检查数据！");
+                //return;
                 
                 sqlLabelSel = string.Format("select top 30  REC_ID 流水号,MACHINE_NO	打包机组号,ID_LOT_PROD	生产批号,ID_PART_LOT	分批号,NUM_BDL	捆号, SEQ_LEN    长度顺序号, SEQ_OPR   操作顺序号, DIM_LEN   米长, IND_FIXED    定尺标志, SEQ_SEND   下发顺序号, NUM_BAR   捆内支数, SEQ_LIST   排列序号, LA_BDL_ACT 重量, NO_LICENCE   许可证号, NAME_PROD  产品名称, NAME_STND  执行标准, ID_HEAT    熔炼号, NAME_STLGD  钢牌号, DES_FIPRO_SECTION   断面规格描述, ID_CREW_RL   轧制班别, ID_CREW_CK 检查班别, TMSTP_WEIGH    生产日期, BAR_CODE   条码内容, NUM_HEAD 头签个数, NUM_TAIL 尾签个数,L3TMSTP_SEND MES发送时刻,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE REC_ID>={0} order by ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR ASC", MAXRECID);
                 try { dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel)); }
@@ -81,9 +98,7 @@ namespace AnBRobotSystem.ChildForm
         {
             
         }
-        int intindex = 0;
-        SqlDataAdapter adapter;
-        SqlConnection conn;
+        
         private DataTable dbconn(string strSql)
         {
             this.adapter = new SqlDataAdapter(strSql, conn);
@@ -209,41 +224,44 @@ namespace AnBRobotSystem.ChildForm
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            int count = 0;
-            if (dataGridView1.RowCount>3)
+            int countn = 0;
+            int IMP_FINISH = 0;
+            if (dataGridView1.RowCount>count+2)
             {
-                count = 3;
+                countn = count+2;
             }
              else
             {
-                count = dataGridView1.RowCount;
+                countn = dataGridView1.RowCount-1;
 
             }
 
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < countn; i++)
             {
                 DataGridViewRow row = dataGridView1.Rows[i];
-                
-                string sql = string.Format("SELECT IMP_FINISH FROM TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1} and NUM_BDL={2} and SEQ_LEN={3} and SEQ_OPR={4};", row.Cells[2].Value.ToString(), Convert.ToInt16(row.Cells[3].Value.ToString()), Convert.ToInt16(row.Cells[4].Value.ToString()), Convert.ToInt16(row.Cells[5].Value.ToString()), Convert.ToInt16(row.Cells[6].Value.ToString()));
-                DbDataReader dr = null;
-                int IMP_FINISH = 3;
-                dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
-                while (dr.Read())
-                {
-                    if (dr["IMP_FINISH"] != DBNull.Value)
-                        IMP_FINISH = Convert.ToInt32(dr["IMP_FINISH"].ToString());
-                    else
 
-                    {
-                        MessageBox.Show("数据为空！");
-                        return;
-                    }
-                }
-                dr.Close();
+                //string sql = string.Format("SELECT IMP_FINISH FROM TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1} and NUM_BDL={2} and SEQ_LEN={3} and SEQ_OPR={4};", row.Cells[2].Value.ToString(), Convert.ToInt16(row.Cells[3].Value.ToString()), Convert.ToInt16(row.Cells[4].Value.ToString()), Convert.ToInt16(row.Cells[5].Value.ToString()), Convert.ToInt16(row.Cells[6].Value.ToString()));
+                //DbDataReader dr = null;
+                IMP_FINISH = int.Parse( row.Cells[26].Value.ToString());
+                //dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
+                //while (dr.Read())
+                //{
+                //    if (dr["IMP_FINISH"] != DBNull.Value)
+                //        IMP_FINISH = Convert.ToInt32(dr["IMP_FINISH"].ToString());
+                //    else
+
+                //    {
+                //        MessageBox.Show("数据为空！");
+                //        return;
+                //    }
+                //}
+                //dr.Close();
                 if (IMP_FINISH == 31 || IMP_FINISH == 32 || IMP_FINISH == 33)
-                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Green;
-                if (IMP_FINISH == 0)
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.YellowGreen;
+                if (IMP_FINISH == 0 && (i < (countn - 1)))
                     dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                if (IMP_FINISH == 0 && (i == (countn - 1)))
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Green;
             }
          
         }
