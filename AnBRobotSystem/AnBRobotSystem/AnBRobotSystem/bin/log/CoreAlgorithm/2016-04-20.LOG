@@ -1,0 +1,447 @@
+-- [ERROR]  [2016-04-20 08:51:42,929]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:从 varchar 数据类型到 datetime 数据类型的转换产生一个超出范围的值。
+********************************************************
+-- [ERROR]  [2016-04-20 09:56:37,800]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:外部组件发生异常。
+********************************************************
+-- [ERROR]  [2016-04-20 09:56:37,801]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,103]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,103]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,103]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,103]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,104]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,105]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,105]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,105]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,106]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,107]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,107]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,107]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,107]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,108]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,108]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,109]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,109]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,110]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,110]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,110]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,111]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,111]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,111]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,111]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,112]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,112]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,113]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,113]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,113]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,114]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,114]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,114]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,115]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,115]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,115]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,115]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,115]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,116]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,115]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,116]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,116]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,117]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,115]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,117]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,117]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,117]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,117]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,118]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,118]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,118]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,118]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,118]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,119]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,119]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,119]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,119]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,119]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,120]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,120]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,120]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,120]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,121]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,121]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,120]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,121]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,117]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,121]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:32,120]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:34,070]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:34,071]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:36,083]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-04-20 10:08:36,084]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************

@@ -1,0 +1,5 @@
+-- [ERROR]  [2015-08-18 09:31:36,131]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:索引超出了数组界限。
+********************************************************

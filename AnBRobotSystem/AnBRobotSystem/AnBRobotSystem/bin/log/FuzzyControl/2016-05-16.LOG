@@ -1,0 +1,36 @@
+-- [ERROR]  [2016-05-16 09:08:23,974]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:阅读器关闭时尝试调用 MetaData 无效。   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlDataReader.CheckMetaDataIsReady()
+   在 System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   在 System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 92
+********************************************************
+-- [ERROR]  [2016-05-16 09:08:23,974]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteDataTable(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 116
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 99
+********************************************************
+-- [ERROR]  [2016-05-16 09:08:23,974]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteDataTable(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 116
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 99
+********************************************************
+-- [ERROR]  [2016-05-16 09:08:42,942]
+-- [FuzzyControl.SPC_FuzzyControl::Void OnTimer(System.Object, System.Timers.ElapsedEventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:连接未关闭。 连接的当前状态为打开。   在 System.Data.ProviderBase.DbConnectionBusy.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 PublicClass.DbHelper.ExecuteReader(DbCommand cmd) 位置 D:\SinteringProControl\Platform\PublicClass\DBHelper.cs:行号 133
+   在 FuzzyControl.SPC_FuzzyControl.OnTimer(Object source, ElapsedEventArgs e) 位置 D:\SinteringProControl\Platform\FuzzyControl\SPC_FuzzyControl.cs:行号 89
+********************************************************

@@ -1,0 +1,74 @@
+-- [ERROR]  [2015-08-18 09:31:17,705]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:索引超出了数组界限。
+********************************************************
+-- [ERROR]  [2015-08-18 09:32:17,073]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:索引超出了数组界限。
+********************************************************
+-- [ERROR]  [2015-08-18 09:34:20,463]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:索引超出了数组界限。
+********************************************************
+-- [ERROR]  [2015-08-18 09:51:49,717]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:索引超出了数组界限。
+********************************************************
+-- [ERROR]  [2015-08-18 09:54:02,092]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:索引超出了数组界限。
+********************************************************
+-- [ERROR]  [2015-08-18 10:02:10,875]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Task_id' 无效。
+列名 'Value_UpperLimit' 无效。
+列名 'Value_LowerLimit' 无效。
+列名 'Value_MoreUpperLimit' 无效。
+列名 'Value_MoreLowerLimit' 无效。
+********************************************************
+-- [ERROR]  [2015-08-18 10:08:46,081]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Task_id' 无效。
+列名 'Value_UpperLimit' 无效。
+列名 'Value_LowerLimit' 无效。
+列名 'Value_MoreUpperLimit' 无效。
+列名 'Value_MoreLowerLimit' 无效。
+********************************************************
+-- [ERROR]  [2015-08-18 15:49:08,605]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:'View_EquipmentAttributeValues' 附近有语法错误。
+********************************************************
+-- [ERROR]  [2015-08-18 15:50:18,072]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:'View_EquipmentAttributeValues' 附近有语法错误。
+********************************************************
+-- [ERROR]  [2015-08-18 17:27:28,467]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:关键字 'Double' 附近有语法错误。
+缺少对象或列名，或者对象或列名为空。对于 SELECT INTO 语句，请确保每列均具有名称。对于其他语句，请查找空的别名。不允许使用定义为 "" 或 [] 的别名。请将别名更改为有效名称。
+********************************************************
+-- [ERROR]  [2015-08-18 17:42:33,187]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:'17' 附近有语法错误。
+********************************************************
+-- [ERROR]  [2015-08-18 17:43:49,762]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:'17' 附近有语法错误。
+********************************************************
+-- [ERROR]  [2015-08-18 17:45:02,282]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunZDYC()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:'17' 附近有语法错误。
+********************************************************

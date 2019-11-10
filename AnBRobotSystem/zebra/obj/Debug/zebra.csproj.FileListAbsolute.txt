@@ -1,0 +1,208 @@
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\obj\Debug\zebra.Form1.resources
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\obj\Debug\zebra.Properties.Resources.resources
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\obj\Debug\zebra.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\obj\Debug\zebra.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\zebra.exe
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\zebra.pdb
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\obj\Debug\zebra.csproj.CopyComplete
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\obj\Debug\zebra.exe
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\obj\Debug\zebra.pdb
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\zebra.exe.config
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\obj\Debug\hanbiao.print_view.resources
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\Csv.xml
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\FluentFTP.xml
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\SdkApi.Core.xml
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\SdkApi.Desktop.xml
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\ZebraPrinterSdk.xml
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\Csv.dll
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\FluentFTP.dll
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\Pdf417EncoderLibrary.dll
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\SdkApi.Core.dll
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\SdkApi.Desktop.dll
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\SdkApi.Desktop.Usb.dll
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\SharpSnmpLib.dll
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\bin\Debug\ZebraPrinterSdk.dll
+C:\Users\Administrator\Desktop\zare code\mycode\zebra\zebra\obj\Debug\zebra.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\zebra.exe.config
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\zebra.exe
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\zebra.pdb
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\Csv.dll
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\FluentFTP.dll
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\Pdf417EncoderLibrary.dll
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\SdkApi.Core.dll
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\SdkApi.Desktop.dll
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\SdkApi.Desktop.Usb.dll
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\SharpSnmpLib.dll
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\ZebraPrinterSdk.dll
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\Csv.xml
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\FluentFTP.xml
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\SdkApi.Core.xml
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\SdkApi.Desktop.xml
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\bin\Debug\ZebraPrinterSdk.xml
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\obj\Debug\zebra.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\obj\Debug\zebra.Form1.resources
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\obj\Debug\hanbiao.print_view.resources
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\obj\Debug\zebra.Properties.Resources.resources
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\obj\Debug\zebra.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\obj\Debug\zebra.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\obj\Debug\zebra.csproj.CopyComplete
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\obj\Debug\zebra.exe
+C:\Users\Administrator\Desktop\程序备份\mycode调好打印纸\zebra\zebra\obj\Debug\zebra.pdb
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\zebra.exe.config
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\zebra.exe
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\zebra.pdb
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\Csv.dll
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\FluentFTP.dll
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\Pdf417EncoderLibrary.dll
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\SdkApi.Core.dll
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\SdkApi.Desktop.dll
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\SdkApi.Desktop.Usb.dll
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\SharpSnmpLib.dll
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\ZebraPrinterSdk.dll
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\Csv.xml
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\FluentFTP.xml
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\SdkApi.Core.xml
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\SdkApi.Desktop.xml
+C:\Users\Administrator\Desktop\zebra\zebra\bin\Debug\ZebraPrinterSdk.xml
+C:\Users\Administrator\Desktop\zebra\zebra\obj\Debug\zebra.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\zebra\zebra\obj\Debug\zebra.Form1.resources
+C:\Users\Administrator\Desktop\zebra\zebra\obj\Debug\hanbiao.print_view.resources
+C:\Users\Administrator\Desktop\zebra\zebra\obj\Debug\zebra.Properties.Resources.resources
+C:\Users\Administrator\Desktop\zebra\zebra\obj\Debug\zebra.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\zebra\zebra\obj\Debug\zebra.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\zebra\zebra\obj\Debug\zebra.csproj.CopyComplete
+C:\Users\Administrator\Desktop\zebra\zebra\obj\Debug\zebra.exe
+C:\Users\Administrator\Desktop\zebra\zebra\obj\Debug\zebra.pdb
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\zebra.exe.config
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\zebra.exe
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\zebra.pdb
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\Csv.dll
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\FluentFTP.dll
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\Pdf417EncoderLibrary.dll
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\SdkApi.Core.dll
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\SdkApi.Desktop.dll
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\SdkApi.Desktop.Usb.dll
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\SharpSnmpLib.dll
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\ZebraPrinterSdk.dll
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\Csv.xml
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\FluentFTP.xml
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\SdkApi.Core.xml
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\SdkApi.Desktop.xml
+C:\Users\Administrator\Desktop\zebra20190816\zebra\bin\Debug\ZebraPrinterSdk.xml
+C:\Users\Administrator\Desktop\zebra20190816\zebra\obj\Debug\zebra.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\zebra20190816\zebra\obj\Debug\zebra.Form1.resources
+C:\Users\Administrator\Desktop\zebra20190816\zebra\obj\Debug\hanbiao.print_view.resources
+C:\Users\Administrator\Desktop\zebra20190816\zebra\obj\Debug\zebra.Properties.Resources.resources
+C:\Users\Administrator\Desktop\zebra20190816\zebra\obj\Debug\zebra.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\zebra20190816\zebra\obj\Debug\zebra.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\zebra20190816\zebra\obj\Debug\zebra.csproj.CopyComplete
+C:\Users\Administrator\Desktop\zebra20190816\zebra\obj\Debug\zebra.exe
+C:\Users\Administrator\Desktop\zebra20190816\zebra\obj\Debug\zebra.pdb
+D:\机器人\鞍钢\信息系统\zebra20190816\zebra20190816\zebra\bin\Debug\zebra.exe.config
+D:\机器人\鞍钢\信息系统\zebra20190816\zebra20190816\zebra\obj\Debug\zebra.exe
+D:\机器人\鞍钢\信息系统\zebra20190816\zebra20190816\zebra\obj\Debug\zebra.pdb
+D:\机器人\鞍钢\信息系统\zebra20190816\zebra20190816\zebra\obj\Debug\zebra.csprojResolveAssemblyReference.cache
+D:\机器人\鞍钢\信息系统\zebra20190816\zebra20190816\zebra\obj\Debug\zebra.Form1.resources
+D:\机器人\鞍钢\信息系统\zebra20190816\zebra20190816\zebra\obj\Debug\hanbiao.print_view.resources
+D:\机器人\鞍钢\信息系统\zebra20190816\zebra20190816\zebra\obj\Debug\zebra.Properties.Resources.resources
+D:\机器人\鞍钢\信息系统\zebra20190816\zebra20190816\zebra\obj\Debug\zebra.csproj.GenerateResource.Cache
+D:\zebra\zebra20190816\zebra\bin\Debug\zebra.exe.config
+D:\zebra\zebra20190816\zebra\obj\Debug\zebra.csprojResolveAssemblyReference.cache
+D:\zebra\zebra20190816\zebra\obj\Debug\zebra.Form1.resources
+D:\zebra\zebra20190816\zebra\obj\Debug\hanbiao.print_view.resources
+D:\zebra\zebra20190816\zebra\obj\Debug\zebra.Properties.Resources.resources
+D:\zebra\zebra20190816\zebra\obj\Debug\zebra.csproj.GenerateResource.Cache
+D:\zebra\zebra20190816\zebra\bin\Debug\zebra.exe
+D:\zebra\zebra20190816\zebra\bin\Debug\zebra.pdb
+D:\zebra\zebra20190816\zebra\bin\Debug\BouncyCastle.Crypto.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\Csv.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\CsvHelper.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\FluentFTP.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\Microsoft.DotNet.PlatformAbstractions.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\Microsoft.Extensions.DependencyModel.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\Newtonsoft.Json.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\Pdf417EncoderLibrary.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\SdkApi_Core.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\SdkApi_Desktop.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\SdkApi_Desktop_Usb.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\SharpSnmpLib.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\System.Collections.Specialized.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\System.Net.NameResolution.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\System.Net.Sockets.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\System.Runtime.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\System.Runtime.WindowsRuntime.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\System.Xml.XmlDocument.dll
+D:\zebra\zebra20190816\zebra\bin\Debug\Windows.winmd
+D:\zebra\zebra20190816\zebra\bin\Debug\BouncyCastle.Crypto.xml
+D:\zebra\zebra20190816\zebra\bin\Debug\Csv.xml
+D:\zebra\zebra20190816\zebra\bin\Debug\CsvHelper.xml
+D:\zebra\zebra20190816\zebra\bin\Debug\FluentFTP.xml
+D:\zebra\zebra20190816\zebra\bin\Debug\Newtonsoft.Json.xml
+D:\zebra\zebra20190816\zebra\bin\Debug\SdkApi_Core.xml
+D:\zebra\zebra20190816\zebra\bin\Debug\SdkApi_Desktop.xml
+D:\zebra\zebra20190816\zebra\bin\Debug\SharpSnmpLib.pdb
+D:\zebra\zebra20190816\zebra\obj\Debug\zebra.exe
+D:\zebra\zebra20190816\zebra\obj\Debug\zebra.pdb
+D:\AnBRobotSystem\zebra\bin\Debug\zebra.exe.config
+D:\AnBRobotSystem\zebra\bin\Debug\zebra.exe
+D:\AnBRobotSystem\zebra\bin\Debug\zebra.pdb
+D:\AnBRobotSystem\zebra\bin\Debug\BouncyCastle.Crypto.dll
+D:\AnBRobotSystem\zebra\bin\Debug\Csv.dll
+D:\AnBRobotSystem\zebra\bin\Debug\CsvHelper.dll
+D:\AnBRobotSystem\zebra\bin\Debug\FluentFTP.dll
+D:\AnBRobotSystem\zebra\bin\Debug\Microsoft.DotNet.PlatformAbstractions.dll
+D:\AnBRobotSystem\zebra\bin\Debug\Microsoft.Extensions.DependencyModel.dll
+D:\AnBRobotSystem\zebra\bin\Debug\Newtonsoft.Json.dll
+D:\AnBRobotSystem\zebra\bin\Debug\Pdf417EncoderLibrary.dll
+D:\AnBRobotSystem\zebra\bin\Debug\SdkApi_Core.dll
+D:\AnBRobotSystem\zebra\bin\Debug\SdkApi_Desktop.dll
+D:\AnBRobotSystem\zebra\bin\Debug\SdkApi_Desktop_Usb.dll
+D:\AnBRobotSystem\zebra\bin\Debug\SharpSnmpLib.dll
+D:\AnBRobotSystem\zebra\bin\Debug\System.Collections.Specialized.dll
+D:\AnBRobotSystem\zebra\bin\Debug\System.Net.NameResolution.dll
+D:\AnBRobotSystem\zebra\bin\Debug\System.Net.Sockets.dll
+D:\AnBRobotSystem\zebra\bin\Debug\System.Runtime.dll
+D:\AnBRobotSystem\zebra\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\AnBRobotSystem\zebra\bin\Debug\System.Runtime.WindowsRuntime.dll
+D:\AnBRobotSystem\zebra\bin\Debug\System.Xml.XmlDocument.dll
+D:\AnBRobotSystem\zebra\bin\Debug\Windows.winmd
+D:\AnBRobotSystem\zebra\bin\Debug\BouncyCastle.Crypto.xml
+D:\AnBRobotSystem\zebra\bin\Debug\Csv.xml
+D:\AnBRobotSystem\zebra\bin\Debug\CsvHelper.xml
+D:\AnBRobotSystem\zebra\bin\Debug\FluentFTP.xml
+D:\AnBRobotSystem\zebra\bin\Debug\Newtonsoft.Json.xml
+D:\AnBRobotSystem\zebra\bin\Debug\SdkApi_Core.xml
+D:\AnBRobotSystem\zebra\bin\Debug\SdkApi_Desktop.xml
+D:\AnBRobotSystem\zebra\bin\Debug\SharpSnmpLib.pdb
+D:\AnBRobotSystem\zebra\obj\Debug\zebra.csprojResolveAssemblyReference.cache
+D:\AnBRobotSystem\zebra\obj\Debug\zebra.Form1.resources
+D:\AnBRobotSystem\zebra\obj\Debug\hanbiao.print_view.resources
+D:\AnBRobotSystem\zebra\obj\Debug\zebra.Properties.Resources.resources
+D:\AnBRobotSystem\zebra\obj\Debug\zebra.csproj.GenerateResource.Cache
+D:\AnBRobotSystem\zebra\obj\Debug\zebra.exe
+D:\AnBRobotSystem\zebra\obj\Debug\zebra.pdb

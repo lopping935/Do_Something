@@ -1,0 +1,15 @@
+-- [INFO]  [2014-12-08 08:53:32,867]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:af_CoreAlgorithm服务更改为：Stopped
+********************************************************
+-- [INFO]  [2014-12-08 08:53:37,799]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:af_CoreAlgorithm服务更改为：StartPending
+********************************************************
+-- [INFO]  [2014-12-08 08:53:38,814]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:af_CoreAlgorithm服务更改为：Stopped
+********************************************************

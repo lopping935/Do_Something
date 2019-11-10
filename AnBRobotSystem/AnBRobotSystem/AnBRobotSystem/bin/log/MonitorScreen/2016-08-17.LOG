@@ -1,0 +1,85 @@
+-- [WARN]  [2016-08-17 09:01:31,759]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点异常，计算失效，终点温度小于300℃
+********************************************************
+-- [WARN]  [2016-08-17 09:01:33,977]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点异常，计算失效，终点温度小于300℃
+********************************************************
+-- [WARN]  [2016-08-17 09:01:35,974]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点异常，计算失效，终点温度小于300℃
+********************************************************
+-- [ERROR]  [2016-08-17 09:15:21,837]
+-- [MonitorScreen.FMTrain::Void button4_Click(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。
+********************************************************
+-- [ERROR]  [2016-08-17 09:47:43,361]
+-- [MonitorScreen.FMTrain::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-08-17 09:47:43,458]
+-- [MonitorScreen.FMTrain::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-08-17 09:47:44,751]
+-- [MonitorScreen.FMTrain::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-08-17 09:47:46,762]
+-- [MonitorScreen.FMTrain::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-08-17 09:47:50,782]
+-- [MonitorScreen.FMTrain::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-08-17 09:47:50,790]
+-- [MonitorScreen.FMTrain::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-08-17 09:47:52,802]
+-- [MonitorScreen.FMTrain::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-08-17 09:47:54,813]
+-- [MonitorScreen.FMTrain::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-08-17 09:47:56,827]
+-- [MonitorScreen.FMTrain::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-08-17 09:47:58,838]
+-- [MonitorScreen.FMTrain::Void timer1_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:无法打开登录所请求的数据库 "SinteringProControl"。登录失败。
+用户 'sa' 登录失败。
+********************************************************
+-- [ERROR]  [2016-08-17 10:38:07,325]
+-- [MonitorScreen.FMTrain::Void button4_Click(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。
+********************************************************

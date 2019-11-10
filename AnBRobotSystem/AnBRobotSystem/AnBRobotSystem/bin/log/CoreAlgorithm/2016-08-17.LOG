@@ -1,0 +1,15 @@
+-- [WARN]  [2016-08-17 16:44:02,006]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:数据品质差，无法建立符合要求的模型训练样本集
+********************************************************
+-- [WARN]  [2016-08-17 16:45:36,526]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:数据品质差，无法建立符合要求的模型训练样本集
+********************************************************
+-- [ERROR]  [2016-08-17 16:45:39,738]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:索引超出了数组界限。   在 CoreAlgorithm.TaskManager.ForecastClass.RunSelfLearning() 位置 D:\SinteringProControl\Platform\CoreAlgorithm\TaskManager\ForecastClass.cs:行号 465
+********************************************************

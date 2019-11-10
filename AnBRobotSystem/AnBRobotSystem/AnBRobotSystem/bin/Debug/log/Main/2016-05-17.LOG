@@ -1,0 +1,15 @@
+-- [INFO]  [2016-05-17 16:48:47,941]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_FuzzyControl服务更改为：Stopped
+********************************************************
+-- [INFO]  [2016-05-17 16:49:05,150]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_CoreAlgorithm服务更改为：Stopped
+********************************************************
+-- [INFO]  [2016-05-17 16:49:08,208]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_DataAcquisition服务更改为：Stopped
+********************************************************

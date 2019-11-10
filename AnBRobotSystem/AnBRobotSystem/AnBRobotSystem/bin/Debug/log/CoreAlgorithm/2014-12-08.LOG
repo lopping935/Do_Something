@@ -1,0 +1,200 @@
+-- [ERROR]  [2014-12-08 08:50:14,000]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:50:18,240]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:50:23,249]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:50:28,255]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:50:33,263]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:50:38,272]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:50:43,279]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:50:48,334]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:50:53,293]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:50:58,302]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:51:03,310]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:51:08,317]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:51:13,325]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:51:18,333]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:51:23,340]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:51:28,347]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:51:33,355]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:51:38,363]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:51:43,371]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:51:48,378]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:51:53,386]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:51:58,394]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:52:03,400]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:52:08,409]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:52:13,417]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:52:18,423]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:52:23,432]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:52:28,440]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:52:33,446]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:52:38,454]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:52:43,463]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:52:48,469]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:52:53,477]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:52:58,486]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:53:03,492]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:53:08,500]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:53:13,507]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:53:18,516]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:53:23,523]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************
+-- [ERROR]  [2014-12-08 08:53:28,530]
+-- [CoreAlgorithm.TaskManager.TasksManager::System.Collections.Generic.Dictionary`2[System.Int32,CoreAlgorithm.TaskManager.TaskModule] GetTaskClass()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'Pipeline_id' 无效。
+********************************************************

@@ -1,0 +1,110 @@
+﻿正在安装程序集“D:\SinteringPC\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe”。
+受影响的参数是:
+   assemblypath = D:\SinteringPC\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe
+   logfile = D:\SinteringPC\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog
+正在安装服务 af_CoreAlgorithm...
+已成功安装服务 af_CoreAlgorithm。
+正在日志 Application 中创建 EventLog 源 af_CoreAlgorithm...
+查看日志文件的内容以获得 D:\SinteringPC\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe 程序集的进度。
+该文件位于 D:\SinteringPC\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog。
+正在提交程序集“D:\SinteringPC\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\SinteringPC\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog
+   assemblypath = D:\SinteringPC\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe
+正在卸载程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe”。
+受影响的参数是:
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog
+正在移除 EventLog 源 af_CoreAlgorithm。
+正在从系统中移除服务 af_CoreAlgorithm...
+已成功地从系统中移除服务 af_CoreAlgorithm。
+正在安装程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe”。
+受影响的参数是:
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog
+正在安装服务 af_CoreAlgorithm...
+已成功安装服务 af_CoreAlgorithm。
+正在日志 Application 中创建 EventLog 源 af_CoreAlgorithm...
+查看日志文件的内容以获得 D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe 程序集的进度。
+该文件位于 D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog。
+正在提交程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe
+正在卸载程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe”。
+受影响的参数是:
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog
+正在移除 EventLog 源 af_CoreAlgorithm。
+正在从系统中移除服务 af_CoreAlgorithm...
+已成功地从系统中移除服务 af_CoreAlgorithm。
+正在安装程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe”。
+受影响的参数是:
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog
+正在安装服务 af_CoreAlgorithm...
+已成功安装服务 af_CoreAlgorithm。
+正在日志 Application 中创建 EventLog 源 af_CoreAlgorithm...
+查看日志文件的内容以获得 D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe 程序集的进度。
+该文件位于 D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog。
+正在提交程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe
+正在卸载程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe”。
+受影响的参数是:
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog
+正在移除 EventLog 源 af_CoreAlgorithm。
+正在从系统中移除服务 af_CoreAlgorithm...
+已成功地从系统中移除服务 af_CoreAlgorithm。
+正在安装程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe”。
+受影响的参数是:
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog
+正在安装服务 af_CoreAlgorithm...
+已成功安装服务 af_CoreAlgorithm。
+正在日志 Application 中创建 EventLog 源 af_CoreAlgorithm...
+查看日志文件的内容以获得 D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe 程序集的进度。
+该文件位于 D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog。
+正在提交程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe
+正在卸载程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe”。
+受影响的参数是:
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.exe
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\Server\CoreAlgorithm.InstallLog
+正在移除 EventLog 源 af_CoreAlgorithm。
+正在从系统中移除服务 af_CoreAlgorithm...
+已成功地从系统中移除服务 af_CoreAlgorithm。
+正在安装程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\CoreAlgorithm.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\CoreAlgorithm.InstallLog
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\CoreAlgorithm.exe
+正在安装服务 SPC_CoreAlgorithm...
+已成功安装服务 SPC_CoreAlgorithm。
+正在日志 Application 中创建 EventLog 源 SPC_CoreAlgorithm...
+正在提交程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\CoreAlgorithm.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\CoreAlgorithm.InstallLog
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\CoreAlgorithm.exe
+正在安装程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\CoreAlgorithm.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\CoreAlgorithm.InstallLog
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\CoreAlgorithm.exe
+正在安装服务 SPC_CoreAlgorithm...
+已成功安装服务 SPC_CoreAlgorithm。
+正在日志 Application 中创建 EventLog 源 SPC_CoreAlgorithm...
+正在提交程序集“D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\CoreAlgorithm.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\CoreAlgorithm.InstallLog
+   assemblypath = D:\SinteringProControl\Platform\SinteringProControl\SinteringProControl\bin\Debug\CoreAlgorithm.exe

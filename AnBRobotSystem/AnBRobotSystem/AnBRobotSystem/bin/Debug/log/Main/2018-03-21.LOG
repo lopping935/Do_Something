@@ -1,0 +1,80 @@
+-- [ERROR]  [2018-03-21 13:51:04,266]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_Relation_Click(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'ProcessAttr_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2018-03-21 13:51:38,226]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_Relation_Click(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'ProcessAttr_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2018-03-21 13:52:03,016]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_Relation_Click(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'ProcessAttr_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2018-03-21 13:52:41,857]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_Relation_Click(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'ProcessAttr_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2018-03-21 13:53:14,887]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_Relation_Click(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'ProcessAttr_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2018-03-21 13:53:34,977]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_Relation_Click(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'ProcessAttr_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2018-03-21 13:54:48,807]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_Relation_Click(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'ProcessAttr_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2018-03-21 13:55:25,247]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_Relation_Click(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'EquipmentAttribute_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2018-03-21 13:55:37,827]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_Relation_Click(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'EquipmentAttribute_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2018-03-21 14:35:33,850]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_Relation_Click(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'ProcessAttr_ReadWrite' 无效。
+********************************************************
+-- [ERROR]  [2018-03-21 14:39:36,920]
+-- [AdvancedFunction.ChildForm.OPCManageForms::Void MenuItem_Relation_Click(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:列名 'ProcessAttr_ReadWrite' 无效。
+********************************************************
+-- [INFO]  [2018-03-21 15:21:27,833]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_DataAcquisition服务更改为：Stopped
+********************************************************
+-- [INFO]  [2018-03-21 15:21:28,372]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_DataAcquisition服务更改为：StartPending
+********************************************************
+-- [INFO]  [2018-03-21 15:21:48,051]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_DataAcquisition服务更改为：Stopped
+********************************************************
+-- [INFO]  [2018-03-21 15:26:05,504]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_DataAcquisition服务更改为：StartPending
+********************************************************
+-- [INFO]  [2018-03-21 15:26:20,614]
+-- [AdvancedFunction.MdiParent::Void timerLog_Tick(System.Object, System.EventArgs)]
+-- [文件]:C:\Users\Administrator\Desktop\SinteringProControl\Platform\PublicClass\LogClass.cs--第30行
+-- [详细]:SPC_DataAcquisition服务更改为：Stopped
+********************************************************

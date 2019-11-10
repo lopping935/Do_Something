@@ -1,0 +1,5 @@
+-- [ERROR]  [2019-05-28 17:40:39,089]
+-- [DataManageSystem.ChildForm.ModelSet::Void listView_Save()]
+-- [文件]:D:\DataManageSystem\Platform\SQLPublicClass\LogClass.cs--第27行
+-- [详细]:ExecuteNonQuery: CommandText 属性尚未初始化
+********************************************************

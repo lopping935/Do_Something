@@ -1,0 +1,5 @@
+-- [ERROR]  [2015-09-02 09:15:50,850]
+-- [CoreAlgorithm.TaskManager.ForecastClass::Void RunSelfLearning()]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:外部组件发生异常。
+********************************************************

@@ -1,0 +1,5 @@
+-- [ERROR]  [2016-08-11 17:18:11,856]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第27行
+-- [详细]:Timeout 时间已到。在操作完成之前超时时间已过或服务器未响应。
+********************************************************

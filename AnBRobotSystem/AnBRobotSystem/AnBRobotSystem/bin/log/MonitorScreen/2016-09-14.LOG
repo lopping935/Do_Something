@@ -1,0 +1,10 @@
+-- [WARN]  [2016-09-14 14:47:58,815]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度低于300℃
+********************************************************
+-- [WARN]  [2016-09-14 14:48:01,074]
+-- [MonitorScreen.SinteringPro::Void timerSinteringPro_Tick(System.Object, System.EventArgs)]
+-- [文件]:D:\SinteringProControl\Platform\PublicClass\LogClass.cs--第21行
+-- [详细]:终点温度低于300℃
+********************************************************

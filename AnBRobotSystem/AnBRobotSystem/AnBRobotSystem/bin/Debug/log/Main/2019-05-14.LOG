@@ -1,0 +1,5 @@
+-- [ERROR]  [2019-05-14 09:21:02,089]
+-- [DataManageSystem.ChildForm.VariableNaming::Void button3_Click(System.Object, System.EventArgs)]
+-- [文件]:D:\DataManageSystem\Platform\SQLPublicClass\LogClass.cs--第27行
+-- [详细]:不能清除此列表。
+********************************************************
