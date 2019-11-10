@@ -319,29 +319,25 @@ namespace CoreAlgorithm.TaskManager
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                             tm.MultithreadExecuteNonQuery(sql);
 
-                            //反馈接收数据标签信息
-                            string MessageHead = "PRL3001";
-                            byte[] sendArray = Enumerable.Repeat((byte)0x20, length).ToArray(); //+ 1 + 100 + 4+10
-                            Array.Copy(buffer, sendArray, length);
-                            string time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                            byte[] byteArray1 = System.Text.Encoding.ASCII.GetBytes(MessageHead);//应答头
-                            byte[] byteArray2 = System.Text.Encoding.ASCII.GetBytes("1");//应答标志
-                            byte[] byteArray3 = System.Text.Encoding.ASCII.GetBytes("");
-                            byte[] byteArray4 = System.Text.Encoding.ASCII.GetBytes(time);
-                            byte[] byteArray5 = BitConverter.GetBytes(ProductIDA);
+                            //反馈接收数据标签信息                        
+                            string MessageHead = "PRL3001";                            
+                            byte[] sendArray1 = Enumerable.Repeat((byte)0x20, length-19-2).ToArray(); //
+                            Array.Copy(buffer, sendArray1, length-19-2);
+                            byte[] byteArray1 = Encoding.ASCII.GetBytes(MessageHead);//应答头
+                            Buffer.BlockCopy(byteArray1, 0, sendArray1, 0, byteArray1.Length);
 
-                            Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);//修改头
-                            Buffer.BlockCopy(byteArray2, 0, sendArray, length - 2 - 19, byteArray2.Length);//添加应答信息
-                            sendArray[byteArray2.Length + length - 2 - 19] = 0x7F;
-                            sendArray[byteArray2.Length + length - 1 - 19] = 0x26;
-                            Buffer.BlockCopy(byteArray3, 0, sendArray, byteArray2.Length + length - 19, byteArray3.Length);
-                            sendArray[byteArray2.Length + length - 19 + byteArray3.Length] = 0x7F;
-                            sendArray[byteArray2.Length + length - 19 + byteArray3.Length + 1] = 0x26;
-                            Buffer.BlockCopy(byteArray4, 0, sendArray, byteArray2.Length + length - 19 + byteArray3.Length + 2, byteArray4.Length);
-                            sendArray[byteArray2.Length + length - 19 + byteArray3.Length + 2 + byteArray4.Length] = 0x7F;
-                            sendArray[byteArray2.Length + length - 19 + byteArray3.Length + 3 + byteArray4.Length] = 0x26;
+                            string appendmsg = "1 &" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+" &"+ ProductIDA.ToString()+ " &";
+                            //byte[] appendArray = System.Text.Encoding.ASCII.GetBytes(appendmsg);
+                            byte OldBytes = 0x20;
+                            byte NewBytes = 0x7F;
+                            byte[] sendArray2 = StripIronNum.ByteReplace(Encoding.ASCII.GetBytes(appendmsg), OldBytes, NewBytes);
+
+                            byte[] sendArray = Enumerable.Repeat((byte)0x20, sendArray1.Length+sendArray2.Length).ToArray();
+                            Array.Copy(sendArray1, sendArray, sendArray1.Length);
+                            Buffer.BlockCopy(sendArray2, 0, sendArray, sendArray1.Length, sendArray2.Length);
+
                             MESSocketClient.senddata(sendArray);
-                            string strsend = MessageHead + " &" + str + "1" + " &" + time + " &";
+                            string strsend = MessageHead + " &" + str + "1" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " &";
                             string sqlsend = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), strsend);
                             tm.MultithreadExecuteNonQuery(sqlsend);
                         }

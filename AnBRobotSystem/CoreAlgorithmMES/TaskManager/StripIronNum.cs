@@ -146,7 +146,7 @@ namespace CoreAlgorithm.TaskManager
                         for (int i = 0; i<dt.Rows.Count; i++)
                         {
                             Maxiface_id = Convert.ToInt32(dt.Rows[i]["iface_id"].ToString());
-                            }
+                         }
 sql = string.Format("select top 1 [FUN_NO],[STEEL_CODE_DESC],[SPEC_CP_DESC],[iface_id],[NUM],[LENGTH],[NET_WEIGHT],[LotNo],[XH],[HT_NO],[SCBZ],[MFL_DESC],[ProTime],[ItemPrint],[TaskNo] from TV_D_DETAIL_B14 WHERE IMP_FINISH!=1 AND iface_id>{0} order by iface_id ASC", Maxiface_id);
     //sql = "select top 2 SlabNO from TSlabNO WHERE PEN_FINISH!=1 order by REC_ID ASC";
     string FUN_NO = "";

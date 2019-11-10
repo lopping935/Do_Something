@@ -23,8 +23,7 @@ namespace SQLPublicClass
         {
             string sql_Ip,sql_User,sql_Pass,sql_DBName,sql_OutTime;
 
-            if (!Enabled)
-                return "";
+            
             if (string.IsNullOrEmpty(SDKPass))
             {
                 SDKPass = "123456789";

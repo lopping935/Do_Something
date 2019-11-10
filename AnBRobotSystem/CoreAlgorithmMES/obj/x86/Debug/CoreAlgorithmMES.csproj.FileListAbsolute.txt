@@ -23,3 +23,14 @@ C:\Users\Administrator\Desktop\AnBRobotSystem1024\CoreAlgorithmMES\obj\x86\Debug
 C:\Users\Administrator\Desktop\AnBRobotSystem1024\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csproj.CopyComplete
 C:\Users\Administrator\Desktop\AnBRobotSystem1024\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.exe
 C:\Users\Administrator\Desktop\AnBRobotSystem1024\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.pdb
+D:\project\Do_Something\AnBRobotSetup\Debug\CoreAlgorithmMES.exe.config
+D:\project\Do_Something\AnBRobotSetup\Debug\CoreAlgorithmMES.exe
+D:\project\Do_Something\AnBRobotSetup\Debug\CoreAlgorithmMES.pdb
+D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csprojAssemblyReference.cache
+D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithm.AnB_CoreAlgorithmMES.resources
+D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csproj.GenerateResource.cache
+D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csproj.CoreCompileInputs.cache
+D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csproj.CopyComplete
+D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.exe
+D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.pdb
