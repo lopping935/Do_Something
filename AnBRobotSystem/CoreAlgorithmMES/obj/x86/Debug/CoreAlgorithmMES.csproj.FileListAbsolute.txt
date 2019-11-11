@@ -34,3 +34,13 @@ D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgori
 D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csproj.CopyComplete
 D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.exe
 D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.pdb
+D:\github\Do_Something\AnBRobotSetup\Debug\CoreAlgorithmMES.exe.config
+D:\github\Do_Something\AnBRobotSetup\Debug\CoreAlgorithmMES.exe
+D:\github\Do_Something\AnBRobotSetup\Debug\CoreAlgorithmMES.pdb
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithm.AnB_CoreAlgorithmMES.resources
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csproj.GenerateResource.cache
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csproj.CoreCompileInputs.cache
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csproj.CopyComplete
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.exe
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.pdb

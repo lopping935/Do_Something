@@ -11,12 +11,15 @@ using log4net;
 using SQLPublicClass;
 using System.Reflection;
 using System.Data.Common;
+using CoreAlgorithmMES;
 namespace CoreAlgorithm.TaskManager
 {   
     class MESSocketServer
-    { [DllImport("kernel32.dll")]
+    {
+        [DllImport("kernel32.dll")]
     private static extern bool SetLocalTime(ref SYSTEMTIME time);
         [StructLayout(LayoutKind.Sequential)]
+        
     private struct SYSTEMTIME
     {
         public ushort year;
@@ -28,34 +31,8 @@ namespace CoreAlgorithm.TaskManager
         public ushort second;
         public ushort milliseconds;
     }
-        public struct LabelData
-        {
-            public string MACHINE_NO;// 打包机组号
-            public string ID_LOT_PROD;//生产批号
-            public Int16 ID_PART_LOT; //分批号
-            public Int16 NUM_BDL;//捆号
-            public Int16 SEQ_LEN;//长度顺序号
-            public Int16 SEQ_OPR;//操作顺序号
-            public double DIM_LEN; //米长
-            public string IND_FIXED;// 定尺标志
-            public double SEQ_SEND;// 下发顺序号
-            public Int16 NUM_BAR;// 捆内支数
-            public Int16 SEQ_LIST;// 排列序号
-            public double LA_BDL_ACT;// 重量
-            public string NO_LICENCE;// 许可证号
-            public string NAME_PROD; //产品名称
-            public string NAME_STLGD;// 执行标准
-            public string ID_HEAT; //熔炼号
-            public string NAME_STND; //钢牌号
-            public string DES_FIPRO_SECTION; //断面规格描述
-            public string ID_CREW_RL;// 轧制班别
-            public string ID_CREW_CK;// 检查班别
-            public string TMSTP_WEIGH;// 生产日期
-            public string BAR_CODE; //条码内容
-            public Int16 NUM_HEAD;//头签个数
-            public Int16 NUM_TAIL;// 尾签个数
-            public string TMSTP_SEND;// 发送时间
-};
+        
+        
         public static bool SetDate(DateTime dt)
         {
             SYSTEMTIME st;
@@ -74,6 +51,7 @@ namespace CoreAlgorithm.TaskManager
         static Socket socketServer;
         static Socket socketWatch;
         static TasksManager tm;
+        
         public enum EncodingType { UTF7, UTF8, UTF32, Unicode, BigEndianUnicode, ASCII, GB2312, GBK };
         public static string GetString(byte[] myByte, EncodingType encodingType)
         {
@@ -109,7 +87,7 @@ namespace CoreAlgorithm.TaskManager
             return str;
         }
 
-
+         
         // <summary>  
         /// 定位指定的 System.Byte[] 在此实例中的第一个匹配项的索引。  
         /// </summary>  
@@ -167,6 +145,7 @@ namespace CoreAlgorithm.TaskManager
             }
             return HeadIndex;
         }
+        
         public static List<int> ByteIndexOf(byte[] srcBytes, byte[] searchBytes)
         {
             List<int> HeadIndex = new List<int>();
@@ -244,6 +223,7 @@ namespace CoreAlgorithm.TaskManager
         public static void Recv(object SocketClient)
         {
             Socket connect = SocketClient as Socket;
+            messagecls msq = new messagecls();
             while (true)
             {
                 Thread.Sleep(1000);
@@ -271,9 +251,11 @@ namespace CoreAlgorithm.TaskManager
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                             tm.MultithreadExecuteNonQuery(sql);
                         }
+                        #region l3->l2接收数据标签
                         if (MessageFlg == "L3PR001")//接收标签数据信息并反馈
                         {
-                            LabelData LabelDataRecv;
+                            
+                            messagecls.LabelData LabelDataRecv;
                             LabelDataRecv.MACHINE_NO = GetString(HeadIndex[1], EncodingType.ASCII);
                             LabelDataRecv.ID_LOT_PROD = GetString(HeadIndex[2], EncodingType.ASCII);
                             LabelDataRecv.ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[3], EncodingType.ASCII));
@@ -318,18 +300,18 @@ namespace CoreAlgorithm.TaskManager
                             string str = MessageFlg.ToString() + " " + LabelDataRecv.MACHINE_NO + " " + LabelDataRecv.ID_LOT_PROD + " " + LabelDataRecv.ID_PART_LOT.ToString() + " " + LabelDataRecv.NUM_BDL.ToString() + " " + LabelDataRecv.SEQ_LEN.ToString() + " " + LabelDataRecv.SEQ_OPR.ToString() + " " + LabelDataRecv.DIM_LEN.ToString() + " " + LabelDataRecv.IND_FIXED + " " + LabelDataRecv.SEQ_SEND.ToString() + " " + LabelDataRecv.NUM_BAR.ToString() + " " + LabelDataRecv.SEQ_LIST.ToString() + " " + LabelDataRecv.LA_BDL_ACT.ToString() + " " + LabelDataRecv.NO_LICENCE + " " + LabelDataRecv.NAME_PROD + " " + LabelDataRecv.NAME_STND + " " + LabelDataRecv.ID_HEAT + " " + LabelDataRecv.NAME_STLGD + " " + LabelDataRecv.DES_FIPRO_SECTION + " " + LabelDataRecv.ID_CREW_RL + " " + LabelDataRecv.ID_CREW_CK + " " + LabelDataRecv.TMSTP_WEIGH + " " + LabelDataRecv.BAR_CODE + " " + LabelDataRecv.NUM_HEAD.ToString() + " " + LabelDataRecv.NUM_TAIL.ToString() + " " + LabelDataRecv.TMSTP_SEND;
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                             tm.MultithreadExecuteNonQuery(sql);
-
+                            #endregion
+                            #region l2->l3标签数据应答
                             //反馈接收数据标签信息                        
-                            string MessageHead = "PRL3001";                            
+                            string MessageHead = "PRL3001";
+                            byte OldBytes = 0x20;
+                            byte NewBytes = 0x7F;
                             byte[] sendArray1 = Enumerable.Repeat((byte)0x20, length-19-2).ToArray(); //
                             Array.Copy(buffer, sendArray1, length-19-2);
                             byte[] byteArray1 = Encoding.ASCII.GetBytes(MessageHead);//应答头
                             Buffer.BlockCopy(byteArray1, 0, sendArray1, 0, byteArray1.Length);
 
-                            string appendmsg = "1 &" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+" &"+ ProductIDA.ToString()+ " &";
-                            //byte[] appendArray = System.Text.Encoding.ASCII.GetBytes(appendmsg);
-                            byte OldBytes = 0x20;
-                            byte NewBytes = 0x7F;
+                            string appendmsg = "1 &" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+" &"+ ProductIDA.ToString()+ " &";                            
                             byte[] sendArray2 = StripIronNum.ByteReplace(Encoding.ASCII.GetBytes(appendmsg), OldBytes, NewBytes);
 
                             byte[] sendArray = Enumerable.Repeat((byte)0x20, sendArray1.Length+sendArray2.Length).ToArray();
@@ -340,8 +322,9 @@ namespace CoreAlgorithm.TaskManager
                             string strsend = MessageHead + " &" + str + "1" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " &";
                             string sqlsend = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), strsend);
                             tm.MultithreadExecuteNonQuery(sqlsend);
+                            #endregion
                         }
-                        if (MessageFlg == "L3PR02A")//标签结果应答
+                        if (MessageFlg == "L3PR02A")//l3->l2模式切换数据同步应答
                         {
                             string MACHINE_NO = GetString(HeadIndex[1], EncodingType.ASCII);
                             string ID_LOT_PROD = GetString(HeadIndex[2], EncodingType.ASCII);

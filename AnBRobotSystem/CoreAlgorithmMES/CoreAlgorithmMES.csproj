@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TaskManager\messagecls.cs" />
     <Compile Include="TaskManager\MESSocketServer.cs" />
     <Compile Include="TaskManager\StripIronNum.cs" />
     <Compile Include="TaskManager\MESSocketClient.cs" />

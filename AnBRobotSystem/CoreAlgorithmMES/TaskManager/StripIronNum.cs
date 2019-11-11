@@ -9,7 +9,7 @@ using System.Data.OleDb;
 using System.IO;
 using System.Data.SqlClient;
 using System.Linq;
-
+using CoreAlgorithmMES;
 namespace CoreAlgorithm.TaskManager
 {
    public class StripIronNum
@@ -73,30 +73,51 @@ namespace CoreAlgorithm.TaskManager
                     }
                     #endregion
                     #region 三级应答反馈
-                    sql = string.Format("select MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,SEQ_SEND,REC_ID from TLabelContent WHERE (IMP_FINISH=31 OR IMP_FINISH=32 OR IMP_FINISH=33) AND L3ACK=0 order by REC_ID ASC");
-                    string MACHINE_NO = "";
-                    string ID_LOT_PROD = "", ACK = "1", REASON = "";
-                    Int16 ID_PART_LOT = 0;
-                    Int16 NUM_BDL = 0;
-                    Int16 SEQ_LEN = 0;
-                    Int16 SEQ_OPR = 0;
-                    double SEQ_SEND = 0, REC_ID=0;
+                    sql = string.Format("select MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,Name_PROD,Name_STND,ID_HEAT,Name_STLGD,DES_FIRPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,REC_ID from TLabelContent WHERE (IMP_FINISH=31 OR IMP_FINISH=32 OR IMP_FINISH=33) AND L3ACK=0 order by REC_ID ASC");
+                    messagecls.LabelData  LabelDataASK;
+                    string  ACK = "1", REASON="";
+                    double  REC_ID=0;
+                    MessageHead = "PRL301A";
+                    time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     DataTable dt = tm.MultithreadDataTable(sql);
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        MACHINE_NO = dt.Rows[i]["MACHINE_NO"].ToString();
-                        ID_LOT_PROD = dt.Rows[i]["ID_LOT_PROD"].ToString();
-                        ID_PART_LOT = Int16.Parse(dt.Rows[i]["ID_PART_LOT"].ToString());
-                        NUM_BDL = Int16.Parse(dt.Rows[i]["NUM_BDL"].ToString());
-                        SEQ_LEN = Int16.Parse(dt.Rows[i]["SEQ_LEN"].ToString());
-                        SEQ_OPR = Int16.Parse(dt.Rows[i]["SEQ_OPR"].ToString());
-                        SEQ_SEND = double.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
-                        REC_ID= double.Parse(dt.Rows[i]["REC_ID"].ToString());
+                        LabelDataASK.MACHINE_NO = dt.Rows[i]["MACHINE_NO"].ToString();
+                        LabelDataASK.ID_LOT_PROD = dt.Rows[i]["ID_LOT_PROD"].ToString();
+                        LabelDataASK.ID_PART_LOT = Int16.Parse(dt.Rows[i]["ID_PART_LOT"].ToString());
+                        LabelDataASK.NUM_BDL = Int16.Parse(dt.Rows[i]["NUM_BDL"].ToString());
+                        LabelDataASK.SEQ_LEN = Int16.Parse(dt.Rows[i]["SEQ_LEN"].ToString());
+                        LabelDataASK.SEQ_OPR = Int16.Parse(dt.Rows[i]["SEQ_OPR"].ToString());
+                        LabelDataASK.SEQ_SEND = double.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
+                        LabelDataASK.NUM_BAR= Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());
+                        LabelDataASK.SEQ_LIST= Int16.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
+                        LabelDataASK.LA_BDL_ACT= double.Parse(dt.Rows[i]["LA_BDL_ACT"].ToString());
+                        LabelDataASK.NO_LICENCE= dt.Rows[i]["NO_LICENCE"].ToString();
+                        LabelDataASK.NAME_PROD= dt.Rows[i]["NAME_PROD"].ToString();
+                        LabelDataASK.NAME_STND= dt.Rows[i]["NAME_STND"].ToString();//gbk
+                        LabelDataASK.ID_HEAT= dt.Rows[i]["ID_HEAT"].ToString();
+                        LabelDataASK.NAME_STLGD= dt.Rows[i]["NAME_STLGD"].ToString();
+                        LabelDataASK.DES_FIPRO_SECTION= dt.Rows[i]["DES_FIPRO_SECTION"].ToString();
+                        LabelDataASK.ID_CREW_RL=dt.Rows[i]["ID_CREW_RL"].ToString();//gbk
+                        LabelDataASK.ID_CREW_CK= dt.Rows[i]["ID_CREW_CK"].ToString();//gbk
+                        LabelDataASK.TMSTP_WEIGH=dt.Rows[i]["TMSTP_WEIGH"].ToString();
+                        LabelDataASK.BAR_CODE= dt.Rows[i]["BAR_CODE"].ToString();
+                        LabelDataASK.NUM_HEAD= Int16.Parse(dt.Rows[i]["NUM_HEAD"].ToString());
+                        LabelDataASK.NUM_TAIL= Int16.Parse(dt.Rows[i]["NUM_TAIL"].ToString());
+                        REC_ID = double.Parse(dt.Rows[i]["REC_ID"].ToString());
+                        
+                        string str1 = MessageHead + " &" + LabelDataASK.MACHINE_NO + " &" + LabelDataASK.ID_LOT_PROD + " &" + LabelDataASK.ID_PART_LOT.ToString() + " &" + LabelDataASK.NUM_BDL.ToString() + " &" + LabelDataASK.SEQ_LEN.ToString() + " &" + LabelDataASK.SEQ_OPR.ToString() + " &" + LabelDataASK.SEQ_SEND.ToString()+" &"+ LabelDataASK.NUM_BAR.ToString() + " &" + LabelDataASK.SEQ_LIST.ToString() + " &" + LabelDataASK.LA_BDL_ACT.ToString() + " &" + LabelDataASK.NO_LICENCE + " &" + LabelDataASK.NAME_PROD + " &";
+                        string str3 = " &" + LabelDataASK.ID_HEAT+ " &" + LabelDataASK.NAME_STLGD+ " &" + LabelDataASK.DES_FIPRO_SECTION+" &" ;
+                        string str6 = " &" + LabelDataASK.TMSTP_WEIGH.ToString() + " &"+ LabelDataASK.BAR_CODE + " &" + LabelDataASK.NUM_HEAD + " &" + LabelDataASK.NUM_TAIL + " &" + ACK + " &" + REASON + " &" + time + " &" + REC_ID.ToString() + " &";
 
-                        MessageHead = "PRL301A";
-                        time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                        string str = MessageHead + " &" + MACHINE_NO + " &" + ID_LOT_PROD + " &" + ID_PART_LOT.ToString() + " &" + NUM_BDL.ToString() + " &" + SEQ_LEN.ToString() + " &" + SEQ_OPR.ToString() + " &" +SEQ_SEND.ToString()+" &"+ ACK + " &" + REASON + " &" + time + " &" + REC_ID.ToString() + " &";
-                        byte[] sendArray = System.Text.Encoding.ASCII.GetBytes(str);
+                        byte[] sendArray1 = System.Text.Encoding.ASCII.GetBytes(str1);
+                        byte[] sendArray2 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.NAME_STND);
+                        byte[] sendArray3 = System.Text.Encoding.ASCII.GetBytes(str3);
+                        byte[] sendArray4 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_RL );
+                        byte[] sendArray5 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_CK);
+                        byte[] sendArray6 = System.Text.Encoding.ASCII.GetBytes(str6);
+                        
+
                         byte OldBytes = 0x20;
                         byte NewBytes = 0x7F;
                         byte[] sendArrayNew = ByteReplace(sendArray, OldBytes, NewBytes);
@@ -135,126 +156,7 @@ namespace CoreAlgorithm.TaskManager
                     Log.addLog(log, LogType.ERROR, ex.StackTrace);
                 }
         }
-        }
-    
-        public void Send_SignsMessage()
-        {try
-            { 
-            string sql = "select MAX(iface_id) AS iface_id from TV_D_DETAIL_B14 WHERE IMP_FINISH=1";
-                        int Maxiface_id = 0;
-        DataTable dt = tm.MultithreadDataTable(sql);
-                        for (int i = 0; i<dt.Rows.Count; i++)
-                        {
-                            Maxiface_id = Convert.ToInt32(dt.Rows[i]["iface_id"].ToString());
-                         }
-sql = string.Format("select top 1 [FUN_NO],[STEEL_CODE_DESC],[SPEC_CP_DESC],[iface_id],[NUM],[LENGTH],[NET_WEIGHT],[LotNo],[XH],[HT_NO],[SCBZ],[MFL_DESC],[ProTime],[ItemPrint],[TaskNo] from TV_D_DETAIL_B14 WHERE IMP_FINISH!=1 AND iface_id>{0} order by iface_id ASC", Maxiface_id);
-    //sql = "select top 2 SlabNO from TSlabNO WHERE PEN_FINISH!=1 order by REC_ID ASC";
-    string FUN_NO = "";
-    string STEEL_CODE_DESC = "";
-    string SPEC_CP_DESC = "";
-    Int32 iface_id = 0;
-    Int16 NUM = 0;
-    string LENGTH = "";
-    float NET_WEIGHT = 0;
-    string LotNo = "";
-    string XH = "";
-    string HT_NO = "";
-    string SCBZ = "";
-    string MFL_DESC = "";
-    string ProTime = "";
-    string ItemPrint = "";
-    Int16 IItemPrint = 0;
-    string TaskNo = "";
-    dt  = tm.MultithreadDataTable(sql);
-    for (int i = 0; i<dt.Rows.Count; i++)
-    {
-    FUN_NO = dt.Rows[i]["FUN_NO"].ToString();
-    STEEL_CODE_DESC = dt.Rows[i]["STEEL_CODE_DESC"].ToString();
-    SPEC_CP_DESC = dt.Rows[i]["SPEC_CP_DESC"].ToString();
-    iface_id = Int32.Parse(dt.Rows[i]["iface_id"].ToString());
-    NUM = Int16.Parse(dt.Rows[i]["NUM"].ToString());
-    NET_WEIGHT = float.Parse(dt.Rows[i]["NET_WEIGHT"].ToString())*1000;
-    LENGTH = dt.Rows[i]["LENGTH"].ToString();
-    LotNo = dt.Rows[i]["LotNo"].ToString();
-    XH = dt.Rows[i]["XH"].ToString();
-    HT_NO = dt.Rows[i]["HT_NO"].ToString();
-    SCBZ = dt.Rows[i]["SCBZ"].ToString();
-    MFL_DESC = dt.Rows[i]["MFL_DESC"].ToString();
-    ProTime = dt.Rows[i]["ProTime"].ToString();
-    ItemPrint = dt.Rows[i]["ItemPrint"].ToString();
-    TaskNo = dt.Rows[i]["TaskNo"].ToString();
-}
-                        switch (ItemPrint)
-                        {
-                            case "":
-                                IItemPrint = 1;
-                                break;
-                            case "DEFORMED BAR":
-                                IItemPrint = 2;
-                                break;
-                            case "HOT ROLLED ALLOY STEEL DEFORMED BAR":
-                                IItemPrint = 3;
-                                break;
-                            case "HOT ROLLED RIBBED STEEL BAR":
-                                IItemPrint = 4;
-                                break;
-                            case "钢筋混凝土用钢筋":
-                                IItemPrint = 5;
-                                break;
-                            case "钢筋混凝土用热轧带肋钢筋":
-                                IItemPrint = 6;
-                                break;
-                            case "预应力混凝土用螺纹钢筋":
-                                IItemPrint = 7;
-                                break;
-                            default:
-                                IItemPrint = 0;
-                                break;
-                        }
-                        //Int16 alpha = 1000;
-Int16 INET_WEIGHT = (Int16)( NET_WEIGHT) ;
-byte[] sendArray = Enumerable.Repeat((byte)0x20, 241).ToArray();
-byte[] byteArray1 = BitConverter.GetBytes(IItemPrint);
-byte[] byteArray2 = System.Text.Encoding.ASCII.GetBytes(SCBZ+"/"+STEEL_CODE_DESC);
-byte[] byteArray3 = System.Text.Encoding.ASCII.GetBytes(HT_NO);
-byte[] byteArray4 = System.Text.Encoding.ASCII.GetBytes(FUN_NO);
-byte[] byteArray5 = System.Text.Encoding.ASCII.GetBytes(SPEC_CP_DESC+"X"+ LENGTH);
-byte[] byteArray6 = BitConverter.GetBytes(NUM);
-byte[] byteArray7 = System.Text.Encoding.ASCII.GetBytes(ProTime + "/" +DateTime.Now.Hour.ToString());
-byte[] byteArray8 = BitConverter.GetBytes(INET_WEIGHT);
-byte[] byteArray9 = BitConverter.GetBytes(iface_id);
-string bstr = "00000010";
-sendArray[0] = Convert.ToByte(bstr, 2);
-string bstr1 = "00000000";
-sendArray[240] = Convert.ToByte(bstr1, 2);
-                        Buffer.BlockCopy(byteArray1, 0, sendArray, 2, byteArray1.Length);
-                        Buffer.BlockCopy(byteArray2, 0, sendArray, 4, byteArray2.Length);
-                        Buffer.BlockCopy(byteArray3, 0, sendArray, 36, byteArray3.Length);
-                        Buffer.BlockCopy(byteArray4, 0, sendArray, 68, byteArray4.Length);
-                        Buffer.BlockCopy(byteArray5, 0, sendArray, 90, byteArray5.Length);
-                        Buffer.BlockCopy(byteArray6, 0, sendArray, 112, byteArray6.Length);
-                        Buffer.BlockCopy(byteArray7, 0, sendArray, 114, byteArray7.Length);
-                        Buffer.BlockCopy(byteArray8, 0, sendArray, 136, byteArray8.Length);
-                        Buffer.BlockCopy(byteArray9, 0, sendArray, 138, byteArray9.Length);
-                if (sendArray.Length > 0)
-                {
-                    //SocketClient.senddata(PDResult);连接相机恢复
-                    MESSocketClient.senddata(sendArray);
-                    string str = bstr + " " + SCBZ + "/" + STEEL_CODE_DESC + " " + HT_NO + " " + FUN_NO + " " + SPEC_CP_DESC + "X" + LENGTH + " " + NUM.ToString() + " " + ProTime + "/" + DateTime.Now.Hour.ToString() + " " + INET_WEIGHT.ToString() + " "+iface_id.ToString()+" "+ bstr1;
-                    //sqlTemp.Add("INSERT INTO [EquipmentAttributeValues]([EquipmentAttribute_id],[AttributeValues_Time],[AttributeValues_Value]) VALUES ({0},'{1}','{2}')");
-                    sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
-                    tm.MultithreadExecuteNonQuery(sql);
-                }
-            
-}
-            catch (Exception ex)
-            {
-                log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
-                Log.addLog(log, LogType.ERROR, ex.Message);
-                Log.addLog(log, LogType.ERROR, ex.StackTrace);
-            }//sendArray[38] = 50;(byte)'1';
-            
-        }
+        }        
 
         public void ReconnectMES()
         {
