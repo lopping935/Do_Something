@@ -42,7 +42,7 @@ namespace CoreAlgorithm
                SystemRun = Convert.ToInt16(dr["PARAMETER_VALUE"]);
            }
            dr.Close();
-           if (SystemRun == 1)
+           if (SystemRun == 2)
            {
                sql = "UPDATE SYSPARAMETER SET PARAMETER_VALUE=2 where PARAMETER_ID=2";
                tm.MultithreadExecuteNonQuery(sql);

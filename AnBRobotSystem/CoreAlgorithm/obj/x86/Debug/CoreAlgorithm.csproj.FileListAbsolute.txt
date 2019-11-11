@@ -364,3 +364,10 @@ C:\Users\Administrator\Desktop\AnBRobotSystem1030\CoreAlgorithm\obj\x86\Debug\Co
 C:\Users\Administrator\Desktop\AnBRobotSystem1030\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.csproj.CopyComplete
 C:\Users\Administrator\Desktop\AnBRobotSystem1030\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.exe
 C:\Users\Administrator\Desktop\AnBRobotSystem1030\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.pdb
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.AnB_CoreAlgorithm.resources
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.csproj.GenerateResource.cache
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.csproj.CoreCompileInputs.cache
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.csproj.CopyComplete
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.exe
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.pdb

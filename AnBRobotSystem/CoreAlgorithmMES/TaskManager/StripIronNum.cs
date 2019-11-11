@@ -73,7 +73,7 @@ namespace CoreAlgorithm.TaskManager
                     }
                     #endregion
                     #region 三级应答反馈
-                    sql = string.Format("select MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,Name_PROD,Name_STND,ID_HEAT,Name_STLGD,DES_FIRPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,REC_ID from TLabelContent WHERE (IMP_FINISH=31 OR IMP_FINISH=32 OR IMP_FINISH=33) AND L3ACK=0 order by REC_ID ASC");
+                    sql = string.Format("select MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,Name_PROD,Name_STND,ID_HEAT,Name_STLGD,DES_FIPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,REC_ID from TLabelContent WHERE (IMP_FINISH=31 OR IMP_FINISH=32 OR IMP_FINISH=33) AND L3ACK=0 order by REC_ID ASC");
                     messagecls.LabelData  LabelDataASK;
                     string  ACK = "1", REASON="";
                     double  REC_ID=0;
@@ -109,22 +109,33 @@ namespace CoreAlgorithm.TaskManager
                         string str1 = MessageHead + " &" + LabelDataASK.MACHINE_NO + " &" + LabelDataASK.ID_LOT_PROD + " &" + LabelDataASK.ID_PART_LOT.ToString() + " &" + LabelDataASK.NUM_BDL.ToString() + " &" + LabelDataASK.SEQ_LEN.ToString() + " &" + LabelDataASK.SEQ_OPR.ToString() + " &" + LabelDataASK.SEQ_SEND.ToString()+" &"+ LabelDataASK.NUM_BAR.ToString() + " &" + LabelDataASK.SEQ_LIST.ToString() + " &" + LabelDataASK.LA_BDL_ACT.ToString() + " &" + LabelDataASK.NO_LICENCE + " &" + LabelDataASK.NAME_PROD + " &";
                         string str3 = " &" + LabelDataASK.ID_HEAT+ " &" + LabelDataASK.NAME_STLGD+ " &" + LabelDataASK.DES_FIPRO_SECTION+" &" ;
                         string str6 = " &" + LabelDataASK.TMSTP_WEIGH.ToString() + " &"+ LabelDataASK.BAR_CODE + " &" + LabelDataASK.NUM_HEAD + " &" + LabelDataASK.NUM_TAIL + " &" + ACK + " &" + REASON + " &" + time + " &" + REC_ID.ToString() + " &";
-
-                        byte[] sendArray1 = System.Text.Encoding.ASCII.GetBytes(str1);
-                        byte[] sendArray2 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.NAME_STND);
-                        byte[] sendArray3 = System.Text.Encoding.ASCII.GetBytes(str3);
-                        byte[] sendArray4 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_RL );
-                        byte[] sendArray5 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_CK);
-                        byte[] sendArray6 = System.Text.Encoding.ASCII.GetBytes(str6);
-                        
-
                         byte OldBytes = 0x20;
                         byte NewBytes = 0x7F;
-                        byte[] sendArrayNew = ByteReplace(sendArray, OldBytes, NewBytes);
-                        if (sendArrayNew.Length > 0)
+                        byte[] sendArray1 = System.Text.Encoding.ASCII.GetBytes(str1);
+                        sendArray1 = ByteReplace(sendArray1, OldBytes, NewBytes);
+                        byte[] sendArray2 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.NAME_STND);
+                        byte[] sendArray3 = System.Text.Encoding.ASCII.GetBytes(str3);
+                        sendArray3 = ByteReplace(sendArray3, OldBytes, NewBytes);
+                        byte[] sendArray4_1 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_RL );
+                        byte[] sendArray4= Enumerable.Repeat((byte)0x20, sendArray4_1.Length+2).ToArray();
+                        Array.Copy(sendArray4_1, sendArray4, sendArray4_1.Length);
+                        sendArray4[sendArray4_1.Length] = 0x7F;
+                        sendArray4[sendArray4_1.Length + 1] = 0x26;
+                        byte[] sendArray5 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_CK);
+                        byte[] sendArray6 = System.Text.Encoding.ASCII.GetBytes(str6);
+                        sendArray6 = ByteReplace(sendArray6, OldBytes, NewBytes);
+                        byte[] sendArray= Enumerable.Repeat((byte)0x20, sendArray1.Length + sendArray2.Length + sendArray3.Length + sendArray4.Length + sendArray5.Length + sendArray6.Length).ToArray();
+                        sendArray1.CopyTo(sendArray, 0);
+                        sendArray2.CopyTo(sendArray,sendArray1.Length);
+                        sendArray3.CopyTo(sendArray, sendArray1.Length+ sendArray2.Length);
+                        sendArray4.CopyTo(sendArray, sendArray1.Length + sendArray2.Length+ sendArray3.Length);
+                        sendArray5.CopyTo(sendArray, sendArray1.Length + sendArray2.Length+ sendArray3.Length + sendArray4.Length);
+                        sendArray6.CopyTo(sendArray, sendArray1.Length + sendArray2.Length + sendArray3.Length + sendArray4.Length+sendArray5.Length);
+
+                        if (sendArray.Length > 0)
                         {
-                            MESSocketClient.senddata(sendArrayNew);
-                            sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                            MESSocketClient.senddata(sendArray);
+                            sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str6);
                             tm.MultithreadExecuteNonQuery(sql);
                         }
                     }
@@ -200,12 +211,12 @@ namespace CoreAlgorithm.TaskManager
                     if (Convert.ToInt16(dr["ACQUISITIONCONFIG_ID"]) == 8)
                     {
                         MESIP = Convert.ToString(dr["DATAACQUISITION_IP"]);
-                        mesportr = Convert.ToInt16(dr["DATAACQUISITION_PORTRS"]);
+                        mesportr = Convert.ToInt32(dr["DATAACQUISITION_PORTR"]);
                     }
                     if (Convert.ToInt16(dr["ACQUISITIONCONFIG_ID"]) == 4)
                     {
                         localip = Convert.ToString(dr["DATAACQUISITION_IP"]);
-                        localportr = Convert.ToInt32(dr["DATAACQUISITION_PORTR"]);
+                        localportr = Convert.ToInt32(dr["DATAACQUISITION_PORTS"]);
                     }
                 }
                 dr.Close();
