@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.InteropServices;
+using System.Collections.Generic;
 using SQLPublicClass;
 using System.Data.Common;
 using System.Threading;
@@ -125,16 +125,24 @@ namespace CoreAlgorithm.TaskManager
                         byte[] sendArray6 = System.Text.Encoding.ASCII.GetBytes(str6);
                         sendArray6 = ByteReplace(sendArray6, OldBytes, NewBytes);
                         byte[] sendArray= Enumerable.Repeat((byte)0x20, sendArray1.Length + sendArray2.Length + sendArray3.Length + sendArray4.Length + sendArray5.Length + sendArray6.Length).ToArray();
-                        sendArray1.CopyTo(sendArray, 0);
-                        sendArray2.CopyTo(sendArray,sendArray1.Length);
-                        sendArray3.CopyTo(sendArray, sendArray1.Length+ sendArray2.Length);
-                        sendArray4.CopyTo(sendArray, sendArray1.Length + sendArray2.Length+ sendArray3.Length);
-                        sendArray5.CopyTo(sendArray, sendArray1.Length + sendArray2.Length+ sendArray3.Length + sendArray4.Length);
-                        sendArray6.CopyTo(sendArray, sendArray1.Length + sendArray2.Length + sendArray3.Length + sendArray4.Length+sendArray5.Length);
+                        //sendArray1.CopyTo(sendArray, 0);
+                        //sendArray2.CopyTo(sendArray,sendArray1.Length);
+                        //sendArray3.CopyTo(sendArray, sendArray1.Length+ sendArray2.Length);
+                        //sendArray4.CopyTo(sendArray, sendArray1.Length + sendArray2.Length+ sendArray3.Length);
+                        //sendArray5.CopyTo(sendArray, sendArray1.Length + sendArray2.Length+ sendArray3.Length + sendArray4.Length);
+                        //sendArray6.CopyTo(sendArray, sendArray1.Length + sendArray2.Length + sendArray3.Length + sendArray4.Length+sendArray5.Length);
+                        List<byte> byteSource = new List<byte>();
+                        byteSource.AddRange(sendArray1);
+                        byteSource.AddRange(sendArray2);
+                        byteSource.AddRange(sendArray3);
+                        byteSource.AddRange(sendArray4);
+                        byteSource.AddRange(sendArray5);
+                        byteSource.AddRange(sendArray6);
+                        byte[] data = byteSource.ToArray();
 
                         if (sendArray.Length > 0)
                         {
-                            MESSocketClient.senddata(sendArray);
+                            MESSocketClient.senddata(data);
                             sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str6);
                             tm.MultithreadExecuteNonQuery(sql);
                         }
