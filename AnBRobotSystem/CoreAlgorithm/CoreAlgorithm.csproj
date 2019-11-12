@@ -116,9 +116,9 @@
       <HintPath>..\packages\Lextm.SharpSnmpLib.10.0.3\lib\net452\SharpSnmpLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SQLPublicClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SQLPublicClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\AnBRobotSetup\Debug\SQLPublicClass.dll</HintPath>
+      <HintPath>..\..\..\..\AnBRobotSetup\Debug\SQLPublicClass.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections.Specialized, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
