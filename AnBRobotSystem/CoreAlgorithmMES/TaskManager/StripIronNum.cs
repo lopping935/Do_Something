@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
-using System.Data.SqlClient;
+using System.Net.Sockets;
 using System.Linq;
 using CoreAlgorithmMES;
 namespace CoreAlgorithm.TaskManager
@@ -80,71 +80,68 @@ namespace CoreAlgorithm.TaskManager
                     MessageHead = "PRL301A";
                     time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     DataTable dt = tm.MultithreadDataTable(sql);
-                    for (int i = 0; i < dt.Rows.Count; i++)
+                    if (dt.Rows.Count>0)
                     {
-                        LabelDataASK.MACHINE_NO = dt.Rows[i]["MACHINE_NO"].ToString();
-                        LabelDataASK.ID_LOT_PROD = dt.Rows[i]["ID_LOT_PROD"].ToString();
-                        LabelDataASK.ID_PART_LOT = Int16.Parse(dt.Rows[i]["ID_PART_LOT"].ToString());
-                        LabelDataASK.NUM_BDL = Int16.Parse(dt.Rows[i]["NUM_BDL"].ToString());
-                        LabelDataASK.SEQ_LEN = Int16.Parse(dt.Rows[i]["SEQ_LEN"].ToString());
-                        LabelDataASK.SEQ_OPR = Int16.Parse(dt.Rows[i]["SEQ_OPR"].ToString());
-                        LabelDataASK.SEQ_SEND = double.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
-                        LabelDataASK.NUM_BAR= Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());
-                        LabelDataASK.SEQ_LIST= Int16.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
-                        LabelDataASK.LA_BDL_ACT= double.Parse(dt.Rows[i]["LA_BDL_ACT"].ToString());
-                        LabelDataASK.NO_LICENCE= dt.Rows[i]["NO_LICENCE"].ToString();
-                        LabelDataASK.NAME_PROD= dt.Rows[i]["NAME_PROD"].ToString();
-                        LabelDataASK.NAME_STND= dt.Rows[i]["NAME_STND"].ToString();//gbk
-                        LabelDataASK.ID_HEAT= dt.Rows[i]["ID_HEAT"].ToString();
-                        LabelDataASK.NAME_STLGD= dt.Rows[i]["NAME_STLGD"].ToString();
-                        LabelDataASK.DES_FIPRO_SECTION= dt.Rows[i]["DES_FIPRO_SECTION"].ToString();
-                        LabelDataASK.ID_CREW_RL=dt.Rows[i]["ID_CREW_RL"].ToString();//gbk
-                        LabelDataASK.ID_CREW_CK= dt.Rows[i]["ID_CREW_CK"].ToString();//gbk
-                        LabelDataASK.TMSTP_WEIGH=dt.Rows[i]["TMSTP_WEIGH"].ToString();
-                        LabelDataASK.BAR_CODE= dt.Rows[i]["BAR_CODE"].ToString();
-                        LabelDataASK.NUM_HEAD= Int16.Parse(dt.Rows[i]["NUM_HEAD"].ToString());
-                        LabelDataASK.NUM_TAIL= Int16.Parse(dt.Rows[i]["NUM_TAIL"].ToString());
-                        REC_ID = double.Parse(dt.Rows[i]["REC_ID"].ToString());
-                        
-                        string str1 = MessageHead + " &" + LabelDataASK.MACHINE_NO + " &" + LabelDataASK.ID_LOT_PROD + " &" + LabelDataASK.ID_PART_LOT.ToString() + " &" + LabelDataASK.NUM_BDL.ToString() + " &" + LabelDataASK.SEQ_LEN.ToString() + " &" + LabelDataASK.SEQ_OPR.ToString() + " &" + LabelDataASK.SEQ_SEND.ToString()+" &"+ LabelDataASK.NUM_BAR.ToString() + " &" + LabelDataASK.SEQ_LIST.ToString() + " &" + LabelDataASK.LA_BDL_ACT.ToString() + " &" + LabelDataASK.NO_LICENCE + " &" + LabelDataASK.NAME_PROD + " &";
-                        string str3 = " &" + LabelDataASK.ID_HEAT+ " &" + LabelDataASK.NAME_STLGD+ " &" + LabelDataASK.DES_FIPRO_SECTION+" &" ;
-                        string str6 = " &" + LabelDataASK.TMSTP_WEIGH.ToString() + " &"+ LabelDataASK.BAR_CODE + " &" + LabelDataASK.NUM_HEAD + " &" + LabelDataASK.NUM_TAIL + " &" + ACK + " &" + REASON + " &" + time + " &" + REC_ID.ToString() + " &";
-                        byte OldBytes = 0x20;
-                        byte NewBytes = 0x7F;
-                        byte[] sendArray1 = System.Text.Encoding.ASCII.GetBytes(str1);
-                        sendArray1 = ByteReplace(sendArray1, OldBytes, NewBytes);
-                        byte[] sendArray2 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.NAME_STND);
-                        byte[] sendArray3 = System.Text.Encoding.ASCII.GetBytes(str3);
-                        sendArray3 = ByteReplace(sendArray3, OldBytes, NewBytes);
-                        byte[] sendArray4_1 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_RL );
-                        byte[] sendArray4= Enumerable.Repeat((byte)0x20, sendArray4_1.Length+2).ToArray();
-                        Array.Copy(sendArray4_1, sendArray4, sendArray4_1.Length);
-                        sendArray4[sendArray4_1.Length] = 0x7F;
-                        sendArray4[sendArray4_1.Length + 1] = 0x26;
-                        byte[] sendArray5 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_CK);
-                        byte[] sendArray6 = System.Text.Encoding.ASCII.GetBytes(str6);
-                        sendArray6 = ByteReplace(sendArray6, OldBytes, NewBytes);
-                        byte[] sendArray= Enumerable.Repeat((byte)0x20, sendArray1.Length + sendArray2.Length + sendArray3.Length + sendArray4.Length + sendArray5.Length + sendArray6.Length).ToArray();
-                        //sendArray1.CopyTo(sendArray, 0);
-                        //sendArray2.CopyTo(sendArray,sendArray1.Length);
-                        //sendArray3.CopyTo(sendArray, sendArray1.Length+ sendArray2.Length);
-                        //sendArray4.CopyTo(sendArray, sendArray1.Length + sendArray2.Length+ sendArray3.Length);
-                        //sendArray5.CopyTo(sendArray, sendArray1.Length + sendArray2.Length+ sendArray3.Length + sendArray4.Length);
-                        //sendArray6.CopyTo(sendArray, sendArray1.Length + sendArray2.Length + sendArray3.Length + sendArray4.Length+sendArray5.Length);
-                        List<byte> byteSource = new List<byte>();
-                        byteSource.AddRange(sendArray1);
-                        byteSource.AddRange(sendArray2);
-                        byteSource.AddRange(sendArray3);
-                        byteSource.AddRange(sendArray4);
-                        byteSource.AddRange(sendArray5);
-                        byteSource.AddRange(sendArray6);
-                        byte[] data = byteSource.ToArray();
-
-                        if (sendArray.Length > 0)
+                        for (int i = 0; i < dt.Rows.Count; i++)
                         {
-                            MESSocketClient.senddata(data);
-                            sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str6);
-                            tm.MultithreadExecuteNonQuery(sql);
+                            LabelDataASK.MACHINE_NO = dt.Rows[i]["MACHINE_NO"].ToString();
+                            LabelDataASK.ID_LOT_PROD = dt.Rows[i]["ID_LOT_PROD"].ToString();
+                            LabelDataASK.ID_PART_LOT = Int16.Parse(dt.Rows[i]["ID_PART_LOT"].ToString());
+                            LabelDataASK.NUM_BDL = Int16.Parse(dt.Rows[i]["NUM_BDL"].ToString());
+                            LabelDataASK.SEQ_LEN = Int16.Parse(dt.Rows[i]["SEQ_LEN"].ToString());
+                            LabelDataASK.SEQ_OPR = Int16.Parse(dt.Rows[i]["SEQ_OPR"].ToString());
+                            LabelDataASK.SEQ_SEND = double.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
+                            LabelDataASK.NUM_BAR = Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());
+                            LabelDataASK.SEQ_LIST = Int16.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
+                            LabelDataASK.LA_BDL_ACT = double.Parse(dt.Rows[i]["LA_BDL_ACT"].ToString());
+                            LabelDataASK.NO_LICENCE = dt.Rows[i]["NO_LICENCE"].ToString();
+                            LabelDataASK.NAME_PROD = dt.Rows[i]["NAME_PROD"].ToString();
+                            LabelDataASK.NAME_STND = dt.Rows[i]["NAME_STND"].ToString();//gbk
+                            LabelDataASK.ID_HEAT = dt.Rows[i]["ID_HEAT"].ToString();
+                            LabelDataASK.NAME_STLGD = dt.Rows[i]["NAME_STLGD"].ToString();
+                            LabelDataASK.DES_FIPRO_SECTION = dt.Rows[i]["DES_FIPRO_SECTION"].ToString();
+                            LabelDataASK.ID_CREW_RL = dt.Rows[i]["ID_CREW_RL"].ToString();//gbk
+                            LabelDataASK.ID_CREW_CK = dt.Rows[i]["ID_CREW_CK"].ToString();//gbk
+                            LabelDataASK.TMSTP_WEIGH = dt.Rows[i]["TMSTP_WEIGH"].ToString();
+                            LabelDataASK.BAR_CODE = dt.Rows[i]["BAR_CODE"].ToString();
+                            LabelDataASK.NUM_HEAD = Int16.Parse(dt.Rows[i]["NUM_HEAD"].ToString());
+                            LabelDataASK.NUM_TAIL = Int16.Parse(dt.Rows[i]["NUM_TAIL"].ToString());
+                            REC_ID = double.Parse(dt.Rows[i]["REC_ID"].ToString());
+
+                            string str1 = MessageHead + " &" + LabelDataASK.MACHINE_NO + " &" + LabelDataASK.ID_LOT_PROD + " &" + LabelDataASK.ID_PART_LOT.ToString() + " &" + LabelDataASK.NUM_BDL.ToString() + " &" + LabelDataASK.SEQ_LEN.ToString() + " &" + LabelDataASK.SEQ_OPR.ToString() + " &" + LabelDataASK.SEQ_SEND.ToString() + " &" + LabelDataASK.NUM_BAR.ToString() + " &" + LabelDataASK.SEQ_LIST.ToString() + " &" + LabelDataASK.LA_BDL_ACT.ToString() + " &" + LabelDataASK.NO_LICENCE + " &" + LabelDataASK.NAME_PROD + " &";
+                            string str3 = " &" + LabelDataASK.ID_HEAT + " &" + LabelDataASK.NAME_STLGD + " &" + LabelDataASK.DES_FIPRO_SECTION + " &";
+                            string str6 = " &" + LabelDataASK.TMSTP_WEIGH.ToString() + " &" + LabelDataASK.BAR_CODE + " &" + LabelDataASK.NUM_HEAD + " &" + LabelDataASK.NUM_TAIL + " &" + ACK + " &" + REASON + " &" + time + " &" + REC_ID.ToString() + " &";
+                            byte[] sendArray1 = System.Text.Encoding.ASCII.GetBytes(str1);
+                            byte[] sendArray2 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.NAME_STND);
+                            byte[] sendArray3 = System.Text.Encoding.ASCII.GetBytes(str3);
+                            byte[] sendArray4_1 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_RL.tr);
+                            byte[] sendArray4 = Enumerable.Repeat((byte)0x20, sendArray4_1.Length + 2).ToArray();
+                            byte[] sendArray5 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_CK);
+                            byte[] sendArray6 = System.Text.Encoding.ASCII.GetBytes(str6);
+                            byte OldBytes = 0x20;
+                            byte NewBytes = 0x7F;
+                            sendArray1 = ByteReplace(sendArray1, OldBytes, NewBytes);
+                            sendArray3 = ByteReplace(sendArray3, OldBytes, NewBytes);
+                            Array.Copy(sendArray4_1, sendArray4, sendArray4_1.Length);
+                            sendArray4[sendArray4_1.Length] = 0x7F;
+                            sendArray4[sendArray4_1.Length + 1] = 0x26;
+                            sendArray6 = ByteReplace(sendArray6, OldBytes, NewBytes);
+
+                            List<byte> byteSource = new List<byte>();
+                            byteSource.AddRange(sendArray1);
+                            byteSource.AddRange(sendArray2);
+                            byteSource.AddRange(sendArray3);
+                            byteSource.AddRange(sendArray4);
+                            byteSource.AddRange(sendArray5);
+                            byteSource.AddRange(sendArray6);
+                            byte[] sendArray = byteSource.ToArray();
+
+                            if (sendArray.Length > 0)
+                            {
+                                MESSocketClient.senddata(sendArray);
+                                sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str6);
+                                tm.MultithreadExecuteNonQuery(sql);                                
+                            }
                         }
                     }
                     #endregion
