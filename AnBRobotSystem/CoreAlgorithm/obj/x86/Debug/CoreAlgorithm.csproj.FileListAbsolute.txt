@@ -371,3 +371,4 @@ D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.
 D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.csproj.CopyComplete
 D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.exe
 D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.pdb
+D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.csprojAssemblyReference.cache
