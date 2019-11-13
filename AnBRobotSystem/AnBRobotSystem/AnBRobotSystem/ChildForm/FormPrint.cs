@@ -542,7 +542,7 @@ namespace AnBRobotSystem.ChildForm
                     string msg = "external_field string " + i.ToString()+ " \"" + Product + "\"\r\n";// 
                     try
                     {
-                        //SendMessage(msg);
+                        SendMessage(msg);
                     }
                     catch (Exception ex)
                     {
@@ -589,7 +589,7 @@ namespace AnBRobotSystem.ChildForm
                     string msg = "external_field string " + i.ToString()+ " \"" + Product + "\"\r\n";// 
                     try
                     {
-                       // SendMessage(msg);
+                        SendMessage(msg);
                     }
                     catch (Exception ex)
                     {
@@ -635,7 +635,7 @@ namespace AnBRobotSystem.ChildForm
                     string msg = "external_field string "+ i.ToString()  + " \"" + Product + "\"\r\n";//
                     try
                     {
-                        //SendMessage(msg);
+                        SendMessage(msg);
                     }
                     catch (Exception ex)
                     {

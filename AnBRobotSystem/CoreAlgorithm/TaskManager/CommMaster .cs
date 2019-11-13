@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using SocketHelper;
 namespace CoreAlgorithm.TaskManager
 {
     public struct LabelData
@@ -36,21 +37,49 @@ namespace CoreAlgorithm.TaskManager
     public class CommMaster
     { 
         TasksManager tm;
-        //private List<Thread> OrderSetSlabDesignThread;
         INIClass ini = new INIClass(System.AppDomain.CurrentDomain.BaseDirectory + "Config.ini");
         LabelData Label;
+        string localip = "", plcip = "", sprayip = "";//400PLC ip
+        int localportr = 0, plcportr = 0, plcports = 0, sprayportr = 0, sprayports = 0;//400PLC端口
+        SocketClient raw;
         public CommMaster()
         {
             tm = new TasksManager();
-            //OrderSetSlabDesignThread = new List<Thread>();
+            
         }
-        //int PLCSend = 0;
-        Socket raw;
         
+        public void ReconnectSpray()
+        {
+            string sql = null, str = null;     
+            try
+            {
+                raw.socketClient.Close();
+                raw.socketClient.Dispose();
+                raw.CreateConnect(sprayip, sprayports);
+                str = "重新尝试连接喷枪成功！";
+                sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                tm.MultithreadExecuteNonQuery(sql);
+            }
+            catch
+            {
+                str = "重新尝试连接喷枪系统失败！";
+                sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                tm.MultithreadExecuteNonQuery(sql);
+            }
+        }
         public void SendSprayMessage(string msg)
         {
             byte[] msgBytes = Encoding.ASCII.GetBytes(msg);
-            raw.Send(msgBytes);
+            if(!raw.IsSocketConnected())
+            {
+                Program.MessageFlg = 23;
+                ReconnectSpray();
+            }
+            else
+            {
+                raw.SendData(msgBytes);
+            }
+                
             string Text = "SendSpray:";
             foreach (byte b in msgBytes)
             {
@@ -417,20 +446,7 @@ namespace CoreAlgorithm.TaskManager
             }//sendArray[38] = 50;(byte)'1';
             
         }
-        public void MsgToTextBox(string msg)
-        {
-            /*if (textBox2.InvokeRequired)
-            {
-                Action<string> actionDelegate = (x) => { this.textBox1.Text += x.ToString(); };
-                // 或者
-                // Action<string> actionDelegate = delegate(string txt) { this.label2.Text = txt; };
-                this.textBox1.Invoke(actionDelegate, msg);
-            }
-            else
-            {
-                textBox1.Text += msg;
-            }*/
-        }
+        
         private void ListenRecall()
         {
             try
@@ -441,7 +457,7 @@ namespace CoreAlgorithm.TaskManager
                         break;
                     Thread.Sleep(1000);
                     byte[] buffer = new byte[1024];
-                    int byteCount = raw.Receive(buffer);
+                    int byteCount = raw.socketClient.Receive(buffer);
                     if (byteCount == 0)
                     {
                         break;
@@ -451,7 +467,6 @@ namespace CoreAlgorithm.TaskManager
                         string msg = Encoding.Default.GetString(buffer);
                         if (msg.Contains("1234567890abcdefghijklmn"))
                         Program.MessageFlg = 23;
-                            MsgToTextBox(msg);
                     }
                 }
             }
@@ -462,37 +477,29 @@ namespace CoreAlgorithm.TaskManager
                 Log.addLog(log, LogType.ERROR, ex.StackTrace);
             }
         }
-        public void CreateRawSocket(string sprayip , int sprayports)
-        {
-            //IPAddress ip = IPAddress.Parse("127.0.0.1");
-            //int port = 15786;
-        IPAddress ip = IPAddress.Parse(sprayip);
-            try
-            {
-                raw = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                raw.Connect(new IPEndPoint(ip, sprayports));
-            }
-            catch (Exception ex)
-            {
-                log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
-                Log.addLog(log, LogType.ERROR, ex.Message);
-                Log.addLog(log, LogType.ERROR, ex.StackTrace);
-            }
-        }
+        //public void CreateRawSocket(string sprayip , int sprayports)
+        //{
+        //    IPAddress ip = IPAddress.Parse(sprayip);
+        //    try
+        //    {
+        //        raw = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        //        raw.Connect(new IPEndPoint(ip, sprayports));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
+        //        Log.addLog(log, LogType.ERROR, ex.Message);
+        //        Log.addLog(log, LogType.ERROR, ex.StackTrace);
+        //    }
+        //}
         /// <summary>
         /// </summary>
         /// <param name="serverModlue"></param>
         public void RunSINGenerate()
-        {try
-        {       /*string sql = "SELECT PARAMETER_VALUE FROM SYSPARAMETER where PARAMETER_ID=2";
-                DbDataReader dr = null;
-                dr = tm.MultithreadDataReader(sql);
-                while (dr.Read())
-                {PLCSend = Convert.ToInt16(dr["PARAMETER_VALUE"]);
-                }
-                dr.Close();*/
-                string localip = "", plcip = "", sprayip = "";//400PLC ip
-                int localportr = 0, plcportr = 0, plcports = 0, sprayportr = 0, sprayports = 0;//400PLC端口
+        {
+            try
+            {      
+                
                 string sql = "SELECT ACQUISITIONCONFIG_ID,DATAACQUISITION_IP,DATAACQUISITION_PORTR,DATAACQUISITION_PORTS FROM ACQUISITIONCONFIG where ACQUISITIONCONFIG_ID=1 or ACQUISITIONCONFIG_ID=4 or ACQUISITIONCONFIG_ID=15";// ";
                 DbDataReader dr = tm.MultithreadDataReader(sql);
                 while (dr.Read())
@@ -506,7 +513,6 @@ namespace CoreAlgorithm.TaskManager
                     {
                         localip = Convert.ToString(dr["DATAACQUISITION_IP"]);
                         localportr = Convert.ToInt32(dr["DATAACQUISITION_PORTR"]);
-                        //plcports = Convert.ToInt32(dr["DATAACQUISITION_PORTS"]);
                     }
                     else
                     {
@@ -516,26 +522,20 @@ namespace CoreAlgorithm.TaskManager
                     }
                 }
                 dr.Close();
-                //PLCSocketClient PLCClient = new PLCSocketClient();
-                //SocketClient MESClient = new SocketClient();
-                //PLCClient.CreateConnect(plcip,plcports);
-                //MESClient.CreateConnect(mesip, mesports);
+
                 PLCSocketServer PLCServer = new PLCSocketServer();
-                //PLCSocketServer MESServer = new PLCSocketServer();
                 PLCServer.CreateSocket(localip,localportr);
-                //MESServer.CreateSocket(mesportr);
-                CreateRawSocket(sprayip , sprayports);
-                //创建监听进程
-                Thread receiveThread = new Thread(ListenRecall);
-                receiveThread.Start();
-                //Thread th = new System.Threading.Thread(new System.Threading.ParameterizedThreadStart(do_UpdateProduct));
-                    //OrderSetSlabDesignThread.Add(th);
-                    //th.Start(null);
-                Thread thS = new System.Threading.Thread(new System.Threading.ParameterizedThreadStart(do_SendMessage));
-                //OrderSetSlabDesignThread.Add(th);
+                //CreateRawSocket(sprayip , sprayports);
+                raw = new SocketClient(ListenRecall);
+                raw.CreateConnect(sprayip, sprayports);
+                
+
+                //Thread receiveThread = new Thread(ListenRecall);
+                //receiveThread.Start();
+
+                Thread thS = new Thread(new System.Threading.ParameterizedThreadStart(do_SendMessage));
                 thS.Start(null);
-               
-                //}
+
             }
             catch (Exception ex)
             {
@@ -543,7 +543,7 @@ namespace CoreAlgorithm.TaskManager
                 Log.addLog(log, LogType.ERROR, ex.Message);
                 Log.addLog(log, LogType.ERROR, ex.StackTrace);
             }
-        return;
+            return;
         }
 
 

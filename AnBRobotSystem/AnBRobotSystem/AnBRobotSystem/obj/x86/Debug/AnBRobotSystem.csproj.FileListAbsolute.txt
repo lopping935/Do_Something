@@ -153,3 +153,4 @@ D:\github\Do_Something\AnBRobotSystem\AnBRobotSystem\AnBRobotSystem\obj\x86\Debu
 D:\github\Do_Something\AnBRobotSystem\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.csproj.CopyComplete
 D:\github\Do_Something\AnBRobotSystem\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.exe
 D:\github\Do_Something\AnBRobotSystem\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.pdb
+D:\github\Do_Something\AnBRobotSystem\AnBRobotSystem\AnBRobotSystem\obj\x86\Debug\AnBRobotSystem.csprojAssemblyReference.cache
