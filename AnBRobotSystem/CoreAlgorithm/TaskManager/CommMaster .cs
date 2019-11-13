@@ -130,7 +130,7 @@ namespace CoreAlgorithm.TaskManager
                         Log.addLog(log, LogType.ERROR, ex.StackTrace);
                     }
                 }
-                if (i == 1)
+                if(i == 1)
                 {
                     sql = "select RTDATA_VALUE from REALTIMETASKDATA where TASK_ID=2";
                     dr = tm.MultithreadDataReader(sql);

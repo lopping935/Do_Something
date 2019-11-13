@@ -19,6 +19,8 @@ namespace CoreAlgorithm.TaskManager
         static int  mesportr =0, localportr =0;//400PLC端口
         INIClass ini = new INIClass(System.AppDomain.CurrentDomain.BaseDirectory + "Config.ini");
         public static object locker = new object();
+        byte OldBytes = 0x20;
+        byte NewBytes = 0x7F;
 
         public static byte [] ByteReplace(byte[] srcBytes, byte OldByte, byte NewByte)
         {
@@ -34,7 +36,37 @@ namespace CoreAlgorithm.TaskManager
         {
             tm = new TasksManager();
         }
-
+        public void model_change()
+        {
+            try
+            { 
+                string sql = string.Format("select top 1  from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC");
+                DbDataReader dr = null;
+                string MessageHead = "PRL301B", MACHINE_NO = "", ID_LOT_PROD="", REASON="";
+                short ID_PART_LOT = 0, NUM_BDL = 0, SEQ_LEN = 0, SEQ_OPR = 0, ACK = 0;
+                string TMSTP_SEND = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                double REC_ID = 0;
+                while(dr.Read())
+                {
+               
+                }
+                string str = MessageHead.Trim() + " &" + MACHINE_NO + " &" + ID_LOT_PROD + " &" + ID_PART_LOT.ToString() + " &" + NUM_BDL.ToString() + " &" + SEQ_LEN.ToString() + " &" + SEQ_OPR.ToString() + " &" +ACK.ToString()+ " &"+REASON+ " &"+TMSTP_SEND+ " &"+REC_ID.ToString()+ " &";
+                byte[] sendArray = System.Text.Encoding.ASCII.GetBytes(str);
+                ByteReplace(sendArray, OldBytes, NewBytes);
+                if (sendArray.Length > 0)
+                {
+                    MESSocketClient.senddata(sendArray);
+                    sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                    tm.MultithreadExecuteNonQuery(sql);
+                }
+            }
+            catch(Exception ex)
+            {
+                log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
+                Log.addLog(log, LogType.ERROR, ex.Message);
+                Log.addLog(log, LogType.ERROR, ex.StackTrace);
+            }
+        }
         public void do_SendMessage(object objTh)
         {
             string sql ="", time, MessageHead;
@@ -114,9 +146,9 @@ namespace CoreAlgorithm.TaskManager
                             byte[] sendArray1 = System.Text.Encoding.ASCII.GetBytes(str1);
                             byte[] sendArray2 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.NAME_STND);
                             byte[] sendArray3 = System.Text.Encoding.ASCII.GetBytes(str3);
-                            byte[] sendArray4_1 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_RL.tr);
+                            byte[] sendArray4_1 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_RL.Trim());
                             byte[] sendArray4 = Enumerable.Repeat((byte)0x20, sendArray4_1.Length + 2).ToArray();
-                            byte[] sendArray5 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_CK);
+                            byte[] sendArray5 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_CK.Trim());
                             byte[] sendArray6 = System.Text.Encoding.ASCII.GetBytes(str6);
                             byte OldBytes = 0x20;
                             byte NewBytes = 0x7F;
@@ -136,7 +168,7 @@ namespace CoreAlgorithm.TaskManager
                             byteSource.AddRange(sendArray6);
                             byte[] sendArray = byteSource.ToArray();
 
-                            if (sendArray.Length > 0)
+                            if (sendArray.Length > 0 )
                             {
                                 MESSocketClient.senddata(sendArray);
                                 sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str6);
