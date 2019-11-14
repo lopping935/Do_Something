@@ -56,7 +56,7 @@ namespace CoreAlgorithm.TaskManager
                 raw.socketClient.Close();
                 raw.socketClient.Dispose();
                 raw.CreateConnect(sprayip, sprayports);
-                str = "重新尝试连接喷枪成功！";
+                str = "重新尝试连接喷枪成功,请在此发送数据！";
                 sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                 tm.MultithreadExecuteNonQuery(sql);
             }
@@ -145,7 +145,7 @@ namespace CoreAlgorithm.TaskManager
                         }
                         Product = Product.Substring(0, (Product.Length - 3));
                     }
-                    string msg = "external_field string " + i.ToString() + " \"" + Product + "\"\r\n";
+                    string msg = "external_field string " + 1.ToString() + " \"" + Product + "\"\r\n";
                     try
                     {
                         SendSprayMessage(msg);
@@ -193,7 +193,7 @@ namespace CoreAlgorithm.TaskManager
                         }
                         Product = Product.Substring(0, (Product.Length - 3));
                     }
-                    string msg = "external_field string " + i.ToString() + " \"" + Product + "\"\r\n";
+                    string msg = "external_field string " + 2.ToString() + " \"" + Product + "\"\r\n";
                     try
                     {
                         SendSprayMessage(msg);
@@ -240,7 +240,7 @@ namespace CoreAlgorithm.TaskManager
                         }
                         Product = Product.Substring(0, (Product.Length - 3));
                     }
-                    string msg = "external_field string " + i.ToString() + " \"" + Product + "\"\r\n";
+                    string msg = "external_field string " + 3.ToString() + " \"" + Product + "\"\r\n";
                     try
                     {
                         SendSprayMessage(msg);
@@ -582,14 +582,5 @@ namespace CoreAlgorithm.TaskManager
         }
     }
 
-    public class ParaManager
-    {
-        //准备参数
-
-        //获取取参路径
-
-        //读取参数
-
-        //制作参数xml
-    }
+    
 }

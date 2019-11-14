@@ -15,18 +15,15 @@ namespace SocketHelper
         public SocketClient(ThreadStart RecvMSG1)
         {
             RecvMSG = RecvMSG1;
+            socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
         public void CreateConnect(string IPA, int port)
         {
-
-            socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPAddress ip = IPAddress.Parse(IPA);
             IPEndPoint endPoint = new IPEndPoint(ip, port);
             threadClient = new Thread(RecvMSG);
-
             socketClient.Connect(endPoint);
             threadClient.Start();
-
         }
         public bool IsSocketConnected()
         {
@@ -73,34 +70,6 @@ namespace SocketHelper
         {
             socketClient.Send(buffer);
         }
-
-        /*  public void RecMsg()
-          {            
-              while (true)
-              {
-                  //创建一个内存缓冲区，其大小为1024*1024字节  即1M     
-
-                  byte[] arrMsgRec = new byte[1024 * 1024 * 2];
-                  int length = -1;
-                  try
-                  {
-                      length = socketClient.Receive(arrMsgRec); // 接收数据，并返回数据的长度；
-                  }
-                  catch (SocketException se)
-                  {
-                      return;
-                  }
-                  catch (Exception e)
-                  {
-                      return;
-                  }
-                  if (length>0)
-                  {
-                      Buffer.BlockCopy(arrMsgRec,0,arrServerRecMsg,0,length);
-                  }
-              }
-          }*/
-
     }
     public class SocketServer
     {
@@ -118,9 +87,11 @@ namespace SocketHelper
             IPAddress ip = IPAddress.Parse(host);
             endPoint = new IPEndPoint(ip, port);
             socketWatch = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            
         }
-        public void StarServer()
+        public void StarServer(ThreadStart ServerRecvMSG)
         {
+            RecvMSG = ServerRecvMSG;
             socketWatch.Bind(endPoint);
             // 设置监听队列的长度；
             socketWatch.Listen(10);
@@ -143,47 +114,7 @@ namespace SocketHelper
                 dictThread.Add(sokConnection.RemoteEndPoint.ToString(), thr);  //  将新建的线程 添加 到线程的集合中去。
                 //我认为这里线程集合，在.net中应该有对象的线程管理工具类，其在设计上应该远远好于我们自己定义的director
             }
-        }
-
-        /* void RecMsg(object sokConnectionparn)
-         {
-             Socket sokClient = sokConnectionparn as Socket;
-             while (true)
-             {
-                 // 定义一个2M的缓存区；
-                 byte[] arrMsgRec = new byte[1024 * 1024 * 2];
-                 // 将接受到的数据存入到输入  arrMsgRec中；
-                 int length = -1;
-                 try
-                 {
-                     length = sokClient.Receive(arrMsgRec); // 接收数据，并返回数据的长度；
-                 }
-                 catch (SocketException se)
-                 {
-                     ShowMsg("异常：" + se.Message);
-                     // 从 通信套接字 集合中删除被中断连接的通信套接字；
-                     dict.Remove(sokClient.RemoteEndPoint.ToString());
-                     // 从通信线程集合中删除被中断连接的通信线程对象；这样能杀死后台的线程吗？
-                     dictThread.Remove(sokClient.RemoteEndPoint.ToString());
-                     // 从列表中移除被中断的连接IP
-                     ShowMsg(sokClient.RemoteEndPoint.ToString());
-                     break;
-                 }
-                 catch (Exception e)
-                 {
-                     ShowMsg("异常：" + e.Message);
-                     // 从 通信套接字 集合中删除被中断连接的通信套接字；
-                     dict.Remove(sokClient.RemoteEndPoint.ToString());
-                     // 从通信线程集合中删除被中断连接的通信线程对象；
-                     dictThread.Remove(sokClient.RemoteEndPoint.ToString());
-                     // 从列表中移除被中断的连接IP
-                     ShowMsg(sokClient.RemoteEndPoint.ToString());
-                     break;
-                 }
-
-
-             }
-         }*/
+        }      
         public void SendToSomeone(byte[] buffer, string ClientEndprot)
         {
             if (buffer.Length <= 0 || string.IsNullOrEmpty(ClientEndprot))
