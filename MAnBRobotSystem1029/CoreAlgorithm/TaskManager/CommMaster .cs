@@ -5,9 +5,7 @@ using System.Data.Common;
 using System.Threading;
 using System.Reflection;
 using System.Data;
-using System.Data.OleDb;
-using System.IO;
-using System.Data.SqlClient;
+using SocketHelper;
 using System.Linq;
 using System.Text;
 using System.Net;
@@ -34,34 +32,50 @@ namespace CoreAlgorithm.TaskManager
         public Int16 DIM_LEN;
     };
     public class CommMaster
-    { 
+    {
+        string localip = "", plcip = "", sprayip = "";//400PLC ip
+        int localportr = 0, plcportr = 0, plcports = 0, sprayportr = 0, sprayports = 0;//400PLC端口
         TasksManager tm;
         INIClass ini = new INIClass(System.AppDomain.CurrentDomain.BaseDirectory + "Config.ini");
         LabelData Label;
+        SocketClient raw=null;
         public CommMaster()
         {
             tm = new TasksManager();
         }
 
-        Socket raw=null;
-        
+        public void ReconnectSpray()
+        {
+            string sql = null, str = null;
+            try
+            {
+                raw.socketClient.Close();
+                raw.socketClient.Dispose();
+                raw.CreateConnect(sprayip, sprayports);
+                str = "重新尝试连接喷枪成功,请在此发送数据！";
+                sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                tm.MultithreadExecuteNonQuery(sql);
+            }
+            catch
+            {
+                str = "重新尝试连接喷枪系统失败！";
+                sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                tm.MultithreadExecuteNonQuery(sql);
+            }
+        }
+
         public void SendSprayMessage(string msg)
         {
             byte[] msgBytes = Encoding.ASCII.GetBytes(msg);
-            //if(raw==null)
-            //{
-            //    CreateRawSocket(sprayip, sprayports);               
-            //}
-            //else
-            //{
-            //    if (!PLCSocketClient.IsSocketConnected(raw))
-            //    {
-            //        raw.Close();
-            //        raw.Dispose();
-            //        CreateRawSocket(sprayip, sprayports);
-            //    }
-            //}
-            raw.Send(msgBytes);                       
+            if (!raw.IsSocketConnected())
+            {
+                Program.MessageFlg = 23;
+                ReconnectSpray();
+            }
+            else
+            {
+                raw.SendData(msgBytes);
+            }
             string Text = "SendSpray:";
             foreach (byte b in msgBytes)
             {
@@ -473,7 +487,7 @@ namespace CoreAlgorithm.TaskManager
                     if (Program.MessageStop == 1)
                         break;
                     byte[] buffer = new byte[1024];
-                    int byteCount = raw.Receive(buffer);
+                    int byteCount = raw.socketClient.Receive(buffer);
                     if (byteCount == 0)
                     {
                         break;
@@ -493,33 +507,12 @@ namespace CoreAlgorithm.TaskManager
                 Log.addLog(log, LogType.ERROR, ex.StackTrace);
             }
         }
-        public void CreateRawSocket(string sprayip , int sprayports)
-        {
-            Thread receiveThread = new Thread(ListenRecall);
-            IPAddress ip = IPAddress.Parse(sprayip);
-            try
-            {
-                raw = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                raw.Connect(new IPEndPoint(ip, sprayports));
-                receiveThread = new Thread(ListenRecall);
-                receiveThread.IsBackground = true;
-                receiveThread.Start();
-            }
-            catch (Exception ex)
-            {
-                Program.MessageFlg = 23;                
-                log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
-                Log.addLog(log, LogType.ERROR, ex.Message);
-                Log.addLog(log, LogType.ERROR, ex.StackTrace);
-                
-            }
-        }
+        
         /// <summary>
         /// </summary>
         /// <param name="serverModlue"></param>
         /// 
-        string localip = "", plcip = "", sprayip = "";//400PLC ip
-        int localportr = 0, plcportr = 0, plcports = 0, sprayportr = 0, sprayports = 0;//400PLC端口
+        
         public void RunSINGenerate()
         {
             try
@@ -551,7 +544,8 @@ namespace CoreAlgorithm.TaskManager
                 PLCSocketServer PLCServer = new PLCSocketServer();
                 PLCServer.CreateSocket(localip,localportr);
                 //创建喷枪客户端
-                CreateRawSocket(sprayip, sprayports);
+                raw = new SocketClient(ListenRecall);
+                raw.CreateConnect(sprayip, sprayports);
                 //创建监听进程
 
                 Thread thS = new System.Threading.Thread(new System.Threading.ParameterizedThreadStart(do_SendMessage));

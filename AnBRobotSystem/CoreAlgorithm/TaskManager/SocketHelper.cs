@@ -7,6 +7,9 @@ using System.Threading;
 
 namespace SocketHelper
 {
+    /// <summary>
+    /// sockethelper
+    /// </summary>
     public class SocketClient
     {
         private Thread threadClient = null;

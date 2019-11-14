@@ -52,3 +52,11 @@ D:\github\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.
 D:\github\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CopyComplete
 D:\github\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.exe
 D:\github\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.pdb
+D:\github\Do_Something\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
+D:\github\Do_Something\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.MAnB_CoreAlgorithm.resources
+D:\github\Do_Something\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.GenerateResource.cache
+D:\github\Do_Something\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CoreCompileInputs.cache
+D:\github\Do_Something\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.exe
+D:\github\Do_Something\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.pdb
+D:\github\Do_Something\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csproj.CopyComplete
+D:\github\Do_Something\MAnBRobotSystem1029\CoreAlgorithm\obj\x86\Debug\MCoreAlgorithm.csprojAssemblyReference.cache
