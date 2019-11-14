@@ -34,6 +34,7 @@ namespace CoreAlgorithm.TaskManager
         public Int16 NUM_BAR;
         public double DIM_LEN;
     };
+    //test gitignore
     public class CommMaster
     { 
         TasksManager tm;
