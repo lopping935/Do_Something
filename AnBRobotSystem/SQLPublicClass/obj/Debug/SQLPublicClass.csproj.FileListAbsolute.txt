@@ -222,4 +222,3 @@ D:\github\Do_Something\AnBRobotSystem\SQLPublicClass\obj\Debug\SQLPublicClass.cs
 D:\github\Do_Something\AnBRobotSystem\SQLPublicClass\obj\Debug\SQLPublicClass.csproj.CopyComplete
 D:\github\Do_Something\AnBRobotSystem\SQLPublicClass\obj\Debug\SQLPublicClass.dll
 D:\github\Do_Something\AnBRobotSystem\SQLPublicClass\obj\Debug\SQLPublicClass.pdb
-D:\project\Do_Something\AnBRobotSystem\SQLPublicClass\obj\Debug\SQLPublicClass.csprojAssemblyReference.cache

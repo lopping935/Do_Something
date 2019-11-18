@@ -372,11 +372,3 @@ D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.
 D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.exe
 D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.pdb
 D:\github\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.csprojAssemblyReference.cache
-D:\project\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.csprojAssemblyReference.cache
-D:\project\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
-D:\project\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.AnB_CoreAlgorithm.resources
-D:\project\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.csproj.GenerateResource.cache
-D:\project\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.csproj.CoreCompileInputs.cache
-D:\project\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.csproj.CopyComplete
-D:\project\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.exe
-D:\project\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.pdb

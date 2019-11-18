@@ -34,7 +34,6 @@ namespace CoreAlgorithm.TaskManager
         public Int16 NUM_BAR;
         public double DIM_LEN;
     };
-    //test gitignore
     public class CommMaster
     { 
         TasksManager tm;
@@ -260,6 +259,7 @@ namespace CoreAlgorithm.TaskManager
         public void do_SendMessage(object objTh)
         {
 
+
             while (true)
             {if (Program.MessageStop == 1)
                     break;
@@ -477,7 +477,21 @@ namespace CoreAlgorithm.TaskManager
                 Log.addLog(log, LogType.ERROR, ex.StackTrace);
             }
         }
-   
+        //public void CreateRawSocket(string sprayip , int sprayports)
+        //{
+        //    IPAddress ip = IPAddress.Parse(sprayip);
+        //    try
+        //    {
+        //        raw = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        //        raw.Connect(new IPEndPoint(ip, sprayports));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
+        //        Log.addLog(log, LogType.ERROR, ex.Message);
+        //        Log.addLog(log, LogType.ERROR, ex.StackTrace);
+        //    }
+        //}
         /// <summary>
         /// </summary>
         /// <param name="serverModlue"></param>
@@ -511,13 +525,10 @@ namespace CoreAlgorithm.TaskManager
 
                 PLCSocketServer PLCServer = new PLCSocketServer();
                 PLCServer.CreateSocket(localip,localportr);
-                //CreateRawSocket(sprayip , sprayports);
+
                 raw = new SocketClient(ListenRecall);
                 raw.CreateConnect(sprayip, sprayports);
                 
-
-                //Thread receiveThread = new Thread(ListenRecall);
-                //receiveThread.Start();
 
                 Thread thS = new Thread(new System.Threading.ParameterizedThreadStart(do_SendMessage));
                 thS.Start(null);
