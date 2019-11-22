@@ -264,10 +264,10 @@ namespace CoreAlgorithm.TaskManager
                             LabelDataRecv.SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.ASCII));
                             LabelDataRecv.DIM_LEN = Convert.ToDouble(GetString(HeadIndex[7], EncodingType.ASCII));
                             LabelDataRecv.IND_FIXED = GetString(HeadIndex[8], EncodingType.ASCII);
-                            LabelDataRecv.SEQ_SEND = Convert.ToDouble((HeadIndex[9], EncodingType.ASCII));
+                            LabelDataRecv.SEQ_SEND = Convert.ToDouble(GetString(HeadIndex[9], EncodingType.ASCII));
                             LabelDataRecv.NUM_BAR = Convert.ToInt16(GetString(HeadIndex[10], EncodingType.ASCII));
                             LabelDataRecv.SEQ_LIST = Convert.ToInt16(GetString(HeadIndex[11], EncodingType.ASCII));
-                            LabelDataRecv.LA_BDL_ACT = Convert.ToDouble((HeadIndex[12], EncodingType.ASCII));
+                            LabelDataRecv.LA_BDL_ACT = Convert.ToDouble(GetString(HeadIndex[12], EncodingType.ASCII));
                             LabelDataRecv.NO_LICENCE = GetString(HeadIndex[13], EncodingType.ASCII);
                             LabelDataRecv.NAME_PROD = GetString(HeadIndex[14], EncodingType.ASCII);
                             LabelDataRecv.NAME_STLGD = GetString(HeadIndex[15], EncodingType.GBK);

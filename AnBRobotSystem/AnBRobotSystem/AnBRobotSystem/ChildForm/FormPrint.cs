@@ -539,7 +539,7 @@ namespace AnBRobotSystem.ChildForm
                         
                     }
                     textBox3.Text = textBox3.Text + Product + "\r\n";
-                    string msg = "external_field string " + i.ToString()+ " \"" + Product + "\"\r\n";// 
+                    string msg = "external_field string " + 1.ToString()+ " \"" + Product + "\"\r\n";// 
                     try
                     {
                         SendMessage(msg);
@@ -586,7 +586,7 @@ namespace AnBRobotSystem.ChildForm
                         
                     }
                     textBox3.Text = textBox3.Text + Product + "\r\n";
-                    string msg = "external_field string " + i.ToString()+ " \"" + Product + "\"\r\n";// 
+                    string msg = "external_field string " + 2.ToString()+ " \"" + Product + "\"\r\n";// 
                     try
                     {
                         SendMessage(msg);
@@ -632,7 +632,7 @@ namespace AnBRobotSystem.ChildForm
                        
                     }
                     textBox3.Text = textBox3.Text + Product + "\r\n";
-                    string msg = "external_field string "+ i.ToString()  + " \"" + Product + "\"\r\n";//
+                    string msg = "external_field string "+ 3.ToString()  + " \"" + Product + "\"\r\n";//
                     try
                     {
                         SendMessage(msg);
