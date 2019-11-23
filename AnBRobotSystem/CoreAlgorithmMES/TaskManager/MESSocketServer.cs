@@ -243,7 +243,7 @@ namespace CoreAlgorithm.TaskManager
                         string MessageFlg = GetString(HeadIndex[0], EncodingType.ASCII);//System.Text.Encoding.ASCII.GetString(buffer.Skip(0).Take(HeadIndex + 1).ToArray());
                         string sql = "";
 
-                        if (MessageFlg == "L3PR000")//心跳信息，校准时间
+                        if (MessageFlg == "21LA000")//心跳信息，校准时间
                         {
                             string MesTime = GetString(HeadIndex[1], EncodingType.ASCII);//System.Text.Encoding.ASCII.GetString(buffer.Skip(0).Take(HeadIndex + 1).ToArray());
                             bool ret = SetDate(Convert.ToDateTime(MesTime));
@@ -252,7 +252,7 @@ namespace CoreAlgorithm.TaskManager
                             tm.MultithreadExecuteNonQuery(sql);
                         }
                         #region l3->l2接收数据标签
-                        if (MessageFlg == "L3PR001")//接收标签数据信息并反馈
+                        if (MessageFlg == "21LA001")//接收标签数据信息并反馈
                         {
                             
                             messagecls.LabelData LabelDataRecv;
@@ -303,7 +303,7 @@ namespace CoreAlgorithm.TaskManager
                             #endregion
                             #region l2->l3标签数据应答
                             //反馈接收数据标签信息                        
-                            string MessageHead = "PRL3001";
+                            string MessageHead = "LA2101A";
                             byte OldBytes = 0x20;
                             byte NewBytes = 0x7F;
                             byte[] sendArray1 = Enumerable.Repeat((byte)0x20, length-19-2).ToArray(); //
@@ -324,7 +324,7 @@ namespace CoreAlgorithm.TaskManager
                             tm.MultithreadExecuteNonQuery(sqlsend);
                             #endregion
                         }
-                        if (MessageFlg == "L3PR02A")//l3->l2模式切换数据同步应答
+                        if (MessageFlg == "21LA01A")//l3->l2标签结果应答
                         {
                             string MACHINE_NO = GetString(HeadIndex[1], EncodingType.ASCII);
                             string ID_LOT_PROD = GetString(HeadIndex[2], EncodingType.ASCII);
@@ -343,7 +343,29 @@ namespace CoreAlgorithm.TaskManager
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                             tm.MultithreadExecuteNonQuery(sql);
                         }
-
+                        if(MessageFlg == "21LA02A")
+                        {
+                            string MACHINE_NO = GetString(HeadIndex[1], EncodingType.ASCII);
+                            string ID_LOT_PROD = GetString(HeadIndex[2], EncodingType.ASCII);
+                            short ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[3], EncodingType.ASCII));
+                            short NUM_BDL = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.ASCII));
+                            short SEQ_LEN = Convert.ToInt16(GetString(HeadIndex[5], EncodingType.ASCII));
+                            short SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.ASCII));
+                            double SEQ_L2 = Convert.ToDouble(GetString(HeadIndex[8], EncodingType.ASCII));
+                            short ACK = Convert.ToInt16(GetString(HeadIndex[9], EncodingType.ASCII));
+                            string REASON = GetString(HeadIndex[10], EncodingType.ASCII);
+                            string TMSTP_SEND = GetString(HeadIndex[11], EncodingType.ASCII);
+                            sql = string.Format("UPDATE TLabelContent SET MODELSWTMSTP_SEND='{0}',MODELSWACK={1},MODELSWREASON='{2}' WHERE ID_LOT_PROD='{3}' and ID_PART_LOT={4} and NUM_BDL={5} and SEQ_LEN={6} and SEQ_OPR={7} and SEQ_L2={8}", TMSTP_SEND, ACK, REASON, ID_LOT_PROD, ID_PART_LOT, NUM_BDL, SEQ_LEN, SEQ_OPR, SEQ_L2);
+                            tm.MultithreadExecuteNonQuery(sql);
+                            string str = MessageFlg.ToString() + " " + ACK + " " + REASON + " " + TMSTP_SEND + " " + ID_LOT_PROD + " " + ID_PART_LOT.ToString() + " " + NUM_BDL.ToString() + " " + SEQ_LEN.ToString() + " " + SEQ_OPR.ToString() + " " + SEQ_L2.ToString();
+                            sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")),"l3->l2模式切换"+ str);
+                            tm.MultithreadExecuteNonQuery(sql);
+                        }
+                        else
+                        {
+                            sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到三级非法数据");
+                            tm.MultithreadExecuteNonQuery(sql);
+                        }
 
                     }
                 }

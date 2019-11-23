@@ -523,16 +523,15 @@ namespace CoreAlgorithm.TaskManager
                 }
                 dr.Close();
 
+                Thread thS = new Thread(new System.Threading.ParameterizedThreadStart(do_SendMessage));
+                thS.Start(null);
+
                 PLCSocketServer PLCServer = new PLCSocketServer();
                 PLCServer.CreateSocket(localip,localportr);
 
                 raw = new SocketClient(ListenRecall);
                 raw.CreateConnect(sprayip, sprayports);
                 
-
-                Thread thS = new Thread(new System.Threading.ParameterizedThreadStart(do_SendMessage));
-                thS.Start(null);
-
             }
             catch (Exception ex)
             {
