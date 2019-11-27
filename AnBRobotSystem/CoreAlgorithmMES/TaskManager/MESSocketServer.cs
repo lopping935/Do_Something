@@ -238,7 +238,7 @@ namespace CoreAlgorithm.TaskManager
                        
                         byte[] buffer = new byte[length];
                         Array.Copy(arrServerRecMsg, buffer, length);
-                        string text = GetString(buffer, EncodingType.UTF8);
+                        
                         byte[] searchBytes = new byte[] { 0x7F, 0x26 };
                         List<byte[]> HeadIndex = new List<byte[]>();
                         HeadIndex = nByteIndexOf(buffer, searchBytes);
@@ -313,8 +313,9 @@ namespace CoreAlgorithm.TaskManager
                             byte NewBytes = 0x7F;
                             byte[] sendArray1 = Enumerable.Repeat((byte)0x20, length-19-2).ToArray(); //
                             Array.Copy(buffer, sendArray1, length-19-2);
-                            byte[] byteArray1 = Encoding.Default.GetBytes(MessageHead);//应答头
+                            byte[] byteArray1 = StripIronNum.ByteReplace(Encoding.Default.GetBytes(MessageHead), OldBytes, NewBytes);//应答头
                             Buffer.BlockCopy(byteArray1, 0, sendArray1, 0, byteArray1.Length);
+
 
                             string appendmsg = "1" + " &"+" &"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+" &"+ ProductIDA.ToString()+ " &";                            
                             byte[] sendArray2 = StripIronNum.ByteReplace(Encoding.Default.GetBytes(appendmsg), OldBytes, NewBytes);
@@ -343,7 +344,7 @@ namespace CoreAlgorithm.TaskManager
                             short ACK = Convert.ToInt16(GetString(HeadIndex[10], EncodingType.GB2312));
                             string REASON = GetString(HeadIndex[11], EncodingType.GB2312);
                             string TMSTP_SEND = GetString(HeadIndex[12], EncodingType.GB2312);
-                            sql = string.Format("UPDATE TLabelContent SET MODELSWTMSTP_SEND='{0}',MODELSWACK={1},MODELSWREASON='{2}' WHERE ID_LOT_PROD='{3}' and ID_PART_LOT={4} and NUM_BDL={5} and SEQ_LEN={6} and SEQ_OPR={7} and SEQ_SEND={8} and SEQ_L2={9}", TMSTP_SEND, ACK, REASON, ID_LOT_PROD, ID_PART_LOT, NUM_BDL, SEQ_LEN, SEQ_OPR, SEQ_SEND, SEQ_L2);
+                            sql = string.Format("UPDATE TLabelContent SET MODELSWTMSTP_SEND='{0}',MODELSWACK={1},MODELSWREASON='{2}' WHERE ID_LOT_PROD='{3}' and ID_PART_LOT={4} and NUM_BDL={5} and SEQ_LEN={6} and SEQ_OPR={7} and SEQ_SEND={8} ", TMSTP_SEND, ACK, REASON, ID_LOT_PROD, ID_PART_LOT, NUM_BDL, SEQ_LEN, SEQ_OPR, SEQ_SEND);
                             tm.MultithreadExecuteNonQuery(sql);
                             string str = MessageFlg.ToString() + " " + ACK + " " + REASON + " " + TMSTP_SEND + " " + ID_LOT_PROD + " " + ID_PART_LOT.ToString() + " " + NUM_BDL.ToString() + " " + SEQ_LEN.ToString() + " " + SEQ_OPR.ToString()+SEQ_SEND.ToString()+SEQ_L2.ToString();
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
@@ -362,17 +363,18 @@ namespace CoreAlgorithm.TaskManager
                             short ACK = Convert.ToInt16(GetString(HeadIndex[9], EncodingType.GB2312));
                             string REASON = GetString(HeadIndex[10], EncodingType.GB2312);
                             string TMSTP_SEND = GetString(HeadIndex[11], EncodingType.GB2312);
-                            sql = string.Format("UPDATE TLabelContent SET MODELSWTMSTP_SEND='{0}',MODELSWACK={1},MODELSWREASON='{2}' WHERE ID_LOT_PROD='{3}' and ID_PART_LOT={4} and NUM_BDL={5} and SEQ_LEN={6} and SEQ_OPR={7} and SEQ_L2={8}", TMSTP_SEND, ACK, REASON, ID_LOT_PROD, ID_PART_LOT, NUM_BDL, SEQ_LEN, SEQ_OPR, SEQ_L2);
+                            sql = string.Format("UPDATE TLabelContent SET MODELSWTMSTP_SEND='{0}',MODELSWACK={1},MODELSWREASON='{2}' WHERE ID_LOT_PROD='{3}' and ID_PART_LOT={4} and NUM_BDL={5} and SEQ_LEN={6} and SEQ_OPR={7} ", TMSTP_SEND, ACK, REASON, ID_LOT_PROD, ID_PART_LOT, NUM_BDL, SEQ_LEN, SEQ_OPR);
                             tm.MultithreadExecuteNonQuery(sql);
                             string str = MessageFlg.ToString() + " " + ACK + " " + REASON + " " + TMSTP_SEND + " " + ID_LOT_PROD + " " + ID_PART_LOT.ToString() + " " + NUM_BDL.ToString() + " " + SEQ_LEN.ToString() + " " + SEQ_OPR.ToString() + " " + SEQ_L2.ToString();
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")),"l3->l2模式切换"+ str);
                             tm.MultithreadExecuteNonQuery(sql);
                         }
-                        //if(MessageFlg!= "21LA000"&& MessageFlg != "21LA001" && MessageFlg != "21LA01A" && MessageFlg != "21LA02A")
-                        //{
-                        //    sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到三级非法数据");
-                        //    tm.MultithreadExecuteNonQuery(sql);
-                        //}
+                        if(MessageFlg!= "21LA000"&& MessageFlg != "21LA001" && MessageFlg != "21LA01A" && MessageFlg != "21LA02A")
+                        {
+                            string text = GetString(buffer, EncodingType.GB2312);
+                            sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), text);
+                            tm.MultithreadExecuteNonQuery(sql);
+                        }
 
                     }
                 }

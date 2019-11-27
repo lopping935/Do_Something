@@ -53,12 +53,13 @@ namespace CoreAlgorithm.TaskManager
                             MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
                     }
                     dr.Close();
-                    sql = string.Format("select top 1 MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,REC_ID from TLabelContent WHERE WHERE REC_ID>={0} AND L3ACK=0 and (IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33) order by REC_ID desc", MAXRECID);
+                    sql = string.Format("select top 1 MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,REC_ID from TLabelContent  WHERE REC_ID>={0} AND L3ACK=0 and (IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33) order by REC_ID desc", MAXRECID);
                     string MessageHead = "LA21002", MACHINE_NO = "", ID_LOT_PROD="", REASON="";
                     short ID_PART_LOT = 0, NUM_BDL = 0, SEQ_LEN = 0, SEQ_OPR = 0, ACK = 1;
                     string TMSTP_SEND = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     double REC_ID = 0;
-                    while(dr.Read())
+                    dr = tm.MultithreadDataReader(sql);
+                    while (dr.Read())
                     {
                        MACHINE_NO = dr["MACHINE_NO"].ToString();
                        ID_LOT_PROD = dr["ID_LOT_PROD"].ToString();
@@ -117,6 +118,7 @@ namespace CoreAlgorithm.TaskManager
                     }
                     #endregion
                     #region 三级应答反馈 标签结果应答
+                    //model_change();
                     double MAXRECID = 0;// PLANIDNow = 0;                
                     sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                     DbDataReader dr = null;
@@ -134,7 +136,7 @@ namespace CoreAlgorithm.TaskManager
                     MessageHead = "LA21001";
                     time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     DataTable dt = tm.MultithreadDataTable(sql);
-                    if (dt.Rows.Count > 3)
+                    if (dt.Rows.Count > 8)
                     {
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
