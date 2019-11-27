@@ -242,13 +242,13 @@ namespace CoreAlgorithm.TaskManager
                         byte[] searchBytes = new byte[] { 0x7F, 0x26 };
                         List<byte[]> HeadIndex = new List<byte[]>();
                         HeadIndex = nByteIndexOf(buffer, searchBytes);
-                        string MessageFlg= GetString(HeadIndex[0], EncodingType.GB2312);//System.Text.Encoding.ASCII.GetString(buffer.Skip(0).Take(HeadIndex + 1).ToArray());
+                        string MessageFlg= GetString(HeadIndex[0], EncodingType.GB2312);//System.Text.Encoding.GB2312.GetString(buffer.Skip(0).Take(HeadIndex + 1).ToArray());
                         
                        
 
                         if (MessageFlg == "21LA000")//心跳信息，校准时间
                         {
-                            string MesTime = GetString(HeadIndex[1], EncodingType.ASCII);//System.Text.Encoding.ASCII.GetString(buffer.Skip(0).Take(HeadIndex + 1).ToArray());
+                            string MesTime = GetString(HeadIndex[1], EncodingType.GB2312);//System.Text.Encoding.ASCII.GetString(buffer.Skip(0).Take(HeadIndex + 1).ToArray());
                             bool ret = SetDate(Convert.ToDateTime(MesTime));
                             string str = MessageFlg.ToString() + " " + MesTime;
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
@@ -291,32 +291,33 @@ namespace CoreAlgorithm.TaskManager
                             while (dr.Read())
                             {
                                 if (dr["PARAMETER_VALUE"] != DBNull.Value)
-                                    ProductIDA = Convert.ToDouble(dr["PARAMETER_VALUE"]) + 1;
+                                    ProductIDA = Convert.ToDouble(dr["PARAMETER_VALUE"]) ;
                             }
                             dr.Close();
+                            LabelDataRecv.BAR_CODE = LabelDataRecv.ID_LOT_PROD + LabelDataRecv.ID_PART_LOT.ToString().PadLeft(2,'0')+ LabelDataRecv.NUM_BDL.ToString().PadLeft(3, '0') + LabelDataRecv.SEQ_LEN.ToString().PadLeft(2, '0') + LabelDataRecv.SEQ_OPR.ToString().PadLeft(2, '0')+"0000";
 
-                            sql = string.Format("insert into HLabelContent(MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,NAME_PROD,NAME_STND,ID_HEAT,NAME_STLGD,DES_FIPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,L3TMSTP_SEND,REC_ID,REC_CREATE_TIME) values('{0}','{1}',{2},{3},{4},{5},{6},'{7}',{8},{9},{10},{11},'{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}',{22},{23},'{24}',{25},'{26}')", LabelDataRecv.MACHINE_NO, LabelDataRecv.ID_LOT_PROD, LabelDataRecv.ID_PART_LOT, LabelDataRecv.NUM_BDL, LabelDataRecv.SEQ_LEN, LabelDataRecv.SEQ_OPR, LabelDataRecv.DIM_LEN, LabelDataRecv.IND_FIXED, LabelDataRecv.SEQ_SEND, LabelDataRecv.NUM_BAR, LabelDataRecv.SEQ_LIST, LabelDataRecv.LA_BDL_ACT, LabelDataRecv.NO_LICENCE, LabelDataRecv.NAME_PROD, LabelDataRecv.NAME_STND, LabelDataRecv.ID_HEAT, LabelDataRecv.NAME_STLGD, LabelDataRecv.DES_FIPRO_SECTION, LabelDataRecv.ID_CREW_RL, LabelDataRecv.ID_CREW_CK, LabelDataRecv.TMSTP_WEIGH, LabelDataRecv.BAR_CODE, LabelDataRecv.NUM_HEAD, LabelDataRecv.NUM_TAIL, LabelDataRecv.TMSTP_SEND, ProductIDA, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-                            tm.MultithreadExecuteNonQuery(sql);
-                            sql = string.Format("insert into TLabelContent(MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,NAME_PROD,NAME_STND,ID_HEAT,NAME_STLGD,DES_FIPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,L3TMSTP_SEND,REC_ID,REC_CREATE_TIME) values('{0}','{1}',{2},{3},{4},{5},{6},'{7}',{8},{9},{10},{11},'{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}',{22},{23},'{24}',{25},'{26}')", LabelDataRecv.MACHINE_NO, LabelDataRecv.ID_LOT_PROD, LabelDataRecv.ID_PART_LOT, LabelDataRecv.NUM_BDL, LabelDataRecv.SEQ_LEN, LabelDataRecv.SEQ_OPR, LabelDataRecv.DIM_LEN, LabelDataRecv.IND_FIXED, LabelDataRecv.SEQ_SEND, LabelDataRecv.NUM_BAR, LabelDataRecv.SEQ_LIST, LabelDataRecv.LA_BDL_ACT, LabelDataRecv.NO_LICENCE, LabelDataRecv.NAME_PROD, LabelDataRecv.NAME_STND, LabelDataRecv.ID_HEAT, LabelDataRecv.NAME_STLGD, LabelDataRecv.DES_FIPRO_SECTION, LabelDataRecv.ID_CREW_RL, LabelDataRecv.ID_CREW_CK, LabelDataRecv.TMSTP_WEIGH, LabelDataRecv.BAR_CODE, LabelDataRecv.NUM_HEAD, LabelDataRecv.NUM_TAIL, LabelDataRecv.TMSTP_SEND, ProductIDA, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                            //sql = string.Format("insert into HLabelContent(MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,NAME_PROD,NAME_STND,ID_HEAT,NAME_STLGD,DES_FIPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,L3TMSTP_SEND,REC_ID,REC_CREATE_TIME,IMP_FINISH) values('{0}','{1}',{2},{3},{4},{5},{6},'{7}',{8},{9},{10},{11},'{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}',{22},{23},'{24}',{25},'{26}',{27})", LabelDataRecv.MACHINE_NO, LabelDataRecv.ID_LOT_PROD, LabelDataRecv.ID_PART_LOT, LabelDataRecv.NUM_BDL, LabelDataRecv.SEQ_LEN, LabelDataRecv.SEQ_OPR, LabelDataRecv.DIM_LEN, LabelDataRecv.IND_FIXED, LabelDataRecv.SEQ_SEND, LabelDataRecv.NUM_BAR, LabelDataRecv.SEQ_LIST, LabelDataRecv.LA_BDL_ACT, LabelDataRecv.NO_LICENCE, LabelDataRecv.NAME_PROD, LabelDataRecv.NAME_STND, LabelDataRecv.ID_HEAT, LabelDataRecv.NAME_STLGD, LabelDataRecv.DES_FIPRO_SECTION, LabelDataRecv.ID_CREW_RL, LabelDataRecv.ID_CREW_CK, LabelDataRecv.TMSTP_WEIGH, LabelDataRecv.BAR_CODE, LabelDataRecv.NUM_HEAD, LabelDataRecv.NUM_TAIL, LabelDataRecv.TMSTP_SEND, ProductIDA, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),0);
+                           // tm.MultithreadExecuteNonQuery(sql);
+                            sql = string.Format("insert into TLabelContent(MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,NAME_PROD,NAME_STND,ID_HEAT,NAME_STLGD,DES_FIPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,L3TMSTP_SEND,REC_ID,REC_CREATE_TIME,IMP_FINISH) values('{0}','{1}',{2},{3},{4},{5},{6},'{7}',{8},{9},{10},{11},'{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}',{22},{23},'{24}',{25},'{26}',{27})", LabelDataRecv.MACHINE_NO, LabelDataRecv.ID_LOT_PROD, LabelDataRecv.ID_PART_LOT, LabelDataRecv.NUM_BDL, LabelDataRecv.SEQ_LEN, LabelDataRecv.SEQ_OPR, LabelDataRecv.DIM_LEN, LabelDataRecv.IND_FIXED, LabelDataRecv.SEQ_SEND, LabelDataRecv.NUM_BAR, LabelDataRecv.SEQ_LIST, LabelDataRecv.LA_BDL_ACT, LabelDataRecv.NO_LICENCE, LabelDataRecv.NAME_PROD, LabelDataRecv.NAME_STND, LabelDataRecv.ID_HEAT, LabelDataRecv.NAME_STLGD, LabelDataRecv.DES_FIPRO_SECTION, LabelDataRecv.ID_CREW_RL, LabelDataRecv.ID_CREW_CK, LabelDataRecv.TMSTP_WEIGH, LabelDataRecv.BAR_CODE, LabelDataRecv.NUM_HEAD, LabelDataRecv.NUM_TAIL, LabelDataRecv.TMSTP_SEND, ProductIDA, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),0);
                             tm.MultithreadExecuteNonQuery(sql);
                             sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=10", ProductIDA, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));
                             tm.MultithreadExecuteNonQuery(sql);
                             string str = MessageFlg.ToString() + " " + LabelDataRecv.MACHINE_NO + " " + LabelDataRecv.ID_LOT_PROD + " " + LabelDataRecv.ID_PART_LOT.ToString() + " " + LabelDataRecv.NUM_BDL.ToString() + " " + LabelDataRecv.SEQ_LEN.ToString() + " " + LabelDataRecv.SEQ_OPR.ToString() + " " + LabelDataRecv.DIM_LEN.ToString() + " " + LabelDataRecv.IND_FIXED + " " + LabelDataRecv.SEQ_SEND.ToString() + " " + LabelDataRecv.NUM_BAR.ToString() + " " + LabelDataRecv.SEQ_LIST.ToString() + " " + LabelDataRecv.LA_BDL_ACT.ToString() + " " + LabelDataRecv.NO_LICENCE + " " + LabelDataRecv.NAME_PROD + " " + LabelDataRecv.NAME_STND + " " + LabelDataRecv.ID_HEAT + " " + LabelDataRecv.NAME_STLGD + " " + LabelDataRecv.DES_FIPRO_SECTION + " " + LabelDataRecv.ID_CREW_RL + " " + LabelDataRecv.ID_CREW_CK + " " + LabelDataRecv.TMSTP_WEIGH + " " + LabelDataRecv.BAR_CODE + " " + LabelDataRecv.NUM_HEAD.ToString() + " " + LabelDataRecv.NUM_TAIL.ToString() + " " + LabelDataRecv.TMSTP_SEND;
-                            sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                            sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                             tm.MultithreadExecuteNonQuery(sql);
                             #endregion
                             #region l2->l3标签数据应答
                             //反馈接收数据标签信息                        
-                            string MessageHead = "LA2101A";
+                            string MessageHead = "LA2101A" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                             byte OldBytes = 0x20;
                             byte NewBytes = 0x7F;
                             byte[] sendArray1 = Enumerable.Repeat((byte)0x20, length-19-2).ToArray(); //
                             Array.Copy(buffer, sendArray1, length-19-2);
-                            byte[] byteArray1 = Encoding.ASCII.GetBytes(MessageHead);//应答头
+                            byte[] byteArray1 = Encoding.Default.GetBytes(MessageHead);//应答头
                             Buffer.BlockCopy(byteArray1, 0, sendArray1, 0, byteArray1.Length);
 
-                            string appendmsg = "1 &" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+" &"+ ProductIDA.ToString()+ " &";                            
-                            byte[] sendArray2 = StripIronNum.ByteReplace(Encoding.ASCII.GetBytes(appendmsg), OldBytes, NewBytes);
+                            string appendmsg = "1" + " &"+" &"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+" &"+ ProductIDA.ToString()+ " &";                            
+                            byte[] sendArray2 = StripIronNum.ByteReplace(Encoding.Default.GetBytes(appendmsg), OldBytes, NewBytes);
 
                             byte[] sendArray = Enumerable.Repeat((byte)0x20, sendArray1.Length+sendArray2.Length).ToArray();
                             Array.Copy(sendArray1, sendArray, sendArray1.Length);
@@ -330,37 +331,37 @@ namespace CoreAlgorithm.TaskManager
                         }
                         if (MessageFlg == "21LA01A")//l3->l2标签结果应答
                         {
-                            string ID_TIME= GetString(HeadIndex[1], EncodingType.ASCII);
-                            string MACHINE_NO = GetString(HeadIndex[2], EncodingType.ASCII);
-                            string ID_LOT_PROD = GetString(HeadIndex[3], EncodingType.ASCII);
-                            short ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.ASCII));
-                            short NUM_BDL = Convert.ToInt16(GetString(HeadIndex[5], EncodingType.ASCII));
-                            short SEQ_LEN = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.ASCII));
-                            short SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[7], EncodingType.ASCII));
-                            double SEQ_SEND= Convert.ToDouble(GetString(HeadIndex[8], EncodingType.ASCII));
-                            double SEQ_L2 = Convert.ToDouble(GetString(HeadIndex[9], EncodingType.ASCII));
-                            short ACK = Convert.ToInt16(GetString(HeadIndex[10], EncodingType.ASCII));
-                            string REASON = GetString(HeadIndex[11], EncodingType.ASCII);
-                            string TMSTP_SEND = GetString(HeadIndex[12], EncodingType.ASCII);
+                            string ID_TIME= GetString(HeadIndex[1], EncodingType.GB2312);
+                            string MACHINE_NO = GetString(HeadIndex[2], EncodingType.GB2312);
+                            string ID_LOT_PROD = GetString(HeadIndex[3], EncodingType.GB2312);
+                            short ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.GB2312));
+                            short NUM_BDL = Convert.ToInt16(GetString(HeadIndex[5], EncodingType.GB2312));
+                            short SEQ_LEN = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.GB2312));
+                            short SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[7], EncodingType.GB2312));
+                            double SEQ_SEND= Convert.ToDouble(GetString(HeadIndex[8], EncodingType.GB2312));
+                            double SEQ_L2 = Convert.ToDouble(GetString(HeadIndex[9], EncodingType.GB2312));
+                            short ACK = Convert.ToInt16(GetString(HeadIndex[10], EncodingType.GB2312));
+                            string REASON = GetString(HeadIndex[11], EncodingType.GB2312);
+                            string TMSTP_SEND = GetString(HeadIndex[12], EncodingType.GB2312);
                             sql = string.Format("UPDATE TLabelContent SET MODELSWTMSTP_SEND='{0}',MODELSWACK={1},MODELSWREASON='{2}' WHERE ID_LOT_PROD='{3}' and ID_PART_LOT={4} and NUM_BDL={5} and SEQ_LEN={6} and SEQ_OPR={7} and SEQ_SEND={8} and SEQ_L2={9}", TMSTP_SEND, ACK, REASON, ID_LOT_PROD, ID_PART_LOT, NUM_BDL, SEQ_LEN, SEQ_OPR, SEQ_SEND, SEQ_L2);
                             tm.MultithreadExecuteNonQuery(sql);
                             string str = MessageFlg.ToString() + " " + ACK + " " + REASON + " " + TMSTP_SEND + " " + ID_LOT_PROD + " " + ID_PART_LOT.ToString() + " " + NUM_BDL.ToString() + " " + SEQ_LEN.ToString() + " " + SEQ_OPR.ToString()+SEQ_SEND.ToString()+SEQ_L2.ToString();
-                            sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                            sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                             tm.MultithreadExecuteNonQuery(sql);
                         }
                         if(MessageFlg == "21LA02A")
                         {
-                            string ID_TIME= GetString(HeadIndex[1], EncodingType.ASCII);
-                            string MACHINE_NO = GetString(HeadIndex[2], EncodingType.ASCII);
-                            string ID_LOT_PROD = GetString(HeadIndex[3], EncodingType.ASCII);
-                            short ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.ASCII));
-                            short NUM_BDL = Convert.ToInt16(GetString(HeadIndex[5], EncodingType.ASCII));
-                            short SEQ_LEN = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.ASCII));
-                            short SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[7], EncodingType.ASCII));
-                            double SEQ_L2 = Convert.ToDouble(GetString(HeadIndex[8], EncodingType.ASCII));
-                            short ACK = Convert.ToInt16(GetString(HeadIndex[9], EncodingType.ASCII));
-                            string REASON = GetString(HeadIndex[10], EncodingType.ASCII);
-                            string TMSTP_SEND = GetString(HeadIndex[11], EncodingType.ASCII);
+                            string ID_TIME= GetString(HeadIndex[1], EncodingType.GB2312);
+                            string MACHINE_NO = GetString(HeadIndex[2], EncodingType.GB2312);
+                            string ID_LOT_PROD = GetString(HeadIndex[3], EncodingType.GB2312);
+                            short ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.GB2312));
+                            short NUM_BDL = Convert.ToInt16(GetString(HeadIndex[5], EncodingType.GB2312));
+                            short SEQ_LEN = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.GB2312));
+                            short SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[7], EncodingType.GB2312));
+                            double SEQ_L2 = Convert.ToDouble(GetString(HeadIndex[8], EncodingType.GB2312));
+                            short ACK = Convert.ToInt16(GetString(HeadIndex[9], EncodingType.GB2312));
+                            string REASON = GetString(HeadIndex[10], EncodingType.GB2312);
+                            string TMSTP_SEND = GetString(HeadIndex[11], EncodingType.GB2312);
                             sql = string.Format("UPDATE TLabelContent SET MODELSWTMSTP_SEND='{0}',MODELSWACK={1},MODELSWREASON='{2}' WHERE ID_LOT_PROD='{3}' and ID_PART_LOT={4} and NUM_BDL={5} and SEQ_LEN={6} and SEQ_OPR={7} and SEQ_L2={8}", TMSTP_SEND, ACK, REASON, ID_LOT_PROD, ID_PART_LOT, NUM_BDL, SEQ_LEN, SEQ_OPR, SEQ_L2);
                             tm.MultithreadExecuteNonQuery(sql);
                             string str = MessageFlg.ToString() + " " + ACK + " " + REASON + " " + TMSTP_SEND + " " + ID_LOT_PROD + " " + ID_PART_LOT.ToString() + " " + NUM_BDL.ToString() + " " + SEQ_LEN.ToString() + " " + SEQ_OPR.ToString() + " " + SEQ_L2.ToString();

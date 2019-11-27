@@ -69,7 +69,7 @@ namespace CoreAlgorithm.TaskManager
                        REC_ID = double.Parse(dr["REC_ID"].ToString());
                     }
                     string str = MessageHead.Trim() + " &" + TMSTP_SEND + " &" + MACHINE_NO + " &" + ID_LOT_PROD + " &" + ID_PART_LOT.ToString() + " &" + NUM_BDL.ToString() + " &" + SEQ_LEN.ToString() + " &" + SEQ_OPR.ToString() + " &" +ACK.ToString()+ " &"+REASON+ " &"+TMSTP_SEND+ " &"+REC_ID.ToString()+ " &";
-                    byte[] sendArray = System.Text.Encoding.ASCII.GetBytes(str);
+                    byte[] sendArray = System.Text.Encoding.Default.GetBytes(str);
                     ByteReplace(sendArray, OldBytes, NewBytes);
                     if (sendArray.Length > 0)
                     {
@@ -101,7 +101,7 @@ namespace CoreAlgorithm.TaskManager
                     {
                         MessageHead = "LA21000";                      
                         string str = MessageHead + " &" + time + " &"+ time + " &";
-                        byte[] sendArrayT = System.Text.Encoding.ASCII.GetBytes(str);
+                        byte[] sendArrayT = System.Text.Encoding.Default.GetBytes(str);
                         sendArrayT = ByteReplace(sendArrayT, OldBytes, NewBytes);
 
                         try
@@ -161,37 +161,10 @@ namespace CoreAlgorithm.TaskManager
                             LabelDataASK.NUM_HEAD = Int16.Parse(dt.Rows[i]["NUM_HEAD"].ToString());
                             LabelDataASK.NUM_TAIL = Int16.Parse(dt.Rows[i]["NUM_TAIL"].ToString());
                             REC_ID = double.Parse(dt.Rows[i]["REC_ID"].ToString());
-
-                            //string str1 = MessageHead + " &"+ time + " &" + LabelDataASK.MACHINE_NO + " &" + LabelDataASK.ID_LOT_PROD + " &" + LabelDataASK.ID_PART_LOT.ToString() + " &" + LabelDataASK.NUM_BDL.ToString() + " &" + LabelDataASK.SEQ_LEN.ToString() + " &" + LabelDataASK.SEQ_OPR.ToString() + " &" + LabelDataASK.SEQ_SEND.ToString() + " &" + LabelDataASK.NUM_BAR.ToString() + " &" + LabelDataASK.SEQ_LIST.ToString() + " &" + LabelDataASK.LA_BDL_ACT.ToString() + " &" + LabelDataASK.NO_LICENCE + " &";
-                            //string str3 = " &"+LabelDataASK.NAME_STND+" &" + LabelDataASK.ID_HEAT + " &" + LabelDataASK.NAME_STLGD + " &" + LabelDataASK.DES_FIPRO_SECTION + " &";
-                            //string str6 = " &" + LabelDataASK.TMSTP_WEIGH.ToString() + " &" + LabelDataASK.BAR_CODE + " &" + LabelDataASK.NUM_HEAD + " &" + LabelDataASK.NUM_TAIL + " &" + ACK + " &" + REASON + " &" + time + " &" + REC_ID.ToString() + " &";
-                            //byte[] sendArray1 = System.Text.Encoding.ASCII.GetBytes(str1);
-                            //byte[] sendArray2 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.NAME_PROD);
-                            //byte[] sendArray3 = System.Text.Encoding.ASCII.GetBytes(str3);
-                            //byte[] sendArray4_1 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_RL.Trim());
-                            //byte[] sendArray4 = Enumerable.Repeat((byte)0x20, sendArray4_1.Length + 2).ToArray();
-                            //byte[] sendArray5 = System.Text.Encoding.GetEncoding("GBK").GetBytes(LabelDataASK.ID_CREW_CK.Trim());
-                            //byte[] sendArray6 = System.Text.Encoding.ASCII.GetBytes(str6);
-                            //byte OldBytes = 0x20;
-                            //byte NewBytes = 0x7F;
-                            //sendArray1 = ByteReplace(sendArray1, OldBytes, NewBytes);
-                            //sendArray3 = ByteReplace(sendArray3, OldBytes, NewBytes);
-                            //Array.Copy(sendArray4_1, sendArray4, sendArray4_1.Length);
-                            //sendArray4[sendArray4_1.Length] = 0x7F;
-                            //sendArray4[sendArray4_1.Length + 1] = 0x26;
-                            //sendArray6 = ByteReplace(sendArray6, OldBytes, NewBytes);
-
-                            //List<byte> byteSource = new List<byte>();
-                            //byteSource.AddRange(sendArray1);
-                            //byteSource.AddRange(sendArray2);
-                            //byteSource.AddRange(sendArray3);
-                            //byteSource.AddRange(sendArray4);
-                            //byteSource.AddRange(sendArray5);
-                            //byteSource.AddRange(sendArray6);
-                            //byte[] sendArray = byteSource.ToArray();
+                           
                             string text1= MessageHead + " &" + time + " &" + LabelDataASK.MACHINE_NO + " &" + LabelDataASK.ID_LOT_PROD + " &" + LabelDataASK.ID_PART_LOT.ToString() + " &" + LabelDataASK.NUM_BDL.ToString() + " &" + LabelDataASK.SEQ_LEN.ToString() + " &" + LabelDataASK.SEQ_OPR.ToString() + " &" + LabelDataASK.SEQ_SEND.ToString() + " &" + LabelDataASK.NUM_BAR.ToString() + " &" + LabelDataASK.SEQ_LIST.ToString() + " &" + LabelDataASK.LA_BDL_ACT.ToString() + " &" + LabelDataASK.NO_LICENCE + " &"+ LabelDataASK.NAME_PROD+ " &";
-                            string text2= LabelDataASK.NAME_STND + " &" + LabelDataASK.ID_HEAT + " &" + LabelDataASK.NAME_STLGD + " &" + LabelDataASK.DES_FIPRO_SECTION + " &" + LabelDataASK.TMSTP_WEIGH.ToString() + " &" + LabelDataASK.BAR_CODE + " &" + LabelDataASK.NUM_HEAD + " &" + LabelDataASK.NUM_TAIL + " &" + ACK + " &" + REASON + " &" + time + " &" + REC_ID.ToString() + " &";
-                            byte[] sendArray= Encoding.GetEncoding("UTF-8").GetBytes(text1+text2);
+                            string text2= LabelDataASK.NAME_STND + " &" + LabelDataASK.ID_HEAT + " &" + LabelDataASK.NAME_STLGD + " &" + LabelDataASK.DES_FIPRO_SECTION + " &" + LabelDataASK.ID_CREW_RL+ " &" + LabelDataASK.ID_CREW_CK + " &" + LabelDataASK.TMSTP_WEIGH.ToString() + " &" + LabelDataASK.BAR_CODE + " &" + LabelDataASK.NUM_HEAD + " &" + LabelDataASK.NUM_TAIL + " &" + ACK + " &" + REASON + " &" + time + " &" + REC_ID.ToString() + " &";
+                            byte[] sendArray= Encoding.Default.GetBytes(text1+text2);
                             sendArray = ByteReplace(sendArray, OldBytes, NewBytes);
                             if (sendArray.Length > 0)
                             {
