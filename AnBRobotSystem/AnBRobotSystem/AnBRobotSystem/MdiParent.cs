@@ -490,7 +490,7 @@ namespace AnBRobotSystem
                             case "13":
                                 ComContent = "打印失败 " + ComContent;
                                 break;
-                            case "21":
+                            case "211":
                                 ComContent = "申请下发喷码机信息 " + ComContent;
                                 break;
                             case "22":

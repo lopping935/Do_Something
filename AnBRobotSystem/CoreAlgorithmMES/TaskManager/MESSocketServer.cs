@@ -52,7 +52,7 @@ namespace CoreAlgorithm.TaskManager
         static Socket socketWatch;
         static TasksManager tm;
         
-        public enum EncodingType { UTF7, UTF8, UTF32, Unicode, BigEndianUnicode, ASCII, GB2312, GBK };
+        public enum EncodingType { UTF7, UTF8, UTF32, Unicode, BigEndianUnicode, ASCII, GB2312, GBK,ISO8859 };
         public static string GetString(byte[] myByte, EncodingType encodingType)
         {
             string str = null;
@@ -76,12 +76,16 @@ namespace CoreAlgorithm.TaskManager
                     break;
                 case EncodingType.ASCII:
                     str = Encoding.ASCII.GetString(myByte);
+                   // str = Encoding.;
                     break;
                 case EncodingType.GB2312:
                     str = Encoding.Default.GetString(myByte);
                     break;
                 case EncodingType.GBK:
                     str = System.Text.Encoding.GetEncoding("GBK").GetString(myByte);
+                    break;
+                case EncodingType.ISO8859:
+                    str = System.Text.Encoding.GetEncoding("ISO8859-1").GetString(myByte);
                     break;
             }
             return str;
@@ -149,11 +153,6 @@ namespace CoreAlgorithm.TaskManager
         public static List<int> ByteIndexOf(byte[] srcBytes, byte[] searchBytes)
         {
             List<int> HeadIndex = new List<int>();
-            /*if (srcBytes == null) { return -1; }
-            if (searchBytes == null) { return -1; }
-            if (srcBytes.Length == 0) { return -1; }
-            if (searchBytes.Length == 0) { return -1; }
-            if (srcBytes.Length < searchBytes.Length) { return -1; }*/
             for (int i = 0; i < srcBytes.Length- searchBytes.Length; i++)
             {
                 if (srcBytes[i] == searchBytes[0])
@@ -224,6 +223,7 @@ namespace CoreAlgorithm.TaskManager
         {
             Socket connect = SocketClient as Socket;
             messagecls msq = new messagecls();
+            string sql = "";
             while (true)
             {
                 Thread.Sleep(1000);
@@ -235,13 +235,16 @@ namespace CoreAlgorithm.TaskManager
                     int length = connect.Receive(arrServerRecMsg);
                     if (length > 0)
                     {
+                       
                         byte[] buffer = new byte[length];
                         Array.Copy(arrServerRecMsg, buffer, length);
+                        string text = GetString(buffer, EncodingType.UTF8);
                         byte[] searchBytes = new byte[] { 0x7F, 0x26 };
                         List<byte[]> HeadIndex = new List<byte[]>();
                         HeadIndex = nByteIndexOf(buffer, searchBytes);
-                        string MessageFlg = GetString(HeadIndex[0], EncodingType.ASCII);//System.Text.Encoding.ASCII.GetString(buffer.Skip(0).Take(HeadIndex + 1).ToArray());
-                        string sql = "";
+                        string MessageFlg= GetString(HeadIndex[0], EncodingType.GB2312);//System.Text.Encoding.ASCII.GetString(buffer.Skip(0).Take(HeadIndex + 1).ToArray());
+                        
+                       
 
                         if (MessageFlg == "21LA000")//心跳信息，校准时间
                         {
@@ -256,31 +259,32 @@ namespace CoreAlgorithm.TaskManager
                         {
                             
                             messagecls.LabelData LabelDataRecv;
-                            LabelDataRecv.MACHINE_NO = GetString(HeadIndex[1], EncodingType.ASCII);
-                            LabelDataRecv.ID_LOT_PROD = GetString(HeadIndex[2], EncodingType.ASCII);
-                            LabelDataRecv.ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[3], EncodingType.ASCII));
-                            LabelDataRecv.NUM_BDL = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.ASCII));
-                            LabelDataRecv.SEQ_LEN = Convert.ToInt16(GetString(HeadIndex[5], EncodingType.ASCII));
-                            LabelDataRecv.SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.ASCII));
-                            LabelDataRecv.DIM_LEN = Convert.ToDouble(GetString(HeadIndex[7], EncodingType.ASCII));
-                            LabelDataRecv.IND_FIXED = GetString(HeadIndex[8], EncodingType.ASCII);
-                            LabelDataRecv.SEQ_SEND = Convert.ToDouble(GetString(HeadIndex[9], EncodingType.ASCII));
-                            LabelDataRecv.NUM_BAR = Convert.ToInt16(GetString(HeadIndex[10], EncodingType.ASCII));
-                            LabelDataRecv.SEQ_LIST = Convert.ToInt16(GetString(HeadIndex[11], EncodingType.ASCII));
-                            LabelDataRecv.LA_BDL_ACT = Convert.ToDouble(GetString(HeadIndex[12], EncodingType.ASCII));
-                            LabelDataRecv.NO_LICENCE = GetString(HeadIndex[13], EncodingType.ASCII);
-                            LabelDataRecv.NAME_PROD = GetString(HeadIndex[14], EncodingType.ASCII);
-                            LabelDataRecv.NAME_STLGD = GetString(HeadIndex[15], EncodingType.GBK);
-                            LabelDataRecv.ID_HEAT = GetString(HeadIndex[16], EncodingType.ASCII);
-                            LabelDataRecv.NAME_STND = GetString(HeadIndex[17], EncodingType.ASCII);
-                            LabelDataRecv.DES_FIPRO_SECTION = GetString(HeadIndex[18], EncodingType.ASCII);
-                            LabelDataRecv.ID_CREW_RL = GetString(HeadIndex[19], EncodingType.GBK);
-                            LabelDataRecv.ID_CREW_CK = GetString(HeadIndex[20], EncodingType.GBK);
-                            LabelDataRecv.TMSTP_WEIGH = GetString(HeadIndex[21], EncodingType.ASCII);
-                            LabelDataRecv.BAR_CODE = GetString(HeadIndex[22], EncodingType.ASCII);
-                            LabelDataRecv.NUM_HEAD = Convert.ToInt16(GetString(HeadIndex[23], EncodingType.ASCII));
-                            LabelDataRecv.NUM_TAIL = Convert.ToInt16(GetString(HeadIndex[24], EncodingType.ASCII));
-                            LabelDataRecv.TMSTP_SEND = GetString(HeadIndex[25], EncodingType.ASCII);
+                            LabelDataRecv.ID_TIME = GetString(HeadIndex[1], EncodingType.GB2312);
+                            LabelDataRecv.MACHINE_NO = GetString(HeadIndex[2], EncodingType.GB2312);                           
+                            LabelDataRecv.ID_LOT_PROD = GetString(HeadIndex[3], EncodingType.GB2312);
+                            LabelDataRecv.ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.GB2312));
+                            LabelDataRecv.NUM_BDL = Convert.ToInt16(GetString(HeadIndex[5], EncodingType.GB2312));
+                            LabelDataRecv.SEQ_LEN = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.GB2312));
+                            LabelDataRecv.SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[7], EncodingType.GB2312));
+                            LabelDataRecv.DIM_LEN = Convert.ToDouble(GetString(HeadIndex[8], EncodingType.GB2312));
+                            LabelDataRecv.IND_FIXED = GetString(HeadIndex[9], EncodingType.GB2312);
+                            LabelDataRecv.SEQ_SEND = Convert.ToDouble(GetString(HeadIndex[10], EncodingType.GB2312));
+                            LabelDataRecv.NUM_BAR = Convert.ToInt16(GetString(HeadIndex[11], EncodingType.GB2312));
+                            LabelDataRecv.SEQ_LIST = Convert.ToInt16(GetString(HeadIndex[12], EncodingType.GB2312));
+                            LabelDataRecv.LA_BDL_ACT = Convert.ToDouble(GetString(HeadIndex[13], EncodingType.GB2312));
+                            LabelDataRecv.NO_LICENCE = GetString(HeadIndex[14], EncodingType.GB2312);
+                            LabelDataRecv.NAME_PROD = GetString(HeadIndex[15], EncodingType.GB2312);//GB2312
+                            LabelDataRecv.NAME_STND = GetString(HeadIndex[16], EncodingType.GB2312);
+                            LabelDataRecv.ID_HEAT = GetString(HeadIndex[17], EncodingType.GB2312);
+                            LabelDataRecv.NAME_STLGD = GetString(HeadIndex[18], EncodingType.GB2312);//GB2312
+                            LabelDataRecv.DES_FIPRO_SECTION = GetString(HeadIndex[19], EncodingType.GB2312);
+                            LabelDataRecv.ID_CREW_RL = GetString(HeadIndex[20], EncodingType.GB2312);//GB2312
+                            LabelDataRecv.ID_CREW_CK = GetString(HeadIndex[21], EncodingType.GB2312);//GB2312
+                            LabelDataRecv.TMSTP_WEIGH = GetString(HeadIndex[22], EncodingType.GB2312);
+                            LabelDataRecv.BAR_CODE = GetString(HeadIndex[23], EncodingType.GB2312);
+                            LabelDataRecv.NUM_HEAD = Convert.ToInt16(GetString(HeadIndex[24], EncodingType.GB2312));
+                            LabelDataRecv.NUM_TAIL = Convert.ToInt16(GetString(HeadIndex[25], EncodingType.GB2312));
+                            LabelDataRecv.TMSTP_SEND = GetString(HeadIndex[26], EncodingType.GB2312);
                             sql = "select PARAMETER_VALUE from SYSPARAMETER where PARAMETER_ID=10";
                             DbDataReader dr = tm.MultithreadDataReader(sql);
                             double ProductIDA = 0;
@@ -326,17 +330,18 @@ namespace CoreAlgorithm.TaskManager
                         }
                         if (MessageFlg == "21LA01A")//l3->l2标签结果应答
                         {
-                            string MACHINE_NO = GetString(HeadIndex[1], EncodingType.ASCII);
-                            string ID_LOT_PROD = GetString(HeadIndex[2], EncodingType.ASCII);
-                            short ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[3], EncodingType.ASCII));
-                            short NUM_BDL = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.ASCII));
-                            short SEQ_LEN = Convert.ToInt16(GetString(HeadIndex[5], EncodingType.ASCII));
-                            short SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.ASCII));
-                            double SEQ_SEND= Convert.ToDouble(GetString(HeadIndex[7], EncodingType.ASCII));
-                            double SEQ_L2 = Convert.ToDouble(GetString(HeadIndex[8], EncodingType.ASCII));
-                            short ACK = Convert.ToInt16(GetString(HeadIndex[9], EncodingType.ASCII));
-                            string REASON = GetString(HeadIndex[10], EncodingType.ASCII);
-                            string TMSTP_SEND = GetString(HeadIndex[11], EncodingType.ASCII);
+                            string ID_TIME= GetString(HeadIndex[1], EncodingType.ASCII);
+                            string MACHINE_NO = GetString(HeadIndex[2], EncodingType.ASCII);
+                            string ID_LOT_PROD = GetString(HeadIndex[3], EncodingType.ASCII);
+                            short ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.ASCII));
+                            short NUM_BDL = Convert.ToInt16(GetString(HeadIndex[5], EncodingType.ASCII));
+                            short SEQ_LEN = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.ASCII));
+                            short SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[7], EncodingType.ASCII));
+                            double SEQ_SEND= Convert.ToDouble(GetString(HeadIndex[8], EncodingType.ASCII));
+                            double SEQ_L2 = Convert.ToDouble(GetString(HeadIndex[9], EncodingType.ASCII));
+                            short ACK = Convert.ToInt16(GetString(HeadIndex[10], EncodingType.ASCII));
+                            string REASON = GetString(HeadIndex[11], EncodingType.ASCII);
+                            string TMSTP_SEND = GetString(HeadIndex[12], EncodingType.ASCII);
                             sql = string.Format("UPDATE TLabelContent SET MODELSWTMSTP_SEND='{0}',MODELSWACK={1},MODELSWREASON='{2}' WHERE ID_LOT_PROD='{3}' and ID_PART_LOT={4} and NUM_BDL={5} and SEQ_LEN={6} and SEQ_OPR={7} and SEQ_SEND={8} and SEQ_L2={9}", TMSTP_SEND, ACK, REASON, ID_LOT_PROD, ID_PART_LOT, NUM_BDL, SEQ_LEN, SEQ_OPR, SEQ_SEND, SEQ_L2);
                             tm.MultithreadExecuteNonQuery(sql);
                             string str = MessageFlg.ToString() + " " + ACK + " " + REASON + " " + TMSTP_SEND + " " + ID_LOT_PROD + " " + ID_PART_LOT.ToString() + " " + NUM_BDL.ToString() + " " + SEQ_LEN.ToString() + " " + SEQ_OPR.ToString()+SEQ_SEND.ToString()+SEQ_L2.ToString();
@@ -345,12 +350,13 @@ namespace CoreAlgorithm.TaskManager
                         }
                         if(MessageFlg == "21LA02A")
                         {
-                            string MACHINE_NO = GetString(HeadIndex[1], EncodingType.ASCII);
-                            string ID_LOT_PROD = GetString(HeadIndex[2], EncodingType.ASCII);
-                            short ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[3], EncodingType.ASCII));
-                            short NUM_BDL = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.ASCII));
-                            short SEQ_LEN = Convert.ToInt16(GetString(HeadIndex[5], EncodingType.ASCII));
-                            short SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.ASCII));
+                            string ID_TIME= GetString(HeadIndex[1], EncodingType.ASCII);
+                            string MACHINE_NO = GetString(HeadIndex[2], EncodingType.ASCII);
+                            string ID_LOT_PROD = GetString(HeadIndex[3], EncodingType.ASCII);
+                            short ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.ASCII));
+                            short NUM_BDL = Convert.ToInt16(GetString(HeadIndex[5], EncodingType.ASCII));
+                            short SEQ_LEN = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.ASCII));
+                            short SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[7], EncodingType.ASCII));
                             double SEQ_L2 = Convert.ToDouble(GetString(HeadIndex[8], EncodingType.ASCII));
                             short ACK = Convert.ToInt16(GetString(HeadIndex[9], EncodingType.ASCII));
                             string REASON = GetString(HeadIndex[10], EncodingType.ASCII);
@@ -361,11 +367,11 @@ namespace CoreAlgorithm.TaskManager
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")),"l3->l2模式切换"+ str);
                             tm.MultithreadExecuteNonQuery(sql);
                         }
-                        else
-                        {
-                            sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到三级非法数据");
-                            tm.MultithreadExecuteNonQuery(sql);
-                        }
+                        //if(MessageFlg!= "21LA000"&& MessageFlg != "21LA001" && MessageFlg != "21LA01A" && MessageFlg != "21LA02A")
+                        //{
+                        //    sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到三级非法数据");
+                        //    tm.MultithreadExecuteNonQuery(sql);
+                        //}
 
                     }
                 }

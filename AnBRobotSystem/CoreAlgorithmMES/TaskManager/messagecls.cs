@@ -12,10 +12,10 @@ namespace CoreAlgorithmMES
         {
 
         }
-        public enum EncodingType { UTF7, UTF8, UTF32, Unicode, BigEndianUnicode, ASCII, GB2312, GBK };
         public struct LabelData
         {
             public string MACHINE_NO;// 打包机组号
+            public string ID_TIME;
             public string ID_LOT_PROD;//生产批号
             public Int16 ID_PART_LOT; //分批号
             public Int16 NUM_BDL;//捆号
@@ -41,10 +41,9 @@ namespace CoreAlgorithmMES
             public Int16 NUM_TAIL;// 尾签个数
             public string TMSTP_SEND;// 发送时间
         };
-        
+        public enum EncodingType { UTF7, UTF8, UTF32, Unicode, BigEndianUnicode, ASCII, GB2312, GBK, ISO8859 ,defaul};
         public static string GetString(byte[] myByte, EncodingType encodingType)
         {
-            
             string str = null;
             switch (encodingType)
             {
@@ -66,6 +65,7 @@ namespace CoreAlgorithmMES
                     break;
                 case EncodingType.ASCII:
                     str = Encoding.ASCII.GetString(myByte);
+                    // str = Encoding.;
                     break;
                 case EncodingType.GB2312:
                     str = Encoding.Default.GetString(myByte);
@@ -73,8 +73,13 @@ namespace CoreAlgorithmMES
                 case EncodingType.GBK:
                     str = System.Text.Encoding.GetEncoding("GBK").GetString(myByte);
                     break;
+                case EncodingType.ISO8859:
+                    str = System.Text.Encoding.GetEncoding("ISO8859-1").GetString(myByte);
+                    break;
+                
             }
             return str;
         }
+        
     }
 }
