@@ -77,16 +77,33 @@ namespace AnBRobotSystem.ChildForm
         }
         #endregion
         string sqlLabelSel = "";
+        string sqlLabelSe2 = "";
         private void YCGBDesignResult_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection("Data Source=.;Initial Catalog=DBAnBRobotData;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Connection Timeout=30;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000");
             DataTable dt1 = new DataTable("MyDT");
-            double MAXRECID = 0;// PLANIDNow = 0;                
-            string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
             DbDataReader dr = null;
+            double MAXRECID = 0, modelflag=0;// PLANIDNow = 0;  
+            #region 模式
+            string sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=15");
             dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
             while (dr.Read())
-            {if(dr["REC_ID"] != DBNull.Value)
+            {
+                if (dr["PARAMETER_VALUE"] != DBNull.Value)
+                    modelflag = Convert.ToDouble(dr["PARAMETER_VALUE"].ToString());
+            }
+            dr.Close();
+            if (modelflag == 0)
+                Datemodel.Text = "手动数据";
+            else
+                Datemodel.Text = "自动数据";
+            #endregion
+
+            sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";            
+            dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
+            while (dr.Read())
+            {
+                if (dr["REC_ID"] != DBNull.Value)
                 MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
             }
             dr.Close();
@@ -133,9 +150,7 @@ namespace AnBRobotSystem.ChildForm
                 
                 dataGridView1.Rows[dataGridView1.Rows.Count-1].DefaultCellStyle.BackColor = Color.Red;
             }
-            /*dataGridView2.RowHeadersVisible = false;
-            for (int i = 0; i < dataGridView2.ColumnCount; i++)
-            { dataGridView2.Columns[i].Width = 84; }*/
+           
         }
 
         private void MenuItem_Relation_Click(object sender, EventArgs e)
@@ -153,28 +168,54 @@ namespace AnBRobotSystem.ChildForm
             return dtSelect;
         }
         private Boolean dbUpdate(string strSql)
-        {
-            DataTable dtUpdate = new DataTable();
-            dtUpdate = this.dbconn(strSql);
-            dtUpdate.Rows.Clear();
-            DataTable dtShow = new DataTable();
-            dtShow = (DataTable)this.dataGridView1.DataSource;
-            dtUpdate.ImportRow(dtShow.Rows[intindex]);
+        {            
             try
             {
+                DataTable dtUpdate = new DataTable();
+                dtUpdate = this.dbconn(strSql);
+                dtUpdate.Rows.Clear();
+                DataTable dtShow = new DataTable();
+                dtShow = (DataTable)this.dataGridView1.DataSource;
+                dtUpdate.ImportRow(dtShow.Rows[intindex]);
                 SqlCommandBuilder CommandBuilder;
                 CommandBuilder = new SqlCommandBuilder(this.adapter);
                 this.adapter.Update(dtUpdate);
+                dtUpdate.AcceptChanges();
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
                 return false;
             }
-            dtUpdate.AcceptChanges();
-            return true;
+           
         }
+        private Boolean SetValue(string strSql)
+        {
+            try
+            {
+                DataTable dtUpdate = new DataTable();
+                dtUpdate = this.dbconn(strSql);
+                dtUpdate.Rows.Clear();
+                DataTable dtShow = new DataTable();
+                dataGridView1.Rows[intindex - 1].Cells["状态信息"].Value = 31;
+                dtShow = (DataTable)this.dataGridView1.DataSource;
+                dtUpdate.ImportRow(dtShow.Rows[intindex - 1]);
+                SqlCommandBuilder CommandBuilder;
+                CommandBuilder = new SqlCommandBuilder(this.adapter);
+                this.adapter.Update(dtUpdate);
+                dtUpdate.AcceptChanges();
 
+                
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                return false;
+            }
+            
+        }
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count < 1)
@@ -195,118 +236,28 @@ namespace AnBRobotSystem.ChildForm
             DataSet ds = new DataSet();
             sda.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
-            dataGridView1.RowHeadersVisible = false;
+            //dataGridView1.RowHeadersVisible = false;
 
         }
-        //private DataSet ds = new DataSet();
-        //private SqlConnection conn = null;
-        //private SqlDataAdapter da = null;
-        //private const string DRIVER = "server=.;database=northwind;uid=sa;pwd=sa";
-        //private const string sql_select = "select * from region";
-
-        ///**
-        // * 此方法为将数据库northwind中的region表的数据查询出来并放入DataSet中 
-        //**/
-        //private void Form1_Load(object sender, EventArgs e)
-        //{
-        //    conn = new SqlConnection(DRIVER);
-        //    da = new SqlDataAdapter(sql_select, conn);
-        //    da.Fill(ds, "table");
-        //    this.dataGridView1.DataSource = ds.Tables["table"].DefaultView;
-        //}
-
-        //private bool BtnInsert() //此方法作用于添加
-        //{
-        //    da.InsertCommand = conn.CreateCommand();
-        //    da.InsertCommand.CommandText = "insert into region values(@id,@ption)";
-        //    da.InsertCommand.Parameters.Add("@id", SqlDbType.Int, 4, "regionid");
-        //    da.InsertCommand.Parameters.Add("@ption", SqlDbType.VarChar, 10, "regiondescription");
-        //    int count = da.Update(ds);
-        //    bool result = count > 0 ? true : false;
-        //    return result;
-        //}
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    if (this.BtnInsert())//调用此方法
-        //    {
-        //        MessageBox.Show("添加成功!");
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("添加失败!");
-        //    }
-        //}
-
-
-        //private bool BtnDelect() //此方法作用于删除
-        //{
-        //    SqlParameter sp = new SqlParameter();
-        //    da.DeleteCommand = conn.CreateCommand();
-        //    da.DeleteCommand.CommandText = "delete region where regionid=@id";
-        //    sp = da.DeleteCommand.Parameters.Add("@id", SqlDbType.Int, 4, "regionid");
-        //    sp.SourceVersion = DataRowVersion.Original;
-        //    ds.Tables["table"].Rows[this.dataGridView1.CurrentRow.Index].Delete();
-        //    int count = da.Update(ds);
-        //    bool result = count > 0 ? true : false;
-        //    return result;
-        //}
-        //private void button2_Click(object sender, EventArgs e)
-        //{
-        //    if (this.BtnDelect())//调用删除方法
-        //    {
-        //        MessageBox.Show("删除成功!");
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("删除失败!");
-        //    }
-        //}
-
-
-        //private bool BtnUpdate() //此方法作用于修改
-        //{
-        //    SqlParameter sp = new SqlParameter();
-        //    da.UpdateCommand = conn.CreateCommand();
-        //    da.UpdateCommand.CommandText = "update region set regionid=@id,regiondescription=@ption where regionid=@oldid";
-
-        //    da.UpdateCommand.Parameters.Add("@id", SqlDbType.Int, 4, "regionid");
-        //    da.UpdateCommand.Parameters.Add("@ption", SqlDbType.VarChar, 10, "regiondescription");
-
-        //    sp = da.UpdateCommand.Parameters.Add("@oldid", SqlDbType.Int, 4, "regionid");
-        //    sp.SourceVersion = DataRowVersion.Original;
-
-        //    int count = da.Update(ds);
-        //    bool result = count > 0 ? true : false;
-        //    return result;
-        //}
-        //private void button3_Click(object sender, EventArgs e)
-        //{
-        //    if (this.BtnUpdate())//调用修改方法
-        //    {
-        //        MessageBox.Show("修改成功!");
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("修改失败!");
-        //    }
-        //}
+       
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             intindex = e.RowIndex;
         }
 
-        private void ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem_Click(object sender, EventArgs e)//更新数据
         {
             try
             { 
             if (dbUpdate(sqlLabelSel))
                 MessageBox.Show("修改成功！");
-            SqlDataAdapter sda = new SqlDataAdapter(sqlLabelSel, conn);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0];
-            dataGridView1.RowHeadersVisible = false;
+                SqlDataAdapter sda = new SqlDataAdapter(sqlLabelSel, conn);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
+                //dataGridView1.RowHeadersVisible = ture;
+                YCGBDesignResult_Load(null, null);
             }
             catch(Exception ex)
             {
@@ -318,10 +269,10 @@ namespace AnBRobotSystem.ChildForm
         {
             try
             { 
-                DataGridViewRow row = dataGridView1.Rows[dataGridView1.Rows.Count - 2];      
-                string sql = string.Format("insert into HLabelContent(MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,NAME_PROD,NAME_STND,ID_HEAT,NAME_STLGD,DES_FIPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,L3TMSTP_SEND,IMP_FINISH,REC_ID,REC_CREATE_TIME) values('{0}','{1}',{2},{3},{4},{5},{6},'{7}',{8},{9},{10},{11},'{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}',{22},{23},'{24}',{25},{26},'{27}')", row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), Convert.ToInt16(row.Cells[3].Value.ToString()), Convert.ToInt16(row.Cells[4].Value.ToString()), Convert.ToInt16(row.Cells[5].Value.ToString()), Convert.ToInt16(row.Cells[6].Value.ToString()), Convert.ToInt16(row.Cells[7].Value.ToString()), row.Cells[8].Value.ToString(), Convert.ToInt32(row.Cells[9].Value.ToString()), Convert.ToInt16(row.Cells[10].Value.ToString()), Convert.ToInt16(row.Cells[11].Value.ToString()), Convert.ToDouble(row.Cells[12].Value.ToString()), row.Cells[13].Value.ToString(), row.Cells[14].Value.ToString(), row.Cells[15].Value.ToString(), row.Cells[16].Value.ToString(), row.Cells[17].Value.ToString(), row.Cells[18].Value.ToString(), row.Cells[19].Value.ToString(), row.Cells[20].Value.ToString(), row.Cells[21].Value.ToString(), row.Cells[22].Value.ToString(), Convert.ToInt16(row.Cells[23].Value.ToString()), Convert.ToInt16(row.Cells[24].Value.ToString()), row.Cells[25].Value.ToString(), Convert.ToInt16(row.Cells[26].Value.ToString()), Convert.ToDouble(row.Cells[0].Value.ToString()), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-                db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
-                sql = string.Format("insert into TLabelContent(MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,NAME_PROD,NAME_STND,ID_HEAT,NAME_STLGD,DES_FIPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,L3TMSTP_SEND,IMP_FINISH,REC_ID,REC_CREATE_TIME) values('{0}','{1}',{2},{3},{4},{5},{6},'{7}',{8},{9},{10},{11},'{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}',{22},{23},'{24}',{25},{26},'{27}')", row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), Convert.ToInt16(row.Cells[3].Value.ToString()), Convert.ToInt16(row.Cells[4].Value.ToString()), Convert.ToInt16(row.Cells[5].Value.ToString()), Convert.ToInt16(row.Cells[6].Value.ToString()), Convert.ToInt16(row.Cells[7].Value.ToString()), row.Cells[8].Value.ToString(), Convert.ToInt32(row.Cells[9].Value.ToString()), Convert.ToInt16(row.Cells[10].Value.ToString()), Convert.ToInt16(row.Cells[11].Value.ToString()), Convert.ToDouble(row.Cells[12].Value.ToString()), row.Cells[13].Value.ToString(), row.Cells[14].Value.ToString(), row.Cells[15].Value.ToString(), row.Cells[16].Value.ToString(), row.Cells[17].Value.ToString(), row.Cells[18].Value.ToString(), row.Cells[19].Value.ToString(), row.Cells[20].Value.ToString(), row.Cells[21].Value.ToString(), row.Cells[22].Value.ToString(), Convert.ToInt16(row.Cells[23].Value.ToString()), Convert.ToInt16(row.Cells[24].Value.ToString()), row.Cells[25].Value.ToString(), Convert.ToInt16(row.Cells[26].Value.ToString()), Convert.ToDouble(row.Cells[0].Value.ToString()), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                DataGridViewRow row = dataGridView1.Rows[dataGridView1.Rows.Count - 2];
+                //string sql = string.Format("insert into HLabelContent(MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,NAME_PROD,NAME_STND,ID_HEAT,NAME_STLGD,DES_FIPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,L3TMSTP_SEND,IMP_FINISH,REC_ID,REC_CREATE_TIME) values('{0}','{1}',{2},{3},{4},{5},{6},'{7}',{8},{9},{10},{11},'{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}',{22},{23},'{24}',{25},{26},'{27}')", row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), Convert.ToInt16(row.Cells[3].Value.ToString()), Convert.ToInt16(row.Cells[4].Value.ToString()), Convert.ToInt16(row.Cells[5].Value.ToString()), Convert.ToInt16(row.Cells[6].Value.ToString()), Convert.ToInt16(row.Cells[7].Value.ToString()), row.Cells[8].Value.ToString(), Convert.ToInt32(row.Cells[9].Value.ToString()), Convert.ToInt16(row.Cells[10].Value.ToString()), Convert.ToInt16(row.Cells[11].Value.ToString()), Convert.ToDouble(row.Cells[12].Value.ToString()), row.Cells[13].Value.ToString(), row.Cells[14].Value.ToString(), row.Cells[15].Value.ToString(), row.Cells[16].Value.ToString(), row.Cells[17].Value.ToString(), row.Cells[18].Value.ToString(), row.Cells[19].Value.ToString(), row.Cells[20].Value.ToString(), row.Cells[21].Value.ToString(), row.Cells[22].Value.ToString(), Convert.ToInt16(row.Cells[23].Value.ToString()), Convert.ToInt16(row.Cells[24].Value.ToString()), row.Cells[25].Value.ToString(), Convert.ToInt16(row.Cells[26].Value.ToString()), Convert.ToDouble(row.Cells[0].Value.ToString()), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                //db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
+                string sql = string.Format("insert into TLabelContent(MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,NAME_PROD,NAME_STND,ID_HEAT,NAME_STLGD,DES_FIPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,L3TMSTP_SEND,IMP_FINISH,REC_ID,REC_CREATE_TIME) values('{0}','{1}',{2},{3},{4},{5},{6},'{7}',{8},{9},{10},{11},'{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}',{22},{23},'{24}',{25},{26},'{27}')", row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), Convert.ToInt16(row.Cells[3].Value.ToString()), Convert.ToInt16(row.Cells[4].Value.ToString()), Convert.ToInt16(row.Cells[5].Value.ToString()), Convert.ToInt16(row.Cells[6].Value.ToString()), Convert.ToDouble(row.Cells[7].Value.ToString()), row.Cells[8].Value.ToString(), Convert.ToInt64(row.Cells[9].Value.ToString()), Convert.ToInt16(row.Cells[10].Value.ToString()), Convert.ToInt16(row.Cells[11].Value.ToString()), Convert.ToDouble(row.Cells[12].Value.ToString()), row.Cells[13].Value.ToString(), row.Cells[14].Value.ToString(), row.Cells[15].Value.ToString(), row.Cells[16].Value.ToString(), row.Cells[17].Value.ToString(), row.Cells[18].Value.ToString(), row.Cells[19].Value.ToString(), row.Cells[20].Value.ToString(), row.Cells[21].Value.ToString(), row.Cells[22].Value.ToString(), Convert.ToInt16(row.Cells[23].Value.ToString()), Convert.ToInt16(row.Cells[24].Value.ToString()), row.Cells[25].Value.ToString(), Convert.ToInt16(row.Cells[26].Value.ToString()), Convert.ToDouble(row.Cells[0].Value.ToString()), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 int ret1 = db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
                 if (ret1 > 0)
                 {
@@ -334,8 +285,10 @@ namespace AnBRobotSystem.ChildForm
                             ProductIDA = Convert.ToDouble(dr["PARAMETER_VALUE"]) ;
                     }
                     if(Convert.ToDouble(row.Cells[0].Value.ToString())>ProductIDA)
-                    {sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=10", Convert.ToDouble(row.Cells[0].Value.ToString()), DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));
-                    db.ExecuteNonQuery(db.GetSqlStringCommond(sql)); }                
+                    {
+                        sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=10", Convert.ToDouble(row.Cells[0].Value.ToString()), DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));
+                        db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
+                    }                
                     MessageBox.Show("插入成功！");
                 }
                 else
@@ -345,10 +298,12 @@ namespace AnBRobotSystem.ChildForm
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
-                dataGridView1.RowHeadersVisible = false;
+                //dataGridView1.RowHeadersVisible = false;
             }
-            catch
+            catch (Exception ex)
             {
+                string a=ex.Message;
+                string b = ex.StackTrace;
                 MessageBox.Show("插入失败,插入数据有误！");
             }
         }
@@ -375,24 +330,8 @@ namespace AnBRobotSystem.ChildForm
 
                 for (int i = 0; i < countn; i++)
                 {
-                    DataGridViewRow row = dataGridView1.Rows[i];
-
-                    //string sql = string.Format("SELECT IMP_FINISH FROM TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1} and NUM_BDL={2} and SEQ_LEN={3} and SEQ_OPR={4};", row.Cells[2].Value.ToString(), Convert.ToInt16(row.Cells[3].Value.ToString()), Convert.ToInt16(row.Cells[4].Value.ToString()), Convert.ToInt16(row.Cells[5].Value.ToString()), Convert.ToInt16(row.Cells[6].Value.ToString()));
-                    //DbDataReader dr = null;
-                    IMP_FINISH = int.Parse(row.Cells[26].Value.ToString());
-                    //dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
-                    //while (dr.Read())
-                    //{
-                    //    if (dr["IMP_FINISH"] != DBNull.Value)
-                    //        IMP_FINISH = Convert.ToInt32(dr["IMP_FINISH"].ToString());
-                    //    else
-
-                    //    {
-                    //        MessageBox.Show("数据为空！");
-                    //        return;
-                    //    }
-                    //}
-                    //dr.Close();
+                    DataGridViewRow row = dataGridView1.Rows[i];                    
+                    IMP_FINISH = int.Parse(row.Cells[26].Value.ToString());                  
                     if (IMP_FINISH == 31 || IMP_FINISH == 32 || IMP_FINISH == 33)
                         dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.YellowGreen;
                     if (IMP_FINISH == 0 && (i < (countn - 1)))
@@ -405,8 +344,6 @@ namespace AnBRobotSystem.ChildForm
             {
                 MessageBox.Show("表格重绘发生错误！");
             }
-
-
         }
 
         private DataRow rowCopy;
@@ -417,7 +354,7 @@ namespace AnBRobotSystem.ChildForm
             MessageBox.Show("已复制到剪贴板！");
         }
 
-        private void 粘贴ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 粘贴ToolStripMenuItem_Click(object sender, EventArgs e)//粘贴数据
         {
             dataGridView1.AllowUserToAddRows = true;
             try
@@ -427,8 +364,8 @@ namespace AnBRobotSystem.ChildForm
                 string pasteText = Clipboard.GetText();
                 if (string.IsNullOrEmpty(pasteText))
                     return;
-                int tnum = 0;
-                int nnum = 0;
+                int tnum = 0;//多少个单元格
+                int nnum = 0;//多少行
                 //获得当前剪贴板内容的行、列数
                 for (int i = 0; i < pasteText.Length; i++)
                 {
@@ -494,13 +431,23 @@ namespace AnBRobotSystem.ChildForm
                     for (int colIndex = 0; colIndex < (tnum + 1); colIndex++)
                     {
                         if(colIndex + 1<28)
-                        { if(data[j, 0]=="")
+                        {
+                            
+                            if (data[j, 0]=="")
+                            {    
+                                
                                 dataGridView1.Rows[j + rowindex].Cells[colIndex + curntindex].Value = data[j, colIndex + 1];
-                        else
+
+                            }                                
+                            else
+                            {
                                 dataGridView1.Rows[j + rowindex].Cells[colIndex + curntindex].Value = data[j, colIndex];
+                            }
+                                
                         }
                         
                     }
+                    dataGridView1.Rows[j + rowindex].Cells[26].Value = 0;
                 }
             }
             catch(Exception ex)
@@ -512,18 +459,16 @@ namespace AnBRobotSystem.ChildForm
             //dataGridView1.Rows[dataGridView1.Rows.Count - 2].Clone(rowCopy);
         }
 
-        private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
+        
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            YCGBDesignResult_Load(null, null);
+           
             if (timer1.Enabled == true)
                 toolStripMenuItem2.Text = "停止自动刷新";
             if (timer1.Enabled == false)
                 toolStripMenuItem2.Text = "恢复自动刷新";
+            YCGBDesignResult_Load(null, null);
         }
 
         private void toolStripMenuItem2_Click_1(object sender, EventArgs e)
@@ -534,6 +479,71 @@ namespace AnBRobotSystem.ChildForm
             else//if (timer1.Enabled == false && toolStripMenuItem2.Text == "恢复自动刷新")
             { timer1.Enabled = true;
                 toolStripMenuItem2.Text = "停止自动刷新"; }
+            YCGBDesignResult_Load(null, null);
+        }
+        private void model_change()
+        {
+
+        }
+
+        private void Datemodel_Click(object sender, EventArgs e)
+        {
+            int modelflag = 0;
+            try
+            {
+                string sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=15");
+                if(Datemodel.Text == "手动数据")
+                {
+                    if (SetValue(sqlLabelSel))
+                    {
+                        sql = string.Format("update SYSPARAMETER set PARAMETER_VALUE=1,PARAMETER_TIME='{0}' where PARAMETER_ID=15", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));
+                        db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
+                        //MessageBox.Show("从此条数据开始自动！");
+                        Datemodel.Text = "自动数据";
+                    }
+                }
+                else
+                {
+                   
+                        sql = string.Format("update SYSPARAMETER set PARAMETER_VALUE=0,PARAMETER_TIME='{0}' where PARAMETER_ID=15", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));
+                        db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
+                        //MessageBox.Show("从此条数据开始自动！");
+                        Datemodel.Text = "手动数据";
+                }
+
+
+                SqlDataAdapter sda = new SqlDataAdapter(sqlLabelSel, conn);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
+                YCGBDesignResult_Load(null, null);
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("数据模式切换失败！", ex.Message.ToString());
+            }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)//手自动实时更新
+        {
+            DbDataReader dr = null;
+            double modelflag = 0;// PLANIDNow = 0;  
+            #region 模式
+            string sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=15");
+            dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
+            while (dr.Read())
+            {
+                if (dr["PARAMETER_VALUE"] != DBNull.Value)
+                    modelflag = Convert.ToDouble(dr["PARAMETER_VALUE"].ToString());
+            }
+            dr.Close();
+            if (modelflag == 0)
+                Datemodel.Text = "手动数据";
+            else
+                Datemodel.Text = "自动数据";
+            #endregion
         }
     }
     }

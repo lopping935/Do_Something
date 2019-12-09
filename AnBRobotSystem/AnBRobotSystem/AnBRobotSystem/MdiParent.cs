@@ -96,7 +96,7 @@ namespace AnBRobotSystem
             {
                 if (treeView1.SelectedNode.Text == "视觉定位系统")
                 {
-                    string fexePath = @"D:\AnBRobotSetup\Debug\Cammer3D.exe";
+                    string fexePath = @"D:\Program Files (x86)\Thunder Network\Thunder\Program\ThunderStart.exe";
                     Process p = new Process();
                     p.StartInfo.FileName = fexePath;
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
@@ -297,25 +297,32 @@ namespace AnBRobotSystem
                     listView_Server.Items[i].SubItems[2].Text = "未安装";
                 }
             }
-            //label3.Text = System.DateTime.Now.ToString("yyyy年MM月dd日");// +"\n" + DataClass.MyMeans.dayofweek;
+
             label4.Text = DateTime.Now.ToString("HH:mm:ss").Trim();
-            /*string sql = "SELECT PARAMETER_NO,PARAMETER_VALUE1,PARAMETER_VALUE2 FROM PDPARAMETER where PARAMETER_NO=1 or PARAMETER_NO=20 or PARAMETER_NO=21";
-            DbDataReader dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
-            while (dr.IsClosed == false && dr.Read())
+            toolStripButton1.ForeColor = Color.Green;
+            #region 模式
+            DbDataReader dr = null;
+            double MES_Status = 0;
+            string sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=14");
+            dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
+            while (dr.Read())
             {
-                if (Convert.ToInt16(dr["Parameter_no"]) == 1)
-                {
-                    if (Convert.ToInt16(dr["PARAMETER_VALUE1"]) == 0)
-                        toolStripStatusLabel3.Text = "正在组板";
-                    if (Convert.ToInt16(dr["PARAMETER_VALUE1"]) == 1)
-                        toolStripStatusLabel3.Text = "组板准备";
-                    if (Convert.ToInt16(dr["PARAMETER_VALUE1"]) == 3)
-                        toolStripStatusLabel3.Text = "组板完成，进程停止";
-                    if (Convert.ToInt16(dr["PARAMETER_VALUE1"]) != 0 && Convert.ToInt16(dr["PARAMETER_VALUE1"]) != 1 && Convert.ToInt16(dr["PARAMETER_VALUE1"]) != 2 && Convert.ToInt16(dr["PARAMETER_VALUE1"]) != 3)
-                        toolStripStatusLabel3.Text = "状态不确定";
-                    if (Convert.ToInt16(dr["PARAMETER_VALUE1"]) == 2)
-                        }
-            }*/
+                if (dr["PARAMETER_VALUE"] != DBNull.Value)
+                    MES_Status = Convert.ToDouble(dr["PARAMETER_VALUE"].ToString());
+            }
+            dr.Close();
+            if (MES_Status == 1)
+            {
+                toolStripButton1.ForeColor = Color.Green;
+                toolStripButton1.Text = "正常连接";
+            }                
+            else
+            {
+                toolStripButton1.ForeColor = Color.Red;
+                toolStripButton1.Text = "断开连接";
+            }
+                
+            #endregion
 
         }
         #endregion        

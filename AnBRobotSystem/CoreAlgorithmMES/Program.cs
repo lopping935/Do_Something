@@ -14,14 +14,14 @@ namespace CoreAlgorithm
         static void Main()
         {
             ServiceBase[] ServicesToRun;
-           /*ServicesToRun = new ServiceBase[] 
+           ServicesToRun = new ServiceBase[] 
 			{ 
-				new SIR_CoreAlgorithm() 
+				new AnB_CoreAlgorithmMES() 
 			};
-            ServiceBase.Run(ServicesToRun);*/
-           AnB_CoreAlgorithmMES objISD= new AnB_CoreAlgorithmMES();
+            ServiceBase.Run(ServicesToRun);
+          /* AnB_CoreAlgorithmMES objISD= new AnB_CoreAlgorithmMES();
            objISD.OnStart(); 
-           System.Threading.Thread.Sleep(120000000);
+           System.Threading.Thread.Sleep(120000000);*/
             //objISD.OnStop();
         }
     }

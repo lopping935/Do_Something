@@ -188,7 +188,7 @@ namespace CoreAlgorithm.TaskManager
         {
             try
             {
-                byte[] sendArray = Enumerable.Repeat((byte)0x0, 92).ToArray();
+                byte[] sendArray = Enumerable.Repeat((byte)0x0, 94).ToArray();
                 byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
                 byte[] byteArray2 = BitConverter.GetBytes(Program.PrintNum);
                 byte[] byteArray3 = System.Text.Encoding.ASCII.GetBytes(ID_LOT_PROD);

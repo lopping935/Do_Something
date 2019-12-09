@@ -303,8 +303,10 @@
     <Content Include="Lib\log4net.dll" />
     <Content Include="Lib\opcdaauto.dll" />
     <Content Include="Rs\Gear.png" />
+    <Content Include="Rs\green.png" />
     <Content Include="Rs\kchart .ico" />
     <Content Include="DataManage.ico" />
+    <Content Include="Rs\red.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

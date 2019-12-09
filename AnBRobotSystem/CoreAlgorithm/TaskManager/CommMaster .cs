@@ -56,7 +56,7 @@ namespace CoreAlgorithm.TaskManager
                 raw.socketClient.Close();
                 raw.socketClient.Dispose();
                 raw.CreateConnect(sprayip, sprayports);
-                str = "重新尝试连接喷枪成功,请在此发送数据！";
+                str = "重新尝试连接喷枪成功,请再发送数据！";
                 sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                 tm.MultithreadExecuteNonQuery(sql);
             }
@@ -295,22 +295,23 @@ namespace CoreAlgorithm.TaskManager
                         if (count == 0)
                         {
                             Program.MessageFlg = 3;
-                            byte[] sendArray = Enumerable.Repeat((byte)0x0, 92).ToArray();
+                            byte[] sendArray = Enumerable.Repeat((byte)0x0, 94).ToArray();
                             byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
                             Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
                             if (sendArray.Length > 0)
                             {
                                 PLCSocketServer.senddata(sendArray);
                                 string str = Program.MessageFlg.ToString();
-                                sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                                sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "plc数据请求失败"+str);
                                 tm.MultithreadExecuteNonQuery(sql);
                             }
                         }
                         else
                         {
                             Program.MessageFlg = 2;
+                            Send_SignsMessage();
                         }
-                        Send_SignsMessage();
+                        
                     }
                 }
                 if (Program.MessageFlg == 11 || Program.MessageFlg == 14)
@@ -376,7 +377,7 @@ namespace CoreAlgorithm.TaskManager
                         MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
                 }
                 dr.Close();
-                sql = string.Format("select top 1 ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DES_FIPRO_SECTION,BAR_CODE from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+                sql = string.Format("select top 1 ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DES_FIPRO_SECTION,NAME_PROD,BAR_CODE from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
                 string ID_LOT_PROD = "";    
                 Int16 ID_PART_LOT = 0;   
                 Int16 NUM_BDL = 0;
@@ -393,9 +394,11 @@ namespace CoreAlgorithm.TaskManager
                     SEQ_LEN = Int16.Parse(dt.Rows[i]["SEQ_LEN"].ToString());
                     SEQ_OPR = Int16.Parse(dt.Rows[i]["SEQ_OPR"].ToString());
                     DES_FIPRO_SECTION = dt.Rows[i]["DES_FIPRO_SECTION"].ToString();
-                    BAR_CODE = dt.Rows[i]["BAR_CODE"].ToString();  
+                    NAME_PROD= dt.Rows[i]["NAME_PROD"].ToString();
+                    BAR_CODE = dt.Rows[i]["BAR_CODE"].ToString();
+                      
                 }
-                    byte[] sendArray = Enumerable.Repeat((byte)0x0, 92).ToArray();
+                    byte[] sendArray = Enumerable.Repeat((byte)0x0, 94).ToArray();
                     byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
                     byte[] byteArray2 = System.Text.Encoding.ASCII.GetBytes(ID_LOT_PROD);
                     byte[] byteArray3 = BitConverter.GetBytes(ID_PART_LOT);
@@ -405,7 +408,8 @@ namespace CoreAlgorithm.TaskManager
                     byte[] byteArray7= System.Text.Encoding.ASCII.GetBytes(DES_FIPRO_SECTION);
                     byte[] byteArray8 = System.Text.Encoding.ASCII.GetBytes(BAR_CODE);
                     byte[] byteArray10 = BitConverter.GetBytes(Program.PrintNum);
-                    if (Program.MessageFlg == 22)
+                    
+                if (Program.MessageFlg == 22)
                     {
                         byte rownum = 0;
                         sql = "SELECT PARAMETER_VALUE FROM SYSPARAMETER where PARAMETER_ID=9";
@@ -420,12 +424,21 @@ namespace CoreAlgorithm.TaskManager
                         Buffer.BlockCopy(byteArray10, 0, sendArray, 2, byteArray10.Length);
                     }
                     if(Program.MessageFlg == 2)//下发钢种信息
-                    {
-                        
-                        string Iron_type = "";
-                        
-
-
+                    {                        
+                       // string test = null;
+                       // test = Console.ReadLine();
+                        string[] steeltype = { "槽", "角", "工", "球" };
+                        Int16 steeltypenum = 0;
+                        for (byte i = 1; i <= 4; i++)
+                        {
+                            if (NAME_PROD.IndexOf(steeltype[i - 1]) >= 0)
+                            {
+                                steeltypenum = i;
+                                break;
+                            }
+                        }
+                        byte[] byteArray11 = BitConverter.GetBytes(steeltypenum);
+                        Buffer.BlockCopy(byteArray11, 0, sendArray, 92, byteArray11.Length);
                 }
                     Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
                     Buffer.BlockCopy(byteArray2, 0, sendArray, 4, byteArray2.Length);
