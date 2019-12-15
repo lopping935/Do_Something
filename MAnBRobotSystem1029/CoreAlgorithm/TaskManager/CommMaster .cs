@@ -294,7 +294,7 @@ namespace CoreAlgorithm.TaskManager
                         {
                           
                             Program.MessageFlg = 3;
-                            byte[] sendArray = Enumerable.Repeat((byte)0x0, 92).ToArray();
+                            byte[] sendArray = Enumerable.Repeat((byte)0x0, 94).ToArray();
                             byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
                             Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
                             if (sendArray.Length > 0)
@@ -405,41 +405,43 @@ namespace CoreAlgorithm.TaskManager
                 dr = tm.MultithreadDataReader(sql);
                 while (dr.Read())
                 {
-                    if(dr["REC_ID"]!=DBNull.Value)
-                    MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
+                    if (dr["REC_ID"] != DBNull.Value)
+                        MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
                 }
                 dr.Close();
-                sql = string.Format("select top 1 ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DES_FIPRO_SECTION,BAR_CODE from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
-                    //sql = "select top 2 SlabNO from TSlabNO WHERE PEN_FINISH!=1 order by REC_ID ASC";
-                    string ID_LOT_PROD = "";    
-                    Int16 ID_PART_LOT = 0;   
-                    Int16 NUM_BDL = 0;
-                    Int16 SEQ_LEN= 0;
-                    Int16 SEQ_OPR = 0;
-                    string DES_FIPRO_SECTION = "";
-                    string BAR_CODE = "";
-                    DataTable dt = tm.MultithreadDataTable(sql);
-                    for (int i = 0; i<dt.Rows.Count; i++)
-                    {
+                sql = string.Format("select top 1 ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DES_FIPRO_SECTION,NAME_PROD,BAR_CODE from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+                string ID_LOT_PROD = "";
+                Int16 ID_PART_LOT = 0;
+                Int16 NUM_BDL = 0;
+                Int16 SEQ_LEN = 0;
+                Int16 SEQ_OPR = 0;
+                string DES_FIPRO_SECTION = "";
+                string BAR_CODE = "", NAME_PROD = "";
+                DataTable dt = tm.MultithreadDataTable(sql);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
                     ID_LOT_PROD = dt.Rows[i]["ID_LOT_PROD"].ToString();
                     ID_PART_LOT = Int16.Parse(dt.Rows[i]["ID_PART_LOT"].ToString());
                     NUM_BDL = Int16.Parse(dt.Rows[i]["NUM_BDL"].ToString());
                     SEQ_LEN = Int16.Parse(dt.Rows[i]["SEQ_LEN"].ToString());
                     SEQ_OPR = Int16.Parse(dt.Rows[i]["SEQ_OPR"].ToString());
                     DES_FIPRO_SECTION = dt.Rows[i]["DES_FIPRO_SECTION"].ToString();
-                    BAR_CODE = dt.Rows[i]["BAR_CODE"].ToString();  
+                    NAME_PROD = dt.Rows[i]["NAME_PROD"].ToString();
+                    BAR_CODE = dt.Rows[i]["BAR_CODE"].ToString();
+
                 }
-                byte[] sendArray = Enumerable.Repeat((byte)0x0, 92).ToArray();
+                byte[] sendArray = Enumerable.Repeat((byte)0x0, 94).ToArray();
                 byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
                 byte[] byteArray2 = System.Text.Encoding.ASCII.GetBytes(ID_LOT_PROD);
                 byte[] byteArray3 = BitConverter.GetBytes(ID_PART_LOT);
-                byte[] byteArray4= BitConverter.GetBytes(NUM_BDL);
+                byte[] byteArray4 = BitConverter.GetBytes(NUM_BDL);
                 byte[] byteArray5 = BitConverter.GetBytes(SEQ_LEN);
                 byte[] byteArray6 = BitConverter.GetBytes(SEQ_OPR);
-                byte[] byteArray7= System.Text.Encoding.ASCII.GetBytes(DES_FIPRO_SECTION);
+                byte[] byteArray7 = System.Text.Encoding.ASCII.GetBytes(DES_FIPRO_SECTION);
                 byte[] byteArray8 = System.Text.Encoding.ASCII.GetBytes(BAR_CODE);
                 byte[] byteArray10 = BitConverter.GetBytes(Program.PrintNum);
-                if (Program.MessageFlg == 21)
+
+                if (Program.MessageFlg == 22)
                 {
                     byte rownum = 0;
                     sql = "SELECT PARAMETER_VALUE FROM SYSPARAMETER where PARAMETER_ID=9";
@@ -453,6 +455,23 @@ namespace CoreAlgorithm.TaskManager
                     Buffer.BlockCopy(byteArray9, 0, sendArray, 3, byteArray9.Length);
                     Buffer.BlockCopy(byteArray10, 0, sendArray, 2, byteArray10.Length);
                 }
+                if (Program.MessageFlg == 2)//下发钢种信息
+                {
+                    // string test = null;
+                    // test = Console.ReadLine();
+                    string[] steeltype = { "槽", "角", "工", "球" };
+                    Int16 steeltypenum = 0;
+                    for (byte i = 1; i <= 4; i++)
+                    {
+                        if (NAME_PROD.IndexOf(steeltype[i - 1]) >= 0)
+                        {
+                            steeltypenum = i;
+                            break;
+                        }
+                    }
+                    byte[] byteArray11 = BitConverter.GetBytes(steeltypenum);
+                    Buffer.BlockCopy(byteArray11, 0, sendArray, 92, byteArray11.Length);
+                }
                 Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
                 Buffer.BlockCopy(byteArray2, 0, sendArray, 4, byteArray2.Length);
                 Buffer.BlockCopy(byteArray3, 0, sendArray, 14, byteArray3.Length);
@@ -464,19 +483,19 @@ namespace CoreAlgorithm.TaskManager
                 if (sendArray.Length > 0)
                 {
                     PLCSocketServer.senddata(sendArray);
-                    string str = Program.MessageFlg.ToString() + " " + ID_LOT_PROD + " "  + ID_PART_LOT.ToString() + " " + NUM_BDL.ToString() + " " + SEQ_LEN.ToString() + " " + SEQ_OPR.ToString() + " "+ DES_FIPRO_SECTION + " " + BAR_CODE ;
+                    string str = Program.MessageFlg.ToString() + " " + ID_LOT_PROD + " " + ID_PART_LOT.ToString() + " " + NUM_BDL.ToString() + " " + SEQ_LEN.ToString() + " " + SEQ_OPR.ToString() + " " + DES_FIPRO_SECTION + " " + BAR_CODE;
                     sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                     tm.MultithreadExecuteNonQuery(sql);
                 }
-            
-}
+
+            }
             catch (Exception ex)
             {
                 log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
                 Log.addLog(log, LogType.ERROR, ex.Message);
                 Log.addLog(log, LogType.ERROR, ex.StackTrace);
             }
-            
+
         }
         //修改中型喷枪断开重连代码
         private void ListenRecall()
