@@ -146,7 +146,7 @@ namespace AnBRobotSystem
             if (frm == null) return;
             Form opcFrm = frm;
             opcFrm.WindowState = FormWindowState.Maximized;
-            this.Text = "大型线喷号贴标机器人信息系统 - [" + frmName + "]";
+            this.Text = "中型线喷号贴标机器人信息系统 - [" + frmName + "]";
             opcFrm.MdiParent = this;
             opcFrm.Show();
         }
@@ -296,7 +296,34 @@ namespace AnBRobotSystem
                 }
             }
             label4.Text = DateTime.Now.ToString("HH:mm:ss").Trim();
-          
+
+            label4.Text = DateTime.Now.ToString("HH:mm:ss").Trim();
+            toolStripButton1.ForeColor = Color.Green;
+            #region 模式
+            DbDataReader dr = null;
+            double MES_Status = 0;
+            string sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=14");
+            dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
+            while (dr.Read())
+            {
+                if (dr["PARAMETER_VALUE"] != DBNull.Value)
+                    MES_Status = Convert.ToDouble(dr["PARAMETER_VALUE"].ToString());
+            }
+            dr.Close();
+            if (MES_Status == 1)
+            {
+                toolStripButton1.ForeColor = Color.Green;
+                toolStripButton1.Text = "正常连接";
+            }
+            else
+            {
+                toolStripButton1.ForeColor = Color.Red;
+                toolStripButton1.Text = "断开连接";
+            }
+
+            #endregion
+
+
 
         }
         #endregion        

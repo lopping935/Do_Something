@@ -232,3 +232,7 @@ D:\project\Do_Something\MAnBRobotSystem1029\SQLPublicClass\obj\Debug\SQLPublicCl
 D:\project\Do_Something\MAnBRobotSystem1029\SQLPublicClass\obj\Debug\SQLPublicClass.csproj.CopyComplete
 D:\project\Do_Something\MAnBRobotSystem1029\SQLPublicClass\obj\Debug\SQLPublicClass.dll
 D:\project\Do_Something\MAnBRobotSystem1029\SQLPublicClass\obj\Debug\SQLPublicClass.pdb
+D:\github\Do_Something\MAnBRobotSystem1029\SQLPublicClass\obj\Debug\SQLPublicClass.csprojAssemblyReference.cache
+D:\github\Do_Something\MAnBRobotSystem1029\SQLPublicClass\obj\Debug\SQLPublicClass.csproj.CoreCompileInputs.cache
+D:\github\Do_Something\MAnBRobotSystem1029\SQLPublicClass\obj\Debug\SQLPublicClass.dll
+D:\github\Do_Something\MAnBRobotSystem1029\SQLPublicClass\obj\Debug\SQLPublicClass.pdb
