@@ -250,129 +250,74 @@ namespace CoreAlgorithmMES
                                     dr.Close();
                                     sql = string.Format("insert into TLabelContent(MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,TMSTP_SEND,ID_PERSON,REC_ID,REC_IMP_TIME,IMP_FINISH) values('{0}','{1}',{2},{3},{4},{5},{6},'{7}',{8},{9},{10},{11},'{12}')", LabelDataRecv.MACHINE_NO, LabelDataRecv.ID_LOT_PROD, LabelDataRecv.ID_PART_LOT, LabelDataRecv.DIM_LEN, LabelDataRecv.IND_FIXED, LabelDataRecv.SEQ_SEND, LabelDataRecv.NUM_BAR, LabelDataRecv.SEQ_LIST,LabelDataRecv.TMSTP_SEND, LabelDataRecv.ID_PERSON, ProductIDA, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), 0);
                                     tm.MultithreadExecuteNonQuery(sql);
-                                    sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=10", ProductIDA, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));
-                                    tm.MultithreadExecuteNonQuery(sql);
-                                    sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=7", 1, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));//更新MES打捆指令数据
-                                    tm.MultithreadExecuteNonQuery(sql);
-                                    str = MessageFlg.ToString() + " " + LabelDataRecv.MACHINE_NO + " " + LabelDataRecv.ID_LOT_PROD + " " + LabelDataRecv.ID_PART_LOT.ToString() + LabelDataRecv.DIM_LEN.ToString() + " " + LabelDataRecv.IND_FIXED + " " + LabelDataRecv.SEQ_SEND.ToString() + " " + LabelDataRecv.NUM_BAR.ToString() + " " + LabelDataRecv.SEQ_LIST.ToString() + " "  + LabelDataRecv.TMSTP_SEND+" "+  LabelDataRecv.ID_PERSON.ToString();
-                                    sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到标签数据" + str);
-                                    tm.MultithreadExecuteNonQuery(sql);
-                                    ACK = 1;
-                                    reson = "";
                                 }
                                 catch
                                 {
                                     ACK = 0;
                                     reson = "打捆指令储数据有误，可能存在重复数据";
+                                    #region l2->l3标签数据应答失败回复
+                                    //反馈接收数据标签信息 
+                                    msgid = GetMsgID();
+                                    string MessageHead = "BD2101A" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+                                    byte[] sendArray1 = Enumerable.Repeat((byte)0x20, length - 19 - 8).ToArray(); //
+                                    Array.Copy(buffer, sendArray1, length - 19 - 8);
+                                    byte[] byteArray1 = StripIronNum.ByteReplace(Encoding.Default.GetBytes(MessageHead), OldBytes, NewBytes);//应答头
+                                    Buffer.BlockCopy(byteArray1, 0, sendArray1, 0, byteArray1.Length);
+
+
+                                    string appendmsg = ACK.ToString() + " &" + reson + " &" + msgid.ToString() + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " &";
+                                    byte[] sendArray2 = StripIronNum.ByteReplace(Encoding.Default.GetBytes(appendmsg), OldBytes, NewBytes);
+
+                                    byte[] sendArray = Enumerable.Repeat((byte)0x20, sendArray1.Length + sendArray2.Length).ToArray();
+                                    Array.Copy(sendArray1, sendArray, sendArray1.Length);
+                                    Buffer.BlockCopy(sendArray2, 0, sendArray, sendArray1.Length, sendArray2.Length);
+
+                                    StripIronNum.Client_MES.SendData(sendArray);
+                                    string strsend = MessageHead + appendmsg;
+                                    string sqlsend = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "回复标签数据" + strsend);
+                                    tm.MultithreadExecuteNonQuery(sqlsend);
+                                    #endregion
                                 }
                             }
                             catch
                             {
                                 ACK = 0;
                                 reson = "打捆数据解析有误，请查验数据格式";
+                                #region l2->l3标签数据应答失败回复
+                                //反馈接收数据标签信息 
+                                msgid = GetMsgID();
+                                string MessageHead = "BD2101A" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+                                byte[] sendArray1 = Enumerable.Repeat((byte)0x20, length - 19 - 8).ToArray(); //
+                                Array.Copy(buffer, sendArray1, length - 19 - 8);
+                                byte[] byteArray1 = StripIronNum.ByteReplace(Encoding.Default.GetBytes(MessageHead), OldBytes, NewBytes);//应答头
+                                Buffer.BlockCopy(byteArray1, 0, sendArray1, 0, byteArray1.Length);
+
+
+                                string appendmsg = ACK.ToString() + " &" + reson + " &" + msgid.ToString() + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " &";
+                                byte[] sendArray2 = StripIronNum.ByteReplace(Encoding.Default.GetBytes(appendmsg), OldBytes, NewBytes);
+
+                                byte[] sendArray = Enumerable.Repeat((byte)0x20, sendArray1.Length + sendArray2.Length).ToArray();
+                                Array.Copy(sendArray1, sendArray, sendArray1.Length);
+                                Buffer.BlockCopy(sendArray2, 0, sendArray, sendArray1.Length, sendArray2.Length);
+
+                                StripIronNum.Client_MES.SendData(sendArray);
+                                string strsend = MessageHead + appendmsg;
+                                string sqlsend = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "回复标签数据" + strsend);
+                                tm.MultithreadExecuteNonQuery(sqlsend);
+                                #endregion
                             }
-
+                            sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=10", ProductIDA, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));//更新recid
+                            tm.MultithreadExecuteNonQuery(sql);
+                            sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=7", 1, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));//更新MES打捆指令数据
+                            tm.MultithreadExecuteNonQuery(sql);
+                            str = MessageFlg.ToString() + " " + LabelDataRecv.MACHINE_NO + " " + LabelDataRecv.ID_LOT_PROD + " " + LabelDataRecv.ID_PART_LOT.ToString() + LabelDataRecv.DIM_LEN.ToString() + " " + LabelDataRecv.IND_FIXED + " " + LabelDataRecv.SEQ_SEND.ToString() + " " + LabelDataRecv.NUM_BAR.ToString() + " " + LabelDataRecv.SEQ_LIST.ToString() + " " + LabelDataRecv.TMSTP_SEND + " " + LabelDataRecv.ID_PERSON.ToString();
+                            sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到标签数据" + str);
+                            tm.MultithreadExecuteNonQuery(sql);
                             #endregion
-                            #region l2->l3标签数据应答
-                            //反馈接收数据标签信息 
-                            msgid = GetMsgID();
-                            string MessageHead = "BD2101A" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                            byte[] sendArray1 = Enumerable.Repeat((byte)0x20, length - 19 - 8).ToArray(); //
-                            Array.Copy(buffer, sendArray1, length - 19 - 8);
-                            byte[] byteArray1 = StripIronNum.ByteReplace(Encoding.Default.GetBytes(MessageHead), OldBytes, NewBytes);//应答头
-                            Buffer.BlockCopy(byteArray1, 0, sendArray1, 0, byteArray1.Length);
-
-
-                            string appendmsg = ACK.ToString() + " &" + reson + " &" + msgid.ToString() + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " &";
-                            byte[] sendArray2 = StripIronNum.ByteReplace(Encoding.Default.GetBytes(appendmsg), OldBytes, NewBytes);
-
-                            byte[] sendArray = Enumerable.Repeat((byte)0x20, sendArray1.Length + sendArray2.Length).ToArray();
-                            Array.Copy(sendArray1, sendArray, sendArray1.Length);
-                            Buffer.BlockCopy(sendArray2, 0, sendArray, sendArray1.Length, sendArray2.Length);
-
-                            StripIronNum.Client_MES.SendData(sendArray);
-                            string strsend = MessageHead + appendmsg;
-                            string sqlsend = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "回复标签数据" + strsend);
-                            tm.MultithreadExecuteNonQuery(sqlsend);
-                            #endregion
-                        }
-                        #region 
-                        /*
-                         if (MessageFlg == "21LA01A")//l3->l2标签结果应答
-                         {
-                             string ID_TIME = GetString(HeadIndex[1], EncodingType.GB2312);
-                             string MACHINE_NO = GetString(HeadIndex[2], EncodingType.GB2312);
-                             string ID_LOT_PROD = GetString(HeadIndex[3], EncodingType.GB2312);
-                             short ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.GB2312));
-                             short NUM_BDL = Convert.ToInt16(GetString(HeadIndex[5], EncodingType.GB2312));
-                             short SEQ_LEN = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.GB2312));
-                             short SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[7], EncodingType.GB2312));
-                             double SEQ_SEND = Convert.ToDouble(GetString(HeadIndex[8], EncodingType.GB2312));
-                             double SEQ_L2 = Convert.ToDouble(GetString(HeadIndex[9], EncodingType.GB2312));
-                             short ACK = Convert.ToInt16(GetString(HeadIndex[10], EncodingType.GB2312));
-                             string REASON = GetString(HeadIndex[11], EncodingType.GB2312);
-                             string TMSTP_SEND = GetString(HeadIndex[12], EncodingType.GB2312);
-                             sql = string.Format("UPDATE TLabelContent SET MODELSWTMSTP_SEND='{0}',L3ACK={1},MODELSWREASON='{2}' WHERE ID_LOT_PROD='{3}' and ID_PART_LOT={4} and NUM_BDL={5} and SEQ_LEN={6} and SEQ_OPR={7} and SEQ_SEND={8} ", TMSTP_SEND, ACK, REASON, ID_LOT_PROD, ID_PART_LOT, NUM_BDL, SEQ_LEN, SEQ_OPR, SEQ_SEND);
-                             tm.MultithreadExecuteNonQuery(sql);
-                             string str = MessageFlg.ToString() + " " + ACK + " " + REASON + " " + TMSTP_SEND + " " + ID_LOT_PROD + " " + ID_PART_LOT.ToString() + " " + NUM_BDL.ToString() + " " + SEQ_LEN.ToString() + " " + SEQ_OPR.ToString() + SEQ_SEND.ToString() + SEQ_L2.ToString();
-                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到MES标签结果应答" + str);
-                             tm.MultithreadExecuteNonQuery(sql);
-                         }
-                         if (MessageFlg == "21LA02A")//模式切换确认
-                         {
-                             string ID_TIME = GetString(HeadIndex[1], EncodingType.GB2312);
-                             string MACHINE_NO = GetString(HeadIndex[2], EncodingType.GB2312);
-                             string ID_LOT_PROD = GetString(HeadIndex[3], EncodingType.GB2312);
-                             short ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.GB2312));
-                             short NUM_BDL = Convert.ToInt16(GetString(HeadIndex[5], EncodingType.GB2312));
-                             short SEQ_LEN = Convert.ToInt16(GetString(HeadIndex[6], EncodingType.GB2312));
-                             short SEQ_OPR = Convert.ToInt16(GetString(HeadIndex[7], EncodingType.GB2312));
-                             double SEQ_L2 = Convert.ToDouble(GetString(HeadIndex[8], EncodingType.GB2312));
-                             short ACK = Convert.ToInt16(GetString(HeadIndex[9], EncodingType.GB2312));
-                             string REASON = GetString(HeadIndex[10], EncodingType.GB2312);
-                             string TMSTP_SEND = GetString(HeadIndex[11], EncodingType.GB2312);
-                             sql = string.Format("UPDATE TLabelContent SET MODELSWTMSTP_SEND='{0}',L3ACK={1},MODELSWREASON='{2}' WHERE ID_LOT_PROD='{3}' and ID_PART_LOT={4} and NUM_BDL={5} and SEQ_LEN={6} and SEQ_OPR={7} ", TMSTP_SEND, ACK, REASON, ID_LOT_PROD, ID_PART_LOT, NUM_BDL, SEQ_LEN, SEQ_OPR);
-                             tm.MultithreadExecuteNonQuery(sql);
-                             string str = MessageFlg.ToString() + " " + ACK + " " + REASON + " " + TMSTP_SEND + " " + ID_LOT_PROD + " " + ID_PART_LOT.ToString() + " " + NUM_BDL.ToString() + " " + SEQ_LEN.ToString() + " " + SEQ_OPR.ToString() + " " + SEQ_L2.ToString();
-                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到MES模式切换确认" + str);
-                             tm.MultithreadExecuteNonQuery(sql);
-                         }
-                         if (MessageFlg == "21LA002")//清空打签队列
-                         {
-                             Int16 ACK = 0;
-                             string reson = "";
-                             double msgid = 0;
-                             string DEL_SEQ = "";
-                             try
-                             {
-                                 DEL_SEQ = GetString(HeadIndex[2], EncodingType.GB2312);
-                                 string DEL_STATUS = GetString(HeadIndex[3], EncodingType.GB2312);
-                                 string DEL_TIME = GetString(HeadIndex[4], EncodingType.GB2312);
-                                 string DEL_MAN = GetString(HeadIndex[5], EncodingType.GB2312);
-                                 sql = string.Format("delete from TLabelContent where IMP_FINISH=0 ");
-                                 tm.MultithreadExecuteNonQuery(sql);
-                                 string str = DEL_SEQ + " " + DEL_TIME + " " + DEL_MAN;
-                                 sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到清空打签队列" + str);
-                                 tm.MultithreadExecuteNonQuery(sql);
-                                 ACK = 1;
-                             }
-                             catch (Exception ex)
-                             {
-                                 ACK = 0;
-                                 reson = "实时标签数据库操作失败";
-                                 log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
-                                 Log.addLog(log, LogType.ERROR, ex.Message);
-                             }
-                             msgid = GetMsgID();
-                             string MessageDEL_ACK = "LA2102A" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " &" + DEL_SEQ + " &" + ACK.ToString() + " &" + reson + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " &" + msgid.ToString() + " &";
-                             byte[] sendArray = StripIronNum.ByteReplace(Encoding.Default.GetBytes(MessageDEL_ACK), OldBytes, NewBytes);
-                             MESSocketClient.senddata(sendArray);
-                             sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "发送清空打签队列结果" + MessageDEL_ACK);
-                             tm.MultithreadExecuteNonQuery(sql);
-                         }
-                         */
-                        #endregion
+                        }                      
                         if (MessageFlg == "")
                         {
                             string text = GetString(buffer, EncodingType.GB2312);

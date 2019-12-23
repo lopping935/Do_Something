@@ -128,11 +128,10 @@ namespace SQLPublicClass
         {
             if (cmd.Connection.State == ConnectionState.Open)
                 cmd.Connection.Close();
-            //cmd.Connection.ConnectionString = "Data Source=Localhost;Initial Catalog=SinteringProControl;User ID=sa; Password=sws;Enlist=true;Pooling=true;Connection Timeout=30;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000";
-            //if (cmd.Connection.State == ConnectionState.Closed) 
+            
                 cmd.Connection.Open();
             DbDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            //cmd.Connection.Close();
+         
             return reader;
         }
         public int ExecuteNonQuery(DbCommand cmd)
@@ -143,12 +142,7 @@ namespace SQLPublicClass
             int ret = cmd.ExecuteNonQuery();
             cmd.Connection.Close();
             return ret;
-            /*if (cmd.Connection.State == ConnectionState.Closed)
-                //cmd.Connection.Close();
-            cmd.Connection.Open();
-            int ret = cmd.ExecuteNonQuery();
-            cmd.Connection.Close();
-            return ret;*/
+            
         }
 
         public object ExecuteScalar(DbCommand cmd)
@@ -213,6 +207,35 @@ namespace SQLPublicClass
             cmd.Transaction = t.DbTrans;  
             object ret = cmd.ExecuteScalar();            
             return ret;
+        }
+        #endregion
+
+        #region sqlhelper
+        DbHelper db;
+        public int MultithreadExecuteNonQuery(string sql)
+        {
+            
+                return db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
+          
+        }
+        public DbDataReader MultithreadDataReader(string sql)
+        {
+           
+                return db.ExecuteReader(db.GetSqlStringCommond(sql));
+            
+        }
+        public DataTable MultithreadDataTable(string sql)
+        {
+            
+                return db.ExecuteDataTable(db.GetSqlStringCommond(sql));
+           
+        }
+
+        public DataTable MultithreadDataTable_Prc(string PrcName)
+        {
+            
+                return db.ExecuteDataTable(db.GetStoredProcCommond(PrcName));
+           
         }
         #endregion
     }

@@ -58,8 +58,9 @@
     <Reference Include="log4net">
       <HintPath>D:\AnBRobotSetup\Debug\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="SQLPublicClass">
-      <HintPath>D:\AnBRobotSetup\Debug\SQLPublicClass.dll</HintPath>
+    <Reference Include="SQLPublicClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Tiger\SQLPublicClass.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

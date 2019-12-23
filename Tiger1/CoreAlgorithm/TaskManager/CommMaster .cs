@@ -95,14 +95,12 @@ namespace CoreAlgorithm.TaskManager
                 Thread.Sleep(1000);                
                 try
                 {
-                    if(GetMsgID(7)==1)
+                    if(GetMsgID(7)==1)//MES下发打捆指令
                     {
                         Program.MessageFlg = 1;
                         Send_SignsMessage();
                         
                     }
-                    
-
                 }
                 catch (Exception ex)
                 {
