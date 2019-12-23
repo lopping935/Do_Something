@@ -88,12 +88,13 @@ namespace CoreAlgorithm.TaskManager
                         {
                             string sql = "";
                             if (Program.MessageFlg ==3)//虎踞成功
-                            {                                
-                                string ID_LOT_PROD = Encoding.Default.GetString(buffer.Skip(6).Take(9).ToArray());
-                                Int16 ID_PART_LOT = BitConverter.ToInt16(buffer.Skip(15).Take(2).ToArray(), 0);
+                            {
+                                Int64 SEQ_SEND = Int64.Parse(Encoding.ASCII.GetString(buffer.Skip(0).Take(12).ToArray()));
+                                string ID_LOT_PROD = Encoding.ASCII.GetString(buffer.Skip(12).Take(9).ToArray()); 
+                                Int16 ID_PART_LOT = BitConverter.ToInt16(buffer.Skip(21).Take(2).ToArray(), 0);
                                 double REC_ID = 0;
 
-                                sql = string.Format("select REC_ID from TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1}", ID_LOT_PROD, ID_PART_LOT);
+                                sql = string.Format("select REC_ID from TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1} and SEQ_SEND={2}", ID_LOT_PROD, ID_PART_LOT,SEQ_SEND);
                                 DbDataReader dr = tm.MultithreadDataReader(sql);
                                 while (dr.Read())
                                 {
@@ -112,10 +113,11 @@ namespace CoreAlgorithm.TaskManager
                             }
                             else if (Program.MessageFlg == 2)//接收到mes数据
                             {
-                                string ID_LOT_PROD = Encoding.Default.GetString(buffer.Skip(6).Take(9).ToArray());
-                                Int16 ID_PART_LOT = BitConverter.ToInt16(buffer.Skip(15).Take(2).ToArray(), 0);
+                                Int64 SEQ_SEND = Int64.Parse(Encoding.ASCII.GetString(buffer.Skip(0).Take(12).ToArray()));
+                                string ID_LOT_PROD = Encoding.ASCII.GetString(buffer.Skip(12).Take(9).ToArray());
+                                Int16 ID_PART_LOT = BitConverter.ToInt16(buffer.Skip(21).Take(2).ToArray(), 0);
                                 double REC_ID = 0;
-                                sql = string.Format("select REC_ID from TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1}", ID_LOT_PROD, ID_PART_LOT);
+                                sql = string.Format("select REC_ID from TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1} and SEQ_SEND={2}", ID_LOT_PROD, ID_PART_LOT, SEQ_SEND);
                                 DbDataReader dr = tm.MultithreadDataReader(sql);
                                 while (dr.Read())
                                 {
@@ -128,7 +130,7 @@ namespace CoreAlgorithm.TaskManager
                                 sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", 1, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 18);//更新虎踞接收数据的RECID
                                 tm.MultithreadExecuteNonQuery(sql);
                                 
-                                string str = "二级收到：虎踞接收MES数据成功";
+                                string str = "二级收到：虎踞接收MES数据成功"+ SEQ_SEND;
                                 sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                                 tm.MultithreadExecuteNonQuery(sql);
                             }

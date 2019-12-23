@@ -124,58 +124,63 @@ namespace CoreAlgorithm.TaskManager
                 {
                     if (dr["REC_ID"] != DBNull.Value)
                         MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
+                    else
+                        return;
                 }
                 dr.Close();
-                sql = string.Format("select MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,TMSTP_SEND,ID_PERSON from TLabelContent WHERE REC_ID={0}", MAXRECID);
-                string MACHINE_NO="",ID_LOT_PROD = "", IND_FIXED="", TMSTP_SEND="", ID_PERSON="";    
-                Int16 ID_PART_LOT = 0, NUM_BAR=0;
-                Double DIM_LEN = 0;
-                Int64 SEQ_SEND = 0, SEQ_LIST=0;
+                sql = string.Format("select SEQ_SEND,ID_LOT_PROD,ID_PART_LOT,NAME_PROD,WT_AVG_LEN_PROD,DES_FIPRO_SECTION,DIM_LEN,NUM_BAR from TLabelContent WHERE REC_ID={0}", MAXRECID);
+                string SEQ_SEND = "",ID_LOT_PROD = "", NAME_PROD="", DES_FIPRO_SECTION="";    
+                Int16 ID_PART_LOT = 0, NUM_BAR=0, NAME_PROD_NUM=0;
+                float DIM_LEN = 0, WT_AVG_LEN_PROD=0;
+
                 DataTable dt = tm.MultithreadDataTable(sql);
                 for (int i = 0; i<dt.Rows.Count; i++)
                 {
-                    MACHINE_NO= dt.Rows[i]["MACHINE_NO"].ToString();
+                    SEQ_SEND = dt.Rows[i]["SEQ_SEND"].ToString();
                     ID_LOT_PROD = dt.Rows[i]["ID_LOT_PROD"].ToString();
                     ID_PART_LOT = Int16.Parse(dt.Rows[i]["ID_PART_LOT"].ToString());
-                    DIM_LEN= Double.Parse(dt.Rows[i]["DIM_LEN"].ToString());
-                    IND_FIXED= dt.Rows[i]["IND_FIXED"].ToString();
-                    SEQ_SEND= Int64.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
-                    NUM_BAR= Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());
-                    SEQ_LIST= Int64.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
-                    TMSTP_SEND= dt.Rows[i]["TMSTP_SEND"].ToString();
-                    ID_PERSON= dt.Rows[i]["ID_PERSON"].ToString();
-                      
+                    NAME_PROD = dt.Rows[i]["NAME_PROD"].ToString();
+                    WT_AVG_LEN_PROD= Single.Parse(dt.Rows[i]["WT_AVG_LEN_PROD"].ToString());
+                    DES_FIPRO_SECTION = dt.Rows[i]["DES_FIPRO_SECTION"].ToString();
+                    DIM_LEN = Single.Parse(dt.Rows[i]["DIM_LEN"].ToString());                   
+                    NUM_BAR= Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());                                         
                 }
-                    
-                    byte[] sendArray = Enumerable.Repeat((byte)0x0, 68).ToArray();
-                    byte[] byteArray0 = BitConverter.GetBytes(Program.MessageFlg);//2
-                    byte[] byteArray1 = Encoding.ASCII.GetBytes(MACHINE_NO);//4
-                    byte[] byteArray2 = Encoding.ASCII.GetBytes(ID_LOT_PROD);//9
-                    byte[] byteArray3 = BitConverter.GetBytes(ID_PART_LOT);//2
-                    byte[] byteArray4= BitConverter.GetBytes(DIM_LEN);//8
-                    byte[] byteArray5 = Encoding.ASCII.GetBytes(IND_FIXED);//1
-                    byte[] byteArray6 = BitConverter.GetBytes(SEQ_SEND);//8
-                    byte[] byteArray7= BitConverter.GetBytes(NUM_BAR); //2
-                    byte[] byteArray8 = BitConverter.GetBytes(SEQ_LIST);//8
-                    byte[] byteArray9 = Encoding.ASCII.GetBytes(TMSTP_SEND);//19
-                    byte[] byteArray10 = Encoding.ASCII.GetBytes(ID_PERSON);//8
+                string[] steeltype = { "槽", "角", "工", "球" };
+                for (short i = 1; i <= 4; i++)
+                {
+                    if (NAME_PROD.IndexOf(steeltype[i - 1]) >= 0)
+                    {
+                        NAME_PROD_NUM = i;
+                        break;
+                    }
+                }
+                byte[] sendArray = Enumerable.Repeat((byte)0x0, 77).ToArray();
+                byte[] byteArray0 = BitConverter.GetBytes(Program.MessageFlg);//2
+                byte[] byteArray1 = Encoding.ASCII.GetBytes(SEQ_SEND);//4
+                byte[] byteArray2 = Encoding.ASCII.GetBytes(ID_LOT_PROD);//9
+                byte[] byteArray3 = BitConverter.GetBytes(ID_PART_LOT);//2
+                byte[] byteArray4= Encoding.ASCII.GetBytes(NAME_PROD);//8
+                byte[] byteArray5 = BitConverter.GetBytes(WT_AVG_LEN_PROD);//1
+                byte[] byteArray6 = Encoding.ASCII.GetBytes(DES_FIPRO_SECTION);//8
+                byte[] byteArray7= BitConverter.GetBytes(DIM_LEN); //2
+                byte[] byteArray8 = BitConverter.GetBytes(NUM_BAR);//8
+
 
                     Buffer.BlockCopy(byteArray0, 0, sendArray, 0, byteArray0.Length);
                     Buffer.BlockCopy(byteArray1, 0, sendArray, 2, byteArray1.Length);
-                    Buffer.BlockCopy(byteArray2, 0, sendArray, 6, byteArray2.Length);
-                    Buffer.BlockCopy(byteArray3, 0, sendArray, 15, byteArray3.Length);
-                    Buffer.BlockCopy(byteArray4, 0, sendArray, 17, byteArray4.Length);
-                    Buffer.BlockCopy(byteArray5, 0, sendArray, 25, byteArray5.Length);
-                    Buffer.BlockCopy(byteArray6, 0, sendArray, 26, byteArray6.Length);
-                    Buffer.BlockCopy(byteArray7, 0, sendArray, 32, byteArray7.Length);
-                    Buffer.BlockCopy(byteArray8, 0, sendArray, 34, byteArray8.Length);
-                    Buffer.BlockCopy(byteArray9, 0, sendArray, 42, byteArray9.Length);
-                    Buffer.BlockCopy(byteArray10, 0, sendArray, 61, byteArray10.Length);
+                    Buffer.BlockCopy(byteArray2, 0, sendArray, 14, byteArray2.Length);
+                    Buffer.BlockCopy(byteArray3, 0, sendArray, 23, byteArray3.Length);
+                    Buffer.BlockCopy(byteArray4, 0, sendArray, 25, byteArray4.Length);
+                    Buffer.BlockCopy(byteArray5, 0, sendArray, 27, byteArray5.Length);
+                    Buffer.BlockCopy(byteArray6, 0, sendArray, 31, byteArray6.Length);
+                    Buffer.BlockCopy(byteArray7, 0, sendArray, 71, byteArray7.Length);
+                    Buffer.BlockCopy(byteArray8, 0, sendArray, 75, byteArray8.Length);
+
                    
                 if (sendArray.Length > 0)
                     {
                         PLCSocketServer.senddata(sendArray);
-                        string str = "MES发送消息到虎踞PLC"+MACHINE_NO + " " + ID_LOT_PROD + " "  + ID_PART_LOT.ToString() + " " + DIM_LEN .ToString()+ " "+ NUM_BAR;
+                        string str = "二级发送消息到虎踞PLC"+ SEQ_SEND + " " + ID_LOT_PROD + " "  + ID_PART_LOT.ToString() + " " + DIM_LEN .ToString()+ " "+ NUM_BAR;
                         sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                         tm.MultithreadExecuteNonQuery(sql);
                     }
