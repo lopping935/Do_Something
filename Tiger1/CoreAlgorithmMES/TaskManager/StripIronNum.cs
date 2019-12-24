@@ -164,7 +164,7 @@ namespace CoreAlgorithm.TaskManager
                     if (messagecls.GetMsgID(18) == 1)//打捆指令应答
                     {
                         double MAXRECID = messagecls.GetMsgID(19);// 虎踞接收打捆数据的REC_ID             
-                        sql = string.Format("select MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,WT_BDL_ACT from TLabelContent WHERE REC_ID={0} ", MAXRECID);
+                        sql = string.Format("select MACHINE_NO,NAME_PROD,WT_AVG_LEN_PROD,DES_FIPRO_SECTION,NAME_STLGD,ID_LOT_PROD,ID_PART_LOT,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST from TLabelContent WHERE REC_ID={0} ", MAXRECID);
                         messagecls.LabelData LabelDataASK;
                         double REC_ID = 0, SEQ_L2 = 0;
                         string MODELSWACK = "";
@@ -180,6 +180,10 @@ namespace CoreAlgorithm.TaskManager
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
                             LabelDataASK.MACHINE_NO = dt.Rows[i]["MACHINE_NO"].ToString();
+                            LabelDataASK.NAME_PROD= dt.Rows[i]["NAME_PROD"].ToString();
+                            LabelDataASK.WT_AVG_LEN_PROD= double.Parse(dt.Rows[i]["WT_AVG_LEN_PROD"].ToString());
+                            LabelDataASK.DES_FIPRO_SECTION= dt.Rows[i]["DES_FIPRO_SECTION"].ToString();
+                            LabelDataASK.NAME_STLGD= dt.Rows[i]["NAME_STLGD"].ToString();
                             LabelDataASK.ID_LOT_PROD = dt.Rows[i]["ID_LOT_PROD"].ToString();
                             LabelDataASK.ID_PART_LOT = Int16.Parse(dt.Rows[i]["ID_PART_LOT"].ToString());
                             LabelDataASK.DIM_LEN = double.Parse(dt.Rows[i]["DIM_LEN"].ToString());
@@ -192,7 +196,7 @@ namespace CoreAlgorithm.TaskManager
 
                             REC_ID = double.Parse(dt.Rows[i]["REC_ID"].ToString());
                             SEQ_L2 = messagecls.GetMsgID();
-                            string text1 = MessageHead + " &" + time + " &" + LabelDataASK.MACHINE_NO + " &" + LabelDataASK.ID_LOT_PROD + " &" + LabelDataASK.ID_PART_LOT.ToString() + " &" + LabelDataASK.DIM_LEN.ToString() + " &" + LabelDataASK.IND_FIXED + " &" + LabelDataASK.SEQ_SEND.ToString() + " &" + LabelDataASK.NUM_BAR.ToString() + " &" + LabelDataASK.SEQ_LIST.ToString() + " &" + 1.ToString() + " &" + SEQ_L2.ToString() + " &" + time + " &";
+                            string text1 = MessageHead + " &" + time + " &" + LabelDataASK.MACHINE_NO + " &" + LabelDataASK.NAME_PROD+" &" +LabelDataASK.WT_AVG_LEN_PROD +" &" + LabelDataASK.DES_FIPRO_SECTION+" &"+LabelDataASK.NAME_STLGD+ " &" + LabelDataASK.ID_LOT_PROD + " &" + LabelDataASK.ID_PART_LOT.ToString() + " &" + LabelDataASK.DIM_LEN.ToString() + " &" + LabelDataASK.IND_FIXED + " &" + LabelDataASK.SEQ_SEND.ToString() + " &" + LabelDataASK.NUM_BAR.ToString() + " &" + LabelDataASK.SEQ_LIST.ToString() + " &" + 1.ToString()  +" &" +""+" &"+ SEQ_L2.ToString() + " &" + time + " &";
                             byte[] sendArray = Encoding.Default.GetBytes(text1);
                             sendArray = ByteReplace(sendArray, OldBytes, NewBytes);
                             if (sendArray.Length > 0)
