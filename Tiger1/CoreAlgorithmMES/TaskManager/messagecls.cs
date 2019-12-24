@@ -10,9 +10,9 @@ using System.Data.Common;
 using System.Reflection;
 namespace CoreAlgorithmMES
 {
-    public class messagecls
+    public  class messagecls
     {
-        static TasksManager tm;
+       // public  TasksManager tm1;
         public enum EncodingType { UTF7, UTF8, UTF32, Unicode, BigEndianUnicode, ASCII, GB2312, GBK, ISO8859 ,defaul};
         public struct LabelData
         {
@@ -35,16 +35,19 @@ namespace CoreAlgorithmMES
         };
         public messagecls()
         {
-            tm = new TasksManager();
+            //tm1 = new TasksManager();
+        
         }
         public static Double GetMsgID(int ID)
         {
+            TasksManager tm1 = new TasksManager();
             string sql = "";
             Double Id = 0;
+            messagecls m1 = new messagecls();
             try
             {
                 sql = string.Format("select PARAMETER_VALUE from SYSPARAMETER where PARAMETER_ID={0}", ID);
-                DbDataReader dr = tm.MultithreadDataReader(sql);
+                DbDataReader dr = tm1.MultithreadDataReader(sql);
                 while (dr.Read())
                 {
                     if (dr["PARAMETER_VALUE"] != DBNull.Value)
@@ -52,7 +55,7 @@ namespace CoreAlgorithmMES
                 }
                 dr.Close();
                 sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", 0, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), ID);
-                tm.MultithreadExecuteNonQuery(sql);
+                tm1.MultithreadExecuteNonQuery(sql);
                 return Id;
             }
             catch (Exception ex)
@@ -67,10 +70,11 @@ namespace CoreAlgorithmMES
         {
             string sql = "";
             Double Id = 0;
+            TasksManager tm1 = new TasksManager();
             try
             {
                 sql = "select PARAMETER_VALUE from SYSPARAMETER where PARAMETER_ID=9";
-                DbDataReader dr = tm.MultithreadDataReader(sql);
+                DbDataReader dr = StripIronNum.tm.MultithreadDataReader(sql);
                 while (dr.Read())
                 {
                     if (dr["PARAMETER_VALUE"] != DBNull.Value)
@@ -78,7 +82,7 @@ namespace CoreAlgorithmMES
                 }
                 dr.Close();
                 sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=12", Id, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));
-                tm.MultithreadExecuteNonQuery(sql);
+                tm1.MultithreadExecuteNonQuery(sql);
                 return Id;
             }
             catch (Exception ex)
@@ -184,11 +188,12 @@ namespace CoreAlgorithmMES
         Int16 ACK = 0;
         public void RecMES(object SocketClient)
         {
-
+            TasksManager tm1 = new TasksManager();
+            DbDataReader dr = null;
             byte OldBytes = 0x20;
             byte NewBytes = 0x7F;
             Socket connect = SocketClient as Socket;
-            messagecls msq = new messagecls();
+            //messagecls msq = new messagecls();
             string sql = "";
             while (true)
             {
@@ -217,58 +222,63 @@ namespace CoreAlgorithmMES
                             string MesTime = GetString(HeadIndex[1], EncodingType.GB2312);//System.Text.Encoding.ASCII.GetString(buffer.Skip(0).Take(HeadIndex + 1).ToArray());
                             string str = MessageFlg.ToString() + " " + MesTime;
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
-                            tm.MultithreadExecuteNonQuery(sql);
+                            tm1.MultithreadExecuteNonQuery(sql);
                         }
                         if (MessageFlg == "21BD001")//打捆指令
                         {
+                            //GetMsgID(11);
                             messagecls.LabelData LabelDataRecv;
                             
                             double ProductIDA = 0;
                             string str = "";
                             Double msgid = 0;
                             #region l3->l2接收数据标签
+                            sql = "select PARAMETER_VALUE from SYSPARAMETER where PARAMETER_ID=10";                           
                             try
                             {
                                 LabelDataRecv.ID_TIME = GetString(HeadIndex[1], EncodingType.GB2312);
                                 LabelDataRecv.MACHINE_NO = GetString(HeadIndex[2], EncodingType.GB2312);
                                 LabelDataRecv.NAME_PROD = GetString(HeadIndex[3], EncodingType.GB2312);
-                                LabelDataRecv.WT_AVG_LEN_PROD= Convert.ToDouble(GetString(HeadIndex[4], EncodingType.GB2312));
-                                LabelDataRecv.DES_FIPRO_SECTION= GetString(HeadIndex[5], EncodingType.GB2312);
-                                LabelDataRecv.NAME_STLGD= GetString(HeadIndex[6], EncodingType.GB2312);
+                                LabelDataRecv.WT_AVG_LEN_PROD = Convert.ToDouble(GetString(HeadIndex[4], EncodingType.GB2312));
+                                LabelDataRecv.DES_FIPRO_SECTION = GetString(HeadIndex[5], EncodingType.GB2312);
+                                LabelDataRecv.NAME_STLGD = GetString(HeadIndex[6], EncodingType.GB2312);
                                 LabelDataRecv.ID_LOT_PROD = GetString(HeadIndex[7], EncodingType.GB2312);
-                                LabelDataRecv.ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[8], EncodingType.GB2312));                                
+                                LabelDataRecv.ID_PART_LOT = Convert.ToInt16(GetString(HeadIndex[8], EncodingType.GB2312));
                                 LabelDataRecv.DIM_LEN = Convert.ToDouble(GetString(HeadIndex[9], EncodingType.GB2312));
                                 LabelDataRecv.IND_FIXED = GetString(HeadIndex[10], EncodingType.GB2312);
                                 LabelDataRecv.SEQ_SEND = Convert.ToDouble(GetString(HeadIndex[11], EncodingType.GB2312));
                                 LabelDataRecv.NUM_BAR = Convert.ToInt16(GetString(HeadIndex[12], EncodingType.GB2312));
-                                LabelDataRecv.SEQ_LIST = Convert.ToDouble(GetString(HeadIndex[13], EncodingType.GB2312));                                
+                                LabelDataRecv.SEQ_LIST = Convert.ToDouble(GetString(HeadIndex[13], EncodingType.GB2312));
                                 LabelDataRecv.TMSTP_SEND = GetString(HeadIndex[14], EncodingType.GB2312);
-                                LabelDataRecv.ID_PERSON= GetString(HeadIndex[15], EncodingType.GB2312);
+                                LabelDataRecv.ID_PERSON = GetString(HeadIndex[15], EncodingType.GB2312);
                                 ACK = 1;
                                 reson = "";
                                 try
                                 {
+                                    
                                     sql = "select PARAMETER_VALUE from SYSPARAMETER where PARAMETER_ID=10";
-                                    DbDataReader dr = tm.MultithreadDataReader(sql);
-
+                                    
+                                    dr = tm1.MultithreadDataReader(sql);
                                     while (dr.Read())
                                     {
                                         if (dr["PARAMETER_VALUE"] != DBNull.Value)
                                             ProductIDA = Convert.ToDouble(dr["PARAMETER_VALUE"]) + 1;
                                     }
                                     dr.Close();
-                                    sql = string.Format("insert into TLabelContent(MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,TMSTP_SEND,ID_PERSON,REC_ID,REC_IMP_TIME,IMP_FINISH,NAME_PROD,WT_AVG_LEN_PROD,DES_FIPRO_SECTION,NAME_STLGD) values('{0}','{1}',{2},{3},{4},{5},{6},'{7}',{8},{9},{10},{11},'{12}','{13}',{14},'{15}','{16}')", LabelDataRecv.MACHINE_NO, LabelDataRecv.ID_LOT_PROD, LabelDataRecv.ID_PART_LOT, LabelDataRecv.DIM_LEN, LabelDataRecv.IND_FIXED, LabelDataRecv.SEQ_SEND, LabelDataRecv.NUM_BAR, LabelDataRecv.SEQ_LIST,LabelDataRecv.TMSTP_SEND, LabelDataRecv.ID_PERSON, ProductIDA, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), 0,LabelDataRecv.NAME_PROD,LabelDataRecv.WT_AVG_LEN_PROD,LabelDataRecv.DES_FIPRO_SECTION,LabelDataRecv.NAME_STLGD);
-                                    tm.MultithreadExecuteNonQuery(sql);
+                                    sql = string.Format("insert into TLabelContent(MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,TMSTP_SEND,ID_PERSON,REC_ID,REC_IMP_TIME,IMP_FINISH,NAME_PROD,WT_AVG_LEN_PROD,DES_FIPRO_SECTION,NAME_STLGD) values('{0}','{1}',{2},{3},'{4}',{5},{6},'{7}','{8}','{9}',{10},'{11}',{12},'{13}',{14},'{15}','{16}')", LabelDataRecv.MACHINE_NO, LabelDataRecv.ID_LOT_PROD, LabelDataRecv.ID_PART_LOT, LabelDataRecv.DIM_LEN, LabelDataRecv.IND_FIXED, LabelDataRecv.SEQ_SEND, LabelDataRecv.NUM_BAR, LabelDataRecv.SEQ_LIST,LabelDataRecv.TMSTP_SEND, LabelDataRecv.ID_PERSON, ProductIDA, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), 0,LabelDataRecv.NAME_PROD,LabelDataRecv.WT_AVG_LEN_PROD,LabelDataRecv.DES_FIPRO_SECTION,LabelDataRecv.NAME_STLGD);
+                                    tm1.MultithreadExecuteNonQuery(sql);
                                     sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=10", ProductIDA, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));//更新recid
-                                    tm.MultithreadExecuteNonQuery(sql);
+                                    tm1.MultithreadExecuteNonQuery(sql);
                                     sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=7", 1, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));//更新MES打捆指令数据
-                                    tm.MultithreadExecuteNonQuery(sql);
+                                    tm1.MultithreadExecuteNonQuery(sql);
                                     str = MessageFlg.ToString() + " " + LabelDataRecv.MACHINE_NO + " " + LabelDataRecv.ID_LOT_PROD + " " + LabelDataRecv.ID_PART_LOT.ToString() + LabelDataRecv.DIM_LEN.ToString() + " " + LabelDataRecv.IND_FIXED + " " + LabelDataRecv.SEQ_SEND.ToString() + " " + LabelDataRecv.NUM_BAR.ToString() + " " + LabelDataRecv.SEQ_LIST.ToString() + " " + LabelDataRecv.TMSTP_SEND + " " + LabelDataRecv.ID_PERSON.ToString();
                                     sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到标签数据" + str);
-                                    tm.MultithreadExecuteNonQuery(sql);
+                                    tm1.MultithreadExecuteNonQuery(sql);
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
+                                    log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
+                                    Log.addLog(log, LogType.ERROR, ex.Message);
                                     ACK = 0;
                                     reson = "打捆指令储数据有误，可能存在重复数据";
                                     #region l2->l3标签数据应答失败回复
@@ -292,7 +302,7 @@ namespace CoreAlgorithmMES
                                     StripIronNum.Client_MES.SendData(sendArray);
                                     string strsend = MessageHead + appendmsg;
                                     string sqlsend = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "回复标签数据" + strsend);
-                                    tm.MultithreadExecuteNonQuery(sqlsend);
+                                    tm1.MultithreadExecuteNonQuery(sqlsend);
                                     #endregion
                                 }
                             }
@@ -321,7 +331,7 @@ namespace CoreAlgorithmMES
                                 StripIronNum.Client_MES.SendData(sendArray);
                                 string strsend = MessageHead + appendmsg;
                                 string sqlsend = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "回复标签数据" + strsend);
-                                tm.MultithreadExecuteNonQuery(sqlsend);
+                                tm1.MultithreadExecuteNonQuery(sqlsend);
                                 #endregion
                             }
                             
@@ -332,7 +342,7 @@ namespace CoreAlgorithmMES
                         {
                             string text = GetString(buffer, EncodingType.GB2312);
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), text);
-                            tm.MultithreadExecuteNonQuery(sql);
+                            tm1.MultithreadExecuteNonQuery(sql);
                         }
 
                     }

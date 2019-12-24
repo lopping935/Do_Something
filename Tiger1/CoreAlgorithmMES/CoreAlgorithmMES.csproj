@@ -54,6 +54,9 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net">
       <HintPath>D:\AnBRobotSetup\Debug\log4net.dll</HintPath>

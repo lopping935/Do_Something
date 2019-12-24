@@ -154,12 +154,12 @@ namespace CoreAlgorithm.TaskManager
                         break;
                     }
                 }
-                byte[] sendArray = Enumerable.Repeat((byte)0x0, 77).ToArray();
-                byte[] byteArray0 = BitConverter.GetBytes(Program.MessageFlg);//2
+                byte[] sendArray = Enumerable.Repeat((byte)0x0, 78).ToArray();
+                byte[] byteArray0 = BitConverter.GetBytes(1);//2
                 byte[] byteArray1 = Encoding.ASCII.GetBytes(SEQ_SEND);//4
                 byte[] byteArray2 = Encoding.ASCII.GetBytes(ID_LOT_PROD);//9
                 byte[] byteArray3 = BitConverter.GetBytes(ID_PART_LOT);//2
-                byte[] byteArray4= Encoding.ASCII.GetBytes(NAME_PROD);//8
+                byte[] byteArray4= BitConverter.GetBytes(NAME_PROD_NUM);//8
                 byte[] byteArray5 = BitConverter.GetBytes(WT_AVG_LEN_PROD);//1
                 byte[] byteArray6 = Encoding.ASCII.GetBytes(DES_FIPRO_SECTION);//8
                 byte[] byteArray7= BitConverter.GetBytes(DIM_LEN); //2
@@ -169,12 +169,12 @@ namespace CoreAlgorithm.TaskManager
                     Buffer.BlockCopy(byteArray0, 0, sendArray, 0, byteArray0.Length);
                     Buffer.BlockCopy(byteArray1, 0, sendArray, 2, byteArray1.Length);
                     Buffer.BlockCopy(byteArray2, 0, sendArray, 14, byteArray2.Length);
-                    Buffer.BlockCopy(byteArray3, 0, sendArray, 23, byteArray3.Length);
-                    Buffer.BlockCopy(byteArray4, 0, sendArray, 25, byteArray4.Length);
-                    Buffer.BlockCopy(byteArray5, 0, sendArray, 27, byteArray5.Length);
-                    Buffer.BlockCopy(byteArray6, 0, sendArray, 31, byteArray6.Length);
-                    Buffer.BlockCopy(byteArray7, 0, sendArray, 71, byteArray7.Length);
-                    Buffer.BlockCopy(byteArray8, 0, sendArray, 75, byteArray8.Length);
+                    Buffer.BlockCopy(byteArray3, 0, sendArray, 24, byteArray3.Length);
+                    Buffer.BlockCopy(byteArray4, 0, sendArray, 26, byteArray4.Length);
+                    Buffer.BlockCopy(byteArray5, 0, sendArray, 28, byteArray5.Length);
+                    Buffer.BlockCopy(byteArray6, 0, sendArray, 32, byteArray6.Length);
+                    Buffer.BlockCopy(byteArray7, 0, sendArray, 72, byteArray7.Length);
+                    Buffer.BlockCopy(byteArray8, 0, sendArray, 76, byteArray8.Length);
 
                    
                 if (sendArray.Length > 0)

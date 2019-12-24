@@ -28,7 +28,7 @@ namespace CoreAlgorithm.TaskManager
         SocketServer Server_PLC = null;
         public static SocketClient Client_MES = null;
         public static SocketClient Client_PLC = null;
-        messagecls MEShelper = null;
+        public messagecls MEShelper = null;
         public static byte [] ByteReplace(byte[] srcBytes, byte OldByte, byte NewByte)
         {
             for (int i = 0; i < srcBytes.Length-1; i++)
