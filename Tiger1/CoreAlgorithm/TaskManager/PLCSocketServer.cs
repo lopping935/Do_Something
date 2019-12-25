@@ -89,9 +89,9 @@ namespace CoreAlgorithm.TaskManager
                             string sql = "";
                             if (Program.MessageFlg ==3)//虎踞成功
                             {
-                                Int64 SEQ_SEND = Int64.Parse(Encoding.ASCII.GetString(buffer.Skip(0).Take(12).ToArray()));
-                                string ID_LOT_PROD = Encoding.ASCII.GetString(buffer.Skip(12).Take(9).ToArray()); 
-                                Int16 ID_PART_LOT = BitConverter.ToInt16(buffer.Skip(21).Take(2).ToArray(), 0);
+                                Int64 SEQ_SEND = Int64.Parse(Encoding.ASCII.GetString(buffer.Skip(2).Take(12).ToArray()));
+                                string ID_LOT_PROD = Encoding.ASCII.GetString(buffer.Skip(14).Take(9).ToArray()); 
+                                Int16 ID_PART_LOT = BitConverter.ToInt16(buffer.Skip(24).Take(2).ToArray(), 0);
                                 double REC_ID = 0;
 
                                 sql = string.Format("select REC_ID from TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1} and SEQ_SEND={2}", ID_LOT_PROD, ID_PART_LOT,SEQ_SEND);
@@ -104,7 +104,7 @@ namespace CoreAlgorithm.TaskManager
                                 dr.Close();                              
                                 sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", REC_ID, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 12);//更新虎踞打捆成功的RECID
                                 tm.MultithreadExecuteNonQuery(sql);
-                                sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", 0, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 11);//更新虎踞打捆成功标志
+                                sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", 1, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 11);//更新虎踞打捆成功标志
                                 tm.MultithreadExecuteNonQuery(sql);
 
                                 string str = "二级收到：虎踞打捆成功" +ID_LOT_PROD + " " + ID_PART_LOT.ToString();
@@ -113,9 +113,9 @@ namespace CoreAlgorithm.TaskManager
                             }
                             else if (Program.MessageFlg == 2)//接收到mes数据
                             {
-                                Int64 SEQ_SEND = Int64.Parse(Encoding.ASCII.GetString(buffer.Skip(0).Take(12).ToArray()));
-                                string ID_LOT_PROD = Encoding.ASCII.GetString(buffer.Skip(12).Take(9).ToArray());
-                                Int16 ID_PART_LOT = BitConverter.ToInt16(buffer.Skip(21).Take(2).ToArray(), 0);
+                                Int64 SEQ_SEND = Int64.Parse(Encoding.ASCII.GetString(buffer.Skip(2).Take(12).ToArray()));
+                                string ID_LOT_PROD = Encoding.ASCII.GetString(buffer.Skip(14).Take(9).ToArray());
+                                Int16 ID_PART_LOT = BitConverter.ToInt16(buffer.Skip(24).Take(2).ToArray(), 0);
                                 double REC_ID = 0;
                                 sql = string.Format("select REC_ID from TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1} and SEQ_SEND={2}", ID_LOT_PROD, ID_PART_LOT, SEQ_SEND);
                                 DbDataReader dr = tm.MultithreadDataReader(sql);

@@ -123,17 +123,13 @@ namespace CoreAlgorithm.TaskManager
                     if (messagecls.GetMsgID(11) == 1)//plc打捆结果
                     {
                         double MAXRECID = messagecls.GetMsgID(12);// PLANIDNow = 0;                
-                        sql = string.Format("select MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,WT_BDL_ACT from TLabelContent WHERE REC_ID>={0} ", MAXRECID);
                         messagecls.LabelData LabelDataASK;
                         double REC_ID = 0, SEQ_L2 = 0;
-                        string MODELSWACK = "";
                         MessageHead = "BD21001";
                         time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        sql = string.Format("select MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,WT_BDL_ACT from TLabelContent WHERE REC_ID={0} ", MAXRECID);
                         dt = tm.MultithreadDataTable(sql);
-                        if (dt.Rows.Count > 0)
-                        {
-                            MODELSWACK = dt.Rows[0]["MODELSWACK"].ToString();
-                        }
+                        
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
                             LabelDataASK.MACHINE_NO = dt.Rows[i]["MACHINE_NO"].ToString();
@@ -144,9 +140,9 @@ namespace CoreAlgorithm.TaskManager
                             LabelDataASK.SEQ_SEND = double.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
                             LabelDataASK.NUM_BAR = Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());
                             LabelDataASK.SEQ_LIST = double.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
-                            LabelDataASK.WT_BDL_ACT = double.Parse(dt.Rows[i]["LA_BDL_ACT"].ToString());
+                            LabelDataASK.WT_BDL_ACT = double.Parse(dt.Rows[i]["WT_BDL_ACT"].ToString());
 
-                            REC_ID = double.Parse(dt.Rows[i]["REC_ID"].ToString());
+                            REC_ID = MAXRECID;
                             SEQ_L2 = messagecls.GetMsgID();
                             string text1 = MessageHead + " &" + time + " &" + LabelDataASK.MACHINE_NO + " &" + LabelDataASK.ID_LOT_PROD + " &" + LabelDataASK.ID_PART_LOT.ToString() + " &" + LabelDataASK.DIM_LEN.ToString() + " &" + LabelDataASK.IND_FIXED + " &" + LabelDataASK.SEQ_SEND.ToString() + " &" + LabelDataASK.NUM_BAR.ToString() + " &" + LabelDataASK.SEQ_LIST.ToString() + " &" + LabelDataASK.WT_BDL_ACT.ToString() + " &" + SEQ_L2.ToString() + " &" + time + " &";
                             byte[] sendArray = Encoding.Default.GetBytes(text1);
@@ -164,19 +160,13 @@ namespace CoreAlgorithm.TaskManager
                     if (messagecls.GetMsgID(18) == 1)//打捆指令应答
                     {
                         double MAXRECID = messagecls.GetMsgID(19);// 虎踞接收打捆数据的REC_ID             
-                        sql = string.Format("select MACHINE_NO,NAME_PROD,WT_AVG_LEN_PROD,DES_FIPRO_SECTION,NAME_STLGD,ID_LOT_PROD,ID_PART_LOT,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST from TLabelContent WHERE REC_ID={0} ", MAXRECID);
                         messagecls.LabelData LabelDataASK;
                         double REC_ID = 0, SEQ_L2 = 0;
-                        string MODELSWACK = "";
-                        MessageHead = "BD21001";
+                        MessageHead = "BD2101A";
                         time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        sql = string.Format("select MACHINE_NO,NAME_PROD,WT_AVG_LEN_PROD,DES_FIPRO_SECTION,NAME_STLGD,ID_LOT_PROD,ID_PART_LOT,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST from TLabelContent WHERE REC_ID={0} ", MAXRECID);
                         dt = tm.MultithreadDataTable(sql);
-                        if (dt.Rows.Count > 0)
-                        {
-                            MODELSWACK = dt.Rows[0]["MODELSWACK"].ToString();
-                        }
-
-
+                        
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
                             LabelDataASK.MACHINE_NO = dt.Rows[i]["MACHINE_NO"].ToString();
@@ -191,10 +181,10 @@ namespace CoreAlgorithm.TaskManager
                             LabelDataASK.SEQ_SEND = double.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
                             LabelDataASK.NUM_BAR = Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());
                             LabelDataASK.SEQ_LIST = double.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
-                            LabelDataASK.WT_BDL_ACT = double.Parse(dt.Rows[i]["LA_BDL_ACT"].ToString());
+                            //LabelDataASK.WT_BDL_ACT = double.Parse(dt.Rows[i]["WT_BDL_ACT"].ToString());
 
 
-                            REC_ID = double.Parse(dt.Rows[i]["REC_ID"].ToString());
+                            REC_ID = MAXRECID;
                             SEQ_L2 = messagecls.GetMsgID();
                             string text1 = MessageHead + " &" + time + " &" + LabelDataASK.MACHINE_NO + " &" + LabelDataASK.NAME_PROD+" &" +LabelDataASK.WT_AVG_LEN_PROD +" &" + LabelDataASK.DES_FIPRO_SECTION+" &"+LabelDataASK.NAME_STLGD+ " &" + LabelDataASK.ID_LOT_PROD + " &" + LabelDataASK.ID_PART_LOT.ToString() + " &" + LabelDataASK.DIM_LEN.ToString() + " &" + LabelDataASK.IND_FIXED + " &" + LabelDataASK.SEQ_SEND.ToString() + " &" + LabelDataASK.NUM_BAR.ToString() + " &" + LabelDataASK.SEQ_LIST.ToString() + " &" + 1.ToString()  +" &" +""+" &"+ SEQ_L2.ToString() + " &" + time + " &";
                             byte[] sendArray = Encoding.Default.GetBytes(text1);

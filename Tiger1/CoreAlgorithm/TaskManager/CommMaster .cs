@@ -34,10 +34,9 @@ namespace CoreAlgorithm.TaskManager
     { 
         public static TasksManager tm;
         INIClass ini = new INIClass(System.AppDomain.CurrentDomain.BaseDirectory + "Config.ini");
-        LabelData Label;
         string localip = "", plcip = "";//400PLC ip
         int localportr = 0, plcportr = 0, plcports = 0;//400PLC端口
-        SocketClient raw;
+
         public CommMaster()
         {
             tm = new TasksManager();
@@ -60,6 +59,7 @@ namespace CoreAlgorithm.TaskManager
             }
             dr.Close();
         }
+
         public  Double GetMsgID(int ID)
         {
             string sql = "";
@@ -86,6 +86,7 @@ namespace CoreAlgorithm.TaskManager
             }
 
         }
+
         public void do_SendMessage(object objTh)
         {
             while (true)
@@ -166,15 +167,15 @@ namespace CoreAlgorithm.TaskManager
                 byte[] byteArray8 = BitConverter.GetBytes(NUM_BAR);//8
 
 
-                    Buffer.BlockCopy(byteArray0, 0, sendArray, 0, byteArray0.Length);
-                    Buffer.BlockCopy(byteArray1, 0, sendArray, 2, byteArray1.Length);
-                    Buffer.BlockCopy(byteArray2, 0, sendArray, 14, byteArray2.Length);
-                    Buffer.BlockCopy(byteArray3, 0, sendArray, 24, byteArray3.Length);
-                    Buffer.BlockCopy(byteArray4, 0, sendArray, 26, byteArray4.Length);
-                    Buffer.BlockCopy(byteArray5, 0, sendArray, 28, byteArray5.Length);
-                    Buffer.BlockCopy(byteArray6, 0, sendArray, 32, byteArray6.Length);
-                    Buffer.BlockCopy(byteArray7, 0, sendArray, 72, byteArray7.Length);
-                    Buffer.BlockCopy(byteArray8, 0, sendArray, 76, byteArray8.Length);
+                Buffer.BlockCopy(byteArray0, 0, sendArray, 0, byteArray0.Length);
+                Buffer.BlockCopy(byteArray1, 0, sendArray, 2, byteArray1.Length);
+                Buffer.BlockCopy(byteArray2, 0, sendArray, 14, byteArray2.Length);
+                Buffer.BlockCopy(byteArray3, 0, sendArray, 24, byteArray3.Length);
+                Buffer.BlockCopy(byteArray4, 0, sendArray, 26, byteArray4.Length);
+                Buffer.BlockCopy(byteArray5, 0, sendArray, 28, byteArray5.Length);
+                Buffer.BlockCopy(byteArray6, 0, sendArray, 32, byteArray6.Length);
+                Buffer.BlockCopy(byteArray7, 0, sendArray, 72, byteArray7.Length);
+                Buffer.BlockCopy(byteArray8, 0, sendArray, 76, byteArray8.Length);
 
                    
                 if (sendArray.Length > 0)
