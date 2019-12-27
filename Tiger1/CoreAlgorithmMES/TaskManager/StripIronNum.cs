@@ -76,7 +76,7 @@ namespace CoreAlgorithm.TaskManager
                     string ss = time.Substring(17, 2);
                     if (ss == "59")
                     {
-                        MessageHead = "21BD000";                      
+                        MessageHead = "BD21000";                      
                         string str = MessageHead + " &" + time + " &"+ time + " &";
                         byte[] sendArrayT = System.Text.Encoding.Default.GetBytes(str);
                         sendArrayT = ByteReplace(sendArrayT, OldBytes, NewBytes);
