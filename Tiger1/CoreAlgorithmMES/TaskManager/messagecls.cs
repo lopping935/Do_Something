@@ -390,7 +390,7 @@ namespace CoreAlgorithmMES
                             LabelDataRecv.REASON = GetString(HeadIndex[13], EncodingType.GB2312);
                             LabelDataRecv.TMSTP_SEND= GetString(HeadIndex[14], EncodingType.GB2312);
 
-                            double RECID = 0;
+                            double RECID = -1;
                             sql =string.Format("select REC_ID from TLabelContent where SEQ_SEND={0}", LabelDataRecv.SEQ_SEND);
                             dr = tm1.MultithreadDataReader(sql);
                             while (dr.Read())
@@ -401,14 +401,17 @@ namespace CoreAlgorithmMES
                                     return;
                             }
                             dr.Close();
-                            sql = string.Format("UPDATE TLabelContent SET L3ACK={0},L3ACKREASON='{1}',L3ACKTMSTP_RECV='{2}' where SEQ_SEND={3}", ACK, LabelDataRecv.REASON,LabelDataRecv.TMSTP_SEND, LabelDataRecv.SEQ_SEND);//更新recid
-                            tm1.MultithreadExecuteNonQuery(sql);
-                            sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=21", RECID, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));//更新recid
-                            tm1.MultithreadExecuteNonQuery(sql);
-                            sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=20", 1, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));//更新MES打捆指令数据
-                            tm1.MultithreadExecuteNonQuery(sql);
-                            sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "L2收到：收到MES打捆结果应答！" +LabelDataRecv.SEQ_SEND+" "+ACK);
-                            tm1.MultithreadExecuteNonQuery(sql);
+                            if(RECID!=-1)
+                            { 
+                                sql = string.Format("UPDATE TLabelContent SET L3ACK={0},L3ACKREASON='{1}',L3ACKTMSTP_RECV='{2}' where SEQ_SEND={3}", ACK, LabelDataRecv.REASON,LabelDataRecv.TMSTP_SEND, LabelDataRecv.SEQ_SEND);//更新recid
+                                tm1.MultithreadExecuteNonQuery(sql);
+                                sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=21", RECID, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));//更新recid
+                                tm1.MultithreadExecuteNonQuery(sql);
+                                sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=20", 1, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));//更新MES打捆指令数据
+                                tm1.MultithreadExecuteNonQuery(sql);
+                                sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "L2收到：收到MES打捆结果应答！" +LabelDataRecv.SEQ_SEND+" "+ACK);
+                                tm1.MultithreadExecuteNonQuery(sql);
+                            }
                         }
                         if (MessageFlg == "")
                         {
