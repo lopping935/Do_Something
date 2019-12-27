@@ -31,7 +31,7 @@ namespace CoreAlgorithm.TaskManager
             Thread receiveThread = new Thread(ListenRecall);
             receiveThread.Start();
         }
-         private void ListenRecall()
+        private void ListenRecall()
         {
             //等待客户端的链接并创建一个负责通信的Socket
             while (true)
@@ -87,36 +87,42 @@ namespace CoreAlgorithm.TaskManager
                         lock (Program.gllock)
                         {
                             string sql = "";
-                            if (Program.MessageFlg ==3)//虎踞成功
+                            if (Program.MessageFlg ==3)//接收虎踞成功
                             {
                                 Int64 SEQ_SEND = Int64.Parse(Encoding.ASCII.GetString(buffer.Skip(2).Take(12).ToArray()));
-                                string ID_LOT_PROD = Encoding.ASCII.GetString(buffer.Skip(14).Take(9).ToArray()); 
                                 Int16 ID_PART_LOT = BitConverter.ToInt16(buffer.Skip(24).Take(2).ToArray(), 0);
-                                double REC_ID = 0;
+                                Int16 ACK = BitConverter.ToInt16(buffer.Skip(78).Take(2).ToArray(), 0);
+                                double REC_ID = -1;
 
-                                sql = string.Format("select REC_ID from TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1} and SEQ_SEND={2}", ID_LOT_PROD, ID_PART_LOT,SEQ_SEND);
+                                sql = string.Format("select REC_ID from TLabelContent where  SEQ_SEND={0}",SEQ_SEND);
                                 DbDataReader dr = tm.MultithreadDataReader(sql);
                                 while (dr.Read())
                                 {
                                     if (dr["REC_ID"] != DBNull.Value)
                                         REC_ID = Convert.ToDouble(dr["REC_ID"]);
                                 }
-                                dr.Close();                              
-                                sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", REC_ID, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 12);//更新虎踞打捆成功的RECID
-                                tm.MultithreadExecuteNonQuery(sql);
-                                sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", 1, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 11);//更新虎踞打捆成功标志
-                                tm.MultithreadExecuteNonQuery(sql);
+                                dr.Close();
+                                if(REC_ID!=-1)
+                                { 
+                                    sql = string.Format("UPDATE TLabelContent SET L3ACK={0} where SEQ_SEND={1}", ACK,SEQ_SEND);//更新recid
+                                    tm.MultithreadExecuteNonQuery(sql);
+                               
+                                    sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", REC_ID, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 12);//更新虎踞打捆成功的RECID
+                                    tm.MultithreadExecuteNonQuery(sql);
+                                    sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", 1, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 11);//更新虎踞打捆成功标志
+                                    tm.MultithreadExecuteNonQuery(sql);
 
-                                string str = "二级收到：虎踞打捆成功" +ID_LOT_PROD + " " + ID_PART_LOT.ToString();
-                                sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
-                                tm.MultithreadExecuteNonQuery(sql);
+                                    string str = "二级收到：虎踞打捆成功信号" + " " + SEQ_SEND+" "+ ACK;
+                                    sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                                    tm.MultithreadExecuteNonQuery(sql);
+                                }
                             }
                             else if (Program.MessageFlg == 2)//接收到mes数据
                             {
                                 Int64 SEQ_SEND = Int64.Parse(Encoding.ASCII.GetString(buffer.Skip(2).Take(12).ToArray()));
                                 string ID_LOT_PROD = Encoding.ASCII.GetString(buffer.Skip(14).Take(9).ToArray());
                                 Int16 ID_PART_LOT = BitConverter.ToInt16(buffer.Skip(24).Take(2).ToArray(), 0);
-                                double REC_ID = 0;
+                                double REC_ID = -1;
                                 sql = string.Format("select REC_ID from TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1} and SEQ_SEND={2}", ID_LOT_PROD, ID_PART_LOT, SEQ_SEND);
                                 DbDataReader dr = tm.MultithreadDataReader(sql);
                                 while (dr.Read())
@@ -125,18 +131,47 @@ namespace CoreAlgorithm.TaskManager
                                         REC_ID = Convert.ToDouble(dr["REC_ID"]);
                                 }
                                 dr.Close();
-                                sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", REC_ID, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 19);//更新虎踞打捆数据标志
-                                tm.MultithreadExecuteNonQuery(sql);
-                                sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", 1, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 18);//更新虎踞接收数据的RECID
-                                tm.MultithreadExecuteNonQuery(sql);
-                                
-                                string str = "二级收到：虎踞接收MES数据成功"+ SEQ_SEND;
-                                sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
-                                tm.MultithreadExecuteNonQuery(sql);
+                                if(REC_ID != -1)//防止接收到正确数据标志
+                                {
+                                    sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", REC_ID, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 19);//更新虎踞打捆数据标志
+                                    tm.MultithreadExecuteNonQuery(sql);
+                                    sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", 1, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 18);//更新虎踞接收数据的RECID
+                                    tm.MultithreadExecuteNonQuery(sql);
+
+                                    string str = "二级收到：虎踞接收NES打捆指令数据" + " " + SEQ_SEND;
+                                    sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                                    tm.MultithreadExecuteNonQuery(sql);
+                                }                              
+                            }
+                            else if (Program.MessageFlg == 5)//PLC正忙
+                            {
+                                Int64 SEQ_SEND = Int64.Parse(Encoding.ASCII.GetString(buffer.Skip(2).Take(12).ToArray()));
+                                string ID_LOT_PROD = Encoding.ASCII.GetString(buffer.Skip(14).Take(9).ToArray());
+                                Int16 ID_PART_LOT = BitConverter.ToInt16(buffer.Skip(24).Take(2).ToArray(), 0);
+                                double REC_ID = -1;
+                                sql = string.Format("select REC_ID from TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1} and SEQ_SEND={2}", ID_LOT_PROD, ID_PART_LOT, SEQ_SEND);
+                                DbDataReader dr = tm.MultithreadDataReader(sql);
+                                while (dr.Read())
+                                {
+                                    if (dr["REC_ID"] != DBNull.Value)
+                                        REC_ID = Convert.ToDouble(dr["REC_ID"]);
+                                }
+                                dr.Close();
+                                if(REC_ID!=-1)
+                                { 
+                                    sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", REC_ID, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 19);//更新虎踞打捆数据标志
+                                    tm.MultithreadExecuteNonQuery(sql);
+                                    sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID={2}", 2, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), 18);//更新虎踞接收数据的RECID
+                                    tm.MultithreadExecuteNonQuery(sql);
+
+                                    string str = "二级收到：虎踞正忙！"+" " + SEQ_SEND;
+                                    sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                                    tm.MultithreadExecuteNonQuery(sql);
+                                }
                             }
                             else
                             {
-                                string str = "接收PLC数据失败"+Program.MessageFlg.ToString() + " " + Program.PrintNum.ToString();
+                                string str = "接收PLC数据失败"+Program.MessageFlg.ToString() ;
                                 sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                                 tm.MultithreadExecuteNonQuery(sql);
                             }

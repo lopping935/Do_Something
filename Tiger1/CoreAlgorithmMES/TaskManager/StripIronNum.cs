@@ -120,7 +120,7 @@ namespace CoreAlgorithm.TaskManager
                 
                 try
                 {
-                    if (messagecls.GetMsgID(11) == 1)//plc打捆结果
+                    if (messagecls.GetMsgID(11,1) == 1)//plc打捆结果
                     {
                         double MAXRECID = messagecls.GetMsgID(12);// PLANIDNow = 0;                
                         messagecls.LabelData LabelDataASK;
@@ -150,21 +150,21 @@ namespace CoreAlgorithm.TaskManager
                             if (sendArray.Length > 0)
                             {
                                 Client_MES.SendData(sendArray);
-                                sql = string.Format("UPDATE TLabelContent SET IMP_FINISH=0,REC_IMP_TIME='{0}' where REC_ID={1}", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), REC_ID);
-                                tm.MultithreadExecuteNonQuery(sql);
-                                sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "发送打捆结果" + text1);
+                                //sql = string.Format("UPDATE TLabelContent SET IMP_FINISH=0,REC_IMP_TIME='{0}' where REC_ID={1}", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), REC_ID);
+                                //tm.MultithreadExecuteNonQuery(sql);
+                                sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "L2发送：二级向MES发送打捆结果" + text1);
                                 tm.MultithreadExecuteNonQuery(sql);
                             }
                         }
                     }
-                    if (messagecls.GetMsgID(18) == 1)//打捆指令应答
+                    if (messagecls.GetMsgID(18,1) == 1)//打捆指令下发成功应答
                     {
                         double MAXRECID = messagecls.GetMsgID(19);// 虎踞接收打捆数据的REC_ID             
                         messagecls.LabelData LabelDataASK;
                         double REC_ID = 0, SEQ_L2 = 0;
                         MessageHead = "BD2101A";
                         time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                        sql = string.Format("select MACHINE_NO,NAME_PROD,WT_AVG_LEN_PROD,DES_FIPRO_SECTION,NAME_STLGD,ID_LOT_PROD,ID_PART_LOT,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST from TLabelContent WHERE REC_ID={0} ", MAXRECID);
+                        sql = string.Format("select MACHINE_NO,NAME_PROD,WT_AVG_LEN_PROD,DES_FIPRO_SECTION,NAME_STLGD,ID_LOT_PROD,ID_PART_LOT,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,L3ACK from TLabelContent WHERE REC_ID={0} ", MAXRECID);
                         dt = tm.MultithreadDataTable(sql);
                         
                         for (int i = 0; i < dt.Rows.Count; i++)
@@ -181,8 +181,7 @@ namespace CoreAlgorithm.TaskManager
                             LabelDataASK.SEQ_SEND = double.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
                             LabelDataASK.NUM_BAR = Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());
                             LabelDataASK.SEQ_LIST = double.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
-                            //LabelDataASK.WT_BDL_ACT = double.Parse(dt.Rows[i]["WT_BDL_ACT"].ToString());
-
+                            short ACK = Int16.Parse(dt.Rows[i]["L3ACK"].ToString());
 
                             REC_ID = MAXRECID;
                             SEQ_L2 = messagecls.GetMsgID();
@@ -194,13 +193,55 @@ namespace CoreAlgorithm.TaskManager
                                 Client_MES.SendData(sendArray);
                                 sql = string.Format("UPDATE TLabelContent SET L3ACK=1,REC_IMP_TIME='{0}' where REC_ID={1}", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), REC_ID);
                                 tm.MultithreadExecuteNonQuery(sql);
-                                sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "发送打捆指令应答" + text1);
+                                sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "L2发送：TOMES发送打捆指令应答" + text1);
                                 tm.MultithreadExecuteNonQuery(sql);
                             }
                         }
-                    }                        
+                    }
+                    if (messagecls.GetMsgID(18,2) == 2)//打捆指令下发失败应答
+                    {
+                        double MAXRECID = messagecls.GetMsgID(19);// 虎踞接收打捆数据的REC_ID             
+                        messagecls.LabelData LabelDataASK;
+                        double REC_ID = 0, SEQ_L2 = 0;
+                        MessageHead = "BD2101A";
+                        time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        sql = string.Format("select MACHINE_NO,NAME_PROD,WT_AVG_LEN_PROD,DES_FIPRO_SECTION,NAME_STLGD,ID_LOT_PROD,ID_PART_LOT,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST from TLabelContent WHERE REC_ID={0} ", MAXRECID);
+                        dt = tm.MultithreadDataTable(sql);
+
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            LabelDataASK.MACHINE_NO = dt.Rows[i]["MACHINE_NO"].ToString();
+                            LabelDataASK.NAME_PROD = dt.Rows[i]["NAME_PROD"].ToString();
+                            LabelDataASK.WT_AVG_LEN_PROD = double.Parse(dt.Rows[i]["WT_AVG_LEN_PROD"].ToString());
+                            LabelDataASK.DES_FIPRO_SECTION = dt.Rows[i]["DES_FIPRO_SECTION"].ToString();
+                            LabelDataASK.NAME_STLGD = dt.Rows[i]["NAME_STLGD"].ToString();
+                            LabelDataASK.ID_LOT_PROD = dt.Rows[i]["ID_LOT_PROD"].ToString();
+                            LabelDataASK.ID_PART_LOT = Int16.Parse(dt.Rows[i]["ID_PART_LOT"].ToString());
+                            LabelDataASK.DIM_LEN = double.Parse(dt.Rows[i]["DIM_LEN"].ToString());
+                            LabelDataASK.IND_FIXED = dt.Rows[i]["IND_FIXED"].ToString();
+                            LabelDataASK.SEQ_SEND = double.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
+                            LabelDataASK.NUM_BAR = Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());
+                            LabelDataASK.SEQ_LIST = double.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
+                            //LabelDataASK.WT_BDL_ACT = double.Parse(dt.Rows[i]["WT_BDL_ACT"].ToString());
+
+
+                            REC_ID = MAXRECID;
+                            SEQ_L2 = messagecls.GetMsgID();
+                            string text1 = MessageHead + " &" + time + " &" + LabelDataASK.MACHINE_NO + " &" + LabelDataASK.NAME_PROD + " &" + LabelDataASK.WT_AVG_LEN_PROD + " &" + LabelDataASK.DES_FIPRO_SECTION + " &" + LabelDataASK.NAME_STLGD + " &" + LabelDataASK.ID_LOT_PROD + " &" + LabelDataASK.ID_PART_LOT.ToString() + " &" + LabelDataASK.DIM_LEN.ToString() + " &" + LabelDataASK.IND_FIXED + " &" + LabelDataASK.SEQ_SEND.ToString() + " &" + LabelDataASK.NUM_BAR.ToString() + " &" + LabelDataASK.SEQ_LIST.ToString() + " &" + 0.ToString() + " &" + "PLC工作忙！" + " &" + SEQ_L2.ToString() + " &" + time + " &";
+                            byte[] sendArray = Encoding.Default.GetBytes(text1);
+                            sendArray = ByteReplace(sendArray, OldBytes, NewBytes);
+                            if (sendArray.Length > 0)
+                            {
+                                Client_MES.SendData(sendArray);
+                                sql = string.Format("UPDATE TLabelContent SET L3ACK=1,REC_IMP_TIME='{0}' where REC_ID={1}", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), REC_ID);
+                                tm.MultithreadExecuteNonQuery(sql);
+                                sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "L2发送：TOMES发送打捆指令应答" + text1);
+                                tm.MultithreadExecuteNonQuery(sql);
+                            }
+                        }
+                    }
                     #region 将200条之前的数据更新到历史表 并从当前表中删除
-                        double MaxRecID = 0, count = 0;
+                    double MaxRecID = 0, count = 0;
                     sql = "select count(*) as count from TLabelContent";
                     dt = tm.MultithreadDataTable(sql);
                     for (int i = 0; i < dt.Rows.Count; i++)
