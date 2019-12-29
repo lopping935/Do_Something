@@ -67,7 +67,8 @@ namespace CoreAlgorithm.TaskManager
                         #region socket发送请求                     
 
                         string ASK_TIME = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                        string str = "";//MessageHead.Trim() + " &" + TMSTP_SEND + " &" + MACHINE_NO + " &" + ID_LOT_PROD + " &" + ID_PART_LOT.ToString() + " &" + NUM_BDL.ToString() + " &" + SEQ_LEN.ToString() + " &" + SEQ_OPR.ToString() + " &" + ACK.ToString() + " &" + REASON + " &" + TMSTP_SEND + " &" + msgid.ToString() + " &";
+                        double msgid = MESSocketServer.GetMsgID();
+                        string str = "LA21008"+" &"+ASK_TIME+" &"+ msgid+" &"+ ASK_TIME+" $";//MessageHead.Trim() + " &" + TMSTP_SEND + " &" + MACHINE_NO + " &" + ID_LOT_PROD + " &" + ID_PART_LOT.ToString() + " &" + NUM_BDL.ToString() + " &" + SEQ_LEN.ToString() + " &" + SEQ_OPR.ToString() + " &" + ACK.ToString() + " &" + REASON + " &" + TMSTP_SEND + " &" + msgid.ToString() + " &";
                         byte[] sendArray = System.Text.Encoding.Default.GetBytes(str);
                         ByteReplace(sendArray, OldBytes, NewBytes);
                         if (sendArray.Length > 0)
