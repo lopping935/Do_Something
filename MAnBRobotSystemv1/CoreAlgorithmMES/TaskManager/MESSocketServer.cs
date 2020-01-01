@@ -289,8 +289,11 @@ namespace CoreAlgorithm.TaskManager
                             short ACK = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.GB2312));
                             string REASON = GetString(HeadIndex[5], EncodingType.GB2312);
                             string TMSTP_SEND = GetString(HeadIndex[6], EncodingType.GB2312);
-                           //修改到此。// sql = string.Format("UPDATE TLabelContent SET MODELSWTMSTP_SEND='{0}',L3ACK={1},MODELSWREASON='{2}' WHERE ID_LOT_PROD='{3}' and ID_PART_LOT={4} and NUM_BDL={5} and SEQ_LEN={6} and SEQ_OPR={7} ", TMSTP_SEND, ACK, REASON);
-                            //tm.MultithreadExecuteNonQuery(sql);
+                            if(ACK==0)
+                            {
+                                sql = string.Format("update S_TFlag set Flag=0,reson='{0}' where ID=2", REASON);
+                                tm.MultithreadExecuteNonQuery(sql);
+                            }                            
                             string str = MessageFlg.ToString() + " " + ACK + " " + REASON + " " + TMSTP_SEND + " "  + SEQ_L2.ToString();
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到MES标签申请应答。" + str);
                             tm.MultithreadExecuteNonQuery(sql);

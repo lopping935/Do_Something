@@ -94,7 +94,7 @@ namespace AnBRobotSystem
             Form form = null;
             if (treeView1.SelectedNode.Text != "")
             {
-                if (treeView1.SelectedNode.Text == "视觉定位系统")
+                if (treeView1.SelectedNode.Text == "视觉定位")
                 {
                     string fexePath = @"D:\Program Files (x86)\Thunder Network\Thunder\Program\ThunderStart.exe";
                     Process p = new Process();
@@ -107,7 +107,6 @@ namespace AnBRobotSystem
                         System.Threading.Thread.Sleep(100);
                     }
                     SetParent(p.MainWindowHandle, this.Handle);
-                    //ShowWindow(p.MainWindowHandle, (int)ProcessWindowStyle.Maximized);
                     MoveWindow(p.MainWindowHandle, 153, 55, 1126, 699, true);
                 }
                 else
@@ -145,7 +144,7 @@ namespace AnBRobotSystem
             if (frm == null) return;
             Form opcFrm = frm;
             opcFrm.WindowState = FormWindowState.Maximized;
-            this.Text = "大型线喷号贴标机器人信息系统 - [" + frmName + "]";
+            this.Text = "中型线喷号贴标机器人信息系统 - [" + frmName + "]";
             opcFrm.MdiParent = this;
             opcFrm.Show();
         }
@@ -321,7 +320,26 @@ namespace AnBRobotSystem
                 toolStripButton1.ForeColor = Color.Red;
                 toolStripButton1.Text = "断开连接";
             }
-                
+
+            double Model_Status = 0;
+            sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=15");
+            dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
+            while (dr.Read())
+            {
+                if (dr["PARAMETER_VALUE"] != DBNull.Value)
+                    Model_Status = Convert.ToDouble(dr["PARAMETER_VALUE"].ToString());
+            }
+            dr.Close();
+            if (Model_Status == 1)
+            {
+                toolStripButton2.ForeColor = Color.Green;
+                toolStripButton2.Text = "自动模式";
+            }
+            else
+            {
+                toolStripButton2.ForeColor = Color.Red;
+                toolStripButton2.Text = "手动模式";
+            }
             #endregion
 
         }
@@ -503,9 +521,7 @@ namespace AnBRobotSystem
                             case "22":
                                 ComContent = "喷码信息下发成功 " + ComContent;
                                 break;
-                            case "23":
-                                ComContent = "喷码信息下发失败 " + ComContent;
-                                break;
+                           
                             case "31":
                                 ComContent = "贴标喷码全部完成 " + ComContent;
                                 break;
@@ -544,6 +560,11 @@ namespace AnBRobotSystem
             //db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
             this.Dispose();
             Application.Exit();
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
         }
     }
 }

@@ -103,6 +103,11 @@
             this.FreshTimer = new System.Windows.Forms.Timer(this.components);
             this.timerLog = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -116,8 +121,6 @@
             this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel8 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -593,6 +596,7 @@
             treeNode4});
             this.treeView1.Size = new System.Drawing.Size(189, 669);
             this.treeView1.TabIndex = 11;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
             // splitter2
@@ -620,13 +624,62 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel2,
+            this.toolStripButton1,
+            this.toolStripLabel3,
             this.toolStripLabel1,
-            this.toolStripButton1});
+            this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1827, 33);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(105, 30);
+            this.toolStripLabel2.Text = "MES连接状态:";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.BackColor = System.Drawing.Color.Red;
+            this.toolStripButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButton1.Checked = true;
+            this.toolStripButton1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripButton1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripButton1.ForeColor = System.Drawing.Color.Green;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.toolStripButton1.Size = new System.Drawing.Size(73, 30);
+            this.toolStripButton1.Text = "未连接";
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(29, 30);
+            this.toolStripLabel3.Text = "     ";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(103, 30);
+            this.toolStripLabel1.Text = "当前数据模式:";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.BackColor = System.Drawing.Color.Red;
+            this.toolStripButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripButton2.Checked = true;
+            this.toolStripButton2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripButton2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripButton2.ForeColor = System.Drawing.Color.Green;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.toolStripButton2.Size = new System.Drawing.Size(54, 30);
+            this.toolStripButton2.Text = "自动";
             // 
             // label4
             // 
@@ -742,26 +795,6 @@
             this.toolStripStatusLabel8.Text = "申请打印";
             this.toolStripStatusLabel8.Visible = false;
             // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(105, 30);
-            this.toolStripLabel1.Text = "MES连接状态:";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.BackColor = System.Drawing.Color.Red;
-            this.toolStripButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.toolStripButton1.Checked = true;
-            this.toolStripButton1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toolStripButton1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.toolStripButton1.ForeColor = System.Drawing.Color.Green;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.toolStripButton1.Size = new System.Drawing.Size(73, 30);
-            this.toolStripButton1.Text = "未连接";
-            // 
             // MdiParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -876,6 +909,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
     }
 }

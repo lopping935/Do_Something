@@ -198,9 +198,18 @@ namespace AnBRobotSystem.ChildForm
                 dtUpdate = this.dbconn(strSql);
                 dtUpdate.Rows.Clear();
                 DataTable dtShow = new DataTable();
-                dataGridView1.Rows[intindex - 1].Cells["状态信息"].Value = 31;
-                dtShow = (DataTable)this.dataGridView1.DataSource;
-                dtUpdate.ImportRow(dtShow.Rows[intindex - 1]);
+                if(intindex==0)
+                {
+                    dataGridView1.Rows[intindex].Cells["状态信息"].Value = 31;
+                    dtShow = (DataTable)this.dataGridView1.DataSource;
+                    dtUpdate.ImportRow(dtShow.Rows[intindex]);
+                }
+                else
+                {
+                    dataGridView1.Rows[intindex - 1].Cells["状态信息"].Value = 31;
+                    dtShow = (DataTable)this.dataGridView1.DataSource;
+                    dtUpdate.ImportRow(dtShow.Rows[intindex - 1]);
+                }
                 SqlCommandBuilder CommandBuilder;
                 CommandBuilder = new SqlCommandBuilder(this.adapter);
                 this.adapter.Update(dtUpdate);
@@ -227,8 +236,8 @@ namespace AnBRobotSystem.ChildForm
             string sql = "";
             for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
             {
- sql = sql+ string.Format("delete from TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1} and NUM_BDL={2} and SEQ_LEN={3} and SEQ_OPR={4};", dataGridView1.SelectedRows[i].Cells[2].Value.ToString(), Convert.ToInt16(dataGridView1.SelectedRows[i].Cells[3].Value.ToString()), Convert.ToInt16(dataGridView1.SelectedRows[i].Cells[4].Value.ToString()), Convert.ToInt16(dataGridView1.SelectedRows[i].Cells[5].Value.ToString()), Convert.ToInt16(dataGridView1.SelectedRows[i].Cells[6].Value.ToString()));
-                }
+                sql = sql+ string.Format("delete from TLabelContent where ID_LOT_PROD='{0}' and ID_PART_LOT={1} and NUM_BDL={2} and SEQ_LEN={3} and SEQ_OPR={4};", dataGridView1.SelectedRows[i].Cells[2].Value.ToString(), Convert.ToInt16(dataGridView1.SelectedRows[i].Cells[3].Value.ToString()), Convert.ToInt16(dataGridView1.SelectedRows[i].Cells[4].Value.ToString()), Convert.ToInt16(dataGridView1.SelectedRows[i].Cells[5].Value.ToString()), Convert.ToInt16(dataGridView1.SelectedRows[i].Cells[6].Value.ToString()));
+            }
             int ret1 = db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
             if (ret1>0)
                 MessageBox.Show("删除成功！");
@@ -325,7 +334,6 @@ namespace AnBRobotSystem.ChildForm
                 else
                 {
                     countn = dataGridView1.RowCount - 1;
-
                 }
 
                 for (int i = 0; i < countn; i++)
@@ -488,7 +496,6 @@ namespace AnBRobotSystem.ChildForm
 
         private void Datemodel_Click(object sender, EventArgs e)
         {
-            int modelflag = 0;
             try
             {
                 string sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=15");
