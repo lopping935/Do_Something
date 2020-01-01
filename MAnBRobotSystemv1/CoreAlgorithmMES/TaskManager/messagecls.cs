@@ -25,7 +25,7 @@ namespace CoreAlgorithmMES
             public string IND_FIXED;// 定尺标志
             public double SEQ_SEND;// 下发顺序号
             public Int16 NUM_BAR;// 捆内支数
-            public Int16 SEQ_LIST;// 排列序号
+            public Int64 SEQ_LIST;// 排列序号
             public double LA_BDL_ACT;// 重量
             public string NO_LICENCE;// 许可证号
             public string NAME_PROD; //产品名称

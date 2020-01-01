@@ -540,8 +540,9 @@ namespace AnBRobotSystem
 
         private void MdiParent_FormClosing(object sender, FormClosingEventArgs e)
         {
-            string sql = "UPDATE SYSPARAMETER SET PARAMETER_VALUE=3 where PARAMETER_ID=11";
-            db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
+            //string sql = "UPDATE SYSPARAMETER SET PARAMETER_VALUE=3 where PARAMETER_ID=11";
+            //db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
+            this.Dispose();
             Application.Exit();
         }
     }

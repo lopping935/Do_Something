@@ -16,6 +16,7 @@ namespace CoreAlgorithm.TaskManager
    public class StripIronNum
     {
         TasksManager tm;
+        static double modelflag = -1;
         static string MESIP = "", localip = "";//400PLC ip
         static int  mesportr =0, localportr =0;//400PLC端口
         static double lastmodel = -1;
@@ -39,83 +40,7 @@ namespace CoreAlgorithm.TaskManager
             tm = new TasksManager();
         }
 
-        public void Do_Askmsg()
-        {//Flag标识含义;0：无工作  1：三级请求数据  2：确定二级是否已经收到mes数据 3：已接受到数据
-            string sql = "";
-
-            while (true)
-            {
-                Thread.Sleep(100);
-                try
-                {
-                    int a = 0;
-                    DbDataReader dr = null;
-                    sql = "select top 1 *  from S_TFlag";
-                    dr = tm.MultithreadDataReader(sql);
-                    while (dr.Read())
-                    {
-                        a = int.Parse(dr["Flag"].ToString());
-                    }
-                    dr.Close();
-
-
-                    if (a == 1)//向mes请求数据
-                    {
-                        sql = "update S_TFlag set Flag=2 where ID=1";
-                        int b = tm.MultithreadExecuteNonQuery(sql);
-
-                        #region socket发送请求                     
-
-                        string ASK_TIME = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                        double msgid = MESSocketServer.GetMsgID();
-                        string str = "LA21008"+" &"+ASK_TIME+" &"+ msgid+" &"+ ASK_TIME+" $";//MessageHead.Trim() + " &" + TMSTP_SEND + " &" + MACHINE_NO + " &" + ID_LOT_PROD + " &" + ID_PART_LOT.ToString() + " &" + NUM_BDL.ToString() + " &" + SEQ_LEN.ToString() + " &" + SEQ_OPR.ToString() + " &" + ACK.ToString() + " &" + REASON + " &" + TMSTP_SEND + " &" + msgid.ToString() + " &";
-                        byte[] sendArray = System.Text.Encoding.Default.GetBytes(str);
-                        ByteReplace(sendArray, OldBytes, NewBytes);
-                        if (sendArray.Length > 0)
-                        {
-                            MESSocketClient.senddata(sendArray);
-                            sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "发送l2->l3请求数据！" + str);
-                            tm.MultithreadExecuteNonQuery(sql);
-                        }
-                        Thread.Sleep(100);
-                        #endregion
-                    }
-                    if (a == 2)
-                    {
-                        double MAXRECID = 0;// PLANIDNow = 0;                
-                        sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
-                        dr = tm.MultithreadDataReader(sql);
-                        while (dr.Read())
-                        {
-                            if (dr["REC_ID"] != DBNull.Value)
-                                MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
-                        }
-                        dr.Close();
-
-                        int count = 0;
-                        sql = string.Format("select count(*) as count from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0", MAXRECID);
-                        dr = tm.MultithreadDataReader(sql);
-                        while (dr.Read())
-                        {
-                            count = int.Parse(dr["count"].ToString());
-                        }
-                        dr.Close();
-                        if (count >= 1)
-                        {
-                            sql = "update S_TFlag set Flag=3 where ID=1";
-                            int b = tm.MultithreadExecuteNonQuery(sql);
-                        }
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
-                    Log.addLog(log, LogType.ERROR, ex.Message);
-                    Log.addLog(log, LogType.ERROR, ex.StackTrace);
-                }
-            }
-        }
+       
 
         public void model_change()//模式切换
         {
@@ -133,8 +58,8 @@ namespace CoreAlgorithm.TaskManager
                             MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
                     }
                     dr.Close();
-                    sql = string.Format("select top 1 MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,REC_ID from TLabelContent  WHERE REC_ID>={0} AND L3ACK=0 and (IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33) order by REC_ID desc", MAXRECID);
-                    string MessageHead = "LA21002", MACHINE_NO = "", ID_LOT_PROD="", REASON="";
+                    sql = string.Format("select top 1 MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,REC_ID from TLabelContent  WHERE REC_ID={0} ", MAXRECID);//AND L3ACK=0 and (IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33) order by REC_ID desc
+                    string MessageHead = "LA23002", MACHINE_NO = "", ID_LOT_PROD="", REASON="";
                     short ID_PART_LOT = 0, NUM_BDL = 0, SEQ_LEN = 0, SEQ_OPR = 0, ACK = 1;
                     string TMSTP_SEND = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     double REC_ID = 0;
@@ -184,7 +109,7 @@ namespace CoreAlgorithm.TaskManager
                     string ss = time.Substring(17, 2);
                     if (ss == "59")
                     {
-                        MessageHead = "LA21000";                      
+                        MessageHead = "LA23000";                      
                         string str = MessageHead + " &" + time + " &"+ time + " &";
                         byte[] sendArrayT = System.Text.Encoding.Default.GetBytes(str);
                         sendArrayT = ByteReplace(sendArrayT, OldBytes, NewBytes);
@@ -218,7 +143,99 @@ namespace CoreAlgorithm.TaskManager
             }
         }
 
-        static double modelflag = -1;
+         public void Do_Askmsg()
+        {//Flag标识含义;0：无工作  1：三级请求数据  2：确定二级是否已经收到mes数据 3：已接受到数据
+            string sql = "";
+            TasksManager tm = new TasksManager();
+            while (true)
+            {
+                Thread.Sleep(100);
+                try
+                {
+                    int a = 0;
+                    DbDataReader dr = null;
+                    sql = "select top 1 *  from S_TFlag";
+                    dr = tm.MultithreadDataReader(sql);
+                    while (dr.Read())
+                    {
+                        a = int.Parse(dr["Flag"].ToString());
+                    }
+                    dr.Close();
+
+                    sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=15");
+                    dr = tm.MultithreadDataReader(sql);
+                    while (dr.Read())
+                    {
+                        if (dr["PARAMETER_VALUE"] != DBNull.Value)
+                            modelflag = Convert.ToDouble(dr["PARAMETER_VALUE"].ToString());
+                    }
+                    dr.Close();
+
+                    if (a == 1 && modelflag==1)//向mes请求数据
+                    {
+                        sql = "update S_TFlag set Flag=2 where ID=1";
+                        int b = tm.MultithreadExecuteNonQuery(sql);
+
+                        #region socket发送请求                     
+
+                        string ASK_TIME = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        double msgid = MESSocketServer.GetMsgID();
+                        string str = "LA23003"+" &"+ASK_TIME+" &"+ "1#"+" &"+ ASK_TIME+" &" + msgid+" &";//MessageHead.Trim() + " &" + TMSTP_SEND + " &" + MACHINE_NO + " &" + ID_LOT_PROD + " &" + ID_PART_LOT.ToString() + " &" + NUM_BDL.ToString() + " &" + SEQ_LEN.ToString() + " &" + SEQ_OPR.ToString() + " &" + ACK.ToString() + " &" + REASON + " &" + TMSTP_SEND + " &" + msgid.ToString() + " &";
+                        byte[] sendArray = Encoding.Default.GetBytes(str);
+                        ByteReplace(sendArray, OldBytes, NewBytes);
+                        if (sendArray.Length > 0)
+                        {
+                            MESSocketClient.senddata(sendArray);
+                            sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "自动模式：l2->l3请求数据！" + str);
+                            tm.MultithreadExecuteNonQuery(sql);
+                        }
+                        Thread.Sleep(100);
+                        #endregion
+                    }
+                    if(a == 1 && modelflag == 0)
+                    {
+                        sql = "update S_TFlag set Flag=2 where ID=1";
+                        int b = tm.MultithreadExecuteNonQuery(sql);
+                        sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "手动模式：l2->l3请求数据！" );
+                        tm.MultithreadExecuteNonQuery(sql);
+                    }
+                    if (a == 2)
+                    {
+                        double MAXRECID = 0;// PLANIDNow = 0;                
+                        sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
+                        dr = tm.MultithreadDataReader(sql);
+                        while (dr.Read())
+                        {
+                            if (dr["REC_ID"] != DBNull.Value)
+                                MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
+                        }
+                        dr.Close();
+
+                        int count = 0;
+                        sql = string.Format("select count(*) as count from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0", MAXRECID);
+                        dr = tm.MultithreadDataReader(sql);
+                        while (dr.Read())
+                        {
+                            count = int.Parse(dr["count"].ToString());
+                        }
+                        dr.Close();
+                        if (count >= 1)
+                        {
+                            sql = "update S_TFlag set Flag=3 where ID=1";
+                            int b = tm.MultithreadExecuteNonQuery(sql);
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
+                    Log.addLog(log, LogType.ERROR, ex.Message);
+                    Log.addLog(log, LogType.ERROR, ex.StackTrace);
+                }
+            }
+        }
+
         public void Send_Result(object objTh)
         {
             
@@ -231,7 +248,7 @@ namespace CoreAlgorithm.TaskManager
                 #region 三级应答反馈 标签结果应答
                 try
                 {
-                    lastmodel = modelflag;
+                    
                     #region 模式
                     // PLANIDNow = 0;  
                     sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=15");
@@ -251,7 +268,8 @@ namespace CoreAlgorithm.TaskManager
                         Thread.Sleep(5000);
 
                     }
-                    if(modelflag==1)//自动模式下上传结果
+                    lastmodel = modelflag;
+                    if (modelflag==1)//自动模式下上传结果
                     {
                         double MAXRECID = 0;// PLANIDNow = 0;                
                         sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
@@ -263,12 +281,12 @@ namespace CoreAlgorithm.TaskManager
                                 MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
                         }
                         dr.Close();
-                        sql = string.Format("select top 1 MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,Name_PROD,Name_STND,ID_HEAT,Name_STLGD,DES_FIPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,REC_ID,MODELSWACK from TLabelContent WHERE REC_ID>={0} AND L3ACK=0 and (IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33) order by REC_ID desc", MAXRECID);
+                        sql = string.Format("select top 1 MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,NAME_PROD,NAME_STND,ID_HEAT,NAME_STLGD,DES_FIPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,REC_ID,MODELSWACK from TLabelContent WHERE REC_ID>={0} AND L3ACK=0 and (IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33) order by REC_ID desc", MAXRECID);
                         messagecls.LabelData LabelDataASK;
                         string ACK = "1", REASON = "";
                         double msgid = 0,REC_ID=0;
                         string MODELSWACK = "";
-                        MessageHead = "LA21001";
+                        MessageHead = "LA23001";
                         time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         dt = tm.MultithreadDataTable(sql);
                         if(dt.Rows.Count > 0)
@@ -286,9 +304,11 @@ namespace CoreAlgorithm.TaskManager
                                 LabelDataASK.NUM_BDL = Int16.Parse(dt.Rows[i]["NUM_BDL"].ToString());
                                 LabelDataASK.SEQ_LEN = Int16.Parse(dt.Rows[i]["SEQ_LEN"].ToString());
                                 LabelDataASK.SEQ_OPR = Int16.Parse(dt.Rows[i]["SEQ_OPR"].ToString());
+                                LabelDataASK.DIM_LEN= double.Parse(dt.Rows[i]["DIM_LEN"].ToString());
+                                LabelDataASK.IND_FIXED = dt.Rows[i]["IND_FIXED"].ToString();
                                 LabelDataASK.SEQ_SEND = double.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
                                 LabelDataASK.NUM_BAR = Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());
-                                LabelDataASK.SEQ_LIST = Int16.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
+                                LabelDataASK.SEQ_LIST = Int64.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
                                 LabelDataASK.LA_BDL_ACT = double.Parse(dt.Rows[i]["LA_BDL_ACT"].ToString());
                                 LabelDataASK.NO_LICENCE = dt.Rows[i]["NO_LICENCE"].ToString();
                                 LabelDataASK.NAME_PROD = dt.Rows[i]["NAME_PROD"].ToString();//gbk
@@ -305,7 +325,7 @@ namespace CoreAlgorithm.TaskManager
                                 REC_ID= double.Parse(dt.Rows[i]["REC_ID"].ToString());
                                 msgid = MESSocketServer.GetMsgID();
 
-                                string text1 = MessageHead + " &" + time + " &" + LabelDataASK.MACHINE_NO + " &" + LabelDataASK.ID_LOT_PROD + " &" + LabelDataASK.ID_PART_LOT.ToString() + " &" + LabelDataASK.NUM_BDL.ToString() + " &" + LabelDataASK.SEQ_LEN.ToString() + " &" + LabelDataASK.SEQ_OPR.ToString() + " &" + LabelDataASK.SEQ_SEND.ToString() + " &" + LabelDataASK.NUM_BAR.ToString() + " &" + LabelDataASK.SEQ_LIST.ToString() + " &" + LabelDataASK.LA_BDL_ACT.ToString() + " &" + LabelDataASK.NO_LICENCE + " &" + LabelDataASK.NAME_PROD + " &";
+                                string text1 = MessageHead + " &" + time + " &" + LabelDataASK.MACHINE_NO + " &" + LabelDataASK.ID_LOT_PROD + " &" + LabelDataASK.ID_PART_LOT.ToString() + " &" + LabelDataASK.NUM_BDL.ToString() + " &" + LabelDataASK.SEQ_LEN.ToString() + " &" + LabelDataASK.SEQ_OPR.ToString() + " &" +LabelDataASK.DIM_LEN+ " &"+LabelDataASK.IND_FIXED + " &" + LabelDataASK.SEQ_SEND.ToString() + " &" + LabelDataASK.NUM_BAR.ToString() + " &" + LabelDataASK.SEQ_LIST.ToString() + " &" + LabelDataASK.LA_BDL_ACT.ToString() + " &" + LabelDataASK.NO_LICENCE + " &" + LabelDataASK.NAME_PROD + " &";
                                 string text2 = LabelDataASK.NAME_STND + " &" + LabelDataASK.ID_HEAT + " &" + LabelDataASK.NAME_STLGD + " &" + LabelDataASK.DES_FIPRO_SECTION + " &" + LabelDataASK.ID_CREW_RL + " &" + LabelDataASK.ID_CREW_CK + " &" + LabelDataASK.TMSTP_WEIGH.ToString() + " &" + LabelDataASK.BAR_CODE + " &" + LabelDataASK.NUM_HEAD + " &" + LabelDataASK.NUM_TAIL + " &" + ACK + " &" + REASON + " &" + time + " &" + msgid.ToString() + " &";
                                 byte[] sendArray = Encoding.Default.GetBytes(text1 + text2);
                                 sendArray = ByteReplace(sendArray, OldBytes, NewBytes);
@@ -405,7 +425,7 @@ namespace CoreAlgorithm.TaskManager
                     sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                     tm.MultithreadExecuteNonQuery(sql);
                     connectstate = false;
-                    Thread.Sleep(5000);
+                    Thread.Sleep(10000);
                 }
             }
             while (!connectstate);

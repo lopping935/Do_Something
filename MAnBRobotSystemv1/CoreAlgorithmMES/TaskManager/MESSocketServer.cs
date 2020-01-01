@@ -273,15 +273,29 @@ namespace CoreAlgorithm.TaskManager
                         
                        
 
-                        if(MessageFlg == "21LA000")//心跳信息，校准时间
+                        if(MessageFlg == "23LA000")//心跳信息，校准时间
                         {
                             string MesTime = GetString(HeadIndex[1], EncodingType.GB2312);//System.Text.Encoding.ASCII.GetString(buffer.Skip(0).Take(HeadIndex + 1).ToArray());
                             bool ret = SetDate(Convert.ToDateTime(MesTime));
                             string str = MessageFlg.ToString() + " " + MesTime;
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                             tm.MultithreadExecuteNonQuery(sql);
-                        }                       
-                        if(MessageFlg == "21LA001")//接收标签数据信息并反馈
+                        }
+                        if (MessageFlg == "23LA03A")//标签数据申请应答
+                        {
+                            string ID_TIME = GetString(HeadIndex[1], EncodingType.GB2312);
+                            string MACHINE_NO = GetString(HeadIndex[2], EncodingType.GB2312);                            
+                            double SEQ_L2 = Convert.ToDouble(GetString(HeadIndex[3], EncodingType.GB2312));
+                            short ACK = Convert.ToInt16(GetString(HeadIndex[4], EncodingType.GB2312));
+                            string REASON = GetString(HeadIndex[5], EncodingType.GB2312);
+                            string TMSTP_SEND = GetString(HeadIndex[6], EncodingType.GB2312);
+                           //修改到此。// sql = string.Format("UPDATE TLabelContent SET MODELSWTMSTP_SEND='{0}',L3ACK={1},MODELSWREASON='{2}' WHERE ID_LOT_PROD='{3}' and ID_PART_LOT={4} and NUM_BDL={5} and SEQ_LEN={6} and SEQ_OPR={7} ", TMSTP_SEND, ACK, REASON);
+                            //tm.MultithreadExecuteNonQuery(sql);
+                            string str = MessageFlg.ToString() + " " + ACK + " " + REASON + " " + TMSTP_SEND + " "  + SEQ_L2.ToString();
+                            sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到MES标签申请应答。" + str);
+                            tm.MultithreadExecuteNonQuery(sql);
+                        }
+                        if (MessageFlg == "23LA001")//接收标签数据信息并反馈
                         {
                             messagecls.LabelData LabelDataRecv;
                             string reson = "";
@@ -304,7 +318,7 @@ namespace CoreAlgorithm.TaskManager
                                 LabelDataRecv.IND_FIXED = GetString(HeadIndex[9], EncodingType.GB2312);
                                 LabelDataRecv.SEQ_SEND = Convert.ToDouble(GetString(HeadIndex[10], EncodingType.GB2312));
                                 LabelDataRecv.NUM_BAR = Convert.ToInt16(GetString(HeadIndex[11], EncodingType.GB2312));
-                                LabelDataRecv.SEQ_LIST = Convert.ToInt16(GetString(HeadIndex[12], EncodingType.GB2312));
+                                LabelDataRecv.SEQ_LIST = Convert.ToInt64(GetString(HeadIndex[12], EncodingType.GB2312));
                                 LabelDataRecv.LA_BDL_ACT = Convert.ToDouble(GetString(HeadIndex[13], EncodingType.GB2312));
                                 LabelDataRecv.NO_LICENCE = GetString(HeadIndex[14], EncodingType.GB2312);
                                 LabelDataRecv.NAME_PROD = GetString(HeadIndex[15], EncodingType.GB2312);//GB2312
@@ -362,7 +376,7 @@ namespace CoreAlgorithm.TaskManager
                             #region l2->l3标签数据应答
                             //反馈接收数据标签信息 
                             msgid = GetMsgID();
-                            string MessageHead = "LA2101A" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                            string MessageHead = "LA2301A" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                             
                             byte[] sendArray1 = Enumerable.Repeat((byte)0x20, length-19-2).ToArray(); //
                             Array.Copy(buffer, sendArray1, length-19-2);
@@ -383,7 +397,7 @@ namespace CoreAlgorithm.TaskManager
                             tm.MultithreadExecuteNonQuery(sqlsend);
                             #endregion
                         }
-                        if(MessageFlg == "21LA01A")//l3->l2标签结果应答
+                        if(MessageFlg == "23LA01A")//l3->l2标签结果应答
                         {
                             string ID_TIME= GetString(HeadIndex[1], EncodingType.GB2312);
                             string MACHINE_NO = GetString(HeadIndex[2], EncodingType.GB2312);
@@ -403,7 +417,7 @@ namespace CoreAlgorithm.TaskManager
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")),"收到MES标签结果应答"+ str);
                             tm.MultithreadExecuteNonQuery(sql);
                         }
-                        if(MessageFlg == "21LA02A")//模式切换确认
+                        if(MessageFlg == "23LA02A")//模式切换确认
                         {
                             string ID_TIME= GetString(HeadIndex[1], EncodingType.GB2312);
                             string MACHINE_NO = GetString(HeadIndex[2], EncodingType.GB2312);
