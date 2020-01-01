@@ -310,6 +310,8 @@ namespace CoreAlgorithm.TaskManager
                         {
                             sql = "update S_TFlag set Flag=0 where ID=1";
                             a = tm.MultithreadExecuteNonQuery(sql);
+                            sql = "update S_TFlag set Flag=0 where ID=2";
+                            a = tm.MultithreadExecuteNonQuery(sql);
                             Program.MessageFlg = 3;
                             byte[] sendArray = Enumerable.Repeat((byte)0x0, 94).ToArray();
                             byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);

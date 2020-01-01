@@ -198,9 +198,18 @@ namespace AnBRobotSystem.ChildForm
                 dtUpdate = this.dbconn(strSql);
                 dtUpdate.Rows.Clear();
                 DataTable dtShow = new DataTable();
-                dataGridView1.Rows[intindex - 1].Cells["状态信息"].Value = 31;
-                dtShow = (DataTable)this.dataGridView1.DataSource;
-                dtUpdate.ImportRow(dtShow.Rows[intindex - 1]);
+                if (intindex == 0)
+                {
+                    dataGridView1.Rows[intindex].Cells["状态信息"].Value = 31;
+                    dtShow = (DataTable)this.dataGridView1.DataSource;
+                    dtUpdate.ImportRow(dtShow.Rows[intindex]);
+                }
+                else
+                {
+                    dataGridView1.Rows[intindex - 1].Cells["状态信息"].Value = 31;
+                    dtShow = (DataTable)this.dataGridView1.DataSource;
+                    dtUpdate.ImportRow(dtShow.Rows[intindex - 1]);
+                }
                 SqlCommandBuilder CommandBuilder;
                 CommandBuilder = new SqlCommandBuilder(this.adapter);
                 this.adapter.Update(dtUpdate);

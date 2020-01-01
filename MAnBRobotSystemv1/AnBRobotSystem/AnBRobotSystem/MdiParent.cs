@@ -342,8 +342,25 @@ namespace AnBRobotSystem
             }
             #endregion
 
+            int Date_alarm = 0;
+            sql = string.Format("select * from S_TFlag where ID=2");
+            dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
+            while (dr.Read())
+            {
+                if (dr["Flag"] != DBNull.Value)
+                    Date_alarm = Convert.ToInt32(dr["Flag"].ToString());
+            }
+            dr.Close();
+            if (Date_alarm == 0)
+            {
+                sql = "update S_TFlag set Flag=-1 where ID=2";
+                db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
+                MessageBox.Show("发生数据报警，请及时处理！","警报             ");
+                  
+            }
+            
         }
-        #endregion        
+#endregion
 
         private void timerLog_Tick(object sender, EventArgs e)
         {
