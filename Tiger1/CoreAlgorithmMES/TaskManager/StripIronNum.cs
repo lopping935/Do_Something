@@ -24,10 +24,8 @@ namespace CoreAlgorithm.TaskManager
         public static object locker = new object();
         byte OldBytes = 0x20;
         byte NewBytes = 0x7F;
-        SocketServer Server_MES = null;
-        SocketServer Server_PLC = null;
+        public static SocketServer Server_MES = null;
         public static SocketClient Client_MES = null;
-        public static SocketClient Client_PLC = null;
         public messagecls MEShelper = null;
         public static byte [] ByteReplace(byte[] srcBytes, byte OldByte, byte NewByte)
         {
@@ -94,8 +92,8 @@ namespace CoreAlgorithm.TaskManager
                     }
 
                     #endregion
-                   
-                    if(!Client_MES.socketClient.Connected)
+
+                    if(!Client_MES.IsSocketConnected())
                     {
                         ReconnectMES(Client_MES);
                     }
@@ -278,7 +276,7 @@ namespace CoreAlgorithm.TaskManager
                 try
                 {
 
-
+                    s.socketClient.Shutdown(SocketShutdown.Both);
                     s.socketClient.Close();
                     s.socketClient.Dispose();
                     s.CreateConnect(MESIP, mesportr);
@@ -300,6 +298,7 @@ namespace CoreAlgorithm.TaskManager
             }
             while (!connectstate);
         }
+        
         void ClientREC_MES()
         { }
         public void RunSINGenerate()
@@ -322,9 +321,12 @@ namespace CoreAlgorithm.TaskManager
                     Log.addLog(log, LogType.ERROR, ex.StackTrace);
                 }                              
                 Thread Heart = new System.Threading.Thread(new System.Threading.ParameterizedThreadStart(Send_Heartbeat));
+                Heart.IsBackground = true;
                 Heart.Start(null);
                 Thread Sendresult = new System.Threading.Thread(new System.Threading.ParameterizedThreadStart(Send_Result));
+                Sendresult.IsBackground = true;
                 Sendresult.Start(null);
+               
             }
             catch (Exception ex)
             {

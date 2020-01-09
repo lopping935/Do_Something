@@ -380,3 +380,6 @@ D:\project\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm
 D:\project\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.csproj.CopyComplete
 D:\project\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.exe
 D:\project\Do_Something\AnBRobotSystem\CoreAlgorithm\obj\x86\Debug\CoreAlgorithm.pdb
+D:\AnBRobotSetup_B\Debug\CoreAlgorithm.exe.config
+D:\AnBRobotSetup_B\Debug\CoreAlgorithm.exe
+D:\AnBRobotSetup_B\Debug\CoreAlgorithm.pdb

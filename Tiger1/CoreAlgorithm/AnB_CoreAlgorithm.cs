@@ -48,18 +48,24 @@ namespace CoreAlgorithm
                //tm.MultithreadExecuteNonQuery(sql);
                 CommMaster cm = new CommMaster();            
                 cm.RunSINGenerate();
+                
                 return;
            }
+            
+            
+            
            
        }
 
         protected override void OnStop()
         {
-            //ForecastTimer.Dispose();
-            //UpdataTaskTimer.Dispose();
-            //string sql = "UPDATE SYSPARAMETER SET PARAMETER_VALUE=3 where PARAMETER_ID=1";
-            //tm.MultithreadExecuteNonQuery(sql);
-            Program.MessageStop = 1;
+            //System.Environment.Exit(System.Environment.ExitCode);
+            //Process.GetCurrentProcess().Kill();
+            
+           this.Dispose();
+
+            //System.Threading.Thread.CurrentThread.Abort();
+
         }
     }
 }

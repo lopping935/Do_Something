@@ -304,7 +304,7 @@ namespace CoreAlgorithm.TaskManager
                                 LabelDataRecv.IND_FIXED = GetString(HeadIndex[9], EncodingType.GB2312);
                                 LabelDataRecv.SEQ_SEND = Convert.ToDouble(GetString(HeadIndex[10], EncodingType.GB2312));
                                 LabelDataRecv.NUM_BAR = Convert.ToInt16(GetString(HeadIndex[11], EncodingType.GB2312));
-                                LabelDataRecv.SEQ_LIST = Convert.ToInt16(GetString(HeadIndex[12], EncodingType.GB2312));
+                                LabelDataRecv.SEQ_LIST = Convert.ToInt64(GetString(HeadIndex[12], EncodingType.GB2312));
                                 LabelDataRecv.LA_BDL_ACT = Convert.ToDouble(GetString(HeadIndex[13], EncodingType.GB2312));
                                 LabelDataRecv.NO_LICENCE = GetString(HeadIndex[14], EncodingType.GB2312);
                                 LabelDataRecv.NAME_PROD = GetString(HeadIndex[15], EncodingType.GB2312);//GB2312

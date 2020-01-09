@@ -144,7 +144,7 @@ namespace AnBRobotSystem
             if (frm == null) return;
             Form opcFrm = frm;
             opcFrm.WindowState = FormWindowState.Maximized;
-            this.Text = "中型线喷号贴标机器人信息系统 - [" + frmName + "]";
+            this.Text = "鞍钢大型线喷号贴标机器人信息系统 - [" + frmName + "]";
             opcFrm.MdiParent = this;
             opcFrm.Show();
         }

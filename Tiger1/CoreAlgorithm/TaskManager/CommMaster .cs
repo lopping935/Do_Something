@@ -254,6 +254,7 @@ namespace CoreAlgorithm.TaskManager
             try
             {      
                 Thread thS = new Thread(new System.Threading.ParameterizedThreadStart(do_SendMessage));
+                thS.IsBackground = true;
                 thS.Start(null);
                 PLCSocketServer PLCServer = new PLCSocketServer();
                 PLCServer.CreateSocket(localip,localportr);                             

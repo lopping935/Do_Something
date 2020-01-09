@@ -246,11 +246,13 @@ namespace CoreAlgorithmMES
 
                         byte[] buffer = new byte[length];
                         Array.Copy(arrServerRecMsg, buffer, length);
-
+                        string MessageFlg = "";
                         byte[] searchBytes = new byte[] { 0x7F, 0x26 };
                         List<byte[]> HeadIndex = new List<byte[]>();
                         HeadIndex = nByteIndexOf(buffer, searchBytes);
-                        string MessageFlg = GetString(HeadIndex[0], EncodingType.GB2312);//System.Text.Encoding.GB2312.GetString(buffer.Skip(0).Take(HeadIndex + 1).ToArray());
+                        if(HeadIndex.Count!=0)
+                            MessageFlg = GetString(HeadIndex[0], EncodingType.GB2312);//System.Text.Encoding.GB2312.GetString(buffer.Skip(0).Take(HeadIndex + 1).ToArray());
+                        
 
 
 
@@ -270,8 +272,7 @@ namespace CoreAlgorithmMES
                             string str = "";
                             Double msgid = 0;
                             #region l3->l2接收数据标签                       
-                            try
-                            {
+                           
                                 LabelDataRecv.ID_TIME = GetString(HeadIndex[1], EncodingType.GB2312);
                                 LabelDataRecv.MACHINE_NO = GetString(HeadIndex[2], EncodingType.GB2312);
                                 LabelDataRecv.NAME_PROD = GetString(HeadIndex[3], EncodingType.GB2312);
@@ -287,11 +288,11 @@ namespace CoreAlgorithmMES
                                 LabelDataRecv.SEQ_LIST = Convert.ToDouble(GetString(HeadIndex[13], EncodingType.GB2312));
                                 LabelDataRecv.TMSTP_SEND = GetString(HeadIndex[14], EncodingType.GB2312);
                                 LabelDataRecv.ID_PERSON = GetString(HeadIndex[15], EncodingType.GB2312);
+                                int kkk= HeadIndex[15].Length;
                                 ACK = 1;
                                 reson = "";
                                 try
-                                {
-                                    
+                                {                                    
                                     sql = "select PARAMETER_VALUE from SYSPARAMETER where PARAMETER_ID=10";
                                     dr = tm1.MultithreadDataReader(sql);
                                     while (dr.Read())
@@ -321,54 +322,27 @@ namespace CoreAlgorithmMES
                                     msgid = GetMsgID();
                                     string MessageHead = "BD2101A" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                                    byte[] sendArray1 = Enumerable.Repeat((byte)0x20, length - 19 - 8).ToArray(); //
-                                    Array.Copy(buffer, sendArray1, length - 19 - 8);
+                                    byte[] sendArray1 = Enumerable.Repeat((byte)0x20, length - 19 - HeadIndex[15].Length-2-2).ToArray(); //
+                                    Array.Copy(buffer, sendArray1, length - 19 - HeadIndex[15].Length-2-2);
                                     byte[] byteArray1 = StripIronNum.ByteReplace(Encoding.Default.GetBytes(MessageHead), OldBytes, NewBytes);//应答头
                                     Buffer.BlockCopy(byteArray1, 0, sendArray1, 0, byteArray1.Length);
 
 
-                                    string appendmsg = ACK.ToString() + " &" + reson + " &" + msgid.ToString() + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " &";
+                                    string appendmsg = 0.ToString() + " &" + reson + " &" + msgid.ToString() + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " &";
                                     byte[] sendArray2 = StripIronNum.ByteReplace(Encoding.Default.GetBytes(appendmsg), OldBytes, NewBytes);
 
                                     byte[] sendArray = Enumerable.Repeat((byte)0x20, sendArray1.Length + sendArray2.Length).ToArray();
                                     Array.Copy(sendArray1, sendArray, sendArray1.Length);
                                     Buffer.BlockCopy(sendArray2, 0, sendArray, sendArray1.Length, sendArray2.Length);
-
+                                    string sendlog = GetString(sendArray, EncodingType.GB2312);
                                     StripIronNum.Client_MES.SendData(sendArray);
                                     string strsend = MessageHead + appendmsg;
-                                    string sqlsend = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "回复打捆指令数据" + strsend);
+                                    string sqlsend = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "回复打捆指令数据" + sendlog);
                                     tm1.MultithreadExecuteNonQuery(sqlsend);
                                     #endregion
                                 }
-                            }
-                            catch
-                            {
-                                ACK = 0;
-                                reson = "打捆数据解析有误，请查验数据格式";
-                                #region l2->l3标签数据应答失败回复
-                                //反馈接收数据标签信息 
-                                msgid = GetMsgID();
-                                string MessageHead = "BD2101A" + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-                                byte[] sendArray1 = Enumerable.Repeat((byte)0x20, length - 19 - 8).ToArray(); //
-                                Array.Copy(buffer, sendArray1, length - 19 - 8);
-                                byte[] byteArray1 = StripIronNum.ByteReplace(Encoding.Default.GetBytes(MessageHead), OldBytes, NewBytes);//应答头
-                                Buffer.BlockCopy(byteArray1, 0, sendArray1, 0, byteArray1.Length);
-
-
-                                string appendmsg = ACK.ToString() + " &" + reson + " &" + msgid.ToString() + " &" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " &";
-                                byte[] sendArray2 = StripIronNum.ByteReplace(Encoding.Default.GetBytes(appendmsg), OldBytes, NewBytes);
-
-                                byte[] sendArray = Enumerable.Repeat((byte)0x20, sendArray1.Length + sendArray2.Length).ToArray();
-                                Array.Copy(sendArray1, sendArray, sendArray1.Length);
-                                Buffer.BlockCopy(sendArray2, 0, sendArray, sendArray1.Length, sendArray2.Length);
-
-                                StripIronNum.Client_MES.SendData(sendArray);
-                                string strsend = MessageHead + appendmsg;
-                                string sqlsend = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "L2收到：回复打捆指令数据" + strsend);
-                                tm1.MultithreadExecuteNonQuery(sqlsend);
-                                #endregion
-                            }
+                            
+                            
                             
                             #endregion
 
@@ -414,10 +388,12 @@ namespace CoreAlgorithmMES
                             }
                         }
                         if (MessageFlg == "")
-                        {
-                            string text = GetString(buffer, EncodingType.GB2312);
+                        {                           
+                            string text = GetString(buffer, EncodingType.GB2312);                            
+                            //StripIronNum.Server_MES.dictThread[connect.RemoteEndPoint.ToString()].Abort();
                             sql = string.Format("INSERT INTO MESRECVLOG(REC_CREATE_TIME,RECV_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), text);
                             tm1.MultithreadExecuteNonQuery(sql);
+                            
                         }
 
                     }

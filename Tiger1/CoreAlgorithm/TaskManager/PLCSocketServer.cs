@@ -14,8 +14,8 @@ namespace CoreAlgorithm.TaskManager
 {
     class PLCSocketServer
     {
-        static Socket socketServer;
-        static Socket socketWatch;
+        public static Socket socketServer;
+        public static Socket socketWatch;
         static TasksManager tm;
         public void CreateSocket(string plcip, int port)
         {
@@ -29,6 +29,7 @@ namespace CoreAlgorithm.TaskManager
             socketWatch.Listen(10);//队列排队
             Console.WriteLine("监听Socket创建完成，准备进入监听程序。");
             Thread receiveThread = new Thread(ListenRecall);
+            receiveThread.IsBackground = true;
             receiveThread.Start();
         }
         private void ListenRecall()

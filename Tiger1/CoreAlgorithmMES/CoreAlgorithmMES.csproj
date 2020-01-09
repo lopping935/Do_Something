@@ -83,7 +83,6 @@
     <Compile Include="TaskManager\messagecls.cs" />
     <Compile Include="TaskManager\SocketHelper.cs" />
     <Compile Include="TaskManager\StripIronNum.cs" />
-    <Compile Include="TaskManager\MESSocketClient.cs" />
     <Compile Include="TaskManager\TaskForecast.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>

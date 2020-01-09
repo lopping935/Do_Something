@@ -56,8 +56,7 @@ namespace CoreAlgorithm
 
         protected override void OnStop()
         {
-            //ForecastTimer.Dispose();
-            //UpdataTaskTimer.Dispose();
+            this.Dispose();
         }
     }
 }

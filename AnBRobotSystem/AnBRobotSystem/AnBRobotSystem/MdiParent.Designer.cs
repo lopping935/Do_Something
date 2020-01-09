@@ -144,7 +144,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1827, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -301,11 +301,11 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabControl1.Location = new System.Drawing.Point(0, 734);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Location = new System.Drawing.Point(0, 641);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1827, 179);
+            this.tabControl1.Size = new System.Drawing.Size(1924, 179);
             this.tabControl1.TabIndex = 7;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -313,10 +313,10 @@
             // 
             this.tabPage1.Controls.Add(this.listView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1819, 150);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Size = new System.Drawing.Size(1916, 150);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "日志信息";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -332,11 +332,11 @@
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(4, 4);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(1811, 142);
+            this.listView1.Size = new System.Drawing.Size(1908, 142);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -365,10 +365,10 @@
             // 
             this.tabPage2.Controls.Add(this.listView_Server);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1819, 150);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Size = new System.Drawing.Size(2045, 150);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "服务状态";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -396,11 +396,11 @@
             listViewItem1,
             listViewItem2});
             this.listView_Server.Location = new System.Drawing.Point(4, 4);
-            this.listView_Server.Margin = new System.Windows.Forms.Padding(4);
+            this.listView_Server.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView_Server.MultiSelect = false;
             this.listView_Server.Name = "listView_Server";
             this.listView_Server.ShowItemToolTips = true;
-            this.listView_Server.Size = new System.Drawing.Size(1811, 142);
+            this.listView_Server.Size = new System.Drawing.Size(2037, 142);
             this.listView_Server.TabIndex = 2;
             this.listView_Server.UseCompatibleStateImageBehavior = false;
             this.listView_Server.View = System.Windows.Forms.View.Details;
@@ -530,9 +530,9 @@
             // 
             this.tabPage3.Controls.Add(this.listView2);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1819, 150);
+            this.tabPage3.Size = new System.Drawing.Size(2045, 150);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "一级通信内容";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -546,11 +546,11 @@
             this.listView2.FullRowSelect = true;
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(0, 0);
-            this.listView2.Margin = new System.Windows.Forms.Padding(4);
+            this.listView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView2.MultiSelect = false;
             this.listView2.Name = "listView2";
             this.listView2.ShowItemToolTips = true;
-            this.listView2.Size = new System.Drawing.Size(1819, 150);
+            this.listView2.Size = new System.Drawing.Size(2045, 150);
             this.listView2.TabIndex = 2;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -568,10 +568,10 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter1.Location = new System.Drawing.Point(0, 730);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitter1.Location = new System.Drawing.Point(0, 637);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(1827, 4);
+            this.splitter1.Size = new System.Drawing.Size(1924, 4);
             this.splitter1.TabIndex = 8;
             this.splitter1.TabStop = false;
             // 
@@ -579,7 +579,7 @@
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView1.Location = new System.Drawing.Point(0, 61);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(4);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "节点0";
             treeNode1.Text = "标签打印配置";
@@ -594,7 +594,7 @@
             treeNode2,
             treeNode3,
             treeNode4});
-            this.treeView1.Size = new System.Drawing.Size(189, 669);
+            this.treeView1.Size = new System.Drawing.Size(189, 576);
             this.treeView1.TabIndex = 11;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
@@ -602,9 +602,9 @@
             // splitter2
             // 
             this.splitter2.Location = new System.Drawing.Point(189, 61);
-            this.splitter2.Margin = new System.Windows.Forms.Padding(4);
+            this.splitter2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(4, 669);
+            this.splitter2.Size = new System.Drawing.Size(4, 576);
             this.splitter2.TabIndex = 12;
             this.splitter2.TabStop = false;
             // 
@@ -631,7 +631,7 @@
             this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1827, 33);
+            this.toolStrip1.Size = new System.Drawing.Size(1924, 33);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -698,7 +698,7 @@
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(2203, 1);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(259, 61);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -729,10 +729,10 @@
             this.toolStripStatusLabel7,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel8});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 913);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 820);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1827, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(1924, 25);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -799,7 +799,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1827, 938);
+            this.ClientSize = new System.Drawing.Size(1924, 845);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
@@ -814,7 +814,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MdiParent";
             this.Text = "大型线喷号贴标机器人信息系统";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MdiParent_FormClosing);

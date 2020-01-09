@@ -15,11 +15,11 @@ namespace CoreAlgorithm
         {
            ServiceBase[] ServicesToRun;
            ServicesToRun = new ServiceBase[] 
-			{ 
-				new AnB_CoreAlgorithmMES() 
-			};
+		    { 
+			    new AnB_CoreAlgorithmMES() 
+		    };
             ServiceBase.Run(ServicesToRun);
-           /* AnB_CoreAlgorithmMES objISD= new AnB_CoreAlgorithmMES();
+          /*  AnB_CoreAlgorithmMES objISD= new AnB_CoreAlgorithmMES();
            objISD.OnStart(); 
            System.Threading.Thread.Sleep(120000000);*/
             //objISD.OnStop();

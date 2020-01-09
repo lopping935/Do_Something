@@ -26,7 +26,6 @@ C:\Users\Administrator\Desktop\AnBRobotSystem1024\CoreAlgorithmMES\obj\x86\Debug
 D:\project\Do_Something\AnBRobotSetup\Debug\CoreAlgorithmMES.exe.config
 D:\project\Do_Something\AnBRobotSetup\Debug\CoreAlgorithmMES.exe
 D:\project\Do_Something\AnBRobotSetup\Debug\CoreAlgorithmMES.pdb
-D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csprojAssemblyReference.cache
 D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithm.ProjectInstaller.resources
 D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithm.AnB_CoreAlgorithmMES.resources
 D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csproj.GenerateResource.cache
@@ -45,3 +44,7 @@ D:\github\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorit
 D:\github\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.exe
 D:\github\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.pdb
 D:\github\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csprojAssemblyReference.cache
+D:\AnBRobotSetup_B\Debug\CoreAlgorithmMES.exe.config
+D:\AnBRobotSetup_B\Debug\CoreAlgorithmMES.exe
+D:\AnBRobotSetup_B\Debug\CoreAlgorithmMES.pdb
+D:\project\Do_Something\AnBRobotSystem\CoreAlgorithmMES\obj\x86\Debug\CoreAlgorithmMES.csprojAssemblyReference.cache

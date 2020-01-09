@@ -150,7 +150,6 @@ namespace CoreAlgorithm.TaskManager
                 #region 三级应答反馈 标签结果应答
                 try
                 {
-                    lastmodel = modelflag;
                     #region 模式
                     // PLANIDNow = 0;  
                     sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=15");
@@ -170,7 +169,8 @@ namespace CoreAlgorithm.TaskManager
                         Thread.Sleep(5000);
 
                     }
-                    if(modelflag==1)//自动模式下上传结果
+                    lastmodel = modelflag;
+                    if (modelflag==1)//自动模式下上传结果
                     {
                         double MAXRECID = 0;// PLANIDNow = 0;                
                         sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
@@ -207,7 +207,7 @@ namespace CoreAlgorithm.TaskManager
                                 LabelDataASK.SEQ_OPR = Int16.Parse(dt.Rows[i]["SEQ_OPR"].ToString());
                                 LabelDataASK.SEQ_SEND = double.Parse(dt.Rows[i]["SEQ_SEND"].ToString());
                                 LabelDataASK.NUM_BAR = Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());
-                                LabelDataASK.SEQ_LIST = Int16.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
+                                LabelDataASK.SEQ_LIST = Int64.Parse(dt.Rows[i]["SEQ_LIST"].ToString());
                                 LabelDataASK.LA_BDL_ACT = double.Parse(dt.Rows[i]["LA_BDL_ACT"].ToString());
                                 LabelDataASK.NO_LICENCE = dt.Rows[i]["NO_LICENCE"].ToString();
                                 LabelDataASK.NAME_PROD = dt.Rows[i]["NAME_PROD"].ToString();//gbk

@@ -708,34 +708,7 @@ namespace AnBRobotSystem.ChildForm
                         Log.addLog(log, LogType.ERROR, ex.Message);
                     }
                 }
-                if (i == 3)
-                {
-                    sendmessage = "";
-                    if (radioButton3.Checked == true)
-                        sendmessage = "ID_HEAT" + ",";
-                    if (radioButton4.Checked == true)
-                        sendmessage = sendmessage + "ID_LOT_PROD" + ",";
-                    if (radioButton7.Checked == true)
-                        sendmessage = sendmessage + "NAME_STLGD" + ",";
-                    if (radioButton10.Checked == true)
-                        sendmessage = sendmessage + "DIM_LEN" + ",";
-                    if (radioButton13.Checked == true)
-                        sendmessage = sendmessage + "DES_FIPRO_SECTION" + ",";
-                    if (sendmessage != "")
-                    {
-                        sendnum = 2;                       
-                    }
-                    sql = "UPDATE REALTIMETASKDATA SET RTDATA_VALUE='" + sendmessage + "',RTDATA_TIME='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' WHERE TASK_ID=3";
-                    try
-                    {
-                        db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
-                    }
-                    catch (System.Exception ex)
-                    {
-                        log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
-                        Log.addLog(log, LogType.ERROR, ex.Message);
-                    }
-                }
+               
             }
             sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE= {0} WHERE PARAMETER_ID =9", sendnum);
             try

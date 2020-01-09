@@ -25,6 +25,7 @@ namespace SocketHelper
             IPAddress ip = IPAddress.Parse(IPA);
             IPEndPoint endPoint = new IPEndPoint(ip, port);
             threadClient = new Thread(RecvMSG);
+            threadClient.IsBackground = true;
             socketClient.Connect(endPoint);
             threadClient.Start();
         }
@@ -145,11 +146,13 @@ namespace SocketHelper
                 // 开始监听客户端连接请求，Accept方法会阻断当前的线程；
                 Socket sokConnection = socketWatch.Accept(); // 一旦监听到一个客户端的请求，就返回一个与该客户端通信的 套接字；
                 // 将与客户端连接的 套接字 对象添加到集合中；
-                dict.Add(sokConnection.RemoteEndPoint.ToString(), sokConnection);
+                //dict.Add(sokConnection.RemoteEndPoint.ToString(), sokConnection);
+                
                 Thread thr = new Thread(RecvMSG);
                 thr.IsBackground = true;
                 thr.Start(sokConnection);
-               // dictThread.Add(sokConnection.RemoteEndPoint.ToString(), thr);  //  将新建的线程 添加 到线程的集合中去。
+               // dictThread.Add(sokConnection.RemoteEndPoint.ToString(), thr);
+                // dictThread.Add(sokConnection.RemoteEndPoint.ToString(), thr);  //  将新建的线程 添加 到线程的集合中去。
                 //我认为这里线程集合，在.net中应该有对象的线程管理工具类，其在设计上应该远远好于我们自己定义的director
             }
         }      
