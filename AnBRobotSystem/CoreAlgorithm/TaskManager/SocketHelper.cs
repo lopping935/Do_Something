@@ -18,13 +18,14 @@ namespace SocketHelper
         public SocketClient(ThreadStart RecvMSG1)
         {
             RecvMSG = RecvMSG1;
-            socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
         public void CreateConnect(string IPA, int port)
         {
+            socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPAddress ip = IPAddress.Parse(IPA);
             IPEndPoint endPoint = new IPEndPoint(ip, port);
             threadClient = new Thread(RecvMSG);
+            threadClient.IsBackground = true;
             socketClient.Connect(endPoint);
             threadClient.Start();
         }
@@ -73,6 +74,41 @@ namespace SocketHelper
         {
             socketClient.Send(buffer);
         }
+      /*  //重连代码
+       *  public void ReconnectMES(SocketClient s)
+        {
+            string sql = null, str = null;
+            bool connectstate = false;
+            do
+            {
+
+                try
+                {
+
+
+                    s.socketClient.Close();
+                    s.socketClient.Dispose();
+                    // Client_MES = new SocketClient(ClientREC_MES);
+                    s.CreateConnect(MESIP, mesportr);
+
+                    connectstate = true;
+                    sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=14", 1, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));
+                    tm.MultithreadExecuteNonQuery(sql);
+
+                }
+                catch
+                {
+                    sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE={0},PARAMETER_TIME='{1}' where PARAMETER_ID=14", 0, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")));
+                    tm.MultithreadExecuteNonQuery(sql);
+                    str = "连接MES系统失败，正在尝试重新连接！";
+                    sql = string.Format("INSERT INTO MESSENDLOG(REC_CREATE_TIME,SEND_CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                    tm.MultithreadExecuteNonQuery(sql);
+                    connectstate = false;
+                    Thread.Sleep(5000);
+                }
+            }
+            while (!connectstate);
+        }*/
     }
     public class SocketServer
     {
@@ -80,10 +116,10 @@ namespace SocketHelper
         public  IPEndPoint endPoint;
         public Thread threadWatch = null; //负责监听客户端连接请求的线程；
         public Socket socketWatch = null;
-        public ThreadStart RecvMSG = null;
+        public ParameterizedThreadStart RecvMSG = null;
         public Dictionary<string, Socket> dict = new Dictionary<string, Socket>();
         public Dictionary<string, Thread> dictThread = new Dictionary<string, Thread>();
-
+        //public Socket sokConnection = null;
         public SocketServer(string host, int port)
         {
             System.Console.WriteLine("server");
@@ -92,7 +128,7 @@ namespace SocketHelper
             socketWatch = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             
         }
-        public void StarServer(ThreadStart ServerRecvMSG)
+        public void StarServer(ParameterizedThreadStart ServerRecvMSG)
         {
             RecvMSG = ServerRecvMSG;
             socketWatch.Bind(endPoint);
@@ -110,11 +146,13 @@ namespace SocketHelper
                 // 开始监听客户端连接请求，Accept方法会阻断当前的线程；
                 Socket sokConnection = socketWatch.Accept(); // 一旦监听到一个客户端的请求，就返回一个与该客户端通信的 套接字；
                 // 将与客户端连接的 套接字 对象添加到集合中；
-                dict.Add(sokConnection.RemoteEndPoint.ToString(), sokConnection);
+                //dict.Add(sokConnection.RemoteEndPoint.ToString(), sokConnection);
+                
                 Thread thr = new Thread(RecvMSG);
                 thr.IsBackground = true;
                 thr.Start(sokConnection);
-                dictThread.Add(sokConnection.RemoteEndPoint.ToString(), thr);  //  将新建的线程 添加 到线程的集合中去。
+               // dictThread.Add(sokConnection.RemoteEndPoint.ToString(), thr);
+                // dictThread.Add(sokConnection.RemoteEndPoint.ToString(), thr);  //  将新建的线程 添加 到线程的集合中去。
                 //我认为这里线程集合，在.net中应该有对象的线程管理工具类，其在设计上应该远远好于我们自己定义的director
             }
         }      
@@ -139,5 +177,42 @@ namespace SocketHelper
                 s.Send(buffer);
             }
         }
+
+     
+     /*  //socket基础模型
+       class Program
+        {
+            SocketServer s;
+            static void Main(string[] args)
+            {
+                Program a = new Program();
+                a.starserver();
+                System.Console.ReadKey();
+            }
+            void starserver()
+            {
+                s = new SocketServer("192.168.1.117", 10022);
+                s.StarServer(servrecvmsg);
+            }
+            void servrecvmsg(object s2)
+            {
+                Socket s1 = (Socket)s2;
+                while (true)
+                {
+                    byte[] recmsg = new byte[1024];
+                    int len = s1.Receive(recmsg);
+                    if (len > 0)
+                    {
+                        byte[] msgbyte = new byte[len];
+                        Array.Copy(recmsg, msgbyte, len);
+                        string msgtstring = Encoding.Default.GetString(msgbyte);
+                        Console.WriteLine(s1.RemoteEndPoint.ToString() + " " + msgtstring);
+                    }
+
+                }
+            }
+
+        }*/
+
     }
 }
