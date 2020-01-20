@@ -42,7 +42,7 @@ namespace AnBRobotSystem.ChildForm
             public string print_date;
             public string classes;
         };
-        Bitmap img = new Bitmap(1160, 600);//712,500
+        Bitmap img = new Bitmap(1030, 512);//712,500
                                            //public SocketClient PlcConnect = null;
         string BAR_CODE = "";
         private static IniSqlConfigInfo inisql = new IniSqlConfigInfo(System.AppDomain.CurrentDomain.BaseDirectory + "Config.ini");
@@ -61,8 +61,9 @@ namespace AnBRobotSystem.ChildForm
             string sql = "SELECT ACQUISITIONCONFIG_ID,DATAACQUISITION_IP,DATAACQUISITION_PORTR FROM ACQUISITIONCONFIG where ACQUISITIONCONFIG_ID=10 or ACQUISITIONCONFIG_ID=11";// or ACQUISITIONCONFIG_ID=8";
             DbDataReader dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
             while (dr.Read())
-            {if (Convert.ToInt16(dr["ACQUISITIONCONFIG_ID"]) == 10)
-             {
+            {
+                if (Convert.ToInt16(dr["ACQUISITIONCONFIG_ID"]) == 10)
+                {
                     Print1ip = Convert.ToString(dr["DATAACQUISITION_IP"]);
                     Print1portr = Convert.ToInt16(dr["DATAACQUISITION_PORTR"]);
                 }
@@ -96,15 +97,15 @@ namespace AnBRobotSystem.ChildForm
             DataTable dt = db.ExecuteDataTable(db.GetSqlStringCommond(sql));
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                PLClable.merge_sinbar = dt.Rows[i]["merge_sinbar"].ToString();
-                PLClable.gk = dt.Rows[i]["gk"].ToString();
-                PLClable.heat_no = dt.Rows[i]["heat_no"].ToString();
-                PLClable.mtrl_no = dt.Rows[i]["mtrl_no"].ToString();
-                PLClable.spec = dt.Rows[i]["spec"].ToString();
-                PLClable.wegith = int.Parse(dt.Rows[i]["wegith"].ToString());
-                PLClable.num_no = int.Parse(dt.Rows[i]["num_no"].ToString());
-                PLClable.print_date = dt.Rows[i]["print_date"].ToString();
-                PLClable.classes = dt.Rows[i]["classes"].ToString();
+                PLClable.merge_sinbar = dt.Rows[i]["merge_sinbar"].ToString();//捆号
+                PLClable.gk = dt.Rows[i]["gk"].ToString();//技术标准
+                PLClable.heat_no = dt.Rows[i]["heat_no"].ToString();//炉批号
+                PLClable.mtrl_no = dt.Rows[i]["mtrl_no"].ToString();//牌号
+                PLClable.spec = dt.Rows[i]["spec"].ToString();//规格
+                PLClable.wegith = int.Parse(dt.Rows[i]["wegith"].ToString());//重量
+                PLClable.num_no = int.Parse(dt.Rows[i]["num_no"].ToString());//支数
+                PLClable.print_date = DateTime.Parse(dt.Rows[i]["print_date"].ToString()).ToShortDateString();//日期
+                PLClable.classes = dt.Rows[i]["classes"].ToString();//班次
 
                 manu_textBox_stand.Text= PLClable.gk;
                 manu_textBox_heatno.Text = PLClable.heat_no;
@@ -112,7 +113,7 @@ namespace AnBRobotSystem.ChildForm
                 manu_textBox_date1.Text = PLClable.print_date;
                 manu_textBox_grade.Text = PLClable.mtrl_no;
                 manu_textBox_size.Text = PLClable.spec;
-                manu_textBox__hook.Text = PLClable.merge_sinbar;
+                manu_textBox__hook.Text = PLClable.merge_sinbar+"/"+ PLClable.num_no;
                 manu_textBox_group.Text = PLClable.classes;
             }
         }
@@ -135,22 +136,22 @@ namespace AnBRobotSystem.ChildForm
             Graphics g = Graphics.FromImage(img);
             g.Clear(Color.White);
 
-            Font font2 = new Font(FontFamily.GenericSansSerif, 20, FontStyle.Bold);
-            Rectangle rect = new Rectangle(10, 10, img.Width - 20, img.Height - 20);
-            Rectangle rect_o = new Rectangle(10, 10, 20, 20);
+            Font font2 = new Font(FontFamily.GenericSansSerif, 25, FontStyle.Bold);
+            Rectangle rect = new Rectangle(10, 0, img.Width - 20, img.Height - 20);
+            Rectangle rect_o = new Rectangle(0, 0, 20, 20);
             Pen blackPen = new Pen(Color.Black, 3);
             g.DrawRectangle(blackPen, rect);
             g.DrawRectangle(blackPen, rect_o);
-            //grid : width:22mm high:8mm  blank width:98mm high:48.5
+            //grid : width:22mm high:10mm  blank width:85mm high:42.5
 
-            g.DrawString(textBox_stand.Text, font2, Brushes.Black, new Point(pix_to_mm(2.2), pix_to_mm(1.2)));
-            g.DrawString(textBox_heatno.Text, font2, Brushes.Black, new Point(pix_to_mm(2.2), pix_to_mm(2.0)));
-            g.DrawString(textBox_wegit.Text, font2, Brushes.Black, new Point(pix_to_mm(2.2), pix_to_mm(2.8)));
-            g.DrawString(textBox_date1.Text, font2, Brushes.Black, new Point(pix_to_mm(2.2), pix_to_mm(3.6)));
-            g.DrawString(textBox_garde.Text, font2, Brushes.Black, new Point(pix_to_mm(7.4), pix_to_mm(1.2)));
-            g.DrawString(textBox_size.Text, font2, Brushes.Black, new Point(pix_to_mm(7.4), pix_to_mm(2.0)));
-            g.DrawString(textBox_hook.Text, font2, Brushes.Black, new Point(pix_to_mm(7.2), pix_to_mm(2.8)));
-            g.DrawString(textBox_group.Text, font2, Brushes.Black, new Point(pix_to_mm(7.4), pix_to_mm(3.6)));
+            g.DrawString(textBox_stand.Text, font2, Brushes.Black, new Point(pix_to_mm(1.7), pix_to_mm(0.4)));
+            g.DrawString(textBox_heatno.Text, font2, Brushes.Black, new Point(pix_to_mm(1.7), pix_to_mm(1.4)));
+            g.DrawString(textBox_wegit.Text, font2, Brushes.Black, new Point(pix_to_mm(1.7), pix_to_mm(2.5)));
+            g.DrawString(textBox_date1.Text, font2, Brushes.Black, new Point(pix_to_mm(1.7), pix_to_mm(3.5)));
+            g.DrawString(textBox_garde.Text, font2, Brushes.Black, new Point(pix_to_mm(6.3), pix_to_mm(0.4)));
+            g.DrawString(textBox_size.Text, font2, Brushes.Black, new Point(pix_to_mm(5.8), pix_to_mm(1.4)));
+            g.DrawString(textBox_hook.Text, font2, Brushes.Black, new Point(pix_to_mm(5.3), pix_to_mm(2.5)));
+            g.DrawString(textBox_group.Text, font2, Brushes.Black, new Point(pix_to_mm(5.2), pix_to_mm(3.5)));
 
             img.RotateFlip(RotateFlipType.Rotate90FlipNone);//图像旋转                                                                                              
         }
@@ -181,8 +182,8 @@ namespace AnBRobotSystem.ChildForm
                 if (printerStatus.isReadyToPrint)
                 {
                     txt_message.AppendText("start print！");
-                    int x = 20;
-                    int y = 50;
+                    int x = 45;//上下位置 宽
+                    int y = 110;//左右位置  长
                     ZebraImageI zp1 = ZebraImageFactory.GetImage(img);
                     printer.PrintImage(zp1, x, y, zp1.Width, zp1.Height, false);
                     img.RotateFlip(RotateFlipType.Rotate270FlipNone);//图像旋转
