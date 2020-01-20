@@ -106,14 +106,6 @@
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="PDF417, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\AnBRobotSetup\Debug\PDF417.dll</HintPath>
-    </Reference>
-    <Reference Include="Pdf417EncoderLibrary, Version=2.11.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Pdf417EncoderLibrary.2.1.0\lib\net462\Pdf417EncoderLibrary.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="SdkApi_Core, Version=2.14.1989.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Zebra.Printer.SDK.2.14.1989\lib\net47\SdkApi_Core.dll</HintPath>
@@ -182,6 +174,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.11.0.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\YFRobotSetup\Debug\zxing.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChildForm\FormPrint.cs">

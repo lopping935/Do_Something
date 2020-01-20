@@ -5,9 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using Pdf417EncoderLibrary;
-using PDF417;
-using PDF417.pdf417.encoder;
 using Zebra.Sdk.Printer;
 using Zebra.Sdk.Comm;
 using System.IO;
@@ -21,11 +18,26 @@ using System.Configuration;
 using SQLPublicClass;
 using System.Data.Common;
 using System.Reflection;
+using ZXing;
+using ZXing.QrCode;
+using ZXing.QrCode.Internal;
 namespace CoreAlgorithm.TaskManager
 {
     public class FormPrint
     {
-        Bitmap img = new Bitmap(1160, 600);//712,500
+        public struct LabelData
+        {
+            public string merge_sinbar;
+            public string gk;
+            public string heat_no;
+            public string mtrl_no;
+            public string spec;
+            public int wegith;
+            public int num_no;
+            public string print_date;
+            public string classes;
+        };
+        Bitmap img = new Bitmap(1030, 512);//712,500
         //public SocketClient PlcConnect = null;
         private static IniSqlConfigInfo inisql = new IniSqlConfigInfo(System.AppDomain.CurrentDomain.BaseDirectory + "Config.ini");
         static TasksManager tm; //DbHelper db = new DbHelper(inisql.GetConnectionString("SysSQL"));
@@ -57,6 +69,7 @@ namespace CoreAlgorithm.TaskManager
             }
             dr.Close();
         }
+        string textBox_stand , manu_textBox_stand,textBox_heatno , manu_textBox_heatno,textBox_wegit , manu_textBox_weight,textBox_date1 , manu_textBox_date1,textBox_garde , manu_textBox_grade,textBox_size , manu_textBox_size,textBox_hook , manu_textBox__hook ,textBox_group , manu_textBox_group;
         string textBox_productionText,manu_textBox_productText,textBox_gradeText,manu_textBox_gradeText,textBox_weightText,manu_textBox_weightText,textBox_groupText,manu_textBox_groupText,textBox_countText,manu_textBox_countText,textBox_specificationText, manu_textBox_specifiText,textBox_sizeText,manu_textBox_sizeText,textBox_ProNoText,manu_textBox__proText,textBox_DateText,manu_textBox_dateText;
         string ID_LOT_PROD = "";
         Int16 ID_PART_LOT = 0;
@@ -67,6 +80,7 @@ namespace CoreAlgorithm.TaskManager
         string BAR_CODE = "";
         private void manu_Work()
         {
+            LabelData PLClable;
             double MAXRECID = 0;// PLANIDNow = 0;                
             string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
             DbDataReader dr = null;
@@ -77,54 +91,41 @@ namespace CoreAlgorithm.TaskManager
                     MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
             }
             dr.Close();
-            sql = string.Format("select top 1 ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DES_FIPRO_SECTION,BAR_CODE,NAME_PROD,NAME_STLGD,LA_BDL_ACT,ID_CREW_CK,NUM_BAR,NAME_STND,DIM_LEN,ID_HEAT,TMSTP_WEIGH from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
-            //sql = "select top 2 SlabNO from TSlabNO WHERE PEN_FINISH!=1 order by REC_ID ASC";
-            
-            string NAME_PROD = "", NAME_STLGD = "", ID_CREW_CK = "", NAME_STND = "", ID_HEAT = "", TMSTP_WEIGH = "";
-            float LA_BDL_ACT = 0;
-            Int16 NUM_BAR = 0;
-            double DIM_LEN = 0;
+            sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+
             DataTable dt = tm.MultithreadDataTable(sql);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                ID_LOT_PROD = dt.Rows[i]["ID_LOT_PROD"].ToString();
-                ID_PART_LOT = Int16.Parse(dt.Rows[i]["ID_PART_LOT"].ToString());
-                NUM_BDL = Int16.Parse(dt.Rows[i]["NUM_BDL"].ToString());
-                SEQ_LEN = Int16.Parse(dt.Rows[i]["SEQ_LEN"].ToString());
-                SEQ_OPR = Int16.Parse(dt.Rows[i]["SEQ_OPR"].ToString());
-                DES_FIPRO_SECTION = dt.Rows[i]["DES_FIPRO_SECTION"].ToString();
-                BAR_CODE = dt.Rows[i]["BAR_CODE"].ToString();
-                NAME_PROD = dt.Rows[i]["NAME_PROD"].ToString();
-                NUM_BAR = Int16.Parse(dt.Rows[i]["NUM_BAR"].ToString());
-                DIM_LEN = double.Parse(dt.Rows[i]["DIM_LEN"].ToString());
-                NAME_STLGD = dt.Rows[i]["NAME_STLGD"].ToString();
-                ID_CREW_CK = dt.Rows[i]["ID_CREW_CK"].ToString();
-                NAME_STND = dt.Rows[i]["NAME_STND"].ToString();
-                ID_HEAT = dt.Rows[i]["ID_HEAT"].ToString();
-                TMSTP_WEIGH = dt.Rows[i]["TMSTP_WEIGH"].ToString();
-                LA_BDL_ACT = float.Parse(dt.Rows[i]["LA_BDL_ACT"].ToString());
+                PLClable.merge_sinbar = dt.Rows[i]["merge_sinbar"].ToString();//捆号
+                PLClable.gk = dt.Rows[i]["gk"].ToString();//技术标准
+                PLClable.heat_no = dt.Rows[i]["heat_no"].ToString();//炉批号
+                PLClable.mtrl_no = dt.Rows[i]["mtrl_no"].ToString();//牌号
+                PLClable.spec = dt.Rows[i]["spec"].ToString();//规格
+                PLClable.wegith = int.Parse(dt.Rows[i]["wegith"].ToString());//重量
+                PLClable.num_no = int.Parse(dt.Rows[i]["num_no"].ToString());//支数
+                PLClable.print_date = DateTime.Parse(dt.Rows[i]["print_date"].ToString()).ToShortDateString();//日期
+                PLClable.classes = dt.Rows[i]["classes"].ToString();//班次
+
+                manu_textBox_stand = PLClable.gk;
+                manu_textBox_heatno = PLClable.heat_no;
+                manu_textBox_weight = PLClable.wegith.ToString();
+                manu_textBox_date1 = PLClable.print_date;
+                manu_textBox_grade = PLClable.mtrl_no;
+                manu_textBox_size = PLClable.spec;
+                manu_textBox__hook = PLClable.num_no.ToString();
+                manu_textBox_group = PLClable.classes;
             }
-            manu_textBox_productText= NAME_PROD;
-            manu_textBox_gradeText= NAME_STLGD;
-            manu_textBox_weightText= LA_BDL_ACT.ToString();
-            manu_textBox_groupText= ID_CREW_CK;
-            manu_textBox_countText= NUM_BAR.ToString()+"/"+ NUM_BDL.ToString();
-            manu_textBox_specifiText = NAME_STND;
-            manu_textBox_sizeText = DES_FIPRO_SECTION + "/" + DIM_LEN.ToString();
-            manu_textBox__proText=ID_HEAT + "-" + ID_LOT_PROD;
-            manu_textBox_dateText = TMSTP_WEIGH;
         }
         private void update_manu()//更新图片数据
         {
-            textBox_productionText = manu_textBox_productText;
-            textBox_gradeText = manu_textBox_gradeText;
-            textBox_weightText = manu_textBox_weightText;
-            textBox_groupText = manu_textBox_groupText;
-            textBox_countText = manu_textBox_countText;
-            textBox_specificationText = manu_textBox_specifiText;
-            textBox_sizeText = manu_textBox_sizeText;
-            textBox_ProNoText = manu_textBox__proText;
-            textBox_DateText = manu_textBox_dateText;
+            textBox_stand = manu_textBox_stand;
+            textBox_heatno = manu_textBox_heatno;
+            textBox_wegit = manu_textBox_weight + " KG";
+            textBox_date1 = manu_textBox_date1;
+            textBox_garde = manu_textBox_grade;
+            textBox_size = manu_textBox_size;
+            textBox_hook = manu_textBox__hook + " 支";
+            textBox_group = manu_textBox_group;
         }
         #region pirnt the img
         //创建图片
@@ -132,42 +133,38 @@ namespace CoreAlgorithm.TaskManager
         {
             update_manu();
             Graphics g = Graphics.FromImage(img);
-            // img.SetResolution(100,100);
-            // img.SetPixel(10,10,Color.Black);
             g.Clear(Color.White);
 
-            //Font font3 = new Font("黑体", cb_chanpinname_sd.Font.Size, FontStyle.Regular);
-            Font font2 = new Font(FontFamily.GenericSansSerif, 20, FontStyle.Bold);
-            Rectangle rect = new Rectangle(10, 10, img.Width - 20, img.Height - 20);
-            Rectangle rect_o = new Rectangle(10, 10, 20, 20);
+            Font font2 = new Font(FontFamily.GenericSansSerif, 25, FontStyle.Bold);
+            Rectangle rect = new Rectangle(10, 0, img.Width - 20, img.Height - 20);
+            Rectangle rect_o = new Rectangle(0, 0, 20, 20);
             Pen blackPen = new Pen(Color.Black, 3);
             g.DrawRectangle(blackPen, rect);
             g.DrawRectangle(blackPen, rect_o);
-            //grid : width:22mm high:8mm  blank width:98mm high:48.5
-            g.DrawString(textBox_productionText, font2, Brushes.Black, new Point(pix_to_mm(4.4), pix_to_mm(0.4)));
+            //grid : width:22mm high:10mm  blank width:85mm high:42.5
 
-            g.DrawString(textBox_gradeText, font2, Brushes.Black, new Point(pix_to_mm(2.2), pix_to_mm(1.2)));
-            g.DrawString(textBox_weightText, font2, Brushes.Black, new Point(pix_to_mm(2.2), pix_to_mm(2.0)));
-            g.DrawString(textBox_groupText, font2, Brushes.Black, new Point(pix_to_mm(2.2), pix_to_mm(2.8)));
-            g.DrawString(textBox_countText, font2, Brushes.Black, new Point(pix_to_mm(2.2), pix_to_mm(3.6)));
-            g.DrawString(textBox_specificationText, font2, Brushes.Black, new Point(pix_to_mm(7.4), pix_to_mm(1.2)));
-            g.DrawString(textBox_sizeText, font2, Brushes.Black, new Point(pix_to_mm(7.4), pix_to_mm(2.0)));
-            g.DrawString(textBox_ProNoText, font2, Brushes.Black, new Point(pix_to_mm(7.2), pix_to_mm(2.8)));
-            //textBox_Date.Text = DateTime.Now.ToShortDateString();
-            g.DrawString(textBox_DateText, font2, Brushes.Black, new Point(pix_to_mm(7.4), pix_to_mm(3.6)));
+            g.DrawString(textBox_stand, font2, Brushes.Black, new Point(pix_to_mm(1.7), pix_to_mm(0.4)));
+            g.DrawString(textBox_heatno, font2, Brushes.Black, new Point(pix_to_mm(1.7), pix_to_mm(1.4)));
+            g.DrawString(textBox_wegit, font2, Brushes.Black, new Point(pix_to_mm(1.7), pix_to_mm(2.5)));
+            g.DrawString(textBox_date1, font2, Brushes.Black, new Point(pix_to_mm(1.7), pix_to_mm(3.5)));
+            g.DrawString(textBox_garde, font2, Brushes.Black, new Point(pix_to_mm(6.3), pix_to_mm(0.4)));
+            g.DrawString(textBox_size, font2, Brushes.Black, new Point(pix_to_mm(5.8), pix_to_mm(1.4)));
+            g.DrawString(textBox_hook, font2, Brushes.Black, new Point(pix_to_mm(5.3), pix_to_mm(2.5)));
+            g.DrawString(textBox_group, font2, Brushes.Black, new Point(pix_to_mm(5.2), pix_to_mm(3.5)));
 
-            string content = BAR_CODE;// "LG;" + textBox_productionText + ";" + textBox_gradeText + ";" + textBox_weightText + ";" + textBox_groupText + ";" + textBox_countText + ";" + textBox_specificationText + ";" + textBox_sizeText + ";" + textBox_ProNoText + ";" + textBox_DateText + "; Pro";
-
-            Pdf417Encoder ptst = new Pdf417Encoder();
-            ptst.ErrorCorrection = ErrorCorrectionLevel.AutoHigh;
-            ptst.EncodingControl = EncodingControl.ByteOnly;
-            ptst.RowHeight = 9;//设置每行像素大小最小是6 必须是NarrowBarWidth的三倍
-            ptst.NarrowBarWidth = 3;
-            ptst.DefaultDataColumns = 8;//设定总列数，以此计算 行数
-            ptst.Encode(content);
-            Bitmap img6 = ptst.CreateBarcodeBitmap();
-            g.DrawImage(img6, new Point(pix_to_mm(2.2), pix_to_mm(4.26)));//画条形码                                                                                               //img.Save("d:\\img1.bmp");                                                                                               //pictureBox1.Image = img;
-            img.RotateFlip(RotateFlipType.Rotate90FlipNone);//图像旋转                                                                                              
+            QrCodeEncodingOptions options = new QrCodeEncodingOptions();
+            options.DisableECI = true;
+            options.ErrorCorrection = ErrorCorrectionLevel.M;
+            options.Width = 150;
+            options.Height = 150;
+            options.Margin = 1;
+            BarcodeWriter writer = new BarcodeWriter();
+            writer.Format = BarcodeFormat.QR_CODE;
+            writer.Options = options;
+            BAR_CODE = "http://www.yfgt.cn/b/#/barcode/" + textBox_heatno;
+            Bitmap bmp = writer.Write(BAR_CODE);//不能识别汉字和英文字符
+            g.DrawImage(bmp, new Point(pix_to_mm(6.5), pix_to_mm(2.2)));//画条形码
+            img.RotateFlip(RotateFlipType.Rotate90FlipNone);//图像旋转                                                                                                  
         }
         //像素转mm
         public int pix_to_mm(double x)

@@ -6,9 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Pdf417EncoderLibrary;
-using PDF417;
-using PDF417.pdf417.encoder;
 using Zebra.Sdk.Printer;
 using Zebra.Sdk.Comm;
 using System.IO;
@@ -25,7 +22,9 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Reflection;
-
+using ZXing;
+using ZXing.QrCode;
+using ZXing.QrCode.Internal;
 namespace AnBRobotSystem.ChildForm
 {
     public partial class FormPrint : Form
@@ -113,20 +112,22 @@ namespace AnBRobotSystem.ChildForm
                 manu_textBox_date1.Text = PLClable.print_date;
                 manu_textBox_grade.Text = PLClable.mtrl_no;
                 manu_textBox_size.Text = PLClable.spec;
-                manu_textBox__hook.Text = PLClable.merge_sinbar+"/"+ PLClable.num_no;
+                manu_textBox__hook.Text = PLClable.num_no.ToString();
                 manu_textBox_group.Text = PLClable.classes;
+                
             }
         }
         private void update_manu()//更新图片数据
         {
             textBox_stand.Text = manu_textBox_stand.Text;
             textBox_heatno.Text = manu_textBox_heatno.Text;
-            textBox_wegit.Text = manu_textBox_weight.Text;
+            textBox_wegit.Text = manu_textBox_weight.Text+" KG";
             textBox_date1.Text = manu_textBox_date1.Text;
             textBox_garde.Text = manu_textBox_grade.Text;
             textBox_size.Text = manu_textBox_size.Text;
-            textBox_hook.Text = manu_textBox__hook.Text;
+            textBox_hook.Text = manu_textBox__hook.Text + " 支";
             textBox_group.Text = manu_textBox_group.Text;
+            
         }
         #region pirnt the img
         //创建图片
@@ -153,6 +154,18 @@ namespace AnBRobotSystem.ChildForm
             g.DrawString(textBox_hook.Text, font2, Brushes.Black, new Point(pix_to_mm(5.3), pix_to_mm(2.5)));
             g.DrawString(textBox_group.Text, font2, Brushes.Black, new Point(pix_to_mm(5.2), pix_to_mm(3.5)));
 
+            QrCodeEncodingOptions options = new QrCodeEncodingOptions();
+            options.DisableECI = true;
+            options.ErrorCorrection = ErrorCorrectionLevel.M;
+            options.Width = 150;
+            options.Height = 150;
+            options.Margin = 1;
+            BarcodeWriter writer = new BarcodeWriter();
+            writer.Format = BarcodeFormat.QR_CODE;
+            writer.Options = options;
+            BAR_CODE = "http://www.yfgt.cn/b/#/barcode/" + textBox_heatno.Text;
+            Bitmap bmp = writer.Write(BAR_CODE);//不能识别汉字和英文字符
+            g.DrawImage(bmp, new Point(pix_to_mm(6.5), pix_to_mm(2.2)));//画条形码
             img.RotateFlip(RotateFlipType.Rotate90FlipNone);//图像旋转                                                                                              
         }
         //像素转mm
