@@ -31,14 +31,6 @@ namespace SocketHelper
         }
         public bool IsSocketConnected()
         {
-            #region remarks
-            /********************************************************************************************
-             * 当Socket.Conneted为false时， 如果您需要确定连接的当前状态，请进行非阻塞、零字节的 Send 调用。
-             * 如果该调用成功返回或引发 WAEWOULDBLOCK 错误代码 (10035)，则该套接字仍然处于连接状态； 
-             * 否则，该套接字不再处于连接状态。
-             * Depending on http://msdn.microsoft.com/zh-cn/library/system.net.sockets.socket.connected.aspx?cs-save-lang=1&cs-lang=csharp#code-snippet-2
-            ********************************************************************************************/
-            #endregion
             #region 过程
             bool connectState = true;
             bool blockingState = socketClient.Blocking;
@@ -48,7 +40,7 @@ namespace SocketHelper
 
                 socketClient.Blocking = false;
                 socketClient.Send(tmp, 0, 0);
-                connectState = true; //若Send错误会跳去执行catch体，而不会执行其try体里其之后的代码
+                connectState = true; 
             }
             catch (SocketException e)
             {
@@ -143,16 +135,12 @@ namespace SocketHelper
         {
             while (true)  // 持续不断的监听客户端的连接请求；
             {
-                //开始监听客户端连接请求，Accept方法会阻断当前的线程；
                 Socket sokConnection = socketWatch.Accept(); // 一旦监听到一个客户端的请求，就返回一个与该客户端通信的 套接字；
-                //将与客户端连接的 套接字 对象添加到集合中；
+                dict.Clear();
                 dict.Add(sokConnection.RemoteEndPoint.ToString(), sokConnection);                
                 Thread thr = new Thread(RecvMSG);
                 thr.IsBackground = true;
                 thr.Start(sokConnection);
-                //dictThread.Add(sokConnection.RemoteEndPoint.ToString(), thr);
-                //dictThread.Add(sokConnection.RemoteEndPoint.ToString(), thr);  //  将新建的线程 添加 到线程的集合中去。
-                //我认为这里线程集合，在.net中应该有对象的线程管理工具类，其在设计上应该远远好于我们自己定义的director
             }
         }      
         public void SendToSomeone(byte[] buffer, string ClientEndprot)
@@ -178,40 +166,7 @@ namespace SocketHelper
         }
 
      
-     /*  //socket基础模型
-       class Program
-        {
-            SocketServer s;
-            static void Main(string[] args)
-            {
-                Program a = new Program();
-                a.starserver();
-                System.Console.ReadKey();
-            }
-            void starserver()
-            {
-                s = new SocketServer("192.168.1.117", 10022);
-                s.StarServer(servrecvmsg);
-            }
-            void servrecvmsg(object s2)
-            {
-                Socket s1 = (Socket)s2;
-                while (true)
-                {
-                    byte[] recmsg = new byte[1024];
-                    int len = s1.Receive(recmsg);
-                    if (len > 0)
-                    {
-                        byte[] msgbyte = new byte[len];
-                        Array.Copy(recmsg, msgbyte, len);
-                        string msgtstring = Encoding.Default.GetString(msgbyte);
-                        Console.WriteLine(s1.RemoteEndPoint.ToString() + " " + msgtstring);
-                    }
-
-                }
-            }
-
-        }*/
+   
 
     }
 }

@@ -24,7 +24,7 @@ namespace CoreAlgorithm.TaskManager
         INIClass ini = new INIClass(System.AppDomain.CurrentDomain.BaseDirectory + "Config.ini");
         string localip = "", plcip = "", sprayip = "";//400PLC ip
         int localportr = 0, plcportr = 0, plcports = 0, sprayportr = 0, sprayports = 0;//400PLC端口
-        SocketServer PLC_Server = null;
+         public static SocketServer PLC_Server = null;
         YFHelper YF_Helper = new YFHelper();
         public CommMaster()
         {
@@ -128,7 +128,8 @@ namespace CoreAlgorithm.TaskManager
             try
             {
                 YFHelper.LabelData PLClable;
-                double MAXRECID = 0;// PLANIDNow = 0;                
+                double MAXRECID = 0;// PLANIDNow = 0; 
+                double REC_ID = 0;// PLANIDNow = 0; 
                 string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                 DbDataReader dr = null;
                 dr = tm.MultithreadDataReader(sql);
@@ -138,7 +139,7 @@ namespace CoreAlgorithm.TaskManager
                         MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
                 }
                 dr.Close();
-                sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+                sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
                 DataTable dt = tm.MultithreadDataTable(sql);
                 for (int i = 0; i<dt.Rows.Count; i++)
                 {
@@ -151,12 +152,12 @@ namespace CoreAlgorithm.TaskManager
                     PLClable.num_no= int.Parse(dt.Rows[i]["num_no"].ToString());
                     PLClable.print_date = dt.Rows[i]["print_date"].ToString();
                     PLClable.classes= dt.Rows[i]["classes"].ToString();
-                
-                    byte[] sendArray = Enumerable.Repeat((byte)0x0, 201).ToArray();
+                    REC_ID = double.Parse(dt.Rows[i]["REC_ID"].ToString());
 
+                    byte[] sendArray = Enumerable.Repeat((byte)0x0, 201).ToArray();
                     byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
                     byte[] byteArray2 = BitConverter.GetBytes(Program.PrintNum);
-                    byte[] byteArray3 = Encoding.ASCII.GetBytes(MAXRECID.ToString());
+                    byte[] byteArray3 = Encoding.ASCII.GetBytes(REC_ID.ToString());
                     byte[] byteArray4 = Encoding.ASCII.GetBytes(PLClable.merge_sinbar);
                     byte[] byteArray5=  Encoding.ASCII.GetBytes(PLClable.gk);
                     byte[] byteArray6 = BitConverter.GetBytes(PLClable.wegith);
@@ -184,7 +185,7 @@ namespace CoreAlgorithm.TaskManager
                     {
                         KeyValuePair<string, Socket> kvp = PLC_Server.dict.FirstOrDefault();
                         PLC_Server.SendToSomeone(sendArray,kvp.Key);
-                        string str = Program.MessageFlg.ToString() + " " + MAXRECID.ToString()  ;
+                        string str ="发送到PLC"+ Program.MessageFlg.ToString() + " " + MAXRECID.ToString()  + PLClable.heat_no;
                         sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                         tm.MultithreadExecuteNonQuery(sql);
                     }

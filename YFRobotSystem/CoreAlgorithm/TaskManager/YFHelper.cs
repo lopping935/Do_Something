@@ -52,15 +52,21 @@ namespace CoreAlgorithm.TaskManager
                             string sql = "";
                             if (Program.MessageFlg == 31 || Program.MessageFlg == 32 || Program.MessageFlg == 33)
                             {
-                                string ID_LOT_PROD = Encoding.ASCII.GetString(buffer.Skip(4).Take(10).ToArray());
-                                Int16 ID_PART_LOT = BitConverter.ToInt16(buffer.Skip(14).Take(2).ToArray(), 0);
-                                Int16 NUM_BDL = BitConverter.ToInt16(buffer.Skip(16).Take(2).ToArray(), 0);
-                                Int16 SEQ_LEN = BitConverter.ToInt16(buffer.Skip(18).Take(2).ToArray(), 0);
-                                Int16 SEQ_OPR = BitConverter.ToInt16(buffer.Skip(20).Take(2).ToArray(), 0);
-                                sql = string.Format("UPDATE TLabelContent SET REC_IMP_TIME='{0}',IMP_FINISH={1} WHERE ID_LOT_PROD='{2}' and ID_PART_LOT={3} and NUM_BDL={4} and SEQ_LEN={5} and SEQ_OPR={6}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Program.MessageFlg, ID_LOT_PROD, ID_PART_LOT, NUM_BDL, SEQ_LEN, SEQ_OPR);
+                                double  REC_ID = double.Parse(Encoding.ASCII.GetString(buffer.Skip(4).Take(12).ToArray()));
+                                sql = string.Format("UPDATE TLabelContent SET REC_IMP_TIME='{0}',IMP_FINISH={1} WHERE REC_ID={2}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Program.MessageFlg, REC_ID);
                                 tm.MultithreadExecuteNonQuery(sql);
-                                string str = Program.MessageFlg.ToString() + " " + ID_LOT_PROD + " " + ID_PART_LOT.ToString() + " " + NUM_BDL.ToString() + " " + SEQ_LEN.ToString() + " " + SEQ_OPR.ToString();
+                                string str = "收到PLC数据："+Program.MessageFlg.ToString() + " " + REC_ID;
                                 sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                                tm.MultithreadExecuteNonQuery(sql);
+
+                                KeyValuePair<string, Socket> kvp = CommMaster.PLC_Server.dict.FirstOrDefault();
+                                byte[] markok = BitConverter.GetBytes(35);
+                                byte[] sendArray = Enumerable.Repeat((byte)0x0, length).ToArray();
+                                Array.Copy(buffer, sendArray, length);
+                                Buffer.BlockCopy(markok, 0, sendArray, 0,markok.Length);
+                                CommMaster.PLC_Server.SendToSomeone(sendArray, kvp.Key);
+                                str = "发送到PLC" + Program.MessageFlg.ToString() + " " + 35.ToString() + REC_ID;
+                                sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                                 tm.MultithreadExecuteNonQuery(sql);
                             }
                             else
