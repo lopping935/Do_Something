@@ -34,7 +34,8 @@ namespace CoreAlgorithm.TaskManager
         public void do_SendMessage(object objTh)
         {
             while (true)
-            {if (Program.MessageStop == 1)
+            {
+                if (Program.MessageStop == 1)
                     break;
                 Thread.Sleep(1000);
                 try
@@ -64,16 +65,17 @@ namespace CoreAlgorithm.TaskManager
                                 sql = "update S_TFlag set Flag=0 where ID=2";
                                 tm.MultithreadExecuteNonQuery(sql);
                                 Program.MessageFlg = 3;
-                                byte[] sendArray = Enumerable.Repeat((byte)0x0, 94).ToArray();
-                                byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
-                                Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
-                                if (sendArray.Length > 0)
-                                {
-                                    PLCSocketServer.senddata(sendArray);
-                                    string str = Program.MessageFlg.ToString();
-                                    sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "plc数据请求失败"+str);
-                                    tm.MultithreadExecuteNonQuery(sql);
-                                }
+                                Send_SignsMessage();
+                                //byte[] sendArray = Enumerable.Repeat((byte)0x0, 201).ToArray();
+                                //byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
+                                //Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
+                                //if (sendArray.Length > 0)
+                                //{
+                                //    PLCSocketServer.senddata(sendArray);
+                                //    string str = Program.MessageFlg.ToString();
+                                //    sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "plc数据请求失败"+str);
+                                //    tm.MultithreadExecuteNonQuery(sql);
+                                //}
                             }
                             else
                             {
@@ -122,16 +124,21 @@ namespace CoreAlgorithm.TaskManager
                 }
             }
         }
-           
+        YFHelper.LabelData PLClable;
         public void Send_SignsMessage()
         {
             try
             {
-                YFHelper.LabelData PLClable;
+                
                 double MAXRECID = 0;// PLANIDNow = 0; 
                 double REC_ID = 0;// PLANIDNow = 0; 
                 string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                 DbDataReader dr = null;
+                byte[] sendArray = Enumerable.Repeat((byte)0x0, 201).ToArray();
+
+                byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
+                Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
+
                 dr = tm.MultithreadDataReader(sql);
                 while (dr.Read())
                 {
@@ -154,8 +161,6 @@ namespace CoreAlgorithm.TaskManager
                     PLClable.classes= dt.Rows[i]["classes"].ToString();
                     REC_ID = double.Parse(dt.Rows[i]["REC_ID"].ToString());
 
-                    byte[] sendArray = Enumerable.Repeat((byte)0x0, 201).ToArray();
-                    byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
                     byte[] byteArray2 = BitConverter.GetBytes(Program.PrintNum);
                     byte[] byteArray3 = Encoding.ASCII.GetBytes(REC_ID.ToString());
                     byte[] byteArray4 = Encoding.ASCII.GetBytes(PLClable.merge_sinbar);
@@ -168,7 +173,7 @@ namespace CoreAlgorithm.TaskManager
                     byte[] byteArray11 = BitConverter.GetBytes(PLClable.num_no);
                     byte[] byteArray12 = Encoding.ASCII.GetBytes(PLClable.classes);
                                         
-                    Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
+                    
                     Buffer.BlockCopy(byteArray2, 0, sendArray, 2, byteArray2.Length);
                     Buffer.BlockCopy(byteArray3, 0, sendArray, 4, byteArray3.Length);
                     Buffer.BlockCopy(byteArray4, 0, sendArray, 16, byteArray4.Length);
@@ -180,15 +185,15 @@ namespace CoreAlgorithm.TaskManager
                     Buffer.BlockCopy(byteArray10, 0, sendArray, 148, byteArray10.Length);
                     Buffer.BlockCopy(byteArray11, 0, sendArray, 168, byteArray11.Length);
                     Buffer.BlockCopy(byteArray12, 0, sendArray, 176, byteArray12.Length);
-
-                    if (sendArray.Length > 0)
-                    {
-                        KeyValuePair<string, Socket> kvp = PLC_Server.dict.FirstOrDefault();
-                        PLC_Server.SendToSomeone(sendArray,kvp.Key);
-                        string str ="发送到PLC"+ Program.MessageFlg.ToString() + " " + MAXRECID.ToString()  + PLClable.heat_no;
-                        sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
-                        tm.MultithreadExecuteNonQuery(sql);
-                    }
+                    
+                }
+                if (sendArray.Length > 0)
+                {
+                    KeyValuePair<string, Socket> kvp = PLC_Server.dict.FirstOrDefault();
+                    PLC_Server.SendToSomeone(sendArray, kvp.Key);
+                    string str = "发送到PLC" + Program.MessageFlg.ToString() + " " + REC_ID.ToString() + " " + PLClable.heat_no;
+                    sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                    tm.MultithreadExecuteNonQuery(sql);
                 }
 
             }

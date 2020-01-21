@@ -65,7 +65,7 @@ namespace CoreAlgorithm.TaskManager
                                 Array.Copy(buffer, sendArray, length);
                                 Buffer.BlockCopy(markok, 0, sendArray, 0,markok.Length);
                                 CommMaster.PLC_Server.SendToSomeone(sendArray, kvp.Key);
-                                str = "发送到PLC" + Program.MessageFlg.ToString() + " " + 35.ToString() + REC_ID;
+                                str = "发送到PLC" + " " + 35.ToString()+ " " + REC_ID;
                                 sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                                 tm.MultithreadExecuteNonQuery(sql);
                             }

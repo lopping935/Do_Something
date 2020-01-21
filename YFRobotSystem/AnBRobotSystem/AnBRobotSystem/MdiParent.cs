@@ -68,15 +68,6 @@ namespace AnBRobotSystem
                 th.Start();
 
             }
-            if (CoreAlgorithmMESRun == false)
-            {
-                wsm = new WinServerManage(new Hashtable(),
-                                                          "D:\\AnBRobotSetup\\Debug\\CoreAlgorithmMES.exe",
-                                                          "AnB_CoreAlgorithmMES");
-                th = new System.Threading.Thread(new System.Threading.ThreadStart(wsm.StartService));
-                th.Start();
-
-            }
             FreshTimer.Start();
             timerLog.Start();
             this.WindowState = FormWindowState.Maximized;
@@ -140,7 +131,7 @@ namespace AnBRobotSystem
             if (frm == null) return;
             Form opcFrm = frm;
             opcFrm.WindowState = FormWindowState.Maximized;
-            this.Text = "鞍钢大型线喷号贴标机器人信息系统 - [" + frmName + "]";
+            this.Text = "永锋焊标机器人信息系统 - [" + frmName + "]";
             opcFrm.MdiParent = this;
             opcFrm.Show();
         }
@@ -154,9 +145,9 @@ namespace AnBRobotSystem
         #region//ServerList的事件
         private void InitServerList()
         {
-            listView_Server.Items[0].Tag = "D:\\AnBRobotSetup\\Debug\\CoreAlgorithm.exe";
+            listView_Server.Items[0].Tag = @PLC_ser_appPath;
             //listView_Server.Items[1].Tag = appPath + "\\Server\\DataAcquisition.exe";
-            listView_Server.Items[1].Tag = "D:\\AnBRobotSetup\\Debug\\CoreAlgorithmMES.exe";
+           // listView_Server.Items[1].Tag = "D:\\AnBRobotSetup\\Debug\\CoreAlgorithmMES.exe";
 
             //listView_Server.Items[3].Tag = appPath + "\\Server\\Ice.exe";
             WinServerManage wsm = new WinServerManage();

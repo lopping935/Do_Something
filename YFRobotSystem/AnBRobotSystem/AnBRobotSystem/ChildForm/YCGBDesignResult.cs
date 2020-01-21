@@ -107,7 +107,7 @@ namespace AnBRobotSystem.ChildForm
                 MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
             }
             dr.Close();
-            sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 打包机组号,gk 生产批号,heat_no 分批号,mtrl_no 捆号, spec 长度顺序号, wegith 操作顺序号, num_no 米长, print_date 定尺标志, classes 下发顺序号, sn_no 捆内支数, labelmodel_name 排列序号, print_type 重量, insert_date 许可证号, flag 产品名称, orign_sinbar 执行标准, time 熔炼号,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE REC_ID>={0} order by REC_ID ASC", MAXRECID - 2);
+            sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 捆号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE REC_ID>={0} order by REC_ID ASC", MAXRECID - 2);
             try
             {
                 dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel));
@@ -140,7 +140,7 @@ namespace AnBRobotSystem.ChildForm
             }
             else
             {
-                sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 打包机组号,gk 生产批号,heat_no 分批号,mtrl_no 捆号, spec 长度顺序号, wegith 操作顺序号, num_no 米长, print_date 定尺标志, classes 下发顺序号, sn_no 捆内支数, labelmodel_name 排列序号, print_type 重量, insert_date 许可证号, flag 产品名称, orign_sinbar 执行标准, time 熔炼号,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE REC_ID>={0} order by REC_ID ASC", MAXRECID);
+                sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 捆号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE REC_ID>={0} order by REC_ID ASC", MAXRECID);
                 try
                 {
                     dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel));
