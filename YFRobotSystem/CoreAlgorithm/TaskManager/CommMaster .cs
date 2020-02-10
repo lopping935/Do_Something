@@ -111,6 +111,8 @@ namespace CoreAlgorithm.TaskManager
                             }
                             if (Program.MessageFlg == 13)
                                 Send_SignsMessage();
+                            if (Program.MessageFlg == 12)
+                                Send_SignsMessage();
                         }
                     }
                 
@@ -134,7 +136,7 @@ namespace CoreAlgorithm.TaskManager
                 double REC_ID = 0;// PLANIDNow = 0; 
                 string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                 DbDataReader dr = null;
-                byte[] sendArray = Enumerable.Repeat((byte)0x0, 201).ToArray();
+                byte[] sendArray = Enumerable.Repeat((byte)0x0, 210).ToArray();
 
                 byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
                 Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
@@ -163,8 +165,8 @@ namespace CoreAlgorithm.TaskManager
 
                     byte[] byteArray2 = BitConverter.GetBytes(Program.PrintNum);
                     byte[] byteArray3 = Encoding.ASCII.GetBytes(REC_ID.ToString());
-                    byte[] byteArray4 = Encoding.ASCII.GetBytes(PLClable.merge_sinbar);
-                    byte[] byteArray5=  Encoding.ASCII.GetBytes(PLClable.gk);
+                    byte[] byteArray4 = Encoding.ASCII.GetBytes(PLClable.gk);
+                    byte[] byteArray5=  Encoding.ASCII.GetBytes(PLClable.heat_no);
                     byte[] byteArray6 = BitConverter.GetBytes(PLClable.wegith);
                     byte[] byteArray7 = Encoding.ASCII.GetBytes(PLClable.print_date);
                     byte[] byteArray8= Encoding.ASCII.GetBytes(PLClable.mtrl_no);
@@ -178,13 +180,13 @@ namespace CoreAlgorithm.TaskManager
                     Buffer.BlockCopy(byteArray3, 0, sendArray, 4, byteArray3.Length);
                     Buffer.BlockCopy(byteArray4, 0, sendArray, 16, byteArray4.Length);
                     Buffer.BlockCopy(byteArray5, 0, sendArray, 46, byteArray5.Length);
-                    Buffer.BlockCopy(byteArray6, 0, sendArray, 31, byteArray6.Length);
-                    Buffer.BlockCopy(byteArray7, 0, sendArray, 69, byteArray7.Length);
-                    Buffer.BlockCopy(byteArray8, 0, sendArray, 88, byteArray8.Length);
-                    Buffer.BlockCopy(byteArray9, 0, sendArray, 118, byteArray9.Length);
-                    Buffer.BlockCopy(byteArray10, 0, sendArray, 148, byteArray10.Length);
-                    Buffer.BlockCopy(byteArray11, 0, sendArray, 168, byteArray11.Length);
-                    Buffer.BlockCopy(byteArray12, 0, sendArray, 176, byteArray12.Length);
+                    Buffer.BlockCopy(byteArray6, 0, sendArray, 62, byteArray6.Length);
+                    Buffer.BlockCopy(byteArray7, 0, sendArray, 66, byteArray7.Length);
+                    Buffer.BlockCopy(byteArray8, 0, sendArray, 86, byteArray8.Length);
+                    Buffer.BlockCopy(byteArray9, 0, sendArray, 116, byteArray9.Length);
+                    Buffer.BlockCopy(byteArray10, 0, sendArray, 146, byteArray10.Length);
+                    Buffer.BlockCopy(byteArray11, 0, sendArray, 166, byteArray11.Length);
+                    Buffer.BlockCopy(byteArray12, 0, sendArray, 170, byteArray12.Length);
                     
                 }
                 if (sendArray.Length > 0)
@@ -217,7 +219,8 @@ namespace CoreAlgorithm.TaskManager
                 string sql = "SELECT ACQUISITIONCONFIG_ID,DATAACQUISITION_IP,DATAACQUISITION_PORTR,DATAACQUISITION_PORTS FROM ACQUISITIONCONFIG where ACQUISITIONCONFIG_ID=1 or ACQUISITIONCONFIG_ID=4 or ACQUISITIONCONFIG_ID=15";// ";
                 DbDataReader dr = tm.MultithreadDataReader(sql);
                 while (dr.Read())
-                {if (Convert.ToInt16(dr["ACQUISITIONCONFIG_ID"]) == 1)
+                {
+                    if (Convert.ToInt16(dr["ACQUISITIONCONFIG_ID"]) == 1)
                     {
                         plcip = Convert.ToString(dr["DATAACQUISITION_IP"]);
                         plcportr = Convert.ToInt32(dr["DATAACQUISITION_PORTR"]);

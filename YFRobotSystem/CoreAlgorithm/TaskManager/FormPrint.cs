@@ -233,13 +233,13 @@ namespace CoreAlgorithm.TaskManager
                 if (printerStatus.isReadyToPrint)
                 {
                     PrintMessage="start print！";
-                    int x = 20;
-                    int y = 50;
+                    int x = 45;
+                    int y = 110;
                     ZebraImageI zp1 = ZebraImageFactory.GetImage(img);
                     printer.PrintImage(zp1, x, y, zp1.Width, zp1.Height, false);
                     img.RotateFlip(RotateFlipType.Rotate270FlipNone);//图像旋转
                     Program.MessageFlg = 12;
-                   // Send_SignsMessage();
+                   //Send_SignsMessage();
                 }
                 else if (printerStatus.isPaused)
                 {
@@ -273,8 +273,7 @@ namespace CoreAlgorithm.TaskManager
                         Program.MessageFlg = 13;
 
                 }
-                log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
-                Log.addLog(log, LogType.INFO, PrintMessage);
+                
             
 
             }
