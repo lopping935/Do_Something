@@ -208,14 +208,36 @@ namespace CoreAlgorithm.TaskManager
             
         }        
      
+        public void Date_Copy()
+        {
+            //Thread.Sleep(1000);
+            DataTable dt = null;
+            int count = 0;
+            string sqltext = string.Format("insert into TLabelContent SELECT [id],[merge_sinbar],[gk],[heat_no],[mtrl_no],[spec],[wegith],[num_no],[print_date],[classes],[sn_no],[labelmodel_name],[print_type],[insert_date],[flag],[orign_sinbar],[time],0,'{0}','{0}' FROM YF_Date_Sourece WHERE date_flag=1 ORDER BY id DESC",DateTime.Now.ToString());
+            tm.MultithreadExecuteNonQuery(sqltext);
+            sqltext = string.Format("update  YF_Date_Sourece  set date_flag=0", DateTime.Now.ToString());
+            tm.MultithreadExecuteNonQuery(sqltext);
+            sqltext = "select count(*) as count from TV_D_DETAIL_B14";
+            dt = tm.MultithreadDataTable(sqltext);
+            for (int i = 0; i < dt.Rows.Count; i++)
+                count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
+            if (count > 500)
+            {
+                sqltext = "insert into [YFDBBRobotData].[dbo].[HLabelContent] select top 2 * from [YFDBBRobotData].[dbo].[TLabelContent] order by REC_ID";
+                tm.MultithreadExecuteNonQuery(sqltext);
+                sqltext = "delete from [YFDBBRobotData].[dbo].[TLabelContent] where [REC_ID] in(select top 2 REC_ID from [YFDBBRobotData].[dbo].[TLabelContent] order by REC_ID desc)";
+                tm.MultithreadExecuteNonQuery(sqltext);
+            }
+        }
+
         /// <summary>
         /// </summary>
         /// <param name="serverModlue"></param>
         public void RunSINGenerate()
         {
+            Date_Copy();
             try
             {      
-                
                 string sql = "SELECT ACQUISITIONCONFIG_ID,DATAACQUISITION_IP,DATAACQUISITION_PORTR,DATAACQUISITION_PORTS FROM ACQUISITIONCONFIG where ACQUISITIONCONFIG_ID=1 or ACQUISITIONCONFIG_ID=4 or ACQUISITIONCONFIG_ID=15";// ";
                 DbDataReader dr = tm.MultithreadDataReader(sql);
                 while (dr.Read())
@@ -237,6 +259,8 @@ namespace CoreAlgorithm.TaskManager
 
                 Thread thS = new Thread(new System.Threading.ParameterizedThreadStart(do_SendMessage));
                 thS.Start(null);
+                Thread Datecoyt = new Thread(Date_Copy);
+                Datecoyt.Start();
                 PLC_Server = new SocketServer(localip, localportr);
                 PLC_Server.StarServer(YF_Helper.Recv);
 

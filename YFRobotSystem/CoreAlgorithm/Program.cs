@@ -17,15 +17,15 @@ namespace CoreAlgorithm
         /// </summary>
         static void Main()
         {
-             ServiceBase[] ServicesToRun;
+            /*  ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 
 			{ 
 				new AnB_CoreAlgorithm() 
 			};
-            ServiceBase.Run(ServicesToRun);
-         /* AnB_CoreAlgorithm objISD= new AnB_CoreAlgorithm();
+            ServiceBase.Run(ServicesToRun);*/
+         AnB_CoreAlgorithm objISD= new AnB_CoreAlgorithm();
             objISD.OnStart(); 
-            System.Threading.Thread.Sleep(120000000);*/
+            System.Threading.Thread.Sleep(120000000);
             //objISD.OnStop();
         }
     }
