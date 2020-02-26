@@ -103,7 +103,7 @@ namespace AnBRobotSystem.ChildForm
                 PLClable.spec = dt.Rows[i]["spec"].ToString();//规格
                 PLClable.wegith = int.Parse(dt.Rows[i]["wegith"].ToString());//重量
                 PLClable.num_no = int.Parse(dt.Rows[i]["num_no"].ToString());//支数
-                PLClable.print_date = DateTime.Parse(dt.Rows[i]["print_date"].ToString()).ToShortDateString();//日期
+                PLClable.print_date = dt.Rows[i]["print_date"].ToString();//DateTime.Parse(dt.Rows[i]["print_date"].ToString()).ToShortDateString();//日期
                 PLClable.classes = dt.Rows[i]["classes"].ToString();//班次
 
                 manu_textBox_stand.Text= PLClable.gk;

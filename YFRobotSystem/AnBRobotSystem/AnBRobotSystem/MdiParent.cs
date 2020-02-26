@@ -270,7 +270,7 @@ namespace AnBRobotSystem
         private void FreshTimer_Tick(object sender, EventArgs e)
         {
             WinServerManage wsm = new WinServerManage();
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 1; i++)
             {
                 if (wsm.ServiceIsExisted(listView_Server.Items[i].SubItems[1].Text))
                 {
@@ -285,48 +285,49 @@ namespace AnBRobotSystem
             }
 
             label4.Text = DateTime.Now.ToString("HH:mm:ss").Trim();
-            toolStripButton1.ForeColor = Color.Green;
+            //toolStripButton1.ForeColor = Color.Green;
             #region 模式
             DbDataReader dr = null;
             double MES_Status = 0;
-            string sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=14");
-            dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
-            while (dr.Read())
-            {
-                if (dr["PARAMETER_VALUE"] != DBNull.Value)
-                    MES_Status = Convert.ToDouble(dr["PARAMETER_VALUE"].ToString());
-            }
-            dr.Close();
-            if (MES_Status == 1)
-            {
-                toolStripButton1.ForeColor = Color.Green;
-                toolStripButton1.Text = "正常连接";
-            }                
-            else
-            {
-                toolStripButton1.ForeColor = Color.Red;
-                toolStripButton1.Text = "断开连接";
-            }
+            string sql = "";
+             //sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=14");
+            //dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
+            //while (dr.Read())
+            //{
+            //    if (dr["PARAMETER_VALUE"] != DBNull.Value)
+            //        MES_Status = Convert.ToDouble(dr["PARAMETER_VALUE"].ToString());
+            //}
+            //dr.Close();
+            //if (MES_Status == 1)
+            //{
+            //    toolStripButton1.ForeColor = Color.Green;
+            //    toolStripButton1.Text = "正常连接";
+            //}                
+            //else
+            //{
+            //    toolStripButton1.ForeColor = Color.Red;
+            //    toolStripButton1.Text = "断开连接";
+            //}
 
-            double Model_Status = 0;
-            sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=15");
-            dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
-            while (dr.Read())
-            {
-                if (dr["PARAMETER_VALUE"] != DBNull.Value)
-                    Model_Status = Convert.ToDouble(dr["PARAMETER_VALUE"].ToString());
-            }
-            dr.Close();
-            if (Model_Status == 1)
-            {
-                toolStripButton2.ForeColor = Color.Green;
-                toolStripButton2.Text = "自动模式";
-            }
-            else
-            {
-                toolStripButton2.ForeColor = Color.Red;
-                toolStripButton2.Text = "手动模式";
-            }
+            //double Model_Status = 0;
+            //sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=15");
+            //dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
+            //while (dr.Read())
+            //{
+            //    if (dr["PARAMETER_VALUE"] != DBNull.Value)
+            //        Model_Status = Convert.ToDouble(dr["PARAMETER_VALUE"].ToString());
+            //}
+            //dr.Close();
+            //if (Model_Status == 1)
+            //{
+            //    toolStripButton2.ForeColor = Color.Green;
+            //    toolStripButton2.Text = "自动模式";
+            //}
+            //else
+            //{
+            //    toolStripButton2.ForeColor = Color.Red;
+            //    toolStripButton2.Text = "手动模式";
+            //}
             #endregion
 
             int Date_alarm = 0;
@@ -348,7 +349,7 @@ namespace AnBRobotSystem
             
         }
         #endregion
-
+        //服务消息更改
         private void timerLog_Tick(object sender, EventArgs e)
         {
             WinServerManage wsm = new WinServerManage();
@@ -366,24 +367,7 @@ namespace AnBRobotSystem
                     log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
                     Log.addLog(log, LogType.INFO, "AnB_CoreAlgorithm服务更改为：" + serverState["AnB_CoreAlgorithm"].ToString());
                 }
-            }
-            if (wsm.ServiceIsExisted("AnB_CoreAlgorithmMES"))
-            {
-                if (wsm.getServiceState("AnB_CoreAlgorithmMES") != serverState["AnB_CoreAlgorithmMES"])
-                {
-                    ListViewItem lvi = new ListViewItem();
-                    lvi.Text = DateTime.Now.ToString();
-                    lvi.SubItems.Add("通知");
-                    lvi.SubItems.Add(wsm.getServiceState("AnB_CoreAlgorithmMES").ToString());
-                    lvi.SubItems.Add("AnB_CoreAlgorithmMES服务更改成功！");
-                    this.listView1.Items.Add(lvi);
-                    serverState["AnB_CoreAlgorithmMES"] = wsm.getServiceState("AnB_CoreAlgorithmMES");
-                    log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
-                    Log.addLog(log, LogType.INFO, "AnB_CoreAlgorithmMES服务更改为：" + serverState["AnB_CoreAlgorithmMES"].ToString());
-                }
-            }
-
-
+            }       
         }
 
         private void QuitToolStripMenuItem_Click(object sender, EventArgs e)

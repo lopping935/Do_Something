@@ -109,18 +109,14 @@ namespace SQLPublicClass
 
         public DataTable ExecuteDataTable(DbCommand cmd)
         {
-
             if (cmd.Connection.State == ConnectionState.Open)
                 cmd.Connection.Close();
-            //cmd.Connection.ConnectionString = "Data Source=Localhost;Initial Catalog=SinteringProControl;User ID=sa; Password=sws;Enlist=true;Pooling=true;Connection Timeout=150;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000";
             cmd.Connection.Open();
             DbProviderFactory dbfactory = DbProviderFactories.GetFactory(DbHelper.dbProviderName);
             DbDataAdapter dbDataAdapter = dbfactory.CreateDataAdapter();
             dbDataAdapter.SelectCommand = cmd;
             DataTable dataTable = new DataTable();
-            dbDataAdapter.Fill(dataTable);
-            //if (cmd.Connection.State == ConnectionState.Open)
-                //cmd.Connection.Close();
+            dbDataAdapter.Fill(dataTable);        
             return dataTable;
         }
 
@@ -128,11 +124,8 @@ namespace SQLPublicClass
         {
             if (cmd.Connection.State == ConnectionState.Open)
                 cmd.Connection.Close();
-            //cmd.Connection.ConnectionString = "Data Source=Localhost;Initial Catalog=SinteringProControl;User ID=sa; Password=sws;Enlist=true;Pooling=true;Connection Timeout=30;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000";
-            //if (cmd.Connection.State == ConnectionState.Closed) 
                 cmd.Connection.Open();
             DbDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            //cmd.Connection.Close();
             return reader;
         }
         public int ExecuteNonQuery(DbCommand cmd)
@@ -143,12 +136,6 @@ namespace SQLPublicClass
             int ret = cmd.ExecuteNonQuery();
             cmd.Connection.Close();
             return ret;
-            /*if (cmd.Connection.State == ConnectionState.Closed)
-                //cmd.Connection.Close();
-            cmd.Connection.Open();
-            int ret = cmd.ExecuteNonQuery();
-            cmd.Connection.Close();
-            return ret;*/
         }
 
         public object ExecuteScalar(DbCommand cmd)

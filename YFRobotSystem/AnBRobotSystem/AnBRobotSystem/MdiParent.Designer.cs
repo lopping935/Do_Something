@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MdiParent));
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("标签打印配置");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("视觉定位系统");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("历史记录查询");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("标签信息");
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("系统通信服务", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "一级系统通信服务",
@@ -37,16 +41,6 @@
             "",
             "",
             "与一级系统、喷枪通信，执行自动打印任务"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "MES系统通信服务",
-            "AnB_CoreAlgorithmMES",
-            "",
-            "",
-            "与MES系统通信，接收标签数据，反馈标签结果"}, -1);
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("标签打印配置");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("视觉定位系统");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("历史记录查询");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("标签信息");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,20 +60,6 @@
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.listView_Server = new System.Windows.Forms.ListView();
-            this.columnHeader_server = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader_status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader_var = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader_descr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MenuStrip_Server = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MenuStrip_Server_Star = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip_Server_Stop = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,21 +73,13 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuStrip_Server_ReStar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.FreshTimer = new System.Windows.Forms.Timer(this.components);
             this.timerLog = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -121,15 +93,33 @@
             this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel8 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.listView_Server = new System.Windows.Forms.ListView();
+            this.columnHeader_server = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader_status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader_var = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader_descr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.MenuStrip_Server.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -294,136 +284,6 @@
             this.aboutToolStripMenuItem.Text = "关于(&A) ... ...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabControl1.Location = new System.Drawing.Point(0, 511);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1443, 143);
-            this.tabControl1.TabIndex = 7;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.listView1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(1435, 117);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "日志信息";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.FullRowSelect = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 3);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(1429, 111);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "日期";
-            this.columnHeader1.Width = 200;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "等级";
-            this.columnHeader2.Width = 120;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "类型";
-            this.columnHeader3.Width = 120;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "描述";
-            this.columnHeader4.Width = 317;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.listView_Server);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(1435, 117);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "服务状态";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // listView_Server
-            // 
-            this.listView_Server.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader_server,
-            this.columnHeader_name,
-            this.columnHeader_status,
-            this.columnHeader_var,
-            this.columnHeader_descr});
-            this.listView_Server.ContextMenuStrip = this.MenuStrip_Server;
-            this.listView_Server.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView_Server.FullRowSelect = true;
-            listViewGroup1.Header = "系统通信服务";
-            listViewGroup1.Name = "listViewGroup1";
-            this.listView_Server.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
-            this.listView_Server.HideSelection = false;
-            listViewItem1.Group = listViewGroup1;
-            listViewItem1.Tag = "";
-            listViewItem2.Group = listViewGroup1;
-            this.listView_Server.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
-            this.listView_Server.Location = new System.Drawing.Point(3, 3);
-            this.listView_Server.MultiSelect = false;
-            this.listView_Server.Name = "listView_Server";
-            this.listView_Server.ShowItemToolTips = true;
-            this.listView_Server.Size = new System.Drawing.Size(1429, 111);
-            this.listView_Server.TabIndex = 2;
-            this.listView_Server.UseCompatibleStateImageBehavior = false;
-            this.listView_Server.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader_server
-            // 
-            this.columnHeader_server.Text = "服务";
-            this.columnHeader_server.Width = 104;
-            // 
-            // columnHeader_name
-            // 
-            this.columnHeader_name.Text = "服务名称";
-            this.columnHeader_name.Width = 126;
-            // 
-            // columnHeader_status
-            // 
-            this.columnHeader_status.Text = "状态";
-            this.columnHeader_status.Width = 117;
-            // 
-            // columnHeader_var
-            // 
-            this.columnHeader_var.Text = "版本";
-            this.columnHeader_var.Width = 156;
-            // 
-            // columnHeader_descr
-            // 
-            this.columnHeader_descr.Text = "描述";
-            this.columnHeader_descr.Width = 434;
-            // 
             // MenuStrip_Server
             // 
             this.MenuStrip_Server.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -520,43 +380,6 @@
             this.MenuStrip_Server_ReStar.Text = "重新启动";
             this.MenuStrip_Server_ReStar.Click += new System.EventHandler(this.MenuStrip_Server_ReStar_Click);
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.listView2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1435, 117);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "一级通信内容";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // listView2
-            // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6});
-            this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView2.FullRowSelect = true;
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(0, 0);
-            this.listView2.MultiSelect = false;
-            this.listView2.Name = "listView2";
-            this.listView2.ShowItemToolTips = true;
-            this.listView2.Size = new System.Drawing.Size(1435, 117);
-            this.listView2.TabIndex = 2;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "日期时间";
-            this.columnHeader5.Width = 200;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "通信内容";
-            this.columnHeader6.Width = 1200;
-            // 
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -569,7 +392,7 @@
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.treeView1.Location = new System.Drawing.Point(0, 51);
+            this.treeView1.Location = new System.Drawing.Point(0, 50);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "节点0";
             treeNode1.Text = "标签打印配置";
@@ -584,16 +407,16 @@
             treeNode2,
             treeNode3,
             treeNode4});
-            this.treeView1.Size = new System.Drawing.Size(143, 457);
+            this.treeView1.Size = new System.Drawing.Size(143, 458);
             this.treeView1.TabIndex = 11;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
             // splitter2
             // 
-            this.splitter2.Location = new System.Drawing.Point(143, 51);
+            this.splitter2.Location = new System.Drawing.Point(143, 50);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(3, 457);
+            this.splitter2.Size = new System.Drawing.Size(3, 458);
             this.splitter2.TabIndex = 12;
             this.splitter2.TabStop = false;
             // 
@@ -613,62 +436,18 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel2,
-            this.toolStripButton1,
-            this.toolStripLabel3,
-            this.toolStripLabel1,
-            this.toolStripButton2});
+            this.toolStripLabel3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1443, 26);
+            this.toolStrip1.Size = new System.Drawing.Size(1443, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(85, 23);
-            this.toolStripLabel2.Text = "MES连接状态:";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.BackColor = System.Drawing.Color.Red;
-            this.toolStripButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.toolStripButton1.Checked = true;
-            this.toolStripButton1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toolStripButton1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.toolStripButton1.ForeColor = System.Drawing.Color.Green;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.toolStripButton1.Size = new System.Drawing.Size(58, 23);
-            this.toolStripButton1.Text = "未连接";
             // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(28, 23);
+            this.toolStripLabel3.Size = new System.Drawing.Size(28, 22);
             this.toolStripLabel3.Text = "     ";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(83, 23);
-            this.toolStripLabel1.Text = "当前数据模式:";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.BackColor = System.Drawing.Color.Red;
-            this.toolStripButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.toolStripButton2.Checked = true;
-            this.toolStripButton2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toolStripButton2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.toolStripButton2.ForeColor = System.Drawing.Color.Green;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.toolStripButton2.Size = new System.Drawing.Size(43, 23);
-            this.toolStripButton2.Text = "自动";
             // 
             // label4
             // 
@@ -780,6 +559,171 @@
             this.toolStripStatusLabel8.Text = "申请打印";
             this.toolStripStatusLabel8.Visible = false;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.listView2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1435, 117);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "一级通信内容";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // listView2
+            // 
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6});
+            this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView2.FullRowSelect = true;
+            this.listView2.HideSelection = false;
+            this.listView2.Location = new System.Drawing.Point(0, 0);
+            this.listView2.MultiSelect = false;
+            this.listView2.Name = "listView2";
+            this.listView2.ShowItemToolTips = true;
+            this.listView2.Size = new System.Drawing.Size(1435, 117);
+            this.listView2.TabIndex = 2;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "日期时间";
+            this.columnHeader5.Width = 200;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "通信内容";
+            this.columnHeader6.Width = 1200;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.listView_Server);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1435, 117);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "服务状态";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // listView_Server
+            // 
+            this.listView_Server.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader_server,
+            this.columnHeader_name,
+            this.columnHeader_status,
+            this.columnHeader_var,
+            this.columnHeader_descr});
+            this.listView_Server.ContextMenuStrip = this.MenuStrip_Server;
+            this.listView_Server.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView_Server.FullRowSelect = true;
+            listViewGroup1.Header = "系统通信服务";
+            listViewGroup1.Name = "listViewGroup1";
+            this.listView_Server.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup1});
+            this.listView_Server.HideSelection = false;
+            listViewItem1.Group = listViewGroup1;
+            listViewItem1.Tag = "";
+            this.listView_Server.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
+            this.listView_Server.Location = new System.Drawing.Point(3, 3);
+            this.listView_Server.MultiSelect = false;
+            this.listView_Server.Name = "listView_Server";
+            this.listView_Server.ShowItemToolTips = true;
+            this.listView_Server.Size = new System.Drawing.Size(1429, 111);
+            this.listView_Server.TabIndex = 2;
+            this.listView_Server.UseCompatibleStateImageBehavior = false;
+            this.listView_Server.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader_server
+            // 
+            this.columnHeader_server.Text = "服务";
+            this.columnHeader_server.Width = 104;
+            // 
+            // columnHeader_name
+            // 
+            this.columnHeader_name.Text = "服务名称";
+            this.columnHeader_name.Width = 126;
+            // 
+            // columnHeader_status
+            // 
+            this.columnHeader_status.Text = "状态";
+            this.columnHeader_status.Width = 117;
+            // 
+            // columnHeader_var
+            // 
+            this.columnHeader_var.Text = "版本";
+            this.columnHeader_var.Width = 156;
+            // 
+            // columnHeader_descr
+            // 
+            this.columnHeader_descr.Text = "描述";
+            this.columnHeader_descr.Width = 434;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.listView1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1435, 117);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "日志信息";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.FullRowSelect = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(3, 3);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.ShowItemToolTips = true;
+            this.listView1.Size = new System.Drawing.Size(1429, 111);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "日期";
+            this.columnHeader1.Width = 200;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "等级";
+            this.columnHeader2.Width = 120;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "类型";
+            this.columnHeader3.Width = 120;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "描述";
+            this.columnHeader4.Width = 317;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabControl1.Location = new System.Drawing.Point(0, 511);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1443, 143);
+            this.tabControl1.TabIndex = 7;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
             // MdiParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -806,16 +750,16 @@
             this.Load += new System.EventHandler(this.MdiParent_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             this.MenuStrip_Server.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -826,18 +770,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 系统ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem QuitToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ListView listView_Server;
-        private System.Windows.Forms.ColumnHeader columnHeader_server;
-        private System.Windows.Forms.ColumnHeader columnHeader_status;
-        private System.Windows.Forms.ColumnHeader columnHeader_descr;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.ContextMenuStrip MenuStrip_Server;
         private System.Windows.Forms.ToolStripMenuItem MenuStrip_Server_Star;
@@ -854,9 +786,7 @@
         private System.Windows.Forms.ToolStripMenuItem MenuStrip_Server_ReStar;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Splitter splitter2;
-        private System.Windows.Forms.ColumnHeader columnHeader_var;
         private System.Windows.Forms.Timer FreshTimer;
-        private System.Windows.Forms.ColumnHeader columnHeader_name;
         private System.Windows.Forms.Timer timerLog;
         private System.Windows.Forms.ToolStripMenuItem viewMenu;
         private System.Windows.Forms.ToolStripMenuItem toolBarToolStripMenuItem;
@@ -888,14 +818,24 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel8;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ListView listView_Server;
+        private System.Windows.Forms.ColumnHeader columnHeader_server;
+        private System.Windows.Forms.ColumnHeader columnHeader_name;
+        private System.Windows.Forms.ColumnHeader columnHeader_status;
+        private System.Windows.Forms.ColumnHeader columnHeader_var;
+        private System.Windows.Forms.ColumnHeader columnHeader_descr;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }

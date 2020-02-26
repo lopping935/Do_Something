@@ -223,9 +223,9 @@ namespace CoreAlgorithm.TaskManager
                 count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
             if (count > 500)
             {
-                sqltext = "insert into [YFDBBRobotData].[dbo].[HLabelContent] select top 2 * from [YFDBBRobotData].[dbo].[TLabelContent] order by REC_ID";
+                sqltext = "insert into [YFDBBRobotData].[dbo].[HLabelContent] select top 2 * from [YFDBBRobotData].[dbo].[TLabelContent] order by REC_ID asc";
                 tm.MultithreadExecuteNonQuery(sqltext);
-                sqltext = "delete from [YFDBBRobotData].[dbo].[TLabelContent] where [REC_ID] in(select top 2 REC_ID from [YFDBBRobotData].[dbo].[TLabelContent] order by REC_ID desc)";
+                sqltext = "delete from [YFDBBRobotData].[dbo].[TLabelContent] where [REC_ID] in(select top 2 REC_ID from [YFDBBRobotData].[dbo].[TLabelContent] order by REC_ID asc)";
                 tm.MultithreadExecuteNonQuery(sqltext);
             }
         }
@@ -235,7 +235,7 @@ namespace CoreAlgorithm.TaskManager
         /// <param name="serverModlue"></param>
         public void RunSINGenerate()
         {
-            Date_Copy();
+           // Date_Copy();
             try
             {      
                 string sql = "SELECT ACQUISITIONCONFIG_ID,DATAACQUISITION_IP,DATAACQUISITION_PORTR,DATAACQUISITION_PORTS FROM ACQUISITIONCONFIG where ACQUISITIONCONFIG_ID=1 or ACQUISITIONCONFIG_ID=4 or ACQUISITIONCONFIG_ID=15";// ";
