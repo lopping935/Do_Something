@@ -31,9 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MdiParent));
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("标签打印配置");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("视觉定位系统");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("历史记录查询");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("标签信息");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("历史记录查询");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("标签信息");
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("系统通信服务", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "一级系统通信服务",
@@ -45,9 +44,6 @@
             this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.QuitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -127,13 +123,12 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.系统ToolStripMenuItem,
-            this.toolStripMenuItem1,
             this.viewMenu,
             this.windowsMenu,
             this.helpMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1443, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1404, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -159,31 +154,6 @@
             this.QuitToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.QuitToolStripMenuItem.Text = "退出";
             this.QuitToolStripMenuItem.Click += new System.EventHandler(this.QuitToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(85, 21);
-            this.toolStripMenuItem1.Text = "用户管理(&U)";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem2.Image")));
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(140, 22);
-            this.toolStripMenuItem2.Text = "用户设置(&I)";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem3.Image")));
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(140, 22);
-            this.toolStripMenuItem3.Text = "密码设置(&A)";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // viewMenu
             // 
@@ -383,9 +353,9 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter1.Location = new System.Drawing.Point(0, 508);
+            this.splitter1.Location = new System.Drawing.Point(0, 835);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(1443, 3);
+            this.splitter1.Size = new System.Drawing.Size(1404, 3);
             this.splitter1.TabIndex = 8;
             this.splitter1.TabStop = false;
             // 
@@ -396,18 +366,15 @@
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "节点0";
             treeNode1.Text = "标签打印配置";
-            treeNode2.Name = "节点0";
-            treeNode2.Text = "视觉定位系统";
-            treeNode3.Name = "节点3";
-            treeNode3.Text = "历史记录查询";
-            treeNode4.Name = "节点0";
-            treeNode4.Text = "标签信息";
+            treeNode2.Name = "节点3";
+            treeNode2.Text = "历史记录查询";
+            treeNode3.Name = "节点0";
+            treeNode3.Text = "标签信息";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
-            treeNode3,
-            treeNode4});
-            this.treeView1.Size = new System.Drawing.Size(143, 458);
+            treeNode3});
+            this.treeView1.Size = new System.Drawing.Size(143, 785);
             this.treeView1.TabIndex = 11;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
@@ -416,7 +383,7 @@
             // 
             this.splitter2.Location = new System.Drawing.Point(143, 50);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(3, 458);
+            this.splitter2.Size = new System.Drawing.Size(3, 785);
             this.splitter2.TabIndex = 12;
             this.splitter2.TabStop = false;
             // 
@@ -439,7 +406,7 @@
             this.toolStripLabel3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1443, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1404, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -452,7 +419,7 @@
             // label4
             // 
             this.label4.BackColor = System.Drawing.SystemColors.Window;
-            this.label4.Location = new System.Drawing.Point(1527, 25);
+            this.label4.Location = new System.Drawing.Point(1081, 25);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 23);
             this.label4.TabIndex = 20;
@@ -464,7 +431,7 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1652, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(1208, 1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(194, 49);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -474,7 +441,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(1527, 1);
+            this.label3.Location = new System.Drawing.Point(1081, 1);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 25);
             this.label3.TabIndex = 19;
@@ -494,9 +461,9 @@
             this.toolStripStatusLabel7,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel8});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 654);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 981);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1443, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1404, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -564,7 +531,7 @@
             this.tabPage3.Controls.Add(this.listView2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1435, 117);
+            this.tabPage3.Size = new System.Drawing.Size(1396, 117);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "一级通信内容";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -581,7 +548,7 @@
             this.listView2.MultiSelect = false;
             this.listView2.Name = "listView2";
             this.listView2.ShowItemToolTips = true;
-            this.listView2.Size = new System.Drawing.Size(1435, 117);
+            this.listView2.Size = new System.Drawing.Size(1396, 117);
             this.listView2.TabIndex = 2;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -602,7 +569,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1435, 117);
+            this.tabPage2.Size = new System.Drawing.Size(1396, 117);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "服务状态";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -631,7 +598,7 @@
             this.listView_Server.MultiSelect = false;
             this.listView_Server.Name = "listView_Server";
             this.listView_Server.ShowItemToolTips = true;
-            this.listView_Server.Size = new System.Drawing.Size(1429, 111);
+            this.listView_Server.Size = new System.Drawing.Size(1390, 111);
             this.listView_Server.TabIndex = 2;
             this.listView_Server.UseCompatibleStateImageBehavior = false;
             this.listView_Server.View = System.Windows.Forms.View.Details;
@@ -667,7 +634,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1435, 117);
+            this.tabPage1.Size = new System.Drawing.Size(1396, 117);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "日志信息";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -686,7 +653,7 @@
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(1429, 111);
+            this.listView1.Size = new System.Drawing.Size(1390, 111);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -717,10 +684,10 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabControl1.Location = new System.Drawing.Point(0, 511);
+            this.tabControl1.Location = new System.Drawing.Point(0, 838);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1443, 143);
+            this.tabControl1.Size = new System.Drawing.Size(1404, 143);
             this.tabControl1.TabIndex = 7;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -728,7 +695,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1443, 676);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1404, 1003);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
@@ -812,9 +780,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel8;

@@ -70,7 +70,7 @@ namespace AnBRobotSystem
             }
             FreshTimer.Start();
             timerLog.Start();
-            this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Normal;
             OpenChildForm(GetFromHandle("数据配置"), "数据配置");
             label3.Text = System.DateTime.Now.ToString("yyyy年MM月dd日");// +"\n" + DataClass.MyMeans.dayofweek;
             label4.Text = DateTime.Now.ToString("HH:mm:ss").Trim();
@@ -442,15 +442,15 @@ namespace AnBRobotSystem
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            UserInfor childForm = new UserInfor();
-            childForm.ShowDialog();
+            //UserInfor childForm = new UserInfor();
+            //childForm.ShowDialog();
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
             //closechild();
-            PasswordConfig childForm = new PasswordConfig();
-            childForm.ShowDialog();
+            //PasswordConfig childForm = new PasswordConfig();
+            //childForm.ShowDialog();
         }
 
         public void ThreadMethod()

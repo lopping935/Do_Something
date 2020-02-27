@@ -611,7 +611,7 @@
             this.txt_message.Location = new System.Drawing.Point(881, 468);
             this.txt_message.Multiline = true;
             this.txt_message.Name = "txt_message";
-            this.txt_message.Size = new System.Drawing.Size(546, 239);
+            this.txt_message.Size = new System.Drawing.Size(307, 239);
             this.txt_message.TabIndex = 204;
             // 
             // label2
@@ -638,7 +638,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1585, 750);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1298, 1061);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_message);
