@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Pdf417EncoderLibrary;
-using PDF417;
-using PDF417.pdf417.encoder;
 using Zebra.Sdk.Printer;
 using Zebra.Sdk.Comm;
 using System.IO;

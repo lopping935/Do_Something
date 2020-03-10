@@ -27,48 +27,6 @@ namespace AnBRobotSystem.ChildForm
         List<string> sqlList_Insert = new List<string>();
         #region 私有变量
         
-        /// <summary>
-        /// OPCServer Object
-        /// </summary>
-        /// <summary>
-        /// OPCGroups Object
-
-        /// <summary>
-        /// OPCGroup Object
-        /// </summary>
-        /// <summary>
-        /// OPCItems Object
-        /// </summary>
-        /// <summary>
-        /// OPCItem Object
-        /// </summary>
-        /// <summary>
-        /// 主机IP
-        /// </summary>
-        string strHostIP = "";
-        /// <summary>
-        /// 主机名称
-        /// </summary>
-        string strHostName = "";
-        /// <summary>
-        /// 连接状态
-        /// </summary>
-        bool opc_connected = false;
-        /// <summary>
-        /// 客户端句柄
-        /// </summary>
-        int itmHandleClient = 0;
-        /// <summary>
-        /// 服务端句柄
-        /// </summary>
-        int itmHandleServer = 0;
-
-        #endregion
-
-        #region 方法
-        /// <summary>
-        /// 枚举本地OPC服务器
-        /// </summary>
 
         public YCGBDesignResult()
         {
@@ -77,7 +35,6 @@ namespace AnBRobotSystem.ChildForm
         }
         #endregion
         string sqlLabelSel = "";
-        string sqlLabelSe2 = "";
         private void YCGBDesignResult_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection("Data Source=.;Initial Catalog=YFDBBRobotData;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Connection Timeout=30;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000");
@@ -85,20 +42,6 @@ namespace AnBRobotSystem.ChildForm
             DbDataReader dr = null;
             string sql = "";
             double MAXRECID = 0, modelflag=0;// PLANIDNow = 0;  
-            #region 模式
-            //string sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=15");
-            //dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
-            //while (dr.Read())
-            //{
-            //    if (dr["PARAMETER_VALUE"] != DBNull.Value)
-            //        modelflag = Convert.ToDouble(dr["PARAMETER_VALUE"].ToString());
-            //}
-            //dr.Close();
-            //if (modelflag == 0)
-            //    Datemodel.Text = "手动数据";
-            //else
-            //    Datemodel.Text = "自动数据";
-            #endregion
 
             sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";            
             dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
@@ -108,7 +51,7 @@ namespace AnBRobotSystem.ChildForm
                 MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
             }
             dr.Close();
-            sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 捆号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE REC_ID>={0} order by REC_ID ASC", MAXRECID - 20);
+            sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 捆号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_CREATE_TIME 状态更新时刻 from TLabelContent WHERE REC_ID>={0} order by REC_ID ASC", MAXRECID - 20);
             try
             {
                 dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel));
@@ -293,8 +236,6 @@ namespace AnBRobotSystem.ChildForm
             try
             { 
                 DataGridViewRow row = dataGridView1.Rows[dataGridView1.Rows.Count - 2];
-                //string sql = string.Format("insert into HLabelContent(MACHINE_NO,ID_LOT_PROD,ID_PART_LOT,NUM_BDL,SEQ_LEN,SEQ_OPR,DIM_LEN,IND_FIXED,SEQ_SEND,NUM_BAR,SEQ_LIST,LA_BDL_ACT,NO_LICENCE,NAME_PROD,NAME_STND,ID_HEAT,NAME_STLGD,DES_FIPRO_SECTION,ID_CREW_RL,ID_CREW_CK,TMSTP_WEIGH,BAR_CODE,NUM_HEAD,NUM_TAIL,L3TMSTP_SEND,IMP_FINISH,REC_ID,REC_CREATE_TIME) values('{0}','{1}',{2},{3},{4},{5},{6},'{7}',{8},{9},{10},{11},'{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}',{22},{23},'{24}',{25},{26},'{27}')", row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), Convert.ToInt16(row.Cells[3].Value.ToString()), Convert.ToInt16(row.Cells[4].Value.ToString()), Convert.ToInt16(row.Cells[5].Value.ToString()), Convert.ToInt16(row.Cells[6].Value.ToString()), Convert.ToInt16(row.Cells[7].Value.ToString()), row.Cells[8].Value.ToString(), Convert.ToInt32(row.Cells[9].Value.ToString()), Convert.ToInt16(row.Cells[10].Value.ToString()), Convert.ToInt16(row.Cells[11].Value.ToString()), Convert.ToDouble(row.Cells[12].Value.ToString()), row.Cells[13].Value.ToString(), row.Cells[14].Value.ToString(), row.Cells[15].Value.ToString(), row.Cells[16].Value.ToString(), row.Cells[17].Value.ToString(), row.Cells[18].Value.ToString(), row.Cells[19].Value.ToString(), row.Cells[20].Value.ToString(), row.Cells[21].Value.ToString(), row.Cells[22].Value.ToString(), Convert.ToInt16(row.Cells[23].Value.ToString()), Convert.ToInt16(row.Cells[24].Value.ToString()), row.Cells[25].Value.ToString(), Convert.ToInt16(row.Cells[26].Value.ToString()), Convert.ToDouble(row.Cells[0].Value.ToString()), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-                //db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
                 string sql = string.Format("insert into TLabelContent(REC_ID,merge_sinbar ,gk ,heat_no ,mtrl_no , spec , wegith , num_no , print_date , classes , sn_no, labelmodel_name, print_type, insert_date, flag, orign_sinbar, time,IMP_FINISH,REC_IMP_TIME ) values({0},'{1}','{2}','{3}','{4}','{5}',{6},{7},'{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}',{17},'{18}')", Convert.ToDouble(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), Convert.ToInt32(row.Cells[6].Value.ToString()), Convert.ToInt32(row.Cells[7].Value.ToString()), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString(), row.Cells[10].Value.ToString(), row.Cells[11].Value.ToString(), row.Cells[12].Value.ToString(), row.Cells[13].Value.ToString(), row.Cells[14].Value.ToString(), row.Cells[15].Value.ToString(), row.Cells[16].Value.ToString(), Convert.ToInt32( row.Cells[17].Value.ToString()),DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 int ret1 = db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
                 if (ret1 > 0)
@@ -537,26 +478,6 @@ namespace AnBRobotSystem.ChildForm
             {
                 MessageBox.Show("数据起点设置失败！", ex.Message.ToString());
             }
-        }
-
-        //private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)//手自动实时更新
-        //{
-        //    DbDataReader dr = null;
-        //    double modelflag = 0;// PLANIDNow = 0;  
-        //    #region 模式
-        //    string sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=15");
-        //    dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
-        //    while (dr.Read())
-        //    {
-        //        if (dr["PARAMETER_VALUE"] != DBNull.Value)
-        //            modelflag = Convert.ToDouble(dr["PARAMETER_VALUE"].ToString());
-        //    }
-        //    dr.Close();
-        //    if (modelflag == 0)
-        //        Datemodel.Text = "手动数据";
-        //    else
-        //        Datemodel.Text = "自动数据";
-        //    #endregion
-        //}
+        }     
     }
     }
