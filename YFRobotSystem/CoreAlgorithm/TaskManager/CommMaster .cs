@@ -217,7 +217,7 @@ namespace CoreAlgorithm.TaskManager
             tm.MultithreadExecuteNonQuery(sqltext);
             sqltext = string.Format("update  YF_Date_Sourece  set date_flag=0", DateTime.Now.ToString());
             tm.MultithreadExecuteNonQuery(sqltext);
-            sqltext = "select count(*) as count from TV_D_DETAIL_B14";
+            sqltext = "select count(*) as count from TLabelContent";
             dt = tm.MultithreadDataTable(sqltext);
             for (int i = 0; i < dt.Rows.Count; i++)
                 count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
