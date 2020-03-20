@@ -25,6 +25,7 @@ namespace SQLPublicClass
             dbConnectionString = _connectionString;
             this.connection = CreateConnection(dbConnectionString);
         }
+        
         public static DbConnection CreateConnection()
         {
             DbProviderFactory dbfactory = DbProviderFactories.GetFactory(DbHelper.dbProviderName);
@@ -119,7 +120,7 @@ namespace SQLPublicClass
             dbDataAdapter.Fill(dataTable);        
             return dataTable;
         }
-
+      
         public DbDataReader ExecuteReader(DbCommand cmd)
         {
             if (cmd.Connection.State == ConnectionState.Open)

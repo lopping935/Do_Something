@@ -206,28 +206,46 @@ namespace CoreAlgorithm.TaskManager
                 Log.addLog(log, LogType.ERROR, ex.StackTrace);
             }
             
-        }        
-     
+        }
+        /* 炉号排序代码 update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from 
+        (select ROW_NUMBER() over(order by heat_no asc)
+row2,REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID=DETAIL_B14.REC_ID*/
+
         public void Date_Copy()
         {
-            //Thread.Sleep(1000);
+            Thread.Sleep(500);
             DataTable dt = null;
             int count = 0;
-            string sqltext = string.Format("insert into TLabelContent SELECT [id],[merge_sinbar],[gk],[heat_no],[mtrl_no],[spec],[wegith],[num_no],[print_date],[classes],[sn_no],[labelmodel_name],[print_type],[insert_date],[flag],[orign_sinbar],[time],0,'{0}','{0}' FROM YF_Date_Sourece WHERE date_flag=1 ORDER BY id DESC",DateTime.Now.ToString());
-            tm.MultithreadExecuteNonQuery(sqltext);
-            sqltext = string.Format("update  YF_Date_Sourece  set date_flag=0", DateTime.Now.ToString());
-            tm.MultithreadExecuteNonQuery(sqltext);
-            sqltext = "select count(*) as count from TLabelContent";
-            dt = tm.MultithreadDataTable(sqltext);
-            for (int i = 0; i < dt.Rows.Count; i++)
-                count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
-            if (count > 500)
+            try
             {
-                sqltext = "insert into [YFDBBRobotData].[dbo].[HLabelContent] select top 2 * from [YFDBBRobotData].[dbo].[TLabelContent] order by REC_ID asc";
+                string sqltext = string.Format("insert into TLabelContent SELECT [id],[merge_sinbar],[gk],[heat_no],[mtrl_no],[spec],[wegith],[num_no],[print_date],[classes],[sn_no],[labelmodel_name],[print_type],[insert_date],[flag],[orign_sinbar],[time],0,'{0}','{0}',0 FROM YF_Date_Sourece WHERE flag='A' ORDER BY id DESC", DateTime.Now.ToString());
                 tm.MultithreadExecuteNonQuery(sqltext);
-                sqltext = "delete from [YFDBBRobotData].[dbo].[TLabelContent] where [REC_ID] in(select top 2 REC_ID from [YFDBBRobotData].[dbo].[TLabelContent] order by REC_ID asc)";
+                sqltext = string.Format("update YF_Date_Sourece set flag='0' where flag='A'", DateTime.Now.ToString());
                 tm.MultithreadExecuteNonQuery(sqltext);
+                sqltext = string.Format("delete from TLabelContent where heat_no in (select heat_no from YF_Date_Sourece where flag='D')", DateTime.Now.ToString());
+                tm.MultithreadExecuteNonQuery(sqltext);
+                sqltext = string.Format("update YF_Date_Sourece set flag='0' where flag='D'", DateTime.Now.ToString());
+                tm.MultithreadExecuteNonQuery(sqltext);
+
+                sqltext = "select count(*) as count from TLabelContent";
+                dt = tm.MultithreadDataTable(sqltext);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                    count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
+                if (count > 500)
+                {
+                    sqltext = "insert into HLabelContent select top (count-500) * from TLabelContent order by REC_ID asc";
+                    tm.MultithreadExecuteNonQuery(sqltext);
+                    sqltext = "delete from TLabelContent where REC_ID in(select top (count-500) REC_ID from TLabelContent order by REC_ID asc)";
+                    tm.MultithreadExecuteNonQuery(sqltext);
+                }
             }
+            catch (Exception ex)
+            {
+                log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
+                Log.addLog(log, LogType.ERROR, ex.Message);
+                Log.addLog(log, LogType.ERROR, ex.StackTrace);
+            }
+
         }
 
         /// <summary>
@@ -235,7 +253,6 @@ namespace CoreAlgorithm.TaskManager
         /// <param name="serverModlue"></param>
         public void RunSINGenerate()
         {
-           // Date_Copy();
             try
             {      
                 string sql = "SELECT ACQUISITIONCONFIG_ID,DATAACQUISITION_IP,DATAACQUISITION_PORTR,DATAACQUISITION_PORTS FROM ACQUISITIONCONFIG where ACQUISITIONCONFIG_ID=1 or ACQUISITIONCONFIG_ID=4 or ACQUISITIONCONFIG_ID=15";// ";
