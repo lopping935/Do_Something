@@ -286,11 +286,12 @@ namespace AnBRobotSystem
 
             label4.Text = DateTime.Now.ToString("HH:mm:ss").Trim();
             //toolStripButton1.ForeColor = Color.Green;
-            #region 模式
             DbDataReader dr = null;
             double MES_Status = 0;
             string sql = "";
-             //sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=14");
+            #region 模式
+
+            //sql = string.Format("select * from SYSPARAMETER  where PARAMETER_ID=14");
             //dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
             //while (dr.Read())
             //{
@@ -343,10 +344,15 @@ namespace AnBRobotSystem
             {
                 sql = "update S_TFlag set Flag=-1 where ID=2";
                 db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
-                MessageBox.Show("发生数据报警，请及时处理！","警报             ");
-                  
+                MessageBox.Show("发生数据报警，请及时处理！","警报             ");                  
             }
-            
+            if (Date_alarm == 1)
+            {
+                sql = "update S_TFlag set Flag=-1 where ID=2";
+                db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
+                MessageBox.Show("下抛数据有误，请及时处理！", "错误             ");
+            }
+
         }
         #endregion
         //服务消息更改

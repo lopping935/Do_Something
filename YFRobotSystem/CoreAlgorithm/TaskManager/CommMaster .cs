@@ -42,7 +42,8 @@ namespace CoreAlgorithm.TaskManager
                 { 
                     if (Program.MessageFlg == 1)
                     {
-                        double MAXRECID = 0;// PLANIDNow = 0;                
+                        double MAXRECID = 0;// PLANIDNow = 0;
+                        //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                         string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                         DbDataReader dr = null;
                         dr = tm.MultithreadDataReader(sql);
@@ -62,20 +63,11 @@ namespace CoreAlgorithm.TaskManager
                         {
                             if (count == 0)
                             {
+                                //数据报警
                                 sql = "update S_TFlag set Flag=0 where ID=2";
                                 tm.MultithreadExecuteNonQuery(sql);
                                 Program.MessageFlg = 3;
                                 Send_SignsMessage();
-                                //byte[] sendArray = Enumerable.Repeat((byte)0x0, 201).ToArray();
-                                //byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
-                                //Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
-                                //if (sendArray.Length > 0)
-                                //{
-                                //    PLCSocketServer.senddata(sendArray);
-                                //    string str = Program.MessageFlg.ToString();
-                                //    sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "plc数据请求失败"+str);
-                                //    tm.MultithreadExecuteNonQuery(sql);
-                                //}
                             }
                             else
                             {
@@ -133,7 +125,8 @@ namespace CoreAlgorithm.TaskManager
             {
                 
                 double MAXRECID = 0;// PLANIDNow = 0; 
-                double REC_ID = 0;// PLANIDNow = 0; 
+                double REC_ID = 0;// PLANIDNow = 0; [rownumberf]
+                //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                 string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                 DbDataReader dr = null;
                 byte[] sendArray = Enumerable.Repeat((byte)0x0, 210).ToArray();
@@ -148,6 +141,7 @@ namespace CoreAlgorithm.TaskManager
                         MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
                 }
                 dr.Close();
+                //sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
                 sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
                 DataTable dt = tm.MultithreadDataTable(sql);
                 for (int i = 0; i<dt.Rows.Count; i++)
@@ -213,37 +207,54 @@ row2,REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelCo
 
         public void Date_Copy()
         {
-            Thread.Sleep(500);
-            DataTable dt = null;
-            int count = 0;
-            try
+            while(true)
             {
-                string sqltext = string.Format("insert into TLabelContent SELECT [id],[merge_sinbar],[gk],[heat_no],[mtrl_no],[spec],[wegith],[num_no],[print_date],[classes],[sn_no],[labelmodel_name],[print_type],[insert_date],[flag],[orign_sinbar],[time],0,'{0}','{0}',0 FROM YF_Date_Sourece WHERE flag='A' ORDER BY id DESC", DateTime.Now.ToString());
-                tm.MultithreadExecuteNonQuery(sqltext);
-                sqltext = string.Format("update YF_Date_Sourece set flag='0' where flag='A'", DateTime.Now.ToString());
-                tm.MultithreadExecuteNonQuery(sqltext);
-                sqltext = string.Format("delete from TLabelContent where heat_no in (select heat_no from YF_Date_Sourece where flag='D')", DateTime.Now.ToString());
-                tm.MultithreadExecuteNonQuery(sqltext);
-                sqltext = string.Format("update YF_Date_Sourece set flag='0' where flag='D'", DateTime.Now.ToString());
-                tm.MultithreadExecuteNonQuery(sqltext);
-
-                sqltext = "select count(*) as count from TLabelContent";
-                dt = tm.MultithreadDataTable(sqltext);
-                for (int i = 0; i < dt.Rows.Count; i++)
-                    count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
-                if (count > 500)
+                Thread.Sleep(500);
+                DataTable dt = null;
+                int count = 0;
+                try
                 {
-                    sqltext = "insert into HLabelContent select top (count-500) * from TLabelContent order by REC_ID asc";
-                    tm.MultithreadExecuteNonQuery(sqltext);
-                    sqltext = "delete from TLabelContent where REC_ID in(select top (count-500) REC_ID from TLabelContent order by REC_ID asc)";
+                    string sqltext = string.Format("insert into TLabelContent SELECT [id],[merge_sinbar],[gk],[heat_no],[mtrl_no],[spec],[wegith],[num_no],[print_date],[classes],[sn_no],[labelmodel_name],[print_type],[insert_date],[flag],[orign_sinbar],[time],0,'{0}','{0}',0 FROM YF_Date_Sourece WHERE flag='A' ORDER BY id DESC", DateTime.Now.ToString());
                     tm.MultithreadExecuteNonQuery(sqltext);
                 }
-            }
-            catch (Exception ex)
-            {
-                log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
-                Log.addLog(log, LogType.ERROR, ex.Message);
-                Log.addLog(log, LogType.ERROR, ex.StackTrace);
+                catch (Exception ex)
+                {
+                    string sql = "update S_TFlag set Flag=1 where ID=2";
+                    tm.MultithreadExecuteNonQuery(sql);
+                    log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
+                    Log.addLog(log, LogType.ERROR, ex.Message);
+                    Log.addLog(log, LogType.ERROR, ex.StackTrace);
+                }
+                try
+                {
+                    string sqltext = string.Format("update YF_Date_Sourece set flag='0' where flag='A'", DateTime.Now.ToString());
+                    tm.MultithreadExecuteNonQuery(sqltext);
+                    sqltext = string.Format("delete from TLabelContent where heat_no in (select heat_no from YF_Date_Sourece where flag='D')", DateTime.Now.ToString());
+                    tm.MultithreadExecuteNonQuery(sqltext);
+                    sqltext = string.Format("update YF_Date_Sourece set flag='0' where flag='D'", DateTime.Now.ToString());
+                    tm.MultithreadExecuteNonQuery(sqltext);
+                    //重新排序
+                    //sqltext = string.Format("update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from(select ROW_NUMBER() over(order by heat_no asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID", DateTime.Now.ToString());
+                    //tm.MultithreadExecuteNonQuery(sqltext);
+
+                    sqltext = "select count(*) as count from TLabelContent";
+                    dt = tm.MultithreadDataTable(sqltext);
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                        count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
+                    if (count > 500)
+                    {
+                        sqltext = "insert into HLabelContent select top (count-500) * from TLabelContent order by REC_ID asc";
+                        tm.MultithreadExecuteNonQuery(sqltext);
+                        sqltext = "delete from TLabelContent where REC_ID in(select top (count-500) REC_ID from TLabelContent order by REC_ID asc)";
+                        tm.MultithreadExecuteNonQuery(sqltext);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
+                    Log.addLog(log, LogType.ERROR, ex.Message);
+                    Log.addLog(log, LogType.ERROR, ex.StackTrace);
+                }
             }
 
         }

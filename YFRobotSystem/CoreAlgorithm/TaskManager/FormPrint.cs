@@ -81,7 +81,8 @@ namespace CoreAlgorithm.TaskManager
         private void manu_Work()
         {
             LabelData PLClable;
-            double MAXRECID = 0;// PLANIDNow = 0;                
+            double MAXRECID = 0;// PLANIDNow = 0;   
+            //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
             string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
             DbDataReader dr = null;
             dr = tm.MultithreadDataReader(sql);
@@ -91,6 +92,7 @@ namespace CoreAlgorithm.TaskManager
                     MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
             }
             dr.Close();
+            // sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
             sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
 
             DataTable dt = tm.MultithreadDataTable(sql);
