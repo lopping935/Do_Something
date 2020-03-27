@@ -107,6 +107,10 @@
       <HintPath>..\packages\Lextm.SharpSnmpLib.10.0.3\lib\net452\SharpSnmpLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SQLPublicClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\ProjSetup\YFRobotSetup\Debug\SQLPublicClass.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections.Specialized, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Collections.Specialized.4.3.0\lib\net46\System.Collections.Specialized.dll</HintPath>
@@ -222,12 +226,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SQLPublicClass\SQLPublicClass.csproj">
-      <Project>{ed0a7069-6692-4682-961b-ff9c9b94a0f6}</Project>
-      <Name>SQLPublicClass</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

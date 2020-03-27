@@ -33,8 +33,10 @@ namespace CoreAlgorithm.TaskManager
 
         public void do_SendMessage(object objTh)
         {
+
             while (true)
             {
+                TasksManager tm=new TasksManager();
                 if (Program.MessageStop == 1)
                     break;
                 Thread.Sleep(1000);
@@ -44,7 +46,7 @@ namespace CoreAlgorithm.TaskManager
                     {
                         double MAXRECID = 0;// PLANIDNow = 0;
                         //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
-                        string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
+                        string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                         DbDataReader dr = null;
                         dr = tm.MultithreadDataReader(sql);
                         while (dr.Read())
@@ -54,7 +56,7 @@ namespace CoreAlgorithm.TaskManager
                         }
                         dr.Close();
                         int count = 0;
-                        sql = string.Format("select count(*) as count from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0", MAXRECID);
+                        sql = string.Format("select count(*) as count from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0", MAXRECID);
                         DataTable dt = tm.MultithreadDataTable(sql);
                         for (int i = 0; i < dt.Rows.Count; i++)
                             count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
@@ -127,7 +129,7 @@ namespace CoreAlgorithm.TaskManager
                 double MAXRECID = 0;// PLANIDNow = 0; 
                 double REC_ID = 0;// PLANIDNow = 0; [rownumberf]
                 //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
-                string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
+                string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                 DbDataReader dr = null;
                 byte[] sendArray = Enumerable.Repeat((byte)0x0, 210).ToArray();
 
@@ -142,7 +144,7 @@ namespace CoreAlgorithm.TaskManager
                 }
                 dr.Close();
                 //sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
-                sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+                sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
                 DataTable dt = tm.MultithreadDataTable(sql);
                 for (int i = 0; i<dt.Rows.Count; i++)
                 {
@@ -201,10 +203,6 @@ namespace CoreAlgorithm.TaskManager
             }
             
         }
-        /* 炉号排序代码 update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from 
-        (select ROW_NUMBER() over(order by heat_no asc)
-row2,REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID=DETAIL_B14.REC_ID*/
-
         public void Date_Copy()
         {
             while(true)
@@ -212,10 +210,20 @@ row2,REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelCo
                 Thread.Sleep(500);
                 DataTable dt = null;
                 int count = 0;
+                int num_change = 0;
                 try
                 {
-                    string sqltext = string.Format("insert into TLabelContent SELECT [id],[merge_sinbar],[gk],[heat_no],[mtrl_no],[spec],[wegith],[num_no],[print_date],[classes],[sn_no],[labelmodel_name],[print_type],[insert_date],[flag],[orign_sinbar],[time],0,'{0}','{0}',0 FROM YF_Date_Sourece WHERE flag='A' ORDER BY id DESC", DateTime.Now.ToString());
-                    tm.MultithreadExecuteNonQuery(sqltext);
+                    string sqltext = "select count(*) as count from YF_Date_Sourece where flag='A' ";
+                    dt = tm.MultithreadDataTable(sqltext);
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                        count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
+                    if(count>0)
+                    { 
+                        sqltext = string.Format("insert into TLabelContent SELECT [id],[merge_sinbar],[gk],[heat_no],[mtrl_no],[spec],[wegith],[num_no],[print_date],[classes],[sn_no],[labelmodel_name],[print_type],[insert_date],[flag],[orign_sinbar],[time],0,'{0}','{0}',0 FROM YF_Date_Sourece WHERE flag='A' ORDER BY id DESC", DateTime.Now.ToString());
+                        sqltext = sqltext + ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by heat_no asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
+                        num_change = tm.MultithreadExecuteNonQuery(sqltext);                  
+                        count = 0;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -229,7 +237,7 @@ row2,REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelCo
                 {
                     string sqltext = string.Format("update YF_Date_Sourece set flag='0' where flag='A'", DateTime.Now.ToString());
                     tm.MultithreadExecuteNonQuery(sqltext);
-                    sqltext = string.Format("delete from TLabelContent where heat_no in (select heat_no from YF_Date_Sourece where flag='D')", DateTime.Now.ToString());
+                     sqltext = string.Format("delete from TLabelContent where heat_no in (select heat_no from YF_Date_Sourece where flag='D')", DateTime.Now.ToString());
                     tm.MultithreadExecuteNonQuery(sqltext);
                     sqltext = string.Format("update YF_Date_Sourece set flag='0' where flag='D'", DateTime.Now.ToString());
                     tm.MultithreadExecuteNonQuery(sqltext);
@@ -243,9 +251,10 @@ row2,REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelCo
                         count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
                     if (count > 500)
                     {
-                        sqltext = "insert into HLabelContent select top (count-500) * from TLabelContent order by REC_ID asc";
+                        sqltext = "insert into HLabelContent select top (count-500) * from TLabelContent where REC_ID!=0 order by rownumberf asc";
                         tm.MultithreadExecuteNonQuery(sqltext);
-                        sqltext = "delete from TLabelContent where REC_ID in(select top (count-500) REC_ID from TLabelContent order by REC_ID asc)";
+                        sqltext = "delete from TLabelContent where REC_ID in(select top (count-500) REC_ID from TLabelContent where REC_ID!=0 order by rownumberf asc)";
+                        sqltext = sqltext + ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by heat_no asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
                         tm.MultithreadExecuteNonQuery(sqltext);
                     }
                 }

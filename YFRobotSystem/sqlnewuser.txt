@@ -1,0 +1,9 @@
+/*要在要操做的数据库中执行语句*/
+exec sp_addrole 'YF' 
+/*2.分配视图权限   GRANT SELECT ON veiw TO [角色]*/
+GRANT SELECT ON  [YFDBBRobotData].[dbo].[YF_Date_Sourece] TO YF
+GRANT INSERT ON  [YFDBBRobotData].[dbo].[YF_Date_Sourece] TO YF
+/*3.增加只允许访问的指定用户的视图  exec sp_addlogin '登录名','密码','默认数据库名'*/
+exec sp_addlogin 'YFguest','YFguest','YFDBBRobotData'
+/*4.添加只允许访问指定视图的用户到rCRM角色中: exec sp_adduser '登录名','用户名','角色'*/
+exec sp_adduser 'YFguest','YFguest','YF'

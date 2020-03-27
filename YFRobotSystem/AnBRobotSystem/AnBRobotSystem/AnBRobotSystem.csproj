@@ -88,7 +88,8 @@
     </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\DataManageSystemSetup\Debug\log4net.dll</HintPath>
+      <HintPath>..\..\..\..\..\ProjSetup\YFRobotSetup\Debug\log4net.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.DotNet.PlatformAbstractions.2.1.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
@@ -121,7 +122,7 @@
     </Reference>
     <Reference Include="SQLPublicClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\YFRobotSetup\Debug\SQLPublicClass.dll</HintPath>
+      <HintPath>..\..\..\..\..\ProjSetup\YFRobotSetup\Debug\SQLPublicClass.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections.Specialized, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -291,9 +292,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="kchart .ico" />
-    <Content Include="Lib\DataPreprocessing.dll" />
-    <Content Include="Lib\log4net.dll" />
-    <Content Include="Lib\opcdaauto.dll" />
     <Content Include="Rs\Gear.png" />
     <Content Include="Rs\green.png" />
     <Content Include="Rs\kchart .ico" />

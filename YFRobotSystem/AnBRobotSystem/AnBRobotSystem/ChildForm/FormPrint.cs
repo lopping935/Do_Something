@@ -40,6 +40,7 @@ namespace AnBRobotSystem.ChildForm
             public int num_no;
             public string print_date;
             public string classes;
+            public string order_num;
         };
         Bitmap img = new Bitmap(1030, 512);//712,500
                                            //public SocketClient PlcConnect = null;
@@ -82,7 +83,7 @@ namespace AnBRobotSystem.ChildForm
         {
             LabelData PLClable;
             double MAXRECID = 0;// PLANIDNow = 0;                
-            string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
+            string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
             DbDataReader dr = null;
             dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
             while (dr.Read())
@@ -91,20 +92,22 @@ namespace AnBRobotSystem.ChildForm
                     MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
             }
             dr.Close();
-            sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+            sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
 
             DataTable dt = db.ExecuteDataTable(db.GetSqlStringCommond(sql));
             for (int i = 0; i < dt.Rows.Count; i++)
             {
+                string heat_no_all = dt.Rows[i]["heat_no"].ToString();
                 PLClable.merge_sinbar = dt.Rows[i]["merge_sinbar"].ToString();//捆号
                 PLClable.gk = dt.Rows[i]["gk"].ToString();//技术标准
-                PLClable.heat_no = dt.Rows[i]["heat_no"].ToString();//炉批号
+                PLClable.heat_no = heat_no_all.Substring(0, heat_no_all.Length - 2);//炉批号
                 PLClable.mtrl_no = dt.Rows[i]["mtrl_no"].ToString();//牌号
                 PLClable.spec = dt.Rows[i]["spec"].ToString();//规格
                 PLClable.wegith = int.Parse(dt.Rows[i]["wegith"].ToString());//重量
                 PLClable.num_no = int.Parse(dt.Rows[i]["num_no"].ToString());//支数
                 PLClable.print_date = dt.Rows[i]["print_date"].ToString();//DateTime.Parse(dt.Rows[i]["print_date"].ToString()).ToShortDateString();//日期
                 PLClable.classes = dt.Rows[i]["classes"].ToString();//班次
+                PLClable.order_num = heat_no_all.Substring(heat_no_all.Length - 2, 2);
 
                 manu_textBox_stand.Text= PLClable.gk;
                 manu_textBox_heatno.Text = PLClable.heat_no;
@@ -113,7 +116,7 @@ namespace AnBRobotSystem.ChildForm
                 manu_textBox_grade.Text = PLClable.mtrl_no;
                 manu_textBox_size.Text = PLClable.spec;
                 manu_textBox__hook.Text = PLClable.num_no.ToString();
-                manu_textBox_group.Text = PLClable.classes;
+                manu_textBox_group.Text = PLClable.classes + '/' + PLClable.order_num;
                 
             }
         }

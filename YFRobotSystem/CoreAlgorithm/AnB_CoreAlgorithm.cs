@@ -28,10 +28,10 @@ namespace CoreAlgorithm
             //dbTemp = new DbHelper(inisql.GetConnectionString("SysSQL"));
         }
 
-   //     protected override void OnStart(string[] args)
-   public void OnStart()     
-       {
-           tm = new TasksManager();
+       protected override void OnStart(string[] args)
+        // public void OnStart()     
+        {
+            tm = new TasksManager();
            //DataTable dt = new DataTable("MyDT");
            int SystemRun = 0;
            string sql = "SELECT PARAMETER_VALUE FROM SYSPARAMETER where PARAMETER_ID=1";

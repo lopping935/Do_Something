@@ -42,8 +42,9 @@ namespace AnBRobotSystem.ChildForm
             DbDataReader dr = null;
             string sql = "";
             double MAXRECID = 0, modelflag=0;// PLANIDNow = 0;  
-
-            sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";            
+            sql = "update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by heat_no asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
+            db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
+            sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";            
             dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
             while (dr.Read())
             {
@@ -51,7 +52,7 @@ namespace AnBRobotSystem.ChildForm
                 MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
             }
             dr.Close();
-            sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 捆号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_CREATE_TIME 状态更新时刻 from TLabelContent WHERE REC_ID>={0} order by REC_ID ASC", MAXRECID - 20);
+            sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 捆号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_CREATE_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>={0} order by rownumberf ASC", MAXRECID - 20);
             try
             {
                 dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel));
@@ -84,7 +85,7 @@ namespace AnBRobotSystem.ChildForm
             }
             else
             {
-                sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 捆号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE REC_ID>={0} order by REC_ID ASC", MAXRECID);
+                sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 捆号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>={0} order by rownumberf ASC", MAXRECID);
                 try
                 {
                     dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel));
@@ -173,7 +174,7 @@ namespace AnBRobotSystem.ChildForm
             }
             
         }
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)//删除选中行
         {
             if (dataGridView1.SelectedRows.Count < 1)
             {
@@ -184,14 +185,19 @@ namespace AnBRobotSystem.ChildForm
             string sql = "";
             for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
             {
-                if (dataGridView1.SelectedRows[i].Cells[0].Value.ToString() == "")
+                if (dataGridView1.SelectedRows[i].Cells[0].Value.ToString() == "" )
                 {
                     MessageBox.Show("请选择相应的行！");
                     return;
-                }                    
+                }
+                else if(dataGridView1.SelectedRows[i].Cells[0].Value.ToString() == "0")
+                {
+                    MessageBox.Show("该行为保留行，不能被删除！");
+                    return;
+                }
                 else
                 {
-                    sql = sql + string.Format("delete from TLabelContent where REC_ID='{0}';", Convert.ToDouble(dataGridView1.SelectedRows[i].Cells[0].Value.ToString()));
+                    sql = sql + string.Format("delete from TLabelContent where REC_ID='{0}' and REC_ID!=0;", Convert.ToDouble(dataGridView1.SelectedRows[i].Cells[0].Value.ToString()));
                 }
                    
             }
@@ -271,10 +277,6 @@ namespace AnBRobotSystem.ChildForm
                 string b = ex.StackTrace;
                 MessageBox.Show("插入失败,插入数据有误！");
             }
-        }
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
         }
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -435,6 +437,9 @@ namespace AnBRobotSystem.ChildForm
                 toolStripMenuItem2.Text = "停止自动刷新";
             if (timer1.Enabled == false)
                 toolStripMenuItem2.Text = "恢复自动刷新";
+            string sqltext = ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by heat_no asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
+
+
             YCGBDesignResult_Load(null, null);
         }
 
