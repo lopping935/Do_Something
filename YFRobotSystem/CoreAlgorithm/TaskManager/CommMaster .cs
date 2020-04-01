@@ -144,11 +144,11 @@ namespace CoreAlgorithm.TaskManager
                 }
                 dr.Close();
                 //sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
-                sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
+                sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
                 DataTable dt = tm.MultithreadDataTable(sql);
                 for (int i = 0; i<dt.Rows.Count; i++)
                 {
-                    PLClable.merge_sinbar = dt.Rows[i]["merge_sinbar"].ToString();
+                    PLClable.merge_sinbar = dt.Rows[i]["sn_no"].ToString();
                     PLClable.gk = dt.Rows[i]["gk"].ToString();
                     PLClable.heat_no = dt.Rows[i]["heat_no"].ToString();
                     PLClable.mtrl_no = dt.Rows[i]["mtrl_no"].ToString();
@@ -213,14 +213,14 @@ namespace CoreAlgorithm.TaskManager
                 int num_change = 0;
                 try
                 {
-                    string sqltext = "select count(*) as count from YF_Date_Sourece where flag='A' ";
+                    string sqltext = "select count(*) as count from READ_TABLE where flag='N'";
                     dt = tm.MultithreadDataTable(sqltext);
                     for (int i = 0; i < dt.Rows.Count; i++)
                         count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
                     if(count>0)
                     { 
-                        sqltext = string.Format("insert into TLabelContent SELECT [id],[merge_sinbar],[gk],[heat_no],[mtrl_no],[spec],[wegith],[num_no],[print_date],[classes],[sn_no],[labelmodel_name],[print_type],[insert_date],[flag],[orign_sinbar],[time],0,'{0}','{0}',0 FROM YF_Date_Sourece WHERE flag='A' ORDER BY id DESC", DateTime.Now.ToString());
-                        sqltext = sqltext + ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by heat_no asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
+                        sqltext = string.Format("insert into TLabelContent SELECT [id],[merge_sinbar],[gk],[heat_no],[mtrl_no],[spec],[wegith],[num_no],[print_date],[classes],[sn_no],[labelmodel_name],[print_type],[insert_date],[flag],[orign_sinbar],[time],0,'{0}','{0}',0 FROM READ_TABLE WHERE flag='N' ORDER BY id DESC", DateTime.Now.ToString());
+                        sqltext = sqltext + ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by merge_sinbar asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
                         num_change = tm.MultithreadExecuteNonQuery(sqltext);                  
                         count = 0;
                     }
@@ -235,11 +235,11 @@ namespace CoreAlgorithm.TaskManager
                 }
                 try
                 {
-                    string sqltext = string.Format("update YF_Date_Sourece set flag='0' where flag='A'", DateTime.Now.ToString());
+                    string sqltext = string.Format("update READ_TABLE set flag='0' where flag='N'", DateTime.Now.ToString());
                     tm.MultithreadExecuteNonQuery(sqltext);
-                     sqltext = string.Format("delete from TLabelContent where heat_no in (select heat_no from YF_Date_Sourece where flag='D')", DateTime.Now.ToString());
+                     sqltext = string.Format("delete from TLabelContent where merge_sinbar in (select merge_sinbar from READ_TABLE where flag='D')", DateTime.Now.ToString());
                     tm.MultithreadExecuteNonQuery(sqltext);
-                    sqltext = string.Format("update YF_Date_Sourece set flag='0' where flag='D'", DateTime.Now.ToString());
+                    sqltext = string.Format("update READ_TABLE set flag='0' where flag='D'", DateTime.Now.ToString());
                     tm.MultithreadExecuteNonQuery(sqltext);
                     //重新排序
                     //sqltext = string.Format("update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from(select ROW_NUMBER() over(order by heat_no asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID", DateTime.Now.ToString());
@@ -254,7 +254,7 @@ namespace CoreAlgorithm.TaskManager
                         sqltext = "insert into HLabelContent select top (count-500) * from TLabelContent where REC_ID!=0 order by rownumberf asc";
                         tm.MultithreadExecuteNonQuery(sqltext);
                         sqltext = "delete from TLabelContent where REC_ID in(select top (count-500) REC_ID from TLabelContent where REC_ID!=0 order by rownumberf asc)";
-                        sqltext = sqltext + ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by heat_no asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
+                        sqltext = sqltext + ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by merge_sinbar asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
                         tm.MultithreadExecuteNonQuery(sqltext);
                     }
                 }

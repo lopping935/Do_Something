@@ -94,22 +94,21 @@ namespace CoreAlgorithm.TaskManager
             }
             dr.Close();
             // sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
-            sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
+            sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
 
             DataTable dt = tm.MultithreadDataTable(sql);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string heat_no_all = dt.Rows[i]["heat_no"].ToString();
                 PLClable.merge_sinbar = dt.Rows[i]["merge_sinbar"].ToString();//捆号
                 PLClable.gk = dt.Rows[i]["gk"].ToString();//技术标准
-                PLClable.heat_no = heat_no_all.Substring(0,heat_no_all.Length-2);//炉批号
+                PLClable.heat_no = dt.Rows[i]["heat_no"].ToString();//炉批号
                 PLClable.mtrl_no = dt.Rows[i]["mtrl_no"].ToString();//牌号
                 PLClable.spec = dt.Rows[i]["spec"].ToString();//规格
                 PLClable.wegith = int.Parse(dt.Rows[i]["wegith"].ToString());//重量
                 PLClable.num_no = int.Parse(dt.Rows[i]["num_no"].ToString());//支数
                 PLClable.print_date = DateTime.Parse(dt.Rows[i]["print_date"].ToString()).ToShortDateString();//日期
                 PLClable.classes = dt.Rows[i]["classes"].ToString();//班次
-                PLClable.order_num = heat_no_all.Substring(heat_no_all.Length - 2, 2);
+                PLClable.order_num = dt.Rows[i]["sn_no"].ToString();
 
 
                 manu_textBox_stand = PLClable.gk;
@@ -119,7 +118,7 @@ namespace CoreAlgorithm.TaskManager
                 manu_textBox_grade = PLClable.mtrl_no;
                 manu_textBox_size = PLClable.spec;
                 manu_textBox__hook = PLClable.num_no.ToString();
-                manu_textBox_group = PLClable.classes+'/'+ PLClable.order_num;
+                manu_textBox_group = PLClable.classes+" / "+ PLClable.order_num;
             }
         }
         private void update_manu()//更新图片数据
@@ -141,12 +140,12 @@ namespace CoreAlgorithm.TaskManager
             Graphics g = Graphics.FromImage(img);
             g.Clear(Color.White);
 
-            Font font2 = new Font(FontFamily.GenericSansSerif, 25, FontStyle.Bold);
+            Font font2 = new Font("Arial", 30, FontStyle.Regular);
             Rectangle rect = new Rectangle(10, 0, img.Width - 20, img.Height - 20);
             Rectangle rect_o = new Rectangle(0, 0, 20, 20);
             Pen blackPen = new Pen(Color.Black, 3);
-            g.DrawRectangle(blackPen, rect);
-            g.DrawRectangle(blackPen, rect_o);
+         //   g.DrawRectangle(blackPen, rect);
+            //g.DrawRectangle(blackPen, rect_o);
             //grid : width:22mm high:10mm  blank width:85mm high:42.5
 
             g.DrawString(textBox_stand, font2, Brushes.Black, new Point(pix_to_mm(1.7), pix_to_mm(0.4)));
@@ -161,15 +160,15 @@ namespace CoreAlgorithm.TaskManager
             QrCodeEncodingOptions options = new QrCodeEncodingOptions();
             options.DisableECI = true;
             options.ErrorCorrection = ErrorCorrectionLevel.M;
-            options.Width = 150;
-            options.Height = 150;
+            options.Width = 210;
+            options.Height = 210;
             options.Margin = 1;
             BarcodeWriter writer = new BarcodeWriter();
             writer.Format = BarcodeFormat.QR_CODE;
             writer.Options = options;
             BAR_CODE = "http://www.yfgt.cn/b/#/barcode/" + textBox_heatno;
             Bitmap bmp = writer.Write(BAR_CODE);//不能识别汉字和英文字符
-            g.DrawImage(bmp, new Point(pix_to_mm(6.5), pix_to_mm(2.2)));//画条形码
+            g.DrawImage(bmp, new Point(pix_to_mm(6.7), pix_to_mm(2.4)));//画条形码
             img.RotateFlip(RotateFlipType.Rotate90FlipNone);//图像旋转                                                                                                  
         }
         //像素转mm
