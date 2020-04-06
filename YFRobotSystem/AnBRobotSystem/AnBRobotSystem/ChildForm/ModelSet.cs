@@ -67,14 +67,14 @@ namespace AnBRobotSystem.ChildForm
 
         private void button_count_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.RowCount>0)
-            {
-                textBox_count.Text = (dataGridView1.RowCount-1).ToString();
-            }
-            else
-            {
-                textBox_count.Text = "0";
-            }
+            //if(dataGridView1.RowCount>0)
+            //{
+            //    textBox_count.Text = (dataGridView1.RowCount-1).ToString();
+            //}
+            //else
+            //{
+            //    textBox_count.Text = "0";
+            //}
             
 
             

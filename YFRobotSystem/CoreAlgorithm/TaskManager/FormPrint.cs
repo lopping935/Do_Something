@@ -12,19 +12,21 @@ using System.IO;
 using Zebra.Sdk.Graphics;
 using Zebra.Sdk.Device;
 using Zebra.Sdk.Printer.Discovery;
-using Zebra.Sdk.Settings;
-//using SocketHelper;
-using System.Configuration;
+using FastReport;
+using FastReport.Export.Image;
 using SQLPublicClass;
 using System.Data.Common;
 using System.Reflection;
 using ZXing;
 using ZXing.QrCode;
 using ZXing.QrCode.Internal;
+using Microsoft.Win32;
 namespace CoreAlgorithm.TaskManager
 {
     public class FormPrint
     {
+        private DataSet FDataSet;
+        public static String mode_name = "新国标标牌 .frx";
         public struct LabelData
         {
             public string merge_sinbar;
@@ -46,7 +48,7 @@ namespace CoreAlgorithm.TaskManager
         {
             tm = new TasksManager();
             auto_Work();
-            manu_Work();
+            Init_lable();
             
         }
         string Print1ip = "", Print2ip = "";//400PLC ip
@@ -79,13 +81,23 @@ namespace CoreAlgorithm.TaskManager
         Int16 SEQ_OPR = 0;
         string DES_FIPRO_SECTION = "";
         string BAR_CODE = "";
-        private void manu_Work()
+        LabelData PLClable;
+        private void Init_lable()
         {
-            LabelData PLClable;
+            DbDataReader dr = null;
+            string sql = "select * from SYSPARAMETER where PARAMETER_ID=1";
+            dr = tm.MultithreadDataReader(sql);
+            while (dr.Read())
+            {
+                if (dr["PARAMETER_VALUE"] != DBNull.Value)
+                    mode_name = dr["PARAMETER_VALUE"].ToString();
+            }
+            dr.Close();
+
             double MAXRECID = 0;// PLANIDNow = 0;   
             //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
-            string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
-            DbDataReader dr = null;
+            sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
+
             dr = tm.MultithreadDataReader(sql);
             while (dr.Read())
             {
@@ -93,8 +105,8 @@ namespace CoreAlgorithm.TaskManager
                     MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
             }
             dr.Close();
-            // sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
-            sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
+             sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+            //sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
 
             DataTable dt = tm.MultithreadDataTable(sql);
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -178,8 +190,53 @@ namespace CoreAlgorithm.TaskManager
             length = Convert.ToInt16(x * 118.11);
             return length;
         }
-       
+
         //打印图片
+        public static string GetWindowsServiceInstallPath(string ServiceName)
+        {
+            string key = @"SYSTEM\CurrentControlSet\Services\" + ServiceName;
+            string path = Registry.LocalMachine.OpenSubKey(key).GetValue("ImagePath").ToString();
+            //替换掉双引号
+            path = path.Replace("\"", string.Empty);
+            FileInfo fi = new FileInfo(path);
+            return fi.Directory.ToString();
+        }
+
+        private void CreateDataSet()
+        {
+            // create simple dataset with one table
+            Init_lable();
+            FDataSet = new DataSet();
+
+            DataTable table = new DataTable();
+            table.TableName = "PrintData";
+            FDataSet.Tables.Add(table);
+
+            //table.Columns.Add("ID", typeof(string));
+            //table.Columns.Add("NAME", typeof(string));
+            //table.Columns.Add("FUCKASS", typeof(string));
+            table.Columns.Add("T_STANDARD", typeof(string));
+            table.Columns.Add("GRADE_NAME", typeof(string));
+            table.Columns.Add("BATCH_CODE", typeof(string));
+            table.Columns.Add("SPE_NAME", typeof(string));
+            table.Columns.Add("HOOK_NUM", typeof(string));
+            table.Columns.Add("SN", typeof(string));
+            table.Columns.Add("GROUP_NUM", typeof(string));
+            table.Columns.Add("LABEL_DATE", typeof(string));
+            table.Columns.Add("MAT_FWEIGHT", typeof(string));
+            table.Columns.Add("MAT_SINBAR", typeof(string));
+            table.Rows.Add(PLClable.gk, PLClable.mtrl_no, PLClable.heat_no, PLClable.spec, PLClable.num_no.ToString(), PLClable.order_num, PLClable.classes, PLClable.print_date, PLClable.wegith.ToString(), PLClable.merge_sinbar);//, 
+            //table.Rows.Add(2, "Nancy Davolio");
+            //table.Rows.Add(3, "Margaret Peacock");
+            Report report = new Report();
+            report.Load(GetWindowsServiceInstallPath("AnB_CoreAlgorithm")+ "/Print_Model/" + mode_name);
+            report.RegisterData(FDataSet);
+            report.Prepare();
+            ImageExport imge = new ImageExport();
+            imge.Resolution = 300;
+            report.Export(imge, "myReport1.jpg");//"myReport.jpg"
+            report.Dispose();
+        }
         public void Send_SignsMessage()
         {
             try
@@ -230,21 +287,23 @@ namespace CoreAlgorithm.TaskManager
             Connection connection = new TcpConnection(Printip, TcpConnection.DEFAULT_ZPL_TCP_PORT);
             try
             {
-                creat_img();
+                //creat_img();
+                CreateDataSet();                
                 connection.Open();
                 ZebraPrinter printer = ZebraPrinterFactory.GetInstance(connection);
                 PrinterStatus printerStatus = printer.GetCurrentStatus();
                 string PrintMessage = "";
                 if (printerStatus.isReadyToPrint)
                 {
-                    PrintMessage="start print！";
+                    Bitmap imgtest = new Bitmap("myReport1.jpg");
+                    PrintMessage ="start print！";
                     int x = 45;
                     int y = 110;
-                    ZebraImageI zp1 = ZebraImageFactory.GetImage(img);
+                    ZebraImageI zp1 = ZebraImageFactory.GetImage(imgtest);
                     printer.PrintImage(zp1, x, y, zp1.Width, zp1.Height, false);
-                    img.RotateFlip(RotateFlipType.Rotate270FlipNone);//图像旋转
+                    //img.RotateFlip(RotateFlipType.Rotate270FlipNone);//图像旋转
                     Program.MessageFlg = 12;
-                   //Send_SignsMessage();
+                    imgtest.Dispose();
                 }
                 else if (printerStatus.isPaused)
                 {

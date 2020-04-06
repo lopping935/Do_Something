@@ -13,24 +13,22 @@ using System.IO;
 using Zebra.Sdk.Graphics;
 using Zebra.Sdk.Device;
 using Zebra.Sdk.Printer.Discovery;
-using Zebra.Sdk.Settings;
-//using SocketHelper;
-using System.Configuration;
+using FastReport;
+using FastReport.Export.Image;
 using SQLPublicClass;
 using System.Data.Common;
 using System.Net;
 using System.Net.Sockets;
-using System.Threading;
-using System.Reflection;
 using ZXing;
 using ZXing.QrCode;
 using ZXing.QrCode.Internal;
-using System.Drawing.Text;
+
 
 namespace AnBRobotSystem.ChildForm
 {
     public partial class FormPrint : Form
     {
+        private DataSet FDataSet;
         public struct LabelData
         {
             public string merge_sinbar;
@@ -46,6 +44,7 @@ namespace AnBRobotSystem.ChildForm
         };
         Bitmap img = new Bitmap(1030, 512);//712,500
                                            //public SocketClient PlcConnect = null;
+        public static String  mode_name = "";
         string BAR_CODE = "";
         private static IniSqlConfigInfo inisql = new IniSqlConfigInfo(System.AppDomain.CurrentDomain.BaseDirectory + "Config.ini");
         DbHelper db = new DbHelper(inisql.GetConnectionString("SysSQL"));
@@ -54,7 +53,42 @@ namespace AnBRobotSystem.ChildForm
         {
             InitializeComponent();
             auto_Work();
-            manu_Work();
+            Init_lable();
+            DirectoryInfo dir = new DirectoryInfo(@"./Print_Model/");
+            foreach (FileInfo d in dir.GetFiles())
+            {
+                if(d.Name.IndexOf(".frx")>0)
+                comboBox1.Items.Add(d.Name);
+            }
+            DbDataReader dr = null;
+            string sql = "select * from SYSPARAMETER where PARAMETER_ID=1";
+            dr=db.ExecuteReader(db.GetSqlStringCommond(sql));
+            if(dr.Read())
+            {
+                if(!dr.IsDBNull(3))
+                {
+                    mode_name = dr["PARAMETER_VALUE"].ToString();
+                    comboBox1.Text = mode_name;
+                }
+                
+            }
+            dr.Close();
+            if(mode_name=="")
+            {
+                mode_name = "新国标标牌.frx";
+                sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE='{0}' where PARAMETER_ID=1", mode_name);
+                db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
+                //this.FormBorderStyle = FormBorderStyle.None;
+                //comboBox1.SelectedText = mode_name;
+            }
+
+            string heatno = "";
+            string sqltext = "select top 1* from READ_TABLE where flag='N'";
+            DataTable dt = db.ExecuteDataTable(db.GetSqlStringCommond(sqltext));
+           // for (int i = 0; i < dt.Rows.Count; i++)
+           if(dt.Rows.Count!=0)
+            heatno = dt.Rows[0]["heat_no"].ToString();
+            dt.Dispose();
         }
         private void auto_Work()
         {
@@ -81,11 +115,12 @@ namespace AnBRobotSystem.ChildForm
             port.Text = Print1portr.ToString();
             txt_ip.Text = txt_ip1.Text;
         }
-        private void manu_Work()
-        {
-            LabelData PLClable;
+        LabelData PLClable;
+        private void Init_lable()
+        {          
             double MAXRECID = 0;// PLANIDNow = 0;                
-            string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
+            //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
+            string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
             DbDataReader dr = null;
             dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
             while (dr.Read())
@@ -94,7 +129,8 @@ namespace AnBRobotSystem.ChildForm
                     MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
             }
             dr.Close();
-            sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
+           // sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
+            sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
 
             DataTable dt = db.ExecuteDataTable(db.GetSqlStringCommond(sql));
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -130,8 +166,7 @@ namespace AnBRobotSystem.ChildForm
             textBox_garde.Text = manu_textBox_grade.Text;
             textBox_size.Text = manu_textBox_size.Text;
             textBox_hook.Text = manu_textBox__hook.Text + " 支";
-            textBox_group.Text = manu_textBox_group.Text;
-            
+            textBox_group.Text = manu_textBox_group.Text;            
         }
         #region pirnt the img
         //创建图片
@@ -185,9 +220,15 @@ namespace AnBRobotSystem.ChildForm
         }
         void button_printview_Click(object sender, EventArgs e)
         {
-            creat_img();
-            img.RotateFlip(RotateFlipType.Rotate270FlipNone);
-            print_view p1 = new print_view(img);
+            //creat_img();
+            CreateDataSet();
+            Size s1 = new Size(300, 500);
+            Image imgtest = new Bitmap("myReport.jpg");
+
+            Bitmap img2 = new Bitmap(imgtest, s1);
+            imgtest.Dispose();
+            img2.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            print_view p1 = new print_view(img2);
             p1.Show();
         }
         //打印图片
@@ -196,7 +237,9 @@ namespace AnBRobotSystem.ChildForm
             Connection connection = new TcpConnection(txt_ip.Text, TcpConnection.DEFAULT_ZPL_TCP_PORT);
             try
             {
-                creat_img();
+                CreateDataSet();
+                
+                Bitmap imgtest = new Bitmap("myReport.jpg");
                 connection.Open();
                 ZebraPrinter printer = ZebraPrinterFactory.GetInstance(connection);
                 PrinterStatus printerStatus = printer.GetCurrentStatus();
@@ -205,9 +248,11 @@ namespace AnBRobotSystem.ChildForm
                     txt_message.AppendText("start print！");
                     int x = 40;//上下位置 宽
                     int y = 110;//左右位置  长
-                    ZebraImageI zp1 = ZebraImageFactory.GetImage(img);
+                    ZebraImageI zp1 = ZebraImageFactory.GetImage(imgtest);
+                   // imgtest.Dispose();
                     printer.PrintImage(zp1, x, y, zp1.Width, zp1.Height, false);
-                    img.RotateFlip(RotateFlipType.Rotate270FlipNone);//图像旋转
+                    // img.RotateFlip(RotateFlipType.Rotate270FlipNone);//图像旋转
+                    imgtest.Dispose();
                 }
                 else if (printerStatus.isPaused)
                 {
@@ -255,7 +300,42 @@ namespace AnBRobotSystem.ChildForm
             printp_image();
         }
         #endregion
-       
+
+        private void CreateDataSet()
+        {
+            // create simple dataset with one table
+            Init_lable();
+            FDataSet = new DataSet();
+
+            DataTable table = new DataTable();
+            table.TableName = "PrintData";
+            FDataSet.Tables.Add(table);
+
+            //table.Columns.Add("ID", typeof(string));
+            //table.Columns.Add("NAME", typeof(string));
+            //table.Columns.Add("FUCKASS", typeof(string));
+            table.Columns.Add("T_STANDARD", typeof(string));
+            table.Columns.Add("GRADE_NAME", typeof(string));
+            table.Columns.Add("BATCH_CODE", typeof(string));
+            table.Columns.Add("SPE_NAME", typeof(string));
+            table.Columns.Add("HOOK_NUM", typeof(string));
+            table.Columns.Add("SN", typeof(string));
+            table.Columns.Add("GROUP_NUM", typeof(string));
+            table.Columns.Add("LABEL_DATE", typeof(string));
+            table.Columns.Add("MAT_FWEIGHT", typeof(string));
+            table.Columns.Add("MAT_SINBAR", typeof(string));
+            table.Rows.Add(PLClable.gk, PLClable.mtrl_no, PLClable.heat_no, PLClable.spec, PLClable.num_no.ToString(), PLClable.order_num, PLClable.classes, PLClable.print_date, PLClable.wegith.ToString(), PLClable.merge_sinbar);//, 
+            //table.Rows.Add(2, "Nancy Davolio");
+            //table.Rows.Add(3, "Margaret Peacock");
+            Report report = new Report();
+            report.Load("./Print_Model/"+mode_name);
+            report.RegisterData(FDataSet);
+            report.Prepare();
+            ImageExport imge = new ImageExport();
+            imge.Resolution = 300;
+            report.Export(imge, "myReport.jpg");//"myReport.jpg"
+            report.Dispose();
+        }
 
         private void FormPrint_Load(object sender, EventArgs e)
         {
@@ -408,7 +488,6 @@ namespace AnBRobotSystem.ChildForm
             Connection connection = new TcpConnection(txt_ip.Text, TcpConnection.DEFAULT_ZPL_TCP_PORT);
             try
             {
-
                 connection.Open();
                 ZebraPrinter printer = ZebraPrinterFactory.GetInstance(connection);
                 PrinterStatus printerStatus = printer.GetCurrentStatus();
@@ -417,12 +496,13 @@ namespace AnBRobotSystem.ChildForm
                     txt_message.AppendText("start print！");
                     int x = 30;//上下位置 宽
                     int y = 110;//左右位置  长
-                    Bitmap b = new Bitmap(@"C:\Users\Administrator\Desktop\DataFromDataSet\bin\Debug\myReport.jpg");
+                    Bitmap b = new Bitmap("./myReport.jpg");
                     ZebraImageI zp1 = ZebraImageFactory.GetImage(b);
                     
                     printer.PrintImage(zp1, x, y, zp1.Width, zp1.Height, false);
 
-                   // img.RotateFlip(RotateFlipType.Rotate270FlipNone);//图像旋转
+                    // img.RotateFlip(RotateFlipType.Rotate270FlipNone);//图像旋转
+                    b.Dispose();
                 }
                 else if (printerStatus.isPaused)
                 {
@@ -464,6 +544,13 @@ namespace AnBRobotSystem.ChildForm
                 connection.Close();
 
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mode_name = comboBox1.SelectedItem.ToString();
+            string sql = string.Format("UPDATE SYSPARAMETER SET PARAMETER_VALUE='{0}' where PARAMETER_ID=1", mode_name);
+            db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
         }
     }
 

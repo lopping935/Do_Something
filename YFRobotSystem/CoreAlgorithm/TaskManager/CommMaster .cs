@@ -36,7 +36,7 @@ namespace CoreAlgorithm.TaskManager
 
             while (true)
             {
-                TasksManager tm=new TasksManager();
+               // TasksManager tm=new TasksManager();
                 if (Program.MessageStop == 1)
                     break;
                 Thread.Sleep(1000);
@@ -44,9 +44,11 @@ namespace CoreAlgorithm.TaskManager
                 { 
                     if (Program.MessageFlg == 1)
                     {
-                        double MAXRECID = 0;// PLANIDNow = 0;
+                        string sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到PLC请求数据信号1");
+                        tm.MultithreadExecuteNonQuery(sql);
+                        double MAXRECID = 0;
                         //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
-                        string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
+                         sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                         DbDataReader dr = null;
                         dr = tm.MultithreadDataReader(sql);
                         while (dr.Read())
@@ -63,7 +65,17 @@ namespace CoreAlgorithm.TaskManager
 
                         lock (Program.gllock)
                         {
-                            if (count == 0)
+                            if (count>15)
+                            {
+                                Program.MessageFlg = 2;
+                                Send_SignsMessage();                                
+                            }                      
+                            else if(count <=15 && count > 0)
+                            {
+                                Program.MessageFlg = 4;
+                                Send_SignsMessage();
+                            }
+                            else
                             {
                                 //数据报警
                                 sql = "update S_TFlag set Flag=0 where ID=2";
@@ -71,16 +83,13 @@ namespace CoreAlgorithm.TaskManager
                                 Program.MessageFlg = 3;
                                 Send_SignsMessage();
                             }
-                            else
-                            {
-                                Program.MessageFlg = 2;
-                                Send_SignsMessage();
-                            }
                         
                         }
                     }
                     if (Program.MessageFlg == 11 || Program.MessageFlg == 14)
                     {
+                        string sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到PLC请求打印信号"+ Program.MessageFlg.ToString());
+                        tm.MultithreadExecuteNonQuery(sql);
                         lock (Program.gllock)
                         {
                             FormPrint PrintNow = new FormPrint();
@@ -125,17 +134,16 @@ namespace CoreAlgorithm.TaskManager
         {
             try
             {
-                
+                TasksManager tm = new TasksManager();
                 double MAXRECID = 0;// PLANIDNow = 0; 
                 double REC_ID = 0;// PLANIDNow = 0; [rownumberf]
                 //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
-                string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
-                DbDataReader dr = null;
+                string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
+                
                 byte[] sendArray = Enumerable.Repeat((byte)0x0, 210).ToArray();
-
                 byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
                 Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
-
+                DbDataReader dr = null;
                 dr = tm.MultithreadDataReader(sql);
                 while (dr.Read())
                 {
@@ -143,12 +151,12 @@ namespace CoreAlgorithm.TaskManager
                         MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
                 }
                 dr.Close();
-                //sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
-                sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
+                sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+               // sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
                 DataTable dt = tm.MultithreadDataTable(sql);
                 for (int i = 0; i<dt.Rows.Count; i++)
                 {
-                    PLClable.merge_sinbar = dt.Rows[i]["sn_no"].ToString();
+                    PLClable.merge_sinbar = dt.Rows[i]["merge_sinbar"].ToString();
                     PLClable.gk = dt.Rows[i]["gk"].ToString();
                     PLClable.heat_no = dt.Rows[i]["heat_no"].ToString();
                     PLClable.mtrl_no = dt.Rows[i]["mtrl_no"].ToString();
@@ -189,11 +197,33 @@ namespace CoreAlgorithm.TaskManager
                 {
                     KeyValuePair<string, Socket> kvp = PLC_Server.dict.FirstOrDefault();
                     PLC_Server.SendToSomeone(sendArray, kvp.Key);
-                    string str = "发送到PLC" + Program.MessageFlg.ToString() + " " + REC_ID.ToString() + " " + PLClable.heat_no;
+                    string logindexstr = "";
+                    switch(Program.MessageFlg)
+                    {
+                        case 2:
+                            logindexstr = "请求信息成功";
+                            break;
+                        case 3:
+                            logindexstr = "无信息";
+                            break;
+                        case 4:
+                            logindexstr = "请求信息成功但低于15条";
+                            break;
+                        case 12:
+                            logindexstr = "打印完成";
+                            break;
+                        case 13:
+                            logindexstr = "打印失败";
+                            break;
+                        default :
+                            logindexstr = "错误信号";
+                            break;
+
+                    }
+                    string str = "发送到PLC信号:" + logindexstr + Program.MessageFlg.ToString() + " " + PLClable.merge_sinbar;
                     sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                     tm.MultithreadExecuteNonQuery(sql);
                 }
-
             }
             catch (Exception ex)
             {
@@ -207,9 +237,10 @@ namespace CoreAlgorithm.TaskManager
         {
             while(true)
             {
-                Thread.Sleep(500);
+                Thread.Sleep(1000);
                 DataTable dt = null;
                 int count = 0;
+                TasksManager tm = new TasksManager();
                 int num_change = 0;
                 try
                 {
@@ -218,43 +249,86 @@ namespace CoreAlgorithm.TaskManager
                     for (int i = 0; i < dt.Rows.Count; i++)
                         count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
                     if(count>0)
-                    { 
-                        sqltext = string.Format("insert into TLabelContent SELECT [id],[merge_sinbar],[gk],[heat_no],[mtrl_no],[spec],[wegith],[num_no],[print_date],[classes],[sn_no],[labelmodel_name],[print_type],[insert_date],[flag],[orign_sinbar],[time],0,'{0}','{0}',0 FROM READ_TABLE WHERE flag='N' ORDER BY id DESC", DateTime.Now.ToString());
-                        sqltext = sqltext + ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by merge_sinbar asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
-                        num_change = tm.MultithreadExecuteNonQuery(sqltext);                  
+                    {
                         count = 0;
+                        string heatno = "";
+                        sqltext = "select top 1* from READ_TABLE where flag='N'";
+                        dt = tm.MultithreadDataTable(sqltext);
+                        if (dt.Rows.Count != 0)
+                            heatno = dt.Rows[0]["heat_no"].ToString();
+
+                        sqltext = string.Format("insert into TLabelContent SELECT [id],[merge_sinbar],[gk],[heat_no],[mtrl_no],[spec],[wegith],[num_no],[print_date],[classes],[sn_no],[labelmodel_name],[print_type],[insert_date],[flag],[orign_sinbar],[time],0,'{0}','{0}',0 FROM READ_TABLE WHERE flag='N' ORDER BY id asc", DateTime.Now.ToString());
+                        //sqltext = sqltext + ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by merge_sinbar asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
+                        num_change = tm.MultithreadExecuteNonQuery(sqltext);
+
+                        sqltext = string.Format("update READ_TABLE set flag='A' where id in(select top {0} id from READ_TABLE where flag='N' order by id)", num_change);
+                        num_change = tm.MultithreadExecuteNonQuery(sqltext);
+                        string str = "收到抛送数据:" +heatno + " " + num_change.ToString() + "条 ";// + PLClable.merge_sinbar;
+                        sqltext = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                        tm.MultithreadExecuteNonQuery(sqltext);
+                        
+                        num_change = 0;
                     }
                 }
                 catch (Exception ex)
                 {
                     string sql = "update S_TFlag set Flag=1 where ID=2";
                     tm.MultithreadExecuteNonQuery(sql);
+                    string sqltext = string.Format("update READ_TABLE set flag='A' where flag='N'", DateTime.Now.ToString());
+                    tm.MultithreadExecuteNonQuery(sqltext);
                     log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
                     Log.addLog(log, LogType.ERROR, ex.Message);
                     Log.addLog(log, LogType.ERROR, ex.StackTrace);
                 }
                 try
                 {
-                    string sqltext = string.Format("update READ_TABLE set flag='0' where flag='N'", DateTime.Now.ToString());
-                    tm.MultithreadExecuteNonQuery(sqltext);
-                     sqltext = string.Format("delete from TLabelContent where merge_sinbar in (select merge_sinbar from READ_TABLE where flag='D')", DateTime.Now.ToString());
-                    tm.MultithreadExecuteNonQuery(sqltext);
-                    sqltext = string.Format("update READ_TABLE set flag='0' where flag='D'", DateTime.Now.ToString());
-                    tm.MultithreadExecuteNonQuery(sqltext);
-                    //重新排序
-                    //sqltext = string.Format("update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from(select ROW_NUMBER() over(order by heat_no asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID", DateTime.Now.ToString());
-                    //tm.MultithreadExecuteNonQuery(sqltext);
+                    
 
-                    sqltext = "select count(*) as count from TLabelContent";
+                    string sqltext = "select count(*) as count from READ_TABLE where flag='D'";
                     dt = tm.MultithreadDataTable(sqltext);
                     for (int i = 0; i < dt.Rows.Count; i++)
                         count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
-                    if (count > 500)
+                    if (count > 0)
                     {
-                        sqltext = "insert into HLabelContent select top (count-500) * from TLabelContent where REC_ID!=0 order by rownumberf asc";
+                        count = 0;
+                        string heatno = "";
+                        sqltext = "select top 1* from READ_TABLE where flag='N'";
+                        dt = tm.MultithreadDataTable(sqltext);
+                        if (dt.Rows.Count != 0)
+                            heatno = dt.Rows[0]["heat_no"].ToString();
+
+                        sqltext = "delete from TLabelContent where merge_sinbar in (select merge_sinbar from READ_TABLE where flag='D')";
+                        num_change = tm.MultithreadExecuteNonQuery(sqltext);
+                        sqltext = string.Format("update READ_TABLE set flag='R' where flag='D'");//where id in(select top {0} id from READ_TABLE where flag='D' order by id), num_change
+                        num_change=tm.MultithreadExecuteNonQuery(sqltext);
+
+                        string str = "三级删除数据:" + heatno +" "+num_change.ToString() + "条 ";// + PLClable.merge_sinbar;
+                        sqltext = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                         tm.MultithreadExecuteNonQuery(sqltext);
-                        sqltext = "delete from TLabelContent where REC_ID in(select top (count-500) REC_ID from TLabelContent where REC_ID!=0 order by rownumberf asc)";
-                        sqltext = sqltext + ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by merge_sinbar asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
+                        
+                        num_change = 0;
+                    }
+
+                    string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
+                    DbDataReader dr = null;
+                    double MAXRECID = 0;// PLANIDNow = 0;
+                    dr = tm.MultithreadDataReader(sql);
+                    while (dr.Read())
+                    {
+                        if (dr["REC_ID"] != DBNull.Value)
+                            MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());        
+                    }
+                    dr.Close();
+                    sqltext = string.Format("select count(*) as count from TLabelContent where REC_ID<{0}", MAXRECID);
+                    dt = tm.MultithreadDataTable(sqltext);
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                        count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
+                    if (count > 50)
+                    {
+                        sqltext =string.Format("insert into HLabelContent select top {0} * from TLabelContent where REC_ID!=0 order by REC_ID asc", count - 30);
+                        tm.MultithreadExecuteNonQuery(sqltext);
+                        sqltext =string.Format("delete from TLabelContent where REC_ID in(select top {0} REC_ID from TLabelContent where REC_ID!=0 order by REC_ID asc)", count - 30);
+                        //sqltext = sqltext + ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by merge_sinbar asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
                         tm.MultithreadExecuteNonQuery(sqltext);
                     }
                 }
@@ -293,7 +367,9 @@ namespace CoreAlgorithm.TaskManager
 
                 }
                 dr.Close();
-
+				sql = string.Format("update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by REC_ID asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID");
+                tm.MultithreadExecuteNonQuery(sql);
+				
                 Thread thS = new Thread(new System.Threading.ParameterizedThreadStart(do_SendMessage));
                 thS.Start(null);
                 Thread Datecoyt = new Thread(Date_Copy);

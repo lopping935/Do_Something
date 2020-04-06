@@ -41,22 +41,22 @@ namespace AnBRobotSystem.ChildForm
             DataTable dt1 = new DataTable("MyDT");
             DbDataReader dr = null;
             string sql = "";
-            double MAXRECID = -1000, modelflag=0;// PLANIDNow = 0;  
-            sql = "update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by merge_sinbar asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
+            int MAXRECID = -1000, modelflag=0;// PLANIDNow = 0;  
+            sql = "update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by REC_ID asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
             db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
             sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";            
             dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
             while (dr.Read())
             {
                 if (dr["REC_ID"] != DBNull.Value)
-                MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
+                MAXRECID = int.Parse(dr["REC_ID"].ToString());
             }
             dr.Close();
             if(MAXRECID!=-1000)
             { 
                 try
                 {
-                    sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 合并号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_CREATE_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>={0} order by rownumberf ASC", MAXRECID - 20);
+                    sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 合并号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_CREATE_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>{0} order by rownumberf ASC", MAXRECID - 20);
                     dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel));
                 }
                 catch (Exception ex)
@@ -75,14 +75,18 @@ namespace AnBRobotSystem.ChildForm
                     dataGridView1.DataSource = dt1;
                     //dt1.Rows.Add(dataGridView1.Rows[dataGridView1.Rows.Count - 1]);
 
-                    for (int i = 0; i < dt1.Rows.Count; i++)
-                    {
-                        if (double.Parse(dt1.Rows[i][0].ToString()) == MAXRECID)
-                        {
-                            count = i;//计算多选出来的数量
-                            break;
-                        }
-                    }
+                    //for (int i = 0; i < dt1.Rows.Count; i++)
+                    //{
+                    //    if (double.Parse(dt1.Rows[i][0].ToString()) == MAXRECID)
+                    //    {
+                    //        count = i;//计算多选出来的数量
+                    //        break;
+                    //    }
+                    //}
+                    if (MAXRECID != -1000 && MAXRECID < 20)
+                        count = MAXRECID;
+                    else
+                        count = 20;
 
                 }
             }
@@ -300,32 +304,41 @@ namespace AnBRobotSystem.ChildForm
             {
                 int countn = 0;
                 int IMP_FINISH = 0;
-                if (dataGridView1.RowCount > count + 2)
+                if (  count<dataGridView1.RowCount)
                 {
-                    countn = count + 2;
+                    countn =count;
                 }
                 else
                 {
-                    countn = dataGridView1.RowCount - 1;
-
+                    countn = 20;
                 }
-
-                for (int i = 0; i < countn; i++)
+                for (int i = 0; i <countn; i++)
                 {
-                    DataGridViewRow row = dataGridView1.Rows[i];                    
-                    IMP_FINISH = int.Parse(row.Cells[17].Value.ToString());                  
-                    if (IMP_FINISH == 31 )
-                        dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.YellowGreen;
-                    if (IMP_FINISH == 32)
-                        dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Pink;
-                    if (IMP_FINISH == 0 && (i < (countn - 1)))
-                        dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                    if (IMP_FINISH == 0 && (i == (countn - 1)))
-                        dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+                    DataGridViewRow row = dataGridView1.Rows[i];
+                    IMP_FINISH = int.Parse(row.Cells[17].Value.ToString()); 
+                    switch(IMP_FINISH)
+                    {
+                        case 0:
+                            dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                            break;
+                        case 31:
+                            dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.YellowGreen;
+                            break;
+                        case 32:
+                            dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Pink;
+                            break;
+                    }                    
+                    //dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Green;
                 }
+                if (countn+1 < dataGridView1.RowCount)
+                    dataGridView1.Rows[countn].DefaultCellStyle.BackColor = Color.Green;
+
             }
-            catch
+            catch(Exception ex)
             {
+                log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
+                Log.addLog(log, LogType.ERROR, ex.Message);
+                Log.addLog(log, LogType.ERROR, ex.StackTrace);
                 MessageBox.Show("表格重绘发生错误！");
             }
         }

@@ -35,8 +35,8 @@ namespace AnBRobotSystem
         public MdiParent()
         {
             InitializeComponent();
-            string sql = "UPDATE SYSPARAMETER SET PARAMETER_VALUE=1 where PARAMETER_ID=11";
-            db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
+            //string sql = "UPDATE SYSPARAMETER SET PARAMETER_VALUE=1 where PARAMETER_ID=11";
+            //db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
             serverState = new Dictionary<string, ServiceControllerStatus>();
         }
         private void MdiParent_Load(object sender, EventArgs e)
@@ -120,7 +120,7 @@ namespace AnBRobotSystem
                 return new ModelSet();
             else if (FromName == "标签打印配置")
                 return new FormPrint();
-            else if (FromName == "标签信息")
+            else if (FromName == "标签信息记录")
                 return new YCGBDesignResult();
             else
                 return new FormPrint();
@@ -381,15 +381,9 @@ namespace AnBRobotSystem
             this.Close();
         }
 
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStrip1.Visible = toolBarToolStripMenuItem.Checked;
-        }
+       
 
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip1.Visible = statusBarToolStripMenuItem.Checked;
-        }
+        
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -478,7 +472,7 @@ namespace AnBRobotSystem
             {
                 try
                 {
-                    string sql = "select [REC_CREATE_TIME] ,[CONTENT] from (select top 50 [REC_CREATE_TIME],[CONTENT] from (select [REC_CREATE_TIME],[RECV_CONTENT] as [CONTENT]  from [MESRECVLOG]  union all select [REC_CREATE_TIME],[SEND_CONTENT] as [CONTENT]  from [MESSENDLOG]  union all select[REC_CREATE_TIME],[CONTENT] from [RECVLOG]  union all select [REC_CREATE_TIME],[CONTENT] from [SENDLOG])aa order by [REC_CREATE_TIME] desc )bb order by [REC_CREATE_TIME] asc";
+                    string sql = "select [REC_CREATE_TIME] ,[CONTENT] from (select top 5000 [REC_CREATE_TIME],[CONTENT] from (select [REC_CREATE_TIME],[RECV_CONTENT] as [CONTENT]  from [MESRECVLOG]  union all select [REC_CREATE_TIME],[SEND_CONTENT] as [CONTENT]  from [MESSENDLOG]  union all select[REC_CREATE_TIME],[CONTENT] from [RECVLOG]  union all select [REC_CREATE_TIME],[CONTENT] from [SENDLOG])aa order by [REC_CREATE_TIME] desc )bb order by [REC_CREATE_TIME] asc";
                     DataTable dt = db.ExecuteDataTable(db.GetSqlStringCommond(sql));
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
@@ -492,40 +486,7 @@ namespace AnBRobotSystem
                         else
                             ComContentHead = ComContent.Substring(0, 2);
                         switch (ComContentHead)
-                            { case "1":
-                                ComContent = "一级申请标签信息 " + ComContent;
-                                break;
-                            case "2 ":
-                                ComContent = "发送标签信息成功 " + ComContent;
-                                break;
-                            case "3 ":
-                                ComContent = "发送标签信息失败 " + ComContent;
-                                break;
-                            case "11":
-                                ComContent = "一级申请打印 " + ComContent;
-                                break;
-                            case "12":
-                                ComContent = "打印成功 " + ComContent;
-                                break;
-                            case "13":
-                                ComContent = "打印失败 " + ComContent;
-                                break;
-                            case "211":
-                                ComContent = "申请下发喷码机信息 " + ComContent;
-                                break;
-                            case "22":
-                                ComContent = "喷码信息下发成功 " + ComContent;
-                                break;
-                           
-                            case "31":
-                                ComContent = "贴标喷码全部完成 " + ComContent;
-                                break;
-                            case "32":
-                                ComContent = "贴标不喷码 " + ComContent;
-                                break;
-                            case "33":
-                                ComContent = "喷码不贴标 " + ComContent;
-                                break;
+                            { 
                             case "Se":
                                 ComContent = "发送喷码机信息 " + ComContent;
                                 break;

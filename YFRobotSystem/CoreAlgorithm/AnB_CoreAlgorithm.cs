@@ -28,28 +28,20 @@ namespace CoreAlgorithm
             //dbTemp = new DbHelper(inisql.GetConnectionString("SysSQL"));
         }
 
-       protected override void OnStart(string[] args)
-        // public void OnStart()     
+        protected override void OnStart(string[] args)
+        //public void OnStart()     
         {
             tm = new TasksManager();
            //DataTable dt = new DataTable("MyDT");
            int SystemRun = 0;
-           string sql = "SELECT PARAMETER_VALUE FROM SYSPARAMETER where PARAMETER_ID=1";
-           DbDataReader dr = null;
-           dr = tm.MultithreadDataReader(sql);
-           while (dr.Read())
-           {
-               SystemRun = Convert.ToInt16(dr["PARAMETER_VALUE"]);
-           }
-           dr.Close();
-           if (SystemRun == 1)
-           {
-               sql = "UPDATE SYSPARAMETER SET PARAMETER_VALUE=2 where PARAMETER_ID=1";
+
+          
+               
                //tm.MultithreadExecuteNonQuery(sql);
                 CommMaster cm = new CommMaster();            
                 cm.RunSINGenerate();
                 return;
-           }
+           
            
        }
 

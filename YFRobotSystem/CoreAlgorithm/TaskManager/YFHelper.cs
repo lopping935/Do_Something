@@ -42,20 +42,22 @@ namespace CoreAlgorithm.TaskManager
                     {
                         byte[] buffer = new byte[length];
                         Array.Copy(arrServerRecMsg, buffer, length);
-                        Program.MessageFlg = BitConverter.ToInt16(buffer.Skip(0).Take(2).ToArray(), 0);
+                        
                         lock (Program.gllock)
                         {
+                            Program.MessageFlg = BitConverter.ToInt16(buffer.Skip(0).Take(2).ToArray(), 0);
                             if (Program.MessageFlg == 11 || Program.MessageFlg == 14)
                             {
-                                Program.PrintNum = (buffer.Skip(2).Take(1).ToArray())[0];
+                                Program.PrintNum = buffer.Skip(2).Take(1).ToArray()[0];
                             }
                             string sql = "";
                             if (Program.MessageFlg == 31 || Program.MessageFlg == 32 || Program.MessageFlg == 33)
                             {
                                 double  REC_ID = double.Parse(Encoding.ASCII.GetString(buffer.Skip(4).Take(12).ToArray()));
+                                string merge_sn = Encoding.ASCII.GetString(buffer.Skip(146).Take(20).ToArray());
                                 sql = string.Format("UPDATE TLabelContent SET REC_CREATE_TIME='{0}',IMP_FINISH={1} WHERE REC_ID={2}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Program.MessageFlg, REC_ID);
                                 tm.MultithreadExecuteNonQuery(sql);
-                                string str = "收到PLC数据："+Program.MessageFlg.ToString() + " " + REC_ID;
+                                string str = "收到PLC焊接完成信号"+Program.MessageFlg.ToString() + " " + merge_sn;
                                 sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                                 tm.MultithreadExecuteNonQuery(sql);
 
@@ -65,22 +67,20 @@ namespace CoreAlgorithm.TaskManager
                                 Array.Copy(buffer, sendArray, length);
                                 Buffer.BlockCopy(markok, 0, sendArray, 0,markok.Length);
                                 CommMaster.PLC_Server.SendToSomeone(sendArray, kvp.Key);
-                                str = "发送到PLC" + " " + 35.ToString()+ " " + REC_ID;
+                                str = "发送到PLC完成回复" + " " + 35.ToString()+ " " + merge_sn;
                                 sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                                 tm.MultithreadExecuteNonQuery(sql);
                             }
-                            else
-                            {
-                                string str = Program.MessageFlg.ToString() + " " + Program.PrintNum.ToString();
-                                sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
-                                tm.MultithreadExecuteNonQuery(sql);
-                            }
+
                         }
 
                     }
                 }
                 catch (Exception ex)
                 {
+                    string str = "收到未定义信号" + Program.MessageFlg.ToString();
+                    string sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                    tm.MultithreadExecuteNonQuery(sql);
                     log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
                     Log.addLog(log, LogType.ERROR, ex.Message);
                 }
