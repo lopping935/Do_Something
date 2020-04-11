@@ -44,7 +44,7 @@ namespace AnBRobotSystem.ChildForm
             int MAXRECID = -1000, modelflag=0;// PLANIDNow = 0;  
             sql = "update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by REC_ID asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
             db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
-            sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";            
+            sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33 or IMP_FINISH=55";            
             dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
             while (dr.Read())
             {
@@ -166,15 +166,21 @@ namespace AnBRobotSystem.ChildForm
                 DataTable dtShow = new DataTable();
                 if (intindex == 0)
                 {
-                    dataGridView1.Rows[intindex].Cells["状态信息"].Value = 31;
-                    dtShow = (DataTable)this.dataGridView1.DataSource;
-                    dtUpdate.ImportRow(dtShow.Rows[intindex]);
+                    if(dataGridView1.Rows[intindex].Cells["状态信息"].Value.ToString() == "0")
+                    {
+                        dataGridView1.Rows[intindex].Cells["状态信息"].Value = 55;
+                        dtShow = (DataTable)this.dataGridView1.DataSource;
+                        dtUpdate.ImportRow(dtShow.Rows[intindex]);
+                    }                    
                 }
                 else
                 {
-                    dataGridView1.Rows[intindex - 1].Cells["状态信息"].Value = 31;
-                    dtShow = (DataTable)this.dataGridView1.DataSource;
-                    dtUpdate.ImportRow(dtShow.Rows[intindex - 1]);
+                    if (dataGridView1.Rows[intindex-1].Cells["状态信息"].Value.ToString() == "0")
+                    {
+                        dataGridView1.Rows[intindex - 1].Cells["状态信息"].Value = 55;
+                        dtShow = (DataTable)this.dataGridView1.DataSource;
+                        dtUpdate.ImportRow(dtShow.Rows[intindex - 1]);
+                    }
                 }
                 SqlCommandBuilder CommandBuilder;
                 CommandBuilder = new SqlCommandBuilder(this.adapter);
@@ -322,6 +328,9 @@ namespace AnBRobotSystem.ChildForm
                             dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                             break;
                         case 31:
+                            dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.YellowGreen;
+                            break;
+                        case 55:
                             dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.YellowGreen;
                             break;
                         case 32:

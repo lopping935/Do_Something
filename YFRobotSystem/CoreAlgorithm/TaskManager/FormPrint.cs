@@ -96,7 +96,7 @@ namespace CoreAlgorithm.TaskManager
 
             double MAXRECID = 0;// PLANIDNow = 0;   
             //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
-            sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
+            sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33 or IMP_FINISH=55";
 
             dr = tm.MultithreadDataReader(sql);
             while (dr.Read())
@@ -118,7 +118,7 @@ namespace CoreAlgorithm.TaskManager
                 PLClable.spec = dt.Rows[i]["spec"].ToString();//规格
                 PLClable.wegith = int.Parse(dt.Rows[i]["wegith"].ToString());//重量
                 PLClable.num_no = int.Parse(dt.Rows[i]["num_no"].ToString());//支数
-                PLClable.print_date = DateTime.Parse(dt.Rows[i]["print_date"].ToString()).ToShortDateString();//日期
+                PLClable.print_date = DateTime.Parse(dt.Rows[i]["print_date"].ToString()).ToString("yyyy-MM-dd");//日期
                 PLClable.classes = dt.Rows[i]["classes"].ToString();//班次
                 PLClable.order_num = dt.Rows[i]["sn_no"].ToString();
 
