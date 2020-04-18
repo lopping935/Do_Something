@@ -291,10 +291,10 @@ namespace CoreAlgorithm.TaskManager
                     if (count > 0)
                     {                        
                         string heatno = "";
-                        sqltext = "select top 1* from READ_TABLE where flag='N'";
+                        sqltext = "select top 1* from READ_TABLE where flag='D'";
                         dt = tm.MultithreadDataTable(sqltext);
                         if (dt.Rows.Count != 0)
-                            heatno = dt.Rows[0]["heat_no"].ToString();
+                            heatno = dt.Rows[0]["merge_sinbar"].ToString();
 
                         sqltext =string.Format("delete from TLabelContent where merge_sinbar in (select top {0} merge_sinbar from READ_TABLE where flag='D')", count);
                         num_change = tm.MultithreadExecuteNonQuery(sqltext);
@@ -304,7 +304,7 @@ namespace CoreAlgorithm.TaskManager
 
                         if(num_change>0)
                         {
-                            string str = "三级删除数据:" + heatno +" "+num_change.ToString() + "条 ";// + PLClable.merge_sinbar;
+                            string str = "三级删除数据从:" + heatno +" "+num_change.ToString() + "条 ";// + PLClable.merge_sinbar;
                             sqltext = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                             tm.MultithreadExecuteNonQuery(sqltext);
                         }      
@@ -322,15 +322,15 @@ namespace CoreAlgorithm.TaskManager
                             MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());        
                     }
                     dr.Close();
-                    sqltext = string.Format("select count(*) as count from TLabelContent where REC_ID<{0}", MAXRECID);
+                    sqltext = string.Format("select count(*) as count from TLabelContent where REC_ID<{0} ", MAXRECID);
                     dt = tm.MultithreadDataTable(sqltext);
                     for (int i = 0; i < dt.Rows.Count; i++)
                         count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
-                    if (count > 50)
+                    if (count > 20)
                     {
-                        sqltext =string.Format("insert into HLabelContent select top {0} * from TLabelContent where REC_ID!=0 order by REC_ID asc", count - 30);
+                        sqltext =string.Format("insert into HLabelContent select top {0} * from TLabelContent where REC_ID!=0 order by REC_ID asc", count - 20);
                         tm.MultithreadExecuteNonQuery(sqltext);
-                        sqltext =string.Format("delete from TLabelContent where REC_ID in(select top {0} REC_ID from TLabelContent where REC_ID!=0 order by REC_ID asc)", count - 30);
+                        sqltext =string.Format("delete from TLabelContent where REC_ID in(select top {0} REC_ID from TLabelContent where REC_ID!=0 order by REC_ID asc)", count - 20);
                         //sqltext = sqltext + ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by merge_sinbar asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
                         tm.MultithreadExecuteNonQuery(sqltext);
                     }
