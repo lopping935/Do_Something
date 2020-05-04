@@ -48,7 +48,7 @@ namespace CoreAlgorithm.TaskManager
                         tm.MultithreadExecuteNonQuery(sql);
                         double MAXRECID = 0;
                         //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
-                         sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
+                         sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33 or IMP_FINISH=55";
                         DbDataReader dr = null;
                         dr = tm.MultithreadDataReader(sql);
                         while (dr.Read())
@@ -58,7 +58,7 @@ namespace CoreAlgorithm.TaskManager
                         }
                         dr.Close();
                         int count = 0;
-                        sql = string.Format("select count(*) as count from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0", MAXRECID);
+                        sql = string.Format("select count(*) as count from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0", MAXRECID);
                         DataTable dt = tm.MultithreadDataTable(sql);
                         for (int i = 0; i < dt.Rows.Count; i++)
                             count = Convert.ToInt32(dt.Rows[i]["count"].ToString());
@@ -86,10 +86,9 @@ namespace CoreAlgorithm.TaskManager
                         
                         }
                     }
-                    if (Program.MessageFlg == 11 || Program.MessageFlg == 14)
+                    if (Program.MessageFlg == 11 )//|| Program.MessageFlg == 14
                     {
-                        string sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到PLC请求打印信号"+ Program.MessageFlg.ToString());
-                        tm.MultithreadExecuteNonQuery(sql);
+                        
                         lock (Program.gllock)
                         {
                             FormPrint PrintNow = new FormPrint();
@@ -99,19 +98,19 @@ namespace CoreAlgorithm.TaskManager
                             if (Program.PrintNum == 2)
                                 PrintNO = "Print2";
                             PrintNow.button_handprinnt_Click(PrintNO);
-                            if (Program.MessageFlg == 14)
-                            {
-                                if (Program.PrintNum == 1)
-                                {
-                                    Program.PrintNum = 2;
-                                    PrintNO = "Print2";
-                                }
-                                else
-                                {
-                                    Program.PrintNum = 1;
-                                    PrintNO = "Print1";
-                                }
-                            }
+                            //if (Program.MessageFlg == 14)
+                            //{
+                            //    if (Program.PrintNum == 1)
+                            //    {
+                            //        Program.PrintNum = 2;
+                            //        PrintNO = "Print2";
+                            //    }
+                            //    else
+                            //    {
+                            //        Program.PrintNum = 1;
+                            //        PrintNO = "Print1";
+                            //    }
+                            //}
                             if (Program.MessageFlg == 13)
                                 Send_SignsMessage();
                             if (Program.MessageFlg == 12)
@@ -281,9 +280,7 @@ namespace CoreAlgorithm.TaskManager
                     Log.addLog(log, LogType.ERROR, ex.StackTrace);
                 }
                 try
-                {
-                    
-
+                {                    
                     string sqltext = "select count(*) as count from READ_TABLE where flag='D'";
                     dt = tm.MultithreadDataTable(sqltext);
                     for (int i = 0; i < dt.Rows.Count; i++)
@@ -311,7 +308,6 @@ namespace CoreAlgorithm.TaskManager
                         num_change = 0;
                         count = 0;
                     }
-
                     string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33  or IMP_FINISH=55";
                     DbDataReader dr = null;
                     double MAXRECID = 0;// PLANIDNow = 0;
@@ -342,7 +338,6 @@ namespace CoreAlgorithm.TaskManager
                     Log.addLog(log, LogType.ERROR, ex.StackTrace);
                 }
             }
-
         }
 
         /// <summary>

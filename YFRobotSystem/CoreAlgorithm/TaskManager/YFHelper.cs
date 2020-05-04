@@ -46,9 +46,11 @@ namespace CoreAlgorithm.TaskManager
                         lock (Program.gllock)
                         {
                             Program.MessageFlg = BitConverter.ToInt16(buffer.Skip(0).Take(2).ToArray(), 0);
-                            if (Program.MessageFlg == 11 || Program.MessageFlg == 14)
-                            {
+                            if (Program.MessageFlg == 11)
+                            {           
                                 Program.PrintNum = buffer.Skip(2).Take(1).ToArray()[0];
+                                string sqltext = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), "收到PLC请求打印信号" + Program.MessageFlg.ToString() + " " + Program.PrintNum);
+                                tm.MultithreadExecuteNonQuery(sqltext);
                             }
                             string sql = "";
                             if (Program.MessageFlg == 31 || Program.MessageFlg == 32 || Program.MessageFlg == 33)

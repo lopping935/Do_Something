@@ -308,17 +308,17 @@ namespace CoreAlgorithm.TaskManager
                 else if (printerStatus.isPaused)
                 {
                     PrintMessage = "Cannot Print because the printer is paused.";
-                    if(Program.MessageFlg == 11)
-                        Program.MessageFlg = 14;
-                    else
+                    //if(Program.MessageFlg == 11)
+                    //    Program.MessageFlg = 14;
+                    //else
                         Program.MessageFlg = 13;
                 }
                 else if (printerStatus.isHeadOpen)
                 {
                     PrintMessage = "Cannot Print because the printer head is open.";
-                    if (Program.MessageFlg == 11)
-                        Program.MessageFlg = 14;
-                    else
+                    //if (Program.MessageFlg == 11)
+                    //    Program.MessageFlg = 14;
+                    //else
                         Program.MessageFlg = 13;
                 }
                 else if (printerStatus.isPaperOut)
@@ -331,9 +331,9 @@ namespace CoreAlgorithm.TaskManager
                 {
                     PrintMessage = "Cannot Print.";
 
-                    if (Program.MessageFlg == 11)
-                        Program.MessageFlg = 14;
-                    else
+                    //if (Program.MessageFlg == 11)
+                    //    Program.MessageFlg = 14;
+                    //else
                         Program.MessageFlg = 13;
 
                 }
@@ -343,18 +343,18 @@ namespace CoreAlgorithm.TaskManager
             }
             catch (ConnectionException e1)
             {
-                if (Program.MessageFlg == 11)
-                    Program.MessageFlg = 14;
-                else
+                //if (Program.MessageFlg == 11)
+                //    Program.MessageFlg = 14;
+                //else
                     Program.MessageFlg = 13;
                 log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
                 Log.addLog(log, LogType.ERROR, e1.ToString());
             }
             catch (ZebraPrinterLanguageUnknownException e2)
             {
-                if (Program.MessageFlg == 11)
-                    Program.MessageFlg = 14;
-                else
+                //if (Program.MessageFlg == 11)
+                //    Program.MessageFlg = 14;
+                //else
                     Program.MessageFlg = 13;
 
                 log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
@@ -362,9 +362,9 @@ namespace CoreAlgorithm.TaskManager
             }
             catch (IOException e3)
             {
-                if (Program.MessageFlg == 11)
-                    Program.MessageFlg = 14;
-                else
+                //if (Program.MessageFlg == 11)
+                //    Program.MessageFlg = 14;
+                //else
                     Program.MessageFlg = 13;
 
                 log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());

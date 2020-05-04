@@ -22,7 +22,7 @@ using System.Net.Sockets;
 using ZXing;
 using ZXing.QrCode;
 using ZXing.QrCode.Internal;
-
+using System.Threading;
 
 namespace AnBRobotSystem.ChildForm
 {
@@ -89,6 +89,11 @@ namespace AnBRobotSystem.ChildForm
            if(dt.Rows.Count!=0)
             heatno = dt.Rows[0]["heat_no"].ToString();
             dt.Dispose();
+
+            
+
+
+
         }
         private void auto_Work()
         {
@@ -113,7 +118,7 @@ namespace AnBRobotSystem.ChildForm
             txt_ip1.Text = Print1ip;
             txt_ip2.Text = Print2ip;
             port.Text = Print1portr.ToString();
-            txt_ip.Text = txt_ip1.Text;
+            txt_ip.Text = txt_ip2.Text;
         }
         LabelData PLClable;
         private void Init_lable()
@@ -485,7 +490,8 @@ namespace AnBRobotSystem.ChildForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Connection connection = new TcpConnection(txt_ip.Text, TcpConnection.DEFAULT_ZPL_TCP_PORT);
+            
+                Connection connection = new TcpConnection(txt_ip.Text, TcpConnection.DEFAULT_ZPL_TCP_PORT);
             try
             {
                 connection.Open();
@@ -544,6 +550,7 @@ namespace AnBRobotSystem.ChildForm
                 connection.Close();
 
             }
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
