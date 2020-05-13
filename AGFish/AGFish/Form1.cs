@@ -1,0 +1,760 @@
+﻿using iMVS_6000PlatformSDKCS;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Text.RegularExpressions;
+using FrontedUI;
+using System.IO;
+using System.Net.Sockets;
+using System.Net;
+using OPCAutomation;
+//using FrontedUI;
+
+namespace AGFish
+{
+    public partial class Form1 : Form
+    {
+       
+
+
+
+        // 全局变量定义
+        public IntPtr m_handle = IntPtr.Zero;                                   // SDK4Server句柄
+        private delegateOutputCallBack PlatformInfoCallBack;                               // 回调函数委托  
+        public uint m_nContinStatus = 9999;                                          // 连续运行状态值
+        public uint m_nStopStatus = 9999;                                          // 停止运行状态值
+        public uint m_nWorkStatus = 9999;                                          // 流程工作状态值
+        public uint m_nModuHbID = 9999;                                          // 模块心跳异常状态值
+        public uint m_nServerHbStatus = 9999;                                          // 服务心跳异常状态值
+        public uint m_nClientHbStatus = 9999;                                          // 界面心跳异常状态值
+        public uint m_nDongleStatus = 9999;                                          // 加密狗异常状态值
+        public uint m_nShowCallbackFlag = 0;                                             // 显示回调内容标志位
+        public int m_nShowProcessID = 0;                                             // 显示用流程ID
+        public uint m_nProgressFlag = 0;                                             // 显示加载或保存进度标志位
+                                                                                     //图像  
+                                                                                     //图像
+        CircleData circleData = new CircleData();
+        ImageData imageData1 = new ImageData();
+        byte[] imagebytes1;
+        public PictureBox curPictureBox1 { get; set; }
+
+        public static Socket socketClient_PLC;
+        static FileStream fs;
+        static StreamWriter sw;
+        static string path, path0;
+        Int16 count1 = 0;
+        Int16 count_old1 = 0;
+        public Form1()
+        {
+            InitializeComponent();
+            curPictureBox1 = pictureBoxImg1;
+            path0 = @"F:\程序\日志";
+            if (!Directory.Exists(path0))
+            {
+                Directory.CreateDirectory(path0);
+            }
+            path = path0 + "\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".txt";
+        }
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // 进度条设置
+            progressBarSaveAndLoad.Value = 0;
+            progressBarSaveAndLoad.Maximum = 100;
+
+            // 显示隐藏
+            comboBoxShowAndHide.Items.Add("隐藏");
+            comboBoxShowAndHide.Items.Add("显示");
+            comboBoxShowAndHide.SelectedIndex = 1;
+
+            // 消除ListBox在回调中使用产生警告
+            ListBox.CheckForIllegalCrossThreadCalls = false;
+            // 创建句柄
+            string strMsg = null;
+            if (IntPtr.Zero != m_handle)
+            {
+                ImvsPlatformSDK_API.IMVS_PF_DestroyHandle_CS(m_handle);
+                m_handle = IntPtr.Zero;
+            }
+            if (IntPtr.Zero == m_handle)
+            {
+                try { m_handle = ImvsPlatformSDK_API.IMVS_PF_CreateHandle_CS(); }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                
+                if (m_handle == IntPtr.Zero)
+                {
+                    strMsg = "IMVS_PF_CreateHandle_CS Failed.";
+                    txt_message.AppendText(strMsg + "\r\n");
+                    write(strMsg);
+                    return;
+                }
+            }
+
+            // 注册回调
+            IntPtr pUser = new IntPtr();
+            pUser = this.Handle;
+            PlatformInfoCallBack = new delegateOutputCallBack(delegateOutputCallBackFunc);
+            int iRet = ImvsPlatformSDK_API.IMVS_PF_RegisterResultCallBack_V30_CS(m_handle, PlatformInfoCallBack, pUser);
+            if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+            {
+                strMsg = "IMVS_PF_RegisterResultCallBack_V30_CS Failed";
+                txt_message.AppendText(strMsg + "\r\n");
+                write(strMsg);
+                return;
+            }
+
+           // buttonOpenVM_Click(null, null);
+            //buttonLoadSolution_Click(null, null);
+           // CreateConnect_PLC();
+        }
+        private void buttonOpenVM_Click(object sender, EventArgs e)
+        {
+
+            uint nWaitTime = 10000;
+            string strMsg = null;
+            if (IntPtr.Zero == m_handle)
+            {
+
+                strMsg = "句柄异常, 请重启软件!";
+                txt_message.AppendText(strMsg + "\r\n");
+                return;
+            }
+
+            string VMPath = "D:\\Program Files\\VisionMaster3.2.0\\Applications\\VisionMaster.exe";
+            int iRet = ImvsPlatformSDK_API.IMVS_PF_StartVisionMaster_CS(m_handle, VMPath, nWaitTime);
+            if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+            {
+                strMsg = "IMVS_PF_StartVisionMaster_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
+                txt_message.AppendText(strMsg + "\r\n");
+                write(strMsg);
+                return;
+            }
+            strMsg = "IMVS_PF_StartVisionMaster_CS Success.";
+            txt_message.AppendText(strMsg + "\r\n");
+            write(strMsg);
+
+
+        }
+
+        private void buttonCloseVM_Click(object sender, EventArgs e)
+        {
+            new Thread(new ThreadStart(delegate              // 开辟线程关闭, 防止主线程连续运行时阻塞
+            {
+                string strMsg = null;
+                if (IntPtr.Zero == m_handle)
+                {
+                    MessageBoxButtons msgType = MessageBoxButtons.OK;
+                    DialogResult diagMsg = MessageBox.Show("句柄异常, 请重启软件!", "提示", msgType);
+                    if (diagMsg == DialogResult.OK)
+                    {
+                        return;
+                    }
+                }
+
+                int iRet = ImvsSdkPFDefine.IMVS_EC_UNKNOWN;
+                iRet = ImvsPlatformSDK_API.IMVS_PF_CloseVisionMaster_CS(m_handle);
+                if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+                {
+                    strMsg = "IMVS_PF_CloseVisionMaster_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
+                    txt_message.AppendText(strMsg + "\r\n");
+                    write(strMsg);
+                    return;
+                }
+                strMsg = "IMVS_PF_CloseVisionMaster_CS Success.";
+                txt_message.AppendText(strMsg + "\r\n");
+                write(strMsg);
+
+                // 清空图像
+                curPictureBox1.Image = null;
+                curPictureBox1.Refresh();
+            }))
+            { IsBackground = true }.Start();
+        }
+
+        private void buttonLoadSolution_Click(object sender, EventArgs e)
+        {
+
+            string strMsg = null;
+            progressBarSaveAndLoad.Value = 0;
+            uint nProcess = 0;
+            labelProgress.Text = nProcess.ToString();
+            labelProgress.Refresh();
+
+            int iRet = ImvsSdkPFDefine.IMVS_EC_UNKNOWN;
+            if (IntPtr.Zero == m_handle)
+            {
+                MessageBoxButtons msgType = MessageBoxButtons.OK;
+                DialogResult diagMsg = MessageBox.Show("句柄异常, 请重启软件!", "提示", msgType);
+                if (diagMsg == DialogResult.OK)
+                {
+                    return;
+                }
+            }
+            string SolutionPath =@"E:\ProjSetup\AGFish\Debug\圆查找.sol";
+            iRet = ImvsPlatformSDK_API.IMVS_PF_LoadSolution_CS(m_handle, SolutionPath, "");
+            if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+            {
+                strMsg = "IMVS_PF_LoadSolution_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
+                txt_message.AppendText(strMsg + "\r\n");
+                write(strMsg);
+                return;
+            }
+            strMsg = "IMVS_PF_LoadSolution_CS success";
+            txt_message.AppendText(strMsg + "\r\n");
+            write(strMsg);
+            DateTime dtStart = DateTime.Now;
+            uint nProgress = 0;
+            m_nProgressFlag = 1;    // 显示加载方案进度标志位置位
+            for (; nProgress < 100;)
+            {
+                iRet = ImvsPlatformSDK_API.IMVS_PF_GetLoadProgress_CS(m_handle, ref nProgress);
+
+                labelProgress.Text = nProgress.ToString();
+                labelProgress.Refresh();
+                progressBarSaveAndLoad.Value = Convert.ToInt32(nProgress);
+
+                if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+                {
+                    strMsg = "IMVS_PF_GetLoadProgress_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
+                    txt_message.AppendText(strMsg + "\r\n");
+                    write(strMsg);
+                    return;
+                }
+
+                Thread.Sleep(300);
+
+                TimeSpan spanNow = new TimeSpan();
+                spanNow = DateTime.Now - dtStart;
+                if (spanNow.Seconds > 50)    // 50s后退出循环, 防止死循环
+                {
+                    break;
+                }
+            }
+            m_nProgressFlag = 0;    // 显示加载方案进度标志位复位
+
+        }
+
+        private void buttonCloseSolution_Click(object sender, EventArgs e)
+        {
+            string strMsg = null;
+            int iRet = ImvsSdkPFDefine.IMVS_EC_UNKNOWN;
+            if (IntPtr.Zero == m_handle)
+            {
+                MessageBoxButtons msgType = MessageBoxButtons.OK;
+                DialogResult diagMsg = MessageBox.Show("句柄异常, 请重启软件!", "提示", msgType);
+                if (diagMsg == DialogResult.OK)
+                {
+                    return;
+                }
+            }
+
+            iRet = ImvsPlatformSDK_API.IMVS_PF_CloseSolution_CS(m_handle);
+            if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+            {
+                strMsg = "IMVS_PF_CloseSolution_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
+                txt_message.AppendText(strMsg + "\r\n");
+                write(strMsg);
+                return;
+            }
+
+            // 清空PictureBox控件中的内容
+            pictureBoxImg1.Image = null;
+            pictureBoxImg1.Refresh();
+
+            strMsg = "IMVS_PF_CloseSolution_CS Success";
+            txt_message.AppendText(strMsg + "\r\n");
+            write(strMsg);
+        }
+
+        private void PLC_connection_Click(object sender, EventArgs e)
+        {
+           // CreateConnect_PLC();
+        }
+
+        private void PLC_disconnection_Click(object sender, EventArgs e)
+        {
+            //if (!socketClient_PLC.Connected)
+            //{
+            //    return;
+            //}
+
+            //socketClient_PLC.Disconnect(false);
+            ////L2_connected = false;
+            //if (!socketClient_PLC.Connected)
+            //{
+            //    PLC_connection.BackColor = Color.LightGray;
+            //    PLC_disconnection.BackColor = Color.Red;
+            //    txt_message.AppendText("已断开L2连接！" + "\r\n");
+            //    write("已断开L2连接！");
+            //    PLC_connection.Enabled = true;
+            //}
+        }
+
+        private void buttonShowHideVM_Click(object sender, EventArgs e)
+        {
+            string strMsg = null;
+            int iRet = ImvsSdkPFDefine.IMVS_EC_UNKNOWN;
+            if (IntPtr.Zero == m_handle)
+            {
+                MessageBoxButtons msgType = MessageBoxButtons.OK;
+                DialogResult diagMsg = MessageBox.Show("句柄异常, 请重启软件!", "提示", msgType);
+                if (diagMsg == DialogResult.OK)
+                {
+                    return;
+                }
+            }
+            uint nCurSel = uint.Parse(comboBoxShowAndHide.SelectedIndex.ToString());
+            iRet = ImvsPlatformSDK_API.IMVS_PF_ShowVisionMaster_CS(m_handle, nCurSel);
+            if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+            {
+                strMsg = "IMVS_PF_ShowVisionMaster_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
+                txt_message.AppendText(strMsg + "\r\n");
+                write(strMsg);
+                return;
+            }
+
+            strMsg = "IMVS_PF_ShowVisionMaster_CS Success";
+            txt_message.AppendText(strMsg + "\r\n");
+            write(strMsg);
+        }
+
+        private void timer_deleterizhi_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            int hour = dt.Hour;
+            int min = dt.Minute;
+            if (hour == 0 & min == 0)//零点
+            {
+                //建立日志路径
+                path = path0 + "\\" + dt.ToString("yyyyMMddHHmmss") + ".txt";
+                //删除大于30天的日志文件
+
+                if (true == System.IO.Directory.Exists(path0))
+                {
+                    string[] files = Directory.GetFiles(path0, "*.txt", SearchOption.AllDirectories);
+                    foreach (string file in files)
+                    {
+                        string s = file;
+                        FileInfo f = new FileInfo(s);
+                        DateTime nowtime = DateTime.Now;
+                        TimeSpan t = nowtime - f.CreationTime;
+                        int day = t.Days;
+                        if (day > 30)
+                        {
+                            File.Delete(s);
+                        }
+                    }
+
+                }
+            }
+        }
+        public void CreateConnect_PLC()
+        {
+            try
+            {
+                //创建负责通信的Socket
+                socketClient_PLC = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                //IPAddress ip = IPAddress.Parse("127.0.0.1");
+                IPAddress ip = IPAddress.Parse("176.20.60.10");
+                IPEndPoint iep = new IPEndPoint(ip, 2000);
+                socketClient_PLC.Connect(iep);
+                PLC_connection.BackColor = Color.Green;
+                PLC_disconnection.BackColor = Color.LightGray;
+                PLC_connection.Enabled = false;
+
+                ThreadPool.QueueUserWorkItem(new WaitCallback(Recv_PLC), socketClient_PLC);
+                txt_message.AppendText("与PLC连接成功！" + "\r\n");
+
+            }
+            catch (Exception err)
+            {
+                PLC_connection.BackColor = Color.Red;
+                txt_message.AppendText("与PLC连接出错：" + err.Message + "\r\n");
+                write("与PLC连接出错：" + err.Message);
+            }
+
+
+        }
+        public void Recv_PLC(object SocketClient)
+        {
+            Socket connect_PLC = SocketClient as Socket;
+
+            while (true)
+            {
+                //创建一个内存缓冲区，其大小为1024*1024字节  即1M     
+                byte[] arrServerRecMsg = new byte[1024 * 1024];
+                try
+                {
+                    //将接收到的信息存入到内存缓冲区，并返回其字节数组的长度   
+                    int length = connect_PLC.Receive(arrServerRecMsg);
+                    if (length > 0)
+                    {
+                        byte[] buffer_recv = new byte[length];
+                        Array.Copy(arrServerRecMsg, buffer_recv, length);
+
+                        //string Recvstring = Encoding.UTF8.GetString(buffer_recv);
+                        Int16 Recv_paizhao1 = BitConverter.ToInt16(buffer_recv, 0);
+                        //Int16 Recv_paizhao1 = BitConverter.ToInt16( buffer_recv.Skip(1).Take(1).ToArray(),0);
+                        Int16 Recv_sheding1 = BitConverter.ToInt16(buffer_recv, 2);
+                        if (Recv_paizhao1 == 1)
+                        {
+                            buttonContinuExecute_Click(null, null);
+                        }
+                        else if(Recv_paizhao1 == 0)
+                        {
+                            buttonStopExecute_Click(null, null);
+                        }
+                       
+                        else
+                        {
+
+                        }
+                        txt_sdzs1.Text = Recv_sheding1.ToString();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    txt_message.AppendText(ex.ToString() + "\r\n");
+                    write(ex.ToString());
+                }
+
+            }
+        }
+
+        private void buttonExecuteOnce_Click(object sender, EventArgs e)
+        {
+            string strMsg = null;
+            int iRet = ImvsSdkPFDefine.IMVS_EC_UNKNOWN;
+            if (IntPtr.Zero == m_handle)
+            {
+                MessageBoxButtons msgType = MessageBoxButtons.OK;
+                DialogResult diagMsg = MessageBox.Show("句柄异常, 请重启软件!", "提示", msgType);
+                if (diagMsg == DialogResult.OK)
+                {
+                    return;
+                }
+            }
+                uint nProcID = 10000;
+                iRet = ImvsPlatformSDK_API.IMVS_PF_ExecuteOnce_V30_CS(m_handle, nProcID, null);
+                if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+                {
+                    strMsg = "相机1:IMVS_PF_ExecuteOnce_V30_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
+                    txt_message.AppendText(strMsg + "\r\n");
+                    write(strMsg);
+                    return;
+                }
+
+                strMsg = "相机1:IMVS_PF_ExecuteOnce_V30_CS Success";
+                txt_message.AppendText(strMsg + "\r\n");
+                write(strMsg);
+
+        }
+
+        private void buttonContinuExecute_Click(object sender, EventArgs e)
+        {
+            string strMsg = null;
+            int iRet = ImvsSdkPFDefine.IMVS_EC_UNKNOWN;
+            if (IntPtr.Zero == m_handle)
+            {
+                MessageBoxButtons msgType = MessageBoxButtons.OK;
+                DialogResult diagMsg = MessageBox.Show("句柄异常, 请重启软件!", "提示", msgType);
+                if (diagMsg == DialogResult.OK)
+                {
+                    return;
+                }
+            }
+               
+                uint nProcID = 10000;
+                iRet = ImvsPlatformSDK_API.IMVS_PF_ContinousExecute_V30_CS(m_handle, nProcID);
+                if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+                {
+                    strMsg = "相机1:IMVS_PF_ContinousExecute_V30_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
+                    txt_message.AppendText(strMsg + "\r\n");
+                    write(strMsg);
+                return;
+                }
+                strMsg = "相机1:IMVS_PF_ContinousExecute_V30_CS Success";
+                txt_message.AppendText(strMsg + "\r\n");
+                write(strMsg);
+
+        }
+
+        private void buttonStopExecute_Click(object sender, EventArgs e)
+        {
+            string strMsg = null;
+            int iRet = ImvsSdkPFDefine.IMVS_EC_UNKNOWN;
+            if (IntPtr.Zero == m_handle)
+            {
+                MessageBoxButtons msgType = MessageBoxButtons.OK;
+                DialogResult diagMsg = MessageBox.Show("句柄异常, 请重启软件!", "提示", msgType);
+                if (diagMsg == DialogResult.OK)
+                {
+                    return;
+                }
+            }
+
+            uint nWaitTime = 5000; 
+            uint nProcID = 10000;
+            iRet = ImvsPlatformSDK_API.IMVS_PF_StopExecute_V30_CS(m_handle, nProcID, nWaitTime);
+            if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+            {
+                strMsg = "相机1:IMVS_PF_StopExecute_V30_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
+                txt_message.AppendText(strMsg + "\r\n");
+                write(strMsg);
+                return;
+            }
+
+            strMsg = "相机1:IMVS_PF_StopExecute_V30_CS Success";
+            txt_message.AppendText(strMsg + "\r\n");
+            write(strMsg);
+
+        }
+        /****************************************************************************
+       * @fn           回调结果数据
+       ****************************************************************************/
+        public void delegateOutputCallBackFunc(IntPtr pInputStruct, IntPtr pUser)
+        {
+            //回调信息转换
+            ImvsSdkPFDefine.IMVS_PF_OUTPUT_PLATFORM_INFO struInfo = (ImvsSdkPFDefine.IMVS_PF_OUTPUT_PLATFORM_INFO)Marshal.PtrToStructure(pInputStruct, typeof(ImvsSdkPFDefine.IMVS_PF_OUTPUT_PLATFORM_INFO));
+            switch (struInfo.nInfoType)
+            {
+
+                // 回调模块结果信息
+                case (uint)ImvsSdkPFDefine.IMVS_CTRLC_OUTPUT_PlATFORM_INFO_TYPE.IMVS_ENUM_CTRLC_OUTPUT_PLATFORM_INFO_MODULE_RESULT:
+                    {
+
+                        ImvsSdkPFDefine.IMVS_PF_MODU_RES_INFO resModuInfo = (ImvsSdkPFDefine.IMVS_PF_MODU_RES_INFO)Marshal.PtrToStructure(struInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_MODU_RES_INFO));
+
+
+                        if ((0 == m_nProgressFlag))
+                        {
+                            UpdateDataModuResutOutput(resModuInfo);
+                        }
+
+
+                        break;
+                    }
+
+
+                default:
+                    {
+                        break;
+                    }
+            }
+
+        }
+        /****************************************************************************
+       * @fn           接收回调结果数据（模块结果）
+       ****************************************************************************/
+        internal void UpdateDataModuResutOutput(ImvsSdkPFDefine.IMVS_PF_MODU_RES_INFO struResultInfo)
+        {
+            if (null == struResultInfo.pData)
+            {
+                return;
+            }
+
+            switch (struResultInfo.strModuleName)//struResultInfo.nModuleID
+            {
+                case ImvsSdkPFDefine.MODU_NAME_LOCALIMAGEVIEW://1
+                    //相机图像
+                    //ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO));
+                    //imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
+                    //imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
+                    //imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
+                    //本地图像测试
+                    ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO stLocalImgInfo = (ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO));
+                    imageData1.Width = stLocalImgInfo.stImgInfo.iWidth;
+                    imageData1.Height = stLocalImgInfo.stImgInfo.iHeight;
+                    imagebytes1 = IntPtr2Bytes(stLocalImgInfo.stImgInfo.pImgData, stLocalImgInfo.stImgInfo.iImgDataLen);
+                    Bitmap bmp;
+                    if (imageData1.Width != 0 && imageData1.Height != 0 && imagebytes1 != null)
+                    {
+                        uint ImageLenth = (uint)(imageData1.Width * imageData1.Height);
+                        if (ImageLenth != imagebytes1.Length)
+                        {
+                            break;
+                        }
+                    }
+                        imageData1.ImageBuffer = imagebytes1;
+                        if (imageData1.ImageBuffer != null)
+                    {
+                        bmp = imageData1.ImageDataToBitmap().GetArgb32BitMap();
+                        //using (var g = bmp.CreateGraphic())
+                        //{
+                        //    ////画匹配框
+                        //    if (x != null && y != null && width != null && height != null && angle != null &&
+                        //        x.Length == y.Length && x.Length == width.Length && x.Length == height.Length && x.Length == angle.Length)
+                        //    {
+                        //        for (int i = 0; i < x.Length; i++)
+                        //        {
+                        //            g.DrawRect(Color.GreenYellow, 5, new PointF(x[i], y[i]), width[i], height[i], angle[i]);
+
+                        //        }
+                        //    }
+                        //}
+                        curPictureBox1.Invoke(new Action(() =>
+                        {
+                            curPictureBox1.Image = bmp;
+                        }));
+                    }
+                    break;
+
+                case ImvsSdkPFDefine.MODU_NAME_CIRCLEFINDMODU:
+                    ImvsSdkPFDefine.IMVS_PF_CIRCLEFIND_MODU_INFO stCirFindInfo = (ImvsSdkPFDefine.IMVS_PF_CIRCLEFIND_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CIRCLEFIND_MODU_INFO));
+                    circleData.radius = stCirFindInfo.fRadius;
+                    circleData.centerx = stCirFindInfo.stCirPt.fPtX;
+                    circleData.centery = stCirFindInfo.stCirPt.fPtY;
+                    
+                    string strMsg = "circle radius is:" + struResultInfo .strDisplayName+ " "+circleData.radius;
+                    txt_message.AppendText(strMsg + "\r\n");
+                    break;
+                case "sdf" ://10000
+
+                    ImvsSdkPFDefine.IMVS_PF_CNNDETECT_MODU_INFO stCNNDETECTInfo = (ImvsSdkPFDefine.IMVS_PF_CNNDETECT_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CNNDETECT_MODU_INFO));          
+                    count1 = (short)stCNNDETECTInfo.iTargetNum;
+                    if(count1!=count_old1)
+                    {
+                        byte[] sendbuffer = Enumerable.Repeat((byte)0x00, 2).ToArray();
+                        byte[] count_byte = BitConverter.GetBytes(count1);
+                        Buffer.BlockCopy(count_byte, 0, sendbuffer, 0, count_byte.Length);
+                        socketClient_PLC.Send(sendbuffer);
+                    }
+                    //if (count1 > 0)
+                    //{
+
+                        ImvsSdkPFDefine.IMVS_PF_TARGET_INFO[] pstTargetInfo = new ImvsSdkPFDefine.IMVS_PF_TARGET_INFO[count1];
+                        ImvsSdkPFDefine.IMVS_PF_RECT_INFO_F[] rectinfo = new ImvsSdkPFDefine.IMVS_PF_RECT_INFO_F[count1];
+                        ImvsSdkPFDefine.IMVS_PF_2DPOINT_F[] TargetCenter = new ImvsSdkPFDefine.IMVS_PF_2DPOINT_F[count1];
+                        float[] width = new float[count1];
+                        float[] height = new float[count1];
+                        float[] angle = new float[count1];
+                        float[] x = new float[count1];
+                        float[] y = new float[count1];
+                        for (int i = 0; i < count1; i++)
+                        {
+                            pstTargetInfo[i] = stCNNDETECTInfo.pstTargetInfo[i];
+                            rectinfo[i] = pstTargetInfo[i].stTargetRect;
+                            width[i] = rectinfo[i].fWidth;
+                            height[i] = rectinfo[i].fHeight;
+                            angle[i] = rectinfo[i].fAngle;
+                            TargetCenter[i] = rectinfo[i].stCentPt;
+                            x[i] = TargetCenter[i].fPtX;
+                            y[i] = TargetCenter[i].fPtY;
+                        }
+
+                        //图像
+                        if (imageData1.Width != 0 && imageData1.Height != 0 && imagebytes1 != null)
+                        {
+                            uint ImageLenth = (uint)(imageData1.Width * imageData1.Height);
+                            if (ImageLenth != imagebytes1.Length)
+                            {
+                                break;
+                            }
+                            imageData1.ImageBuffer = imagebytes1;
+                            
+                            //获取图像数据
+                            if (imageData1.ImageBuffer != null)
+                            {
+                                bmp = imageData1.ImageDataToBitmap().GetArgb32BitMap();
+                                using (var g = bmp.CreateGraphic())
+                                {
+                                    ////画匹配框
+                                    if (x != null && y != null && width != null && height != null && angle != null &&
+                                        x.Length == y.Length && x.Length == width.Length && x.Length == height.Length && x.Length == angle.Length)
+                                    {
+                                        for (int i = 0; i < x.Length; i++)
+                                        {
+                                            g.DrawRect(Color.GreenYellow, 5, new PointF(x[i], y[i]), width[i], height[i], angle[i]);
+
+                                        }
+                                    }
+                                }
+                                curPictureBox1.Invoke(new Action(() =>
+                                {
+                                    curPictureBox1.Image = bmp;
+                                }));
+                            }
+
+                        }
+                        txt_count1.Text =count1.ToString();
+                        count_old1 = count1;
+                    //}
+                    break;
+
+
+
+                default: break;
+            }
+        }
+
+
+    
+    
+
+        private static void write(string message)
+        {
+            fs = new FileStream(path, FileMode.Append);
+            sw = new StreamWriter(fs);
+            string dt = DateTime.Now.ToString();
+            sw.Write(dt + message + "\r\n");
+            sw.Close();
+            fs.Close();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            int nRet = ImvsSdkPFDefine.IMVS_EC_UNKNOWN;
+            new Thread(new ThreadStart(delegate              // 开辟线程关闭, 防止主线程连续运行时阻塞
+            {
+                if (IntPtr.Zero != m_handle)
+                {
+                    nRet = ImvsPlatformSDK_API.IMVS_PF_CloseVisionMaster_CS(m_handle);
+                    Thread.Sleep(100);
+                }
+                if (IntPtr.Zero != m_handle)
+                {
+                    nRet = ImvsPlatformSDK_API.IMVS_PF_DestroyHandle_CS(m_handle);
+                    m_handle = IntPtr.Zero;
+                }
+                PLC_disconnection_Click(null, null);
+                
+                sw.Dispose();
+                fs.Dispose();
+                e.Cancel = false;
+                Environment.Exit(0);
+            }))
+            { IsBackground = true }.Start();
+
+            e.Cancel = true;
+        }
+
+        /****************************************************************************
+        * @fn           IntPtr转Bytes
+        ****************************************************************************/
+        public static byte[] IntPtr2Bytes(IntPtr ptr, int size)
+        {
+            byte[] bytes = null;
+            if ((size > 0) && (null != ptr))
+            {
+                bytes = new byte[size];
+                Marshal.Copy(ptr, bytes, 0, size);
+            }
+            return bytes;
+        }
+
+    }
+}
