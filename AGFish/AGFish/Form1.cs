@@ -17,14 +17,27 @@ using System.Net.Sockets;
 using System.Net;
 using OPCAutomation;
 //using FrontedUI;
-
+using logtest;
 namespace AGFish
 {
     public partial class Form1 : Form
     {
-       
 
 
+
+        opchelper AGFishOPCClient = new opchelper();
+        public static OPCItem xintiao;
+        public static OPCItem VisionCode;
+        public static OPCItem VisionCodeA;
+        public static OPCItem FlatCode;
+        public static OPCItem FlatCodeA;
+        public static OPCItem Product_Type;
+        public static OPCItem Pro_X;
+        public static OPCItem Pro_Y;
+        public static OPCItem Pro_Z;
+        public static OPCItem Pro_RX;
+        public static OPCItem Pro_RY;
+        public static OPCItem Pro_RZ;
 
         // 全局变量定义
         public IntPtr m_handle = IntPtr.Zero;                                   // SDK4Server句柄
@@ -63,7 +76,52 @@ namespace AGFish
             }
             path = path0 + "\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".txt";
         }
-
+        void Initopc()
+        {
+            try
+            {
+                if (!AGFishOPCClient.ConnectRemoteServer("127.0.0.1", "kepware.kepserverex.v5"))
+                {
+                    return;
+                }
+                if (!AGFishOPCClient.CreateGroup())
+                {
+                    return;
+                }
+                if (opchelper.KepServer.ServerState == (int)OPCServerState.OPCRunning)
+                {
+                    string log = "已连接到:" + opchelper.KepServer.ServerName;
+                    txt_message.AppendText(log + "\n");
+                    //service_connection.BackColor = Color.LightGreen;
+                    //service_connection.Enabled = false;
+                    LogHelper.WriteLog(log);
+                    AGFishOPCClient.opc_connected = true;
+                }
+                else
+                {
+                    //这里你可以根据返回的状态来自定义显示信息，请查看自动化接口API文档
+                    txt_message.AppendText("状态：" + opchelper.KepServer.ServerState.ToString() + "\n");
+                    //service_connection.BackColor = Color.Red;
+                    AGFishOPCClient.opc_connected = true;
+                }
+                xintiao = AGFishOPCClient.AddItem("xintiao");
+                VisionCode = AGFishOPCClient.AddItem("VisionCode");
+                VisionCodeA = AGFishOPCClient.AddItem("VisionCodeA");
+                FlatCode = AGFishOPCClient.AddItem("FlatCode");
+                FlatCodeA = AGFishOPCClient.AddItem("FlatCodeA");
+                Product_Type = AGFishOPCClient.AddItem("Product_Type");
+                Pro_X = AGFishOPCClient.AddItem("Pro_X");
+                Pro_Y = AGFishOPCClient.AddItem("Pro_Y");
+                Pro_Z = AGFishOPCClient.AddItem("Pro_Z");
+                Pro_RX = AGFishOPCClient.AddItem("Pro_RX");
+                Pro_RY = AGFishOPCClient.AddItem("Pro_RY");
+                Pro_RZ = AGFishOPCClient.AddItem("Pro_RZ");
+            }
+            catch (Exception err)
+            {
+                LogHelper.WriteLog("opcerr", err);
+            }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -97,9 +155,13 @@ namespace AGFish
                 {
                     strMsg = "IMVS_PF_CreateHandle_CS Failed.";
                     txt_message.AppendText(strMsg + "\r\n");
-                    write(strMsg);
+                    LogHelper.WriteLog(strMsg);
                     return;
                 }
+                Initopc();
+                
+
+
             }
 
             // 注册回调
@@ -111,7 +173,7 @@ namespace AGFish
             {
                 strMsg = "IMVS_PF_RegisterResultCallBack_V30_CS Failed";
                 txt_message.AppendText(strMsg + "\r\n");
-                write(strMsg);
+                LogHelper.WriteLog(strMsg);
                 return;
             }
 
@@ -119,6 +181,8 @@ namespace AGFish
             //buttonLoadSolution_Click(null, null);
            // CreateConnect_PLC();
         }
+
+
         private void buttonOpenVM_Click(object sender, EventArgs e)
         {
 
@@ -138,14 +202,12 @@ namespace AGFish
             {
                 strMsg = "IMVS_PF_StartVisionMaster_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                 txt_message.AppendText(strMsg + "\r\n");
-                write(strMsg);
+                LogHelper.WriteLog(strMsg);
                 return;
             }
             strMsg = "IMVS_PF_StartVisionMaster_CS Success.";
             txt_message.AppendText(strMsg + "\r\n");
-            write(strMsg);
-
-
+            LogHelper.WriteLog(strMsg);
         }
 
         private void buttonCloseVM_Click(object sender, EventArgs e)
@@ -169,12 +231,12 @@ namespace AGFish
                 {
                     strMsg = "IMVS_PF_CloseVisionMaster_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                     txt_message.AppendText(strMsg + "\r\n");
-                    write(strMsg);
+                    LogHelper.WriteLog(strMsg);
                     return;
                 }
                 strMsg = "IMVS_PF_CloseVisionMaster_CS Success.";
                 txt_message.AppendText(strMsg + "\r\n");
-                write(strMsg);
+                //LogHelper.WriteLog(strMsg);
 
                 // 清空图像
                 curPictureBox1.Image = null;
@@ -208,12 +270,12 @@ namespace AGFish
             {
                 strMsg = "IMVS_PF_LoadSolution_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                 txt_message.AppendText(strMsg + "\r\n");
-                write(strMsg);
+                LogHelper.WriteLog(strMsg);
                 return;
             }
             strMsg = "IMVS_PF_LoadSolution_CS success";
             txt_message.AppendText(strMsg + "\r\n");
-            write(strMsg);
+            LogHelper.WriteLog(strMsg);
             DateTime dtStart = DateTime.Now;
             uint nProgress = 0;
             m_nProgressFlag = 1;    // 显示加载方案进度标志位置位
@@ -229,7 +291,7 @@ namespace AGFish
                 {
                     strMsg = "IMVS_PF_GetLoadProgress_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                     txt_message.AppendText(strMsg + "\r\n");
-                    write(strMsg);
+                    //LogHelper.WriteLog(strMsg);
                     return;
                 }
 
@@ -265,7 +327,7 @@ namespace AGFish
             {
                 strMsg = "IMVS_PF_CloseSolution_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                 txt_message.AppendText(strMsg + "\r\n");
-                write(strMsg);
+                LogHelper.WriteLog(strMsg);
                 return;
             }
 
@@ -275,7 +337,7 @@ namespace AGFish
 
             strMsg = "IMVS_PF_CloseSolution_CS Success";
             txt_message.AppendText(strMsg + "\r\n");
-            write(strMsg);
+            LogHelper.WriteLog(strMsg);
         }
 
         private void PLC_connection_Click(object sender, EventArgs e)
@@ -321,13 +383,13 @@ namespace AGFish
             {
                 strMsg = "IMVS_PF_ShowVisionMaster_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                 txt_message.AppendText(strMsg + "\r\n");
-                write(strMsg);
+                LogHelper.WriteLog(strMsg);
                 return;
             }
 
             strMsg = "IMVS_PF_ShowVisionMaster_CS Success";
             txt_message.AppendText(strMsg + "\r\n");
-            write(strMsg);
+            LogHelper.WriteLog(strMsg);
         }
 
         private void timer_deleterizhi_Tick(object sender, EventArgs e)
@@ -360,80 +422,7 @@ namespace AGFish
                 }
             }
         }
-        public void CreateConnect_PLC()
-        {
-            try
-            {
-                //创建负责通信的Socket
-                socketClient_PLC = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                //IPAddress ip = IPAddress.Parse("127.0.0.1");
-                IPAddress ip = IPAddress.Parse("176.20.60.10");
-                IPEndPoint iep = new IPEndPoint(ip, 2000);
-                socketClient_PLC.Connect(iep);
-                PLC_connection.BackColor = Color.Green;
-                PLC_disconnection.BackColor = Color.LightGray;
-                PLC_connection.Enabled = false;
 
-                ThreadPool.QueueUserWorkItem(new WaitCallback(Recv_PLC), socketClient_PLC);
-                txt_message.AppendText("与PLC连接成功！" + "\r\n");
-
-            }
-            catch (Exception err)
-            {
-                PLC_connection.BackColor = Color.Red;
-                txt_message.AppendText("与PLC连接出错：" + err.Message + "\r\n");
-                write("与PLC连接出错：" + err.Message);
-            }
-
-
-        }
-        public void Recv_PLC(object SocketClient)
-        {
-            Socket connect_PLC = SocketClient as Socket;
-
-            while (true)
-            {
-                //创建一个内存缓冲区，其大小为1024*1024字节  即1M     
-                byte[] arrServerRecMsg = new byte[1024 * 1024];
-                try
-                {
-                    //将接收到的信息存入到内存缓冲区，并返回其字节数组的长度   
-                    int length = connect_PLC.Receive(arrServerRecMsg);
-                    if (length > 0)
-                    {
-                        byte[] buffer_recv = new byte[length];
-                        Array.Copy(arrServerRecMsg, buffer_recv, length);
-
-                        //string Recvstring = Encoding.UTF8.GetString(buffer_recv);
-                        Int16 Recv_paizhao1 = BitConverter.ToInt16(buffer_recv, 0);
-                        //Int16 Recv_paizhao1 = BitConverter.ToInt16( buffer_recv.Skip(1).Take(1).ToArray(),0);
-                        Int16 Recv_sheding1 = BitConverter.ToInt16(buffer_recv, 2);
-                        if (Recv_paizhao1 == 1)
-                        {
-                            buttonContinuExecute_Click(null, null);
-                        }
-                        else if(Recv_paizhao1 == 0)
-                        {
-                            buttonStopExecute_Click(null, null);
-                        }
-                       
-                        else
-                        {
-
-                        }
-                        txt_sdzs1.Text = Recv_sheding1.ToString();
-
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                    txt_message.AppendText(ex.ToString() + "\r\n");
-                    write(ex.ToString());
-                }
-
-            }
-        }
 
         private void buttonExecuteOnce_Click(object sender, EventArgs e)
         {
@@ -454,13 +443,13 @@ namespace AGFish
                 {
                     strMsg = "相机1:IMVS_PF_ExecuteOnce_V30_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                     txt_message.AppendText(strMsg + "\r\n");
-                    write(strMsg);
+                    LogHelper.WriteLog(strMsg);
                     return;
                 }
 
                 strMsg = "相机1:IMVS_PF_ExecuteOnce_V30_CS Success";
                 txt_message.AppendText(strMsg + "\r\n");
-                write(strMsg);
+                LogHelper.WriteLog(strMsg);
 
         }
 
@@ -484,12 +473,12 @@ namespace AGFish
                 {
                     strMsg = "相机1:IMVS_PF_ContinousExecute_V30_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                     txt_message.AppendText(strMsg + "\r\n");
-                    write(strMsg);
+                    LogHelper.WriteLog(strMsg);
                 return;
                 }
                 strMsg = "相机1:IMVS_PF_ContinousExecute_V30_CS Success";
                 txt_message.AppendText(strMsg + "\r\n");
-                write(strMsg);
+                LogHelper.WriteLog(strMsg);
 
         }
 
@@ -514,13 +503,13 @@ namespace AGFish
             {
                 strMsg = "相机1:IMVS_PF_StopExecute_V30_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                 txt_message.AppendText(strMsg + "\r\n");
-                write(strMsg);
+                LogHelper.WriteLog(strMsg);
                 return;
             }
 
             strMsg = "相机1:IMVS_PF_StopExecute_V30_CS Success";
             txt_message.AppendText(strMsg + "\r\n");
-            write(strMsg);
+            LogHelper.WriteLog(strMsg);
 
         }
         /****************************************************************************
@@ -620,6 +609,8 @@ namespace AGFish
                     circleData.centery = stCirFindInfo.stCirPt.fPtY;
                     
                     string strMsg = "circle radius is:" + struResultInfo .strDisplayName+ " "+circleData.radius;
+
+
                     txt_message.AppendText(strMsg + "\r\n");
                     break;
                 case "sdf" ://10000
@@ -701,10 +692,6 @@ namespace AGFish
             }
         }
 
-
-    
-    
-
         private static void write(string message)
         {
             fs = new FileStream(path, FileMode.Append);
@@ -741,6 +728,7 @@ namespace AGFish
 
             e.Cancel = true;
         }
+
 
         /****************************************************************************
         * @fn           IntPtr转Bytes
