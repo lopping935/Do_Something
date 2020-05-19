@@ -729,6 +729,13 @@ namespace AGFish
             e.Cancel = true;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AGFishOPCClient.WriteItem(txt_sdzs1.Text, Pro_X);
+            object a= AGFishOPCClient.ReadItem(VisionCode);
+            txt_sdzs1.Text = a.ToString();
+        }
+
 
         /****************************************************************************
         * @fn           IntPtr转Bytes

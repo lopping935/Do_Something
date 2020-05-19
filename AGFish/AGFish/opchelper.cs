@@ -28,7 +28,7 @@ namespace AGFish
                 KepServer.Connect(remoteServerName, remoteServerIP);//实例化kepserver对象
 
             }
-            catch 
+            catch(Exception e)
             {
                 opc_connected=false;
                 return false;
@@ -70,7 +70,7 @@ namespace AGFish
         {
             OPCItem myKepItem = null;
             string itemname;
-            itemname = "Simulation Examples.Functions." + tagname;
+            itemname = "ANFish.AFish300." + tagname;
             myKepItem = KepItems.AddItem(itemname, 1);
             return myKepItem;
         }
