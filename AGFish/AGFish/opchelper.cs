@@ -101,9 +101,6 @@ namespace AGFish
         /// </summary>
         public void WriteItem(string myValue, OPCItem myKepItem)
         {
-
-            try
-            {
                 Array Serverhandles, MyErrors;
                 object[] valueTemp = new object[] { "", myValue };
                 int[] temp = new int[2];
@@ -112,13 +109,6 @@ namespace AGFish
 
                 Serverhandles = (Array)temp;
                 KepGroup.SyncWrite(1, Serverhandles, valueTemp, out MyErrors);
-            }
-            catch (Exception err)
-            {
-                //txt_message.AppendText("写入" + myKepItem + "错误！" + err.Message + "\n");
-
-            }
-
         }
         public static void static_WriteItem(string myValue, OPCItem myKepItem)
         {
