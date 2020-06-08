@@ -50,7 +50,7 @@ namespace AGFish
         public int m_nShowProcessID = 0;                                             // 显示用流程ID
         public uint m_nProgressFlag = 0;                                             // 显示加载或保存进度标志位
                                                                                      //图像  
-                                                                                     //图像
+        FeatureMatchData featureMacthData = new FeatureMatchData();                                                                             //图像
         CircleData circleData = new CircleData();
         ImageData imageData1 = new ImageData();
         byte[] imagebytes1;
@@ -334,9 +334,7 @@ namespace AGFish
             txt_message.AppendText(strMsg + "\r\n");
             LogHelper.WriteLog(strMsg);
         }
-
         
-
         private void buttonShowHideVM_Click(object sender, EventArgs e)
         {
             string strMsg = null;
@@ -365,17 +363,22 @@ namespace AGFish
             LogHelper.WriteLog(strMsg);
         }
         string location_flag, recognition_flag;
-
+        
         private void timer_deleterizhi_Tick(object sender, EventArgs e)
         {
             try
             {
                 object location = AGFishOPCClient.ReadItem(VisionCode);
                 //txt_sdzs1.Text = location.ToString();
-                if (location.ToString() == "1")
+                
+                if (location.ToString() == "1"|| location.ToString() == "2")
                 {
-                    LocationExecuteOnce_Click(null, null);
+                    
+                    location_flag = location.ToString();
                     AGFishOPCClient.WriteItem(0.ToString(), VisionCode);
+                    LocationExecuteOnce_Click(null, null);
+                    txt_message.Invoke(new Action(() => { txt_message.AppendText("请求第"+ location_flag + "次拍照" + "\r\n"); }));
+
                 }
                 //object recognition = AGFishOPCClient.ReadItem(VisionCodeA);
                 //txt_sdzs1.Text = location.ToString();
@@ -426,6 +429,7 @@ namespace AGFish
             nProcID = 10000;
             ExecuteOnce();
         }
+
         private void Recognition_Click(object sender, EventArgs e)
         {
             nProcID = 10001;
@@ -529,6 +533,7 @@ namespace AGFish
         /****************************************************************************
        * @fn           接收回调结果数据（模块结果）
        ****************************************************************************/
+        Bitmap bmp;
         internal void UpdateDataModuResutOutput(ImvsSdkPFDefine.IMVS_PF_MODU_RES_INFO struResultInfo)
         {
             if (null == struResultInfo.pData)
@@ -693,7 +698,7 @@ namespace AGFish
                         //imageData1.Width = stLocalImgInfo.stImgInfo.iWidth;
                         //imageData1.Height = stLocalImgInfo.stImgInfo.iHeight;
                         imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
-                        Bitmap bmp;
+                        
                         if (imageData1.Width != 0 && imageData1.Height != 0 && imagebytes1 != null)
                         {
                             uint ImageLenth = (uint)(imageData1.Width * imageData1.Height);
@@ -706,43 +711,75 @@ namespace AGFish
                         if (imageData1.ImageBuffer != null)
                         {
                             bmp = imageData1.ImageDataToBitmap().GetArgb32BitMap();
-                            //using (var g = bmp.CreateGraphic())
-                            //{
-                            //    ////画匹配框
-                            //    if (x != null && y != null && width != null && height != null && angle != null &&
-                            //        x.Length == y.Length && x.Length == width.Length && x.Length == height.Length && x.Length == angle.Length)
-                            //    {
-                            //        for (int i = 0; i < x.Length; i++)
-                            //        {
-                            //            g.DrawRect(Color.GreenYellow, 5, new PointF(x[i], y[i]), width[i], height[i], angle[i]);
-
-                            //        }
-                            //    }
-                            //}
-                            curPictureBox2.Invoke(new Action(() =>
-                            {
-                                curPictureBox2.Image = bmp;
-                            }));
                         }
                         break;
-                    #endregion
+                        #endregion
+                        case ImvsSdkPFDefine.MODU_NAME_HPFEATUREMATCHMODU:
+                            ImvsSdkPFDefine.IMVS_PF_HPFEATUREMATCH_MODU_INFO stHpFeatMatchInfo = (ImvsSdkPFDefine.IMVS_PF_HPFEATUREMATCH_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_HPFEATUREMATCH_MODU_INFO));
+                            if (stHpFeatMatchInfo.stMatchConInfo.iPtNum > 0)
+                            {
+                                featureMacthData.outLinePointInfo = new ImvsSdkPFDefine.IMVS_PATMATCH_POINT_INFO[stHpFeatMatchInfo.stMatchConInfo.iPtNum];
+                                for (int iNum = 0; iNum < stHpFeatMatchInfo.stMatchConInfo.iPtNum; iNum++)
+                                {
+                                    featureMacthData.outLinePointInfo[iNum] = stHpFeatMatchInfo.stMatchConInfo.pstPatMatchPt[iNum];
+                                }
+                            }
+                            using (var g = bmp.CreateGraphic())
+                            { 
+                                if (featureMacthData.outLinePointInfo != null)
+                                {
+                                    for (int k = 0; k < featureMacthData.outLinePointInfo.Length; k++)
+                                    {
+                                        g.DrawPoint(Color.GreenYellow, new PointF(featureMacthData.outLinePointInfo[k].fMatchOutlineX, featureMacthData.outLinePointInfo[k].fMatchOutlineY));
+                                    }
+                                }
+                                curPictureBox2.Invoke(new Action(() =>{curPictureBox2.Image = bmp;}));
+                            }
+                            break;
+                            //IMVS_PF_HPMATCH_PT_INFO
                     #region 单点对位
-                    case ImvsSdkPFDefine.MODU_NAME_SINGLEPOINTALIGNMODU://1
-                        ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO siglepoint = (ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO));
-                        float x = (float)Math.Round(siglepoint.fDeltaX, 3);
-                        float y = (float)Math.Round(siglepoint.fDeltaY, 3);
-                        AGFishOPCClient.WriteItem(x.ToString(), Pro_X);
-                        AGFishOPCClient.WriteItem(y.ToString(), Pro_Y);
-                        AGFishOPCClient.WriteItem(5.ToString(), VisionCode);
-                        if(-150<x&&x<150)
+                        case ImvsSdkPFDefine.MODU_NAME_SINGLEPOINTALIGNMODU://1
+                         ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO siglepoint = (ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO));
+                         float x = (float)Math.Round(siglepoint.fDeltaX, 3);
+                         float y = (float)Math.Round(siglepoint.fDeltaY, 3);
+                         if(location_flag=="1")
+                         {
+                                location_flag = "";
+                                AGFishOPCClient.WriteItem(x.ToString(), Pro_X);
+                                AGFishOPCClient.WriteItem(y.ToString(), Pro_Y);
+                                AGFishOPCClient.WriteItem(5.ToString(), VisionCode);
+                                if (-150 < x && x < 150)
+                                {
+                                    AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
+                                    txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导1成功将5写入PLC" + "\r\n"); }));
+                                    //LogHelper.WriteLog(strMsg);
+
+                                }
+                                else
+                                {
+                                    AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
+                                    txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导1失败将0写入PLC" + "\r\n"); }));
+                                }
+                         }
+                        if (location_flag == "2")
                         {
-                            AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
+                            location_flag = "";
+                            AGFishOPCClient.WriteItem(x.ToString(), Pro_X);
+                            AGFishOPCClient.WriteItem(y.ToString(), Pro_Y);
+                            AGFishOPCClient.WriteItem(6.ToString(), VisionCode);
+                            if (-150 < x && x < 150)
+                            {
+                                AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
+                                txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导2成功将5写入PLC" + "\r\n"); }));
+                                //LogHelper.WriteLog(strMsg);
+
+                            }
+                            else
+                            {
+                                AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
+                                txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导2失败将0写入PLC" + "\r\n"); }));
+                            }
                         }
-                        else
-                        {
-                            AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
-                        }
-                        
                         txt_sdzs1.Text = x.ToString() + "," + y.ToString();
                         break;
                     #endregion
