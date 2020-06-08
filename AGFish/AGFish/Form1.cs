@@ -189,7 +189,7 @@ namespace AGFish
                 return;
             }
 
-            string VMPath = "D:\\Program Files\\VisionMaster3.2.0\\Applications\\VisionMaster.exe";
+            string VMPath = "C:\\Program Files\\VisionMaster3.2.0\\Applications\\VisionMaster.exe";
             int iRet = ImvsPlatformSDK_API.IMVS_PF_StartVisionMaster_CS(m_handle, VMPath, nWaitTime);
             if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
             {
@@ -259,7 +259,7 @@ namespace AGFish
                     return;
                 }
             }
-            string SolutionPath =@"E:\ProjSetup\AGFish\Debug\分流程触发.sol";
+            string SolutionPath = AppDomain.CurrentDomain.BaseDirectory+ "dybd.sol";
             iRet = ImvsPlatformSDK_API.IMVS_PF_LoadSolution_CS(m_handle, SolutionPath, "");
             if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
             {
@@ -368,26 +368,27 @@ namespace AGFish
 
         private void timer_deleterizhi_Tick(object sender, EventArgs e)
         {
-            //try { 
-            //    object location = AGFishOPCClient.ReadItem(VisionCode);
-            //    txt_sdzs1.Text = location.ToString();
-            //    if(location.ToString()=="0")
-            //    {
-            //        LocationExecuteOnce_Click(null, null);
-            //        AGFishOPCClient.WriteItem(10.ToString(), VisionCode);
-            //    }
-            //    object recognition = AGFishOPCClient.ReadItem(VisionCodeA);
-            //    txt_sdzs1.Text = location.ToString();
-            //    if (recognition.ToString() == "0")
-            //    {
-            //        Recognition_Click(null, null);
-            //        AGFishOPCClient.WriteItem(10.ToString(), VisionCodeA);
-            //    }
-            //}
-            //catch(Exception ex)
-            //{
-            //    LogHelper.WriteLog("时钟执行错误",ex);
-            //}
+            try
+            {
+                object location = AGFishOPCClient.ReadItem(VisionCode);
+                //txt_sdzs1.Text = location.ToString();
+                if (location.ToString() == "1")
+                {
+                    LocationExecuteOnce_Click(null, null);
+                    AGFishOPCClient.WriteItem(0.ToString(), VisionCode);
+                }
+                //object recognition = AGFishOPCClient.ReadItem(VisionCodeA);
+                //txt_sdzs1.Text = location.ToString();
+                //if (recognition.ToString() == "0")
+                //{
+                 //   Recognition_Click(null, null);
+                   // AGFishOPCClient.WriteItem(10.ToString(), VisionCodeA);
+               // }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog("时钟执行错误", ex);
+            }
         }
 
         uint nProcID = 0;
@@ -673,21 +674,25 @@ namespace AGFish
             }
             if (struResultInfo.nProcessID == 10000)
             {
+                try
+                {
+
+                
                 switch (struResultInfo.strModuleName)//struResultInfo.nModuleID
                 {
 
-
-                    case ImvsSdkPFDefine.MODU_NAME_LOCALIMAGEVIEW://1
+                    #region 相机图像
+                    case ImvsSdkPFDefine.MODU_NAME_CAMERAMODULE://1
                         //相机图像
-                        //ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO));
-                        //imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
-                        //imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
+                        ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO));
+                        imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
+                        imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
                         //imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
-                        //本地图像测试
-                        ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO stLocalImgInfo = (ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO));
-                        imageData1.Width = stLocalImgInfo.stImgInfo.iWidth;
-                        imageData1.Height = stLocalImgInfo.stImgInfo.iHeight;
-                        imagebytes1 = IntPtr2Bytes(stLocalImgInfo.stImgInfo.pImgData, stLocalImgInfo.stImgInfo.iImgDataLen);
+                        //本地图像测试 MODU_NAME_LOCALIMAGEVIEW
+                        //ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO stLocalImgInfo = (ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO));
+                        //imageData1.Width = stLocalImgInfo.stImgInfo.iWidth;
+                        //imageData1.Height = stLocalImgInfo.stImgInfo.iHeight;
+                        imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
                         Bitmap bmp;
                         if (imageData1.Width != 0 && imageData1.Height != 0 && imagebytes1 != null)
                         {
@@ -720,7 +725,28 @@ namespace AGFish
                             }));
                         }
                         break;
-
+                    #endregion
+                    #region 单点对位
+                    case ImvsSdkPFDefine.MODU_NAME_SINGLEPOINTALIGNMODU://1
+                        ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO siglepoint = (ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO));
+                        float x = (float)Math.Round(siglepoint.fDeltaX, 3);
+                        float y = (float)Math.Round(siglepoint.fDeltaY, 3);
+                        AGFishOPCClient.WriteItem(x.ToString(), Pro_X);
+                        AGFishOPCClient.WriteItem(y.ToString(), Pro_Y);
+                        AGFishOPCClient.WriteItem(5.ToString(), VisionCode);
+                        if(-150<x&&x<150)
+                        {
+                            AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
+                        }
+                        else
+                        {
+                            AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
+                        }
+                        
+                        txt_sdzs1.Text = x.ToString() + "," + y.ToString();
+                        break;
+                    #endregion
+                    #region
                     case ImvsSdkPFDefine.MODU_NAME_CIRCLEFINDMODU:
                         ImvsSdkPFDefine.IMVS_PF_CIRCLEFIND_MODU_INFO stCirFindInfo = (ImvsSdkPFDefine.IMVS_PF_CIRCLEFIND_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CIRCLEFIND_MODU_INFO));
                         circleData.radius = stCirFindInfo.fRadius;
@@ -730,83 +756,19 @@ namespace AGFish
                         string strMsg = "circle radius is:" + struResultInfo.strDisplayName + " " + circleData.radius;
                         txt_message.AppendText(strMsg + "\r\n");
                         break;
-                    case "sdf"://10000
-
-                        ImvsSdkPFDefine.IMVS_PF_CNNDETECT_MODU_INFO stCNNDETECTInfo = (ImvsSdkPFDefine.IMVS_PF_CNNDETECT_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CNNDETECT_MODU_INFO));
-                        count1 = (short)stCNNDETECTInfo.iTargetNum;
-                        if (count1 != count_old1)
-                        {
-                            byte[] sendbuffer = Enumerable.Repeat((byte)0x00, 2).ToArray();
-                            byte[] count_byte = BitConverter.GetBytes(count1);
-                            Buffer.BlockCopy(count_byte, 0, sendbuffer, 0, count_byte.Length);
-                            socketClient_PLC.Send(sendbuffer);
-                        }
-                        //if (count1 > 0)
-                        //{
-
-                        ImvsSdkPFDefine.IMVS_PF_TARGET_INFO[] pstTargetInfo = new ImvsSdkPFDefine.IMVS_PF_TARGET_INFO[count1];
-                        ImvsSdkPFDefine.IMVS_PF_RECT_INFO_F[] rectinfo = new ImvsSdkPFDefine.IMVS_PF_RECT_INFO_F[count1];
-                        ImvsSdkPFDefine.IMVS_PF_2DPOINT_F[] TargetCenter = new ImvsSdkPFDefine.IMVS_PF_2DPOINT_F[count1];
-                        float[] width = new float[count1];
-                        float[] height = new float[count1];
-                        float[] angle = new float[count1];
-                        float[] x = new float[count1];
-                        float[] y = new float[count1];
-                        for (int i = 0; i < count1; i++)
-                        {
-                            pstTargetInfo[i] = stCNNDETECTInfo.pstTargetInfo[i];
-                            rectinfo[i] = pstTargetInfo[i].stTargetRect;
-                            width[i] = rectinfo[i].fWidth;
-                            height[i] = rectinfo[i].fHeight;
-                            angle[i] = rectinfo[i].fAngle;
-                            TargetCenter[i] = rectinfo[i].stCentPt;
-                            x[i] = TargetCenter[i].fPtX;
-                            y[i] = TargetCenter[i].fPtY;
-                        }
-
-                        //图像
-                        if (imageData1.Width != 0 && imageData1.Height != 0 && imagebytes1 != null)
-                        {
-                            uint ImageLenth = (uint)(imageData1.Width * imageData1.Height);
-                            if (ImageLenth != imagebytes1.Length)
-                            {
-                                break;
-                            }
-                            imageData1.ImageBuffer = imagebytes1;
-
-                            //获取图像数据
-                            if (imageData1.ImageBuffer != null)
-                            {
-                                bmp = imageData1.ImageDataToBitmap().GetArgb32BitMap();
-                                using (var g = bmp.CreateGraphic())
-                                {
-                                    ////画匹配框
-                                    if (x != null && y != null && width != null && height != null && angle != null &&
-                                        x.Length == y.Length && x.Length == width.Length && x.Length == height.Length && x.Length == angle.Length)
-                                    {
-                                        for (int i = 0; i < x.Length; i++)
-                                        {
-                                            g.DrawRect(Color.GreenYellow, 5, new PointF(x[i], y[i]), width[i], height[i], angle[i]);
-
-                                        }
-                                    }
-                                }
-                                curPictureBox1.Invoke(new Action(() =>
-                                {
-                                    curPictureBox2.Image = bmp;
-                                }));
-                            }
-
-                        }
-                        txt_count1.Text = count1.ToString();
-                        count_old1 = count1;
-                        //}
-                        break;
-
+                  
+                    #endregion
 
 
                     default: break;
                 }
+            }
+                catch(Exception e)
+                {
+                    LogHelper.WriteLog("recallbacke process 1000 error", e);
+                }
+                
+                
             }
 
         }
@@ -846,10 +808,7 @@ namespace AGFish
             { IsBackground = true }.Start();
 
             e.Cancel = true;
-        }
-
-        
-
+        }       
         private void button1_Click(object sender, EventArgs e)
         {
             //AGFishOPCClient.WriteItem(txt_sdzs1.Text, Pro_X);

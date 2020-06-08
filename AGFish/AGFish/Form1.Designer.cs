@@ -51,9 +51,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.labelProgress = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImg1)).BeginInit();
             this.groupBoxShowAndHide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -197,7 +197,7 @@
             // timer_deleterizhi
             // 
             this.timer_deleterizhi.Enabled = true;
-            this.timer_deleterizhi.Interval = 60000;
+            this.timer_deleterizhi.Interval = 1000;
             this.timer_deleterizhi.Tick += new System.EventHandler(this.timer_deleterizhi_Tick);
             // 
             // txt_count1
@@ -293,26 +293,6 @@
             this.labelProgress.TabIndex = 33;
             this.labelProgress.Text = "0";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(94, 176);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(239, 33);
-            this.label3.TabIndex = 180;
-            this.label3.Text = "罐车定位单动：";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(785, 182);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(239, 33);
-            this.label4.TabIndex = 181;
-            this.label4.Text = "罐车字符单动：";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -324,6 +304,26 @@
             this.label5.Size = new System.Drawing.Size(291, 39);
             this.label5.TabIndex = 182;
             this.label5.Text = "莱  钢  电  子";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(785, 182);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(239, 33);
+            this.label4.TabIndex = 181;
+            this.label4.Text = "罐车字符单动：";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(94, 176);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(239, 33);
+            this.label3.TabIndex = 180;
+            this.label3.Text = "罐车定位单动：";
             // 
             // Form1
             // 
