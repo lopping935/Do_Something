@@ -368,10 +368,8 @@ namespace AGFish
         {
             try
             {
-                object location = AGFishOPCClient.ReadItem(VisionCode);
-                //txt_sdzs1.Text = location.ToString();
-                
-                if (location.ToString() == "1"|| location.ToString() == "2")
+                object location = AGFishOPCClient.ReadItem(VisionCode);              
+                if (location.ToString() == "1"|| location.ToString() == "2"|| location.ToString() == "3")
                 {
                     
                     location_flag = location.ToString();
@@ -742,7 +740,7 @@ namespace AGFish
                          ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO siglepoint = (ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO));
                          float x = (float)Math.Round(siglepoint.fDeltaX, 3);
                          float y = (float)Math.Round(siglepoint.fDeltaY, 3);
-                         if(location_flag=="1")
+                         if (location_flag == "1")
                          {
                                 location_flag = "";
                                 AGFishOPCClient.WriteItem(x.ToString(), Pro_X);
@@ -761,7 +759,7 @@ namespace AGFish
                                     txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导1失败将0写入PLC" + "\r\n"); }));
                                 }
                          }
-                        if (location_flag == "2")
+                         if (location_flag == "2")
                         {
                             location_flag = "";
                             AGFishOPCClient.WriteItem(x.ToString(), Pro_X);
@@ -780,7 +778,26 @@ namespace AGFish
                                 txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导2失败将0写入PLC" + "\r\n"); }));
                             }
                         }
-                        txt_sdzs1.Text = x.ToString() + "," + y.ToString();
+                         if (location_flag == "3")
+                        {
+                            location_flag = "";
+                            AGFishOPCClient.WriteItem(x.ToString(), Pro_X);
+                            AGFishOPCClient.WriteItem(y.ToString(), Pro_Y);
+                            AGFishOPCClient.WriteItem(7.ToString(), VisionCode);
+                            if (-150 < x && x < 150)
+                            {
+                                AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
+                                txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导3成功将5写入PLC" + "\r\n"); }));
+                                //LogHelper.WriteLog(strMsg);
+
+                            }
+                            else
+                            {
+                                AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
+                                txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导3失败将0写入PLC" + "\r\n"); }));
+                            }
+                        }
+                         txt_sdzs1.Text = x.ToString() + "," + y.ToString();
                         break;
                     #endregion
                     #region
