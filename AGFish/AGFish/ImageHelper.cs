@@ -3,8 +3,8 @@ using System.Collections;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using iMVS_6000PlatformSDKCS;
 using Color = System.Drawing.Color;
-
 
 namespace FrontedUI
 {
@@ -13,11 +13,15 @@ namespace FrontedUI
     /// </summary>
     public class ImageData
     {
-        public byte[] ImageBuffer;  //图像buffer
-        public int Width;           //图像宽度
-        public int Height;          //图像高度
-        public MPixelFormat PixelFormat = MPixelFormat.Gray8;        //图像像素格式
+        public byte[] ImageBuffer = null; // 图像buffer
+        public int Width;                 // 图像宽度
+        public int Height;                // 图像高度
+        public MPixelFormat PixelFormat = MPixelFormat.Gray8;    //图像像素格式
     }
+
+    /// <summary>
+    /// 圆数据
+    /// </summary>
     public class CircleData
     {
         //圆
@@ -25,6 +29,31 @@ namespace FrontedUI
         public float centerx = float.NaN;
         public float centery = float.NaN;
     }
+
+    /// <summary>
+    /// 特征匹配数据
+    /// </summary>
+    public class FeatureMatchData
+    {
+        //轮廓点
+        public float[] EdgePointX = null;
+        public float[] EdgePointY = null;
+
+        //匹配框
+        public float[] MatchBoxCenterX = null;
+        public float[] MatchBoxCenterY = null;
+        public float[] MatchBoxWidth = null;
+        public float[] MatchBoxHeight = null;
+        public float[] MatchBoxAngle = null;
+
+        //匹配点
+        public float[] MatchPointX = null;
+        public float[] MatchPointY = null;
+
+        //匹配轮廓信息
+        public ImvsSdkPFDefine.IMVS_PATMATCH_POINT_INFO[] outLinePointInfo = null;
+    }
+
     /// <summary>
     /// 像素格式
     /// </summary>
@@ -57,10 +86,7 @@ namespace FrontedUI
             }
             img.Dispose();
             return bmp;
-
         }
-
-       
 
         /// <summary>
         /// 将bytes转化Bitmap
@@ -86,7 +112,6 @@ namespace FrontedUI
         /// <returns></returns>
         private static Bitmap ToGrayBitmap(byte[] rawValues, int width, int height)
         {
-
             var bmp = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format8bppIndexed);
             var bmpData = bmp.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format8bppIndexed);
@@ -130,9 +155,8 @@ namespace FrontedUI
 
             //// 算法到此结束，返回结果  
             return bmp;
-
-
         }
+
         /// <summary>
         /// 将bytes转化Bitmap(彩图)
         /// </summary>
@@ -140,7 +164,6 @@ namespace FrontedUI
         /// <returns></returns>
         private static Bitmap ToRGBBitmap(byte[] rawValues, int width, int height)
         {
-
             var bmp = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             var bmpData = bmp.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
@@ -151,11 +174,8 @@ namespace FrontedUI
             var scanBytes = stride * height;// 用stride宽度，表示这是内存区域的大小  
             var offset = stride - width * 3;  // 显示宽度与扫描线宽度的间隙   
 
-
             //// 下面把原始的显示大小字节数组转换为内存中实际存放的字节数组  
-
             var pixelValues = new byte[scanBytes];  //为目标数组分配内存  
-
             var iPoint = 0;
             var iPoint1 = 0;
 
@@ -164,12 +184,9 @@ namespace FrontedUI
                 //// 下面的循环节是模拟行扫描  
                 for (var y = 0; y < width; y++)
                 {
-
                     pixelValues[iPoint] = rawValues[iPoint1 + 2];
                     pixelValues[iPoint + 1] = rawValues[iPoint1 + 1];
                     pixelValues[iPoint + 2] = rawValues[iPoint1];
-
-
                     iPoint += 3;
                     iPoint1 += 3;
                 }
