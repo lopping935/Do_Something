@@ -50,7 +50,8 @@ namespace AGFish
         public int m_nShowProcessID = 0;                                             // 显示用流程ID
         public uint m_nProgressFlag = 0;                                             // 显示加载或保存进度标志位
                                                                                      //图像  
-        FeatureMatchData featureMacthData = new FeatureMatchData();                                                                             //图像
+        FeatureMatchData featureMacthData = new FeatureMatchData();//图像
+        OCRString ocrsting1 = new OCRString();
         CircleData circleData = new CircleData();
         ImageData imageData1 = new ImageData();
         byte[] imagebytes1;
@@ -189,7 +190,7 @@ namespace AGFish
                 return;
             }
 
-            string VMPath = "C:\\Program Files\\VisionMaster3.2.0\\Applications\\VisionMaster.exe";
+            string VMPath = "D:\\Program Files\\VisionMaster3.2.0\\Applications\\VisionMaster.exe";
             int iRet = ImvsPlatformSDK_API.IMVS_PF_StartVisionMaster_CS(m_handle, VMPath, nWaitTime);
             if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
             {
@@ -368,7 +369,8 @@ namespace AGFish
         {
             try
             {
-                object location = AGFishOPCClient.ReadItem(VisionCode);              
+                object location = AGFishOPCClient.ReadItem(VisionCode);
+                object recogizestr = AGFishOPCClient.ReadItem(VisionCodeA);
                 if (location.ToString() == "1"|| location.ToString() == "2"|| location.ToString() == "3")
                 {
                     
@@ -378,13 +380,23 @@ namespace AGFish
                     txt_message.Invoke(new Action(() => { txt_message.AppendText("请求第"+ location_flag + "次拍照" + "\r\n"); }));
 
                 }
+                if (recogizestr.ToString() == "1")
+                {
+
+                    //recognition_flag = recogizestr.ToString();
+                    //AGFishOPCClient.WriteItem(0.ToString(), VisionCodeA);
+                    //Recognition_Click(null, null);
+                    //txt_message.Invoke(new Action(() => { txt_message.AppendText("请求字符识别"+ "\r\n"); }));
+
+                }
+                AGFishOPCClient.WriteItem(1.ToString(), xintiao);
                 //object recognition = AGFishOPCClient.ReadItem(VisionCodeA);
                 //txt_sdzs1.Text = location.ToString();
                 //if (recognition.ToString() == "0")
                 //{
-                 //   Recognition_Click(null, null);
-                   // AGFishOPCClient.WriteItem(10.ToString(), VisionCodeA);
-               // }
+                //   Recognition_Click(null, null);
+                // AGFishOPCClient.WriteItem(10.ToString(), VisionCodeA);
+                // }
             }
             catch (Exception ex)
             {
@@ -531,7 +543,7 @@ namespace AGFish
         /****************************************************************************
        * @fn           接收回调结果数据（模块结果）
        ****************************************************************************/
-        Bitmap bmp;
+        Bitmap bmp,bmp1;
         internal void UpdateDataModuResutOutput(ImvsSdkPFDefine.IMVS_PF_MODU_RES_INFO struResultInfo)
         {
             if (null == struResultInfo.pData)
@@ -555,7 +567,7 @@ namespace AGFish
                         imageData1.Width = stLocalImgInfo.stImgInfo.iWidth;
                         imageData1.Height = stLocalImgInfo.stImgInfo.iHeight;
                         imagebytes1 = IntPtr2Bytes(stLocalImgInfo.stImgInfo.pImgData, stLocalImgInfo.stImgInfo.iImgDataLen);
-                        Bitmap bmp;
+
                         if (imageData1.Width != 0 && imageData1.Height != 0 && imagebytes1 != null)
                         {
                             uint ImageLenth = (uint)(imageData1.Width * imageData1.Height);
@@ -567,111 +579,33 @@ namespace AGFish
                         imageData1.ImageBuffer = imagebytes1;
                         if (imageData1.ImageBuffer != null)
                         {
-                            bmp = imageData1.ImageDataToBitmap().GetArgb32BitMap();
-                            //using (var g = bmp.CreateGraphic())
-                            //{
-                            //    ////画匹配框
-                            //    if (x != null && y != null && width != null && height != null && angle != null &&
-                            //        x.Length == y.Length && x.Length == width.Length && x.Length == height.Length && x.Length == angle.Length)
-                            //    {
-                            //        for (int i = 0; i < x.Length; i++)
-                            //        {
-                            //            g.DrawRect(Color.GreenYellow, 5, new PointF(x[i], y[i]), width[i], height[i], angle[i]);
-
-                            //        }
-                            //    }
-                            //}
-                            curPictureBox1.Invoke(new Action(() =>
-                            {
-                                curPictureBox1.Image = bmp;
-                            }));
+                            bmp1 = imageData1.ImageDataToBitmap().GetArgb32BitMap();
+                            //curPictureBox1.Invoke(new Action(() => { curPictureBox1.Image = bmp1; }));
                         }
                         break;
 
-                    case ImvsSdkPFDefine.MODU_NAME_CIRCLEFINDMODU:
-                        ImvsSdkPFDefine.IMVS_PF_CIRCLEFIND_MODU_INFO stCirFindInfo = (ImvsSdkPFDefine.IMVS_PF_CIRCLEFIND_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CIRCLEFIND_MODU_INFO));
-                        circleData.radius = stCirFindInfo.fRadius;
-                        circleData.centerx = stCirFindInfo.stCirPt.fPtX;
-                        circleData.centery = stCirFindInfo.stCirPt.fPtY;
-
-                        string strMsg = "circle radius is:" + struResultInfo.strDisplayName + " " + circleData.radius;
-                        txt_message.AppendText(strMsg + "\r\n");
-                        break;
-                    case "sdf"://10000
-
-                        ImvsSdkPFDefine.IMVS_PF_CNNDETECT_MODU_INFO stCNNDETECTInfo = (ImvsSdkPFDefine.IMVS_PF_CNNDETECT_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CNNDETECT_MODU_INFO));
-                        count1 = (short)stCNNDETECTInfo.iTargetNum;
-                        if (count1 != count_old1)
+                    case ImvsSdkPFDefine.MODU_NAME_OCRMODU:
+                        ImvsSdkPFDefine.IMVS_PF_OCR_MODU_INFO Rec_OCR = (ImvsSdkPFDefine.IMVS_PF_OCR_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_OCR_MODU_INFO));
+                        int strnum = Rec_OCR.iRecogResultNum;
+                        ImvsSdkPFDefine.IMVS_PF_OCR_RES_INFO[] Rec_String = Rec_OCR.pstOCRResInfo;
+                        
+                        if(strnum>0)
                         {
-                            byte[] sendbuffer = Enumerable.Repeat((byte)0x00, 2).ToArray();
-                            byte[] count_byte = BitConverter.GetBytes(count1);
-                            Buffer.BlockCopy(count_byte, 0, sendbuffer, 0, count_byte.Length);
-                            socketClient_PLC.Send(sendbuffer);
-                        }
-                        //if (count1 > 0)
-                        //{
+                            ImvsSdkPFDefine.IMVS_PF_REGION Rect = Rec_String[0].stDetectRegion;
+                            string s1 = Rec_String[0].strTextInfo;
+                            txt_count1.Text = s1;
+                            AGFishOPCClient.WriteItem(s1, Product_Type);
+                            AGFishOPCClient.WriteItem(5.ToString(), Product_Type);
+                            if(Rec_String[0].iCharNum==3)
+                                AGFishOPCClient.WriteItem(1.ToString(), FlatCodeA);
 
-                        ImvsSdkPFDefine.IMVS_PF_TARGET_INFO[] pstTargetInfo = new ImvsSdkPFDefine.IMVS_PF_TARGET_INFO[count1];
-                        ImvsSdkPFDefine.IMVS_PF_RECT_INFO_F[] rectinfo = new ImvsSdkPFDefine.IMVS_PF_RECT_INFO_F[count1];
-                        ImvsSdkPFDefine.IMVS_PF_2DPOINT_F[] TargetCenter = new ImvsSdkPFDefine.IMVS_PF_2DPOINT_F[count1];
-                        float[] width = new float[count1];
-                        float[] height = new float[count1];
-                        float[] angle = new float[count1];
-                        float[] x = new float[count1];
-                        float[] y = new float[count1];
-                        for (int i = 0; i < count1; i++)
-                        {
-                            pstTargetInfo[i] = stCNNDETECTInfo.pstTargetInfo[i];
-                            rectinfo[i] = pstTargetInfo[i].stTargetRect;
-                            width[i] = rectinfo[i].fWidth;
-                            height[i] = rectinfo[i].fHeight;
-                            angle[i] = rectinfo[i].fAngle;
-                            TargetCenter[i] = rectinfo[i].stCentPt;
-                            x[i] = TargetCenter[i].fPtX;
-                            y[i] = TargetCenter[i].fPtY;
-                        }
-
-                        //图像
-                        if (imageData1.Width != 0 && imageData1.Height != 0 && imagebytes1 != null)
-                        {
-                            uint ImageLenth = (uint)(imageData1.Width * imageData1.Height);
-                            if (ImageLenth != imagebytes1.Length)
+                            using (var g = bmp1.CreateGraphic())
                             {
-                                break;
+                                g.DrawRect(Color.GreenYellow, 3, new PointF(Rect.stCenterPt.fPtX, Rect.stCenterPt.fPtY), Rect.fWidth, Rect.fHeight, Rect.fAngle);
                             }
-                            imageData1.ImageBuffer = imagebytes1;
-
-                            //获取图像数据
-                            if (imageData1.ImageBuffer != null)
-                            {
-                                bmp = imageData1.ImageDataToBitmap().GetArgb32BitMap();
-                                using (var g = bmp.CreateGraphic())
-                                {
-                                    ////画匹配框
-                                    if (x != null && y != null && width != null && height != null && angle != null &&
-                                        x.Length == y.Length && x.Length == width.Length && x.Length == height.Length && x.Length == angle.Length)
-                                    {
-                                        for (int i = 0; i < x.Length; i++)
-                                        {
-                                            g.DrawRect(Color.GreenYellow, 5, new PointF(x[i], y[i]), width[i], height[i], angle[i]);
-
-                                        }
-                                    }
-                                }
-                                curPictureBox1.Invoke(new Action(() =>
-                                {
-                                    curPictureBox1.Image = bmp;
-                                }));
-                            }
-
                         }
-                        txt_count1.Text = count1.ToString();
-                        count_old1 = count1;
-                        //}
+                        curPictureBox1.Invoke(new Action(() => { curPictureBox1.Image = bmp1; }));
                         break;
-
-
-
                     default: break;
                 }
             }
@@ -684,18 +618,18 @@ namespace AGFish
                 switch (struResultInfo.strModuleName)//struResultInfo.nModuleID
                 {
 
-                    #region 相机图像
-                    case ImvsSdkPFDefine.MODU_NAME_CAMERAMODULE://1
-                        //相机图像
-                        ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO));
-                        imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
-                        imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
-                        //imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
+                        #region 相机图像
+                        // case ImvsSdkPFDefine.MODU_NAME_CAMERAMODULE://1//相机图像
+                        //ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO));
+                        //imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
+                        //imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
+                        //stCameraImgInfo = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
                         //本地图像测试 MODU_NAME_LOCALIMAGEVIEW
-                        //ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO stLocalImgInfo = (ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO));
-                        //imageData1.Width = stLocalImgInfo.stImgInfo.iWidth;
-                        //imageData1.Height = stLocalImgInfo.stImgInfo.iHeight;
-                        imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
+                        case ImvsSdkPFDefine.MODU_NAME_LOCALIMAGEVIEW:
+                            ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO));
+                            imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
+                            imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
+                            imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
                         
                         if (imageData1.Width != 0 && imageData1.Height != 0 && imagebytes1 != null)
                         {
@@ -709,6 +643,7 @@ namespace AGFish
                         if (imageData1.ImageBuffer != null)
                         {
                             bmp = imageData1.ImageDataToBitmap().GetArgb32BitMap();
+                            
                         }
                         break;
                         #endregion

@@ -29,7 +29,11 @@ namespace FrontedUI
         public float centerx = float.NaN;
         public float centery = float.NaN;
     }
-
+    public class OCRString
+    {
+        public int charnum=0;
+        public ImvsSdkPFDefine.IMVS_PF_OCR_RES_INFO[] String_info=null;
+    }
     /// <summary>
     /// 特征匹配数据
     /// </summary>
