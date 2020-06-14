@@ -190,7 +190,7 @@ namespace AGFish
                 return;
             }
 
-            string VMPath = "D:\\Program Files\\VisionMaster3.2.0\\Applications\\VisionMaster.exe";
+            string VMPath = "C:\\Program Files\\VisionMaster3.2.0\\Applications\\VisionMaster.exe";
             int iRet = ImvsPlatformSDK_API.IMVS_PF_StartVisionMaster_CS(m_handle, VMPath, nWaitTime);
             if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
             {
@@ -685,13 +685,15 @@ namespace AGFish
                                 {
                                     AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
                                     txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导1成功将5写入PLC" + "\r\n"); }));
-                                    //LogHelper.WriteLog(strMsg);
+                                    txt_message.Invoke(new Action(() => { txt_message.AppendText("第一次坐标位置" + x.ToString() + "," + y.ToString() + "\r\n"); }));
+                                    LogHelper.WriteLog("第一次坐标位置" + x.ToString() + "," + y.ToString());
 
                                 }
                                 else
                                 {
                                     AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
                                     txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导1失败将0写入PLC" + "\r\n"); }));
+                                   // LogHelper.WriteLog("第一次坐标位置" + x.ToString() + "," + y.ToString());
                                 }
                          }
                          if (location_flag == "2")
@@ -704,9 +706,10 @@ namespace AGFish
                             {
                                 AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
                                 txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导2成功将5写入PLC" + "\r\n"); }));
-                                //LogHelper.WriteLog(strMsg);
+                                txt_message.Invoke(new Action(() => { txt_message.AppendText("第一次坐标位置" + x.ToString() + "," + y.ToString() + "\r\n"); }));
+                                LogHelper.WriteLog("第二次坐标位置" + x.ToString() + "," + y.ToString());
 
-                            }
+                                }
                             else
                             {
                                 AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
@@ -723,9 +726,10 @@ namespace AGFish
                             {
                                 AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
                                 txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导3成功将5写入PLC" + "\r\n"); }));
-                                //LogHelper.WriteLog(strMsg);
+                                txt_message.Invoke(new Action(() => { txt_message.AppendText("第三次坐标位置" + x.ToString() + "," + y.ToString() + "\r\n"); }));
+                                LogHelper.WriteLog("第三次坐标位置" + x.ToString() + "," + y.ToString());
 
-                            }
+                                }
                             else
                             {
                                 AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
