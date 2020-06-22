@@ -283,7 +283,7 @@ namespace AnBRobotSystem
                     listView_Server.Items[i].SubItems[2].Text = "未安装";
                 }
             }
-
+            label3.Text = System.DateTime.Now.ToString("yyyy年MM月dd日");
             label4.Text = DateTime.Now.ToString("HH:mm:ss").Trim();
             //toolStripButton1.ForeColor = Color.Green;
             DbDataReader dr = null;

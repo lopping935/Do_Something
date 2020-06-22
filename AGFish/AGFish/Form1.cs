@@ -429,9 +429,9 @@ namespace AGFish
                 return;
             }
 
-            strMsg = "相机1:IMVS_PF_ExecuteOnce_V30_CS Success";
-            txt_message.AppendText(strMsg + "\r\n");
-            LogHelper.WriteLog(strMsg);
+            //strMsg = "相机1:IMVS_PF_ExecuteOnce_V30_CS Success";
+            //txt_message.AppendText(strMsg + "\r\n");
+            //LogHelper.WriteLog(strMsg);
         }
 
         private void LocationExecuteOnce_Click(object sender, EventArgs e)
@@ -470,9 +470,9 @@ namespace AGFish
                     LogHelper.WriteLog(strMsg);
                 return;
                 }
-                strMsg = "相机1:IMVS_PF_ContinousExecute_V30_CS Success";
-                txt_message.AppendText(strMsg + "\r\n");
-                LogHelper.WriteLog(strMsg);
+               // strMsg = "相机1:IMVS_PF_ContinousExecute_V30_CS Success";
+               // txt_message.AppendText(strMsg + "\r\n");
+               // LogHelper.WriteLog(strMsg);
 
         }
 
@@ -544,6 +544,7 @@ namespace AGFish
        * @fn           接收回调结果数据（模块结果）
        ****************************************************************************/
         Bitmap bmp,bmp1;
+        int rephoto = 0;
         internal void UpdateDataModuResutOutput(ImvsSdkPFDefine.IMVS_PF_MODU_RES_INFO struResultInfo)
         {
             if (null == struResultInfo.pData)
@@ -619,18 +620,18 @@ namespace AGFish
                 {
 
                         #region 相机图像
-                        // case ImvsSdkPFDefine.MODU_NAME_CAMERAMODULE://1//相机图像
-                        //ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO));
-                        //imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
-                        //imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
-                        //stCameraImgInfo = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
-                        //本地图像测试 MODU_NAME_LOCALIMAGEVIEW
-                        case ImvsSdkPFDefine.MODU_NAME_LOCALIMAGEVIEW:
-                            ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO));
+                        case ImvsSdkPFDefine.MODU_NAME_CAMERAMODULE://1//相机图像
+                            ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO));
                             imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
                             imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
-                            imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
-                        
+                            //stCameraImgInfo = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
+                            //本地图像测试 MODU_NAME_LOCALIMAGEVIEW
+                            //case ImvsSdkPFDefine.MODU_NAME_LOCALIMAGEVIEW:
+                            //    ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO));
+                            //    imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
+                            //    imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
+
+                            imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);                      
                         if (imageData1.Width != 0 && imageData1.Height != 0 && imagebytes1 != null)
                         {
                             uint ImageLenth = (uint)(imageData1.Width * imageData1.Height);
@@ -693,7 +694,6 @@ namespace AGFish
                                 {
                                     AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
                                     txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导1失败将0写入PLC" + "\r\n"); }));
-                                   // LogHelper.WriteLog("第一次坐标位置" + x.ToString() + "," + y.ToString());
                                 }
                          }
                          if (location_flag == "2")
@@ -706,14 +706,14 @@ namespace AGFish
                             {
                                 AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
                                 txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导2成功将5写入PLC" + "\r\n"); }));
-                                txt_message.Invoke(new Action(() => { txt_message.AppendText("第一次坐标位置" + x.ToString() + "," + y.ToString() + "\r\n"); }));
+                                txt_message.Invoke(new Action(() => { txt_message.AppendText("第二次坐标位置" + x.ToString() + "," + y.ToString() + "\r\n"); }));
                                 LogHelper.WriteLog("第二次坐标位置" + x.ToString() + "," + y.ToString());
-
                                 }
                             else
                             {
                                 AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
                                 txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导2失败将0写入PLC" + "\r\n"); }));
+                                    Thread th1 = new Thread((){ nProcID = 10001; ExecuteOnce();});
                             }
                         }
                          if (location_flag == "3")
