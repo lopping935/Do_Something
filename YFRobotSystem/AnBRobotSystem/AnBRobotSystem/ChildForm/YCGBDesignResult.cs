@@ -37,6 +37,8 @@ namespace AnBRobotSystem.ChildForm
         string sqlLabelSel = "";
         private void YCGBDesignResult_Load(object sender, EventArgs e)
         {
+            try
+            { 
             conn = new SqlConnection("Data Source=.;Initial Catalog=YFDBBRobotData;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Connection Timeout=30;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000");
             DataTable dt1 = new DataTable("MyDT");
             DbDataReader dr = null;
@@ -73,40 +75,28 @@ namespace AnBRobotSystem.ChildForm
                 {
                     dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                     dataGridView1.DataSource = dt1;
-                    //dt1.Rows.Add(dataGridView1.Rows[dataGridView1.Rows.Count - 1]);
-
-                    //for (int i = 0; i < dt1.Rows.Count; i++)
-                    //{
-                    //    if (double.Parse(dt1.Rows[i][0].ToString()) == MAXRECID)
-                    //    {
-                    //        count = i;//计算多选出来的数量
-                    //        break;
-                    //    }
-                    //}
                     if (MAXRECID != -1000 && MAXRECID < 20)
                         count = MAXRECID;
                     else
                         count = 20;
-
                 }
             }
             else
             {
-                sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 捆号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>={0} order by rownumberf ASC", MAXRECID);
-                try
-                {
-                    dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel));
-                }
-                catch (Exception ex)
-                {
-                    //log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
-                    //Log.addLog(log, LogType.ERROR, ex.Message);
-                }
+                sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 捆号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>={0} order by rownumberf ASC", MAXRECID);               
+                dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel));      
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dataGridView1.DataSource = dt1;                
-                //dataGridView1.Rows[dataGridView1.Rows.Count-1].DefaultCellStyle.BackColor = Color.Red;
             }
-           
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("数据格式有误，请及时检查！");
+                log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
+                Log.addLog(log, LogType.ERROR, ex.Message);
+            }
+
+
         }
 
         private void MenuItem_Relation_Click(object sender, EventArgs e)
@@ -199,43 +189,49 @@ namespace AnBRobotSystem.ChildForm
         }
         private void toolStripMenuItem1_Click(object sender, EventArgs e)//删除选中行
         {
-            if (dataGridView1.SelectedRows.Count < 1)
-            {
-                MessageBox.Show("请选择一行信息！");
-                return;
-            }
+            try
+            { 
+                if (dataGridView1.SelectedRows.Count < 1)
+                {
+                    MessageBox.Show("请选择一行信息！");
+                    return;
+                }
             
-            string sql = "";
-            for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
-            {
-                if (dataGridView1.SelectedRows[i].Cells[0].Value.ToString() == "" )
+                string sql = "";
+                for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
                 {
-                    MessageBox.Show("请选择相应的行！");
-                    return;
-                }
-                else if(dataGridView1.SelectedRows[i].Cells[0].Value.ToString() == "0")
-                {
-                    MessageBox.Show("该行为保留行，不能被删除！");
-                    return;
-                }
-                else
-                {
-                    sql = sql + string.Format("delete from TLabelContent where REC_ID='{0}' and REC_ID!=0;", Convert.ToDouble(dataGridView1.SelectedRows[i].Cells[0].Value.ToString()));
-                }
+                    if (dataGridView1.SelectedRows[i].Cells[0].Value.ToString() == "" )
+                    {
+                        MessageBox.Show("请选择相应的行！");
+                        return;
+                    }
+                    else if(dataGridView1.SelectedRows[i].Cells[0].Value.ToString() == "0")
+                    {
+                        MessageBox.Show("该行为保留行，不能被删除！");
+                        return;
+                    }
+                    else
+                    {
+                        sql = sql + string.Format("delete from TLabelContent where REC_ID='{0}' and REC_ID!=0;", Convert.ToDouble(dataGridView1.SelectedRows[i].Cells[0].Value.ToString()));
+                    }
                    
+                }
+                int ret1 = db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
+                if (ret1>0)
+                    MessageBox.Show("删除成功！");
+                SqlDataAdapter sda = new SqlDataAdapter(sqlLabelSel, conn);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
             }
-            int ret1 = db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
-            if (ret1>0)
-                MessageBox.Show("删除成功！");
-            SqlDataAdapter sda = new SqlDataAdapter(sqlLabelSel, conn);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0];
-            //dataGridView1.RowHeadersVisible = false;
+            catch(Exception ex)
+            {
+                MessageBox.Show("删除失败，请重新操作！");
+                log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
+                Log.addLog(log, LogType.ERROR, ex.Message);
+            }
 
-        }
-       
-
+        }       
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             intindex = e.RowIndex;
