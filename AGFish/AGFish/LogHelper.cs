@@ -42,5 +42,29 @@ namespace logtest
                 logerror.Error(info, se);
             }
         }
+        public static void Dele_LOGFile()
+        {
+            DirectoryInfo dir = new DirectoryInfo(@"./log/");
+            foreach (FileInfo d in dir.GetFiles("*.LOG"))
+            {
+
+                Console.WriteLine(d.Name);
+                var name = d.Name;
+                if (name.Length != "AGFishlog-2020-06-14.LOG".Length)
+                {
+                    continue;
+                }
+                var ss = name.Substring(10, 10).Split('-');
+                int year = int.Parse(ss[0]);
+                int month = int.Parse(ss[1]);
+                int day = int.Parse(ss[2]);
+                var date = new DateTime(year, month, day);
+                TimeSpan ts = DateTime.Now - date;
+                if (ts.Days >= 20)
+                {                  
+                        File.Delete(d.FullName);
+                }
+            }
+        }
     }
 }

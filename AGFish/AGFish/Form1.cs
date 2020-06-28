@@ -371,13 +371,13 @@ namespace AGFish
             {
                 object location = AGFishOPCClient.ReadItem(VisionCode);
                 object recogizestr = AGFishOPCClient.ReadItem(VisionCodeA);
-                if (location.ToString() == "1"|| location.ToString() == "2"|| location.ToString() == "3")
+                if (location.ToString() == "1" || location.ToString() == "2" || location.ToString() == "3")
                 {
-                    
+
                     location_flag = location.ToString();
                     AGFishOPCClient.WriteItem(0.ToString(), VisionCode);
                     LocationExecuteOnce_Click(null, null);
-                    txt_message.Invoke(new Action(() => { txt_message.AppendText("请求第"+ location_flag + "次拍照" + "\r\n"); }));
+                    txt_message.Invoke(new Action(() => { txt_message.AppendText("请求第" + location_flag + "次拍照" + "\r\n"); }));
 
                 }
                 if (recogizestr.ToString() == "1")
@@ -390,13 +390,12 @@ namespace AGFish
 
                 }
                 AGFishOPCClient.WriteItem(1.ToString(), xintiao);
-                //object recognition = AGFishOPCClient.ReadItem(VisionCodeA);
-                //txt_sdzs1.Text = location.ToString();
-                //if (recognition.ToString() == "0")
-                //{
-                //   Recognition_Click(null, null);
-                // AGFishOPCClient.WriteItem(10.ToString(), VisionCodeA);
-                // }
+                DateTime dt = DateTime.Now;               
+                if (string.Format("{0:T}", dt)=="00:00:00")
+                {
+                    LogHelper.Dele_LOGFile();
+                }
+
             }
             catch (Exception ex)
             {
@@ -631,7 +630,12 @@ namespace AGFish
                             //    imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
                             //    imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
 
+                           // imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
+                        
+
+
                             imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);                      
+
                         if (imageData1.Width != 0 && imageData1.Height != 0 && imagebytes1 != null)
                         {
                             uint ImageLenth = (uint)(imageData1.Width * imageData1.Height);
@@ -713,7 +717,7 @@ namespace AGFish
                             {
                                 AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
                                 txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导2失败将0写入PLC" + "\r\n"); }));
-                                    Thread th1 = new Thread((){ nProcID = 10001; ExecuteOnce();});
+                                    //Thread th1 = new Thread((){ nProcID = 10001; ExecuteOnce();});
                             }
                         }
                          if (location_flag == "3")
