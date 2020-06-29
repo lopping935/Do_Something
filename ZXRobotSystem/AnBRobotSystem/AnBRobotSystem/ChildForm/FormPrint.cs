@@ -31,14 +31,16 @@ namespace AnBRobotSystem.ChildForm
         private DataSet FDataSet;
         public struct LabelData
         {
-            public string merge_sinbar;
-            public string gk;
-            public string heat_no;
-            public string mtrl_no;
-            public string spec;
-            public int wegith;
-            public int num_no;
-            public string print_date;
+            public string ItemPrint;
+            public string STEEL_CODE_DESC;
+            public string HT_NO;
+            public string FUN_NO;
+            public string SPEC_CP_DESC;
+            public int NUM;
+            public float NET_WEIGHT;
+            public string LotNo;
+            public string XH;
+            public string ProTime;
             public string classes;
             public string order_num;
         };
@@ -89,11 +91,6 @@ namespace AnBRobotSystem.ChildForm
            if(dt.Rows.Count!=0)
             heatno = dt.Rows[0]["heat_no"].ToString();
             dt.Dispose();
-
-            
-
-
-
         }
         private void auto_Work()
         {
@@ -135,43 +132,45 @@ namespace AnBRobotSystem.ChildForm
             }
             dr.Close();
            // sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
-            sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+            sql = string.Format("select top 1 ItemPrint,STEEL_CODE_DESC,HT_NO,FUN_NO,SPEC_CP_DESC,NUM,NET_WEIGHT,ProTime,LotNo,XH from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
 
             DataTable dt = db.ExecuteDataTable(db.GetSqlStringCommond(sql));
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                PLClable.merge_sinbar = dt.Rows[i]["merge_sinbar"].ToString();//捆号
-                PLClable.gk = dt.Rows[i]["gk"].ToString();//技术标准
-                PLClable.heat_no = dt.Rows[i]["heat_no"].ToString();//炉批号
-                PLClable.mtrl_no = dt.Rows[i]["mtrl_no"].ToString();//牌号
-                PLClable.spec = dt.Rows[i]["spec"].ToString();//规格
-                PLClable.wegith = int.Parse(dt.Rows[i]["wegith"].ToString());//重量
-                PLClable.num_no = int.Parse(dt.Rows[i]["num_no"].ToString());//支数
-                PLClable.print_date =Convert.ToDateTime( dt.Rows[i]["print_date"].ToString()).ToShortDateString();//DateTime.Parse(dt.Rows[i]["print_date"].ToString()).ToShortDateString();//日期
-                PLClable.classes = dt.Rows[i]["classes"].ToString();//班次
-                PLClable.order_num = dt.Rows[i]["sn_no"].ToString();
+                PLClable.ItemPrint = dt.Rows[i]["ItemPrint"].ToString();//产品名称
+                PLClable.STEEL_CODE_DESC = dt.Rows[i]["STEEL_CODE_DESC"].ToString();//牌号
+                PLClable.HT_NO = dt.Rows[i]["HT_NO"].ToString();//合同号
+                PLClable.FUN_NO = dt.Rows[i]["FUN_NO"].ToString();//炉号
+                PLClable.SPEC_CP_DESC = dt.Rows[i]["SPEC_CP_DESC"].ToString();//规格
+                PLClable.NUM = int.Parse(dt.Rows[i]["NUM"].ToString());//支数
+                PLClable.NET_WEIGHT = float.Parse(dt.Rows[i]["NET_WEIGHT"].ToString());//重量
+                PLClable.ProTime =Convert.ToDateTime( dt.Rows[i]["ProTime"].ToString()).ToShortDateString();//DateTime.Parse(dt.Rows[i]["print_date"].ToString()).ToShortDateString();//日期
+                PLClable.LotNo = dt.Rows[i]["LotNo"].ToString();//支数
+                PLClable.XH = dt.Rows[i]["XH"].ToString();//重量
+                // PLClable.classes = dt.Rows[i]["classes"].ToString();//班次
+                //PLClable.order_num = dt.Rows[i]["sn_no"].ToString();
 
-                manu_textBox_stand.Text= PLClable.gk;
-                manu_textBox_heatno.Text = PLClable.heat_no;
-                manu_textBox_weight.Text = PLClable.wegith.ToString();
-                manu_textBox_date1.Text = PLClable.print_date;
-                manu_textBox_grade.Text = PLClable.mtrl_no;
-                manu_textBox_size.Text = PLClable.spec;
-                manu_textBox__hook.Text = PLClable.num_no.ToString();
-                manu_textBox_group.Text = PLClable.classes + " / " + PLClable.order_num;
-                
+                //manu_textBox_stand.Text= PLClable.ItemPrint;
+                //manu_textBox_heatno.Text = PLClable.STEEL_CODE_DESC;
+                //manu_textBox_weight.Text = PLClable.wegith.ToString();
+                //manu_textBox_date1.Text = PLClable.print_date;
+                //manu_textBox_grade.Text = PLClable.mtrl_no;
+                //manu_textBox_size.Text = PLClable.spec;
+                //manu_textBox__hook.Text = PLClable.num_no.ToString();
+                //manu_textBox_group.Text = PLClable.classes + " / " + PLClable.order_num;
+
             }
         }
         private void update_manu()//更新图片数据
         {
-            textBox_stand.Text = manu_textBox_stand.Text;
-            textBox_heatno.Text = manu_textBox_heatno.Text;
-            textBox_wegit.Text = manu_textBox_weight.Text+" KG";
-            textBox_date1.Text = manu_textBox_date1.Text;
-            textBox_garde.Text = manu_textBox_grade.Text;
-            textBox_size.Text = manu_textBox_size.Text;
-            textBox_hook.Text = manu_textBox__hook.Text + " 支";
-            textBox_group.Text = manu_textBox_group.Text;            
+            //textBox_stand.Text = manu_textBox_stand.Text;
+            //textBox_heatno.Text = manu_textBox_heatno.Text;
+            //textBox_wegit.Text = manu_textBox_weight.Text+" KG";
+            //textBox_date1.Text = manu_textBox_date1.Text;
+            //textBox_garde.Text = manu_textBox_grade.Text;
+            //textBox_size.Text = manu_textBox_size.Text;
+            //textBox_hook.Text = manu_textBox__hook.Text + " 支";
+            //textBox_group.Text = manu_textBox_group.Text;            
         }
         #region pirnt the img
         //创建图片
@@ -232,7 +231,7 @@ namespace AnBRobotSystem.ChildForm
 
             Bitmap img2 = new Bitmap(imgtest, s1);
             imgtest.Dispose();
-            img2.RotateFlip(RotateFlipType.Rotate270FlipNone);
+           // img2.RotateFlip(RotateFlipType.Rotate270FlipNone);
             print_view p1 = new print_view(img2);
             p1.Show();
         }
@@ -309,37 +308,57 @@ namespace AnBRobotSystem.ChildForm
         private void CreateDataSet()
         {
             // create simple dataset with one table
+
+            #region create simple dataset with one table
+            //FDataSet = new DataSet();
+
+            //DataTable table = new DataTable();
+            //table.TableName = "PrintData";
+            //FDataSet.Tables.Add(table);
+            //Init_lable();
+            ////table.Columns.Add("ID", typeof(string));
+            ////table.Columns.Add("NAME", typeof(string));
+            ////table.Columns.Add("FUCKASS", typeof(string));
+            //table.Columns.Add("T_STANDARD", typeof(string));
+            //table.Columns.Add("GRADE_NAME", typeof(string));
+            //table.Columns.Add("BATCH_CODE", typeof(string));
+            //table.Columns.Add("SPE_NAME", typeof(string));
+            //table.Columns.Add("HOOK_NUM", typeof(string));
+            //table.Columns.Add("SN", typeof(string));
+            //table.Columns.Add("GROUP_NUM", typeof(string));
+            //table.Columns.Add("LABEL_DATE", typeof(string));
+            //table.Columns.Add("MAT_FWEIGHT", typeof(string));
+            //table.Columns.Add("MAT_SINBAR", typeof(string));
+            //table.Rows.Add(PLClable.ItemPrint, PLClable.STEEL_CODE_DESC, PLClable.HT_NO, PLClable.FUN_NO, PLClable.SPEC_CP_DESC.ToString(), PLClable.NUM, PLClable.NET_WEIGHT);// , PLClable.print_date, PLClable.wegith.ToString(), PLClable.merge_sinbar
+            ////table.Rows.Add(2, "Nancy Davolio");
+            ////table.Rows.Add(3, "Margaret Peacock");
+            //Report report = new Report();
+            //report.Load("./Print_Model/"+ "Print.frx");
+            //report.RegisterData(FDataSet);
+            //report.Prepare();
+            //ImageExport imge = new ImageExport();
+            //imge.Resolution = 300;
+            //report.Export(imge, "myReport.jpg");//"myReport.jpg"
+            //report.Dispose();
+            #endregion
             Init_lable();
-            FDataSet = new DataSet();
-
-            DataTable table = new DataTable();
-            table.TableName = "PrintData";
-            FDataSet.Tables.Add(table);
-
-            //table.Columns.Add("ID", typeof(string));
-            //table.Columns.Add("NAME", typeof(string));
-            //table.Columns.Add("FUCKASS", typeof(string));
-            table.Columns.Add("T_STANDARD", typeof(string));
-            table.Columns.Add("GRADE_NAME", typeof(string));
-            table.Columns.Add("BATCH_CODE", typeof(string));
-            table.Columns.Add("SPE_NAME", typeof(string));
-            table.Columns.Add("HOOK_NUM", typeof(string));
-            table.Columns.Add("SN", typeof(string));
-            table.Columns.Add("GROUP_NUM", typeof(string));
-            table.Columns.Add("LABEL_DATE", typeof(string));
-            table.Columns.Add("MAT_FWEIGHT", typeof(string));
-            table.Columns.Add("MAT_SINBAR", typeof(string));
-            table.Rows.Add(PLClable.gk, PLClable.mtrl_no, PLClable.heat_no, PLClable.spec, PLClable.num_no.ToString(), PLClable.order_num, PLClable.classes, PLClable.print_date, PLClable.wegith.ToString(), PLClable.merge_sinbar);//, 
-            //table.Rows.Add(2, "Nancy Davolio");
-            //table.Rows.Add(3, "Margaret Peacock");
             Report report = new Report();
-            report.Load("./Print_Model/"+mode_name);
-            report.RegisterData(FDataSet);
+            report.Load("./Print_Model/" + "Print.frx");
+            report.SetParameterValue("WUZIMC", PLClable.ItemPrint );
+            report.SetParameterValue("ZXBZ", PLClable.STEEL_CODE_DESC);
+            report.SetParameterValue("GH", PLClable.HT_NO);
+            report.SetParameterValue("LH", PLClable.FUN_NO);
+            report.SetParameterValue("GG", PLClable.SPEC_CP_DESC);
+            report.SetParameterValue("ZS", PLClable.NUM);
+            report.SetParameterValue("WEIGHT", PLClable.NET_WEIGHT);
+            report.SetParameterValue("SCRQ", PLClable.ProTime);
+            report.SetParameterValue("KH", PLClable.LotNo+"-"+PLClable.XH);
             report.Prepare();
             ImageExport imge = new ImageExport();
             imge.Resolution = 300;
             report.Export(imge, "myReport.jpg");//"myReport.jpg"
             report.Dispose();
+
         }
 
         private void FormPrint_Load(object sender, EventArgs e)

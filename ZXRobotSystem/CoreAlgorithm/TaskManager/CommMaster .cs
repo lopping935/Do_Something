@@ -150,7 +150,7 @@ namespace CoreAlgorithm.TaskManager
                         MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
                 }
                 dr.Close();
-                sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+                sql = string.Format("select top 1 REC_ID,ItemPrint,STEEL_CODE_DESC,HT_NO,FUN_NO,SPEC_CP_DESC,NUM,NET_WEIGHT,ProTime,LotNo,XH from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
                // sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
                 DataTable dt = tm.MultithreadDataTable(sql);
                 for (int i = 0; i<dt.Rows.Count; i++)
@@ -368,7 +368,7 @@ namespace CoreAlgorithm.TaskManager
 
                 }
                 dr.Close();
-				sql = string.Format("update [ZX_Robot_DB].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by REC_ID asc)row2, REC_ID from[ZX_Robot_DB].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID");
+				sql = string.Format("update TLabelContent set rownumberf=row2 from (select ROW_NUMBER() over(order by REC_ID asc)row2, REC_ID from TLabelContent)DETAIL_B14 where TLabelContent.REC_ID = DETAIL_B14.REC_ID");
                 tm.MultithreadExecuteNonQuery(sql);
 				
                 Thread thS = new Thread(new System.Threading.ParameterizedThreadStart(do_SendMessage));

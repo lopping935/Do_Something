@@ -47,11 +47,10 @@ namespace SQLPublicClass
             if (string.IsNullOrEmpty(sql_Ip) || string.IsNullOrEmpty(sql_DBName) || string.IsNullOrEmpty(sql_User) ||
                 string.IsNullOrEmpty(sql_Pass) || string.IsNullOrEmpty(sql_OutTime))
             {
-                return "Data Source=.;Initial Catalog=YFDBBRobotData;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000";
+                return "Data Source=.;Initial Catalog=ZX_Robot_DB;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000";
             }
 
             string ConnectionString = "Data Source={0};Initial Catalog={1};User ID={2}; password={3};Enlist=true;Pooling=true;Max Pool Size = 512; Min Pool Size=0; Connection Lifetime = {4}";
-            
             return string.Format(ConnectionString, sql_Ip, sql_DBName, sql_User, sql_Pass, sql_OutTime);
         }
     }

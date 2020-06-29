@@ -37,12 +37,12 @@ namespace AnBRobotSystem.ChildForm
         string sqlLabelSel = "";
         private void YCGBDesignResult_Load(object sender, EventArgs e)
         {
-            conn = new SqlConnection("Data Source=.;Initial Catalog=YFDBBRobotData;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Connection Timeout=30;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000");
+            conn = new SqlConnection("Data Source=.;Initial Catalog=ZX_Robot_DB;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Connection Timeout=30;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000");
             DataTable dt1 = new DataTable("MyDT");
             DbDataReader dr = null;
             string sql = "";
             int MAXRECID = -1000, modelflag=0;// PLANIDNow = 0;  
-            sql = "update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by REC_ID asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
+            sql = "update [ZX_Robot_DB].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by REC_ID asc)row2, REC_ID from[ZX_Robot_DB].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
             db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
             sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33 or IMP_FINISH=55";            
             dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
@@ -56,7 +56,7 @@ namespace AnBRobotSystem.ChildForm
             { 
                 try
                 {
-                    sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 合并号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_CREATE_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>{0} order by rownumberf ASC", MAXRECID - 20);
+                    sqlLabelSel = string.Format("select top 100 REC_ID 流水号,FUN_NO 炉号,STEEL_CODE_DESC 牌号,SPEC_CP_DESC 规格,iface_id 流水号a, NUM 支数, LENGTH 长度, NET_WEIGHT 重量, LotNo 轧号, XH 捆号, HT_NO 合同号, SCBZ 执行标准, MFL_DESC 技术标准, ProTime 创建时间, ItemPrint 产品名称,CREATED_CLASS 班次,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>{0} order by rownumberf ASC", MAXRECID - 20);
                     dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel));
                 }
                 catch (Exception ex)
@@ -92,7 +92,7 @@ namespace AnBRobotSystem.ChildForm
             }
             else
             {
-                sqlLabelSel = string.Format("select top 100 REC_ID 流水号,merge_sinbar 捆号,gk 技术标准,heat_no 轧制序号,mtrl_no 牌号, spec 规格, wegith 重量, num_no 支数, print_date 日期, classes 班次, sn_no 序号, labelmodel_name 模板名称, print_type 技术标准, insert_date 创建时间, flag 状态, orign_sinbar 原始捆号, time 读取时间,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>={0} order by rownumberf ASC", MAXRECID);
+                sqlLabelSel = string.Format("select top 100 REC_ID 流水号,FUN_NO 炉号,STEEL_CODE_DESC 牌号,SPEC_CP_DESC 规格,iface_id 牌号, NUM 支数, LENGTH 长度, NET_WEIGHT 重量, LotNo 轧号, XH 捆号, HT_NO 合同号, SCBZ 执行标准, MFL_DESC 技术标准, ProTime 创建时间, ItemPrint 产品名称,CREATED_CLASS 班次,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>{0} order by rownumberf ASC", MAXRECID);
                 try
                 {
                     dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel));
@@ -321,7 +321,7 @@ namespace AnBRobotSystem.ChildForm
                 for (int i = 0; i <countn; i++)
                 {
                     DataGridViewRow row = dataGridView1.Rows[i];
-                    IMP_FINISH = int.Parse(row.Cells[17].Value.ToString()); 
+                    IMP_FINISH = int.Parse(row.Cells[16].Value.ToString()); 
                     switch(IMP_FINISH)
                     {
                         case 0:
@@ -474,7 +474,7 @@ namespace AnBRobotSystem.ChildForm
                 toolStripMenuItem2.Text = "停止自动刷新";
             if (timer1.Enabled == false)
                 toolStripMenuItem2.Text = "恢复自动刷新";
-            string sqltext = ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by heat_no asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
+            string sqltext = ";update [ZX_Robot_DB].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by heat_no asc)row2, REC_ID from[ZX_Robot_DB].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
 
 
             YCGBDesignResult_Load(null, null);

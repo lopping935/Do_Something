@@ -28,8 +28,8 @@ namespace CoreAlgorithm
             //dbTemp = new DbHelper(inisql.GetConnectionString("SysSQL"));
         }
 
-        protected override void OnStart(string[] args)
-        //public void OnStart()     
+       // protected override void OnStart(string[] args)
+        public void OnStart()     
         {
             tm = new TasksManager();
            //DataTable dt = new DataTable("MyDT");
