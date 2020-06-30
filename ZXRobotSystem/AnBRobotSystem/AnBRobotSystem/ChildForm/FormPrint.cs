@@ -43,6 +43,7 @@ namespace AnBRobotSystem.ChildForm
             public string ProTime;
             public string classes;
             public string order_num;
+            public string Length;
         };
         Bitmap img = new Bitmap(1030, 512);//712,500
                                            //public SocketClient PlcConnect = null;
@@ -118,6 +119,7 @@ namespace AnBRobotSystem.ChildForm
             txt_ip.Text = txt_ip2.Text;
         }
         LabelData PLClable;
+        string barcodestring = "";
         private void Init_lable()
         {          
             double MAXRECID = 0;// PLANIDNow = 0;                
@@ -132,7 +134,7 @@ namespace AnBRobotSystem.ChildForm
             }
             dr.Close();
            // sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
-            sql = string.Format("select top 1 ItemPrint,STEEL_CODE_DESC,HT_NO,FUN_NO,SPEC_CP_DESC,NUM,NET_WEIGHT,ProTime,LotNo,XH from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+            sql = string.Format("select top 1 ItemPrint,STEEL_CODE_DESC,HT_NO,FUN_NO,SPEC_CP_DESC,NUM,NET_WEIGHT,ProTime,LotNo,XH,LENGTH from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
 
             DataTable dt = db.ExecuteDataTable(db.GetSqlStringCommond(sql));
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -145,8 +147,10 @@ namespace AnBRobotSystem.ChildForm
                 PLClable.NUM = int.Parse(dt.Rows[i]["NUM"].ToString());//支数
                 PLClable.NET_WEIGHT = float.Parse(dt.Rows[i]["NET_WEIGHT"].ToString());//重量
                 PLClable.ProTime =Convert.ToDateTime( dt.Rows[i]["ProTime"].ToString()).ToShortDateString();//DateTime.Parse(dt.Rows[i]["print_date"].ToString()).ToShortDateString();//日期
-                PLClable.LotNo = dt.Rows[i]["LotNo"].ToString();//支数
-                PLClable.XH = dt.Rows[i]["XH"].ToString();//重量
+                PLClable.LotNo = dt.Rows[i]["LotNo"].ToString();//轧号
+                PLClable.XH = dt.Rows[i]["XH"].ToString();//捆号
+                PLClable.Length= dt.Rows[i]["LENGTH"].ToString();
+                barcodestring= "LG;" + PLClable.LotNo + ";" + PLClable.XH + ";" + PLClable.SPEC_CP_DESC + ";" + PLClable.Length + ";" + PLClable.NUM + ";" + PLClable.NET_WEIGHT + ";" + PLClable.FUN_NO + ";Pro";
                 // PLClable.classes = dt.Rows[i]["classes"].ToString();//班次
                 //PLClable.order_num = dt.Rows[i]["sn_no"].ToString();
 
@@ -231,7 +235,7 @@ namespace AnBRobotSystem.ChildForm
 
             Bitmap img2 = new Bitmap(imgtest, s1);
             imgtest.Dispose();
-           // img2.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            img2.RotateFlip(RotateFlipType.Rotate270FlipNone);
             print_view p1 = new print_view(img2);
             p1.Show();
         }
@@ -244,7 +248,7 @@ namespace AnBRobotSystem.ChildForm
                 CreateDataSet();
                 
                 Bitmap imgtest = new Bitmap("myReport.jpg");
-                imgtest.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                //imgtest.RotateFlip(RotateFlipType.Rotate180FlipNone);
                 connection.Open();
                 ZebraPrinter printer = ZebraPrinterFactory.GetInstance(connection);
                 PrinterStatus printerStatus = printer.GetCurrentStatus();
@@ -344,7 +348,7 @@ namespace AnBRobotSystem.ChildForm
             #endregion
             Init_lable();
             Report report = new Report();
-            report.Load("./Print_Model/" + "Print.frx");
+            report.Load("./Print_Model/" + mode_name);
             report.SetParameterValue("WUZIMC", PLClable.ItemPrint );
             report.SetParameterValue("ZXBZ", PLClable.STEEL_CODE_DESC);
             report.SetParameterValue("GH", PLClable.HT_NO);
@@ -354,6 +358,7 @@ namespace AnBRobotSystem.ChildForm
             report.SetParameterValue("WEIGHT", PLClable.NET_WEIGHT);
             report.SetParameterValue("SCRQ", PLClable.ProTime);
             report.SetParameterValue("KH", PLClable.LotNo+"-"+PLClable.XH);
+            report.SetParameterValue("LGBARDCODE", barcodestring);
             report.Prepare();
             ImageExport imge = new ImageExport();
             imge.Resolution = 300;
@@ -527,7 +532,7 @@ namespace AnBRobotSystem.ChildForm
                     
                     printer.PrintImage(zp1, x, y, zp1.Width, zp1.Height, false);
 
-                    // img.RotateFlip(RotateFlipType.Rotate270FlipNone);//图像旋转
+                     img.RotateFlip(RotateFlipType.Rotate270FlipNone);//图像旋转
                     b.Dispose();
                 }
                 else if (printerStatus.isPaused)
