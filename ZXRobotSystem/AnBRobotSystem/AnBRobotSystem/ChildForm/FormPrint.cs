@@ -244,6 +244,7 @@ namespace AnBRobotSystem.ChildForm
                 CreateDataSet();
                 
                 Bitmap imgtest = new Bitmap("myReport.jpg");
+                imgtest.RotateFlip(RotateFlipType.Rotate270FlipNone);
                 connection.Open();
                 ZebraPrinter printer = ZebraPrinterFactory.GetInstance(connection);
                 PrinterStatus printerStatus = printer.GetCurrentStatus();
