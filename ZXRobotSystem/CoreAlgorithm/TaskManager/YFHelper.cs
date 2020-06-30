@@ -56,10 +56,10 @@ namespace CoreAlgorithm.TaskManager
                             if (Program.MessageFlg == 31 || Program.MessageFlg == 32 || Program.MessageFlg == 33)
                             {
                                 double  REC_ID = double.Parse(Encoding.ASCII.GetString(buffer.Skip(4).Take(12).ToArray()));
-                                string merge_sn = Encoding.ASCII.GetString(buffer.Skip(146).Take(20).ToArray());
+                                string iface_id = Encoding.ASCII.GetString(buffer.Skip(16).Take(12).ToArray());
                                 sql = string.Format("UPDATE TLabelContent SET REC_CREATE_TIME='{0}',IMP_FINISH={1} WHERE REC_ID={2}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Program.MessageFlg, REC_ID);
                                 tm.MultithreadExecuteNonQuery(sql);
-                                string str = "收到PLC焊接完成信号"+Program.MessageFlg.ToString() + " " + merge_sn;
+                                string str = "收到PLC焊接完成信号"+Program.MessageFlg.ToString() + " " + iface_id;
                                 sql = string.Format("INSERT INTO RECVLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                                 tm.MultithreadExecuteNonQuery(sql);
 
@@ -69,7 +69,7 @@ namespace CoreAlgorithm.TaskManager
                                 Array.Copy(buffer, sendArray, length);
                                 Buffer.BlockCopy(markok, 0, sendArray, 0,markok.Length);
                                 CommMaster.PLC_Server.SendToSomeone(sendArray, kvp.Key);
-                                str = "发送到PLC完成回复" + " " + 35.ToString()+ " " + merge_sn;
+                                str = "发送到PLC完成回复" + " " + 35.ToString()+ " " + iface_id;
                                 sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                                 tm.MultithreadExecuteNonQuery(sql);
                             }

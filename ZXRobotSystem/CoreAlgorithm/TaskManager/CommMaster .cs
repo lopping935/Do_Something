@@ -128,18 +128,18 @@ namespace CoreAlgorithm.TaskManager
                 }
             }
         }
-        YFHelper.LabelData PLClable;
+        
         public void Send_SignsMessage()
         {
             try
             {
                 TasksManager tm = new TasksManager();
-                double MAXRECID = 0;// PLANIDNow = 0; 
-                double REC_ID = 0;// PLANIDNow = 0; [rownumberf]
+                double MAXRECID = 0;// PLANIDNow = 0;                 
+                string REC_ID = "", iface_id = "",FUN_NO = "", LotNo = "", XH = "";
                 //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                 string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33 or IMP_FINISH=55";
                 
-                byte[] sendArray = Enumerable.Repeat((byte)0x0, 210).ToArray();
+                byte[] sendArray = Enumerable.Repeat((byte)0x0, 148).ToArray();
                 byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
                 Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
                 DbDataReader dr = null;
@@ -150,47 +150,30 @@ namespace CoreAlgorithm.TaskManager
                         MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
                 }
                 dr.Close();
-                sql = string.Format("select top 1 REC_ID,ItemPrint,STEEL_CODE_DESC,HT_NO,FUN_NO,SPEC_CP_DESC,NUM,NET_WEIGHT,ProTime,LotNo,XH from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+                sql = string.Format("select top 1 REC_ID,iface_id,FUN_NO,LotNo,XH from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
                // sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
                 DataTable dt = tm.MultithreadDataTable(sql);
                 for (int i = 0; i<dt.Rows.Count; i++)
                 {
-                    PLClable.merge_sinbar = dt.Rows[i]["merge_sinbar"].ToString();
-                    PLClable.gk = dt.Rows[i]["gk"].ToString();
-                    PLClable.heat_no = dt.Rows[i]["heat_no"].ToString();
-                    PLClable.mtrl_no = dt.Rows[i]["mtrl_no"].ToString();
-                    PLClable.spec = dt.Rows[i]["spec"].ToString();
-                    PLClable.wegith = int.Parse(dt.Rows[i]["wegith"].ToString());
-                    PLClable.num_no= int.Parse(dt.Rows[i]["num_no"].ToString());
-                    PLClable.print_date = dt.Rows[i]["print_date"].ToString();
-                    PLClable.classes= dt.Rows[i]["classes"].ToString();
-                    REC_ID = double.Parse(dt.Rows[i]["REC_ID"].ToString());
-
+                    REC_ID = dt.Rows[i]["REC_ID"].ToString();
+                    iface_id = dt.Rows[i]["iface_id"].ToString();
+                    FUN_NO = dt.Rows[i]["FUN_NO"].ToString();
+                    LotNo = dt.Rows[i]["LotNo"].ToString();
+                    XH = dt.Rows[i]["XH"].ToString();
+                    
                     byte[] byteArray2 = BitConverter.GetBytes(Program.PrintNum);
-                    byte[] byteArray3 = Encoding.ASCII.GetBytes(REC_ID.ToString());
-                    byte[] byteArray4 = Encoding.ASCII.GetBytes(PLClable.gk);
-                    byte[] byteArray5=  Encoding.ASCII.GetBytes(PLClable.heat_no);
-                    byte[] byteArray6 = BitConverter.GetBytes(PLClable.wegith);
-                    byte[] byteArray7 = Encoding.ASCII.GetBytes(PLClable.print_date);
-                    byte[] byteArray8= Encoding.ASCII.GetBytes(PLClable.mtrl_no);
-                    byte[] byteArray9 = Encoding.ASCII.GetBytes(PLClable.spec);
-                    byte[] byteArray10 = Encoding.ASCII.GetBytes(PLClable.merge_sinbar);
-                    byte[] byteArray11 = BitConverter.GetBytes(PLClable.num_no);
-                    byte[] byteArray12 = Encoding.ASCII.GetBytes(PLClable.classes);
-                                        
+                    byte[] byteArray3 = Encoding.ASCII.GetBytes(REC_ID);
+                    byte[] byteArray4 = Encoding.ASCII.GetBytes(iface_id);
+                    byte[] byteArray5=  Encoding.ASCII.GetBytes(FUN_NO);
+                    byte[] byteArray6 = Encoding.ASCII.GetBytes(LotNo);
+                    byte[] byteArray7 = Encoding.ASCII.GetBytes(XH);
                     
                     Buffer.BlockCopy(byteArray2, 0, sendArray, 2, byteArray2.Length);
                     Buffer.BlockCopy(byteArray3, 0, sendArray, 4, byteArray3.Length);
                     Buffer.BlockCopy(byteArray4, 0, sendArray, 16, byteArray4.Length);
-                    Buffer.BlockCopy(byteArray5, 0, sendArray, 46, byteArray5.Length);
-                    Buffer.BlockCopy(byteArray6, 0, sendArray, 62, byteArray6.Length);
-                    Buffer.BlockCopy(byteArray7, 0, sendArray, 66, byteArray7.Length);
-                    Buffer.BlockCopy(byteArray8, 0, sendArray, 86, byteArray8.Length);
-                    Buffer.BlockCopy(byteArray9, 0, sendArray, 116, byteArray9.Length);
-                    Buffer.BlockCopy(byteArray10, 0, sendArray, 146, byteArray10.Length);
-                    Buffer.BlockCopy(byteArray11, 0, sendArray, 166, byteArray11.Length);
-                    Buffer.BlockCopy(byteArray12, 0, sendArray, 170, byteArray12.Length);
-                    
+                    Buffer.BlockCopy(byteArray5, 0, sendArray, 28, byteArray5.Length);
+                    Buffer.BlockCopy(byteArray6, 0, sendArray, 48, byteArray6.Length);
+                    Buffer.BlockCopy(byteArray7, 0, sendArray, 98, byteArray7.Length);
                 }
                 if (sendArray.Length > 0)
                 {
@@ -219,7 +202,7 @@ namespace CoreAlgorithm.TaskManager
                             break;
 
                     }
-                    string str = "发送到PLC信号:" + logindexstr + Program.MessageFlg.ToString() + " " + PLClable.merge_sinbar;
+                    string str = "发送到PLC信号:" + logindexstr + Program.MessageFlg.ToString() + " " + iface_id;
                     sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                     tm.MultithreadExecuteNonQuery(sql);
                 }
@@ -257,7 +240,7 @@ namespace CoreAlgorithm.TaskManager
                         if (dt.Rows.Count != 0)
                             heatno = dt.Rows[0]["iface_id"].ToString();
 
-                        sqltext = string.Format("insert into TLabelContent SELECT [FUN_NO] ,[STEEL_CODE_DESC] ,[SPEC_CP_DESC],[iface_id],[NUM],[LENGTH],[NET_WEIGHT],[LotNo] ,[XH] ,[HT_NO],[SCBZ] ,[MFL_DESC] ,[ProTime] ,[ItemPrint] ,[TaskNo] ,0,'{0}','{0}',0 FROM READ_TABLE WHERE flag='N' ORDER BY id asc", DateTime.Now.ToString());
+                        sqltext = string.Format("insert into TLabelContent SELECT [FUN_NO] ,[STEEL_CODE_DESC] ,[SPEC_CP_DESC],[iface_id],[NUM],[LENGTH],[NET_WEIGHT],[LotNo] ,[XH] ,[HT_NO],[SCBZ] ,[MFL_DESC] ,[ProTime] ,[ItemPrint] ,[TaskNo] ,[CREATED_CLASS],0,'{0}','{0}',0 FROM READ_TABLE WHERE flag='N' ORDER BY id asc", DateTime.Now.ToString());
                         //sqltext = sqltext + ";update [YFDBBRobotData].[dbo].[TLabelContent] set rownumberf=row2 from (select ROW_NUMBER() over(order by merge_sinbar asc)row2, REC_ID from[YFDBBRobotData].[dbo].[TLabelContent])DETAIL_B14 where[TLabelContent].REC_ID = DETAIL_B14.REC_ID";
                         num_change = tm.MultithreadExecuteNonQuery(sqltext);
 

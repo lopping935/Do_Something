@@ -91,7 +91,7 @@ namespace AnBRobotSystem.ChildForm
             }
             catch(Exception ex)
             {
-                MessageBox.Show("数据格式有误，请及时检查！");
+               // MessageBox.Show("数据格式有误，请及时检查！");
                 log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
                 Log.addLog(log, LogType.ERROR, ex.Message);
             }
@@ -462,7 +462,6 @@ namespace AnBRobotSystem.ChildForm
         }
 
         
-
         private void timer1_Tick(object sender, EventArgs e)
         {
            
@@ -512,6 +511,11 @@ namespace AnBRobotSystem.ChildForm
             {
                 MessageBox.Show("数据起点设置失败！", ex.Message.ToString());
             }
-        }     
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
     }
     }
