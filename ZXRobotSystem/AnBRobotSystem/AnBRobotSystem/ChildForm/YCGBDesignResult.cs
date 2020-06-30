@@ -516,6 +516,11 @@ namespace AnBRobotSystem.ChildForm
             {
                 MessageBox.Show("数据起点设置失败！", ex.Message.ToString());
             }
-        }     
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
     }
     }

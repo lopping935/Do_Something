@@ -35,9 +35,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.复制选中行ToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.粘贴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.Datemodel = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -52,61 +49,37 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.ToolStripMenuItem,
-            this.toolStripMenuItem3,
-            this.复制选中行ToolStripMenuItem5,
-            this.粘贴ToolStripMenuItem,
             this.toolStripMenuItem2,
             this.Datemodel});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(184, 172);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 92);
             this.contextMenuStrip1.Text = "停止自动刷新";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(183, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem1.Text = "删除选中行";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // ToolStripMenuItem
             // 
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
-            this.ToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
+            this.ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.ToolStripMenuItem.Text = "更新数据";
             this.ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(183, 24);
-            this.toolStripMenuItem3.Text = "插入数据";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-            // 
-            // 复制选中行ToolStripMenuItem5
-            // 
-            this.复制选中行ToolStripMenuItem5.Name = "复制选中行ToolStripMenuItem5";
-            this.复制选中行ToolStripMenuItem5.Size = new System.Drawing.Size(183, 24);
-            this.复制选中行ToolStripMenuItem5.Text = "复制选中行";
-            this.复制选中行ToolStripMenuItem5.Click += new System.EventHandler(this.ToolStripMenuItem5_Click);
-            // 
-            // 粘贴ToolStripMenuItem
-            // 
-            this.粘贴ToolStripMenuItem.Name = "粘贴ToolStripMenuItem";
-            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
-            this.粘贴ToolStripMenuItem.Text = "粘贴数据";
-            this.粘贴ToolStripMenuItem.Click += new System.EventHandler(this.粘贴ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(183, 24);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem2.Text = "停止自动刷新";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click_1);
             // 
             // Datemodel
             // 
             this.Datemodel.Name = "Datemodel";
-            this.Datemodel.Size = new System.Drawing.Size(183, 24);
+            this.Datemodel.Size = new System.Drawing.Size(160, 22);
             this.Datemodel.Text = "从此处开始焊标";
             this.Datemodel.Click += new System.EventHandler(this.Datemodel_Click);
             // 
@@ -130,8 +103,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 6);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(5, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 50;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("华文楷体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -141,10 +113,11 @@
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1403, 664);
+            this.dataGridView1.Size = new System.Drawing.Size(1053, 531);
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
+            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             // 
             // timer1
             // 
@@ -154,13 +127,12 @@
             // 
             // YCGBDesignResult
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1417, 676);
+            this.ClientSize = new System.Drawing.Size(1063, 541);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "YCGBDesignResult";
-            this.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ShowIcon = false;
             this.Text = "贴标信息列表";
             this.Load += new System.EventHandler(this.YCGBDesignResult_Load);
@@ -176,9 +148,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem 复制选中行ToolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem 粘贴ToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem Datemodel;

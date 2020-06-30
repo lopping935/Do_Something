@@ -44,6 +44,7 @@ namespace AnBRobotSystem.ChildForm
             public string classes;
             public string order_num;
             public string Length;
+            public string SCBZ;
         };
         Bitmap img = new Bitmap(1030, 512);//712,500
                                            //public SocketClient PlcConnect = null;
@@ -134,7 +135,7 @@ namespace AnBRobotSystem.ChildForm
             }
             dr.Close();
            // sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
-            sql = string.Format("select top 1 ItemPrint,STEEL_CODE_DESC,HT_NO,FUN_NO,SPEC_CP_DESC,NUM,NET_WEIGHT,ProTime,LotNo,XH,LENGTH from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+            sql = string.Format("select top 1 ItemPrint,STEEL_CODE_DESC,HT_NO,FUN_NO,SPEC_CP_DESC,NUM,NET_WEIGHT,ProTime,LotNo,XH,LENGTH,SCBZ from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
 
             DataTable dt = db.ExecuteDataTable(db.GetSqlStringCommond(sql));
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -150,7 +151,8 @@ namespace AnBRobotSystem.ChildForm
                 PLClable.LotNo = dt.Rows[i]["LotNo"].ToString();//轧号
                 PLClable.XH = dt.Rows[i]["XH"].ToString();//捆号
                 PLClable.Length= dt.Rows[i]["LENGTH"].ToString();
-                barcodestring= "LG;" + PLClable.LotNo + ";" + PLClable.XH + ";" + PLClable.SPEC_CP_DESC + ";" + PLClable.Length + ";" + PLClable.NUM + ";" + PLClable.NET_WEIGHT + ";" + PLClable.FUN_NO + ";Pro";
+                PLClable.SCBZ = dt.Rows[i]["SCBZ"].ToString();
+                barcodestring = "LG;" + PLClable.LotNo + ";" + PLClable.XH + ";" + PLClable.SPEC_CP_DESC + ";" + PLClable.Length + ";" + PLClable.NUM + ";" + PLClable.NET_WEIGHT + ";" + PLClable.FUN_NO + ";Pro";
                 // PLClable.classes = dt.Rows[i]["classes"].ToString();//班次
                 //PLClable.order_num = dt.Rows[i]["sn_no"].ToString();
 
@@ -350,7 +352,7 @@ namespace AnBRobotSystem.ChildForm
             Report report = new Report();
             report.Load("./Print_Model/" + mode_name);
             report.SetParameterValue("WUZIMC", PLClable.ItemPrint );
-            report.SetParameterValue("ZXBZ", PLClable.STEEL_CODE_DESC);
+            report.SetParameterValue("ZXBZ", PLClable.SCBZ + "/"+ PLClable.STEEL_CODE_DESC);
             report.SetParameterValue("GH", PLClable.HT_NO);
             report.SetParameterValue("LH", PLClable.FUN_NO);
             report.SetParameterValue("GG", PLClable.SPEC_CP_DESC);
