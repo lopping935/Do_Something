@@ -237,7 +237,7 @@ namespace AnBRobotSystem.ChildForm
 
             Bitmap img2 = new Bitmap(imgtest, s1);
             imgtest.Dispose();
-            img2.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            img2.RotateFlip(RotateFlipType.Rotate90FlipNone);
             print_view p1 = new print_view(img2);
             p1.Show();
         }
@@ -353,7 +353,7 @@ namespace AnBRobotSystem.ChildForm
             report.Load("./Print_Model/" + mode_name);
             report.SetParameterValue("WUZIMC", PLClable.ItemPrint );
             report.SetParameterValue("ZXBZ", PLClable.SCBZ + "/"+ PLClable.STEEL_CODE_DESC);
-            report.SetParameterValue("GH", PLClable.HT_NO);
+            report.SetParameterValue("GH", PLClable.STEEL_CODE_DESC);
             report.SetParameterValue("LH", PLClable.FUN_NO);
             report.SetParameterValue("GG", PLClable.SPEC_CP_DESC);
             report.SetParameterValue("ZS", PLClable.NUM);
