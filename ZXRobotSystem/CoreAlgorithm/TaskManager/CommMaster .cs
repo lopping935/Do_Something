@@ -255,9 +255,11 @@ namespace CoreAlgorithm.TaskManager
                 }
                 catch (Exception ex)
                 {
-                    string sql = "update S_TFlag set Flag=1 where ID=2";
-                    tm.MultithreadExecuteNonQuery(sql);
-                    string sqltext = string.Format("update READ_TABLE set flag='A' where flag='N'", DateTime.Now.ToString());
+
+                    string sqltext = string.Format("update READ_TABLE set flag='F' where flag='N'", DateTime.Now.ToString());
+                    tm.MultithreadExecuteNonQuery(sqltext);
+                    string str = "收到抛送数据存在问题，可能存在重复数据 ";// + PLClable.merge_sinbar;
+                    sqltext = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                     tm.MultithreadExecuteNonQuery(sqltext);
                     log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
                     Log.addLog(log, LogType.ERROR, ex.Message);
