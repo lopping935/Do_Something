@@ -110,7 +110,7 @@ namespace CoreAlgorithm.TaskManager
                     MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
             }
             dr.Close();
-             sql = string.Format("select top 1 ItemPrint,STEEL_CODE_DESC,HT_NO,FUN_NO,SPEC_CP_DESC,NUM,NET_WEIGHT,ProTime,LotNo,XH,LENGTH,SCBZ from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+             sql = string.Format("select top 1 ItemPrint,STEEL_CODE_DESC,HT_NO,FUN_NO,SPEC_CP_DESC,NUM,NET_WEIGHT,ProTime,LotNo,XH,LENGTH,SCBZ,CREATED_CLASS from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
             //sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
 
             DataTable dt = tm.MultithreadDataTable(sql);
@@ -128,18 +128,24 @@ namespace CoreAlgorithm.TaskManager
                 PLClable.XH = dt.Rows[i]["XH"].ToString();//重量
                 PLClable.Length = dt.Rows[i]["LENGTH"].ToString();
                 PLClable.SCBZ = dt.Rows[i]["SCBZ"].ToString();
-                barcodestring = "LG;" + PLClable.LotNo + ";" + PLClable.XH + ";" + PLClable.SPEC_CP_DESC + ";" + PLClable.Length + ";" + PLClable.NUM + ";" + PLClable.NET_WEIGHT + ";" + PLClable.FUN_NO + ";Pro";
-                // PLClable.classes = dt.Rows[i]["classes"].ToString();//班次
-                //PLClable.order_num = dt.Rows[i]["sn_no"].ToString();
+                switch (dt.Rows[i]["CREATED_CLASS"].ToString().Trim())
+                {
+                    case "长白班":
+                        PLClable.classes = "1";
+                        break;
+                    case "白班":
+                        PLClable.classes = "2";
+                        break;
+                    case "中班":
+                        PLClable.classes = "3";
+                        break;
+                    case "夜班":
+                        PLClable.classes = "4";
+                        break;
 
-                //manu_textBox_stand.Text= PLClable.ItemPrint;
-                //manu_textBox_heatno.Text = PLClable.STEEL_CODE_DESC;
-                //manu_textBox_weight.Text = PLClable.wegith.ToString();
-                //manu_textBox_date1.Text = PLClable.print_date;
-                //manu_textBox_grade.Text = PLClable.mtrl_no;
-                //manu_textBox_size.Text = PLClable.spec;
-                //manu_textBox__hook.Text = PLClable.num_no.ToString();
-                //manu_textBox_group.Text = PLClable.classes + " / " + PLClable.order_num;
+                }
+                barcodestring = "LG;" + PLClable.LotNo + ";" + PLClable.XH + ";" + PLClable.SPEC_CP_DESC + ";" + PLClable.Length + ";" + PLClable.NUM + ";" + PLClable.NET_WEIGHT + ";" + PLClable.FUN_NO + ";Pro";
+               
             }
         }
         private void update_manu()//更新图片数据
@@ -249,14 +255,24 @@ namespace CoreAlgorithm.TaskManager
             Init_lable();
             Report report = new Report();
             report.Load("./Print_Model/" + mode_name);
+            if (mode_name == "Print.frx")
+            {
+                report.SetParameterValue("ZXBZ", PLClable.SCBZ + "/" + PLClable.STEEL_CODE_DESC);
+                report.SetParameterValue("GH", PLClable.HT_NO);
+            }
+            else
+            {
+                report.SetParameterValue("ZXBZ", PLClable.SCBZ);
+                report.SetParameterValue("GH", PLClable.STEEL_CODE_DESC);
+            }
             report.SetParameterValue("WUZIMC", PLClable.ItemPrint);
-            report.SetParameterValue("ZXBZ", PLClable.SCBZ+"/"+PLClable.STEEL_CODE_DESC);
-            report.SetParameterValue("GH", PLClable.HT_NO);
             report.SetParameterValue("LH", PLClable.FUN_NO);
-            report.SetParameterValue("GG", PLClable.SPEC_CP_DESC);
+            report.SetParameterValue("GG", PLClable.SPEC_CP_DESC+ "×"+ PLClable.Length+"mm");
             report.SetParameterValue("ZS", PLClable.NUM);
-            report.SetParameterValue("WEIGHT", PLClable.NET_WEIGHT);
-            report.SetParameterValue("SCRQ", PLClable.ProTime);
+            report.SetParameterValue("WEIGHT", PLClable.NET_WEIGHT*1000+"kg");
+            
+                
+            report.SetParameterValue("SCRQ", PLClable.ProTime+"/"+PLClable.classes);
             report.SetParameterValue("KH", PLClable.LotNo + "-" + PLClable.XH);
             report.SetParameterValue("LGBARDCODE", barcodestring);
             report.Prepare();
