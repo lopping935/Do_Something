@@ -37,7 +37,7 @@ namespace AnBRobotSystem.ChildForm
         string sqlLabelSel = "";
         private void YCGBDesignResult_Load(object sender, EventArgs e)
         {
-            conn = new SqlConnection("Data Source=.;Initial Catalog=ZX_Robot_DB;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Connection Timeout=30;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000");
+            conn = new SqlConnection("Data Source=.\\SL;Initial Catalog=ZX_Robot_DB;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Connection Timeout=30;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000");
             DataTable dt1 = new DataTable("MyDT");
             DbDataReader dr = null;
             string sql = "";

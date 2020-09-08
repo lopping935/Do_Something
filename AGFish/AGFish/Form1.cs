@@ -190,7 +190,7 @@ namespace AGFish
                 return;
             }
 
-            string VMPath = "C:\\Program Files\\VisionMaster3.2.0\\Applications\\VisionMaster.exe";
+            string VMPath = "D:\\Program Files\\VisionMaster3.2.0\\Applications\\VisionMaster.exe";
             int iRet = ImvsPlatformSDK_API.IMVS_PF_StartVisionMaster_CS(m_handle, VMPath, nWaitTime);
             if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
             {
