@@ -57,6 +57,7 @@ namespace FrontedUI
         //匹配轮廓信息
         public ImvsSdkPFDefine.IMVS_PATMATCH_POINT_INFO[] outLinePointInfo = null;
     }
+    
 
     /// <summary>
     /// 像素格式

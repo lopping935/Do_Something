@@ -662,6 +662,7 @@ namespace AGFish
                                     featureMacthData.outLinePointInfo[iNum] = stHpFeatMatchInfo.stMatchConInfo.pstPatMatchPt[iNum];
                                 }
                             }
+                            
                             using (var g = bmp.CreateGraphic())
                             { 
                                 if (featureMacthData.outLinePointInfo != null)
@@ -673,6 +674,9 @@ namespace AGFish
                                 }
                                 curPictureBox2.Invoke(new Action(() =>{curPictureBox2.Image = bmp;}));
                             }
+
+                            ImvsSdkPFDefine.IMVS_PF_HPMATCH_BASE_INFO BASE_INFO= (ImvsSdkPFDefine.IMVS_PF_HPMATCH_BASE_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_HPMATCH_BASE_INFO));
+                            featureMacthData.MatchBoxAngle[0] = BASE_INFO.stMatchBox.fAngle;
                             break;
                             //IMVS_PF_HPMATCH_PT_INFO
                     #region 单点对位
@@ -680,7 +684,8 @@ namespace AGFish
                          ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO siglepoint = (ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO));
                          float x = (float)Math.Round(siglepoint.fDeltaX, 3);
                          float y = (float)Math.Round(siglepoint.fDeltaY, 3);
-                         if (location_flag == "1")
+                         float agle = (float)Math.Round(siglepoint.fDeltaTheta, 3);
+                            if (location_flag == "1")
                          {
                                 location_flag = "";
                                 AGFishOPCClient.WriteItem(x.ToString(), Pro_X);

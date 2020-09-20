@@ -141,6 +141,7 @@ namespace AnBRobotSystem.ChildForm
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 PLClable.ItemPrint = dt.Rows[i]["ItemPrint"].ToString();//产品名称
+                //PLClable.ItemPrint = PLClable.ItemPrint.Substring(5, PLClable.ItemPrint.Length);
                 PLClable.STEEL_CODE_DESC = dt.Rows[i]["STEEL_CODE_DESC"].ToString();//牌号
                 PLClable.HT_NO = dt.Rows[i]["HT_NO"].ToString();//合同号
                 PLClable.FUN_NO = dt.Rows[i]["FUN_NO"].ToString();//炉号
@@ -155,13 +156,17 @@ namespace AnBRobotSystem.ChildForm
                 //PLClable.classes = dt.Rows[i]["CREATED_CLASS"].ToString();
                 switch (dt.Rows[i]["CREATED_CLASS"].ToString().Trim())
                 {
-                    case "长白班":PLClable.classes = "1";
+                    case "甲":
+                        PLClable.classes = "1";
                         break;
-                    case "白班": PLClable.classes = "2";
+                    case "乙":
+                        PLClable.classes = "2";
                         break;
-                    case "中班":PLClable.classes = "3";
+                    case "丙":
+                        PLClable.classes = "3";
                         break;
-                    case "夜班":PLClable.classes = "4";
+                    case "丁":
+                        PLClable.classes = "4";
                         break;
                     default:
                         break;
@@ -367,6 +372,11 @@ namespace AnBRobotSystem.ChildForm
             report.Load("./Print_Model/" + mode_name);
             if(mode_name== "Print.frx")
             {
+                if(PLClable.SCBZ.IndexOf("国标|")>=0)
+                {
+                    PLClable.SCBZ = PLClable.SCBZ.Substring(3, PLClable.SCBZ.Length - 3);
+                }
+               
                 report.SetParameterValue("ZXBZ", PLClable.SCBZ + "/" + PLClable.STEEL_CODE_DESC);
                 report.SetParameterValue("GH", PLClable.HT_NO);
             }
@@ -377,7 +387,7 @@ namespace AnBRobotSystem.ChildForm
             }
             report.SetParameterValue("WUZIMC", PLClable.ItemPrint );
             report.SetParameterValue("LH", PLClable.FUN_NO);
-            report.SetParameterValue("GG", PLClable.SPEC_CP_DESC + "×" + PLClable.Length + "mm");
+            report.SetParameterValue("GG", PLClable.SPEC_CP_DESC + "X" + PLClable.Length + "mm");
             report.SetParameterValue("ZS", PLClable.NUM);
             report.SetParameterValue("WEIGHT", PLClable.NET_WEIGHT*1000+"kg");
             report.SetParameterValue("SCRQ", PLClable.ProTime + "/" + PLClable.classes);
