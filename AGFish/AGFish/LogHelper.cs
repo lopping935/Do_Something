@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using log4net.Util;
+using log4net.Layout;
+using log4net.Core;
+
 namespace logtest
 {
     public class LogHelper
@@ -13,9 +17,10 @@ namespace logtest
 
         }
 
-        public static readonly log4net.ILog loginfo = log4net.LogManager.GetLogger("loginfo");
+        public static readonly log4net.ILog loginfo = log4net.LogManager.GetLogger("loginfo");//获取一个日志记录器
 
         public static readonly log4net.ILog logerror = log4net.LogManager.GetLogger("logerror");
+
 
         public static void SetConfig()
         {
@@ -67,4 +72,67 @@ namespace logtest
             }
         }
     }
+    public class CsvTextWriter : TextWriter
+    {
+        private readonly TextWriter _textWriter;
+
+        public CsvTextWriter(TextWriter textWriter)
+        {
+            _textWriter = textWriter;
+        }
+
+        public override Encoding Encoding => _textWriter.Encoding;
+
+        public override void Write(char value)
+        {
+            _textWriter.Write(value);
+            if (value == '"')
+                _textWriter.Write(value);
+        }
+
+        public void WriteQuote()
+        {
+            _textWriter.Write('"');
+        }
+    }
+    public class NewFieldConverter : PatternConverter
+    {
+        protected override void Convert(TextWriter writer, object state)
+        {
+            var ctw = writer as CsvTextWriter;
+            ctw.WriteQuote();
+
+            writer.Write(',');
+
+            ctw.WriteQuote();
+        }
+    }
+    public class EndRowConverter : PatternConverter
+    {
+        protected override void Convert(TextWriter writer, object state)
+        {
+            var ctw = writer as CsvTextWriter;
+
+            ctw.WriteQuote();
+
+            writer.WriteLine();
+        }
+    }   
+    public class CsvPatternLayout : PatternLayout
+    {
+        public override void ActivateOptions()
+        {
+            AddConverter("newfield", typeof(NewFieldConverter));
+            AddConverter("endrow", typeof(EndRowConverter));
+            base.ActivateOptions();
+        }
+
+        public override void Format(TextWriter writer, LoggingEvent loggingEvent)
+        {
+            var ctw = new CsvTextWriter(writer);
+            ctw.WriteQuote();
+            base.Format(ctw, loggingEvent);
+        }
+    }
+    
 }

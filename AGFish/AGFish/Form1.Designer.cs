@@ -32,35 +32,36 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer_deleterizhi = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.LocationExecuteOnce = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxImg1 = new System.Windows.Forms.PictureBox();
-            this.buttonShowHideVM = new System.Windows.Forms.Button();
-            this.buttonLoadSolution = new System.Windows.Forms.Button();
-            this.labelProgress = new System.Windows.Forms.Label();
-            this.progressBarSaveAndLoad = new System.Windows.Forms.ProgressBar();
-            this.comboBoxShowAndHide = new System.Windows.Forms.ComboBox();
-            this.groupBoxShowAndHide = new System.Windows.Forms.GroupBox();
-            this.buttonCloseSolution = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.buttonCloseVM = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_count1 = new System.Windows.Forms.TextBox();
-            this.Recognition = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.buttonOpenVM = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.txt_message = new System.Windows.Forms.TextBox();
+            this.buttonOpenVM = new System.Windows.Forms.Button();
+            this.buttonCloseVM = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.buttonCloseSolution = new System.Windows.Forms.Button();
+            this.groupBoxShowAndHide = new System.Windows.Forms.GroupBox();
+            this.comboBoxShowAndHide = new System.Windows.Forms.ComboBox();
+            this.progressBarSaveAndLoad = new System.Windows.Forms.ProgressBar();
+            this.labelProgress = new System.Windows.Forms.Label();
+            this.buttonLoadSolution = new System.Windows.Forms.Button();
+            this.buttonShowHideVM = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Recognition = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_count1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txt_sdzs1 = new System.Windows.Forms.TextBox();
+            this.LocationExecuteOnce = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBoxImg1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBoxShowAndHide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImg1)).BeginInit();
-            this.groupBoxShowAndHide.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer_deleterizhi
@@ -91,6 +92,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
@@ -106,163 +108,15 @@
             this.splitContainer1.SplitterDistance = 523;
             this.splitContainer1.TabIndex = 182;
             // 
-            // LocationExecuteOnce
+            // txt_message
             // 
-            this.LocationExecuteOnce.Image = ((System.Drawing.Image)(resources.GetObject("LocationExecuteOnce.Image")));
-            this.LocationExecuteOnce.Location = new System.Drawing.Point(364, 171);
-            this.LocationExecuteOnce.Name = "LocationExecuteOnce";
-            this.LocationExecuteOnce.Size = new System.Drawing.Size(36, 36);
-            this.LocationExecuteOnce.TabIndex = 18;
-            this.LocationExecuteOnce.UseVisualStyleBackColor = true;
-            this.LocationExecuteOnce.Click += new System.EventHandler(this.LocationExecuteOnce_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.Location = new System.Drawing.Point(85, 339);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(551, 585);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 181;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBoxImg1
-            // 
-            this.pictureBoxImg1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBoxImg1.Location = new System.Drawing.Point(1304, 341);
-            this.pictureBoxImg1.Name = "pictureBoxImg1";
-            this.pictureBoxImg1.Size = new System.Drawing.Size(554, 585);
-            this.pictureBoxImg1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxImg1.TabIndex = 35;
-            this.pictureBoxImg1.TabStop = false;
-            // 
-            // buttonShowHideVM
-            // 
-            this.buttonShowHideVM.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonShowHideVM.Location = new System.Drawing.Point(187, 264);
-            this.buttonShowHideVM.Name = "buttonShowHideVM";
-            this.buttonShowHideVM.Size = new System.Drawing.Size(156, 44);
-            this.buttonShowHideVM.TabIndex = 36;
-            this.buttonShowHideVM.Text = "显示/隐藏 VisionMaster";
-            this.buttonShowHideVM.UseVisualStyleBackColor = true;
-            this.buttonShowHideVM.Click += new System.EventHandler(this.buttonShowHideVM_Click);
-            // 
-            // buttonLoadSolution
-            // 
-            this.buttonLoadSolution.Font = new System.Drawing.Font("宋体", 12F);
-            this.buttonLoadSolution.Location = new System.Drawing.Point(61, 155);
-            this.buttonLoadSolution.Name = "buttonLoadSolution";
-            this.buttonLoadSolution.Size = new System.Drawing.Size(156, 44);
-            this.buttonLoadSolution.TabIndex = 34;
-            this.buttonLoadSolution.Text = "加载方案";
-            this.buttonLoadSolution.UseVisualStyleBackColor = true;
-            this.buttonLoadSolution.Click += new System.EventHandler(this.buttonLoadSolution_Click);
-            // 
-            // labelProgress
-            // 
-            this.labelProgress.AutoSize = true;
-            this.labelProgress.Font = new System.Drawing.Font("宋体", 12F);
-            this.labelProgress.Location = new System.Drawing.Point(125, 228);
-            this.labelProgress.Name = "labelProgress";
-            this.labelProgress.Size = new System.Drawing.Size(16, 16);
-            this.labelProgress.TabIndex = 33;
-            this.labelProgress.Text = "0";
-            // 
-            // progressBarSaveAndLoad
-            // 
-            this.progressBarSaveAndLoad.Location = new System.Drawing.Point(157, 224);
-            this.progressBarSaveAndLoad.Name = "progressBarSaveAndLoad";
-            this.progressBarSaveAndLoad.Size = new System.Drawing.Size(300, 24);
-            this.progressBarSaveAndLoad.TabIndex = 32;
-            // 
-            // comboBoxShowAndHide
-            // 
-            this.comboBoxShowAndHide.FormattingEnabled = true;
-            this.comboBoxShowAndHide.Location = new System.Drawing.Point(6, 16);
-            this.comboBoxShowAndHide.Name = "comboBoxShowAndHide";
-            this.comboBoxShowAndHide.Size = new System.Drawing.Size(82, 20);
-            this.comboBoxShowAndHide.TabIndex = 5;
-            // 
-            // groupBoxShowAndHide
-            // 
-            this.groupBoxShowAndHide.Controls.Add(this.comboBoxShowAndHide);
-            this.groupBoxShowAndHide.Font = new System.Drawing.Font("宋体", 9F);
-            this.groupBoxShowAndHide.Location = new System.Drawing.Point(61, 266);
-            this.groupBoxShowAndHide.Name = "groupBoxShowAndHide";
-            this.groupBoxShowAndHide.Size = new System.Drawing.Size(103, 42);
-            this.groupBoxShowAndHide.TabIndex = 37;
-            this.groupBoxShowAndHide.TabStop = false;
-            this.groupBoxShowAndHide.Text = "显示隐藏状态";
-            // 
-            // buttonCloseSolution
-            // 
-            this.buttonCloseSolution.Font = new System.Drawing.Font("宋体", 12F);
-            this.buttonCloseSolution.Location = new System.Drawing.Point(301, 155);
-            this.buttonCloseSolution.Name = "buttonCloseSolution";
-            this.buttonCloseSolution.Size = new System.Drawing.Size(156, 44);
-            this.buttonCloseSolution.TabIndex = 31;
-            this.buttonCloseSolution.Text = "关闭方案";
-            this.buttonCloseSolution.UseVisualStyleBackColor = true;
-            this.buttonCloseSolution.Click += new System.EventHandler(this.buttonCloseSolution_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("宋体", 12F);
-            this.label11.Location = new System.Drawing.Point(63, 228);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 16);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "进度：";
-            // 
-            // buttonCloseVM
-            // 
-            this.buttonCloseVM.Font = new System.Drawing.Font("Cambria", 12F);
-            this.buttonCloseVM.Location = new System.Drawing.Point(301, 96);
-            this.buttonCloseVM.Name = "buttonCloseVM";
-            this.buttonCloseVM.Size = new System.Drawing.Size(156, 44);
-            this.buttonCloseVM.TabIndex = 6;
-            this.buttonCloseVM.Text = "关闭VisionMaster";
-            this.buttonCloseVM.UseVisualStyleBackColor = true;
-            this.buttonCloseVM.Click += new System.EventHandler(this.buttonCloseVM_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 24F);
-            this.label1.Location = new System.Drawing.Point(785, 266);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 33);
-            this.label1.TabIndex = 177;
-            this.label1.Text = "罐号字符:";
-            // 
-            // txt_count1
-            // 
-            this.txt_count1.Font = new System.Drawing.Font("宋体", 24F);
-            this.txt_count1.Location = new System.Drawing.Point(981, 255);
-            this.txt_count1.Name = "txt_count1";
-            this.txt_count1.Size = new System.Drawing.Size(193, 44);
-            this.txt_count1.TabIndex = 176;
-            // 
-            // Recognition
-            // 
-            this.Recognition.Image = ((System.Drawing.Image)(resources.GetObject("Recognition.Image")));
-            this.Recognition.Location = new System.Drawing.Point(1039, 182);
-            this.Recognition.Name = "Recognition";
-            this.Recognition.Size = new System.Drawing.Size(36, 36);
-            this.Recognition.TabIndex = 20;
-            this.Recognition.UseVisualStyleBackColor = true;
-            this.Recognition.Click += new System.EventHandler(this.Recognition_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(785, 182);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(239, 33);
-            this.label4.TabIndex = 181;
-            this.label4.Text = "罐车字符单动：";
+            this.txt_message.AcceptsReturn = true;
+            this.txt_message.Font = new System.Drawing.Font("宋体", 12F);
+            this.txt_message.Location = new System.Drawing.Point(24, 341);
+            this.txt_message.Multiline = true;
+            this.txt_message.Name = "txt_message";
+            this.txt_message.Size = new System.Drawing.Size(468, 583);
+            this.txt_message.TabIndex = 170;
             // 
             // buttonOpenVM
             // 
@@ -275,25 +129,95 @@
             this.buttonOpenVM.UseVisualStyleBackColor = true;
             this.buttonOpenVM.Click += new System.EventHandler(this.buttonOpenVM_Click);
             // 
-            // label2
+            // buttonCloseVM
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 24F);
-            this.label2.Location = new System.Drawing.Point(94, 266);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 33);
-            this.label2.TabIndex = 179;
-            this.label2.Text = "位置坐标:";
+            this.buttonCloseVM.Font = new System.Drawing.Font("Cambria", 12F);
+            this.buttonCloseVM.Location = new System.Drawing.Point(301, 96);
+            this.buttonCloseVM.Name = "buttonCloseVM";
+            this.buttonCloseVM.Size = new System.Drawing.Size(156, 44);
+            this.buttonCloseVM.TabIndex = 6;
+            this.buttonCloseVM.Text = "关闭VisionMaster";
+            this.buttonCloseVM.UseVisualStyleBackColor = true;
+            this.buttonCloseVM.Click += new System.EventHandler(this.buttonCloseVM_Click);
             // 
-            // label3
+            // label11
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(94, 176);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(239, 33);
-            this.label3.TabIndex = 180;
-            this.label3.Text = "罐车定位单动：";
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("宋体", 12F);
+            this.label11.Location = new System.Drawing.Point(63, 228);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 16);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "进度：";
+            // 
+            // buttonCloseSolution
+            // 
+            this.buttonCloseSolution.Font = new System.Drawing.Font("宋体", 12F);
+            this.buttonCloseSolution.Location = new System.Drawing.Point(301, 155);
+            this.buttonCloseSolution.Name = "buttonCloseSolution";
+            this.buttonCloseSolution.Size = new System.Drawing.Size(156, 44);
+            this.buttonCloseSolution.TabIndex = 31;
+            this.buttonCloseSolution.Text = "关闭方案";
+            this.buttonCloseSolution.UseVisualStyleBackColor = true;
+            this.buttonCloseSolution.Click += new System.EventHandler(this.buttonCloseSolution_Click);
+            // 
+            // groupBoxShowAndHide
+            // 
+            this.groupBoxShowAndHide.Controls.Add(this.comboBoxShowAndHide);
+            this.groupBoxShowAndHide.Font = new System.Drawing.Font("宋体", 9F);
+            this.groupBoxShowAndHide.Location = new System.Drawing.Point(61, 266);
+            this.groupBoxShowAndHide.Name = "groupBoxShowAndHide";
+            this.groupBoxShowAndHide.Size = new System.Drawing.Size(103, 42);
+            this.groupBoxShowAndHide.TabIndex = 37;
+            this.groupBoxShowAndHide.TabStop = false;
+            this.groupBoxShowAndHide.Text = "显示隐藏状态";
+            // 
+            // comboBoxShowAndHide
+            // 
+            this.comboBoxShowAndHide.FormattingEnabled = true;
+            this.comboBoxShowAndHide.Location = new System.Drawing.Point(6, 16);
+            this.comboBoxShowAndHide.Name = "comboBoxShowAndHide";
+            this.comboBoxShowAndHide.Size = new System.Drawing.Size(82, 20);
+            this.comboBoxShowAndHide.TabIndex = 5;
+            // 
+            // progressBarSaveAndLoad
+            // 
+            this.progressBarSaveAndLoad.Location = new System.Drawing.Point(157, 224);
+            this.progressBarSaveAndLoad.Name = "progressBarSaveAndLoad";
+            this.progressBarSaveAndLoad.Size = new System.Drawing.Size(300, 24);
+            this.progressBarSaveAndLoad.TabIndex = 32;
+            // 
+            // labelProgress
+            // 
+            this.labelProgress.AutoSize = true;
+            this.labelProgress.Font = new System.Drawing.Font("宋体", 12F);
+            this.labelProgress.Location = new System.Drawing.Point(125, 228);
+            this.labelProgress.Name = "labelProgress";
+            this.labelProgress.Size = new System.Drawing.Size(16, 16);
+            this.labelProgress.TabIndex = 33;
+            this.labelProgress.Text = "0";
+            // 
+            // buttonLoadSolution
+            // 
+            this.buttonLoadSolution.Font = new System.Drawing.Font("宋体", 12F);
+            this.buttonLoadSolution.Location = new System.Drawing.Point(61, 155);
+            this.buttonLoadSolution.Name = "buttonLoadSolution";
+            this.buttonLoadSolution.Size = new System.Drawing.Size(156, 44);
+            this.buttonLoadSolution.TabIndex = 34;
+            this.buttonLoadSolution.Text = "加载方案";
+            this.buttonLoadSolution.UseVisualStyleBackColor = true;
+            this.buttonLoadSolution.Click += new System.EventHandler(this.buttonLoadSolution_Click);
+            // 
+            // buttonShowHideVM
+            // 
+            this.buttonShowHideVM.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonShowHideVM.Location = new System.Drawing.Point(187, 264);
+            this.buttonShowHideVM.Name = "buttonShowHideVM";
+            this.buttonShowHideVM.Size = new System.Drawing.Size(156, 44);
+            this.buttonShowHideVM.TabIndex = 36;
+            this.buttonShowHideVM.Text = "显示/隐藏 VisionMaster";
+            this.buttonShowHideVM.UseVisualStyleBackColor = true;
+            this.buttonShowHideVM.Click += new System.EventHandler(this.buttonShowHideVM_Click);
             // 
             // label5
             // 
@@ -305,15 +229,63 @@
             this.label5.TabIndex = 183;
             this.label5.Text = "鞍钢炼钢厂鱼雷罐车视觉系统";
             // 
-            // txt_message
+            // pictureBox1
             // 
-            this.txt_message.AcceptsReturn = true;
-            this.txt_message.Font = new System.Drawing.Font("宋体", 12F);
-            this.txt_message.Location = new System.Drawing.Point(24, 341);
-            this.txt_message.Multiline = true;
-            this.txt_message.Name = "txt_message";
-            this.txt_message.Size = new System.Drawing.Size(468, 583);
-            this.txt_message.TabIndex = 170;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox1.Location = new System.Drawing.Point(85, 339);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(551, 585);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 181;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(785, 182);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(239, 33);
+            this.label4.TabIndex = 181;
+            this.label4.Text = "罐车字符单动：";
+            // 
+            // Recognition
+            // 
+            this.Recognition.Image = ((System.Drawing.Image)(resources.GetObject("Recognition.Image")));
+            this.Recognition.Location = new System.Drawing.Point(1039, 182);
+            this.Recognition.Name = "Recognition";
+            this.Recognition.Size = new System.Drawing.Size(36, 36);
+            this.Recognition.TabIndex = 20;
+            this.Recognition.UseVisualStyleBackColor = true;
+            this.Recognition.Click += new System.EventHandler(this.Recognition_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(94, 176);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(239, 33);
+            this.label3.TabIndex = 180;
+            this.label3.Text = "罐车定位单动：";
+            // 
+            // txt_count1
+            // 
+            this.txt_count1.Font = new System.Drawing.Font("宋体", 24F);
+            this.txt_count1.Location = new System.Drawing.Point(981, 255);
+            this.txt_count1.Name = "txt_count1";
+            this.txt_count1.Size = new System.Drawing.Size(193, 44);
+            this.txt_count1.TabIndex = 176;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 24F);
+            this.label1.Location = new System.Drawing.Point(785, 266);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 33);
+            this.label1.TabIndex = 177;
+            this.label1.Text = "罐号字符:";
             // 
             // txt_sdzs1
             // 
@@ -322,6 +294,46 @@
             this.txt_sdzs1.Name = "txt_sdzs1";
             this.txt_sdzs1.Size = new System.Drawing.Size(210, 44);
             this.txt_sdzs1.TabIndex = 178;
+            // 
+            // LocationExecuteOnce
+            // 
+            this.LocationExecuteOnce.Image = ((System.Drawing.Image)(resources.GetObject("LocationExecuteOnce.Image")));
+            this.LocationExecuteOnce.Location = new System.Drawing.Point(364, 171);
+            this.LocationExecuteOnce.Name = "LocationExecuteOnce";
+            this.LocationExecuteOnce.Size = new System.Drawing.Size(36, 36);
+            this.LocationExecuteOnce.TabIndex = 18;
+            this.LocationExecuteOnce.UseVisualStyleBackColor = true;
+            this.LocationExecuteOnce.Click += new System.EventHandler(this.LocationExecuteOnce_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 24F);
+            this.label2.Location = new System.Drawing.Point(94, 266);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 33);
+            this.label2.TabIndex = 179;
+            this.label2.Text = "位置坐标:";
+            // 
+            // pictureBoxImg1
+            // 
+            this.pictureBoxImg1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBoxImg1.Location = new System.Drawing.Point(1304, 341);
+            this.pictureBoxImg1.Name = "pictureBoxImg1";
+            this.pictureBoxImg1.Size = new System.Drawing.Size(554, 585);
+            this.pictureBoxImg1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxImg1.TabIndex = 35;
+            this.pictureBoxImg1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(150, 116);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 184;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // Form1
             // 
@@ -344,15 +356,14 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBoxShowAndHide.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImg1)).EndInit();
-            this.groupBoxShowAndHide.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Timer timer_deleterizhi;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox txt_message;
         private System.Windows.Forms.Button buttonOpenVM;
@@ -376,6 +387,8 @@
         private System.Windows.Forms.Button LocationExecuteOnce;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBoxImg1;
+        private System.Windows.Forms.Timer timer_deleterizhi;
+        private System.Windows.Forms.Button button1;
     }
 }
 

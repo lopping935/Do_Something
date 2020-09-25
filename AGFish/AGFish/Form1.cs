@@ -18,6 +18,9 @@ using System.Net;
 using OPCAutomation;
 //using FrontedUI;
 using logtest;
+using log4net;
+using log4net.Config;
+
 namespace AGFish
 {
     public partial class Form1 : Form
@@ -31,10 +34,8 @@ namespace AGFish
         public static OPCItem Product_Type;
         public static OPCItem Pro_X;
         public static OPCItem Pro_Y;
-        public static OPCItem Pro_Z;
         public static OPCItem Pro_RX;
-        public static OPCItem Pro_RY;
-        public static OPCItem Pro_RZ;
+
 
         // 全局变量定义
         public IntPtr m_handle = IntPtr.Zero;                                   // SDK4Server句柄
@@ -51,6 +52,7 @@ namespace AGFish
         public uint m_nProgressFlag = 0;                                             // 显示加载或保存进度标志位
                                                                                      //图像  
         FeatureMatchData featureMacthData = new FeatureMatchData();//图像
+        float angle = 1000;
         OCRString ocrsting1 = new OCRString();
         CircleData circleData = new CircleData();
         ImageData imageData1 = new ImageData();
@@ -109,10 +111,8 @@ namespace AGFish
                 Product_Type = AGFishOPCClient.AddItem("Product_Type");
                 Pro_X = AGFishOPCClient.AddItem("Pro_X");
                 Pro_Y = AGFishOPCClient.AddItem("Pro_Y");
-                Pro_Z = AGFishOPCClient.AddItem("Pro_Z");
                 Pro_RX = AGFishOPCClient.AddItem("Pro_RX");
-                Pro_RY = AGFishOPCClient.AddItem("Pro_RY");
-                Pro_RZ = AGFishOPCClient.AddItem("Pro_RZ");
+                
             }
             catch (Exception err)
             {
@@ -172,7 +172,7 @@ namespace AGFish
             }
 
            // buttonOpenVM_Click(null, null);
-            //buttonLoadSolution_Click(null, null);
+            //buttonLoadSolution_Click(null, null);MOmo
            // CreateConnect_PLC();
         }
 
@@ -266,12 +266,12 @@ namespace AGFish
             {
                 strMsg = "IMVS_PF_LoadSolution_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                 txt_message.AppendText(strMsg + "\r\n");
-                LogHelper.WriteLog(strMsg);
+               // LogHelper.WriteLog(strMsg);
                 return;
             }
             strMsg = "IMVS_PF_LoadSolution_CS success";
             txt_message.AppendText(strMsg + "\r\n");
-            LogHelper.WriteLog(strMsg);
+            //WriteLog LogHelper.WriteLog(strMsg);
             DateTime dtStart = DateTime.Now;
             uint nProgress = 0;
             m_nProgressFlag = 1;    // 显示加载方案进度标志位置位
@@ -323,7 +323,7 @@ namespace AGFish
             {
                 strMsg = "IMVS_PF_CloseSolution_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                 txt_message.AppendText(strMsg + "\r\n");
-                LogHelper.WriteLog(strMsg);
+               // LogHelper.WriteLog(strMsg);
                 return;
             }
 
@@ -333,7 +333,7 @@ namespace AGFish
 
             strMsg = "IMVS_PF_CloseSolution_CS Success";
             txt_message.AppendText(strMsg + "\r\n");
-            LogHelper.WriteLog(strMsg);
+            //LogHelper.WriteLog(strMsg);
         }
         
         private void buttonShowHideVM_Click(object sender, EventArgs e)
@@ -355,13 +355,13 @@ namespace AGFish
             {
                 strMsg = "IMVS_PF_ShowVisionMaster_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                 txt_message.AppendText(strMsg + "\r\n");
-                LogHelper.WriteLog(strMsg);
+               // LogHelper.WriteLog(strMsg);
                 return;
             }
 
             strMsg = "IMVS_PF_ShowVisionMaster_CS Success";
             txt_message.AppendText(strMsg + "\r\n");
-            LogHelper.WriteLog(strMsg);
+            //LogHelper.WriteLog(strMsg);
         }
         string location_flag, recognition_flag;
         
@@ -424,7 +424,7 @@ namespace AGFish
             {
                 strMsg = "相机1:IMVS_PF_ExecuteOnce_V30_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                 txt_message.AppendText(strMsg + "\r\n");
-                LogHelper.WriteLog(strMsg);
+               // LogHelper.WriteLog(strMsg);
                 return;
             }
 
@@ -466,7 +466,7 @@ namespace AGFish
                 {
                     strMsg = "相机1:IMVS_PF_ContinousExecute_V30_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                     txt_message.AppendText(strMsg + "\r\n");
-                    LogHelper.WriteLog(strMsg);
+                   // LogHelper.WriteLog(strMsg);
                 return;
                 }
                // strMsg = "相机1:IMVS_PF_ContinousExecute_V30_CS Success";
@@ -502,7 +502,7 @@ namespace AGFish
 
             strMsg = "相机1:IMVS_PF_StopExecute_V30_CS Success";
             txt_message.AppendText(strMsg + "\r\n");
-            LogHelper.WriteLog(strMsg);
+           // LogHelper.WriteLog(strMsg);
 
         }
         /****************************************************************************
@@ -623,15 +623,13 @@ namespace AGFish
                             ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO));
                             imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
                             imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
-                            //stCameraImgInfo = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
                             //本地图像测试 MODU_NAME_LOCALIMAGEVIEW
                             //case ImvsSdkPFDefine.MODU_NAME_LOCALIMAGEVIEW:
-                            //    ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO));
-                            //    imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
-                            //    imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
+                            //     ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO));
+                            //     imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
+                            //     imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
 
-                           // imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
-                        
+
 
 
                             imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);                      
@@ -675,8 +673,9 @@ namespace AGFish
                                 curPictureBox2.Invoke(new Action(() =>{curPictureBox2.Image = bmp;}));
                             }
 
-                            ImvsSdkPFDefine.IMVS_PF_HPMATCH_BASE_INFO BASE_INFO= (ImvsSdkPFDefine.IMVS_PF_HPMATCH_BASE_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_HPMATCH_BASE_INFO));
-                            featureMacthData.MatchBoxAngle[0] = BASE_INFO.stMatchBox.fAngle;
+                            //featureMacthData.MatchBoxAngle=new float[stHpFeatMatchInfo.iMatchNum];
+                            //featureMacthData.MatchBoxAngle[0] = stHpFeatMatchInfo.pstMatchBaseInfo[0].stMatchBox.fAngle;
+                           // angle = stHpFeatMatchInfo.pstMatchBaseInfo[0].stMatchBox.fAngle;
                             break;
                             //IMVS_PF_HPMATCH_PT_INFO
                     #region 单点对位
@@ -684,19 +683,27 @@ namespace AGFish
                          ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO siglepoint = (ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_SINGLEPOINTALIGN_MODU_INFO));
                          float x = (float)Math.Round(siglepoint.fDeltaX, 3);
                          float y = (float)Math.Round(siglepoint.fDeltaY, 3);
-                         float agle = (float)Math.Round(siglepoint.fDeltaTheta, 3);
-                            if (location_flag == "1")
+                         float angle = (float)Math.Round(siglepoint.fDeltaTheta, 3);
+                         if (location_flag == "1")
                          {
                                 location_flag = "";
                                 AGFishOPCClient.WriteItem(x.ToString(), Pro_X);
                                 AGFishOPCClient.WriteItem(y.ToString(), Pro_Y);
+                                AGFishOPCClient.WriteItem(angle.ToString(), Pro_RX);
                                 AGFishOPCClient.WriteItem(5.ToString(), VisionCode);
-                                if (-150 < x && x < 150)
+                                if (-600 < x && x < 600)
                                 {
                                     AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
                                     txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导1成功将5写入PLC" + "\r\n"); }));
-                                    txt_message.Invoke(new Action(() => { txt_message.AppendText("第一次坐标位置" + x.ToString() + "," + y.ToString() + "\r\n"); }));
-                                    LogHelper.WriteLog("第一次坐标位置" + x.ToString() + "," + y.ToString());
+                                    txt_message.Invoke(new Action(() => { txt_message.AppendText("第一次坐标位置" + x.ToString() + "," + y.ToString() + "," + angle.ToString() + "\r\n"); }));
+                                    // LogHelper.WriteLog("第一次坐标位置" + x.ToString() + "," + y.ToString());
+                                    StringBuilder sb = new StringBuilder();
+                                    sb.Append("25");
+                                    sb.Append("\",\"");
+                                    sb.Append(x.ToString());
+                                    sb.Append("\",\"");
+                                    sb.Append(y.ToString());
+                                    LogHelper.WriteLog(sb.ToString());
 
                                 }
                                 else
@@ -709,42 +716,23 @@ namespace AGFish
                         {
                             location_flag = "";
                             AGFishOPCClient.WriteItem(x.ToString(), Pro_X);
-                            AGFishOPCClient.WriteItem(y.ToString(), Pro_Y);
+                            AGFishOPCClient.WriteItem(y.ToString(), Pro_Y); 
+                            AGFishOPCClient.WriteItem(angle.ToString(), Pro_RX);
                             AGFishOPCClient.WriteItem(6.ToString(), VisionCode);
-                            if (-150 < x && x < 150)
+                            if (-100 < x && x < 100)
                             {
                                 AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
                                 txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导2成功将5写入PLC" + "\r\n"); }));
-                                txt_message.Invoke(new Action(() => { txt_message.AppendText("第二次坐标位置" + x.ToString() + "," + y.ToString() + "\r\n"); }));
-                                LogHelper.WriteLog("第二次坐标位置" + x.ToString() + "," + y.ToString());
-                                }
+                                txt_message.Invoke(new Action(() => { txt_message.AppendText("第二次坐标位置" + x.ToString() + "," + y.ToString() + "," + angle.ToString() + "\r\n"); }));
+                                //LogHelper.WriteLog("第二次坐标位置" + x.ToString() + "," + y.ToString());
+                             }
                             else
                             {
                                 AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
                                 txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导2失败将0写入PLC" + "\r\n"); }));
-                                    //Thread th1 = new Thread((){ nProcID = 10001; ExecuteOnce();});
+                                //Thread th1 = new Thread((){ nProcID = 10001; ExecuteOnce();});
                             }
-                        }
-                         if (location_flag == "3")
-                        {
-                            location_flag = "";
-                            AGFishOPCClient.WriteItem(x.ToString(), Pro_X);
-                            AGFishOPCClient.WriteItem(y.ToString(), Pro_Y);
-                            AGFishOPCClient.WriteItem(7.ToString(), VisionCode);
-                            if (-150 < x && x < 150)
-                            {
-                                AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
-                                txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导3成功将5写入PLC" + "\r\n"); }));
-                                txt_message.Invoke(new Action(() => { txt_message.AppendText("第三次坐标位置" + x.ToString() + "," + y.ToString() + "\r\n"); }));
-                                LogHelper.WriteLog("第三次坐标位置" + x.ToString() + "," + y.ToString());
-
-                                }
-                            else
-                            {
-                                AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
-                                txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导3失败将0写入PLC" + "\r\n"); }));
-                            }
-                        }
+                        }                       
                          txt_sdzs1.Text = x.ToString() + "," + y.ToString();
                         break;
                     #endregion
@@ -783,6 +771,29 @@ namespace AGFish
             sw.Write(dt + message + "\r\n");
             sw.Close();
             fs.Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            
+            CsvPatternLayout csvPatternLayout = new CsvPatternLayout();
+            var log = LogManager.GetLogger("Default");
+            csvPatternLayout.ActivateOptions();
+            log.Info("\"fgffdg\"");
+
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("25");
+            sb.Append("\",\"");
+            sb.Append("125.4");
+            sb.Append("\",\"");
+            sb.Append("42.5");
+            LogHelper.WriteLog(sb.ToString());
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

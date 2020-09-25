@@ -158,10 +158,12 @@
       <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.WindowsRuntime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Zebra.Printer.SDK.2.14.1989\lib\net47\System.Runtime.WindowsRuntime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -233,6 +235,11 @@
     <Compile Include="PasswordConfig.designer.cs">
       <DependentUpon>PasswordConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service References\getcode\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="UserInfor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +308,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\getcode\AnBRobotSystem.getcode.GetJiaMistrResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\getcode\WebServicezkd_pcd.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="kchart .ico" />
@@ -309,6 +320,13 @@
     <Content Include="Rs\kchart .ico" />
     <Content Include="DataManage.ico" />
     <Content Include="Rs\red.png" />
+    <None Include="Service References\getcode\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\getcode\configuration.svcinfo" />
+    <None Include="Service References\getcode\configuration91.svcinfo" />
+    <None Include="Service References\getcode\WebServicezkd_pcd.disco" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
@@ -346,7 +364,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\getcode\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

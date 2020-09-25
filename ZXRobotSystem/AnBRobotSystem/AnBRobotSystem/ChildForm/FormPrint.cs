@@ -122,68 +122,77 @@ namespace AnBRobotSystem.ChildForm
         LabelData PLClable;
         string barcodestring = "";
         private void Init_lable()
-        {          
-            double MAXRECID = 0;// PLANIDNow = 0;                
-            //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
-            string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33 or IMP_FINISH=55";
-            DbDataReader dr = null;
-            dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
-            while (dr.Read())
-            {
-                if (dr["REC_ID"] != DBNull.Value)
-                    MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
-            }
-            dr.Close();
-           // sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
-            sql = string.Format("select top 1 ItemPrint,STEEL_CODE_DESC,HT_NO,FUN_NO,SPEC_CP_DESC,NUM,NET_WEIGHT,ProTime,LotNo,XH,LENGTH,SCBZ,CREATED_CLASS from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
-
-            DataTable dt = db.ExecuteDataTable(db.GetSqlStringCommond(sql));
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                PLClable.ItemPrint = dt.Rows[i]["ItemPrint"].ToString();//产品名称
-                //PLClable.ItemPrint = PLClable.ItemPrint.Substring(5, PLClable.ItemPrint.Length);
-                PLClable.STEEL_CODE_DESC = dt.Rows[i]["STEEL_CODE_DESC"].ToString();//牌号
-                PLClable.HT_NO = dt.Rows[i]["HT_NO"].ToString();//合同号
-                PLClable.FUN_NO = dt.Rows[i]["FUN_NO"].ToString();//炉号
-                PLClable.SPEC_CP_DESC = dt.Rows[i]["SPEC_CP_DESC"].ToString();//规格
-                PLClable.NUM = int.Parse(dt.Rows[i]["NUM"].ToString());//支数
-                PLClable.NET_WEIGHT = float.Parse(dt.Rows[i]["NET_WEIGHT"].ToString());//重量
-                PLClable.ProTime =Convert.ToDateTime( dt.Rows[i]["ProTime"].ToString()).ToShortDateString();//DateTime.Parse(dt.Rows[i]["print_date"].ToString()).ToShortDateString();//日期
-                PLClable.LotNo = dt.Rows[i]["LotNo"].ToString();//轧号
-                PLClable.XH = dt.Rows[i]["XH"].ToString();//捆号
-                PLClable.Length= dt.Rows[i]["LENGTH"].ToString();
-                PLClable.SCBZ = dt.Rows[i]["SCBZ"].ToString();
-                //PLClable.classes = dt.Rows[i]["CREATED_CLASS"].ToString();
-                switch (dt.Rows[i]["CREATED_CLASS"].ToString().Trim())
+        {    
+            try
+            { 
+                double MAXRECID = 0;// PLANIDNow = 0;                
+                //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
+                string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33 or IMP_FINISH=55";
+                DbDataReader dr = null;
+                dr = db.ExecuteReader(db.GetSqlStringCommond(sql));
+                while (dr.Read())
                 {
-                    case "甲":
-                        PLClable.classes = "1";
-                        break;
-                    case "乙":
-                        PLClable.classes = "2";
-                        break;
-                    case "丙":
-                        PLClable.classes = "3";
-                        break;
-                    case "丁":
-                        PLClable.classes = "4";
-                        break;
-                    default:
-                        break;
+                    if (dr["REC_ID"] != DBNull.Value)
+                        MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
                 }
-                barcodestring = "LG;" + PLClable.LotNo + ";" + PLClable.XH + ";" + PLClable.SPEC_CP_DESC + ";" + PLClable.Length + ";" + PLClable.NUM + ";" + PLClable.NET_WEIGHT + ";" + PLClable.FUN_NO + ";Pro";
-                // PLClable.classes = dt.Rows[i]["classes"].ToString();//班次
-                //PLClable.order_num = dt.Rows[i]["sn_no"].ToString();
+                dr.Close();
+               // sql = string.Format("select top 1 merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
+                sql = string.Format("select top 1 ItemPrint,STEEL_CODE_DESC,HT_NO,FUN_NO,SPEC_CP_DESC,NUM,NET_WEIGHT,ProTime,LotNo,XH,LENGTH,SCBZ,CREATED_CLASS from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
 
-                //manu_textBox_stand.Text= PLClable.ItemPrint;
-                //manu_textBox_heatno.Text = PLClable.STEEL_CODE_DESC;
-                //manu_textBox_weight.Text = PLClable.wegith.ToString();
-                //manu_textBox_date1.Text = PLClable.print_date;
-                //manu_textBox_grade.Text = PLClable.mtrl_no;
-                //manu_textBox_size.Text = PLClable.spec;
-                //manu_textBox__hook.Text = PLClable.num_no.ToString();
-                //manu_textBox_group.Text = PLClable.classes + " / " + PLClable.order_num;
+                DataTable dt = db.ExecuteDataTable(db.GetSqlStringCommond(sql));
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    PLClable.ItemPrint = dt.Rows[i]["ItemPrint"].ToString();//产品名称
+                    //PLClable.ItemPrint = PLClable.ItemPrint.Substring(5, PLClable.ItemPrint.Length);
+                    PLClable.STEEL_CODE_DESC = dt.Rows[i]["STEEL_CODE_DESC"].ToString();//牌号
+                    PLClable.HT_NO = dt.Rows[i]["HT_NO"].ToString();//合同号
+                    PLClable.FUN_NO = dt.Rows[i]["FUN_NO"].ToString();//炉号
+                    PLClable.SPEC_CP_DESC = dt.Rows[i]["SPEC_CP_DESC"].ToString();//规格
+                    PLClable.NUM = int.Parse(dt.Rows[i]["NUM"].ToString());//支数
+                    PLClable.NET_WEIGHT = float.Parse(dt.Rows[i]["NET_WEIGHT"].ToString());//重量
+                    PLClable.ProTime =Convert.ToDateTime( dt.Rows[i]["ProTime"].ToString()).ToShortDateString();//DateTime.Parse(dt.Rows[i]["print_date"].ToString()).ToShortDateString();//日期
+                    PLClable.LotNo = dt.Rows[i]["LotNo"].ToString();//轧号
+                    PLClable.XH = dt.Rows[i]["XH"].ToString();//捆号
+                    PLClable.Length= dt.Rows[i]["LENGTH"].ToString();
+                    PLClable.SCBZ = dt.Rows[i]["SCBZ"].ToString();
+                    //PLClable.classes = dt.Rows[i]["CREATED_CLASS"].ToString();
+                    switch (dt.Rows[i]["CREATED_CLASS"].ToString().Trim())
+                    {
+                        case "甲":
+                            PLClable.classes = "1";
+                            break;
+                        case "乙":
+                            PLClable.classes = "2";
+                            break;
+                        case "丙":
+                            PLClable.classes = "3";
+                            break;
+                        case "丁":
+                            PLClable.classes = "4";
+                            break;
+                        default:
+                            break;
+                    }
+                    barcodestring = "LG;" + PLClable.LotNo + ";" + PLClable.XH + ";" + PLClable.SPEC_CP_DESC + ";" + PLClable.Length + ";" + PLClable.NUM + ";" + PLClable.NET_WEIGHT + ";" + PLClable.FUN_NO + ";Pro";
+                    //getcode.WebServicezkd_pcdSoapClient myserverclient = new getcode.WebServicezkd_pcdSoapClient();
+                    //barcodestring = "http://218.56.161.92:9700/Login/SaoMiao?linkid=16&lh=Y205-05486&zh=535&kh=3&cx=B14&mi="+myserverclient.GetJiaMistr(PLClable.FUN_NO+","+ PLClable.XH);//"LG;" + PLClable.LotNo + ";" + PLClable.XH + ";" + PLClable.SPEC_CP_DESC + ";" + PLClable.Length + ";" + PLClable.NUM + ";" + PLClable.NET_WEIGHT + ";" + PLClable.FUN_NO + ";Pro";
+                    // PLClable.classes = dt.Rows[i]["classes"].ToString();//班次
+                    //PLClable.order_num = dt.Rows[i]["sn_no"].ToString();
 
+                    //manu_textBox_stand.Text= PLClable.ItemPrint;
+                    //manu_textBox_heatno.Text = PLClable.STEEL_CODE_DESC;
+                    //manu_textBox_weight.Text = PLClable.wegith.ToString();
+                    //manu_textBox_date1.Text = PLClable.print_date;
+                    //manu_textBox_grade.Text = PLClable.mtrl_no;
+                    //manu_textBox_size.Text = PLClable.spec;
+                    //manu_textBox__hook.Text = PLClable.num_no.ToString();
+                    //manu_textBox_group.Text = PLClable.classes + " / " + PLClable.order_num;
+
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("标签初始化有误"+e.ToString());
             }
         }
         private void update_manu()//更新图片数据
@@ -382,6 +391,9 @@ namespace AnBRobotSystem.ChildForm
             }
             else
             {
+                //getcode.WebServicezkd_pcdSoapClient myserverclient = new getcode.WebServicezkd_pcdSoapClient();
+                //barcodestring = "http://218.56.161.92:9700/Login/SaoMiao?linkid=16&lh=Y205-05486&zh=535&kh=3&cx=B14&mi=";//+myserverclient.GetJiaMistr(PLClable.FUN_NO+","+ PLClable.XH);//"LG;" + PLClable.LotNo + ";" + PLClable.XH + ";" + PLClable.SPEC_CP_DESC + ";" + PLClable.Length + ";" + PLClable.NUM + ";" + PLClable.NET_WEIGHT + ";" + PLClable.FUN_NO + ";Pro";
+                barcodestring = string.Format("http://218.56.161.92:9700/Login/SaoMiao?linkid=17&lh={0}&zh={1}&kh={2}&cx=B14&js=Pro", PLClable.FUN_NO, PLClable.LotNo, PLClable.XH);
                 report.SetParameterValue("ZXBZ", PLClable.SCBZ);
                 report.SetParameterValue("GH", PLClable.STEEL_CODE_DESC);
             }
