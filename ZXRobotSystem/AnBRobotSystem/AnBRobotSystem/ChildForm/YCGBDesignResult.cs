@@ -56,7 +56,7 @@ namespace AnBRobotSystem.ChildForm
             { 
                 try
                 {
-                    sqlLabelSel = string.Format("select top 100 REC_ID 流水号,FUN_NO 炉号,STEEL_CODE_DESC 牌号,SPEC_CP_DESC 规格,iface_id 流水号a, NUM 支数, LENGTH 长度, NET_WEIGHT 重量, LotNo 轧号, XH 捆号, HT_NO 合同号, SCBZ 执行标准, MFL_DESC 技术标准, ProTime 创建时间, ItemPrint 产品名称,CREATED_CLASS 班次,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>{0} order by rownumberf ASC", MAXRECID - 20);
+                    sqlLabelSel = string.Format("select top 100 REC_ID 流水号,FUN_NO 炉号,STEEL_CODE_DESC 牌号,SPEC_CP_DESC 规格,iface_id 流水号a, NUM 支数, LENGTH 长度, NET_WEIGHT 重量, LotNo 轧号, XH 捆号, HT_NO 合同号, SCBZ 执行标准, MFL_DESC 技术标准, ProTime 创建时间, ItemPrint 产品名称,CREATED_CLASS 班次,IMP_FINISH 状态信息,REC_CREATE_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>{0} order by rownumberf ASC", MAXRECID - 20);
                     dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel));
                 }
                 catch (Exception ex)
@@ -92,7 +92,7 @@ namespace AnBRobotSystem.ChildForm
             }
             else
             {
-                sqlLabelSel = string.Format("select top 100 REC_ID 流水号,FUN_NO 炉号,STEEL_CODE_DESC 牌号,SPEC_CP_DESC 规格,iface_id 牌号, NUM 支数, LENGTH 长度, NET_WEIGHT 重量, LotNo 轧号, XH 捆号, HT_NO 合同号, SCBZ 执行标准, MFL_DESC 技术标准, ProTime 创建时间, ItemPrint 产品名称,CREATED_CLASS 班次,IMP_FINISH 状态信息,REC_IMP_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>{0} order by rownumberf ASC", MAXRECID);
+                sqlLabelSel = string.Format("select top 100 REC_ID 流水号,FUN_NO 炉号,STEEL_CODE_DESC 牌号,SPEC_CP_DESC 规格,iface_id 牌号, NUM 支数, LENGTH 长度, NET_WEIGHT 重量, LotNo 轧号, XH 捆号, HT_NO 合同号, SCBZ 执行标准, MFL_DESC 技术标准, ProTime 创建时间, ItemPrint 产品名称,CREATED_CLASS 班次,IMP_FINISH 状态信息,REC_CREATE_TIME 状态更新时刻 from TLabelContent WHERE rownumberf>{0} order by rownumberf ASC", MAXRECID);
                 try
                 {
                     dt1 = db.ExecuteDataTable(db.GetSqlStringCommond(sqlLabelSel));
@@ -268,7 +268,7 @@ namespace AnBRobotSystem.ChildForm
             {
                 DataGridViewRow row = dataGridView1.Rows[dataGridView1.Rows.Count - 2];
 
-                string sql = string.Format("SET IDENTITY_INSERT TLabelContent ON;insert into TLabelContent(REC_ID,merge_sinbar ,gk ,heat_no ,mtrl_no , spec , wegith , num_no , print_date , classes , sn_no, labelmodel_name, print_type, insert_date, flag, orign_sinbar, time,IMP_FINISH,REC_IMP_TIME,rownumberf) values({0},'{1}','{2}','{3}','{4}','{5}',{6},{7},'{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}',{17},'{18}',{19});SET IDENTITY_INSERT TLabelContent OFF", Convert.ToDouble(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), Convert.ToInt32(row.Cells[6].Value.ToString()), Convert.ToInt32(row.Cells[7].Value.ToString()), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString(), row.Cells[10].Value.ToString(), row.Cells[11].Value.ToString(), row.Cells[12].Value.ToString(), row.Cells[13].Value.ToString(), row.Cells[14].Value.ToString(), row.Cells[15].Value.ToString(), row.Cells[16].Value.ToString(), Convert.ToInt32( row.Cells[17].Value.ToString()),DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),0);
+                string sql = string.Format("SET IDENTITY_INSERT TLabelContent ON;insert into TLabelContent(REC_ID,merge_sinbar ,gk ,heat_no ,mtrl_no , spec , wegith , num_no , print_date , classes , sn_no, labelmodel_name, print_type, insert_date, flag, orign_sinbar, time,IMP_FINISH,REC_CREATE_TIME,rownumberf) values({0},'{1}','{2}','{3}','{4}','{5}',{6},{7},'{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}',{17},'{18}',{19});SET IDENTITY_INSERT TLabelContent OFF", Convert.ToDouble(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), Convert.ToInt32(row.Cells[6].Value.ToString()), Convert.ToInt32(row.Cells[7].Value.ToString()), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString(), row.Cells[10].Value.ToString(), row.Cells[11].Value.ToString(), row.Cells[12].Value.ToString(), row.Cells[13].Value.ToString(), row.Cells[14].Value.ToString(), row.Cells[15].Value.ToString(), row.Cells[16].Value.ToString(), Convert.ToInt32( row.Cells[17].Value.ToString()),DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),0);
                 int ret1 = db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
                 if (ret1 > 0)
                 {

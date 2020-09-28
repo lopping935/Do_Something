@@ -722,7 +722,7 @@ namespace AGFish
                             if (-100 < x && x < 100)
                             {
                                 AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
-                                txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导2成功将5写入PLC" + "\r\n"); }));
+                                txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导2成功将6写入PLC" + "\r\n"); }));
                                 txt_message.Invoke(new Action(() => { txt_message.AppendText("第二次坐标位置" + x.ToString() + "," + y.ToString() + "," + angle.ToString() + "\r\n"); }));
                                 //LogHelper.WriteLog("第二次坐标位置" + x.ToString() + "," + y.ToString());
                              }
@@ -732,8 +732,29 @@ namespace AGFish
                                 txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导2失败将0写入PLC" + "\r\n"); }));
                                 //Thread th1 = new Thread((){ nProcID = 10001; ExecuteOnce();});
                             }
-                        }                       
-                         txt_sdzs1.Text = x.ToString() + "," + y.ToString();
+                        }
+                        if (location_flag == "3")
+                        {
+                            location_flag = "";
+                            AGFishOPCClient.WriteItem(x.ToString(), Pro_X);
+                            AGFishOPCClient.WriteItem(y.ToString(), Pro_Y);
+                            AGFishOPCClient.WriteItem(angle.ToString(), Pro_RX);
+                            AGFishOPCClient.WriteItem(7.ToString(), VisionCode);
+                            if (-100 < x && x < 100)
+                            {
+                                AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
+                                txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导3成功将7写入PLC" + "\r\n"); }));
+                                txt_message.Invoke(new Action(() => { txt_message.AppendText("第三次坐标位置" + x.ToString() + "," + y.ToString() + "," + angle.ToString() + "\r\n"); }));
+                                //LogHelper.WriteLog("第二次坐标位置" + x.ToString() + "," + y.ToString());
+                            }
+                            else
+                            {
+                                AGFishOPCClient.WriteItem(0.ToString(), FlatCode);
+                                txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导3失败将0写入PLC" + "\r\n"); }));
+                                //Thread th1 = new Thread((){ nProcID = 10001; ExecuteOnce();});
+                            }
+                        }
+                            txt_sdzs1.Text = x.ToString() + "," + y.ToString();
                         break;
                     #endregion
                     #region

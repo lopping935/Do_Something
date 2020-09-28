@@ -119,7 +119,7 @@ namespace CoreAlgorithm.TaskManager
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     PLClable.ItemPrint = dt.Rows[i]["ItemPrint"].ToString();//产品名称
-                    PLClable.ItemPrint = PLClable.ItemPrint.Substring(5, PLClable.ItemPrint.Length);
+                    //PLClable.ItemPrint = PLClable.ItemPrint.Substring(5, PLClable.ItemPrint.Length);
                     PLClable.STEEL_CODE_DESC = dt.Rows[i]["STEEL_CODE_DESC"].ToString();//牌号
                     PLClable.HT_NO = dt.Rows[i]["HT_NO"].ToString();//合同号
                     PLClable.FUN_NO = dt.Rows[i]["FUN_NO"].ToString();//炉号
@@ -147,11 +147,7 @@ namespace CoreAlgorithm.TaskManager
                             break;
                         default:
                             break;
-
                     }
-                    
-                
-               
                     barcodestring = "LG;" + PLClable.LotNo + ";" + PLClable.XH + ";" + PLClable.SPEC_CP_DESC + ";" + PLClable.Length + ";" + PLClable.NUM + ";" + PLClable.NET_WEIGHT + ";" + PLClable.FUN_NO + ";Pro";
                 }
             }
@@ -419,7 +415,7 @@ namespace CoreAlgorithm.TaskManager
                 //if (Program.MessageFlg == 11)
                 //    Program.MessageFlg = 14;
                 //else
-                    Program.MessageFlg = 13;
+                Program.MessageFlg = 13;
 
                 log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
                 Log.addLog(log, LogType.ERROR, e2.ToString());
@@ -429,7 +425,7 @@ namespace CoreAlgorithm.TaskManager
                 //if (Program.MessageFlg == 11)
                 //    Program.MessageFlg = 14;
                 //else
-                    Program.MessageFlg = 13;
+                Program.MessageFlg = 13;
 
                 log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType.ToString() + "::" + MethodBase.GetCurrentMethod().ToString());
                 Log.addLog(log, LogType.ERROR, e3.ToString());
