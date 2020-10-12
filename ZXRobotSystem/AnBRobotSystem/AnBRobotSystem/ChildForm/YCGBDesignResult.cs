@@ -239,6 +239,16 @@ namespace AnBRobotSystem.ChildForm
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             intindex = e.RowIndex;
+            string a=dataGridView1.SelectedCells[1].Value.ToString();
+            string sqltext =string.Format( "select count(*) as count from TLabelContent where FUN_NO='{0}'",a);
+            DbDataReader dr = db.ExecuteReader(db.GetSqlStringCommond(sqltext));
+            Int32 ProductIDA = 0;
+            while (dr.Read())
+            {
+                if (dr["count"] != DBNull.Value)
+                    ProductIDA = Convert.ToInt32(dr["count"]);
+            }
+            textBox1.Text = ProductIDA.ToString();
         }
 
         private void ToolStripMenuItem_Click(object sender, EventArgs e)//更新数据
