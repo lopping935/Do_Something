@@ -54,7 +54,7 @@
             this.LocationExecuteOnce = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxImg1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.timer_savedata = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -92,7 +92,6 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
@@ -325,15 +324,9 @@
             this.pictureBoxImg1.TabIndex = 35;
             this.pictureBoxImg1.TabStop = false;
             // 
-            // button1
+            // timer_savedata
             // 
-            this.button1.Location = new System.Drawing.Point(150, 116);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 184;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            this.timer_savedata.Tick += new System.EventHandler(this.timer_savedata_Tick);
             // 
             // Form1
             // 
@@ -388,7 +381,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBoxImg1;
         private System.Windows.Forms.Timer timer_deleterizhi;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer_savedata;
     }
 }
 

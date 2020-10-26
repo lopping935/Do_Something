@@ -14,6 +14,7 @@ namespace AGFish
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
+         public static object obj = new object();
         [STAThread]
         static void Main()
         {
