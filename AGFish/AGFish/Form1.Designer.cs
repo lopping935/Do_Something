@@ -326,6 +326,7 @@
             // 
             // timer_savedata
             // 
+            this.timer_savedata.Enabled = true;
             this.timer_savedata.Tick += new System.EventHandler(this.timer_savedata_Tick);
             // 
             // Form1

@@ -21,6 +21,7 @@ using logtest;
 using log4net;
 using log4net.Config;
 using DBTaskHelper;
+using System.Diagnostics;
 
 namespace AGFish
 {
@@ -148,58 +149,68 @@ namespace AGFish
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // 进度条设置
-            progressBarSaveAndLoad.Value = 0;
-            progressBarSaveAndLoad.Maximum = 100;
-
-            // 显示隐藏
-            comboBoxShowAndHide.Items.Add("隐藏");
-            comboBoxShowAndHide.Items.Add("显示");
-            comboBoxShowAndHide.SelectedIndex = 1;
-
-            // 消除ListBox在回调中使用产生警告
-            ListBox.CheckForIllegalCrossThreadCalls = false;
-            // 创建句柄
-            string strMsg = null;
-            if (IntPtr.Zero != m_handle)
+            try
             {
-                ImvsPlatformSDK_API.IMVS_PF_DestroyHandle_CS(m_handle);
-                m_handle = IntPtr.Zero;
-            }
-            if (IntPtr.Zero == m_handle)
-            {
-                try { m_handle = ImvsPlatformSDK_API.IMVS_PF_CreateHandle_CS(); }
-                catch(Exception ex)
+                // 进度条设置
+                progressBarSaveAndLoad.Value = 0;
+                progressBarSaveAndLoad.Maximum = 100;
+
+                // 显示隐藏
+                comboBoxShowAndHide.Items.Add("隐藏");
+                comboBoxShowAndHide.Items.Add("显示");
+                comboBoxShowAndHide.SelectedIndex = 1;
+
+                // 消除ListBox在回调中使用产生警告
+                ListBox.CheckForIllegalCrossThreadCalls = false;
+                // 创建句柄
+                string strMsg = null;
+                if (IntPtr.Zero != m_handle)
                 {
-                    MessageBox.Show(ex.ToString());
+                    ImvsPlatformSDK_API.IMVS_PF_DestroyHandle_CS(m_handle);
+                    m_handle = IntPtr.Zero;
                 }
-                
-                if (m_handle == IntPtr.Zero)
+                if (IntPtr.Zero == m_handle)
                 {
-                    strMsg = "IMVS_PF_CreateHandle_CS Failed.";
+                    try { m_handle = ImvsPlatformSDK_API.IMVS_PF_CreateHandle_CS(); }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                
+                    if (m_handle == IntPtr.Zero)
+                    {
+                        strMsg = "IMVS_PF_CreateHandle_CS Failed.";
+                        txt_message.AppendText(strMsg + "\r\n");
+                        LogHelper.WriteLog(strMsg);
+                        return;
+                    }
+                
+                }
+
+                // 注册回调
+                IntPtr pUser = new IntPtr();
+                pUser = this.Handle;
+                PlatformInfoCallBack = new delegateOutputCallBack(delegateOutputCallBackFunc);
+                int iRet = ImvsPlatformSDK_API.IMVS_PF_RegisterResultCallBack_V30_CS(m_handle, PlatformInfoCallBack, pUser);
+                if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+                {
+                    strMsg = "IMVS_PF_RegisterResultCallBack_V30_CS Failed";
                     txt_message.AppendText(strMsg + "\r\n");
                     LogHelper.WriteLog(strMsg);
                     return;
                 }
-                
-            }
 
-            // 注册回调
-            IntPtr pUser = new IntPtr();
-            pUser = this.Handle;
-            PlatformInfoCallBack = new delegateOutputCallBack(delegateOutputCallBackFunc);
-            int iRet = ImvsPlatformSDK_API.IMVS_PF_RegisterResultCallBack_V30_CS(m_handle, PlatformInfoCallBack, pUser);
-            if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+
+                buttonOpenVM_Click(null, null);
+                buttonLoadSolution_Click(null, null);
+                Thread.Sleep(2000);
+                button1_Click_1(null, null);
+                    // CreateConnect_PLC();
+            }
+             catch(Exception e1)
             {
-                strMsg = "IMVS_PF_RegisterResultCallBack_V30_CS Failed";
-                txt_message.AppendText(strMsg + "\r\n");
-                LogHelper.WriteLog(strMsg);
-                return;
+                LogHelper.WriteLog("程序启动失败", e1);
             }
-
-           // buttonOpenVM_Click(null, null);
-            //buttonLoadSolution_Click(null, null);MOmo
-           // CreateConnect_PLC();
         }
 
 
@@ -753,11 +764,11 @@ namespace AGFish
                                 AGFishOPCClient.WriteItem(x.ToString(), Pro_X);                                                 
                                 AGFishOPCClient.WriteItem(y.ToString(), Pro_Y);
                                 AGFishOPCClient.WriteItem(angle.ToString(), Pro_RX);
-                                AGFishOPCClient.WriteItem(5.ToString(), VisionCode);
+                                AGFishOPCClient.WriteItem(10.ToString(), VisionCode);
                                 if (-600 < x && x < 600 && x != 0)
                                 {
                                     AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
-                                    txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导1成功将5写入PLC" + "\r\n"); }));
+                                    txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导1成功将10写入PLC" + "\r\n"); }));
                                     txt_message.Invoke(new Action(() => { txt_message.AppendText("第一次坐标位置" + x.ToString() + "," + y.ToString() + "," + angle.ToString() + "\r\n"); }));
                                     // LogHelper.WriteLog("第一次坐标位置" + x.ToString() + "," + y.ToString());
                                     //StringBuilder sb = new StringBuilder();
@@ -962,8 +973,20 @@ namespace AGFish
             }
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Process pr = new Process();//声明一个进程类对象
+            pr.StartInfo.FileName = @"C:\Runtime\PANYUANHANBIAO\PANYUANCESHI.exe";
+            pr.Start();
+        }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Process[] proc = Process.GetProcessesByName("Cognex.Designer.VisionPro.Runtime");//创建一个进程数组，把与此进程相关的资源关联。
+            for (int i = 0; i < proc.Length; i++)
+            {
+                proc[i].Kill();  //逐个结束进程.
+            }
             int nRet = ImvsSdkPFDefine.IMVS_EC_UNKNOWN;
             new Thread(new ThreadStart(delegate              // 开辟线程关闭, 防止主线程连续运行时阻塞
             {
@@ -987,6 +1010,8 @@ namespace AGFish
             { IsBackground = true }.Start();
 
             e.Cancel = true;
+            
+
         }       
         private void button1_Click(object sender, EventArgs e)
         {
