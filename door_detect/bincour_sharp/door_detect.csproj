@@ -7,7 +7,7 @@
     <ProjectGuid>{E4D8E992-9C99-4832-BA0D-1433C49DAC70}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>bincour_sharp</RootNamespace>
-    <AssemblyName>bincour_sharp</AssemblyName>
+    <AssemblyName>door_detect</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -29,7 +29,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\ProjSetup\100t_doordetect\bin\Release\</OutputPath>
+    <OutputPath>..\..\..\..\ProjSetup\100t_doordetect\bin\Debug\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>

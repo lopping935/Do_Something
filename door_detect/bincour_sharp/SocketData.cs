@@ -31,7 +31,8 @@ namespace SocketHelper
                         
                         lock (Program.gllock)
                         {
-                            Program.MessageFlg = BitConverter.ToInt16(buffer.Skip(0).Take(2).ToArray(), 0);
+                           Program.MessageFlg = BitConverter.ToInt16(buffer.Skip(0).Take(2).ToArray(), 0);
+                           Program.Message_angle = BitConverter.ToDouble(buffer.Skip(2).Take(8).ToArray(), 0);
                         }
 
                     }

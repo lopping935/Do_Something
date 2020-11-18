@@ -13,8 +13,8 @@ namespace bincour_sharp
         /// </summary>
         public static object obj = new object();
         public static object gllock = new object();
-        public static Int16 MessageFlg = 0;
-        public static Int16 MessageStop = 0;
+        public static Int16 MessageFlg = 1;
+        public static double Message_angle = 0;
         [STAThread]
         
         static void Main()

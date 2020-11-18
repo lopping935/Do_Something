@@ -13,13 +13,16 @@
 
 using System;
 using HalconDotNet;
+using bincour_sharp;
 
 public partial class HDevelopExport
 {
-  public HTuple hv_ExpDefaultWinHandle;
+    public HTuple hv_ExpDefaultWinHandle;
     public HObject ho_ImageAffineTrans;
     public HTuple hv_Row_Measure_01_0 = new HTuple();
-    public  HTuple hv_Column_Measure_01_0 = new HTuple();
+    public HTuple hv_Column_Measure_01_0 = new HTuple();
+    public HTuple hv_door_pos = new HTuple();
+    HTuple hv_door_range = new HTuple();
     // Main procedure 
     private HTuple action()
   {
@@ -33,13 +36,13 @@ public partial class HDevelopExport
     HObject ho_RegionTrans1=null, ho_Rectangle=null;
 
     // Local control variables 
-
+     
     HTuple hv_WindowHandle = new HTuple(), hv_AcqHandle = new HTuple();
     HTuple hv_Width = new HTuple(), hv_Height = new HTuple();
     HTuple hv_AmplitudeThreshold = new HTuple(), hv_RoiWidthLen2 = new HTuple();
     HTuple hv_center_row = new HTuple(), hv_phi = new HTuple();
     HTuple hv_lenth1 = new HTuple(), hv_lenth2 = new HTuple();
-    HTuple hv_door_pos = new HTuple(), hv_num = new HTuple();
+    HTuple  hv_num = new HTuple();
     HTuple hv_flag = new HTuple(), hv_inok = new HTuple();
     HTuple hv_HomMat2DIdentity = new HTuple(), hv_HomMat2DRotate = new HTuple();
     HTuple hv_Rows = new HTuple(), hv_Columns = new HTuple();
@@ -48,9 +51,10 @@ public partial class HDevelopExport
    
     HTuple hv_Amplitude_Measure_01_0 = new HTuple(), hv_Distance_Measure_01_0 = new HTuple();
     HTuple hv_Length = new HTuple(), hv_IsSubset = new HTuple();
+        
     // Initialize local and output iconic variables 
-    
-    HOperatorSet.GenEmptyObj(out ho_Image);
+
+        HOperatorSet.GenEmptyObj(out ho_Image);
     HOperatorSet.GenEmptyObj(out ho_Region);
     HOperatorSet.GenEmptyObj(out ho_RegionErosion);
     HOperatorSet.GenEmptyObj(out ho_RegionOpening);
@@ -67,10 +71,7 @@ public partial class HDevelopExport
     //HOperatorSet.OpenFramegrabber("GigEVision", 0, 0, 0, 0, 0, 0, "default", -1,  "default", -1, "false", "default", "c42f90fae958_Hikvision_MVCA06011GM",  0, -1, out hv_AcqHandle);
     //Image Acquisition 01: Do something
     ho_Image.Dispose();
-    HOperatorSet.ReadImage(out ho_Image, "C:/Users/Administrator/Desktop/近期项目文件/电炉炉口照片/9-2第一次/3.8unopen.bmp");
-    //read_image (Imagep, 'C:/Users/Administrator/MVS/Data/下午人工测温.bmp')
-    //read_image (Imagef, 'C:/Users/Administrator/Desktop/近期项目文件/电炉炉口照片/9-2第一次/3.8open.bmp')
-    //read_image (Imagej, 'C:/Users/Administrator/Desktop/近期项目文件/电炉炉口照片/8.29/第二波/下午第二次机器人测温2.45.bmp')
+    HOperatorSet.ReadImage(out ho_Image, "./img/2.5open.bmp");    
     //open_framegrabber ('GigEVision', 0, 0, 0, 0, 0, 0, 'progressive', -1, 'default', -1, 'false', 'default', 'c42f90fae958_Hikvision_MVCA06011GM', 0, -1, AcqHandle)
     //set_framegrabber_param (AcqHandle, 'ExposureTime', 1000.0)
     //grab_image_start (AcqHandle, -1)
@@ -98,12 +99,11 @@ public partial class HDevelopExport
     hv_lenth1 = new HTuple(hv_Height);
     hv_lenth2.Dispose();
     hv_lenth2 = 30;
-    hv_door_pos.Dispose();
-    hv_door_pos = 1200;
+    
     hv_num.Dispose();
     hv_num = 0;
     hv_flag.Dispose();
-    hv_flag = 1;
+    hv_flag = 0;
     hv_inok.Dispose();
     hv_inok = 0;
     while ((int)(new HTuple(hv_num.TupleLess(2))) != 0)
@@ -140,11 +140,12 @@ public partial class HDevelopExport
       HOperatorSet.GetRegionPolygon(ho_RegionTrans1, 10, out hv_Rows, out hv_Columns);
       hv_Area.Dispose();hv_Row.Dispose();hv_Column.Dispose();
       HOperatorSet.AreaCenter(ho_RegionTrans1, out hv_Area, out hv_Row, out hv_Column);
+      hv_center_row.Dispose();
+      hv_center_row = new HTuple(hv_Row);
       hv_center_col.Dispose();
       hv_center_col = new HTuple(hv_Column);
       hv_MsrHandle_Measure_01_0.Dispose();
-      HOperatorSet.GenMeasureRectangle2(hv_center_row, hv_center_col, hv_phi, hv_lenth1, 
-          hv_lenth2, 3072, 2048, "nearest_neighbor", out hv_MsrHandle_Measure_01_0);
+      HOperatorSet.GenMeasureRectangle2(hv_center_row, hv_center_col, hv_phi, hv_lenth1, hv_lenth2, 3072, 2048, "nearest_neighbor", out hv_MsrHandle_Measure_01_0);
       //Measure 01: ***************************************************************
       if ((int)(hv_Area) != 0)
       {
@@ -154,7 +155,9 @@ public partial class HDevelopExport
         HOperatorSet.TupleLength(hv_Row_Measure_01_0, out hv_Length);
         if ((int)(new HTuple(hv_Length.TupleNotEqual(0))) != 0)
         {
-          if ((int)(new HTuple((new HTuple(((hv_Row_Measure_01_0-hv_door_pos)).TupleLength())).TupleLess(10))) != 0)
+          HTuple subvalue = new HTuple();
+         HOperatorSet.TupleAbs((hv_Row_Measure_01_0 - hv_door_pos), out subvalue);
+          if (subvalue<hv_door_range)
           {
             hv_flag.Dispose();
             hv_flag = 1;
@@ -162,35 +165,37 @@ public partial class HDevelopExport
          
         }
       }
-      using (HDevDisposeHelper dh = new HDevDisposeHelper())
-      {
-      ho_Rectangle.Dispose();
-      HOperatorSet.GenRectangle1(out ho_Rectangle, hv_Row_Measure_01_0+20, hv_Column_Measure_01_0+20, hv_Row_Measure_01_0+200, hv_Column_Measure_01_0+350);
-      }
-      hv_IsSubset.Dispose();
-      HOperatorSet.TestSubsetRegion(ho_Rectangle, ho_RegionOpening, out hv_IsSubset);
-      if ((int)(hv_flag.TupleAnd(hv_IsSubset)) != 0)
+                //using (HDevDisposeHelper dh = new HDevDisposeHelper())
+                //{
+                //ho_Rectangle.Dispose();
+                //HOperatorSet.GenRectangle1(out ho_Rectangle, hv_Row_Measure_01_0+20, hv_Column_Measure_01_0+20, hv_Row_Measure_01_0+200, hv_Column_Measure_01_0+ hv_door_region);
+                //}
+                //hv_IsSubset.Dispose();
+                //HOperatorSet.TestSubsetRegion(ho_Rectangle, ho_RegionOpening, out hv_IsSubset);  if ((int)(hv_flag.TupleAnd(hv_IsSubset)) != 0)
+      if ((int)hv_flag!= 0)
       {
         hv_inok.Dispose();
         hv_inok = 1;
         break;
       }
-      using (HDevDisposeHelper dh = new HDevDisposeHelper())
-      {
-      {
-      HTuple ExpTmpLocalVar_num = hv_num+1;
-      hv_num.Dispose();
-      hv_num = ExpTmpLocalVar_num;
-      }
-      }
-      HOperatorSet.WaitSeconds(0.5);
+      else
+      { 
+          using (HDevDisposeHelper dh = new HDevDisposeHelper())
+          {
+          {
+            HTuple ExpTmpLocalVar_num = hv_num+1;
+            hv_num.Dispose();
+            hv_num = ExpTmpLocalVar_num;
+          }
+          }
+          HOperatorSet.WaitSeconds(0.5);
+     }
     }
-    HOperatorSet.CloseFramegrabber(hv_AcqHandle);
+    //HOperatorSet.CloseFramegrabber(hv_AcqHandle);
     }
-    catch
+    catch(Exception ex)
     {
             ho_Image.Dispose();
-            ho_ImageAffineTrans.Dispose();
             ho_Region.Dispose();
             ho_RegionErosion.Dispose();
             ho_RegionOpening.Dispose();
@@ -271,15 +276,18 @@ public partial class HDevelopExport
     return hv_inok;
 
   }
-
-  public void InitHalcon()
+    //初始化全局参数
+  public void InitHalcon(HTuple doorpos, HTuple subvalue)
   {
-    HOperatorSet.GenEmptyObj(out ho_ImageAffineTrans);
+        HOperatorSet.GenEmptyObj(out ho_ImageAffineTrans);
+        hv_door_pos.Dispose();
+        hv_door_range.Dispose();
+        hv_door_pos = doorpos;
+        hv_door_range = subvalue;
    }
   
   public HTuple RunHalcon()
-  {
-      InitHalcon();
+  {      
       HTuple flag=action();
       return flag;
   }
