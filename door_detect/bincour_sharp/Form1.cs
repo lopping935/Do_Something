@@ -53,6 +53,7 @@ namespace bincour_sharp
                 txt_region1.Text = region1.ToString();
                 txt_region2.Text = region2.ToString();
                 txt_region3.Text = region3.ToString();
+                //LogHelper.WriteLog("program inital err", "gfdg");
             }
             catch (Exception e)
             {
@@ -109,14 +110,34 @@ namespace bincour_sharp
                             result.Invoke(new Action(() => { result.Text="OK"; }));
                             open_flag = 1;
                             txt_message.Invoke(new Action(() => { txt_message.AppendText("测量角度："+Program.Message_angle+",标准值："+ standlocation.ToString()+",容差值：" + region1.ToString()+"，结果：炉门全开" +"\r\n"); }));
-                            DD_Helper.do_SendMessage();
+                            StringBuilder sb = new StringBuilder();
+                            sb.Append(Program.Message_angle);
+                            sb.Append("\",\"");
+                            sb.Append(standlocation);
+                            sb.Append("\",\"");
+                            sb.Append(region1);
+                            sb.Append("\",\"");
+                            sb.Append("成功");
+                            LogHelper.WriteLog(sb.ToString());
+
+
+                        DD_Helper.do_SendMessage();
                         }
                         else
                         {
                             result.Invoke(new Action(() => { result.Text="NG"; }));
                             open_flag = 0;
                             txt_message.Invoke(new Action(() => { txt_message.AppendText("测量角度：" + Program.Message_angle + ",标准值：" + standlocation.ToString() + ",容差值：" + region1.ToString() + "，结果：炉门未全开" + "\r\n"); }));
-                            DD_Helper.do_SendMessage();
+                        StringBuilder sb = new StringBuilder();
+                        sb.Append(Program.Message_angle);
+                        sb.Append("\",\"");
+                        sb.Append(standlocation);
+                        sb.Append("\",\"");
+                        sb.Append(region1);
+                        sb.Append("\",\"");
+                        sb.Append("失败");
+                        LogHelper.WriteLog(sb.ToString());
+                        DD_Helper.do_SendMessage();
                         }
                         img = h1.ho_ImageAffineTrans;
                         HOperatorSet.GetImageSize(img, out hv_WidthL, out hv_HeightL);
@@ -256,6 +277,7 @@ namespace bincour_sharp
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //LogHelper.WriteLog("sdfsdf");
             halcon_calc = new Thread(halwork);
             halcon_calc.Start();
         }

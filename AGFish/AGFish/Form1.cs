@@ -84,7 +84,7 @@ namespace AGFish
         float rz = 0;
         string Car_num = "";
 
-
+        int vmimgflag = 0,vmstrimgflag=0;
         public Form1()
         {
             InitializeComponent();
@@ -180,6 +180,7 @@ namespace AGFish
                     if (m_handle == IntPtr.Zero)
                     {
                         strMsg = "IMVS_PF_CreateHandle_CS Failed.";
+                        MessageBox.Show("句柄异常，请重启软件，并关闭右下角vm平台。");
                         txt_message.AppendText(strMsg + "\r\n");
                         LogHelper.WriteLog(strMsg);
                         return;
@@ -201,11 +202,11 @@ namespace AGFish
                 }
 
 
-                buttonOpenVM_Click(null, null);
+                buttonOpenVM_Click(null, null);                
                 buttonLoadSolution_Click(null, null);
                 Thread.Sleep(2000);
                 button1_Click_1(null, null);
-                    // CreateConnect_PLC();
+
             }
              catch(Exception e1)
             {
@@ -213,7 +214,7 @@ namespace AGFish
             }
         }
 
-
+        int openstatus = 0;
         private void buttonOpenVM_Click(object sender, EventArgs e)
         {
 
@@ -223,7 +224,8 @@ namespace AGFish
             {
 
                 strMsg = "句柄异常, 请重启软件!";
-                txt_message.AppendText(strMsg + "\r\n");
+                MessageBox.Show(strMsg);
+                openstatus = 5;
                 return;
             }
 
@@ -234,6 +236,7 @@ namespace AGFish
                 strMsg = "IMVS_PF_StartVisionMaster_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
                 txt_message.AppendText(strMsg + "\r\n");
                 LogHelper.WriteLog(strMsg);
+                openstatus = 5;
                 return;
             }
             strMsg = "IMVS_PF_StartVisionMaster_CS Success.";
@@ -472,12 +475,76 @@ namespace AGFish
         private void LocationExecuteOnce_Click(object sender, EventArgs e)
         {
             nProcID = 10000;
+            if (vmimgflag == 50)
+            {
+                vmimgflag = 0;
+                buttonLoadSolution_Click(null, null);
+                string strMsg = null;
+                progressBarSaveAndLoad.Value = 0;
+                uint nProcess = 0;
+                labelProgress.Text = nProcess.ToString();
+                labelProgress.Refresh();
+
+                int iRet = ImvsSdkPFDefine.IMVS_EC_UNKNOWN;
+                if (IntPtr.Zero == m_handle)
+                {
+                    MessageBoxButtons msgType = MessageBoxButtons.OK;
+                    DialogResult diagMsg = MessageBox.Show("句柄异常, 请重启软件!", "提示", msgType);
+                    if (diagMsg == DialogResult.OK)
+                    {
+                        return;
+                    }
+                }
+                string SolutionPath = AppDomain.CurrentDomain.BaseDirectory + "dybd.sol";
+                iRet = ImvsPlatformSDK_API.IMVS_PF_LoadSolution_CS(m_handle, SolutionPath, "");
+                if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+                {
+                    strMsg = "IMVS_PF_LoadSolution_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
+                    txt_message.AppendText(strMsg + "\r\n");
+                    // LogHelper.WriteLog(strMsg);
+                    return;
+                }
+                strMsg = "IMVS_PF_LoadSolution_CS success";
+                txt_message.AppendText(strMsg + "\r\n");
+            }
             ExecuteOnce();
         }
 
         private void Recognition_Click(object sender, EventArgs e)
         {
             nProcID = 10001;
+            if (vmstrimgflag == 50)
+            {
+                vmstrimgflag = 0;
+                buttonLoadSolution_Click(null, null);
+                string strMsg = null;
+                progressBarSaveAndLoad.Value = 0;
+                uint nProcess = 0;
+                labelProgress.Text = nProcess.ToString();
+                labelProgress.Refresh();
+
+                int iRet = ImvsSdkPFDefine.IMVS_EC_UNKNOWN;
+                if (IntPtr.Zero == m_handle)
+                {
+                    MessageBoxButtons msgType = MessageBoxButtons.OK;
+                    DialogResult diagMsg = MessageBox.Show("句柄异常, 请重启软件!", "提示", msgType);
+                    if (diagMsg == DialogResult.OK)
+                    {
+                        return;
+                    }
+                }
+                string SolutionPath = AppDomain.CurrentDomain.BaseDirectory + "dybd.sol";
+                iRet = ImvsPlatformSDK_API.IMVS_PF_LoadSolution_CS(m_handle, SolutionPath, "");
+                if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
+                {
+                    strMsg = "IMVS_PF_LoadSolution_CS Failed. Error Code: " + Convert.ToString(iRet, 16);
+                    txt_message.AppendText(strMsg + "\r\n");
+                    // LogHelper.WriteLog(strMsg);
+                    return;
+                }
+                strMsg = "IMVS_PF_LoadSolution_CS success";
+                txt_message.AppendText(strMsg + "\r\n");
+            }
             ExecuteOnce();
         }
 
@@ -618,6 +685,12 @@ namespace AGFish
                             bmp1 = imageData1.ImageDataToBitmap().GetArgb32BitMap();
                             curPictureBox1.Invoke(new Action(() => { curPictureBox1.Image = bmp1; }));
                         }
+                        else
+                        {
+                            vmstrimgflag = 50;
+                            Exception e = null;
+                            LogHelper.WriteLog("字符相机获取图像失败，尝试重启", e);
+                        }
                         break;
                     #region ocr
                     case ImvsSdkPFDefine.MODU_NAME_OCRMODU:
@@ -664,12 +737,7 @@ namespace AGFish
                             {
                                 AGFishOPCClient.WriteItem("", Product_Type);
                                 AGFishOPCClient.WriteItem(0.ToString(), FlatCodeA);
-                            }
-
-                            //using (var g = bmp1.CreateGraphic())
-                            //{
-                            //   // g.DrawRect(Color.GreenYellow, 3, new PointF(Rect.stCenterPt.fPtX, Rect.stCenterPt.fPtY), Rect.fWidth, Rect.fHeight, Rect.fAngle);
-                            //}
+                            }                         
                         }
                         else
                         {
@@ -719,7 +787,14 @@ namespace AGFish
                             bmp = imageData1.ImageDataToBitmap().GetArgb32BitMap();
                             
                         }
-                        break;
+                        else
+                        {
+                            vmimgflag = 50;
+                            Exception e = null;
+                            LogHelper.WriteLog("相机获取图像失败，尝试重启", e);
+                        }
+                            break;
+
                         #endregion
                         case ImvsSdkPFDefine.MODU_NAME_HPFEATUREMATCHMODU:
                             ImvsSdkPFDefine.IMVS_PF_HPFEATUREMATCH_MODU_INFO stHpFeatMatchInfo = (ImvsSdkPFDefine.IMVS_PF_HPFEATUREMATCH_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_HPFEATUREMATCH_MODU_INFO));
@@ -755,7 +830,14 @@ namespace AGFish
                          float x = (float)Math.Round(siglepoint.fDeltaX, 3);
                          float y = (float)Math.Round(siglepoint.fDeltaY, 3);
                          float angle = (float)Math.Round(siglepoint.fDeltaTheta, 3);
-                         if (location_flag == "1")
+                            StringBuilder sb = new StringBuilder();
+                            sb.Append("25");
+                            sb.Append("\",\"");
+                            sb.Append(x.ToString());
+                            sb.Append("\",\"");
+                            sb.Append(y.ToString());
+                            LogHelper.WriteLog(sb.ToString());
+                            if (location_flag == "1")
                          {
                                 location_flag = "";
                                 xpos = x;
@@ -770,7 +852,7 @@ namespace AGFish
                                     AGFishOPCClient.WriteItem(1.ToString(), FlatCode);
                                     txt_message.Invoke(new Action(() => { txt_message.AppendText("拍照引导1成功将10写入PLC" + "\r\n"); }));
                                     txt_message.Invoke(new Action(() => { txt_message.AppendText("第一次坐标位置" + x.ToString() + "," + y.ToString() + "," + angle.ToString() + "\r\n"); }));
-                                    // LogHelper.WriteLog("第一次坐标位置" + x.ToString() + "," + y.ToString());
+                                    LogHelper.WriteLog("第一次坐标位置" + x.ToString() + "," + y.ToString());
                                     //StringBuilder sb = new StringBuilder();
                                     //sb.Append("25");
                                     //sb.Append("\",\"");

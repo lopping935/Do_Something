@@ -72,67 +72,67 @@ namespace logtest
             }
         }
     }
-    public class CsvTextWriter : TextWriter
-    {
-        private readonly TextWriter _textWriter;
+    //public class CsvTextWriter : TextWriter
+    //{
+    //    private readonly TextWriter _textWriter;
 
-        public CsvTextWriter(TextWriter textWriter)
-        {
-            _textWriter = textWriter;
-        }
+    //    public CsvTextWriter(TextWriter textWriter)
+    //    {
+    //        _textWriter = textWriter;
+    //    }
 
-        public override Encoding Encoding => _textWriter.Encoding;
+    //    public override Encoding Encoding => _textWriter.Encoding;
 
-        public override void Write(char value)
-        {
-            _textWriter.Write(value);
-            if (value == '"')
-                _textWriter.Write(value);
-        }
+    //    public override void Write(char value)
+    //    {
+    //        _textWriter.Write(value);
+    //        if (value == '"')
+    //            _textWriter.Write(value);
+    //    }
 
-        public void WriteQuote()
-        {
-            _textWriter.Write('"');
-        }
-    }
-    public class NewFieldConverter : PatternConverter
-    {
-        protected override void Convert(TextWriter writer, object state)
-        {
-            var ctw = writer as CsvTextWriter;
-            ctw.WriteQuote();
+    //    public void WriteQuote()
+    //    {
+    //        _textWriter.Write('"');
+    //    }
+    //}
+    //public class NewFieldConverter : PatternConverter
+    //{
+    //    protected override void Convert(TextWriter writer, object state)
+    //    {
+    //        var ctw = writer as CsvTextWriter;
+    //        ctw.WriteQuote();
 
-            writer.Write(',');
+    //        writer.Write(',');
 
-            ctw.WriteQuote();
-        }
-    }
-    public class EndRowConverter : PatternConverter
-    {
-        protected override void Convert(TextWriter writer, object state)
-        {
-            var ctw = writer as CsvTextWriter;
+    //        ctw.WriteQuote();
+    //    }
+    //}
+    //public class EndRowConverter : PatternConverter
+    //{
+    //    protected override void Convert(TextWriter writer, object state)
+    //    {
+    //        var ctw = writer as CsvTextWriter;
 
-            ctw.WriteQuote();
+    //        ctw.WriteQuote();
 
-            writer.WriteLine();
-        }
-    }   
-    public class CsvPatternLayout : PatternLayout
-    {
-        public override void ActivateOptions()
-        {
-            AddConverter("newfield", typeof(NewFieldConverter));
-            AddConverter("endrow", typeof(EndRowConverter));
-            base.ActivateOptions();
-        }
+    //        writer.WriteLine();
+    //    }
+    //}   
+    //public class CsvPatternLayout : PatternLayout
+    //{
+    //    public override void ActivateOptions()
+    //    {
+    //        AddConverter("newfield", typeof(NewFieldConverter));
+    //        AddConverter("endrow", typeof(EndRowConverter));
+    //        base.ActivateOptions();
+    //    }
 
-        public override void Format(TextWriter writer, LoggingEvent loggingEvent)
-        {
-            var ctw = new CsvTextWriter(writer);
-            ctw.WriteQuote();
-            base.Format(ctw, loggingEvent);
-        }
-    }
+    //    public override void Format(TextWriter writer, LoggingEvent loggingEvent)
+    //    {
+    //        var ctw = new CsvTextWriter(writer);
+    //        ctw.WriteQuote();
+    //        base.Format(ctw, loggingEvent);
+    //    }
+    //}
     
 }
