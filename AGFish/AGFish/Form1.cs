@@ -39,6 +39,8 @@ namespace AGFish
         public static OPCItem Pro_Y;
         public static OPCItem Pro_Z;
         public static OPCItem Pro_RX;
+        public static OPCItem banauto;
+        public static OPCItem pianyi;
         //记录plc数据
         public static OPCItem Data_chge_flag;
         public static OPCItem PLC_Data;
@@ -134,12 +136,12 @@ namespace AGFish
                 Pro_Y = AGFishOPCClient.AddItem("Pro_Y");
                 Pro_Z = AGFishOPCClient.AddItem("Pro_Z");
                 Pro_RX = AGFishOPCClient.AddItem("Pro_RX");
+                pianyi = AGFishOPCClient.AddItem("pianyi");
+                banauto = AGFishOPCClient.AddItem("banauto");
                 //记录plc动作时间
                 Data_chge_flag = AGFishOPCClient.AddItem("Data_chge_flag");
                 PLC_Data = AGFishOPCClient.AddItem("PLC_Data");
                 Alarm = AGFishOPCClient.AddItem("Alarm");
-
-
             }
             catch (Exception err)
             {
@@ -988,7 +990,7 @@ namespace AGFish
          
             try
             {
-                
+                object pianyidata = null, banautodata=null;
                 object datachgeflag = AGFishOPCClient.ReadItem(Data_chge_flag);
                 object alarmdata = AGFishOPCClient.ReadItem(Alarm);
                 if(alarmdata.ToString()!="0")
@@ -1013,17 +1015,23 @@ namespace AGFish
                         object readzpos= AGFishOPCClient.ReadItem(Pro_Z);
                         zpos = (float)Math.Round( float.Parse(readzpos.ToString()),2);
                     }
+                    if (PLCdataflag.ToString() == "57")
+                    {
+                         pianyidata = AGFishOPCClient.ReadItem(pianyi);
+                         banautodata = AGFishOPCClient.ReadItem(banauto);
+                    }
                     if (PLCdataflag.ToString() == "24")
                     {
                         work_result = "1";
                     }
 
                 }
+                //
                 if (priod_done == "27"|| alarmdata.ToString()!="0")
                 {
                     priod_done = "";
                     AGFishOPCClient.WriteItem(0.ToString(), Alarm);
-                    string sqltext1 = string.Format("insert into aglog values('{0}',{1},{2},{3},{4},'{5}',", Car_num, xpos, ypos, zpos, rz, work_result);
+                    string sqltext1 = string.Format("insert into aglog values('{0}',{1},{2},{3},{4},'{5}','{6}',{7},", Car_num, xpos, ypos, zpos, rz, work_result, pianyidata.ToString(),banautodata.ToString());
                     string sqltext2 = "";
                     for (int i = 0; i < str.Length; i++)
                     {
