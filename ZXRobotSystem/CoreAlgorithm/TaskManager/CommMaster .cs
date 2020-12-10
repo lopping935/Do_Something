@@ -135,11 +135,12 @@ namespace CoreAlgorithm.TaskManager
             {
                 TasksManager tm = new TasksManager();
                 double MAXRECID = 0;// PLANIDNow = 0;                 
-                string REC_ID = "", iface_id = "",FUN_NO = "", LotNo = "", XH = "";
+                string REC_ID = "", iface_id = "",FUN_NO = "", LotNo = "", XH = "", STEEL_CODE_DESC="";
+                Int16 NUM = 0, LENGTH = 0;
                 //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                 string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33 or IMP_FINISH=55";
                 
-                byte[] sendArray = Enumerable.Repeat((byte)0x0, 148).ToArray();
+                byte[] sendArray = Enumerable.Repeat((byte)0x0, 196).ToArray();
                 byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
                 Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
                 DbDataReader dr = null;
@@ -150,7 +151,7 @@ namespace CoreAlgorithm.TaskManager
                         MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
                 }
                 dr.Close();
-                sql = string.Format("select top 1 REC_ID,iface_id,FUN_NO,LotNo,XH from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+                sql = string.Format("select top 1 REC_ID,iface_id,FUN_NO,LotNo,XH，STEEL_CODE_DESC,NUM,LENGTH from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
                // sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
                 DataTable dt = tm.MultithreadDataTable(sql);
                 for (int i = 0; i<dt.Rows.Count; i++)
@@ -159,21 +160,33 @@ namespace CoreAlgorithm.TaskManager
                     iface_id = dt.Rows[i]["iface_id"].ToString();
                     FUN_NO = dt.Rows[i]["FUN_NO"].ToString();
                     LotNo = dt.Rows[i]["LotNo"].ToString();
-                    XH = dt.Rows[i]["XH"].ToString();
-                    
+                    XH = dt.Rows[i]["XH"].ToString();//加牌号[STEEL_CODE_DESC]  支数NUM  长度[LENGTH]
+                    STEEL_CODE_DESC= dt.Rows[i]["STEEL_CODE_DESC"].ToString();
+                    NUM = Int16.Parse( dt.Rows[i]["NUM"].ToString());
+                    LENGTH = Int16.Parse(dt.Rows[i]["LENGTH"].ToString());
+
                     byte[] byteArray2 = BitConverter.GetBytes(Program.PrintNum);
                     byte[] byteArray3 = Encoding.ASCII.GetBytes(REC_ID);
                     byte[] byteArray4 = Encoding.ASCII.GetBytes(iface_id);
                     byte[] byteArray5=  Encoding.ASCII.GetBytes(FUN_NO);
                     byte[] byteArray6 = Encoding.ASCII.GetBytes(LotNo);
                     byte[] byteArray7 = Encoding.ASCII.GetBytes(XH);
+
                     
+                    byte[] byteArray8 = BitConverter.GetBytes(NUM);
+                    byte[] byteArray9 = BitConverter.GetBytes(LENGTH);
+                    byte[] byteArray10 = Encoding.ASCII.GetBytes(STEEL_CODE_DESC);
+
                     Buffer.BlockCopy(byteArray2, 0, sendArray, 2, byteArray2.Length);
                     Buffer.BlockCopy(byteArray3, 0, sendArray, 4, byteArray3.Length);
                     Buffer.BlockCopy(byteArray4, 0, sendArray, 16, byteArray4.Length);
                     Buffer.BlockCopy(byteArray5, 0, sendArray, 28, byteArray5.Length);
                     Buffer.BlockCopy(byteArray6, 0, sendArray, 48, byteArray6.Length);
                     Buffer.BlockCopy(byteArray7, 0, sendArray, 98, byteArray7.Length);
+
+                    Buffer.BlockCopy(byteArray8, 0, sendArray, 148, byteArray8.Length);
+                    Buffer.BlockCopy(byteArray9, 0, sendArray, 164, byteArray9.Length);
+                    Buffer.BlockCopy(byteArray10, 0, sendArray, 176, byteArray10.Length);
                 }
                 if (sendArray.Length > 0)
                 {
@@ -226,8 +239,12 @@ namespace CoreAlgorithm.TaskManager
                 int num_change = 0;
                 try
                 {
+                    //过滤通尺
+                    string sqltext = "update READ_TABLE set flag='A' where LENGTH='通尺' and flag='N'";
+                    tm.MultithreadExecuteNonQuery(sqltext);
+                    
                     //增加数据
-                    string sqltext = "select count(*) as count from READ_TABLE where flag='N'";
+                    sqltext = "select count(*) as count from READ_TABLE where flag='N'";
                     dt = tm.MultithreadDataTable(sqltext);
                     for (int i = 0; i < dt.Rows.Count; i++)
                         count = Convert.ToInt32(dt.Rows[i]["count"].ToString());

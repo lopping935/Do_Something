@@ -984,13 +984,14 @@ namespace AGFish
         }
 
         static string work_result = "0";
+        static string pianyistr = "", banautostr = "";
         private void timer_savedata_Tick(object sender, EventArgs e)
         {
             string priod_done = "",alarmtime="";
          
             try
             {
-                object pianyidata = null, banautodata=null;
+                
                 object datachgeflag = AGFishOPCClient.ReadItem(Data_chge_flag);
                 object alarmdata = AGFishOPCClient.ReadItem(Alarm);
                 if(alarmdata.ToString()!="0")
@@ -1017,8 +1018,10 @@ namespace AGFish
                     }
                     if (PLCdataflag.ToString() == "57")
                     {
-                         pianyidata = AGFishOPCClient.ReadItem(pianyi);
-                         banautodata = AGFishOPCClient.ReadItem(banauto);
+                        object pianyidata = AGFishOPCClient.ReadItem(pianyi);
+                        pianyistr = pianyidata.ToString();
+                        object banautodata = AGFishOPCClient.ReadItem(banauto);
+                        banautostr = banautodata.ToString();
                     }
                     if (PLCdataflag.ToString() == "24")
                     {
@@ -1026,12 +1029,11 @@ namespace AGFish
                     }
 
                 }
-                //
                 if (priod_done == "27"|| alarmdata.ToString()!="0")
                 {
                     priod_done = "";
                     AGFishOPCClient.WriteItem(0.ToString(), Alarm);
-                    string sqltext1 = string.Format("insert into aglog values('{0}',{1},{2},{3},{4},'{5}','{6}',{7},", Car_num, xpos, ypos, zpos, rz, work_result, pianyidata.ToString(),banautodata.ToString());
+                    string sqltext1 = string.Format("insert into aglog values('{0}',{1},{2},{3},{4},'{5}','{6}','{7}',", Car_num, xpos, ypos, zpos, rz, work_result, pianyistr,banautostr);
                     string sqltext2 = "";
                     for (int i = 0; i < str.Length; i++)
                     {
@@ -1047,6 +1049,8 @@ namespace AGFish
                     rz = 0;
                     Car_num = "";
                     work_result = "0";
+                    pianyistr = "";
+                    banautostr = "";
                 }
 
             }
@@ -1060,6 +1064,8 @@ namespace AGFish
                 rz = 0;
                 Car_num = "";
                 work_result = "0";
+                pianyistr = "";
+                banautostr = "";
             }
         }
 
@@ -1110,8 +1116,6 @@ namespace AGFish
             //txt_sdzs1.Text = a.ToString();
             nProcID = uint.Parse(txt_sdzs1.Text);
         }
-
-
         /****************************************************************************
         * @fn           IntPtr转Bytes
         ****************************************************************************/
