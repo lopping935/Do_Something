@@ -140,7 +140,7 @@ namespace CoreAlgorithm.TaskManager
                 //string sql = "select MAX(rownumberf) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33";
                 string sql = "select MAX(REC_ID) AS REC_ID from TLabelContent WHERE IMP_FINISH=31 or IMP_FINISH=32 or IMP_FINISH=33 or IMP_FINISH=55";
                 
-                byte[] sendArray = Enumerable.Repeat((byte)0x0, 196).ToArray();
+                byte[] sendArray = Enumerable.Repeat((byte)0x0, 172).ToArray();
                 byte[] byteArray1 = BitConverter.GetBytes(Program.MessageFlg);
                 Buffer.BlockCopy(byteArray1, 0, sendArray, 0, byteArray1.Length);
                 DbDataReader dr = null;
@@ -151,7 +151,7 @@ namespace CoreAlgorithm.TaskManager
                         MAXRECID = Convert.ToDouble(dr["REC_ID"].ToString());
                 }
                 dr.Close();
-                sql = string.Format("select top 1 REC_ID,iface_id,FUN_NO,LotNo,XH，STEEL_CODE_DESC,NUM,LENGTH from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
+                sql = string.Format("select top 1 REC_ID,iface_id,FUN_NO,LotNo,XH,STEEL_CODE_DESC,NUM,LENGTH from TLabelContent WHERE REC_ID>{0} AND IMP_FINISH=0 order by REC_ID ASC", MAXRECID);
                // sql = string.Format("select top 1 REC_ID,merge_sinbar,gk,heat_no,mtrl_no,spec,wegith,num_no,print_date,classes,sn_no from TLabelContent WHERE rownumberf>{0} AND IMP_FINISH=0 order by rownumberf ASC", MAXRECID);
                 DataTable dt = tm.MultithreadDataTable(sql);
                 for (int i = 0; i<dt.Rows.Count; i++)
@@ -185,8 +185,8 @@ namespace CoreAlgorithm.TaskManager
                     Buffer.BlockCopy(byteArray7, 0, sendArray, 98, byteArray7.Length);
 
                     Buffer.BlockCopy(byteArray8, 0, sendArray, 148, byteArray8.Length);
-                    Buffer.BlockCopy(byteArray9, 0, sendArray, 164, byteArray9.Length);
-                    Buffer.BlockCopy(byteArray10, 0, sendArray, 176, byteArray10.Length);
+                    Buffer.BlockCopy(byteArray9, 0, sendArray, 150, byteArray9.Length);
+                    Buffer.BlockCopy(byteArray10, 0, sendArray, 152, byteArray10.Length);
                 }
                 if (sendArray.Length > 0)
                 {
