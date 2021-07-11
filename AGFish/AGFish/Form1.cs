@@ -1033,7 +1033,8 @@ namespace AGFish
                 {
                     priod_done = "";
                     AGFishOPCClient.WriteItem(0.ToString(), Alarm);
-                    string sqltext1 = string.Format("insert into aglog values('{0}',{1},{2},{3},{4},'{5}','{6}','{7}',", Car_num, xpos, ypos, zpos, rz, work_result, pianyistr,banautostr);
+                    string power_off = "1";
+                    string sqltext1 = string.Format("insert into aglog values('{0}',{1},{2},{3},{4},'{5}','{6}','{7}','{8}',", Car_num, xpos, ypos, zpos, rz, work_result, pianyistr,banautostr, power_off);
                     string sqltext2 = "";
                     for (int i = 0; i < str.Length; i++)
                     {
