@@ -22,7 +22,7 @@ namespace AnBRobotSystem
             mutex = new System.Threading.Mutex(true, "OnlyRun");
             if (mutex.WaitOne(0, false))
             {
-                th.Start();
+              //  th.Start();
                 Application.Run(new MdiParent()); //Application.Run(new MainForm());
                 
             }

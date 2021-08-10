@@ -25,17 +25,19 @@ namespace AnBRobotSystem
 {
     public partial class MdiParent : Form
     {
+        public static MdiParent form;
         Thread getPLC_data = new Thread(PLCdata.start_get);
         Thread getTieLiu_data = new Thread(Tieliu.get_Tieliu_data);
         Thread getGuankou_data = new Thread(Guankou.get_Guankou_data);
         bool mSolutionIsLoad = false;  //true 代表方案加载成功，false 代表方案关闭
         public static VmProcedure process1, process2, process3, process4;
         public static int a = 0;
-        string SolutionPath = @".\冷轧带卷.sol";
+        string SolutionPath = @"E:\ProjSetup\Auto_steel\vm\autosteelvm.sol";
         public MdiParent()
         {
             InitializeComponent();
-           // LogHelper.WriteLog("star program");
+            form = this;
+            // LogHelper.WriteLog("star program");
             getPLC_data.Start();
             LoadSolution();
             
@@ -69,10 +71,9 @@ namespace AnBRobotSystem
             catch (VmException ex)
 
             {
-               // strMsg = "LoadSolution failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
-              //  listBoxMsg.Items.Add(strMsg);
-              //  listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
-               // LogHelper.WriteLog(strMsg, ex);
+                strMsg = "LoadSolution failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
+
+               LogHelper.WriteLog(strMsg, ex);
                 return;
             }
 
@@ -82,8 +83,15 @@ namespace AnBRobotSystem
             iteme1.SubItems.Add("视觉模型");
             iteme1.SubItems.Add(strMsg);
             listView1.Items.Add(iteme1);
-            //listView1. = listView1.Items.Count - 1;
+      
             
+        }
+        public void mainlog(string model,string strmsg)
+        {
+            ListViewItem iteme1 = new ListViewItem(DateTime.Now.ToString());
+            iteme1.SubItems.Add(model);
+            iteme1.SubItems.Add(strmsg);
+            listView1.Items.Add(iteme1);
         }
         private void buttonExecuteOnce_Click()
         {
@@ -97,6 +105,7 @@ namespace AnBRobotSystem
                 Task.Run(() =>
                 {
                     process1.Run();
+                    process2.Run();
                 });
             }
             catch (VmException ex)
@@ -175,7 +184,13 @@ namespace AnBRobotSystem
         //服务消息更改
         private void timerLog_Tick(object sender, EventArgs e)
         {
+            while(listView1.Items.Count > 10)
             
+            {
+                int count = listView1.Items.Count - 1;
+                this.listView1.Items.RemoveAt(count);
+            }
+                    
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -1156,6 +1156,7 @@
     <Compile Include="ChildForm\YCGBDesignResult.designer.cs">
       <DependentUpon>YCGBDesignResult.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\Auto_model.cs" />
     <Compile Include="Core\Guankou.cs" />
     <Compile Include="Core\PLCdata.cs" />
     <Compile Include="Core\Tiebao.cs" />
@@ -1166,6 +1167,7 @@
     <Compile Include="ChildForm\Login.designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utlis\Auto_steel_helper.cs" />
     <Compile Include="Utlis\LogHelper.cs" />
     <Compile Include="Utlis\MyMeans.cs" />
     <Compile Include="ChildForm\PasswordConfig.cs">
