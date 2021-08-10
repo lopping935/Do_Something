@@ -31,7 +31,7 @@ namespace AnBRobotSystem
         bool mSolutionIsLoad = false;  //true 代表方案加载成功，false 代表方案关闭
         public static VmProcedure process1, process2, process3, process4;
         public static int a = 0;
-        string SolutionPath = @"E:\Project\Code\FAuto_steel\冷轧带卷.sol";
+        string SolutionPath = @".\冷轧带卷.sol";
         public MdiParent()
         {
             InitializeComponent();
