@@ -1,0 +1,1164 @@
+开始写入AnBRobotSystem.csproj...
+Location模块dll文件数为：20, Location引用路径数为：20
+    <Reference Include="IMVSBlobFindLabelsModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSBlobFindLabelsModu\IMVSBlobFindLabelsModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSBlobFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSBlobFindModu\IMVSBlobFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCaliperCornerModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSCaliperCornerModu\IMVSCaliperCornerModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCaliperEdgeModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSCaliperEdgeModu\IMVSCaliperEdgeModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCaliperModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSCaliperModu\IMVSCaliperModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCircleFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSCircleFindModu\IMVSCircleFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgeWidthFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSEdgeWidthFindModu\IMVSEdgeWidthFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSFastFeatureMatchModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSFastFeatureMatchModu\IMVSFastFeatureMatchModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSFixtureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSFixtureModu\IMVSFixtureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGluePathConductModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSGluePathConductModu\IMVSGluePathConductModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGrayMatchModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSGrayMatchModu\IMVSGrayMatchModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSHPFeatureMatchModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSHPFeatureMatchModu\IMVSHPFeatureMatchModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineFindGroupModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSLineFindGroupModu\IMVSLineFindGroupModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSLineFindModu\IMVSLineFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMarkFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSMarkFindModu\IMVSMarkFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMultiLineFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSMultiLineFindModu\IMVSMultiLineFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSPairLineModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSPairLineModu\IMVSPairLineModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSPeakFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSPeakFindModu\IMVSPeakFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSQuadrangleFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSQuadrangleFindModu\IMVSQuadrangleFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSRectFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSRectFindModu\IMVSRectFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Measurement模块dll文件数为：12, Measurement引用路径数为：12
+    <Reference Include="GeometryCreateCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\GeometryCreate\GeometryCreateCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSC2CMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSC2CMeasureModu\IMVSC2CMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCircleFitModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSCircleFitModu\IMVSCircleFitModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSHistToolModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSHistToolModu\IMVSHistToolModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSIntensityMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSIntensityMeasureModu\IMVSIntensityMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSL2CMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSL2CMeasureModu\IMVSL2CMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSL2LMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSL2LMeasureModu\IMVSL2LMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineFitModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSLineFitModu\IMVSLineFitModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSP2CMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSP2CMeasureModu\IMVSP2CMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSP2LMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSP2LMeasureModu\IMVSP2LMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSP2PMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSP2PMeasureModu\IMVSP2PMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSPixelCountModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSPixelCountModu\IMVSPixelCountModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Recognition模块dll文件数为：9, Recognition引用路径数为：9
+    <Reference Include="IMVS2dBcrModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVS2dBcrModu\IMVS2dBcrModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSBcrModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSBcrModu\IMVSBcrModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnCharDetectModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSCnnCharDetectModu\IMVSCnnCharDetectModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnCharDetectModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSCnnCharDetectModuC\IMVSCnnCharDetectModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnCodeRecgModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSCnnCodeRecgModu\IMVSCnnCodeRecgModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnCodeRecgModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSCnnCodeRecgModuC\IMVSCnnCodeRecgModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSOcrDlModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSOcrDlModu\IMVSOcrDlModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSOcrDlModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSOcrDlModuC\IMVSOcrDlModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSOcrModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSOcrModu\IMVSOcrModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+DeepLearning模块dll文件数为：12, DeepLearning引用路径数为：12
+    <Reference Include="IMVSCnnClassifyModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnClassifyModu\IMVSCnnClassifyModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnClassifyModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnClassifyModuC\IMVSCnnClassifyModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnDetectModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnDetectModu\IMVSCnnDetectModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnDetectModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnDetectModuC\IMVSCnnDetectModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnFlawModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnFlawModu\IMVSCnnFlawModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnFlawModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnFlawModuC\IMVSCnnFlawModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnInspectModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnInspectModu\IMVSCnnInspectModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnInspectModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnInspectModuC\IMVSCnnInspectModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnRetrievalModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnRetrievalModu\IMVSCnnRetrievalModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnRetrievalModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnRetrievalModuC\IMVSCnnRetrievalModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnSingleCharDetectModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnSingleCharDetectModu\IMVSCnnSingleCharDetectModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnSingleCharDetectModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnSingleCharDetectModuC\IMVSCnnSingleCharDetectModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Calibration模块dll文件数为：8, Calibration引用路径数为：8
+    <Reference Include="IMVSCalibBoardCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSCalibBoardCalibModu\IMVSCalibBoardCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCalibTransformModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSCalibTransformModu\IMVSCalibTransformModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSImageCalibModu\IMVSImageCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageCorrectCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSImageCorrectCalibModu\IMVSImageCorrectCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMapCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSMapCalibModu\IMVSMapCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSNImageCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSNImageCalibModu\IMVSNImageCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSNPointCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSNPointCalibModu\IMVSNPointCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSScaleTransformModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSScaleTransformModu\IMVSScaleTransformModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Contraposition模块dll文件数为：4, Contraposition引用路径数为：4
+    <Reference Include="IMVSCameraMapModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Contraposition\IMVSCameraMapModu\IMVSCameraMapModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineAlignModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Contraposition\IMVSLineAlignModu\IMVSLineAlignModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMultiPointAlignModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Contraposition\IMVSMultiPointAlignModu\IMVSMultiPointAlignModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSSinglePointAlignModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Contraposition\IMVSSinglePointAlignModu\IMVSSinglePointAlignModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+ImageProcessing模块dll文件数为：18, ImageProcessing引用路径数为：18
+    <Reference Include="IMVSAffineTransformModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSAffineTransformModu\IMVSAffineTransformModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSBinaryModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSBinaryModu\IMVSBinaryModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSFrameMeanModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSFrameMeanModu\IMVSFrameMeanModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGeometricTransformModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSGeometricTransformModu\IMVSGeometricTransformModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageCombineProcessModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageCombineProcessModu\IMVSImageCombineProcessModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageCorrectManualModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageCorrectManualModu\IMVSImageCorrectManualModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageEnhanceModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageEnhanceModu\IMVSImageEnhanceModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageFilterModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageFilterModu\IMVSImageFilterModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageFixtureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageFixtureModu\IMVSImageFixtureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageMathModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageMathModu\IMVSImageMathModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageMorphModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageMorphModu\IMVSImageMorphModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageNormlizeModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageNormlizeModu\IMVSImageNormlizeModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageSharpnessModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageSharpnessModu\IMVSImageSharpnessModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImgStitchCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImgStitchCalibModu\IMVSImgStitchCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMultiImageFusionModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSMultiImageFusionModu\IMVSMultiImageFusionModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSPolarUnwarpModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSPolarUnwarpModu\IMVSPolarUnwarpModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSRegionCopyModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSRegionCopyModu\IMVSRegionCopyModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSShadeCorrectModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSShadeCorrectModu\IMVSShadeCorrectModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+ColorProcessing模块dll文件数为：4, ColorProcessing引用路径数为：4
+    <Reference Include="IMVSColorExtractModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ColorProcessing\IMVSColorExtractModu\IMVSColorExtractModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSColorMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ColorProcessing\IMVSColorMeasureModu\IMVSColorMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSColorRecognitionModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ColorProcessing\IMVSColorRecognitionModu\IMVSColorRecognitionModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSColorTransformModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ColorProcessing\IMVSColorTransformModu\IMVSColorTransformModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+DefectDetection模块dll文件数为：10, DefectDetection引用路径数为：10
+    <Reference Include="IMVSCircleEdgeInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSCircleEdgeInspModu\IMVSCircleEdgeInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCircleEdgePairInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSCircleEdgePairInspModu\IMVSCircleEdgePairInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgeFlawInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSEdgeFlawInspModu\IMVSEdgeFlawInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgeInspGroupModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSEdgeInspGroupModu\IMVSEdgeInspGroupModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgePairFlawInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSEdgePairFlawInspModu\IMVSEdgePairFlawInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgePairInspGroupModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSEdgePairInspGroupModu\IMVSEdgePairInspGroupModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSInspectModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSInspectModu\IMVSInspectModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineEdgeInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSLineEdgeInspModu\IMVSLineEdgeInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineEdgePairInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSLineEdgePairInspModu\IMVSLineEdgePairInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMarkInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSMarkInspModu\IMVSMarkInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Logic模块dll文件数为：15, Logic引用路径数为：15
+    <Reference Include="AndModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\AndModule\AndModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BranchModule_STDCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\BranchModule_STD\BranchModule_STDCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BranchStringCpmLCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\BranchStringCpmL\BranchStringCpmLCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CalculatorModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\CalculatorModule\CalculatorModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DataAnalysisModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\DataAnalysisModule\DataAnalysisModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DataAssembleModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\DataAssembleModule\DataAssembleModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DataSetModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\DataSetModule\DataSetModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FormatModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\FormatModule\FormatModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IfModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\IfModule\IfModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGroupCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\IMVSGroup\IMVSGroupCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PointSetMODU_STDCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\PointSetMODU_STD\PointSetMODU_STDCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SaveTextModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\SaveTextModule\SaveTextModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ShellModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\ShellModule\ShellModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="StringCompareModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\StringCompareModule\StringCompareModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="TimeStatisticModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\TimeStatisticModule\TimeStatisticModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Communication模块dll文件数为：3, Communication引用路径数为：3
+    <Reference Include="CameraIOModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Communication\CameraIOModule\CameraIOModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ReadDatasModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Communication\ReadDatasModule\ReadDatasModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SendDatasModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Communication\SendDatasModule\SendDatasModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Global模块dll文件数为：5, Global引用路径数为：5
+    <Reference Include="CommManagerModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\CommManagerModule\CommManagerModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DataQueueModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\DataQueueModule\DataQueueModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GlobalCameraModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\GlobalCameraModule\GlobalCameraModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GlobalVariableModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\GlobalVariableModule\GlobalVariableModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LightControlCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\LightControl\LightControlCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+myLibs模块dll文件数为：7, myLibs引用路径数为：7
+    <Reference Include="Apps.ColorFun">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\Apps.ColorFun.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VM.Core">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VM.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VM.PlatformSDKCS">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VM.PlatformSDKCS.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.BaseInterface">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VMControls.BaseInterface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VMControls.Interface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.RenderInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VMControls.RenderInterface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.Winform.Release, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VMControls.Winform.Release.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Collection模块dll文件数为：5, Collection引用路径数为：5
+    <Reference Include="ImageSourceModuleCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\ImageSourceModule\ImageSourceModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ImageAcquisitionModuleCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\ImageAcquisitionModule\ImageAcquisitionModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SaveImageCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\SaveImage\SaveImageCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ImageBufferModuleCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\ImageBufferModule\ImageBufferModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LightModuleCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\LightModule\LightModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+写入 AnBRobotSystem.csproj文件完毕...
+写入App.config文件......
+Location模块引用路径数为：20
+Module(sp)\x64\Location\IMVSBlobFindLabelsModu;Module(sp)\x64\Location\IMVSBlobFindModu;Module(sp)\x64\Location\IMVSCaliperCornerModu;Module(sp)\x64\Location\IMVSCaliperEdgeModu;Module(sp)\x64\Location\IMVSCaliperModu;Module(sp)\x64\Location\IMVSCircleFindModu;Module(sp)\x64\Location\IMVSEdgeWidthFindModu;Module(sp)\x64\Location\IMVSFastFeatureMatchModu;Module(sp)\x64\Location\IMVSFixtureModu;Module(sp)\x64\Location\IMVSGluePathConductModu;Module(sp)\x64\Location\IMVSGrayMatchModu;Module(sp)\x64\Location\IMVSHPFeatureMatchModu;Module(sp)\x64\Location\IMVSLineFindGroupModu;Module(sp)\x64\Location\IMVSLineFindModu;Module(sp)\x64\Location\IMVSMarkFindModu;Module(sp)\x64\Location\IMVSMultiLineFindModu;Module(sp)\x64\Location\IMVSPairLineModu;Module(sp)\x64\Location\IMVSPeakFindModu;Module(sp)\x64\Location\IMVSQuadrangleFindModu;Module(sp)\x64\Location\IMVSRectFindModu;
+Measurement模块引用路径数为：12
+Module(sp)\x64\Measurement\GeometryCreate;Module(sp)\x64\Measurement\IMVSC2CMeasureModu;Module(sp)\x64\Measurement\IMVSCircleFitModu;Module(sp)\x64\Measurement\IMVSHistToolModu;Module(sp)\x64\Measurement\IMVSIntensityMeasureModu;Module(sp)\x64\Measurement\IMVSL2CMeasureModu;Module(sp)\x64\Measurement\IMVSL2LMeasureModu;Module(sp)\x64\Measurement\IMVSLineFitModu;Module(sp)\x64\Measurement\IMVSP2CMeasureModu;Module(sp)\x64\Measurement\IMVSP2LMeasureModu;Module(sp)\x64\Measurement\IMVSP2PMeasureModu;Module(sp)\x64\Measurement\IMVSPixelCountModu;
+Recognition模块引用路径数为：9
+Module(sp)\x64\Recognition\IMVS2dBcrModu;Module(sp)\x64\Recognition\IMVSBcrModu;Module(sp)\x64\Recognition\IMVSCnnCharDetectModu;Module(sp)\x64\Recognition\IMVSCnnCharDetectModuC;Module(sp)\x64\Recognition\IMVSCnnCodeRecgModu;Module(sp)\x64\Recognition\IMVSCnnCodeRecgModuC;Module(sp)\x64\Recognition\IMVSOcrDlModu;Module(sp)\x64\Recognition\IMVSOcrDlModuC;Module(sp)\x64\Recognition\IMVSOcrModu;
+DeepLearning模块引用路径数为：12
+Module(sp)\x64\DeepLearning\IMVSCnnClassifyModu;Module(sp)\x64\DeepLearning\IMVSCnnClassifyModuC;Module(sp)\x64\DeepLearning\IMVSCnnDetectModu;Module(sp)\x64\DeepLearning\IMVSCnnDetectModuC;Module(sp)\x64\DeepLearning\IMVSCnnFlawModu;Module(sp)\x64\DeepLearning\IMVSCnnFlawModuC;Module(sp)\x64\DeepLearning\IMVSCnnInspectModu;Module(sp)\x64\DeepLearning\IMVSCnnInspectModuC;Module(sp)\x64\DeepLearning\IMVSCnnRetrievalModu;Module(sp)\x64\DeepLearning\IMVSCnnRetrievalModuC;Module(sp)\x64\DeepLearning\IMVSCnnSingleCharDetectModu;Module(sp)\x64\DeepLearning\IMVSCnnSingleCharDetectModuC;
+Calibration模块引用路径数为：8
+Module(sp)\x64\Calibration\IMVSCalibBoardCalibModu;Module(sp)\x64\Calibration\IMVSCalibTransformModu;Module(sp)\x64\Calibration\IMVSImageCalibModu;Module(sp)\x64\Calibration\IMVSImageCorrectCalibModu;Module(sp)\x64\Calibration\IMVSMapCalibModu;Module(sp)\x64\Calibration\IMVSNImageCalibModu;Module(sp)\x64\Calibration\IMVSNPointCalibModu;Module(sp)\x64\Calibration\IMVSScaleTransformModu;
+Contraposition模块引用路径数为：4
+Module(sp)\x64\Contraposition\IMVSCameraMapModu;Module(sp)\x64\Contraposition\IMVSLineAlignModu;Module(sp)\x64\Contraposition\IMVSMultiPointAlignModu;Module(sp)\x64\Contraposition\IMVSSinglePointAlignModu;
+ImageProcessing模块引用路径数为：18
+Module(sp)\x64\ImageProcessing\IMVSAffineTransformModu;Module(sp)\x64\ImageProcessing\IMVSBinaryModu;Module(sp)\x64\ImageProcessing\IMVSFrameMeanModu;Module(sp)\x64\ImageProcessing\IMVSGeometricTransformModu;Module(sp)\x64\ImageProcessing\IMVSImageCombineProcessModu;Module(sp)\x64\ImageProcessing\IMVSImageCorrectManualModu;Module(sp)\x64\ImageProcessing\IMVSImageEnhanceModu;Module(sp)\x64\ImageProcessing\IMVSImageFilterModu;Module(sp)\x64\ImageProcessing\IMVSImageFixtureModu;Module(sp)\x64\ImageProcessing\IMVSImageMathModu;Module(sp)\x64\ImageProcessing\IMVSImageMorphModu;Module(sp)\x64\ImageProcessing\IMVSImageNormlizeModu;Module(sp)\x64\ImageProcessing\IMVSImageSharpnessModu;Module(sp)\x64\ImageProcessing\IMVSImgStitchCalibModu;Module(sp)\x64\ImageProcessing\IMVSMultiImageFusionModu;Module(sp)\x64\ImageProcessing\IMVSPolarUnwarpModu;Module(sp)\x64\ImageProcessing\IMVSRegionCopyModu;Module(sp)\x64\ImageProcessing\IMVSShadeCorrectModu;
+ColorProcessing模块引用路径数为：4
+Module(sp)\x64\ColorProcessing\IMVSColorExtractModu;Module(sp)\x64\ColorProcessing\IMVSColorMeasureModu;Module(sp)\x64\ColorProcessing\IMVSColorRecognitionModu;Module(sp)\x64\ColorProcessing\IMVSColorTransformModu;
+DefectDetection模块引用路径数为：10
+Module(sp)\x64\DefectDetection\IMVSCircleEdgeInspModu;Module(sp)\x64\DefectDetection\IMVSCircleEdgePairInspModu;Module(sp)\x64\DefectDetection\IMVSEdgeFlawInspModu;Module(sp)\x64\DefectDetection\IMVSEdgeInspGroupModu;Module(sp)\x64\DefectDetection\IMVSEdgePairFlawInspModu;Module(sp)\x64\DefectDetection\IMVSEdgePairInspGroupModu;Module(sp)\x64\DefectDetection\IMVSInspectModu;Module(sp)\x64\DefectDetection\IMVSLineEdgeInspModu;Module(sp)\x64\DefectDetection\IMVSLineEdgePairInspModu;Module(sp)\x64\DefectDetection\IMVSMarkInspModu;
+Logic模块引用路径数为：15
+Module(sp)\x64\Logic\AndModule;Module(sp)\x64\Logic\BranchModule_STD;Module(sp)\x64\Logic\BranchStringCpmL;Module(sp)\x64\Logic\CalculatorModule;Module(sp)\x64\Logic\DataAnalysisModule;Module(sp)\x64\Logic\DataAssembleModule;Module(sp)\x64\Logic\DataSetModule;Module(sp)\x64\Logic\FormatModule;Module(sp)\x64\Logic\IfModule;Module(sp)\x64\Logic\IMVSGroup;Module(sp)\x64\Logic\PointSetMODU_STD;Module(sp)\x64\Logic\SaveTextModule;Module(sp)\x64\Logic\ShellModule;Module(sp)\x64\Logic\StringCompareModule;Module(sp)\x64\Logic\TimeStatisticModule;
+Communication模块引用路径数为：3
+Module(sp)\x64\Communication\CameraIOModule;Module(sp)\x64\Communication\ReadDatasModule;Module(sp)\x64\Communication\SendDatasModule;
+Global模块引用路径数为：5
+Module(sp)\x64\Global\CommManagerModule;Module(sp)\x64\Global\DataQueueModule;Module(sp)\x64\Global\GlobalCameraModule;Module(sp)\x64\Global\GlobalVariableModule;Module(sp)\x64\Global\LightControl;
+myLibs模块引用路径数为：7
+myLibs;myLibs;myLibs;myLibs;myLibs;myLibs;myLibs;
+Collection模块引用路径数为：5
+Module(sp)\x64\Collection\ImageSourceModule;Module(sp)\x64\Collection\ImageAcquisitionModule;Module(sp)\x64\Collection\SaveImage;Module(sp)\x64\Collection\ImageBufferModule;Module(sp)\x64\Collection\LightModule;
+写入App.config文件完毕。
+开始写入AnBRobotSystem.csproj...
+Location模块dll文件数为：20, Location引用路径数为：20
+    <Reference Include="IMVSBlobFindLabelsModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSBlobFindLabelsModu\IMVSBlobFindLabelsModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSBlobFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSBlobFindModu\IMVSBlobFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCaliperCornerModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSCaliperCornerModu\IMVSCaliperCornerModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCaliperEdgeModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSCaliperEdgeModu\IMVSCaliperEdgeModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCaliperModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSCaliperModu\IMVSCaliperModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCircleFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSCircleFindModu\IMVSCircleFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgeWidthFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSEdgeWidthFindModu\IMVSEdgeWidthFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSFastFeatureMatchModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSFastFeatureMatchModu\IMVSFastFeatureMatchModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSFixtureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSFixtureModu\IMVSFixtureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGluePathConductModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSGluePathConductModu\IMVSGluePathConductModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGrayMatchModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSGrayMatchModu\IMVSGrayMatchModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSHPFeatureMatchModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSHPFeatureMatchModu\IMVSHPFeatureMatchModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineFindGroupModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSLineFindGroupModu\IMVSLineFindGroupModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSLineFindModu\IMVSLineFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMarkFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSMarkFindModu\IMVSMarkFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMultiLineFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSMultiLineFindModu\IMVSMultiLineFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSPairLineModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSPairLineModu\IMVSPairLineModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSPeakFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSPeakFindModu\IMVSPeakFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSQuadrangleFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSQuadrangleFindModu\IMVSQuadrangleFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSRectFindModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSRectFindModu\IMVSRectFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Measurement模块dll文件数为：12, Measurement引用路径数为：12
+    <Reference Include="GeometryCreateCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\GeometryCreate\GeometryCreateCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSC2CMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSC2CMeasureModu\IMVSC2CMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCircleFitModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSCircleFitModu\IMVSCircleFitModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSHistToolModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSHistToolModu\IMVSHistToolModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSIntensityMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSIntensityMeasureModu\IMVSIntensityMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSL2CMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSL2CMeasureModu\IMVSL2CMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSL2LMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSL2LMeasureModu\IMVSL2LMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineFitModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSLineFitModu\IMVSLineFitModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSP2CMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSP2CMeasureModu\IMVSP2CMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSP2LMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSP2LMeasureModu\IMVSP2LMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSP2PMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSP2PMeasureModu\IMVSP2PMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSPixelCountModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSPixelCountModu\IMVSPixelCountModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Recognition模块dll文件数为：9, Recognition引用路径数为：9
+    <Reference Include="IMVS2dBcrModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVS2dBcrModu\IMVS2dBcrModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSBcrModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSBcrModu\IMVSBcrModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnCharDetectModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSCnnCharDetectModu\IMVSCnnCharDetectModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnCharDetectModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSCnnCharDetectModuC\IMVSCnnCharDetectModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnCodeRecgModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSCnnCodeRecgModu\IMVSCnnCodeRecgModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnCodeRecgModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSCnnCodeRecgModuC\IMVSCnnCodeRecgModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSOcrDlModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSOcrDlModu\IMVSOcrDlModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSOcrDlModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSOcrDlModuC\IMVSOcrDlModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSOcrModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSOcrModu\IMVSOcrModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+DeepLearning模块dll文件数为：12, DeepLearning引用路径数为：12
+    <Reference Include="IMVSCnnClassifyModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnClassifyModu\IMVSCnnClassifyModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnClassifyModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnClassifyModuC\IMVSCnnClassifyModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnDetectModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnDetectModu\IMVSCnnDetectModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnDetectModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnDetectModuC\IMVSCnnDetectModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnFlawModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnFlawModu\IMVSCnnFlawModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnFlawModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnFlawModuC\IMVSCnnFlawModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnInspectModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnInspectModu\IMVSCnnInspectModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnInspectModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnInspectModuC\IMVSCnnInspectModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnRetrievalModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnRetrievalModu\IMVSCnnRetrievalModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnRetrievalModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnRetrievalModuC\IMVSCnnRetrievalModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnSingleCharDetectModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnSingleCharDetectModu\IMVSCnnSingleCharDetectModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnSingleCharDetectModuCCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnSingleCharDetectModuC\IMVSCnnSingleCharDetectModuCCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Calibration模块dll文件数为：8, Calibration引用路径数为：8
+    <Reference Include="IMVSCalibBoardCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSCalibBoardCalibModu\IMVSCalibBoardCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCalibTransformModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSCalibTransformModu\IMVSCalibTransformModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSImageCalibModu\IMVSImageCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageCorrectCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSImageCorrectCalibModu\IMVSImageCorrectCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMapCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSMapCalibModu\IMVSMapCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSNImageCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSNImageCalibModu\IMVSNImageCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSNPointCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSNPointCalibModu\IMVSNPointCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSScaleTransformModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSScaleTransformModu\IMVSScaleTransformModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Contraposition模块dll文件数为：4, Contraposition引用路径数为：4
+    <Reference Include="IMVSCameraMapModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Contraposition\IMVSCameraMapModu\IMVSCameraMapModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineAlignModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Contraposition\IMVSLineAlignModu\IMVSLineAlignModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMultiPointAlignModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Contraposition\IMVSMultiPointAlignModu\IMVSMultiPointAlignModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSSinglePointAlignModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Contraposition\IMVSSinglePointAlignModu\IMVSSinglePointAlignModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+ImageProcessing模块dll文件数为：18, ImageProcessing引用路径数为：18
+    <Reference Include="IMVSAffineTransformModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSAffineTransformModu\IMVSAffineTransformModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSBinaryModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSBinaryModu\IMVSBinaryModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSFrameMeanModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSFrameMeanModu\IMVSFrameMeanModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGeometricTransformModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSGeometricTransformModu\IMVSGeometricTransformModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageCombineProcessModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageCombineProcessModu\IMVSImageCombineProcessModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageCorrectManualModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageCorrectManualModu\IMVSImageCorrectManualModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageEnhanceModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageEnhanceModu\IMVSImageEnhanceModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageFilterModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageFilterModu\IMVSImageFilterModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageFixtureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageFixtureModu\IMVSImageFixtureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageMathModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageMathModu\IMVSImageMathModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageMorphModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageMorphModu\IMVSImageMorphModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageNormlizeModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageNormlizeModu\IMVSImageNormlizeModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageSharpnessModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageSharpnessModu\IMVSImageSharpnessModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImgStitchCalibModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImgStitchCalibModu\IMVSImgStitchCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMultiImageFusionModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSMultiImageFusionModu\IMVSMultiImageFusionModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSPolarUnwarpModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSPolarUnwarpModu\IMVSPolarUnwarpModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSRegionCopyModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSRegionCopyModu\IMVSRegionCopyModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSShadeCorrectModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSShadeCorrectModu\IMVSShadeCorrectModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+ColorProcessing模块dll文件数为：4, ColorProcessing引用路径数为：4
+    <Reference Include="IMVSColorExtractModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ColorProcessing\IMVSColorExtractModu\IMVSColorExtractModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSColorMeasureModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ColorProcessing\IMVSColorMeasureModu\IMVSColorMeasureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSColorRecognitionModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ColorProcessing\IMVSColorRecognitionModu\IMVSColorRecognitionModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSColorTransformModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ColorProcessing\IMVSColorTransformModu\IMVSColorTransformModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+DefectDetection模块dll文件数为：10, DefectDetection引用路径数为：10
+    <Reference Include="IMVSCircleEdgeInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSCircleEdgeInspModu\IMVSCircleEdgeInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCircleEdgePairInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSCircleEdgePairInspModu\IMVSCircleEdgePairInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgeFlawInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSEdgeFlawInspModu\IMVSEdgeFlawInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgeInspGroupModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSEdgeInspGroupModu\IMVSEdgeInspGroupModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgePairFlawInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSEdgePairFlawInspModu\IMVSEdgePairFlawInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgePairInspGroupModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSEdgePairInspGroupModu\IMVSEdgePairInspGroupModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSInspectModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSInspectModu\IMVSInspectModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineEdgeInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSLineEdgeInspModu\IMVSLineEdgeInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineEdgePairInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSLineEdgePairInspModu\IMVSLineEdgePairInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMarkInspModuCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSMarkInspModu\IMVSMarkInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Logic模块dll文件数为：15, Logic引用路径数为：15
+    <Reference Include="AndModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\AndModule\AndModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BranchModule_STDCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\BranchModule_STD\BranchModule_STDCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BranchStringCpmLCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\BranchStringCpmL\BranchStringCpmLCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CalculatorModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\CalculatorModule\CalculatorModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DataAnalysisModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\DataAnalysisModule\DataAnalysisModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DataAssembleModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\DataAssembleModule\DataAssembleModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DataSetModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\DataSetModule\DataSetModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FormatModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\FormatModule\FormatModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IfModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\IfModule\IfModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGroupCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\IMVSGroup\IMVSGroupCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PointSetMODU_STDCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\PointSetMODU_STD\PointSetMODU_STDCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SaveTextModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\SaveTextModule\SaveTextModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ShellModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\ShellModule\ShellModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="StringCompareModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\StringCompareModule\StringCompareModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="TimeStatisticModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\TimeStatisticModule\TimeStatisticModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Communication模块dll文件数为：3, Communication引用路径数为：3
+    <Reference Include="CameraIOModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Communication\CameraIOModule\CameraIOModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ReadDatasModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Communication\ReadDatasModule\ReadDatasModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SendDatasModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Communication\SendDatasModule\SendDatasModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Global模块dll文件数为：5, Global引用路径数为：5
+    <Reference Include="CommManagerModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\CommManagerModule\CommManagerModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DataQueueModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\DataQueueModule\DataQueueModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GlobalCameraModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\GlobalCameraModule\GlobalCameraModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GlobalVariableModuleCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\GlobalVariableModule\GlobalVariableModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LightControlCs">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\LightControl\LightControlCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+myLibs模块dll文件数为：7, myLibs引用路径数为：7
+    <Reference Include="Apps.ColorFun">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\Apps.ColorFun.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VM.Core">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VM.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VM.PlatformSDKCS">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VM.PlatformSDKCS.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.BaseInterface">
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VMControls.BaseInterface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VMControls.Interface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.RenderInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VMControls.RenderInterface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.Winform.Release, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VMControls.Winform.Release.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+Collection模块dll文件数为：5, Collection引用路径数为：5
+    <Reference Include="ImageSourceModuleCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\ImageSourceModule\ImageSourceModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ImageAcquisitionModuleCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\ImageAcquisitionModule\ImageAcquisitionModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SaveImageCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\SaveImage\SaveImageCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ImageBufferModuleCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\ImageBufferModule\ImageBufferModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LightModuleCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\LightModule\LightModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+写入 AnBRobotSystem.csproj文件完毕...
+写入App.config文件......
+Location模块引用路径数为：20
+Module(sp)\x64\Location\IMVSBlobFindLabelsModu;Module(sp)\x64\Location\IMVSBlobFindModu;Module(sp)\x64\Location\IMVSCaliperCornerModu;Module(sp)\x64\Location\IMVSCaliperEdgeModu;Module(sp)\x64\Location\IMVSCaliperModu;Module(sp)\x64\Location\IMVSCircleFindModu;Module(sp)\x64\Location\IMVSEdgeWidthFindModu;Module(sp)\x64\Location\IMVSFastFeatureMatchModu;Module(sp)\x64\Location\IMVSFixtureModu;Module(sp)\x64\Location\IMVSGluePathConductModu;Module(sp)\x64\Location\IMVSGrayMatchModu;Module(sp)\x64\Location\IMVSHPFeatureMatchModu;Module(sp)\x64\Location\IMVSLineFindGroupModu;Module(sp)\x64\Location\IMVSLineFindModu;Module(sp)\x64\Location\IMVSMarkFindModu;Module(sp)\x64\Location\IMVSMultiLineFindModu;Module(sp)\x64\Location\IMVSPairLineModu;Module(sp)\x64\Location\IMVSPeakFindModu;Module(sp)\x64\Location\IMVSQuadrangleFindModu;Module(sp)\x64\Location\IMVSRectFindModu;
+Measurement模块引用路径数为：12
+Module(sp)\x64\Measurement\GeometryCreate;Module(sp)\x64\Measurement\IMVSC2CMeasureModu;Module(sp)\x64\Measurement\IMVSCircleFitModu;Module(sp)\x64\Measurement\IMVSHistToolModu;Module(sp)\x64\Measurement\IMVSIntensityMeasureModu;Module(sp)\x64\Measurement\IMVSL2CMeasureModu;Module(sp)\x64\Measurement\IMVSL2LMeasureModu;Module(sp)\x64\Measurement\IMVSLineFitModu;Module(sp)\x64\Measurement\IMVSP2CMeasureModu;Module(sp)\x64\Measurement\IMVSP2LMeasureModu;Module(sp)\x64\Measurement\IMVSP2PMeasureModu;Module(sp)\x64\Measurement\IMVSPixelCountModu;
+Recognition模块引用路径数为：9
+Module(sp)\x64\Recognition\IMVS2dBcrModu;Module(sp)\x64\Recognition\IMVSBcrModu;Module(sp)\x64\Recognition\IMVSCnnCharDetectModu;Module(sp)\x64\Recognition\IMVSCnnCharDetectModuC;Module(sp)\x64\Recognition\IMVSCnnCodeRecgModu;Module(sp)\x64\Recognition\IMVSCnnCodeRecgModuC;Module(sp)\x64\Recognition\IMVSOcrDlModu;Module(sp)\x64\Recognition\IMVSOcrDlModuC;Module(sp)\x64\Recognition\IMVSOcrModu;
+DeepLearning模块引用路径数为：12
+Module(sp)\x64\DeepLearning\IMVSCnnClassifyModu;Module(sp)\x64\DeepLearning\IMVSCnnClassifyModuC;Module(sp)\x64\DeepLearning\IMVSCnnDetectModu;Module(sp)\x64\DeepLearning\IMVSCnnDetectModuC;Module(sp)\x64\DeepLearning\IMVSCnnFlawModu;Module(sp)\x64\DeepLearning\IMVSCnnFlawModuC;Module(sp)\x64\DeepLearning\IMVSCnnInspectModu;Module(sp)\x64\DeepLearning\IMVSCnnInspectModuC;Module(sp)\x64\DeepLearning\IMVSCnnRetrievalModu;Module(sp)\x64\DeepLearning\IMVSCnnRetrievalModuC;Module(sp)\x64\DeepLearning\IMVSCnnSingleCharDetectModu;Module(sp)\x64\DeepLearning\IMVSCnnSingleCharDetectModuC;
+Calibration模块引用路径数为：8
+Module(sp)\x64\Calibration\IMVSCalibBoardCalibModu;Module(sp)\x64\Calibration\IMVSCalibTransformModu;Module(sp)\x64\Calibration\IMVSImageCalibModu;Module(sp)\x64\Calibration\IMVSImageCorrectCalibModu;Module(sp)\x64\Calibration\IMVSMapCalibModu;Module(sp)\x64\Calibration\IMVSNImageCalibModu;Module(sp)\x64\Calibration\IMVSNPointCalibModu;Module(sp)\x64\Calibration\IMVSScaleTransformModu;
+Contraposition模块引用路径数为：4
+Module(sp)\x64\Contraposition\IMVSCameraMapModu;Module(sp)\x64\Contraposition\IMVSLineAlignModu;Module(sp)\x64\Contraposition\IMVSMultiPointAlignModu;Module(sp)\x64\Contraposition\IMVSSinglePointAlignModu;
+ImageProcessing模块引用路径数为：18
+Module(sp)\x64\ImageProcessing\IMVSAffineTransformModu;Module(sp)\x64\ImageProcessing\IMVSBinaryModu;Module(sp)\x64\ImageProcessing\IMVSFrameMeanModu;Module(sp)\x64\ImageProcessing\IMVSGeometricTransformModu;Module(sp)\x64\ImageProcessing\IMVSImageCombineProcessModu;Module(sp)\x64\ImageProcessing\IMVSImageCorrectManualModu;Module(sp)\x64\ImageProcessing\IMVSImageEnhanceModu;Module(sp)\x64\ImageProcessing\IMVSImageFilterModu;Module(sp)\x64\ImageProcessing\IMVSImageFixtureModu;Module(sp)\x64\ImageProcessing\IMVSImageMathModu;Module(sp)\x64\ImageProcessing\IMVSImageMorphModu;Module(sp)\x64\ImageProcessing\IMVSImageNormlizeModu;Module(sp)\x64\ImageProcessing\IMVSImageSharpnessModu;Module(sp)\x64\ImageProcessing\IMVSImgStitchCalibModu;Module(sp)\x64\ImageProcessing\IMVSMultiImageFusionModu;Module(sp)\x64\ImageProcessing\IMVSPolarUnwarpModu;Module(sp)\x64\ImageProcessing\IMVSRegionCopyModu;Module(sp)\x64\ImageProcessing\IMVSShadeCorrectModu;
+ColorProcessing模块引用路径数为：4
+Module(sp)\x64\ColorProcessing\IMVSColorExtractModu;Module(sp)\x64\ColorProcessing\IMVSColorMeasureModu;Module(sp)\x64\ColorProcessing\IMVSColorRecognitionModu;Module(sp)\x64\ColorProcessing\IMVSColorTransformModu;
+DefectDetection模块引用路径数为：10
+Module(sp)\x64\DefectDetection\IMVSCircleEdgeInspModu;Module(sp)\x64\DefectDetection\IMVSCircleEdgePairInspModu;Module(sp)\x64\DefectDetection\IMVSEdgeFlawInspModu;Module(sp)\x64\DefectDetection\IMVSEdgeInspGroupModu;Module(sp)\x64\DefectDetection\IMVSEdgePairFlawInspModu;Module(sp)\x64\DefectDetection\IMVSEdgePairInspGroupModu;Module(sp)\x64\DefectDetection\IMVSInspectModu;Module(sp)\x64\DefectDetection\IMVSLineEdgeInspModu;Module(sp)\x64\DefectDetection\IMVSLineEdgePairInspModu;Module(sp)\x64\DefectDetection\IMVSMarkInspModu;
+Logic模块引用路径数为：15
+Module(sp)\x64\Logic\AndModule;Module(sp)\x64\Logic\BranchModule_STD;Module(sp)\x64\Logic\BranchStringCpmL;Module(sp)\x64\Logic\CalculatorModule;Module(sp)\x64\Logic\DataAnalysisModule;Module(sp)\x64\Logic\DataAssembleModule;Module(sp)\x64\Logic\DataSetModule;Module(sp)\x64\Logic\FormatModule;Module(sp)\x64\Logic\IfModule;Module(sp)\x64\Logic\IMVSGroup;Module(sp)\x64\Logic\PointSetMODU_STD;Module(sp)\x64\Logic\SaveTextModule;Module(sp)\x64\Logic\ShellModule;Module(sp)\x64\Logic\StringCompareModule;Module(sp)\x64\Logic\TimeStatisticModule;
+Communication模块引用路径数为：3
+Module(sp)\x64\Communication\CameraIOModule;Module(sp)\x64\Communication\ReadDatasModule;Module(sp)\x64\Communication\SendDatasModule;
+Global模块引用路径数为：5
+Module(sp)\x64\Global\CommManagerModule;Module(sp)\x64\Global\DataQueueModule;Module(sp)\x64\Global\GlobalCameraModule;Module(sp)\x64\Global\GlobalVariableModule;Module(sp)\x64\Global\LightControl;
+myLibs模块引用路径数为：7
+myLibs;myLibs;myLibs;myLibs;myLibs;myLibs;myLibs;
+Collection模块引用路径数为：5
+Module(sp)\x64\Collection\ImageSourceModule;Module(sp)\x64\Collection\ImageAcquisitionModule;Module(sp)\x64\Collection\SaveImage;Module(sp)\x64\Collection\ImageBufferModule;Module(sp)\x64\Collection\LightModule;
+写入App.config文件完毕。
