@@ -8,5 +8,6 @@ namespace AnBRobotSystem.Core
 {
     class Auto_model
     {
+
     }
 }

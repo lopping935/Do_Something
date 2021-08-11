@@ -1158,6 +1158,7 @@
     </Compile>
     <Compile Include="Core\Auto_model.cs" />
     <Compile Include="Core\Guankou.cs" />
+    <Compile Include="Core\manage_steel.cs" />
     <Compile Include="Core\PLCdata.cs" />
     <Compile Include="Core\Tiebao.cs" />
     <Compile Include="Core\Tieliu.cs" />
@@ -1168,6 +1169,7 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Utlis\Auto_steel_helper.cs" />
+    <Compile Include="Utlis\DBMTaskshelper.cs" />
     <Compile Include="Utlis\LogHelper.cs" />
     <Compile Include="Utlis\MyMeans.cs" />
     <Compile Include="ChildForm\PasswordConfig.cs">
@@ -1192,7 +1194,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utlis\WinServerManage.cs" />
     <EmbeddedResource Include="ChildForm\Fauto_Form.resx">
       <DependentUpon>Fauto_Form.cs</DependentUpon>
     </EmbeddedResource>

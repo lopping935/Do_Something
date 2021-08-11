@@ -12,13 +12,14 @@ namespace AnBRobotSystem
         /// 应用程序的主入口点。
         /// </summary>
         private static System.Threading.Mutex mutex;
+        public static object obj = new object();
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Thread th = new Thread(test);
-
+            
             mutex = new System.Threading.Mutex(true, "OnlyRun");
             if (mutex.WaitOne(0, false))
             {

@@ -7,7 +7,7 @@ using System.Configuration.Install;
 using System.Collections;
 using System.Diagnostics;
 
-namespace AnBRobotSystem.ChildForm
+namespace AnBRobotSystem.Utlis
 {
     class WinServerManage
     {

@@ -33,16 +33,15 @@ namespace AnBRobotSystem
         public static VmProcedure process1, process2, process3, process4;
         public static int a = 0;
         string SolutionPath = @"E:\ProjSetup\Auto_steel\vm\autosteelvm.sol";
+        manage_steel m1 = new manage_steel();
         public MdiParent()
         {
             InitializeComponent();
             form = this;
-            // LogHelper.WriteLog("star program");
+            LogHelper.WriteLog("star program");
             getPLC_data.Start();
-            LoadSolution();
-            
+            LoadSolution();           
             ListBox.CheckForIllegalCrossThreadCalls = false;
-
         }
         private void MdiParent_Load(object sender, EventArgs e)
         {
@@ -61,19 +60,12 @@ namespace AnBRobotSystem
             {
                 VmSolution.Import(SolutionPath, "");
                 mSolutionIsLoad = true;
-                
-                //IMVSCircleFindModuTool circleFindModule = (IMVSCircleFindModuTool)VmSolution.Instance["流程1.圆查找1"];
-                //vmRenderControl1.ModuleSource = circleFindModule;
-                //IMVSCnnDetectModuTool cnnDetectModule= (IMVSCnnDetectModuTool)VmSolution.Instance["流程1.带头检测"];
-                //vmRenderControl2.ModuleSource = cnnDetectModule;
-
             }
             catch (VmException ex)
 
             {
                 strMsg = "LoadSolution failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
-
-               LogHelper.WriteLog(strMsg, ex);
+                LogHelper.WriteLog(strMsg, ex);
                 return;
             }
 
@@ -120,10 +112,7 @@ namespace AnBRobotSystem
 
             LogHelper.WriteLog(strMsg);
         }
-        void getdata()
-        {
 
-        }
 
         #region//窗体切换
         private void treeView1_DoubleClick(object sender, EventArgs e)
@@ -196,6 +185,9 @@ namespace AnBRobotSystem
         private void button1_Click(object sender, EventArgs e)
         {
             buttonExecuteOnce_Click();
+            m1.realtime_weight = 110;
+            m1.get_ibag_weight();
+            m1.get_fish_data();
 
         }
         #endregion
