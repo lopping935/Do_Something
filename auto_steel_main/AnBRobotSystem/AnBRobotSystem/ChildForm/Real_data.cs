@@ -15,10 +15,10 @@ using System.Data.SqlClient;
 
 namespace AnBRobotSystem.ChildForm
 {
-    public partial class YCGBDesignResult : Form
+    public partial class Real_data : Form
     {
 
-        public YCGBDesignResult()
+        public Real_data()
         {
             InitializeComponent();
           

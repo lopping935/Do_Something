@@ -5,11 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using S7.Net;
 
-namespace AnBRobotSystem
+namespace AnBRobotSystem.Utlis
 {
     class S7Net
     {
-        public  Plc plc300 = new Plc(CpuType.S7300, "172.16.47.244", 0, 2);  //创建PLC实例
+        
+        public Plc plc300;
+         public S7Net(string plcip)
+        {
+            plc300 = new Plc(CpuType.S7300, plcip, 0, 2);  //创建PLC实例
+            plc300.Open();
+        }
+
 
         public void PlcOpen()
         {

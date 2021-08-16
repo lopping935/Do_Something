@@ -14,7 +14,7 @@ namespace AnBRobotSystem.Core
         public static string shape = "";
         public static void get_Guankou_data()
         {
-
+            
         }
     }
 }

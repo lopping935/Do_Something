@@ -78,6 +78,12 @@ namespace AnBRobotSystem.Utlis
             dr.Close();
             return result;
         }
+        public void inser_log(string tablename,string str)
+        {
+
+            string sql = string.Format("INSERT INTO {0} (REC_CREATE_TIME,CONTENT) VALUES ('{1}','{2}')", tablename, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+            this.MultithreadExecuteNonQuery(sql);
+        }
 
     }
 }
@@ -128,5 +134,7 @@ namespace AnBRobotSystem.Utlis
         BAR_CODE = dt.Rows[i]["BAR_CODE"].ToString();
                       
     }
-
+    string str = "发送到PLC信号:" + logindexstr + Program.MessageFlg.ToString() + " " + PLClable.merge_sinbar;
+    sql = string.Format("INSERT INTO SENDLOG(REC_CREATE_TIME,CONTENT) VALUES ('{0}','{1}')", DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+    tm.MultithreadExecuteNonQuery(sql);
  */

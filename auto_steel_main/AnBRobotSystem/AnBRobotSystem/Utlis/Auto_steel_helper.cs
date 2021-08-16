@@ -10,10 +10,7 @@ namespace AnBRobotSystem.Utlis
     {
         public static void mainlog(string model, string strmsg)
         {
-            ListViewItem iteme1 = new ListViewItem(DateTime.Now.ToString());
-            iteme1.SubItems.Add(model);
-            iteme1.SubItems.Add(strmsg);
-            AnBRobotSystem.MdiParent.form.listView1.Items.Insert(0, iteme1);
+            
         }
     }
 }
