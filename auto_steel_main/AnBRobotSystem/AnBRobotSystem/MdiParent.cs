@@ -30,6 +30,7 @@ namespace AnBRobotSystem
         public static MdiParent form;
         public static Tiebao tb1=new Tiebao();
         public static GuanKou gk1 = new GuanKou();
+        public static TieLiu tl1 = new TieLiu();
         public static Auto_model autoprocess = new Auto_model();
         
      
@@ -55,7 +56,6 @@ namespace AnBRobotSystem
         }
         private void MdiParent_Load(object sender, EventArgs e)
         {
-            
             FreshTimer.Start();
             timerLog.Start();
             this.WindowState = FormWindowState.Normal;
@@ -73,6 +73,7 @@ namespace AnBRobotSystem
                 mSolutionIsLoad = true;
                 process_TB = (VmProcedure)VmSolution.Instance["流程1"];
                 process_GK = (VmProcedure)VmSolution.Instance["流程2"];
+                process_GK = (VmProcedure)VmSolution.Instance["流程3"];
 
             }
             catch (VmException ex)
@@ -82,15 +83,9 @@ namespace AnBRobotSystem
                 LogHelper.WriteLog(strMsg, ex);
                 return;
             }
+            //mainlog("主窗体", "视觉模型加载成功！");
 
-            strMsg = "LoadSolution success";
-            ListViewItem iteme1 = new ListViewItem(DateTime.Now.ToString());
-           
-            iteme1.SubItems.Add("视觉模型");
-            iteme1.SubItems.Add(strMsg);
-            listView1.Items.Add(iteme1);
-      
-            
+
         }
         public void mainlog(string model,string strmsg)
         {
@@ -201,7 +196,7 @@ namespace AnBRobotSystem
         #region//时钟
         private void FreshTimer_Tick(object sender, EventArgs e)
         {
-
+            PLCdata.calc_weight_speed();
           
         }
       

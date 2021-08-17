@@ -166,11 +166,10 @@ namespace AnBRobotSystem.Core
     public class TieLiu
     {
         public updatelistiew writelistview;
-        public static bool Get_iron = false;
-        public static double area = 0;
-        // public static int iron_tempor = 0;
+        public  bool Get_iron = false;
+        public  double area = 0;
         public static string shape = "";
-        public bool TL_init_state()
+        public bool TL_light_result()
         {
             try
             {
@@ -180,21 +179,12 @@ namespace AnBRobotSystem.Core
                 }
                 else
                 {
-                    MdiParent.process_GK.Run();
-                    IntResultInfo circle_yesno_info = MdiParent.process_GK.GetIntOutputResult("circle_yesno");
-                    int circle_yesno = circle_yesno_info.pIntValue[0];
-                    FloatResultInfo circle_X_info = MdiParent.process_GK.GetFloatOutputResult("circle_X");
-                    float circle_X = circle_X_info.pFloatValue[0];
-                    circle_X = (float)Math.Round(circle_X, 1);
-                    FloatResultInfo circle_Y_info = MdiParent.process_GK.GetFloatOutputResult("circle_Y");
-                    float circle_Y = circle_Y_info.pFloatValue[0];
-                    circle_Y = (float)Math.Round(circle_Y, 1);
-                    FloatResultInfo circle_R_info = MdiParent.process_GK.GetFloatOutputResult("circle_R");
-                    float circle_R = circle_R_info.pFloatValue[0];
-                    circle_R = (float)Math.Round(circle_R, 1);
-                    string strMsg = "圆查找结果: " + circle_yesno.ToString() + "个，圆心：" + circle_X.ToString() + "," + circle_Y.ToString() + ",半径：" + circle_R.ToString();
-                    writelistview("罐口结果", strMsg);
-
+                    MdiParent.process_TL.Run();
+                    IntResultInfo blob_num_info = MdiParent.process_TL.GetIntOutputResult("blob_num");
+                    int blob_num = blob_num_info.pIntValue[0];
+                    string strMsg = "blob结果: " + blob_num.ToString() + "个";
+                    writelistview("铁流结果", strMsg);
+                    Get_iron = true;
                     return true;
                 }
             }
@@ -202,13 +192,11 @@ namespace AnBRobotSystem.Core
             {
                 string strMsg = "SaveSolution failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
                 LogHelper.WriteLog(strMsg, ex);
+                Get_iron = false;
                 return false;
             }
 
         }
-        public bool TL_light_result()
-        {
-            return true;
-        }
+       
     }
 }

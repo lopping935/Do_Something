@@ -1169,7 +1169,6 @@
     <Compile Include="Core\Auto_model.cs" />
     <Compile Include="Core\manage_steel.cs" />
     <Compile Include="Core\PLCdata.cs" />
-    <Compile Include="Core\Tieliu.cs" />
     <Compile Include="ChildForm\Login.cs">
       <SubType>Form</SubType>
     </Compile>

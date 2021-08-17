@@ -7,6 +7,7 @@ using AnBRobotSystem;
 using AnBRobotSystem.Utlis;
 using logtest;
 using System.Threading;
+using System.Diagnostics;
 
 namespace AnBRobotSystem.Core
 {
@@ -30,6 +31,8 @@ namespace AnBRobotSystem.Core
         public bool GB_flimt = false;
         Thread full_thread, nfull_thread;
         public bool threadflag=false;
+        
+        Single limt_angle = 0;
 
         public static List<Single> edge_value = new List<Single>();
        // public static Single last_angle = 0;
@@ -132,16 +135,52 @@ namespace AnBRobotSystem.Core
             }
             
         }
+        public bool calc_fangle()
+        {
+            
+            try
+            {
+                //模型计算获取开流倾角
+                limt_angle = 20;
+                return true;
+            }
+            catch(Exception e)
+            {
+                LogHelper.WriteLog("计算极限倾角",e);
+                return false;
+            }
+            
+        }
+        public void calc_speed()
+        {
+
+        }
         public void process_fmodel_full()
         {
             Single last_agle = 0;
+            Stopwatch sw = new Stopwatch();
+            //240吨前要小于1.6t/s  240-260小于1t/s  260-280小于0.25t/s
+
+            //耗时巨大的代码  
+            sw.Stop();
+            TimeSpan ts2 = sw.Elapsed;
+            Console.WriteLine("Stopwatch总共花费{0}ms.", ts2.TotalMilliseconds);
             try
             {
                 writelisview("模型", "模型开始运行！");
+                sw.Start();
                 while (threadflag)
                 {
                     Thread.Sleep(5000);
                     writelisview("模型", "启动模型！");
+                    //////模型计算开流极限角度
+                    if(PLCdata.F_angle>limt_angle && MdiParent.tl1.Get_iron==false)
+                    {
+                        writelisview("模型", "超过罐车模型极限角度未开流！！" );
+                        Program.model_flag = 1000;
+                        threadflag = false;
+                        break;
+                    }
                     //////模型计算给定速度  现在是直接给定
                     if (Program.model_flag==0)
                     {
@@ -194,15 +233,117 @@ namespace AnBRobotSystem.Core
                             }
                         }
                     }
-                    if (Program.model_flag == 4)
+                    if (Program.model_flag == 4&& MdiParent.tl1.TL_light_result()==true)
                     {
+                        if (PLCdata.TB_weight < 240 )
+                        {
+                            if(PLCdata.TB_weight_speed < 1.6)
+                            {
+                                if (PLCdata.speed == 20)
+                                    Program.model_flag = 4;
+                                else
+                                    PLCdata.set_speed(20);
+                            }
+                            else
+                            {
+                                if (PLCdata.speed == 0)
+                                    Program.model_flag = 4;
+                                else
+                                    PLCdata.set_speed(0);
+                            }
+                            
+                        }
+                        else if(PLCdata.TB_weight > 240 && PLCdata.TB_weight < 260)
+                        {
+                            if (PLCdata.TB_weight_speed < 1)
+                            {
+                                if (PLCdata.speed == 10)
+                                    Program.model_flag = 4;
+                                else
+                                    PLCdata.set_speed(10);
+                            }
+                            else
+                            {
+                                if (PLCdata.speed == 0)
+                                    Program.model_flag = 4;
+                                else
+                                    PLCdata.set_speed(0);
+                            }
+                        }
+                        else
+                        {
+                            //返回点
+                            Program.model_flag = 5;
+                        }
+                    }
+                    if (Program.model_flag == 5 && MdiParent.tl1.TL_light_result() == true)
+                    {
+                        if (PLCdata.TB_weight > 260 && PLCdata.TB_weight < 270)
+                        {
+                            if (PLCdata.TB_weight_speed < 0.5)
+                            {
+                                if (PLCdata.speed == -20)
+                                    Program.model_flag = 5;
+                                else
+                                    PLCdata.set_speed(-20);
+                            }
+                            else
+                            {
+                                if (PLCdata.speed == 0)
+                                    Program.model_flag = 5;
+                                else
+                                    PLCdata.set_speed(-10);
+                            }
+                        }
+                        else if (PLCdata.TB_weight > 270 && PLCdata.TB_weight < 280)
+                        {
+                            if (PLCdata.TB_weight_speed < 0.5)
+                            {
+                                if (PLCdata.speed == -20)
+                                    Program.model_flag = 5;
+                                else
+                                    PLCdata.set_speed(-20);
+                            }
+                            else
+                            {
+                                if (PLCdata.speed == 0)
+                                    Program.model_flag = 5;
+                                else
+                                    PLCdata.set_speed(-10);
+                            }
+                        }
+                        else
+                        {
 
+                            Program.model_flag = 6;
+                        }
+                    }
+                    if (Program.model_flag == 6 && MdiParent.tl1.TL_light_result() == true)
+                    {
+                        if (PLCdata.speed == -20)
+                            Program.model_flag = 6;
+                        else
+                            PLCdata.set_speed(-20);
+                    }
+                    else if (MdiParent.tl1.TL_light_result() == false)
+                    {
+                        writelisview("模型", "折铁顺利完成！");
+                        break;
+                    }
+                    else
+                    {
+                        writelisview("模型", "折铁失败！！");
+                        Program.model_flag = 1000;
+                        threadflag = false;
+                        break;
                     }
                 }
             }
             catch(Exception e)
             {
-
+                writelisview("模型", "折铁模型发生程序失败！！");
+                Program.model_flag = 1000;
+                threadflag = false;
             }
             
         }

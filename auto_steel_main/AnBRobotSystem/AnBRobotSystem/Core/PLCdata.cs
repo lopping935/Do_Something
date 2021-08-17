@@ -12,6 +12,9 @@ namespace AnBRobotSystem.Core
     {
 
         public static float TB_weight = 113;
+        public static float TB_weight_speed = 0;
+        //public static Queue<Single>  weight_queu = new Queue<float>(5);
+        public static List<Single> weight_sp_list = new List<Single>(4);
         public  static Single F_angle=0;
         public static bool TB_pos = true;
         public static bool GB_posA = true;
@@ -72,6 +75,33 @@ namespace AnBRobotSystem.Core
             }
         }
 
+        public static Single calc_weight_speed()
+        {
+            try
+            {
+                Single spd_sum = 0;
+                if(weight_sp_list.Count>=5)
+                {
+                    weight_sp_list.RemoveAt(0);
+                    weight_sp_list.Add(TB_weight);
+                    for(int i=0;i<4;i++)
+                    {
+                        spd_sum += weight_sp_list[i + 1] - weight_sp_list[i];
+                    }
+                    TB_weight_speed = spd_sum / (Single)4;
+                }
+                else
+                {
+                    weight_sp_list.Add(TB_weight);
+                }
+                return TB_weight_speed;
+            }
+            catch (Exception e)
+            {
+
+                return 0;
+            }
+        }
     }
 }
   
