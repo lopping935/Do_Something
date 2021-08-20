@@ -80,8 +80,9 @@ namespace AnBRobotSystem.ChildForm
                 else
                 {
                     GBSJ_uiLight.OnColor = Color.Red;
-                    MG_uiLedLabel.Text = "N";
-                    MG_uiLedLabel.Text = "N";
+
+                    MG_uiLedLabel.Invoke(new Action(() => { MG_uiLedLabel.Text = "N"; }));
+
                 }
             }
         }

@@ -25,7 +25,9 @@ namespace AnBRobotSystem.Core
         public string GB_capacity = "";
         public string GB_station = "";
         public float GB_have_wight = 0;
-
+        public float GB_full_wight = 0;
+        public string GB_carnum="25";
+        DateTime GB_train_in_times = new DateTime();
         public bool GB_getpow = false;
         public bool GB_zlimt = false;
         public bool GB_flimt = false;
@@ -38,8 +40,8 @@ namespace AnBRobotSystem.Core
        // public static Single last_angle = 0;
         public Auto_model()
         {
-            full_thread = new Thread(process_fmodel_full);
-            nfull_thread = new Thread(process_model_half);
+           // full_thread = new Thread(process_fmodel_full);
+            //nfull_thread = new Thread(process_model_half);
         }
         public void chose_process()
         {
@@ -69,6 +71,7 @@ namespace AnBRobotSystem.Core
                                 GB_have_wight = m1.fish_weight;
                                 Program.model_flag = 2;
                                 threadflag = true;
+                                full_thread = new Thread(process_fmodel_full);
                                 full_thread.Start();
                             }
                             else
@@ -83,7 +86,7 @@ namespace AnBRobotSystem.Core
                         }
                         else
                         {
-                            writelisview("铁包口", "铁包口视觉检测正常!");
+                            writelisview("铁包口", "铁包口视觉检测异常!");
                             TB_initresult = false;
                             TB_need_wight = m1.need_ibag_weight;
                             GB_initresult = false;
@@ -157,18 +160,19 @@ namespace AnBRobotSystem.Core
         }
         public void process_fmodel_full()
         {
-            Single last_agle = 0;
-            Stopwatch sw = new Stopwatch();
-            //240吨前要小于1.6t/s  240-260小于1t/s  260-280小于0.25t/s
 
+            //240吨前要小于1.6t/s  240-260小于1t/s  260-280小于0.25t/s
             //耗时巨大的代码  
-            sw.Stop();
-            TimeSpan ts2 = sw.Elapsed;
-            Console.WriteLine("Stopwatch总共花费{0}ms.", ts2.TotalMilliseconds);
             try
-            {
+            {///[ID],[fishstation],[carnum],[is_full],[train_in_times],[lot],[icode],[icard],[startime],[stoptime],[Tare_Weight],[f_full_weight],[f_has_weight],[i_need_weight],[tempture],[iron_dirction]
+                GB_full_wight = m1.fish_init_weight;
+                GB_train_in_times = m1.train_in_time;
+                Single last_agle = 0;
+                DateTime beforDT = DateTime.Now;
+                string sqltext = string.Format("insert into  [AutoSteel].[dbo].[RealTime] VALUES ('{0}','{1}','{2}','{3}','','','','{4}','','','{5}','{6}','{7}','','')", GB_station, GB_carnum, GB_capacity, GB_train_in_times, beforDT, GB_full_wight.ToString(),GB_have_wight.ToString(), TB_need_wight.ToString());
+                dbhlper.MultithreadExecuteNonQuery(sqltext);
+
                 writelisview("模型", "模型开始运行！");
-                sw.Start();
                 while (threadflag)
                 {
                     Thread.Sleep(5000);
@@ -222,6 +226,7 @@ namespace AnBRobotSystem.Core
                             else
                             {
                                 writelisview("模型", "视觉连续检测罐口边缘失败！");
+                                MdiParent.process_GK.ContinousRunEnable = false;
                                 Program.model_flag = 1000;
                                 threadflag = false;
                                 break;
@@ -325,18 +330,23 @@ namespace AnBRobotSystem.Core
                         else
                             PLCdata.set_speed(-20);
                     }
-                    else if (MdiParent.tl1.TL_light_result() == false)
+                    else if (Program.model_flag == 6&&MdiParent.tl1.TL_light_result() == false)
                     {
                         writelisview("模型", "折铁顺利完成！");
+                        DateTime afterDT = System.DateTime.Now;
+                        TimeSpan ts = afterDT.Subtract(beforDT);
                         break;
+                        
                     }
                     else
                     {
                         writelisview("模型", "折铁失败！！");
+                        MdiParent.process_GK.ContinousRunEnable = false;
                         Program.model_flag = 1000;
                         threadflag = false;
                         break;
                     }
+
                 }
             }
             catch(Exception e)

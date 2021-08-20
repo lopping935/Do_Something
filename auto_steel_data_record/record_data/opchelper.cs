@@ -10,6 +10,7 @@ namespace Hopchelper
     class opchelper
     {
         //opc定义
+       
         public static OPCServer KepServer ;
         public static OPCGroups KepGroups;
         public static OPCGroup KepGroup;

@@ -73,7 +73,7 @@ namespace AnBRobotSystem
                 mSolutionIsLoad = true;
                 process_TB = (VmProcedure)VmSolution.Instance["流程1"];
                 process_GK = (VmProcedure)VmSolution.Instance["流程2"];
-                process_GK = (VmProcedure)VmSolution.Instance["流程3"];
+                process_TL = (VmProcedure)VmSolution.Instance["流程3"];
 
             }
             catch (VmException ex)
@@ -196,7 +196,7 @@ namespace AnBRobotSystem
         #region//时钟
         private void FreshTimer_Tick(object sender, EventArgs e)
         {
-            PLCdata.calc_weight_speed();
+            //PLCdata.calc_weight_speed();
           
         }
       
@@ -261,6 +261,7 @@ namespace AnBRobotSystem
 
         private void MdiParent_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             this.Dispose();
             Application.Exit();
         }

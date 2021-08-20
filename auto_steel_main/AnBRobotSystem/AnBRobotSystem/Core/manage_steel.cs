@@ -13,11 +13,14 @@ namespace AnBRobotSystem.Core
         public float need_ibag_weight=0;
         public string fish_station = "";
         public float fish_weight=0;
+        public float fish_init_weight = 0;
         public string F_flag = "";
         public float realtime_weight=0;
         public string ibag_flag="";
+        public DateTime train_in_time = new DateTime();
         dbTaskHelper dbhlper = new dbTaskHelper();
 
+       
         public bool get_TB_data()
         {
             try
@@ -67,8 +70,8 @@ namespace AnBRobotSystem.Core
         {
             try
             {
-                DateTime TimeA_Fish=new DateTime(), TimeB_Fish = new DateTime();
-                Single AF_mid_weight = 0, BF_mid_weight = 0, AFinit_weight = 0, BFinit_weight=0;
+                DateTime TimeA_Fish = new DateTime(), TimeB_Fish = new DateTime();
+                Single AF_mid_weight = 0, BF_mid_weight = 0, AFinit_weight = 0, BFinit_weight = 0;
                 string sql = "SELECT ID,in_time,init_weight,mid_weight FROM RealTime_Car_Bag where ID='A_Fish' or ID='B_Fish'";
                 DbDataReader dr = null;
                 dr = dbhlper.MultithreadDataReader(sql);
@@ -101,29 +104,35 @@ namespace AnBRobotSystem.Core
                     if (DateTime.Compare(TimeA_Fish, TimeB_Fish) < 0)
                     {
                         fish_station = "A";
-                        if(AF_mid_weight== AFinit_weight)
+                        train_in_time = TimeA_Fish;
+                        if (AF_mid_weight== AFinit_weight)
                         {
                             F_flag = "F";
                             fish_weight = AFinit_weight;
+                            fish_init_weight = AFinit_weight;
                         }
                         else
                         {
                             F_flag = "NF";
                             fish_weight = AF_mid_weight;
+                            fish_init_weight = AFinit_weight;
                         }
                     }                        
                     else
                     {
                         fish_station = "B";
+                        train_in_time = TimeB_Fish;
                         if (BF_mid_weight == BFinit_weight)
                         {
                             F_flag = "F";
                             fish_weight = BFinit_weight;
+                            fish_init_weight = BFinit_weight;
                         }
                         else
                         {
                             F_flag = "NF";
                             fish_weight = BF_mid_weight;
+                            fish_init_weight = BFinit_weight;
                         }
                     }
                     return true;
@@ -132,30 +141,36 @@ namespace AnBRobotSystem.Core
                 else if (AF_mid_weight != 0 && BF_mid_weight == 0)
                 {
                     fish_station = "A";
+                    train_in_time = TimeA_Fish;
                     if (AF_mid_weight == AFinit_weight)
                     {
                         F_flag = "F";
                         fish_weight = AFinit_weight;
+                        fish_init_weight = AFinit_weight;
                     }
                     else
                     {
                         F_flag = "NF";
                         fish_weight = AF_mid_weight;
+                        fish_init_weight = AFinit_weight;
                     }
                     return true;
                 }
                 else if (BF_mid_weight != 0 && AF_mid_weight == 0)
                 {
                     fish_station = "B";
+                    train_in_time = TimeB_Fish;
                     if (BF_mid_weight == BFinit_weight)
                     {
                         F_flag = "F";
                         fish_weight = BFinit_weight;
+                        fish_init_weight = BFinit_weight;
                     }
                     else
                     {
                         F_flag = "NF";
                         fish_weight = BF_mid_weight;
+                        fish_init_weight = BFinit_weight;
                     }
                     return true;
                 }

@@ -14,6 +14,7 @@ namespace DBTaskHelper
     public class dbTaskHelper
     {
         DbHelper db;
+        object obj = new object();
         public static string constring = "Data Source=.;Initial Catalog=Agfish;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000";
         public dbTaskHelper()
         {
@@ -21,21 +22,21 @@ namespace DBTaskHelper
         }
         public int MultithreadExecuteNonQuery(string sql)
         {
-            lock (Program.obj)
+            lock (obj)
             {
                 return db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
             }
         }
         public DbDataReader MultithreadDataReader(string sql)
         {
-            lock (Program.obj)
+            lock (obj)
             {
                 return db.ExecuteReader(db.GetSqlStringCommond(sql));
             }
         }
         public DataTable MultithreadDataTable(string sql)
         {
-            lock (Program.obj)
+            lock (obj)
             {
                 return db.ExecuteDataTable(db.GetSqlStringCommond(sql));
             }
@@ -43,7 +44,7 @@ namespace DBTaskHelper
 
         public DataTable MultithreadDataTable_Prc(string PrcName)
         {
-            lock (Program.obj)
+            lock (obj)
             {
                 return db.ExecuteDataTable(db.GetStoredProcCommond(PrcName));
             }
@@ -51,7 +52,7 @@ namespace DBTaskHelper
 
         public object MultithreadGetTimeSpace()
         {
-            lock (Program.obj)
+            lock (obj)
             {
                 return db.ExecuteScalar(db.GetSqlStringCommond("SELECT top(1) [OPCDataAcquisition_UpdataRate]/1000 FROM [OPCAcquisitionConfig]"));
             }
@@ -60,7 +61,7 @@ namespace DBTaskHelper
 
         internal int MultithreadInsertAlarm(int TaskID, string AlarmLevel, DateTime AlarmTime, string DispatchText)
         {
-            lock (Program.obj)
+            lock (obj)
             {
                 string sql = "UPDATE [TaskWarning] SET [TaskWaring_del] = 'true' where [TaskWaring_del] = 'false' and  Task_id=" + TaskID;
                 db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
@@ -72,7 +73,7 @@ namespace DBTaskHelper
 
         internal int MultithreadCancleAlarm(int TaskID)
         {
-            lock (Program.obj)
+            lock (obj)
             {
                 string sql = "UPDATE [TaskWarning] SET [TaskWaring_del] = 'true' where [TaskWaring_del] = 'false' and  Task_id=" + TaskID;
                 return db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
