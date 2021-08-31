@@ -8,6 +8,25 @@ using AnBRobotSystem.Utlis;
 using logtest;
 namespace AnBRobotSystem.Core
 {
+    public struct ZT_Date
+    {
+        public bool TB_pos;//铁包到位
+        public float TB_hight;//铁水液位
+        public float TB_weight;//铁水包重量
+        public Int16 TB_num;//铁水包号
+
+        public bool GB_on_pos;//罐包到位，可以用插电来获取
+        public string GB_station;//罐包位置
+        public bool GB_connect;//罐车得电
+        public bool GB_0_limt;//罐车0限位
+        public bool GB_120_limt;//罐车120限位
+        public Int16 GB_num;//罐车包号
+        public Single GB_angle;//罐包角度
+        public Single GB_have_wight;
+        public Single GB_full_wight;//罐包角度
+        public string GB_capacity ;//罐车容量
+        DateTime GB_train_in_times;//罐车到来时间
+    }
     class manage_steel
     {
         public float need_ibag_weight=0;
@@ -191,6 +210,62 @@ namespace AnBRobotSystem.Core
             
 
         }
+        public bool get_GB_data_manual(string GB_ID)
+        {
+            try
+            {
+                DateTime TimeA_Fish = new DateTime();
+                Single AF_mid_weight = 0,  AFinit_weight = 0;
+                //string sql = "SELECT ID,in_time,init_weight,mid_weight FROM RealTime_Car_Bag where ID='A_Fish' or ID='B_Fish'";
+                string sql = string.Format("SELECT ID,in_time,init_weight,mid_weight FROM RealTime_Car_Bag where ID='{0}'", GB_ID);
+
+                DbDataReader dr = null;
+                dr = dbhlper.MultithreadDataReader(sql);
+                while (dr.Read())
+                {
+                        TimeA_Fish = Convert.ToDateTime(dr["in_time"]);
+                        AFinit_weight = Convert.ToSingle(dr["init_weight"]);
+                        AF_mid_weight = Convert.ToSingle(dr["mid_weight"]);
+                }
+                dr.Close();
+
+                if (AF_mid_weight != 0 )
+                {
+                   
+                    if (AF_mid_weight == AFinit_weight)
+                    {
+                        F_flag = "F";
+                        fish_weight = AFinit_weight;
+                        fish_init_weight = AFinit_weight;
+                    }
+                    else
+                    {
+                        F_flag = "NF";
+                        fish_weight = AF_mid_weight;
+                        fish_init_weight = AFinit_weight;
+                    }
+                }
+                else
+                {
+                    fish_station = "ER";
+                    F_flag = "ER";
+                    return false;
+                }
+                return true;
+
+               
+            }
+            catch (Exception e)
+            {
+                fish_station = "ER";
+                F_flag = "ER";
+                LogHelper.WriteLog("罐包管理系统折铁罐号选择程序出错！", e);
+                return false;
+            }
+
+
+        }
+
         public int updata_fish_weight(string F_Station)
         {
             int exe_result =dbhlper.updata_table("Data_change", "DataValue", F_Station, "DataName", "F_Station");

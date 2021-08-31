@@ -103,6 +103,12 @@ namespace AnBRobotSystem.ChildForm
             this.Close();
             
         }
+
+        private void hum_chose_GB_Click(object sender, EventArgs e)
+        {
+            Program.GB_chose_flag = 1;
+
+        }
     }
 
 }

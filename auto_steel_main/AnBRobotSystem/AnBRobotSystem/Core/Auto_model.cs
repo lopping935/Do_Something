@@ -35,7 +35,7 @@ namespace AnBRobotSystem.Core
         public bool threadflag=false;
         
         Single limt_angle = 0;
-
+        ZT_Date zt_one_time = new ZT_Date();
         public static List<Single> edge_value = new List<Single>();
        // public static Single last_angle = 0;
         public Auto_model()
@@ -47,36 +47,49 @@ namespace AnBRobotSystem.Core
         {
             try
             {
-                
-
-                if (m1.get_TB_data() && m1.get_GB_data())
+                if(Program.GB_chose_flag==1)
                 {
-                    TB_onpos = true;
-                    GB_onpos = true;
-                    if (m1.F_flag == "F"&& m1.fish_station != "ER")
-                    {
-                        GB_capacity = "F";
-                        GB_station = m1.fish_station;
-                        if (MdiParent.tb1.TB_init_result())
-                        {
-                            writelisview("铁包口", "铁包口视觉检测正常!");
-                            TB_initresult = true;
-                            TB_need_wight = m1.need_ibag_weight;
-                            Program.model_flag = 1;
 
-                            if (MdiParent.gk1.GK_init_result())
+                    if (m1.get_TB_data() && m1.get_GB_data_manual(""))
+                    {
+                        TB_onpos = true;
+                        GB_onpos = true;
+                        if (m1.F_flag == "F" && m1.fish_station != "ER")
+                        {
+                            GB_capacity = "F";
+                            GB_station = m1.fish_station;
+                            if (MdiParent.tb1.TB_init_result())
                             {
-                                writelisview("罐包口", "罐包口视觉检测正常！");
-                                GB_initresult = true;
-                                GB_have_wight = m1.fish_weight;
-                                Program.model_flag = 2;
-                                threadflag = true;
-                                full_thread = new Thread(process_fmodel_full);
-                                full_thread.Start();
+                                writelisview("铁包口", "铁包口视觉检测正常!");
+                                TB_initresult = true;
+                                TB_need_wight = m1.need_ibag_weight;
+                                Program.model_flag = 1;
+
+                                if (MdiParent.gk1.GK_init_result())
+                                {
+                                    writelisview("罐包口", "罐包口视觉检测正常！");
+                                    GB_initresult = true;
+                                    GB_have_wight = m1.fish_weight;
+                                    Program.model_flag = 2;
+                                    threadflag = true;
+                                    full_thread = new Thread(process_fmodel_full);
+                                    full_thread.Start();
+                                }
+                                else
+                                {
+                                    writelisview("罐包口", "罐包口视觉检测异常！");
+                                    GB_initresult = false;
+                                    GB_have_wight = m1.fish_weight;
+                                    Program.model_flag = 1000;
+                                    threadflag = false;
+                                }
+
                             }
                             else
                             {
-                                writelisview("罐包口", "罐包口视觉检测异常！");
+                                writelisview("铁包口", "铁包口视觉检测异常!");
+                                TB_initresult = false;
+                                TB_need_wight = m1.need_ibag_weight;
                                 GB_initresult = false;
                                 GB_have_wight = m1.fish_weight;
                                 Program.model_flag = 1000;
@@ -84,50 +97,127 @@ namespace AnBRobotSystem.Core
                             }
 
                         }
-                        else
+                        else if (m1.F_flag == "NF" && m1.fish_station != "error")
                         {
-                            writelisview("铁包口", "铁包口视觉检测异常!");
-                            TB_initresult = false;
-                            TB_need_wight = m1.need_ibag_weight;
-                            GB_initresult = false;
-                            GB_have_wight = m1.fish_weight;
-                            Program.model_flag = 1000;
-                            threadflag = false;
-                        }
+                            GB_capacity = "NF";
+                            GB_station = m1.fish_station;
+                            if (MdiParent.tb1.TB_init_result())
+                            {
+                                writelisview("铁包口", "铁包口视觉检测正常!");
+                                TB_initresult = true;
+                                TB_need_wight = m1.need_ibag_weight;
+                                Program.model_flag = 1;
 
-                    }
-                    else if (m1.F_flag == "NF" && m1.fish_station != "error")
-                    {
-                        GB_capacity = "NF";
-                        GB_station = m1.fish_station;
-                        if (MdiParent.tb1.TB_init_result())
-                        {
-                            writelisview("铁包口", "铁包口视觉检测正常!");
-                            TB_initresult = true;
-                            TB_need_wight = m1.need_ibag_weight;
-                            Program.model_flag = 1;
-
-                            writelisview("罐包口", "罐包口视觉检测正常！");
-                            GB_initresult = true;
-                            GB_have_wight = m1.fish_weight;
-                            Program.model_flag = 2;
-                            threadflag = true;
-                            nfull_thread.Start();
+                                writelisview("罐包口", "罐包口视觉检测正常！");
+                                GB_initresult = true;
+                                GB_have_wight = m1.fish_weight;
+                                Program.model_flag = 2;
+                                threadflag = true;
+                                nfull_thread.Start();
+                            }
+                            else
+                            {
+                                writelisview("铁包口", "铁包口视觉检测正常!");
+                                GB_initresult = false;
+                                GB_have_wight = m1.fish_weight;
+                                Program.model_flag = 1000;
+                                threadflag = false;
+                            }
                         }
                         else
                         {
-                            writelisview("铁包口", "铁包口视觉检测正常!");
-                            GB_initresult = false;
-                            GB_have_wight = m1.fish_weight;
-                            Program.model_flag = 1000;
-                            threadflag = false;
+                            writelisview("折铁模型", "折铁初始化条件错误!");
                         }
-                    }
-                    else
-                    {
-                        writelisview("折铁模型", "折铁初始化条件错误!");
                     }
                 }
+                else if(Program.GB_chose_flag ==2)
+                {
+                    if (m1.get_TB_data() && m1.get_GB_data())
+                    {
+                        TB_onpos = true;
+                        GB_onpos = true;
+                        if (m1.F_flag == "F" && m1.fish_station != "ER")
+                        {
+                            GB_capacity = "F";
+                            GB_station = m1.fish_station;
+                            if (MdiParent.tb1.TB_init_result())
+                            {
+                                writelisview("铁包口", "铁包口视觉检测正常!");
+                                TB_initresult = true;
+                                TB_need_wight = m1.need_ibag_weight;
+                                Program.model_flag = 1;
+
+                                if (MdiParent.gk1.GK_init_result())
+                                {
+                                    writelisview("罐包口", "罐包口视觉检测正常！");
+                                    GB_initresult = true;
+                                    GB_have_wight = m1.fish_weight;
+                                    Program.model_flag = 2;
+                                    threadflag = true;
+                                    full_thread = new Thread(process_fmodel_full);
+                                    full_thread.Start();
+                                }
+                                else
+                                {
+                                    writelisview("罐包口", "罐包口视觉检测异常！");
+                                    GB_initresult = false;
+                                    GB_have_wight = m1.fish_weight;
+                                    Program.model_flag = 1000;
+                                    threadflag = false;
+                                }
+
+                            }
+                            else
+                            {
+                                writelisview("铁包口", "铁包口视觉检测异常!");
+                                TB_initresult = false;
+                                TB_need_wight = m1.need_ibag_weight;
+                                GB_initresult = false;
+                                GB_have_wight = m1.fish_weight;
+                                Program.model_flag = 1000;
+                                threadflag = false;
+                            }
+
+                        }
+                        else if (m1.F_flag == "NF" && m1.fish_station != "error")
+                        {
+                            GB_capacity = "NF";
+                            GB_station = m1.fish_station;
+                            if (MdiParent.tb1.TB_init_result())
+                            {
+                                writelisview("铁包口", "铁包口视觉检测正常!");
+                                TB_initresult = true;
+                                TB_need_wight = m1.need_ibag_weight;
+                                Program.model_flag = 1;
+
+                                writelisview("罐包口", "罐包口视觉检测正常！");
+                                GB_initresult = true;
+                                GB_have_wight = m1.fish_weight;
+                                Program.model_flag = 2;
+                                threadflag = true;
+                                nfull_thread.Start();
+                            }
+                            else
+                            {
+                                writelisview("铁包口", "铁包口视觉检测正常!");
+                                GB_initresult = false;
+                                GB_have_wight = m1.fish_weight;
+                                Program.model_flag = 1000;
+                                threadflag = false;
+                            }
+                        }
+                        else
+                        {
+                            writelisview("折铁模型", "折铁初始化条件错误!");
+                        }
+                    }
+                }
+                else
+                {
+                    Program.GB_chose_flag = 3;
+                }
+
+                
                 
             }
             catch(Exception e)

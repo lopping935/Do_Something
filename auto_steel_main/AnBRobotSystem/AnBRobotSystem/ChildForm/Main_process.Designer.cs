@@ -30,6 +30,8 @@
         {
             this.TB_uiLight = new Sunny.UI.UILight();
             this.skinGroupBox1 = new CCWin.SkinControl.SkinGroupBox();
+            this.GNTL_uiLedLabel = new System.Windows.Forms.Label();
+            this.MG_uiLedLabel = new System.Windows.Forms.Label();
             this.GW_uiLedLabel = new System.Windows.Forms.Label();
             this.ZTL_uiLedLabel1 = new System.Windows.Forms.Label();
             this.uiLabel4 = new Sunny.UI.UILabel();
@@ -56,9 +58,8 @@
             this.uiLabel10 = new Sunny.UI.UILabel();
             this.uiLabel9 = new Sunny.UI.UILabel();
             this.uiLabel8 = new Sunny.UI.UILabel();
-            this.uiButton1 = new Sunny.UI.UIButton();
-            this.MG_uiLedLabel = new System.Windows.Forms.Label();
-            this.GNTL_uiLedLabel = new System.Windows.Forms.Label();
+            this.hum_chose_GB = new Sunny.UI.UIButton();
+            this.uiTextBox2 = new Sunny.UI.UITextBox();
             this.skinGroupBox1.SuspendLayout();
             this.skinGroupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +115,26 @@
             this.skinGroupBox1.TitleBorderColor = System.Drawing.Color.LightCoral;
             this.skinGroupBox1.TitleRectBackColor = System.Drawing.Color.SeaShell;
             this.skinGroupBox1.TitleRoundStyle = CCWin.SkinClass.RoundStyle.All;
+            // 
+            // GNTL_uiLedLabel
+            // 
+            this.GNTL_uiLedLabel.AutoSize = true;
+            this.GNTL_uiLedLabel.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.GNTL_uiLedLabel.Location = new System.Drawing.Point(765, 54);
+            this.GNTL_uiLedLabel.Name = "GNTL_uiLedLabel";
+            this.GNTL_uiLedLabel.Size = new System.Drawing.Size(29, 29);
+            this.GNTL_uiLedLabel.TabIndex = 30;
+            this.GNTL_uiLedLabel.Text = "N";
+            // 
+            // MG_uiLedLabel
+            // 
+            this.MG_uiLedLabel.AutoSize = true;
+            this.MG_uiLedLabel.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.MG_uiLedLabel.Location = new System.Drawing.Point(687, 54);
+            this.MG_uiLedLabel.Name = "MG_uiLedLabel";
+            this.MG_uiLedLabel.Size = new System.Drawing.Size(29, 29);
+            this.MG_uiLedLabel.TabIndex = 29;
+            this.MG_uiLedLabel.Text = "N";
             // 
             // GW_uiLedLabel
             // 
@@ -327,6 +348,8 @@
             // 
             this.skinGroupBox2.BackColor = System.Drawing.Color.Transparent;
             this.skinGroupBox2.BorderColor = System.Drawing.Color.Black;
+            this.skinGroupBox2.Controls.Add(this.uiTextBox2);
+            this.skinGroupBox2.Controls.Add(this.hum_chose_GB);
             this.skinGroupBox2.Controls.Add(this.uiTextBox1);
             this.skinGroupBox2.Controls.Add(this.uiRadioButton2);
             this.skinGroupBox2.Controls.Add(this.uiRadioButton1);
@@ -334,11 +357,11 @@
             this.skinGroupBox2.Controls.Add(this.uiLabel9);
             this.skinGroupBox2.Controls.Add(this.uiLabel8);
             this.skinGroupBox2.ForeColor = System.Drawing.Color.Blue;
-            this.skinGroupBox2.Location = new System.Drawing.Point(844, 263);
+            this.skinGroupBox2.Location = new System.Drawing.Point(95, 249);
             this.skinGroupBox2.Name = "skinGroupBox2";
             this.skinGroupBox2.RectBackColor = System.Drawing.Color.White;
             this.skinGroupBox2.RoundStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinGroupBox2.Size = new System.Drawing.Size(359, 156);
+            this.skinGroupBox2.Size = new System.Drawing.Size(439, 156);
             this.skinGroupBox2.TabIndex = 12;
             this.skinGroupBox2.TabStop = false;
             this.skinGroupBox2.Text = "人工设定";
@@ -418,51 +441,48 @@
             this.uiLabel8.Text = "折铁罐位";
             this.uiLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // uiButton1
+            // hum_chose_GB
             // 
-            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(1214, 380);
-            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton1.Name = "uiButton1";
-            this.uiButton1.Size = new System.Drawing.Size(72, 35);
-            this.uiButton1.TabIndex = 13;
-            this.uiButton1.Text = "确认";
+            this.hum_chose_GB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hum_chose_GB.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.hum_chose_GB.Location = new System.Drawing.Point(356, 60);
+            this.hum_chose_GB.MinimumSize = new System.Drawing.Size(1, 1);
+            this.hum_chose_GB.Name = "hum_chose_GB";
+            this.hum_chose_GB.Size = new System.Drawing.Size(72, 35);
+            this.hum_chose_GB.TabIndex = 13;
+            this.hum_chose_GB.Text = "确认";
+            this.hum_chose_GB.Click += new System.EventHandler(this.hum_chose_GB_Click);
             // 
-            // MG_uiLedLabel
+            // uiTextBox2
             // 
-            this.MG_uiLedLabel.AutoSize = true;
-            this.MG_uiLedLabel.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MG_uiLedLabel.Location = new System.Drawing.Point(687, 54);
-            this.MG_uiLedLabel.Name = "MG_uiLedLabel";
-            this.MG_uiLedLabel.Size = new System.Drawing.Size(29, 29);
-            this.MG_uiLedLabel.TabIndex = 29;
-            this.MG_uiLedLabel.Text = "N";
-            // 
-            // GNTL_uiLedLabel
-            // 
-            this.GNTL_uiLedLabel.AutoSize = true;
-            this.GNTL_uiLedLabel.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.GNTL_uiLedLabel.Location = new System.Drawing.Point(765, 54);
-            this.GNTL_uiLedLabel.Name = "GNTL_uiLedLabel";
-            this.GNTL_uiLedLabel.Size = new System.Drawing.Size(29, 29);
-            this.GNTL_uiLedLabel.TabIndex = 30;
-            this.GNTL_uiLedLabel.Text = "N";
+            this.uiTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox2.DoubleValue = 50D;
+            this.uiTextBox2.FillColor = System.Drawing.Color.White;
+            this.uiTextBox2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiTextBox2.IntValue = 50;
+            this.uiTextBox2.Location = new System.Drawing.Point(261, 60);
+            this.uiTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox2.Maximum = 2147483647D;
+            this.uiTextBox2.Minimum = -2147483648D;
+            this.uiTextBox2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiTextBox2.Name = "uiTextBox2";
+            this.uiTextBox2.Size = new System.Drawing.Size(56, 29);
+            this.uiTextBox2.TabIndex = 17;
+            this.uiTextBox2.Text = "50";
+            this.uiTextBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Main_process
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1298, 844);
             this.ControlBox = false;
-            this.Controls.Add(this.uiButton1);
             this.Controls.Add(this.skinGroupBox2);
             this.Controls.Add(this.skinGroupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main_process";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "折铁流程";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_process_FormClosing);
@@ -500,12 +520,13 @@
         private Sunny.UI.UITextBox uiTextBox1;
         private Sunny.UI.UIRadioButton uiRadioButton2;
         private Sunny.UI.UIRadioButton uiRadioButton1;
-        private Sunny.UI.UIButton uiButton1;
+        private Sunny.UI.UIButton hum_chose_GB;
         private Sunny.UI.UILabel uiLabel4;
         private System.Windows.Forms.Label ZTL_uiLedLabel1;
         private System.Windows.Forms.Label GW_uiLedLabel;
         private System.Windows.Forms.Label GNTL_uiLedLabel;
         private System.Windows.Forms.Label MG_uiLedLabel;
+        private Sunny.UI.UITextBox uiTextBox2;
     }
 }
 

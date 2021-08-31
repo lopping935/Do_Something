@@ -235,6 +235,15 @@ namespace AnBRobotSystem
             autoprocess.chose_process();
 
         }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+       
+
+       
         #endregion
 
         #region//下方状态栏切换

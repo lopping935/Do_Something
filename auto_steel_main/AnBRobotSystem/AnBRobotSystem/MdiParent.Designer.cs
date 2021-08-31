@@ -102,6 +102,7 @@
             treeNode4});
             this.treeView1.Size = new System.Drawing.Size(143, 497);
             this.treeView1.TabIndex = 11;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
             // splitter2
@@ -310,7 +311,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(460, 35);
+            this.button1.Location = new System.Drawing.Point(463, 55);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 24;

@@ -15,6 +15,10 @@ namespace AnBRobotSystem
         public static object obj = new object();
         public static int program_flag = 0;//1000 报错
         public static int model_flag = 0;//1000 报错
+
+        public static int GB_chose_flag = 0;
+        public static string GB_station = "";
+
         [STAThread]
         static void Main()
         {
