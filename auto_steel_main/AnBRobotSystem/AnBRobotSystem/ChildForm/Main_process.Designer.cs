@@ -52,14 +52,14 @@
             this.TBK_uiLight = new Sunny.UI.UILight();
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.skinGroupBox2 = new CCWin.SkinControl.SkinGroupBox();
+            this.uiTextBox2 = new Sunny.UI.UITextBox();
+            this.hum_chose_GB = new Sunny.UI.UIButton();
             this.uiTextBox1 = new Sunny.UI.UITextBox();
-            this.uiRadioButton2 = new Sunny.UI.UIRadioButton();
-            this.uiRadioButton1 = new Sunny.UI.UIRadioButton();
+            this.B_chose = new Sunny.UI.UIRadioButton();
+            this.A_chose = new Sunny.UI.UIRadioButton();
             this.uiLabel10 = new Sunny.UI.UILabel();
             this.uiLabel9 = new Sunny.UI.UILabel();
             this.uiLabel8 = new Sunny.UI.UILabel();
-            this.hum_chose_GB = new Sunny.UI.UIButton();
-            this.uiTextBox2 = new Sunny.UI.UITextBox();
             this.skinGroupBox1.SuspendLayout();
             this.skinGroupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -351,8 +351,8 @@
             this.skinGroupBox2.Controls.Add(this.uiTextBox2);
             this.skinGroupBox2.Controls.Add(this.hum_chose_GB);
             this.skinGroupBox2.Controls.Add(this.uiTextBox1);
-            this.skinGroupBox2.Controls.Add(this.uiRadioButton2);
-            this.skinGroupBox2.Controls.Add(this.uiRadioButton1);
+            this.skinGroupBox2.Controls.Add(this.B_chose);
+            this.skinGroupBox2.Controls.Add(this.A_chose);
             this.skinGroupBox2.Controls.Add(this.uiLabel10);
             this.skinGroupBox2.Controls.Add(this.uiLabel9);
             this.skinGroupBox2.Controls.Add(this.uiLabel8);
@@ -368,6 +368,36 @@
             this.skinGroupBox2.TitleBorderColor = System.Drawing.Color.LightCoral;
             this.skinGroupBox2.TitleRectBackColor = System.Drawing.Color.SeaShell;
             this.skinGroupBox2.TitleRoundStyle = CCWin.SkinClass.RoundStyle.All;
+            // 
+            // uiTextBox2
+            // 
+            this.uiTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox2.DoubleValue = 50D;
+            this.uiTextBox2.FillColor = System.Drawing.Color.White;
+            this.uiTextBox2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiTextBox2.IntValue = 50;
+            this.uiTextBox2.Location = new System.Drawing.Point(261, 60);
+            this.uiTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox2.Maximum = 2147483647D;
+            this.uiTextBox2.Minimum = -2147483648D;
+            this.uiTextBox2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiTextBox2.Name = "uiTextBox2";
+            this.uiTextBox2.Size = new System.Drawing.Size(56, 29);
+            this.uiTextBox2.TabIndex = 17;
+            this.uiTextBox2.Text = "50";
+            this.uiTextBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // hum_chose_GB
+            // 
+            this.hum_chose_GB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hum_chose_GB.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.hum_chose_GB.Location = new System.Drawing.Point(356, 60);
+            this.hum_chose_GB.MinimumSize = new System.Drawing.Size(1, 1);
+            this.hum_chose_GB.Name = "hum_chose_GB";
+            this.hum_chose_GB.Size = new System.Drawing.Size(72, 35);
+            this.hum_chose_GB.TabIndex = 13;
+            this.hum_chose_GB.Text = "确认";
+            this.hum_chose_GB.Click += new System.EventHandler(this.hum_chose_GB_Click);
             // 
             // uiTextBox1
             // 
@@ -387,29 +417,29 @@
             this.uiTextBox1.Text = "50";
             this.uiTextBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // uiRadioButton2
+            // B_chose
             // 
-            this.uiRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiRadioButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiRadioButton2.Location = new System.Drawing.Point(46, 71);
-            this.uiRadioButton2.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiRadioButton2.Name = "uiRadioButton2";
-            this.uiRadioButton2.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.uiRadioButton2.Size = new System.Drawing.Size(75, 29);
-            this.uiRadioButton2.TabIndex = 15;
-            this.uiRadioButton2.Text = "B罐位";
+            this.B_chose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.B_chose.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.B_chose.Location = new System.Drawing.Point(46, 71);
+            this.B_chose.MinimumSize = new System.Drawing.Size(1, 1);
+            this.B_chose.Name = "B_chose";
+            this.B_chose.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.B_chose.Size = new System.Drawing.Size(75, 29);
+            this.B_chose.TabIndex = 15;
+            this.B_chose.Text = "B罐位";
             // 
-            // uiRadioButton1
+            // A_chose
             // 
-            this.uiRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiRadioButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiRadioButton1.Location = new System.Drawing.Point(46, 36);
-            this.uiRadioButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiRadioButton1.Name = "uiRadioButton1";
-            this.uiRadioButton1.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.uiRadioButton1.Size = new System.Drawing.Size(75, 29);
-            this.uiRadioButton1.TabIndex = 13;
-            this.uiRadioButton1.Text = "A罐位";
+            this.A_chose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.A_chose.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.A_chose.Location = new System.Drawing.Point(46, 36);
+            this.A_chose.MinimumSize = new System.Drawing.Size(1, 1);
+            this.A_chose.Name = "A_chose";
+            this.A_chose.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.A_chose.Size = new System.Drawing.Size(75, 29);
+            this.A_chose.TabIndex = 13;
+            this.A_chose.Text = "A罐位";
             // 
             // uiLabel10
             // 
@@ -440,36 +470,6 @@
             this.uiLabel8.TabIndex = 12;
             this.uiLabel8.Text = "折铁罐位";
             this.uiLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // hum_chose_GB
-            // 
-            this.hum_chose_GB.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.hum_chose_GB.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.hum_chose_GB.Location = new System.Drawing.Point(356, 60);
-            this.hum_chose_GB.MinimumSize = new System.Drawing.Size(1, 1);
-            this.hum_chose_GB.Name = "hum_chose_GB";
-            this.hum_chose_GB.Size = new System.Drawing.Size(72, 35);
-            this.hum_chose_GB.TabIndex = 13;
-            this.hum_chose_GB.Text = "确认";
-            this.hum_chose_GB.Click += new System.EventHandler(this.hum_chose_GB_Click);
-            // 
-            // uiTextBox2
-            // 
-            this.uiTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox2.DoubleValue = 50D;
-            this.uiTextBox2.FillColor = System.Drawing.Color.White;
-            this.uiTextBox2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiTextBox2.IntValue = 50;
-            this.uiTextBox2.Location = new System.Drawing.Point(261, 60);
-            this.uiTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox2.Maximum = 2147483647D;
-            this.uiTextBox2.Minimum = -2147483648D;
-            this.uiTextBox2.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiTextBox2.Name = "uiTextBox2";
-            this.uiTextBox2.Size = new System.Drawing.Size(56, 29);
-            this.uiTextBox2.TabIndex = 17;
-            this.uiTextBox2.Text = "50";
-            this.uiTextBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Main_process
             // 
@@ -518,8 +518,8 @@
         private Sunny.UI.UILight GBSJ_uiLight;
         private Sunny.UI.UILight GCDW_uiLight;
         private Sunny.UI.UITextBox uiTextBox1;
-        private Sunny.UI.UIRadioButton uiRadioButton2;
-        private Sunny.UI.UIRadioButton uiRadioButton1;
+        private Sunny.UI.UIRadioButton B_chose;
+        private Sunny.UI.UIRadioButton A_chose;
         private Sunny.UI.UIButton hum_chose_GB;
         private Sunny.UI.UILabel uiLabel4;
         private System.Windows.Forms.Label ZTL_uiLedLabel1;

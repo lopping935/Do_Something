@@ -8,25 +8,7 @@ using AnBRobotSystem.Utlis;
 using logtest;
 namespace AnBRobotSystem.Core
 {
-    public struct ZT_Date
-    {
-        public bool TB_pos;//铁包到位
-        public float TB_hight;//铁水液位
-        public float TB_weight;//铁水包重量
-        public Int16 TB_num;//铁水包号
-
-        public bool GB_on_pos;//罐包到位，可以用插电来获取
-        public string GB_station;//罐包位置
-        public bool GB_connect;//罐车得电
-        public bool GB_0_limt;//罐车0限位
-        public bool GB_120_limt;//罐车120限位
-        public Int16 GB_num;//罐车包号
-        public Single GB_angle;//罐包角度
-        public Single GB_have_wight;
-        public Single GB_full_wight;//罐包角度
-        public string GB_capacity ;//罐车容量
-        DateTime GB_train_in_times;//罐车到来时间
-    }
+    
     class manage_steel
     {
         public float need_ibag_weight=0;
@@ -44,9 +26,9 @@ namespace AnBRobotSystem.Core
         {
             try
             {
-                if (PLCdata.TB_pos)
+                if (PLCdata.ZT_data.TB_pos==true)
                 {
-                    realtime_weight = PLCdata.TB_weight;
+                    realtime_weight = PLCdata.ZT_data.TB_weight;
 
                     if (realtime_weight == 0)
                     {
@@ -58,7 +40,7 @@ namespace AnBRobotSystem.Core
                         ibag_flag = "F";
                         return false;
                     }
-                    else if (realtime_weight > 100 && realtime_weight < 280)
+                    else if (realtime_weight > 70 && realtime_weight < 280)
                     {
                         ibag_flag = "NF";
                         need_ibag_weight = 280 - realtime_weight;
@@ -220,6 +202,7 @@ namespace AnBRobotSystem.Core
                 string sql = string.Format("SELECT ID,in_time,init_weight,mid_weight FROM RealTime_Car_Bag where ID='{0}'", GB_ID);
 
                 DbDataReader dr = null;
+                
                 dr = dbhlper.MultithreadDataReader(sql);
                 while (dr.Read())
                 {
@@ -228,6 +211,11 @@ namespace AnBRobotSystem.Core
                         AF_mid_weight = Convert.ToSingle(dr["mid_weight"]);
                 }
                 dr.Close();
+
+                if (GB_ID == "A_Fish")
+                    fish_station = "A";
+                else
+                    fish_station = "B";
 
                 if (AF_mid_weight != 0 )
                 {

@@ -86,34 +86,65 @@ namespace AnBRobotSystem.Core
         public  int Inital_light = 0;
         public  Single Fall_edga_light = 0;
         public  string shape = "";
-        public bool GK_init_result()
+        public bool GK_init_result(string GK_station)
         {
             try
             {
-                if (null == MdiParent.process_GK)
+                if(GK_station=="A")
                 {
-                    return false;
+                    if (null == MdiParent.process_GK)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+
+                        MdiParent.process_GK.Run();
+                        IntResultInfo circle_yesno_info = MdiParent.process_GK.GetIntOutputResult("circle_yesno");
+                        int circle_yesno = circle_yesno_info.pIntValue[0];
+                        FloatResultInfo circle_X_info = MdiParent.process_GK.GetFloatOutputResult("circle_X");
+                        float circle_X = circle_X_info.pFloatValue[0];
+                        circle_X = (float)Math.Round(circle_X, 1);
+                        FloatResultInfo circle_Y_info = MdiParent.process_GK.GetFloatOutputResult("circle_Y");
+                        float circle_Y = circle_Y_info.pFloatValue[0];
+                        circle_Y = (float)Math.Round(circle_Y, 1);
+                        FloatResultInfo circle_R_info = MdiParent.process_GK.GetFloatOutputResult("circle_R");
+                        float circle_R = circle_R_info.pFloatValue[0];
+                        circle_R = (float)Math.Round(circle_R, 1);
+                        string strMsg = "圆查找结果: " + circle_yesno.ToString() + "个，圆心：" + circle_X.ToString() + "," + circle_Y.ToString() + ",半径：" + circle_R.ToString();
+                        writelistview("罐口结果", strMsg);
+
+                        return true;
+                    }
                 }
                 else
                 {
+                    if (null == MdiParent.process_GK)
+                    {
+                        return false;
+                    }
+                    else
+                    {
 
-                    MdiParent.process_GK.Run();
-                    IntResultInfo circle_yesno_info = MdiParent.process_GK.GetIntOutputResult("circle_yesno");
-                    int circle_yesno = circle_yesno_info.pIntValue[0];
-                    FloatResultInfo circle_X_info = MdiParent.process_GK.GetFloatOutputResult("circle_X");
-                    float circle_X = circle_X_info.pFloatValue[0];
-                    circle_X = (float)Math.Round(circle_X, 1);
-                    FloatResultInfo circle_Y_info = MdiParent.process_GK.GetFloatOutputResult("circle_Y");
-                    float circle_Y = circle_Y_info.pFloatValue[0];
-                    circle_Y = (float)Math.Round(circle_Y, 1);
-                    FloatResultInfo circle_R_info = MdiParent.process_GK.GetFloatOutputResult("circle_R");
-                    float circle_R = circle_R_info.pFloatValue[0];
-                    circle_R = (float)Math.Round(circle_R, 1);
-                    string strMsg = "圆查找结果: " + circle_yesno.ToString() + "个，圆心：" + circle_X.ToString() + "," + circle_Y.ToString() + ",半径：" + circle_R.ToString();
-                    writelistview("罐口结果", strMsg);
-                   
-                    return true;
-                }
+                        MdiParent.process_GK.Run();
+                        IntResultInfo circle_yesno_info = MdiParent.process_GK.GetIntOutputResult("circle_yesno");
+                        int circle_yesno = circle_yesno_info.pIntValue[0];
+                        FloatResultInfo circle_X_info = MdiParent.process_GK.GetFloatOutputResult("circle_X");
+                        float circle_X = circle_X_info.pFloatValue[0];
+                        circle_X = (float)Math.Round(circle_X, 1);
+                        FloatResultInfo circle_Y_info = MdiParent.process_GK.GetFloatOutputResult("circle_Y");
+                        float circle_Y = circle_Y_info.pFloatValue[0];
+                        circle_Y = (float)Math.Round(circle_Y, 1);
+                        FloatResultInfo circle_R_info = MdiParent.process_GK.GetFloatOutputResult("circle_R");
+                        float circle_R = circle_R_info.pFloatValue[0];
+                        circle_R = (float)Math.Round(circle_R, 1);
+                        string strMsg = "圆查找结果: " + circle_yesno.ToString() + "个，圆心：" + circle_X.ToString() + "," + circle_Y.ToString() + ",半径：" + circle_R.ToString();
+                        writelistview("罐口结果", strMsg);
+
+                        return true;
+                    }
+                }  
+
             }
             catch (VmException ex)
             {

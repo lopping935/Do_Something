@@ -22,25 +22,29 @@ using VM.PlatformSDKCS;
 using System.Threading.Tasks;
 using CCWin;
 using Sunny;
+using GlobalVariableModuleCs;
+
 namespace AnBRobotSystem
 {
     public delegate void updatelistiew(string a, string b);
+
     public partial class MdiParent :Sunny.UI.UIForm
     {
         public static MdiParent form;
         public static Tiebao tb1=new Tiebao();
         public static GuanKou gk1 = new GuanKou();
         public static TieLiu tl1 = new TieLiu();
-        public static Auto_model autoprocess = new Auto_model();
-        
+        //  public static Auto_model autoprocess = new Auto_model();
+        public static ZT_Date zt_state = new ZT_Date();
      
         bool mSolutionIsLoad = false;  //true 代表方案加载成功，false 代表方案关闭
         public static VmProcedure process_TB, process_GK, process_TL, process4;
+        public static GlobalVariableModuleTool GK_global;
         public static int a = 0;
         string SolutionPath = @"E:\ProjSetup\Auto_steel\vm\autosteelvm.sol";
-        manage_steel m1 = new manage_steel();
-        Auto_model atuomodel = new Auto_model();
-        
+       // manage_steel m1 = new manage_steel();
+        //Auto_model atuomodel = new Auto_model();
+
         public MdiParent()
         {
             
@@ -49,7 +53,7 @@ namespace AnBRobotSystem
             LogHelper.WriteLog("star program");
             tb1.writelistview = mainlog;
             gk1.writelistview = mainlog;
-            autoprocess.writelisview = mainlog;
+            //autoprocess.writelisview = mainlog;
             LoadSolution();           
             //ListBox.CheckForIllegalCrossThreadCalls = false;
           //  Tiebaodata = new Thread(trr1.get_Tiebao_data);
@@ -74,7 +78,7 @@ namespace AnBRobotSystem
                 process_TB = (VmProcedure)VmSolution.Instance["流程1"];
                 process_GK = (VmProcedure)VmSolution.Instance["流程2"];
                 process_TL = (VmProcedure)VmSolution.Instance["流程3"];
-
+                GK_global = (GlobalVariableModuleTool)VmSolution.Instance["全局变量1"];
             }
             catch (VmException ex)
 
@@ -197,7 +201,10 @@ namespace AnBRobotSystem
         private void FreshTimer_Tick(object sender, EventArgs e)
         {
             //PLCdata.calc_weight_speed();
-          
+            if (zt_state.Has_mission == true)
+                zt_state = atuomodel.one_ZT;
+            
+
         }
       
         //服务消息更改
@@ -217,7 +224,7 @@ namespace AnBRobotSystem
             
                     
         }
-
+        Auto_model atuomodel;
         private void button1_Click(object sender, EventArgs e)
         {
             //  buttonExecuteOnce_Click();
@@ -232,7 +239,15 @@ namespace AnBRobotSystem
             //{
             //    Tiebaodata.Start();
             //}
-            autoprocess.chose_process();
+            //autoprocess.chose_process();
+            PLCdata.ZT_data.TB_pos = true;
+            PLCdata.ZT_data.TB_weight = 80;
+            atuomodel = new Auto_model();
+            atuomodel.writelisview = mainlog;
+            zt_state.Has_mission = true;
+            atuomodel.chose_process();
+            //zt_state = atuomodel.one_ZT;
+
 
         }
 
