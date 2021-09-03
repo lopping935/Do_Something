@@ -26,17 +26,19 @@ using GlobalVariableModuleCs;
 
 namespace AnBRobotSystem
 {
-    public delegate void updatelistiew(string a, string b);
+    public delegate void updatelistiew(string a, string b,string c);
 
     public partial class MdiParent :Sunny.UI.UIForm
     {
+
+
         public static MdiParent form;
         public static Tiebao tb1=new Tiebao();
         public static GuanKou gk1 = new GuanKou();
         public static TieLiu tl1 = new TieLiu();
         //  public static Auto_model autoprocess = new Auto_model();
         public static ZT_Date zt_state = new ZT_Date();
-     
+        public static Auto_model atuomodel;
         bool mSolutionIsLoad = false;  //true 代表方案加载成功，false 代表方案关闭
         public static VmProcedure process_TB, process_GK, process_TL, process4;
         public static GlobalVariableModuleTool GK_global;
@@ -91,15 +93,30 @@ namespace AnBRobotSystem
 
 
         }
-        public void mainlog(string model,string strmsg)
+        public void mainlog(string model,string strmsg,string flag)
+        {
+            if(flag=="log")
+            {
+                ListViewItem iteme1 = new ListViewItem(DateTime.Now.ToString());
+                iteme1.SubItems.Add(model);
+                iteme1.SubItems.Add(strmsg);
+                listView1.Invoke(new Action(() => { listView1.Items.Insert(0, iteme1); }));
+            }
+            else if(flag=="err")
+            {
+                ListViewItem iteme1 = new ListViewItem(DateTime.Now.ToString());
+                iteme1.SubItems.Add(model);
+                iteme1.SubItems.Add(strmsg);
+                listView4.Invoke(new Action(() => { listView4.Items.Insert(0, iteme1); }));
+            }
+            
+        }
+        public void errlog(string model, string strmsg)
         {
             ListViewItem iteme1 = new ListViewItem(DateTime.Now.ToString());
             iteme1.SubItems.Add(model);
             iteme1.SubItems.Add(strmsg);
-           
-            listView1.Invoke(new Action(() => { listView1.Items.Insert(0, iteme1);}));
-            
-
+            listView4.Invoke(new Action(() => { listView1.Items.Insert(0, iteme1); }));
         }
         private void buttonExecuteOnce_Click()
         {
@@ -125,7 +142,7 @@ namespace AnBRobotSystem
                     float circle_R = circle_R_info.pFloatValue[0];
                     circle_R = (float)Math.Round(circle_R, 1);
                      strMsg = "圆查找结果: " + circle_yesno.ToString() + "个，圆心：" + circle_X.ToString() + "," + circle_Y.ToString() + ",半径：" + circle_R.ToString();
-                    mainlog("罐口结果", strMsg);
+                    mainlog("罐口结果", strMsg, "log");
                     //process2.Run();
                 });
             }
@@ -142,7 +159,8 @@ namespace AnBRobotSystem
             LogHelper.WriteLog(strMsg);
         }
 
-
+        
+     
         #region//窗体切换
         private void treeView1_DoubleClick(object sender, EventArgs e)
         {
@@ -198,13 +216,20 @@ namespace AnBRobotSystem
         }
         #endregion
         #region//时钟
+        public static int test = 0;
+        Random ran = new Random();
+        
         private void FreshTimer_Tick(object sender, EventArgs e)
         {
             //PLCdata.calc_weight_speed();
-            if (zt_state.Has_mission == true)
+            if (atuomodel != null)
                 zt_state = atuomodel.one_ZT;
-            
+            else
+                zt_state.Has_mission = false;
 
+            if (Program.model_flag == 1000)
+                atuomodel = null;
+            test = ran.Next(0,100);
         }
       
         //服务消息更改
@@ -224,41 +249,13 @@ namespace AnBRobotSystem
             
                     
         }
-        Auto_model atuomodel;
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //  buttonExecuteOnce_Click();
-
-            // m1.realtime_weight = 110;
-            // m1.get_ibag_weight();
-            // m1.get_fish_data();
-            //   t1.TB_init();
-
-            //Thread.Sleep(1000);
-            //if(process_TB.ContinousRunEnable)
-            //{
-            //    Tiebaodata.Start();
-            //}
-            //autoprocess.chose_process();
-            PLCdata.ZT_data.TB_pos = true;
-            PLCdata.ZT_data.TB_weight = 80;
-            atuomodel = new Auto_model();
-            atuomodel.writelisview = mainlog;
-            zt_state.Has_mission = true;
-            atuomodel.chose_process();
-            //zt_state = atuomodel.one_ZT;
-
-
-        }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
         }
 
-       
-
-       
+        
         #endregion
 
         #region//下方状态栏切换
@@ -291,7 +288,51 @@ namespace AnBRobotSystem
         }
 
         #endregion
+        private void stop_button2_Click(object sender, EventArgs e)
+        {
+            Program.model_flag = 1000;
+            zt_state.Has_mission = false;
+            Program.GB_chose_flag = 0;
 
-       
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            if (Program.GB_chose_flag == 1)
+            {
+                // this.button1.Enabled = false;
+                mainlog("折铁按键", "折铁程序正在运行，请勿重复点击！", "log");
+                return;
+            }
+            else
+            {
+
+                MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+                DialogResult dr = MessageBox.Show("确定要自动选罐吗?", "退出系统", messButton);
+                if (dr == DialogResult.OK)
+                {
+                    Program.GB_chose_flag = 2;
+                    // this.Close();
+                }
+                else
+                {
+                    Program.GB_chose_flag = 3;
+                    //this.Close();
+                    return;
+                }
+
+            }
+            PLCdata.ZT_data.TB_pos = true;
+            PLCdata.ZT_data.TB_weight = 80;
+            atuomodel = new Auto_model();
+            atuomodel.writelisview = mainlog;
+            //zt_state.Has_mission = true;
+            Program.program_flag = 0;
+            atuomodel.chose_process();
+            //zt_state = atuomodel.one_ZT;
+
+
+        }
+
     }
 }

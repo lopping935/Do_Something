@@ -60,8 +60,32 @@
             this.uiLabel10 = new Sunny.UI.UILabel();
             this.uiLabel9 = new Sunny.UI.UILabel();
             this.uiLabel8 = new Sunny.UI.UILabel();
+            this.skinGroupBox3 = new CCWin.SkinControl.SkinGroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.uiLabel12 = new Sunny.UI.UILabel();
+            this.uiLabel14 = new Sunny.UI.UILabel();
+            this.uiLight1 = new Sunny.UI.UILight();
+            this.uiLight2 = new Sunny.UI.UILight();
+            this.uiLabel15 = new Sunny.UI.UILabel();
+            this.uiLabel16 = new Sunny.UI.UILabel();
+            this.uiLight3 = new Sunny.UI.UILight();
+            this.uiLight4 = new Sunny.UI.UILight();
+            this.uiLight8 = new Sunny.UI.UILight();
+            this.uiLabel17 = new Sunny.UI.UILabel();
+            this.uiLabel18 = new Sunny.UI.UILabel();
+            this.uiLabel19 = new Sunny.UI.UILabel();
+            this.uiLabel20 = new Sunny.UI.UILabel();
+            this.uiLabel21 = new Sunny.UI.UILabel();
+            this.uiLabel22 = new Sunny.UI.UILabel();
+            this.uiLight9 = new Sunny.UI.UILight();
+            this.uiLabel23 = new Sunny.UI.UILabel();
+            this.ZT_mision = new Sunny.UI.UILight();
             this.skinGroupBox1.SuspendLayout();
             this.skinGroupBox2.SuspendLayout();
+            this.skinGroupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // TB_uiLight
@@ -111,7 +135,7 @@
             this.skinGroupBox1.Size = new System.Drawing.Size(1108, 156);
             this.skinGroupBox1.TabIndex = 1;
             this.skinGroupBox1.TabStop = false;
-            this.skinGroupBox1.Text = "折铁关键点";
+            this.skinGroupBox1.Text = "折铁静态模型";
             this.skinGroupBox1.TitleBorderColor = System.Drawing.Color.LightCoral;
             this.skinGroupBox1.TitleRectBackColor = System.Drawing.Color.SeaShell;
             this.skinGroupBox1.TitleRoundStyle = CCWin.SkinClass.RoundStyle.All;
@@ -357,7 +381,7 @@
             this.skinGroupBox2.Controls.Add(this.uiLabel9);
             this.skinGroupBox2.Controls.Add(this.uiLabel8);
             this.skinGroupBox2.ForeColor = System.Drawing.Color.Blue;
-            this.skinGroupBox2.Location = new System.Drawing.Point(95, 249);
+            this.skinGroupBox2.Location = new System.Drawing.Point(95, 380);
             this.skinGroupBox2.Name = "skinGroupBox2";
             this.skinGroupBox2.RectBackColor = System.Drawing.Color.White;
             this.skinGroupBox2.RoundStyle = CCWin.SkinClass.RoundStyle.All;
@@ -471,6 +495,286 @@
             this.uiLabel8.Text = "折铁罐位";
             this.uiLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // skinGroupBox3
+            // 
+            this.skinGroupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.skinGroupBox3.BorderColor = System.Drawing.Color.Black;
+            this.skinGroupBox3.Controls.Add(this.label1);
+            this.skinGroupBox3.Controls.Add(this.label2);
+            this.skinGroupBox3.Controls.Add(this.label3);
+            this.skinGroupBox3.Controls.Add(this.label4);
+            this.skinGroupBox3.Controls.Add(this.uiLabel12);
+            this.skinGroupBox3.Controls.Add(this.uiLabel14);
+            this.skinGroupBox3.Controls.Add(this.uiLight1);
+            this.skinGroupBox3.Controls.Add(this.uiLight2);
+            this.skinGroupBox3.Controls.Add(this.uiLabel15);
+            this.skinGroupBox3.Controls.Add(this.uiLabel16);
+            this.skinGroupBox3.Controls.Add(this.uiLight3);
+            this.skinGroupBox3.Controls.Add(this.uiLight4);
+            this.skinGroupBox3.Controls.Add(this.uiLight8);
+            this.skinGroupBox3.Controls.Add(this.uiLabel17);
+            this.skinGroupBox3.Controls.Add(this.uiLabel18);
+            this.skinGroupBox3.Controls.Add(this.uiLabel19);
+            this.skinGroupBox3.Controls.Add(this.uiLabel20);
+            this.skinGroupBox3.Controls.Add(this.uiLabel21);
+            this.skinGroupBox3.Controls.Add(this.uiLabel22);
+            this.skinGroupBox3.Controls.Add(this.uiLight9);
+            this.skinGroupBox3.Controls.Add(this.uiLabel23);
+            this.skinGroupBox3.Controls.Add(this.ZT_mision);
+            this.skinGroupBox3.ForeColor = System.Drawing.Color.Blue;
+            this.skinGroupBox3.Location = new System.Drawing.Point(95, 218);
+            this.skinGroupBox3.Name = "skinGroupBox3";
+            this.skinGroupBox3.RectBackColor = System.Drawing.Color.White;
+            this.skinGroupBox3.RoundStyle = CCWin.SkinClass.RoundStyle.All;
+            this.skinGroupBox3.Size = new System.Drawing.Size(1108, 156);
+            this.skinGroupBox3.TabIndex = 31;
+            this.skinGroupBox3.TabStop = false;
+            this.skinGroupBox3.Text = "折铁动态模型";
+            this.skinGroupBox3.TitleBorderColor = System.Drawing.Color.LightCoral;
+            this.skinGroupBox3.TitleRectBackColor = System.Drawing.Color.SeaShell;
+            this.skinGroupBox3.TitleRoundStyle = CCWin.SkinClass.RoundStyle.All;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(765, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 29);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "N";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(687, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 29);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "N";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(517, 54);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 29);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "N";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(288, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 29);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "N";
+            // 
+            // uiLabel12
+            // 
+            this.uiLabel12.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel12.Location = new System.Drawing.Point(744, 106);
+            this.uiLabel12.Name = "uiLabel12";
+            this.uiLabel12.Size = new System.Drawing.Size(80, 23);
+            this.uiLabel12.TabIndex = 25;
+            this.uiLabel12.Text = "罐内铁量";
+            this.uiLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel14
+            // 
+            this.uiLabel14.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel14.Location = new System.Drawing.Point(664, 106);
+            this.uiLabel14.Name = "uiLabel14";
+            this.uiLabel14.Size = new System.Drawing.Size(77, 23);
+            this.uiLabel14.TabIndex = 23;
+            this.uiLabel14.Text = "是否满罐";
+            this.uiLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLight1
+            // 
+            this.uiLight1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLight1.Location = new System.Drawing.Point(1023, 48);
+            this.uiLight1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiLight1.Name = "uiLight1";
+            this.uiLight1.OnColor = System.Drawing.Color.Red;
+            this.uiLight1.Radius = 35;
+            this.uiLight1.Size = new System.Drawing.Size(35, 35);
+            this.uiLight1.Style = Sunny.UI.UIStyle.Green;
+            this.uiLight1.TabIndex = 21;
+            this.uiLight1.Text = "uiLight1";
+            // 
+            // uiLight2
+            // 
+            this.uiLight2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLight2.Location = new System.Drawing.Point(928, 48);
+            this.uiLight2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiLight2.Name = "uiLight2";
+            this.uiLight2.OnColor = System.Drawing.Color.Red;
+            this.uiLight2.Radius = 35;
+            this.uiLight2.Size = new System.Drawing.Size(35, 35);
+            this.uiLight2.Style = Sunny.UI.UIStyle.Green;
+            this.uiLight2.TabIndex = 20;
+            this.uiLight2.Text = "uiLight2";
+            // 
+            // uiLabel15
+            // 
+            this.uiLabel15.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel15.Location = new System.Drawing.Point(1009, 106);
+            this.uiLabel15.Name = "uiLabel15";
+            this.uiLabel15.Size = new System.Drawing.Size(79, 23);
+            this.uiLabel15.TabIndex = 19;
+            this.uiLabel15.Text = "罐车极位";
+            this.uiLabel15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel16
+            // 
+            this.uiLabel16.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel16.Location = new System.Drawing.Point(924, 104);
+            this.uiLabel16.Name = "uiLabel16";
+            this.uiLabel16.Size = new System.Drawing.Size(79, 23);
+            this.uiLabel16.TabIndex = 18;
+            this.uiLabel16.Text = "罐车0位";
+            this.uiLabel16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLight3
+            // 
+            this.uiLight3.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLight3.Location = new System.Drawing.Point(848, 48);
+            this.uiLight3.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiLight3.Name = "uiLight3";
+            this.uiLight3.OnColor = System.Drawing.Color.Red;
+            this.uiLight3.Radius = 35;
+            this.uiLight3.Size = new System.Drawing.Size(35, 35);
+            this.uiLight3.Style = Sunny.UI.UIStyle.Green;
+            this.uiLight3.TabIndex = 17;
+            this.uiLight3.Text = "uiLight3";
+            // 
+            // uiLight4
+            // 
+            this.uiLight4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLight4.Location = new System.Drawing.Point(587, 48);
+            this.uiLight4.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiLight4.Name = "uiLight4";
+            this.uiLight4.OnColor = System.Drawing.Color.Red;
+            this.uiLight4.Radius = 35;
+            this.uiLight4.Size = new System.Drawing.Size(35, 35);
+            this.uiLight4.Style = Sunny.UI.UIStyle.Green;
+            this.uiLight4.TabIndex = 16;
+            this.uiLight4.Text = "uiLight4";
+            // 
+            // uiLight8
+            // 
+            this.uiLight8.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLight8.Location = new System.Drawing.Point(393, 48);
+            this.uiLight8.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiLight8.Name = "uiLight8";
+            this.uiLight8.OnColor = System.Drawing.Color.Red;
+            this.uiLight8.Radius = 35;
+            this.uiLight8.Size = new System.Drawing.Size(35, 35);
+            this.uiLight8.Style = Sunny.UI.UIStyle.Green;
+            this.uiLight8.TabIndex = 15;
+            this.uiLight8.Text = "uiLight3";
+            // 
+            // uiLabel17
+            // 
+            this.uiLabel17.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel17.Location = new System.Drawing.Point(486, 106);
+            this.uiLabel17.Name = "uiLabel17";
+            this.uiLabel17.Size = new System.Drawing.Size(80, 23);
+            this.uiLabel17.TabIndex = 14;
+            this.uiLabel17.Text = "折铁罐位";
+            this.uiLabel17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel18
+            // 
+            this.uiLabel18.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel18.Location = new System.Drawing.Point(266, 106);
+            this.uiLabel18.Name = "uiLabel18";
+            this.uiLabel18.Size = new System.Drawing.Size(79, 23);
+            this.uiLabel18.TabIndex = 12;
+            this.uiLabel18.Text = "需折铁量";
+            this.uiLabel18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel19
+            // 
+            this.uiLabel19.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel19.Location = new System.Drawing.Point(830, 106);
+            this.uiLabel19.Name = "uiLabel19";
+            this.uiLabel19.Size = new System.Drawing.Size(79, 23);
+            this.uiLabel19.TabIndex = 10;
+            this.uiLabel19.Text = "罐车得电";
+            this.uiLabel19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel20
+            // 
+            this.uiLabel20.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel20.Location = new System.Drawing.Point(570, 106);
+            this.uiLabel20.Name = "uiLabel20";
+            this.uiLabel20.Size = new System.Drawing.Size(79, 23);
+            this.uiLabel20.TabIndex = 8;
+            this.uiLabel20.Text = "罐口视觉";
+            this.uiLabel20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel21
+            // 
+            this.uiLabel21.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel21.Location = new System.Drawing.Point(379, 104);
+            this.uiLabel21.Name = "uiLabel21";
+            this.uiLabel21.Size = new System.Drawing.Size(81, 23);
+            this.uiLabel21.TabIndex = 7;
+            this.uiLabel21.Text = "罐车到位";
+            this.uiLabel21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel22
+            // 
+            this.uiLabel22.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel22.Location = new System.Drawing.Point(161, 104);
+            this.uiLabel22.Name = "uiLabel22";
+            this.uiLabel22.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel22.TabIndex = 6;
+            this.uiLabel22.Text = "包口视觉";
+            this.uiLabel22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLight9
+            // 
+            this.uiLight9.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLight9.Location = new System.Drawing.Point(178, 48);
+            this.uiLight9.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiLight9.Name = "uiLight9";
+            this.uiLight9.OnColor = System.Drawing.Color.Red;
+            this.uiLight9.Radius = 35;
+            this.uiLight9.Size = new System.Drawing.Size(35, 35);
+            this.uiLight9.Style = Sunny.UI.UIStyle.Green;
+            this.uiLight9.TabIndex = 5;
+            this.uiLight9.Text = "uiLight2";
+            // 
+            // uiLabel23
+            // 
+            this.uiLabel23.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel23.Location = new System.Drawing.Point(51, 104);
+            this.uiLabel23.Name = "uiLabel23";
+            this.uiLabel23.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel23.TabIndex = 4;
+            this.uiLabel23.Text = "折铁任务";
+            this.uiLabel23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ZT_mision
+            // 
+            this.ZT_mision.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.ZT_mision.Location = new System.Drawing.Point(75, 48);
+            this.ZT_mision.MinimumSize = new System.Drawing.Size(1, 1);
+            this.ZT_mision.Name = "ZT_mision";
+            this.ZT_mision.OnColor = System.Drawing.Color.Red;
+            this.ZT_mision.Radius = 35;
+            this.ZT_mision.Size = new System.Drawing.Size(35, 35);
+            this.ZT_mision.Style = Sunny.UI.UIStyle.Green;
+            this.ZT_mision.TabIndex = 3;
+            this.ZT_mision.Text = "ZT_mision";
+            // 
             // Main_process
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -478,6 +782,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1298, 844);
             this.ControlBox = false;
+            this.Controls.Add(this.skinGroupBox3);
             this.Controls.Add(this.skinGroupBox2);
             this.Controls.Add(this.skinGroupBox1);
             this.MaximizeBox = false;
@@ -490,6 +795,8 @@
             this.skinGroupBox1.ResumeLayout(false);
             this.skinGroupBox1.PerformLayout();
             this.skinGroupBox2.ResumeLayout(false);
+            this.skinGroupBox3.ResumeLayout(false);
+            this.skinGroupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -527,6 +834,29 @@
         private System.Windows.Forms.Label GNTL_uiLedLabel;
         private System.Windows.Forms.Label MG_uiLedLabel;
         private Sunny.UI.UITextBox uiTextBox2;
+        private CCWin.SkinControl.SkinGroupBox skinGroupBox3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private Sunny.UI.UILabel uiLabel12;
+        private Sunny.UI.UILabel uiLabel14;
+        private Sunny.UI.UILight uiLight1;
+        private Sunny.UI.UILight uiLight2;
+        private Sunny.UI.UILabel uiLabel15;
+        private Sunny.UI.UILabel uiLabel16;
+        private Sunny.UI.UILight uiLight3;
+        private Sunny.UI.UILight uiLight4;
+        private Sunny.UI.UILight uiLight8;
+        private Sunny.UI.UILabel uiLabel17;
+        private Sunny.UI.UILabel uiLabel18;
+        private Sunny.UI.UILabel uiLabel19;
+        private Sunny.UI.UILabel uiLabel20;
+        private Sunny.UI.UILabel uiLabel21;
+        private Sunny.UI.UILabel uiLabel22;
+        private Sunny.UI.UILight uiLight9;
+        private Sunny.UI.UILabel uiLabel23;
+        private Sunny.UI.UILight ZT_mision;
     }
 }
 

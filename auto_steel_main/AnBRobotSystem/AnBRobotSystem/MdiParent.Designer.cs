@@ -46,12 +46,6 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.listView_Server = new System.Windows.Forms.ListView();
-            this.columnHeader_server = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader_status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader_var = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader_descr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -59,10 +53,15 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.button1 = new System.Windows.Forms.Button();
+            this.start_button1 = new System.Windows.Forms.Button();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.listView4 = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.stop_button2 = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -186,7 +185,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.listView_Server);
+            this.tabPage2.Controls.Add(this.listView4);
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -194,51 +193,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "服务状态";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // listView_Server
-            // 
-            this.listView_Server.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader_server,
-            this.columnHeader_name,
-            this.columnHeader_status,
-            this.columnHeader_var,
-            this.columnHeader_descr});
-            this.listView_Server.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView_Server.FullRowSelect = true;
-            this.listView_Server.HideSelection = false;
-            this.listView_Server.Location = new System.Drawing.Point(3, 3);
-            this.listView_Server.MultiSelect = false;
-            this.listView_Server.Name = "listView_Server";
-            this.listView_Server.ShowItemToolTips = true;
-            this.listView_Server.Size = new System.Drawing.Size(1390, 213);
-            this.listView_Server.TabIndex = 2;
-            this.listView_Server.UseCompatibleStateImageBehavior = false;
-            this.listView_Server.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader_server
-            // 
-            this.columnHeader_server.Text = "服务";
-            this.columnHeader_server.Width = 104;
-            // 
-            // columnHeader_name
-            // 
-            this.columnHeader_name.Text = "服务名称";
-            this.columnHeader_name.Width = 126;
-            // 
-            // columnHeader_status
-            // 
-            this.columnHeader_status.Text = "状态";
-            this.columnHeader_status.Width = 117;
-            // 
-            // columnHeader_var
-            // 
-            this.columnHeader_var.Text = "版本";
-            this.columnHeader_var.Width = 156;
-            // 
-            // columnHeader_descr
-            // 
-            this.columnHeader_descr.Text = "描述";
-            this.columnHeader_descr.Width = 434;
             // 
             // tabPage1
             // 
@@ -309,15 +263,15 @@
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
             // 
-            // button1
+            // start_button1
             // 
-            this.button1.Location = new System.Drawing.Point(463, 55);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.start_button1.Location = new System.Drawing.Point(17, 376);
+            this.start_button1.Name = "start_button1";
+            this.start_button1.Size = new System.Drawing.Size(96, 38);
+            this.start_button1.TabIndex = 24;
+            this.start_button1.Text = "开始折铁";
+            this.start_button1.UseVisualStyleBackColor = true;
+            this.start_button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // toolStripLabel3
             // 
@@ -349,13 +303,57 @@
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
+            // listView4
+            // 
+            this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11});
+            this.listView4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView4.FullRowSelect = true;
+            this.listView4.HideSelection = false;
+            this.listView4.Location = new System.Drawing.Point(3, 3);
+            this.listView4.MultiSelect = false;
+            this.listView4.Name = "listView4";
+            this.listView4.ShowItemToolTips = true;
+            this.listView4.Size = new System.Drawing.Size(1390, 213);
+            this.listView4.TabIndex = 4;
+            this.listView4.UseCompatibleStateImageBehavior = false;
+            this.listView4.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "日期";
+            this.columnHeader9.Width = 200;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "类型";
+            this.columnHeader10.Width = 120;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "描述";
+            this.columnHeader11.Width = 317;
+            // 
+            // stop_button2
+            // 
+            this.stop_button2.Location = new System.Drawing.Point(17, 442);
+            this.stop_button2.Name = "stop_button2";
+            this.stop_button2.Size = new System.Drawing.Size(96, 34);
+            this.stop_button2.TabIndex = 26;
+            this.stop_button2.Text = "退出折铁";
+            this.stop_button2.UseVisualStyleBackColor = true;
+            this.stop_button2.Click += new System.EventHandler(this.stop_button2_Click);
+            // 
             // MdiParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1404, 841);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.stop_button2);
+            this.Controls.Add(this.start_button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
@@ -398,22 +396,21 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ListView listView_Server;
-        private System.Windows.Forms.ColumnHeader columnHeader_server;
-        private System.Windows.Forms.ColumnHeader columnHeader_name;
-        private System.Windows.Forms.ColumnHeader columnHeader_status;
-        private System.Windows.Forms.ColumnHeader columnHeader_var;
-        private System.Windows.Forms.ColumnHeader columnHeader_descr;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button start_button1;
         public System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.ListView listView4;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.Button stop_button2;
     }
 }

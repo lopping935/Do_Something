@@ -8,7 +8,7 @@ using System.Configuration;
 using logtest;
 namespace AnBRobotSystem.Core
 {
-    public struct plcdata
+    public class plcdata
     {
         public bool TB_pos;//铁包到位
         public bool GB_posA;//铁水包到位，可以用插电来获取
@@ -23,6 +23,8 @@ namespace AnBRobotSystem.Core
         public Int16 GB_B_num;//罐车包号
         public Single GB_A_angle;
         public Single GB_B_angle;
+        public Single GB_A_speed = 0;
+        public Single GB_B_speed = 0;
     }
     public static class PLCdata
     {
@@ -101,12 +103,25 @@ namespace AnBRobotSystem.Core
             }
            
         }
-        public static Int16 set_speed(Int16 speed)
+        public static Int16 set_speed(string flag,Int16 speed)
         {
             try
             {
-                ErrorCode err = plc300.Write("DB1.DBI20", speed);
-                return (Int16)err;
+                if(flag == "A")
+                {
+                    //ErrorCode err = plc300.Write("DB1.DBI20", speed);
+                    //return (Int16)err;
+                    ZT_data.GB_A_speed = 20;
+                    return 0;
+                }
+                else
+                {
+                    ZT_data.GB_B_speed = 20;
+                    return 0;
+                    //ErrorCode err = plc300.Write("DB1.DBI20", speed);
+                    //return (Int16)err;
+                }
+                
             }
             catch (Exception e)
             {

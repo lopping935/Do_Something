@@ -14,6 +14,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using AnBRobotSystem;
+using logtest;
 
 namespace AnBRobotSystem.ChildForm
 {
@@ -35,73 +36,88 @@ namespace AnBRobotSystem.ChildForm
         }
         public void update()
         {
-            while(flag)
+            try
             {
-                if(AnBRobotSystem.MdiParent.zt_state.Has_mission)
+                while (flag)
                 {
-                    Thread.Sleep(1000);
-                    if (AnBRobotSystem.MdiParent.zt_state.TB_on_pos)
-                        TB_uiLight.OnColor = Color.Green;
-                    else
-                        TB_uiLight.OnColor = Color.Red;
-                    if (AnBRobotSystem.MdiParent.zt_state.TB_BK_vision)
+                    
+                    if (AnBRobotSystem.MdiParent.zt_state.Has_mission)
                     {
-                        TBK_uiLight.OnColor = Color.Green;
+                        if(ZT_mision.OnColor==Color.Red)
+                            ZT_mision.OnColor= Color.Green;
+                        else
+                            ZT_mision.OnColor = Color.Red;
+                        Thread.Sleep(1000);
+                        if (AnBRobotSystem.MdiParent.zt_state.TB_on_pos)
+                            TB_uiLight.OnColor = Color.Green;
+                        else
+                            TB_uiLight.OnColor = Color.Red;
+                        if (AnBRobotSystem.MdiParent.zt_state.TB_BK_vision)
+                        {
+                            TBK_uiLight.OnColor = Color.Green;
 
-                        ZTL_uiLedLabel1.Invoke(new Action(() => { ZTL_uiLedLabel1.Text = AnBRobotSystem.MdiParent.zt_state.TB_need_weight.ToString(); }));
+                            ZTL_uiLedLabel1.Invoke(new Action(() => { ZTL_uiLedLabel1.Text = AnBRobotSystem.MdiParent.zt_state.TB_need_weight.ToString(); }));
+                        }
+                        else
+                        {
+                            TBK_uiLight.OnColor = Color.Red;
+                            ZTL_uiLedLabel1.Invoke(new Action(() => { ZTL_uiLedLabel1.Text = "0"; }));
+
+                        }
+
+                        if (AnBRobotSystem.MdiParent.zt_state.GB_on_pos)
+                        {
+                            GCDW_uiLight.OnColor = Color.Green;
+
+                            GW_uiLedLabel.Invoke(new Action(() => { GW_uiLedLabel.Text = AnBRobotSystem.MdiParent.zt_state.GB_station; }));
+                        }
+                        else
+                        {
+                            GCDW_uiLight.OnColor = Color.Red;
+
+                            GW_uiLedLabel.Invoke(new Action(() => { GW_uiLedLabel.Text = "N"; }));
+                        }
+
+
+                        if (AnBRobotSystem.MdiParent.zt_state.GB_GK_vision)
+                        {
+                            GBSJ_uiLight.OnColor = Color.Green;
+
+                            MG_uiLedLabel.Invoke(new Action(() => { MG_uiLedLabel.Text = AnBRobotSystem.MdiParent.zt_state.GB_capacity; }));
+                            GNTL_uiLedLabel.Invoke(new Action(() => { GNTL_uiLedLabel.Text = AnBRobotSystem.MdiParent.zt_state.GB_have_wight.ToString(); }));
+
+                        }
+                        else
+                        {
+                            GBSJ_uiLight.OnColor = Color.Red;
+
+                            MG_uiLedLabel.Invoke(new Action(() => { MG_uiLedLabel.Text = "N"; }));
+                            GNTL_uiLedLabel.Invoke(new Action(() => { GNTL_uiLedLabel.Text = "0"; }));
+
+                        }
                     }
                     else
                     {
+                        Thread.Sleep(1000);
+                        ZT_mision.OnColor = Color.Gray;
+                        TB_uiLight.OnColor = Color.Red;
                         TBK_uiLight.OnColor = Color.Red;
                         ZTL_uiLedLabel1.Invoke(new Action(() => { ZTL_uiLedLabel1.Text = "0"; }));
-
-                    }
-
-                    if (AnBRobotSystem.MdiParent.zt_state.GB_on_pos)
-                    {
-                        GCDW_uiLight.OnColor = Color.Green;
-
-                        GW_uiLedLabel.Invoke(new Action(() => { GW_uiLedLabel.Text = AnBRobotSystem.MdiParent.zt_state.GB_station; }));
-                    }
-                    else
-                    {
                         GCDW_uiLight.OnColor = Color.Red;
-
                         GW_uiLedLabel.Invoke(new Action(() => { GW_uiLedLabel.Text = "N"; }));
-                    }
-
-
-                    if (AnBRobotSystem.MdiParent.zt_state.GB_GK_vision)
-                    {
-                        GBSJ_uiLight.OnColor = Color.Green;
-
-                        MG_uiLedLabel.Invoke(new Action(() => { MG_uiLedLabel.Text = AnBRobotSystem.MdiParent.zt_state.GB_capacity; }));
-                        GNTL_uiLedLabel.Invoke(new Action(() => { GNTL_uiLedLabel.Text = AnBRobotSystem.MdiParent.zt_state.GB_have_wight.ToString(); }));
-
-                    }
-                    else
-                    {
                         GBSJ_uiLight.OnColor = Color.Red;
-
                         MG_uiLedLabel.Invoke(new Action(() => { MG_uiLedLabel.Text = "N"; }));
-                        GNTL_uiLedLabel.Invoke(new Action(() => { GNTL_uiLedLabel.Text ="0"; }));
-
+                        GNTL_uiLedLabel.Invoke(new Action(() => { GNTL_uiLedLabel.Text = "0"; }));
+                        //writelistview("test", "test", "err");
                     }
-                }
-                else
-                {
-                    Thread.Sleep(1000);
-                    TB_uiLight.OnColor = Color.Red;
-                    TBK_uiLight.OnColor = Color.Red;
-                    ZTL_uiLedLabel1.Invoke(new Action(() => { ZTL_uiLedLabel1.Text = "0"; }));
-                    GCDW_uiLight.OnColor = Color.Red;
-                    GW_uiLedLabel.Invoke(new Action(() => { GW_uiLedLabel.Text = "N"; }));
-                    GBSJ_uiLight.OnColor = Color.Red;
-                    MG_uiLedLabel.Invoke(new Action(() => { MG_uiLedLabel.Text = "N"; }));
-                    GNTL_uiLedLabel.Invoke(new Action(() => { GNTL_uiLedLabel.Text = "0"; }));
-                }
 
+                }
             }
+            catch (Exception e)
+            {
+                LogHelper.WriteLog("数据更新界面出差", e);
+            }
+            
             
         }
 
@@ -124,20 +140,32 @@ namespace AnBRobotSystem.ChildForm
 
         private void hum_chose_GB_Click(object sender, EventArgs e)
         {
-            
-            if(A_chose.Checked)
+            try
             {
-                Program.GB_station = "A_Fish";
-            }
-            else if(B_chose.Checked)
-            {
-                Program.GB_station = "B_Fish";
-            }
-            else
-            {
+                if (A_chose.Checked)
+                {
+                    Program.GB_station = "A_Fish";
+                    Program.GB_chose_flag = 1;
+                    writelistview("罐选择", "选择A罐", "log");
 
+                }
+                else if (B_chose.Checked)
+                {
+                    Program.GB_station = "B_Fish";
+                    Program.GB_chose_flag = 1;
+                    writelistview("罐选择", "选择B罐", "log");
+                }
+                else
+                {
+                    MessageBox.Show("错误", "数据设置有失败！");
+                }
+                
             }
-            Program.GB_chose_flag = 1;
+            catch(Exception e1)
+            {
+                LogHelper.WriteLog("数据更新界面出差", e1);
+            }
+            
         }
     }
 

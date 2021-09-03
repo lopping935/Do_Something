@@ -20,8 +20,8 @@ namespace AnBRobotSystem.Core
         public string ibag_flag="";
         public DateTime train_in_time = new DateTime();
         dbTaskHelper dbhlper = new dbTaskHelper();
+        public updatelistiew writelisview;
 
-       
         public bool get_TB_data()
         {
             try
@@ -44,6 +44,7 @@ namespace AnBRobotSystem.Core
                     {
                         ibag_flag = "NF";
                         need_ibag_weight = 280 - realtime_weight;
+                        writelisview("罐包管理系统", "计算所需铁水", "log");
                         return true;
                     }
                     else
@@ -61,6 +62,7 @@ namespace AnBRobotSystem.Core
             }
             catch (Exception e)
             {
+                writelisview("包数据", e.Message, "err");
                 ibag_flag = "ER";
                 LogHelper.WriteLog("罐包管理系统铁水包选择程序出错！", e);
                 return false;
@@ -184,6 +186,7 @@ namespace AnBRobotSystem.Core
             }
             catch(Exception e)
             {
+                writelisview("自动罐数据", e.Message, "err");
                 fish_station = "ER";
                 F_flag = "ER";
                 LogHelper.WriteLog("罐包管理系统折铁罐号选择程序出错！", e);
@@ -245,6 +248,7 @@ namespace AnBRobotSystem.Core
             }
             catch (Exception e)
             {
+                writelisview("手动罐数据", e.Message, "err");
                 fish_station = "ER";
                 F_flag = "ER";
                 LogHelper.WriteLog("罐包管理系统折铁罐号选择程序出错！", e);

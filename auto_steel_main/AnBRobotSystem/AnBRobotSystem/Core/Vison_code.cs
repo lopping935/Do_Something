@@ -51,12 +51,13 @@ namespace AnBRobotSystem.Core
                     float circle_R = circle_R_info.pFloatValue[0];
                     circle_R = (float)Math.Round(circle_R, 1);
                     string strMsg = "圆查找结果: " + circle_yesno.ToString() + "个，圆心：" + circle_X.ToString() + "," + circle_Y.ToString() + ",半径：" + circle_R.ToString();
-                    writelistview("铁包视觉",strMsg);
+                    writelistview("铁包视觉",strMsg,"log");
                     return true;
                 }
             }
             catch (VmException ex)
             {
+                writelistview("包口视觉", ex.errorMessage, "err");
                 string strMsg = "SaveSolution failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
                 LogHelper.WriteLog(strMsg, ex);
                 return false;
@@ -112,7 +113,7 @@ namespace AnBRobotSystem.Core
                         float circle_R = circle_R_info.pFloatValue[0];
                         circle_R = (float)Math.Round(circle_R, 1);
                         string strMsg = "圆查找结果: " + circle_yesno.ToString() + "个，圆心：" + circle_X.ToString() + "," + circle_Y.ToString() + ",半径：" + circle_R.ToString();
-                        writelistview("罐口结果", strMsg);
+                        writelistview("罐口结果", strMsg, "log");
 
                         return true;
                     }
@@ -139,7 +140,7 @@ namespace AnBRobotSystem.Core
                         float circle_R = circle_R_info.pFloatValue[0];
                         circle_R = (float)Math.Round(circle_R, 1);
                         string strMsg = "圆查找结果: " + circle_yesno.ToString() + "个，圆心：" + circle_X.ToString() + "," + circle_Y.ToString() + ",半径：" + circle_R.ToString();
-                        writelistview("罐口结果", strMsg);
+                        writelistview("罐口结果", strMsg, "log");
 
                         return true;
                     }
@@ -148,6 +149,7 @@ namespace AnBRobotSystem.Core
             }
             catch (VmException ex)
             {
+                writelistview("罐口视觉", ex.errorMessage, "err");
                 string strMsg = "SaveSolution failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
                 LogHelper.WriteLog(strMsg, ex);
                 return false;
@@ -171,7 +173,7 @@ namespace AnBRobotSystem.Core
             }
            
         }
-        public bool GK_light_result()
+        public bool GK_light_result(string GB_flag)
         {
 
             try
@@ -182,8 +184,17 @@ namespace AnBRobotSystem.Core
                 }
                 else
                 { 
-                    Fall_edga_light = 25;
-                    return true;
+                    if(GB_flag=="A")
+                    {
+                        Fall_edga_light = 25;
+                        return true;
+                    }
+                    else
+                    {
+                        Fall_edga_light = 25;
+                        return true;
+                    }
+                   
                 }
             }
             catch (VmException ex)
@@ -210,11 +221,11 @@ namespace AnBRobotSystem.Core
                 }
                 else
                 {
-                    MdiParent.process_TL.Run();
+                    //MdiParent.process_TL.Run();
                     IntResultInfo blob_num_info = MdiParent.process_TL.GetIntOutputResult("blob_num");
                     int blob_num = blob_num_info.pIntValue[0];
                     string strMsg = "blob结果: " + blob_num.ToString() + "个";
-                    writelistview("铁流结果", strMsg);
+                    writelistview("铁流结果", strMsg, "log");
                     Get_iron = true;
                     return true;
                 }
