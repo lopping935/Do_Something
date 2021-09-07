@@ -9,7 +9,7 @@ using logtest;
 namespace AnBRobotSystem.Core
 {
     
-    class manage_steel
+     class manage_steel
     {
         public float need_ibag_weight=0;
         public string fish_station = "";
@@ -19,9 +19,11 @@ namespace AnBRobotSystem.Core
         public float realtime_weight=0;
         public string ibag_flag="";
         public DateTime train_in_time = new DateTime();
-        dbTaskHelper dbhlper = new dbTaskHelper();
+        public dbTaskHelper dbhlper;
         public updatelistiew writelisview;
-
+        public manage_steel()
+        {
+        }
         public bool get_TB_data()
         {
             try
@@ -75,19 +77,19 @@ namespace AnBRobotSystem.Core
             {
                 DateTime TimeA_Fish = new DateTime(), TimeB_Fish = new DateTime();
                 Single AF_mid_weight = 0, BF_mid_weight = 0, AFinit_weight = 0, BFinit_weight = 0;
-                string sql = "SELECT ID,in_time,init_weight,mid_weight FROM RealTime_Car_Bag where ID='A_Fish' or ID='B_Fish'";
+                string sql = "SELECT ID,in_time,init_weight,mid_weight FROM RealTime_Car_Bag where ID='A' or ID='B'";
                 DbDataReader dr = null;
                 dr = dbhlper.MultithreadDataReader(sql);
                 while (dr.Read())
                 {
-                    if ( Convert.ToString(dr["ID"]).Trim() == "A_Fish")
+                    if ( Convert.ToString(dr["ID"]).Trim() == "A")
                     {
                         
                         TimeA_Fish = Convert.ToDateTime(dr["in_time"]);
                         AFinit_weight = Convert.ToSingle(dr["init_weight"]);
                         AF_mid_weight = Convert.ToSingle(dr["mid_weight"]);
                     }
-                    if (Convert.ToString(dr["ID"]).Trim() == "B_Fish")
+                    if (Convert.ToString(dr["ID"]).Trim() == "B")
                     {
                         TimeB_Fish = Convert.ToDateTime(dr["in_time"]);
                         BFinit_weight = Convert.ToSingle(dr["init_weight"]);
@@ -96,12 +98,12 @@ namespace AnBRobotSystem.Core
                 }
                 dr.Close();
 
-                //TimeA_Fish = Convert.ToDateTime(dbhlper.read_table_onefield("in_time", "RealTime_Car_Bag", "ID", "A_Fish"));
-                //TimeB_Fish = Convert.ToDateTime(dbhlper.read_table_onefield("in_time", "RealTime_Car_Bag", "ID", "B_Fish"));
-                //AF_mid_weight = float.Parse((dbhlper.read_table_onefield("mid_weight", "RealTime_Car_Bag", "ID", "A_Fish")));
-                //BF_mid_weight = float.Parse(dbhlper.read_table_onefield("mid_weight", "RealTime_Car_Bag", "ID", "B_Fish"));
-                //AFinit_weight = float.Parse((dbhlper.read_table_onefield("init_weight", "RealTime_Car_Bag", "ID", "A_Fish")));
-                //BFinit_weight = float.Parse(dbhlper.read_table_onefield("init_weight", "RealTime_Car_Bag", "ID", "B_Fish"));
+                //TimeA_Fish = Convert.ToDateTime(dbhlper.read_table_onefield("in_time", "RealTime_Car_Bag", "ID", "A"));
+                //TimeB_Fish = Convert.ToDateTime(dbhlper.read_table_onefield("in_time", "RealTime_Car_Bag", "ID", "B"));
+                //AF_mid_weight = float.Parse((dbhlper.read_table_onefield("mid_weight", "RealTime_Car_Bag", "ID", "A")));
+                //BF_mid_weight = float.Parse(dbhlper.read_table_onefield("mid_weight", "RealTime_Car_Bag", "ID", "B"));
+                //AFinit_weight = float.Parse((dbhlper.read_table_onefield("init_weight", "RealTime_Car_Bag", "ID", "A")));
+                //BFinit_weight = float.Parse(dbhlper.read_table_onefield("init_weight", "RealTime_Car_Bag", "ID", "B"));
                 if (AF_mid_weight != 0 && BF_mid_weight != 0)
                 {
                     if (DateTime.Compare(TimeA_Fish, TimeB_Fish) < 0)
@@ -201,7 +203,7 @@ namespace AnBRobotSystem.Core
             {
                 DateTime TimeA_Fish = new DateTime();
                 Single AF_mid_weight = 0,  AFinit_weight = 0;
-                //string sql = "SELECT ID,in_time,init_weight,mid_weight FROM RealTime_Car_Bag where ID='A_Fish' or ID='B_Fish'";
+                //string sql = "SELECT ID,in_time,init_weight,mid_weight FROM RealTime_Car_Bag where ID='A' or ID='B'";
                 string sql = string.Format("SELECT ID,in_time,init_weight,mid_weight FROM RealTime_Car_Bag where ID='{0}'", GB_ID);
 
                 DbDataReader dr = null;
@@ -215,7 +217,7 @@ namespace AnBRobotSystem.Core
                 }
                 dr.Close();
 
-                if (GB_ID == "A_Fish")
+                if (GB_ID == "A")
                     fish_station = "A";
                 else
                     fish_station = "B";

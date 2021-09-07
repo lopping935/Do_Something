@@ -10,10 +10,10 @@ using System.Windows.Forms;
 using AnBRobotSystem;
 using VM.Core;
 using VM.PlatformSDKCS;
-using AnBRobotSystem;
+
 namespace AnBRobotSystem.ChildForm
 {
-    public partial class Fauto_Form : Form
+    public partial class Fauto_Form : Sunny.UI.UIForm
     {
        
         public Fauto_Form()
@@ -22,7 +22,6 @@ namespace AnBRobotSystem.ChildForm
             vmProcedureConfigControl1.InitControl();
             Tiebao_vmRenderControl1.ModuleSource = AnBRobotSystem.MdiParent.process_TB;
             Guankou_vmRenderControl2.ModuleSource = AnBRobotSystem.MdiParent.process_GK;
-
         }
 
         private void button1_Click(object sender, EventArgs e)

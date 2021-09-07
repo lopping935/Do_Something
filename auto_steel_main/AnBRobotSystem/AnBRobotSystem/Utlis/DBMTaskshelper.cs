@@ -14,28 +14,30 @@ namespace AnBRobotSystem.Utlis
     public class dbTaskHelper
     {
         DbHelper db;
-        public static string constring = "Data Source=.;Initial Catalog=AutoSteel;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000";
+        public  string constring = "Data Source=.;Initial Catalog=AutoSteel;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000";
+        private static object obj = new object();
         public dbTaskHelper()
         {
             db = new DbHelper(constring);
         }
+        
         public int MultithreadExecuteNonQuery(string sql)
         {
-            lock (Program.obj)
+            lock (obj)
             {
                 return db.ExecuteNonQuery(db.GetSqlStringCommond(sql));
             }
         }
         public DbDataReader MultithreadDataReader(string sql)
         {
-            lock (Program.obj)
+            lock (obj)
             {
                 return db.ExecuteReader(db.GetSqlStringCommond(sql));
             }
         }
         public DataTable MultithreadDataTable(string sql)
         {
-            lock (Program.obj)
+            lock (obj)
             {
                 return db.ExecuteDataTable(db.GetSqlStringCommond(sql));
             }
@@ -43,7 +45,7 @@ namespace AnBRobotSystem.Utlis
 
         public DataTable MultithreadDataTable_Prc(string PrcName)
         {
-            lock (Program.obj)
+            lock (obj)
             {
                 return db.ExecuteDataTable(db.GetStoredProcCommond(PrcName));
             }
@@ -51,7 +53,7 @@ namespace AnBRobotSystem.Utlis
 
         public object MultithreadGetTimeSpace()
         {
-            lock (Program.obj)
+            lock (obj)
             {
                 return db.ExecuteScalar(db.GetSqlStringCommond("SELECT top(1) [OPCDataAcquisition_UpdataRate]/1000 FROM [OPCAcquisitionConfig]"));
             }
@@ -60,30 +62,46 @@ namespace AnBRobotSystem.Utlis
 
         public int updata_table (string tablename,string fieldname,string fielvalue,string keyname,string keyvalue)
         {
-            string sql = string.Format("UPDATE {0} SET {1}='{2}' WHERE {3}='{4}'", tablename, fieldname, fielvalue, keyname, keyvalue);
-            return this.MultithreadExecuteNonQuery(sql);
+            lock (obj)
+            {
+                string sql = string.Format("UPDATE {0} SET {1}='{2}' WHERE {3}='{4}'", tablename, fieldname, fielvalue, keyname, keyvalue);
+                return this.MultithreadExecuteNonQuery(sql);
+            }
         }
         public string read_table_onefield(string fieldname,string tablename,string keyname, string keyvalue)
         {
-            string sql = string.Format("SELECT {0} from {1} WHERE {2}='{3}'",  fieldname,tablename,  keyname, keyvalue);
-            DbDataReader dr = this.MultithreadDataReader(sql);
-            string result="";
-            while (dr.Read())
+            lock(obj)
             {
-                if (dr[fieldname] != DBNull.Value)
-                    result = Convert.ToString(dr[fieldname]);
-                else
-                    result = "";
+
+            
+                string sql = string.Format("SELECT {0} from {1} WHERE {2}='{3}'",  fieldname,tablename,  keyname, keyvalue);
+                DbDataReader dr = this.MultithreadDataReader(sql);
+                string result="";
+                while (dr.Read())
+                {
+                    if (dr[fieldname] != DBNull.Value)
+                        result = Convert.ToString(dr[fieldname]);
+                    else
+                        result = "";
+                }
+                dr.Close();
+                return result;
             }
-            dr.Close();
-            return result;
         }
         public void inser_log(string tablename,string str)
         {
-
-            string sql = string.Format("INSERT INTO {0} (REC_CREATE_TIME,CONTENT) VALUES ('{1}','{2}')", tablename, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
-            this.MultithreadExecuteNonQuery(sql);
+            lock(obj)
+            {
+                string sql = string.Format("INSERT INTO {0} (REC_CREATE_TIME,CONTENT) VALUES ('{1}','{2}')", tablename, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                this.MultithreadExecuteNonQuery(sql);
+            }
+            
         }
+        public void close_conn()
+        {
+            db.connection.Close();
+        }
+      
 
     }
 }

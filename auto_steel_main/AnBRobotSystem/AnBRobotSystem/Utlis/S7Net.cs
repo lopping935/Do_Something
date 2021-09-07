@@ -52,7 +52,7 @@ namespace AnBRobotSystem.Utlis
         }  //读int值 DBx.DBWy
         public double PlcRealRead(string address)
         {
-            return ((uint)plc300.Read(address)).ConvertToDouble();
+            return ((uint)plc300.Read(address)).ConvertToFloat();
         }  //读real值 DBx.DBDy
 
         public void PlcIntWrite(int data,string address)
@@ -60,10 +60,10 @@ namespace AnBRobotSystem.Utlis
             plc300.Write(address, data);
         }    //写int
 
-        public void PlcRealWrite(double data, string address)
+        public void PlcRealWrite(float data, string address)
         {
 
-            plc300.Write(address, data.ConvertToUInt());
+            plc300.Write(address, Conversion.ConvertToUInt(data));
 
         }  //写real
 

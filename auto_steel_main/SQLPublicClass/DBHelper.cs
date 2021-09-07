@@ -23,7 +23,13 @@ namespace SQLPublicClass
             dbConnectionString = _connectionString;
             this.connection = CreateConnection(dbConnectionString);
         }
-        
+        public void Colse()
+        {
+            if (this.connection.State == System.Data.ConnectionState.Open)
+            {
+                this.connection.Close();
+            }
+        }
         public static DbConnection CreateConnection()
         {
             DbProviderFactory dbfactory = DbProviderFactories.GetFactory(DbHelper.dbProviderName);

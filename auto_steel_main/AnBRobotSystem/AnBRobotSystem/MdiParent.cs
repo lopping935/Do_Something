@@ -20,8 +20,6 @@ using AnBRobotSystem.Core;
 using VM.Core;
 using VM.PlatformSDKCS;
 using System.Threading.Tasks;
-using CCWin;
-using Sunny;
 using GlobalVariableModuleCs;
 
 namespace AnBRobotSystem
@@ -162,25 +160,25 @@ namespace AnBRobotSystem
         
      
         #region//窗体切换
-        private void treeView1_DoubleClick(object sender, EventArgs e)
-        {
-            if (treeView1.SelectedNode == null)
-                return;
-            Form form = null;
-            if (treeView1.SelectedNode.Text != "")
-            {
-                form=GetFromHandle(treeView1.SelectedNode.Text);
-                if (form != null && form.IsMdiContainer == false)
-                {
-                    closechild();
-                    OpenChildForm(form, treeView1.SelectedNode.Text);
-                }
-                else
-                    form.ShowDialog();
+        //private void treeView1_DoubleClick(object sender, EventArgs e)
+        //{
+        //    if (treeView1.SelectedNode == null)
+        //        return;
+        //    Form form = null;
+        //    if (treeView1.SelectedNode.Text != "")
+        //    {
+        //        form=GetFromHandle(treeView1.SelectedNode.Text);
+        //        if (form != null && form.IsMdiContainer == false)
+        //        {
+        //            closechild();
+        //            OpenChildForm(form, treeView1.SelectedNode.Text);
+        //        }
+        //        else
+        //            form.ShowDialog();
 
-            }
-            GC.Collect();
-        }
+        //    }
+        //    GC.Collect();
+        //}
         private Form GetFromHandle(string FromName)
         {
             if (FromName == "实时数据")
@@ -250,10 +248,6 @@ namespace AnBRobotSystem
                     
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
 
         
         #endregion
@@ -278,6 +272,26 @@ namespace AnBRobotSystem
         private void MdiParent_FormClosed(object sender, FormClosedEventArgs e)
         {
             
+        }
+
+        private void uiNavMenu1_MenuItemClick(TreeNode node, Sunny.UI.NavMenuItem item, int pageIndex)
+        {
+            if (node == null)
+                return;
+            Form form = null;
+            if (node.Text != "")
+            {
+                form = GetFromHandle(node.Text);
+                if (form != null && form.IsMdiContainer == false)
+                {
+                    closechild();
+                    OpenChildForm(form, node.Text);
+                }
+                else
+                    form.ShowDialog();
+
+            }
+            GC.Collect();
         }
 
         private void MdiParent_FormClosing(object sender, FormClosingEventArgs e)

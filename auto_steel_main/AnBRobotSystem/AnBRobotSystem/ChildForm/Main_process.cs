@@ -144,14 +144,14 @@ namespace AnBRobotSystem.ChildForm
             {
                 if (A_chose.Checked)
                 {
-                    Program.GB_station = "A_Fish";
+                    Program.GB_station = "A";
                     Program.GB_chose_flag = 1;
                     writelistview("罐选择", "选择A罐", "log");
 
                 }
                 else if (B_chose.Checked)
                 {
-                    Program.GB_station = "B_Fish";
+                    Program.GB_station = "B";
                     Program.GB_chose_flag = 1;
                     writelistview("罐选择", "选择B罐", "log");
                 }

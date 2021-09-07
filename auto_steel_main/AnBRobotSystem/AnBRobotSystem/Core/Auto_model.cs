@@ -19,6 +19,7 @@ namespace AnBRobotSystem.Core
         public Int16 TB_num;//铁水包号
         public bool TB_BK_vision;
         public float TB_weight = 0;
+        public float TB_Init_weight = 0;
 
         public bool GB_GK_vision;//罐包到位，可以用插电来获取
         public bool GB_on_pos;//罐包到位，可以用插电来获取
@@ -36,31 +37,37 @@ namespace AnBRobotSystem.Core
         public float GB_speed;
     }
 
-    public class Auto_model
+    public class Auto_model 
     {
-        dbTaskHelper dbhlper = new dbTaskHelper();
-        manage_steel m1 = new manage_steel();
+        public dbTaskHelper dbhlper ;
+        manage_steel m1=new manage_steel();
 
         public updatelistiew writelisview;
         Thread full_thread, nfull_thread;
         public bool threadflag = false;
         public ZT_Date one_ZT = new ZT_Date();
         Single limt_angle = 0;
-        public static List<float> edge_value = new List<float>(5);
+        public List<float> edge_value = new List<float>(5);
         public Auto_model()
         {
+            dbhlper = new dbTaskHelper();
             m1.writelisview = MdiParent.form.mainlog;
+            m1.dbhlper = this.dbhlper;
+        }
+        public void Dispose()
+        {
+
         }
 
         public void init_ZT_data()
         {
-
 
         }
         public void chose_process()
         {
             try
             {
+
                 one_ZT.Has_mission = true;
                 if (Program.GB_chose_flag == 1)
                 {
@@ -74,7 +81,7 @@ namespace AnBRobotSystem.Core
                         one_ZT.TB_need_weight = m1.need_ibag_weight;
                         one_ZT.TB_on_pos = PLCdata.ZT_data.TB_pos;
                         one_ZT.TB_hight = PLCdata.ZT_data.TB_hight;
-
+                        one_ZT.TB_Init_weight = PLCdata.ZT_data.TB_weight;
                         if (m1.F_flag == "F" && m1.fish_station != "ER")
                         {
                             one_ZT.GB_capacity = m1.F_flag;
@@ -176,6 +183,7 @@ namespace AnBRobotSystem.Core
                     Program.GB_chose_flag = 0;
                     if (m1.get_TB_data() && m1.get_GB_data())
                     {
+                        m1.dbhlper.close_conn();
                         one_ZT.TB_num = PLCdata.ZT_data.TB_num;
                         one_ZT.TB_need_weight = m1.need_ibag_weight;
                         one_ZT.TB_on_pos = PLCdata.ZT_data.TB_pos;
@@ -269,7 +277,7 @@ namespace AnBRobotSystem.Core
                     else
                     {
                         one_ZT.Has_mission = false;
-                        writelisview("罐包管理", "罐包管理系统出差!", "log");
+                        writelisview("罐包管理", "罐包管理系统出错!", "log");
                         Program.model_flag = 1000;
                         threadflag = false;
                     }
@@ -287,6 +295,12 @@ namespace AnBRobotSystem.Core
                 Program.model_flag = 1000;
                 LogHelper.WriteLog("选择核心模型程序出错！", e);
             }
+            finally
+            {
+                dbhlper.close_conn();
+            }
+
+
 
         }
         public bool calc_fangle()
@@ -309,7 +323,7 @@ namespace AnBRobotSystem.Core
         {
 
         }
-        int b = 0;
+
         public void setvalue(string flag)
         {
             one_ZT.TB_hight = PLCdata.ZT_data.TB_hight;
@@ -329,7 +343,7 @@ namespace AnBRobotSystem.Core
         }
         public void process_fmodel_full()
         {
-            int last_flag=0;
+            int last_flag = 0;
             setvalue(one_ZT.GB_station);
             //240吨前要小于1.6t/s  240-260小于1t/s  260-280小于0.25t/s
             //耗时巨大的代码  
@@ -337,7 +351,7 @@ namespace AnBRobotSystem.Core
             {///[ID],[fishstation],[carnum],[is_full],[train_in_times],[lot],[icode],[icard],[startime],[stoptime],[Tare_Weight],[f_full_weight],[f_has_weight],[i_need_weight],[tempture],[iron_dirction]
                 Single last_agle = 0;
                 DateTime beforDT = DateTime.Now;
-                string sqltext = string.Format("insert into  [AutoSteel].[dbo].[RealTime] VALUES ('{0}','{1}','{2}','{3}','','','','{4}','','','{5}','{6}','{7}','','')", one_ZT.GB_station, one_ZT.GB_num, one_ZT.GB_capacity, one_ZT.GB_train_in_times, beforDT, one_ZT.GB_full_wight.ToString(), one_ZT.GB_have_wight.ToString(), one_ZT.TB_need_weight.ToString());
+                string sqltext = string.Format("insert into  [AutoSteel].[dbo].[RealTime] VALUES ('{0}','{1}','{2}','{3}','','','','{4}','','','{5}','{6}','{7}','','','')", one_ZT.GB_station, one_ZT.GB_num, one_ZT.GB_capacity, one_ZT.GB_train_in_times, beforDT, one_ZT.GB_full_wight.ToString(), one_ZT.GB_have_wight.ToString(), one_ZT.TB_need_weight.ToString());
                 dbhlper.MultithreadExecuteNonQuery(sqltext);
 
                 //  int a= ref MdiParent.form.test;
@@ -347,6 +361,7 @@ namespace AnBRobotSystem.Core
                 while (threadflag)
                 {
                     setvalue(one_ZT.GB_station);
+                    dbhlper.updata_table("RealTime_Car_Bag", "mid_weight", (one_ZT.GB_have_wight - (one_ZT.TB_weight - one_ZT.TB_Init_weight)).ToString(), "ID", one_ZT.GB_station);
                     //////模型计算给定速度  现在是直接给定
                     if (Program.program_flag == 0)
                     {
@@ -356,7 +371,7 @@ namespace AnBRobotSystem.Core
                             writelisview("模型", "速度设置错误，错误代码：" + speed_flag.ToString(), "log");
                             Program.model_flag = 1000;
                             //threadflag = false;
-                            //  break;
+                            //break;
                         }
                         else
                         {
@@ -417,7 +432,7 @@ namespace AnBRobotSystem.Core
                                     MdiParent.process_TL.ContinousRunEnable = true;
                                     MdiParent.process_GK.ContinousRunEnable = false;
                                     Program.program_flag = 3;
-                                    
+
                                 }
                             }
                             else
@@ -439,18 +454,18 @@ namespace AnBRobotSystem.Core
                         }
                         else
                         {
-                            if(MdiParent.tl1.Get_iron==true)
+                            if (MdiParent.tl1.Get_iron == true)
                             {
                                 Program.program_flag = 4;
                                 writelisview("模型", "开流成功！", "log");
-                            }                            
+                            }
                         }
                     }
-                    
+
                     //正向全速倾倒
                     if (Program.program_flag == 4 && MdiParent.tl1.TL_light_result() == true)
                     {
-                        if(MdiParent.tl1.Get_iron==true)
+                        if (MdiParent.tl1.Get_iron == true)
                         {
                             if (one_ZT.TB_weight < 240)
                             {
@@ -459,7 +474,7 @@ namespace AnBRobotSystem.Core
                                     if (one_ZT.GB_speed == 20)
                                         Program.program_flag = 4;
                                     else
-                                        PLCdata.set_speed(one_ZT.GB_station,20);
+                                        PLCdata.set_speed(one_ZT.GB_station, 20);
                                 }
                                 else
                                 {
@@ -470,14 +485,14 @@ namespace AnBRobotSystem.Core
                                 }
 
                             }
-                            else if (PLCdata.TB_weight > 240 && PLCdata.TB_weight < 260)
+                            else if (one_ZT.TB_weight > 240 && one_ZT.TB_weight < 260)
                             {
                                 if (PLCdata.TB_weight_speed < 1)
                                 {
                                     if (one_ZT.GB_speed == 10)
                                         Program.program_flag = 4;
                                     else
-                                        PLCdata.set_speed(one_ZT.GB_station,10);
+                                        PLCdata.set_speed(one_ZT.GB_station, 10);
                                 }
                                 else
                                 {
@@ -494,11 +509,11 @@ namespace AnBRobotSystem.Core
                                 Program.program_flag = 5;
                             }
                         }
-                       
+
                     }
                     if (Program.program_flag == 5 && MdiParent.tl1.TL_light_result() == true)
                     {
-                        if (PLCdata.TB_weight > 260 && PLCdata.TB_weight < 270)
+                        if (one_ZT.TB_weight > 260 && one_ZT.TB_weight < 270)
                         {
                             if (PLCdata.TB_weight_speed < 0.5)
                             {
@@ -514,9 +529,9 @@ namespace AnBRobotSystem.Core
                                 else
                                     PLCdata.set_speed(one_ZT.GB_station, 0);
                             }
-                            
+
                         }
-                        else if (PLCdata.TB_weight > 270 && PLCdata.TB_weight < 280)
+                        else if (one_ZT.TB_weight > 270 && one_ZT.TB_weight < 280)
                         {
                             if (PLCdata.TB_weight_speed < 0.5)
                             {
@@ -544,29 +559,67 @@ namespace AnBRobotSystem.Core
                         if (PLCdata.speed == -20)
                             Program.program_flag = 6;
                         else
-                            PLCdata.set_speed(one_ZT.GB_station, 0);
+                            PLCdata.set_speed(one_ZT.GB_station, -20);
                     }
                     else if (Program.program_flag == 6 && MdiParent.tl1.TL_light_result() == false)
                     {
-                        Program.model_flag = 1000;
+                        Program.model_flag = 1001;
                         Program.GB_chose_flag = 0;
                         one_ZT.Has_mission = false;
                         MdiParent.process_TL.ContinousRunEnable = false;
                         writelisview("模型", "折铁完成！", "log");
                         DateTime afterDT = System.DateTime.Now;
                         TimeSpan ts = afterDT.Subtract(beforDT);
+                        sqltext = string.Format("UPDATE RealTime SET stoptime= '{0}',fall_time='{1}',fall_weight='{2}' WHERE startime= '{3}'", afterDT, ts.TotalMinutes.ToString(), (one_ZT.TB_weight - one_ZT.TB_Init_weight).ToString(),beforDT);
+                        dbhlper.MultithreadExecuteNonQuery(sqltext);
                         break;
                     }
-
-                    if (Program.program_flag==last_flag)
+                    //检测罐角度，当超过设定或极限角度时应返回
+                    if (one_ZT.GB_angle > 13000 || one_ZT.GB_120_limt == true)
                     {
-                        DateTime afterDT = System.DateTime.Now;
-                        TimeSpan ts = afterDT.Subtract(beforDT);
+                        writelisview("模型", "折铁到达极限角度！", "log");
+                        Program.program_flag = 7;
                     }
-                    else
+                    if (Program.program_flag == 7)
                     {
-                        last_flag = Program.program_flag;
+                        //是否到达0位
+                        if (one_ZT.GB_0_limt == false)
+                        {
+                            if (PLCdata.speed == -20)
+                            {
+                                Program.program_flag = 7;
+                            }
+                            else
+                            {
+                                PLCdata.set_speed(one_ZT.GB_station, -20);
+                            }
+                        }
+                        else
+                        {
+                            PLCdata.set_speed(one_ZT.GB_station, 0);
+                            Program.model_flag = 1001;
+                            Program.GB_chose_flag = 0;
+                            one_ZT.Has_mission = false;
+                            MdiParent.process_TL.ContinousRunEnable = false;
+                            DateTime afterDT = System.DateTime.Now;
+                            TimeSpan ts = afterDT.Subtract(beforDT);
+                            sqltext = string.Format("UPDATE RealTime SET stoptime= '{0}',fall_time='{1}',fall_weight='{2}' WHERE startime= '{3}'", afterDT, ts.TotalMinutes.ToString(),(one_ZT.TB_weight-one_ZT.TB_Init_weight).ToString(), beforDT);
+                            dbhlper.MultithreadExecuteNonQuery(sqltext);
+                            writelisview("模型", "铁包到达0位！", "log");
+                            break;
+                        }
                     }
+                    #region  单次flag超时 算法
+                    //if (Program.program_flag == last_flag)
+                    //{
+                    //    DateTime afterDT = System.DateTime.Now;
+                    //    TimeSpan ts = afterDT.Subtract(beforDT);
+                    //}
+                    //else
+                    //{
+                    //    last_flag = Program.program_flag;
+                    //}
+                    #endregion
                     if (Program.model_flag == 1000)
                     {
                         Thread.Sleep(3000);
@@ -574,10 +627,9 @@ namespace AnBRobotSystem.Core
                         one_ZT.Has_mission = false;
                         MdiParent.process_GK.ContinousRunEnable = false;
                         MdiParent.process_TL.ContinousRunEnable = false;
-                        
                         break;
                     }
-                    
+
                 }
                 #endregion
             }
@@ -589,32 +641,250 @@ namespace AnBRobotSystem.Core
                 writelisview("模型", "折铁模型发生程序失败！！", "log");
                 Program.model_flag = 1000;
                 threadflag = false;
+                LogHelper.WriteLog("折铁线程", e);
             }
 
         }
         public void process_model_half()
         {
-            while (threadflag)
+            int last_flag = 0;
+            setvalue(one_ZT.GB_station);
+            //240吨前要小于1.6t/s  240-260小于1t/s  260-280小于0.25t/s
+            //耗时巨大的代码  
+            try
+            {///[ID],[fishstation],[carnum],[is_full],[train_in_times],[lot],[icode],[icard],[startime],[stoptime],[Tare_Weight],[f_full_weight],[f_has_weight],[i_need_weight],[tempture],[iron_dirction]
+                Single last_agle = 0;
+                DateTime beforDT = DateTime.Now;
+                string sqltext = string.Format("insert into  [AutoSteel].[dbo].[RealTime] VALUES ('{0}','{1}','{2}','{3}','','','','{4}','','','{5}','{6}','{7}','','')", one_ZT.GB_station, one_ZT.GB_num, one_ZT.GB_capacity, one_ZT.GB_train_in_times, beforDT, one_ZT.GB_full_wight.ToString(), one_ZT.GB_have_wight.ToString(), one_ZT.TB_need_weight.ToString());
+                dbhlper.MultithreadExecuteNonQuery(sqltext);
+
+                writelisview("模型", "启动模型！", "log");
+
+                #region
+                while (threadflag)
+                {
+                    setvalue(one_ZT.GB_station);
+                    dbhlper.updata_table("RealTime_Car_Bag", "mid_weight", (one_ZT.GB_have_wight - (one_ZT.TB_weight - one_ZT.TB_Init_weight)).ToString(), "ID", one_ZT.GB_station);
+                    //////模型计算给定速度  现在是直接给定
+                    if (Program.program_flag == 0)
+                    {
+                        Int16 speed_flag = PLCdata.set_speed(one_ZT.GB_station, 20);
+                        if (speed_flag != 0)
+                        {
+                            writelisview("模型", "速度设置错误，错误代码：" + speed_flag.ToString(), "log");
+                            Program.model_flag = 1000;
+                            //threadflag = false;
+                            //break;
+                        }
+                        else
+                        {
+                            Program.program_flag = 3;
+                        }
+                    }
+
+
+                    //模型计算开流极限角度  开启铁流检测
+                    if (Program.program_flag == 3 && one_ZT.GB_angle < limt_angle)
+                    {
+                        if (MdiParent.tl1.TL_light_result() == false)
+                        {
+                            writelisview("模型", "铁流检测程序运行错误！！", "log");
+                            Program.model_flag = 1000;
+                        }
+                        else
+                        {
+                            if (MdiParent.tl1.Get_iron == true)
+                            {
+                                Program.program_flag = 4;
+                                writelisview("模型", "开流成功！", "log");
+                            }
+                        }
+                    }
+
+                    //正向全速倾倒
+                    if (Program.program_flag == 4 && MdiParent.tl1.TL_light_result() == true)
+                    {
+                        if (MdiParent.tl1.Get_iron == true)
+                        {
+                            if (one_ZT.TB_weight < 240)
+                            {
+                                if (PLCdata.TB_weight_speed < 1.6)
+                                {
+                                    if (one_ZT.GB_speed == 20)
+                                        Program.program_flag = 4;
+                                    else
+                                        PLCdata.set_speed(one_ZT.GB_station, 20);
+                                }
+                                else
+                                {
+                                    if (one_ZT.GB_speed == 0)
+                                        Program.program_flag = 4;
+                                    else
+                                        PLCdata.set_speed(one_ZT.GB_station, 0);
+                                }
+
+                            }
+                            else if (one_ZT.TB_weight > 240 && one_ZT.TB_weight < 260)
+                            {
+                                if (PLCdata.TB_weight_speed < 1)
+                                {
+                                    if (one_ZT.GB_speed == 10)
+                                        Program.program_flag = 4;
+                                    else
+                                        PLCdata.set_speed(one_ZT.GB_station, 10);
+                                }
+                                else
+                                {
+                                    if (one_ZT.GB_speed == 0)
+                                        Program.program_flag = 4;
+                                    else
+                                        PLCdata.set_speed(one_ZT.GB_station, 0);
+                                }
+                            }
+                            else
+                            {
+                                //返回点
+                                writelisview("模型", "启动返回程序！", "log");
+                                Program.program_flag = 5;
+                            }
+                        }
+
+                    }
+                    if (Program.program_flag == 5 && MdiParent.tl1.TL_light_result() == true)
+                    {
+                        if (one_ZT.TB_weight > 260 && one_ZT.TB_weight < 270)
+                        {
+                            if (PLCdata.TB_weight_speed < 0.5)
+                            {
+                                if (one_ZT.GB_speed == -20)
+                                    Program.program_flag = 5;
+                                else
+                                    PLCdata.set_speed(one_ZT.GB_station, -20);
+                            }
+                            else
+                            {
+                                if (one_ZT.GB_speed == 0)
+                                    Program.program_flag = 5;
+                                else
+                                    PLCdata.set_speed(one_ZT.GB_station, 0);
+                            }
+
+                        }
+                        else if (one_ZT.TB_weight > 270 && one_ZT.TB_weight < 280)
+                        {
+                            if (PLCdata.TB_weight_speed < 0.5)
+                            {
+                                if (one_ZT.GB_speed == -10)
+                                    Program.program_flag = 5;
+                                else
+                                    PLCdata.set_speed(one_ZT.GB_station, -10);
+                            }
+                            else
+                            {
+                                if (one_ZT.GB_speed == 0)
+                                    Program.program_flag = 5;
+                                else
+                                    PLCdata.set_speed(one_ZT.GB_station, 0);
+                            }
+                        }
+                        else
+                        {
+
+                            Program.program_flag = 6;
+                        }
+                    }
+                    if (Program.program_flag == 6 && MdiParent.tl1.TL_light_result() == true)
+                    {
+                        if (PLCdata.speed == -20)
+                            Program.program_flag = 6;
+                        else
+                            PLCdata.set_speed(one_ZT.GB_station, -20);
+                    }
+                    else if (Program.program_flag == 6 && MdiParent.tl1.TL_light_result() == false)
+                    {
+                        Program.model_flag = 1001;
+                        Program.GB_chose_flag = 0;
+                        one_ZT.Has_mission = false;
+                        MdiParent.process_TL.ContinousRunEnable = false;
+                        writelisview("模型", "折铁完成！", "log");
+                        DateTime afterDT = System.DateTime.Now;
+                        TimeSpan ts = afterDT.Subtract(beforDT);
+                        sqltext = string.Format("UPDATE RealTime SET stoptime= '{0}',fall_time='{1}',fall_weight='{2}' WHERE startime= '{3}'", afterDT, ts.TotalMinutes.ToString(), (one_ZT.TB_weight - one_ZT.TB_Init_weight).ToString(), beforDT);
+                        dbhlper.MultithreadExecuteNonQuery(sqltext);
+                        break;
+                    }
+                    //检测罐角度，当超过设定或极限角度时应返回
+                    if (one_ZT.GB_angle > 13000 || one_ZT.GB_120_limt == true)
+                    {
+                        writelisview("模型", "折铁到达极限角度！", "log");
+                        Program.program_flag = 7;
+                    }
+                    if (Program.program_flag == 7)
+                    {
+                        //是否到达0位
+                        if (one_ZT.GB_0_limt == false)
+                        {
+                            if (PLCdata.speed == -20)
+                            {
+                                Program.program_flag = 7;
+                            }
+                            else
+                            {
+                                PLCdata.set_speed(one_ZT.GB_station, -20);
+                            }
+                        }
+                        else
+                        {
+                            PLCdata.set_speed(one_ZT.GB_station, 0);
+                            Program.model_flag = 1001;
+                            Program.GB_chose_flag = 0;
+                            one_ZT.Has_mission = false;
+                            MdiParent.process_TL.ContinousRunEnable = false;
+                            DateTime afterDT = System.DateTime.Now;
+                            TimeSpan ts = afterDT.Subtract(beforDT);
+                            sqltext = string.Format("UPDATE RealTime SET stoptime= '{0}',fall_time='{1}',fall_weight='{2}' WHERE startime= '{3}'", afterDT, ts.TotalMinutes.ToString(), (one_ZT.TB_weight - one_ZT.TB_Init_weight).ToString(), beforDT);
+                            dbhlper.MultithreadExecuteNonQuery(sqltext);
+                            writelisview("模型", "铁包到达0位！", "log");
+                            break;
+                        }
+                    }
+                    #region  单次flag超时 算法
+                    //if (Program.program_flag == last_flag)
+                    //{
+                    //    DateTime afterDT = System.DateTime.Now;
+                    //    TimeSpan ts = afterDT.Subtract(beforDT);
+                    //}
+                    //else
+                    //{
+                    //    last_flag = Program.program_flag;
+                    //}
+                    #endregion
+                    if (Program.model_flag == 1000)
+                    {
+                        Thread.Sleep(3000);
+                        writelisview("模型", "折铁失败！！", "log");
+                        one_ZT.Has_mission = false;
+                        MdiParent.process_GK.ContinousRunEnable = false;
+                        MdiParent.process_TL.ContinousRunEnable = false;
+                        break;
+                    }
+
+                }
+                #endregion
+            }
+            catch (Exception e)
             {
-                Thread.Sleep(5000);
-                writelisview("折铁中....", "正在折铁", "log");
+                one_ZT.Has_mission = false;
+                MdiParent.process_GK.ContinousRunEnable = false;
+                MdiParent.process_TL.ContinousRunEnable = false;
+                writelisview("模型", "折铁模型发生程序失败！！", "log");
+                Program.model_flag = 1000;
+                threadflag = false;
+                LogHelper.WriteLog("折铁线程", e);
             }
         }
-        ~Auto_model()
-        {
-            //this.Dispose();
-            if (full_thread != null)
-            {
-
-                full_thread.Abort();
-                GC.Collect();
-                GC.SuppressFinalize(this);
-                //this.Close();
-                // full_thread.ThreadState;
-            }
-
 
         }
 
     }
-}
+
