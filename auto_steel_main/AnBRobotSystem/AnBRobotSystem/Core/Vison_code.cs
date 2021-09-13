@@ -69,7 +69,7 @@ namespace AnBRobotSystem.Core
         public void countiontest()
         {
             if (null == MdiParent.process_GK) return;
-            MdiParent.process_GK.ContinousRunEnable = true;
+            MdiParent.process_GK.ContinuousRunEnable = true;
         }
         public void TL_in_TB()
         {
@@ -159,14 +159,14 @@ namespace AnBRobotSystem.Core
         public bool set_GK_contiu()
         {
             if (null == MdiParent.process_GK) return false;
-            if(MdiParent.process_GK.ContinousRunEnable)
+            if(MdiParent.process_GK.ContinuousRunEnable)
             {
                 return true;
             }
             else
             {
-                MdiParent.process_GK.ContinousRunEnable = true;
-                if (MdiParent.process_GK.ContinousRunEnable)
+                MdiParent.process_GK.ContinuousRunEnable = true;
+                if (MdiParent.process_GK.ContinuousRunEnable)
                     return true;
                 else
                     return false;

@@ -31,17 +31,18 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\output\</OutputPath>
+    <OutputPath>..\..\..\..\..\ProjSetup\Auto_steel\newvm\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <Prefer32Bit>true</Prefer32Bit>
+    <WarningLevel>3</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -65,547 +66,14 @@
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IMVSBlobFindLabelsModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSBlobFindLabelsModu\IMVSBlobFindLabelsModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSBlobFindModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSBlobFindModu\IMVSBlobFindModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCaliperCornerModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSCaliperCornerModu\IMVSCaliperCornerModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCaliperEdgeModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSCaliperEdgeModu\IMVSCaliperEdgeModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCaliperModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSCaliperModu\IMVSCaliperModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCircleFindModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSCircleFindModu\IMVSCircleFindModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSEdgeWidthFindModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSEdgeWidthFindModu\IMVSEdgeWidthFindModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSFastFeatureMatchModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSFastFeatureMatchModu\IMVSFastFeatureMatchModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSFixtureModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSFixtureModu\IMVSFixtureModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSGluePathConductModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSGluePathConductModu\IMVSGluePathConductModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSGrayMatchModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSGrayMatchModu\IMVSGrayMatchModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSHPFeatureMatchModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSHPFeatureMatchModu\IMVSHPFeatureMatchModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSLineFindGroupModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSLineFindGroupModu\IMVSLineFindGroupModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSLineFindModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSLineFindModu\IMVSLineFindModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSMarkFindModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSMarkFindModu\IMVSMarkFindModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSMultiLineFindModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSMultiLineFindModu\IMVSMultiLineFindModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSPairLineModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSPairLineModu\IMVSPairLineModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSPeakFindModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSPeakFindModu\IMVSPeakFindModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSQuadrangleFindModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSQuadrangleFindModu\IMVSQuadrangleFindModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSRectFindModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Location\IMVSRectFindModu\IMVSRectFindModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="GeometryCreateCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\GeometryCreate\GeometryCreateCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSC2CMeasureModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSC2CMeasureModu\IMVSC2CMeasureModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCircleFitModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSCircleFitModu\IMVSCircleFitModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSHistToolModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSHistToolModu\IMVSHistToolModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSIntensityMeasureModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSIntensityMeasureModu\IMVSIntensityMeasureModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSL2CMeasureModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSL2CMeasureModu\IMVSL2CMeasureModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSL2LMeasureModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSL2LMeasureModu\IMVSL2LMeasureModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSLineFitModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSLineFitModu\IMVSLineFitModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSP2CMeasureModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSP2CMeasureModu\IMVSP2CMeasureModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSP2LMeasureModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSP2LMeasureModu\IMVSP2LMeasureModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSP2PMeasureModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSP2PMeasureModu\IMVSP2PMeasureModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSPixelCountModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Measurement\IMVSPixelCountModu\IMVSPixelCountModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVS2dBcrModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVS2dBcrModu\IMVS2dBcrModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSBcrModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSBcrModu\IMVSBcrModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnCharDetectModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSCnnCharDetectModu\IMVSCnnCharDetectModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnCharDetectModuCCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSCnnCharDetectModuC\IMVSCnnCharDetectModuCCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnCodeRecgModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSCnnCodeRecgModu\IMVSCnnCodeRecgModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnCodeRecgModuCCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSCnnCodeRecgModuC\IMVSCnnCodeRecgModuCCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSOcrDlModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSOcrDlModu\IMVSOcrDlModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSOcrDlModuCCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSOcrDlModuC\IMVSOcrDlModuCCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSOcrModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Recognition\IMVSOcrModu\IMVSOcrModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnClassifyModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnClassifyModu\IMVSCnnClassifyModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnClassifyModuCCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnClassifyModuC\IMVSCnnClassifyModuCCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnDetectModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnDetectModu\IMVSCnnDetectModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnDetectModuCCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnDetectModuC\IMVSCnnDetectModuCCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnFlawModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnFlawModu\IMVSCnnFlawModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnFlawModuCCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnFlawModuC\IMVSCnnFlawModuCCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnInspectModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnInspectModu\IMVSCnnInspectModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnInspectModuCCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnInspectModuC\IMVSCnnInspectModuCCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnRetrievalModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnRetrievalModu\IMVSCnnRetrievalModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnRetrievalModuCCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnRetrievalModuC\IMVSCnnRetrievalModuCCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnSingleCharDetectModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnSingleCharDetectModu\IMVSCnnSingleCharDetectModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCnnSingleCharDetectModuCCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DeepLearning\IMVSCnnSingleCharDetectModuC\IMVSCnnSingleCharDetectModuCCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCalibBoardCalibModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSCalibBoardCalibModu\IMVSCalibBoardCalibModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCalibTransformModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSCalibTransformModu\IMVSCalibTransformModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSImageCalibModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSImageCalibModu\IMVSImageCalibModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSImageCorrectCalibModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSImageCorrectCalibModu\IMVSImageCorrectCalibModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSMapCalibModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSMapCalibModu\IMVSMapCalibModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSNImageCalibModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSNImageCalibModu\IMVSNImageCalibModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSNPointCalibModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSNPointCalibModu\IMVSNPointCalibModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSScaleTransformModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Calibration\IMVSScaleTransformModu\IMVSScaleTransformModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCameraMapModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Contraposition\IMVSCameraMapModu\IMVSCameraMapModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSLineAlignModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Contraposition\IMVSLineAlignModu\IMVSLineAlignModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSMultiPointAlignModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Contraposition\IMVSMultiPointAlignModu\IMVSMultiPointAlignModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSSinglePointAlignModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Contraposition\IMVSSinglePointAlignModu\IMVSSinglePointAlignModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSAffineTransformModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSAffineTransformModu\IMVSAffineTransformModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSBinaryModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSBinaryModu\IMVSBinaryModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSFrameMeanModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSFrameMeanModu\IMVSFrameMeanModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSGeometricTransformModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSGeometricTransformModu\IMVSGeometricTransformModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSImageCombineProcessModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageCombineProcessModu\IMVSImageCombineProcessModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSImageCorrectManualModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageCorrectManualModu\IMVSImageCorrectManualModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSImageEnhanceModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageEnhanceModu\IMVSImageEnhanceModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSImageFilterModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageFilterModu\IMVSImageFilterModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSImageFixtureModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageFixtureModu\IMVSImageFixtureModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSImageMathModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageMathModu\IMVSImageMathModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSImageMorphModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageMorphModu\IMVSImageMorphModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSImageNormlizeModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageNormlizeModu\IMVSImageNormlizeModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSImageSharpnessModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImageSharpnessModu\IMVSImageSharpnessModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSImgStitchCalibModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSImgStitchCalibModu\IMVSImgStitchCalibModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSMultiImageFusionModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSMultiImageFusionModu\IMVSMultiImageFusionModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSPolarUnwarpModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSPolarUnwarpModu\IMVSPolarUnwarpModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSRegionCopyModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSRegionCopyModu\IMVSRegionCopyModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSShadeCorrectModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ImageProcessing\IMVSShadeCorrectModu\IMVSShadeCorrectModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSColorExtractModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ColorProcessing\IMVSColorExtractModu\IMVSColorExtractModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSColorMeasureModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ColorProcessing\IMVSColorMeasureModu\IMVSColorMeasureModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSColorRecognitionModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ColorProcessing\IMVSColorRecognitionModu\IMVSColorRecognitionModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSColorTransformModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\ColorProcessing\IMVSColorTransformModu\IMVSColorTransformModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCircleEdgeInspModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSCircleEdgeInspModu\IMVSCircleEdgeInspModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSCircleEdgePairInspModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSCircleEdgePairInspModu\IMVSCircleEdgePairInspModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSEdgeFlawInspModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSEdgeFlawInspModu\IMVSEdgeFlawInspModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSEdgeInspGroupModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSEdgeInspGroupModu\IMVSEdgeInspGroupModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSEdgePairFlawInspModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSEdgePairFlawInspModu\IMVSEdgePairFlawInspModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSEdgePairInspGroupModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSEdgePairInspGroupModu\IMVSEdgePairInspGroupModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSInspectModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSInspectModu\IMVSInspectModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSLineEdgeInspModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSLineEdgeInspModu\IMVSLineEdgeInspModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSLineEdgePairInspModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSLineEdgePairInspModu\IMVSLineEdgePairInspModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSMarkInspModuCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\DefectDetection\IMVSMarkInspModu\IMVSMarkInspModuCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="AndModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\AndModule\AndModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="BranchModule_STDCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\BranchModule_STD\BranchModule_STDCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="BranchStringCpmLCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\BranchStringCpmL\BranchStringCpmLCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="CalculatorModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\CalculatorModule\CalculatorModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DataAnalysisModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\DataAnalysisModule\DataAnalysisModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DataAssembleModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\DataAssembleModule\DataAssembleModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DataSetModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\DataSetModule\DataSetModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="FormatModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\FormatModule\FormatModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IfModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\IfModule\IfModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IMVSGroupCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\IMVSGroup\IMVSGroupCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="PointSetMODU_STDCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\PointSetMODU_STD\PointSetMODU_STDCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SaveTextModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\SaveTextModule\SaveTextModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ShellModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\ShellModule\ShellModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="StringCompareModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\StringCompareModule\StringCompareModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="TimeStatisticModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Logic\TimeStatisticModule\TimeStatisticModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="CameraIOModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Communication\CameraIOModule\CameraIOModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ReadDatasModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Communication\ReadDatasModule\ReadDatasModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SendDatasModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Communication\SendDatasModule\SendDatasModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="CommManagerModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\CommManagerModule\CommManagerModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DataQueueModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\DataQueueModule\DataQueueModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="GlobalCameraModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\GlobalCameraModule\GlobalCameraModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="GlobalVariableModuleCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\GlobalVariableModule\GlobalVariableModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="LightControlCs">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Global\LightControl\LightControlCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Apps.ColorFun">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\Apps.ColorFun.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="VM.Core">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VM.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="VM.PlatformSDKCS">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VM.PlatformSDKCS.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="VMControls.BaseInterface">
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VMControls.BaseInterface.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="VMControls.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VMControls.Interface.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="VMControls.RenderInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VMControls.RenderInterface.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="VMControls.Winform.Release, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\myLibs\VMControls.Winform.Release.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ImageSourceModuleCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\ImageSourceModule\ImageSourceModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ImageAcquisitionModuleCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\ImageAcquisitionModule\ImageAcquisitionModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SaveImageCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\SaveImage\SaveImageCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ImageBufferModuleCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\ImageBufferModule\ImageBufferModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="LightModuleCs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\Project\Code\FAuto_steel\project_model_BIG\output\vm\Module(sp)\x64\Collection\LightModule\LightModuleCs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\output\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="S7.Net, Version=0.2.0.0, Culture=neutral, PublicKeyToken=d5812d469e84c693, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -615,11 +83,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\output\SQLPublicClass.dll</HintPath>
     </Reference>
+    <Reference Include="SunnyUI, Version=3.0.7.0, Culture=neutral, PublicKeyToken=27d7d2e821d97aeb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SunnyUI.3.0.7\lib\net462\SunnyUI.dll</HintPath>
+    </Reference>
+    <Reference Include="SunnyUI.Common, Version=3.0.7.0, Culture=neutral, PublicKeyToken=5a271fb7ba597231, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SunnyUI.Common.3.0.7\lib\net462\SunnyUI.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Web" />
@@ -636,11 +111,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChildForm\FormPrint.cs">
+    <Compile Include="ChildForm\Fauto_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForm\FormPrint.Designer.cs">
-      <DependentUpon>FormPrint.cs</DependentUpon>
+    <Compile Include="ChildForm\Fauto_Form.Designer.cs">
+      <DependentUpon>Fauto_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForm\Main_process.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForm\Main_process.Designer.cs">
+      <DependentUpon>Main_process.cs</DependentUpon>
     </Compile>
     <Compile Include="ChildForm\ModelSet.cs">
       <SubType>Form</SubType>
@@ -648,23 +129,25 @@
     <Compile Include="ChildForm\ModelSet.Designer.cs">
       <DependentUpon>ModelSet.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChildForm\YCGBDesignResult.cs">
+    <Compile Include="ChildForm\Real_data.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForm\YCGBDesignResult.designer.cs">
-      <DependentUpon>YCGBDesignResult.cs</DependentUpon>
+    <Compile Include="ChildForm\Real_data.designer.cs">
+      <DependentUpon>Real_data.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\Guankou.cs" />
+    <Compile Include="Core\Auto_model.cs" />
+    <Compile Include="Core\manage_steel.cs" />
     <Compile Include="Core\PLCdata.cs" />
-    <Compile Include="Core\Tiebao.cs" />
-    <Compile Include="Core\Tieliu.cs" />
-    <Compile Include="Utlis\LogHelper.cs" />
     <Compile Include="ChildForm\Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChildForm\Login.designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\Vison_code.cs" />
+    <Compile Include="Utlis\Auto_steel_helper.cs" />
+    <Compile Include="Utlis\DBMTaskshelper.cs" />
+    <Compile Include="Utlis\LogHelper.cs" />
     <Compile Include="Utlis\MyMeans.cs" />
     <Compile Include="ChildForm\PasswordConfig.cs">
       <SubType>Form</SubType>
@@ -688,15 +171,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utlis\WinServerManage.cs" />
-    <EmbeddedResource Include="ChildForm\FormPrint.resx">
-      <DependentUpon>FormPrint.cs</DependentUpon>
+    <EmbeddedResource Include="ChildForm\Fauto_Form.resx">
+      <DependentUpon>Fauto_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForm\Main_process.resx">
+      <DependentUpon>Main_process.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChildForm\ModelSet.resx">
       <DependentUpon>ModelSet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForm\YCGBDesignResult.resx">
-      <DependentUpon>YCGBDesignResult.cs</DependentUpon>
+    <EmbeddedResource Include="ChildForm\Real_data.resx">
+      <DependentUpon>Real_data.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChildForm\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -728,6 +213,7 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -740,6 +226,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\山钢图标140.png" />
+    <None Include="Resources\山钢图标130.png" />
+    <None Include="Resources\山钢图标98.png" />
     <Content Include="Rs\Gear.png" />
     <Content Include="Rs\green.png" />
     <Content Include="Rs\kchart .ico" />
@@ -771,17 +260,6 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="OPCAutomation">
-      <Guid>{28E68F91-8D75-11D1-8DC3-3C302A000000}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -792,4 +270,3 @@
   </Target>
   -->
 </Project>
-

@@ -69,7 +69,7 @@ namespace AnBRobotSystem.Core
             {
 
                 one_ZT.Has_mission = true;
-                if (Program.GB_chose_flag == 1)
+                if (Program.GB_chose_flag == 1)//人工选罐
                 {
 
                     Program.model_flag = 1;
@@ -77,6 +77,7 @@ namespace AnBRobotSystem.Core
                     //one_ZT.Has_mission = true;
                     if (m1.get_TB_data() && m1.get_GB_data_manual(Program.GB_station))
                     {
+                        setvalue(Program.GB_station);
                         one_ZT.TB_num = PLCdata.ZT_data.TB_num;
                         one_ZT.TB_need_weight = m1.need_ibag_weight;
                         one_ZT.TB_on_pos = PLCdata.ZT_data.TB_pos;
@@ -84,6 +85,8 @@ namespace AnBRobotSystem.Core
                         one_ZT.TB_Init_weight = PLCdata.ZT_data.TB_weight;
                         if (m1.F_flag == "F" && m1.fish_station != "ER")
                         {
+
+
                             one_ZT.GB_capacity = m1.F_flag;
                             one_ZT.GB_station = m1.fish_station;
                             one_ZT.GB_have_wight = m1.fish_weight;
@@ -140,8 +143,11 @@ namespace AnBRobotSystem.Core
                         }
                         else if (m1.F_flag == "NF" && m1.fish_station != "error")
                         {
-                            one_ZT.GB_capacity = "NF";
+                            one_ZT.GB_capacity = m1.F_flag;
                             one_ZT.GB_station = m1.fish_station;
+                            one_ZT.GB_have_wight = m1.fish_weight;
+                            one_ZT.GB_full_wight = m1.fish_init_weight;
+                            one_ZT.GB_train_in_times = m1.train_in_time;
                             if (MdiParent.tb1.TB_init_result())
                             {
                                 writelisview("铁包口", "铁包口视觉检测正常!", "log");
@@ -150,6 +156,7 @@ namespace AnBRobotSystem.Core
                                 one_ZT.GB_GK_vision = true;
                                 one_ZT.GB_have_wight = m1.fish_weight;
                                 threadflag = true;
+                                nfull_thread = new Thread(process_model_half);
                                 nfull_thread.Start();
                             }
                             else
@@ -177,7 +184,7 @@ namespace AnBRobotSystem.Core
                         threadflag = false;
                     }
                 }
-                else if (Program.GB_chose_flag == 2)
+                else if (Program.GB_chose_flag == 2)//自动选罐
                 {
                     Program.model_flag = 1;
                     Program.GB_chose_flag = 0;
@@ -245,8 +252,11 @@ namespace AnBRobotSystem.Core
                         }
                         else if (m1.F_flag == "NF" && m1.fish_station != "error")
                         {
-                            one_ZT.GB_capacity = "NF";
+                            one_ZT.GB_capacity = m1.F_flag;
                             one_ZT.GB_station = m1.fish_station;
+                            one_ZT.GB_have_wight = m1.fish_weight;
+                            one_ZT.GB_full_wight = m1.fish_init_weight;
+                            one_ZT.GB_train_in_times = m1.train_in_time;
                             if (MdiParent.tb1.TB_init_result())
                             {
                                 writelisview("铁包口", "铁包口视觉检测正常!", "log");
@@ -255,6 +265,7 @@ namespace AnBRobotSystem.Core
                                 one_ZT.GB_GK_vision = true;
                                 one_ZT.GB_have_wight = m1.fish_weight;
                                 threadflag = true;
+                                nfull_thread = new Thread(process_model_half);
                                 nfull_thread.Start();
                             }
                             else
@@ -303,6 +314,7 @@ namespace AnBRobotSystem.Core
 
 
         }
+        //开流角度模型  用于计算开流角度
         public bool calc_fangle()
         {
 
@@ -332,11 +344,21 @@ namespace AnBRobotSystem.Core
             {
                 one_ZT.GB_angle = PLCdata.ZT_data.GB_A_angle;
                 one_ZT.GB_num = PLCdata.ZT_data.GB_A_num;
+                one_ZT.GB_0_limt = PLCdata.ZT_data.GB_A_0_limt;
+                one_ZT.GB_120_limt = PLCdata.ZT_data.GB_A_120_limt;
+                one_ZT.GB_on_pos = PLCdata.ZT_data.GB_posA;
+                one_ZT.GB_speed = PLCdata.ZT_data.GB_A_Rspeed;
+                one_ZT.GB_connect = PLCdata.ZT_data.GB_A_connect;
             }
             else
             {
                 one_ZT.GB_angle = PLCdata.ZT_data.GB_B_angle;
                 one_ZT.GB_num = PLCdata.ZT_data.GB_B_num;
+                one_ZT.GB_0_limt = PLCdata.ZT_data.GB_B_0_limt;
+                one_ZT.GB_120_limt = PLCdata.ZT_data.GB_B_120_limt;
+                one_ZT.GB_on_pos = PLCdata.ZT_data.GB_posB;
+                one_ZT.GB_speed = PLCdata.ZT_data.GB_B_Rspeed;
+                one_ZT.GB_connect = PLCdata.ZT_data.GB_B_connect;
             }
 
 
@@ -420,7 +442,7 @@ namespace AnBRobotSystem.Core
                             else
                             {
                                 writelisview("模型", "视觉连续检测罐口边缘失败！", "log");
-                                MdiParent.process_GK.ContinousRunEnable = false;
+                                MdiParent.process_GK.ContinuousRunEnable = false;
                                 Program.model_flag = 1000;
                                 // threadflag = false;
                                 // break;
@@ -429,8 +451,8 @@ namespace AnBRobotSystem.Core
                             {
                                 if (edge_value[2] - edge_value[0] > 0 && edge_value[5] - edge_value[3] > 0)
                                 {
-                                    MdiParent.process_TL.ContinousRunEnable = true;
-                                    MdiParent.process_GK.ContinousRunEnable = false;
+                                    MdiParent.process_TL.ContinuousRunEnable = true;
+                                    MdiParent.process_GK.ContinuousRunEnable = false;
                                     Program.program_flag = 3;
 
                                 }
@@ -438,7 +460,7 @@ namespace AnBRobotSystem.Core
                             else
                             {
                                 writelisview("模型", "连续边缘检测结果异常！", "log");
-                                MdiParent.process_GK.ContinousRunEnable = false;
+                                MdiParent.process_GK.ContinuousRunEnable = false;
                                 Program.model_flag = 1000;
                             }
 
@@ -566,7 +588,7 @@ namespace AnBRobotSystem.Core
                         Program.model_flag = 1001;
                         Program.GB_chose_flag = 0;
                         one_ZT.Has_mission = false;
-                        MdiParent.process_TL.ContinousRunEnable = false;
+                        MdiParent.process_TL.ContinuousRunEnable = false;
                         writelisview("模型", "折铁完成！", "log");
                         DateTime afterDT = System.DateTime.Now;
                         TimeSpan ts = afterDT.Subtract(beforDT);
@@ -600,7 +622,7 @@ namespace AnBRobotSystem.Core
                             Program.model_flag = 1001;
                             Program.GB_chose_flag = 0;
                             one_ZT.Has_mission = false;
-                            MdiParent.process_TL.ContinousRunEnable = false;
+                            MdiParent.process_TL.ContinuousRunEnable = false;
                             DateTime afterDT = System.DateTime.Now;
                             TimeSpan ts = afterDT.Subtract(beforDT);
                             sqltext = string.Format("UPDATE RealTime SET stoptime= '{0}',fall_time='{1}',fall_weight='{2}' WHERE startime= '{3}'", afterDT, ts.TotalMinutes.ToString(),(one_ZT.TB_weight-one_ZT.TB_Init_weight).ToString(), beforDT);
@@ -625,8 +647,8 @@ namespace AnBRobotSystem.Core
                         Thread.Sleep(3000);
                         writelisview("模型", "折铁失败！！", "log");
                         one_ZT.Has_mission = false;
-                        MdiParent.process_GK.ContinousRunEnable = false;
-                        MdiParent.process_TL.ContinousRunEnable = false;
+                        MdiParent.process_GK.ContinuousRunEnable = false;
+                        MdiParent.process_TL.ContinuousRunEnable = false;
                         break;
                     }
 
@@ -636,8 +658,8 @@ namespace AnBRobotSystem.Core
             catch (Exception e)
             {
                 one_ZT.Has_mission = false;
-                MdiParent.process_GK.ContinousRunEnable = false;
-                MdiParent.process_TL.ContinousRunEnable = false;
+                MdiParent.process_GK.ContinuousRunEnable = false;
+                MdiParent.process_TL.ContinuousRunEnable = false;
                 writelisview("模型", "折铁模型发生程序失败！！", "log");
                 Program.model_flag = 1000;
                 threadflag = false;
@@ -655,7 +677,7 @@ namespace AnBRobotSystem.Core
             {///[ID],[fishstation],[carnum],[is_full],[train_in_times],[lot],[icode],[icard],[startime],[stoptime],[Tare_Weight],[f_full_weight],[f_has_weight],[i_need_weight],[tempture],[iron_dirction]
                 Single last_agle = 0;
                 DateTime beforDT = DateTime.Now;
-                string sqltext = string.Format("insert into  [AutoSteel].[dbo].[RealTime] VALUES ('{0}','{1}','{2}','{3}','','','','{4}','','','{5}','{6}','{7}','','')", one_ZT.GB_station, one_ZT.GB_num, one_ZT.GB_capacity, one_ZT.GB_train_in_times, beforDT, one_ZT.GB_full_wight.ToString(), one_ZT.GB_have_wight.ToString(), one_ZT.TB_need_weight.ToString());
+                string sqltext = string.Format("insert into  [AutoSteel].[dbo].[RealTime] VALUES ('{0}','{1}','{2}','{3}','','','','{4}','','','{5}','{6}','{7}','','','')", one_ZT.GB_station, one_ZT.GB_num, one_ZT.GB_capacity, one_ZT.GB_train_in_times, beforDT, one_ZT.GB_full_wight.ToString(), one_ZT.GB_have_wight.ToString(), one_ZT.TB_need_weight.ToString());
                 dbhlper.MultithreadExecuteNonQuery(sqltext);
 
                 writelisview("模型", "启动模型！", "log");
@@ -805,7 +827,7 @@ namespace AnBRobotSystem.Core
                         Program.model_flag = 1001;
                         Program.GB_chose_flag = 0;
                         one_ZT.Has_mission = false;
-                        MdiParent.process_TL.ContinousRunEnable = false;
+                        MdiParent.process_TL.ContinuousRunEnable = false;
                         writelisview("模型", "折铁完成！", "log");
                         DateTime afterDT = System.DateTime.Now;
                         TimeSpan ts = afterDT.Subtract(beforDT);
@@ -839,7 +861,7 @@ namespace AnBRobotSystem.Core
                             Program.model_flag = 1001;
                             Program.GB_chose_flag = 0;
                             one_ZT.Has_mission = false;
-                            MdiParent.process_TL.ContinousRunEnable = false;
+                            MdiParent.process_TL.ContinuousRunEnable = false;
                             DateTime afterDT = System.DateTime.Now;
                             TimeSpan ts = afterDT.Subtract(beforDT);
                             sqltext = string.Format("UPDATE RealTime SET stoptime= '{0}',fall_time='{1}',fall_weight='{2}' WHERE startime= '{3}'", afterDT, ts.TotalMinutes.ToString(), (one_ZT.TB_weight - one_ZT.TB_Init_weight).ToString(), beforDT);
@@ -864,8 +886,8 @@ namespace AnBRobotSystem.Core
                         Thread.Sleep(3000);
                         writelisview("模型", "折铁失败！！", "log");
                         one_ZT.Has_mission = false;
-                        MdiParent.process_GK.ContinousRunEnable = false;
-                        MdiParent.process_TL.ContinousRunEnable = false;
+                        MdiParent.process_GK.ContinuousRunEnable = false;
+                        MdiParent.process_TL.ContinuousRunEnable = false;
                         break;
                     }
 
@@ -875,8 +897,8 @@ namespace AnBRobotSystem.Core
             catch (Exception e)
             {
                 one_ZT.Has_mission = false;
-                MdiParent.process_GK.ContinousRunEnable = false;
-                MdiParent.process_TL.ContinousRunEnable = false;
+                MdiParent.process_GK.ContinuousRunEnable = false;
+                MdiParent.process_TL.ContinuousRunEnable = false;
                 writelisview("模型", "折铁模型发生程序失败！！", "log");
                 Program.model_flag = 1000;
                 threadflag = false;

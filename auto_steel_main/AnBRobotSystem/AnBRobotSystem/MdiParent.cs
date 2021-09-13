@@ -41,6 +41,7 @@ namespace AnBRobotSystem
         public static VmProcedure process_TB, process_GK, process_TL, process4;
         public static GlobalVariableModuleTool GK_global;
         public static int a = 0;
+
         string SolutionPath = @"E:\ProjSetup\Auto_steel\vm\autosteelvm.sol";
        // manage_steel m1 = new manage_steel();
         //Auto_model atuomodel = new Auto_model();
@@ -49,6 +50,12 @@ namespace AnBRobotSystem
         {
             
             InitializeComponent();
+            uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[0], 61459);
+            uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[1], 61501);
+            uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[2], 61555);
+            uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[3], 61712);
+          // fucktest.ZT_data.GB_A_0_limt = true;
+       //     PLCdata.ZT_data.GB_A_0_limt = true;
             form = this;
             LogHelper.WriteLog("star program");
             tb1.writelistview = mainlog;
@@ -64,8 +71,7 @@ namespace AnBRobotSystem
             timerLog.Start();
             this.WindowState = FormWindowState.Normal;
             OpenChildForm(GetFromHandle("数据配置"), "数据配置");
-            label3.Text = System.DateTime.Now.ToString("yyyy年MM月dd日");// +"\n" + DataClass.MyMeans.dayofweek;
-            label4.Text = DateTime.Now.ToString("HH:mm:ss").Trim();            
+            uiLedDisplay1.Text = DateTime.Now.ToString("HH:mm:ss").Trim();            
         }
         private void LoadSolution() 
         {
@@ -160,25 +166,7 @@ namespace AnBRobotSystem
         
      
         #region//窗体切换
-        //private void treeView1_DoubleClick(object sender, EventArgs e)
-        //{
-        //    if (treeView1.SelectedNode == null)
-        //        return;
-        //    Form form = null;
-        //    if (treeView1.SelectedNode.Text != "")
-        //    {
-        //        form=GetFromHandle(treeView1.SelectedNode.Text);
-        //        if (form != null && form.IsMdiContainer == false)
-        //        {
-        //            closechild();
-        //            OpenChildForm(form, treeView1.SelectedNode.Text);
-        //        }
-        //        else
-        //            form.ShowDialog();
-
-        //    }
-        //    GC.Collect();
-        //}
+    
         private Form GetFromHandle(string FromName)
         {
             if (FromName == "实时数据")
@@ -214,8 +202,8 @@ namespace AnBRobotSystem
         }
         #endregion
         #region//时钟
-        public static int test = 0;
-        Random ran = new Random();
+      
+  
         
         private void FreshTimer_Tick(object sender, EventArgs e)
         {
@@ -226,8 +214,10 @@ namespace AnBRobotSystem
                 zt_state.Has_mission = false;
 
             if (Program.model_flag == 1000)
+            {
                 atuomodel = null;
-            test = ran.Next(0,100);
+            }
+            uiLedDisplay1.Text = DateTime.Now.ToString("HH:mm:ss").Trim();
         }
       
         //服务消息更改
@@ -244,8 +234,6 @@ namespace AnBRobotSystem
                     this.listView1.Items.RemoveAt(count);
                 }
             }
-            
-                    
         }
 
 
@@ -255,17 +243,17 @@ namespace AnBRobotSystem
         #region//下方状态栏切换
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab.Name == "tabPage3")
-            {
-                try
-                {
+            //if (tabControl1.SelectedTab.Name == "tabPage3")
+            //{
+            //    try
+            //    {
                    
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show( ex.Message);
-                }
-            }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show( ex.Message);
+            //    }
+            //}
         }
         #endregion
         #region//主窗体开关程序
@@ -294,33 +282,19 @@ namespace AnBRobotSystem
             GC.Collect();
         }
 
-        private void MdiParent_FormClosing(object sender, FormClosingEventArgs e)
+        
+
+
+
+        private void uiSymbolButton2_Click(object sender, EventArgs e)//开始折铁按钮
         {
-
-            this.Dispose();
-            Application.Exit();
-        }
-
-        #endregion
-        private void stop_button2_Click(object sender, EventArgs e)
-        {
-            Program.model_flag = 1000;
-            zt_state.Has_mission = false;
-            Program.GB_chose_flag = 0;
-
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            if (Program.GB_chose_flag == 1)
+            if (Program.model_flag != 1000)
             {
-                // this.button1.Enabled = false;
                 mainlog("折铁按键", "折铁程序正在运行，请勿重复点击！", "log");
                 return;
             }
-            else
+            else if(Program.GB_chose_flag !=1)
             {
-
                 MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
                 DialogResult dr = MessageBox.Show("确定要自动选罐吗?", "退出系统", messButton);
                 if (dr == DialogResult.OK)
@@ -336,17 +310,35 @@ namespace AnBRobotSystem
                 }
 
             }
-            PLCdata.ZT_data.TB_pos = true;
-            PLCdata.ZT_data.TB_weight = 80;
+           // PLCdata.ZT_data.TB_pos = true;
+          //  PLCdata.ZT_data.TB_weight = 80;
             atuomodel = new Auto_model();
             atuomodel.writelisview = mainlog;
             //zt_state.Has_mission = true;
             Program.program_flag = 0;
             atuomodel.chose_process();
             //zt_state = atuomodel.one_ZT;
+        
+    }
 
-
+        private void uiSymbolButton1_Click_1(object sender, EventArgs e)//退出折铁按钮
+        {
+            Program.model_flag = 1000;
+            zt_state.Has_mission = false;
+            Program.GB_chose_flag = 0;
         }
+
+
+
+        private void MdiParent_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+            Application.Exit();
+        }
+
+        #endregion
+       
+      
 
     }
 }

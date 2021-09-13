@@ -9,12 +9,13 @@ using logtest;
 using AnBRobotSystem.Utlis;
 namespace AnBRobotSystem.Core
 {
-    public class plcdata
+    public struct plcdata
     {
         public bool TB_pos;//铁包到位
         public bool GB_posA;//铁水包到位，可以用插电来获取
         public bool GB_posB;
-        public bool connect;//罐车得电
+        public bool GB_A_connect;//罐车得电
+        public bool GB_B_connect;//罐车得电
         public bool GB_A_0_limt;//罐车0限位
         public bool GB_A_120_limt;//罐车0限位
         public bool GB_B_0_limt;//罐车0限位
@@ -28,12 +29,13 @@ namespace AnBRobotSystem.Core
         public Int16 GB_B_num;//罐车包号
         public Single GB_A_angle;//a实时倾角
         public Single GB_B_angle;//
-        public Single GB_A_speed = 0;//A设定速度
-        public Single GB_B_speed = 0;//B设定速度
-        public Single GB_A_Rspeed = 0;//A真实速度
-        public Single GB_B_Rspeed = 0;//B真实速度
+        public Single GB_A_speed;//A设定速度
+        public Single GB_B_speed;//B设定速度
+        public Single GB_A_Rspeed ;//A真实速度
+        public Single GB_B_Rspeed;//B真实速度
 
     }
+   
     public static class PLCdata
     {
 
@@ -61,6 +63,7 @@ namespace AnBRobotSystem.Core
             plc300.Open();//创建PLC实例
         }
         //读取plc数据并更新mes表格数据
+       
         public static void Read_PLC_data()
         {
             try
@@ -76,13 +79,14 @@ namespace AnBRobotSystem.Core
                         ZT_data.TB_pos = bytes1[0].SelectBit(0);
                         ZT_data.GB_posA = bytes1[0].SelectBit(1);
                         ZT_data.GB_posA = bytes1[0].SelectBit(2);
-                        ZT_data.connect = bytes1[0].SelectBit(3);
-                        ZT_data.GB_A_0_limt = bytes1[0].SelectBit(4);
-                        ZT_data.GB_A_120_limt = bytes1[0].SelectBit(5);
-                        ZT_data.GB_B_0_limt = bytes1[0].SelectBit(6);
-                        ZT_data.GB_B_120_limt = bytes1[0].SelectBit(7);
+                        ZT_data.GB_A_0_limt = bytes1[0].SelectBit(3);
+                        ZT_data.GB_A_120_limt = bytes1[0].SelectBit(4);
+                        ZT_data.GB_B_0_limt = bytes1[0].SelectBit(5);
+                        ZT_data.GB_B_120_limt = bytes1[0].SelectBit(6);
                         ZT_data.GB_A_carIn = bytes1[1].SelectBit(0);
                         ZT_data.GB_B_carIn = bytes1[1].SelectBit(1);
+                        ZT_data.GB_A_connect = bytes1[1].SelectBit(2);
+                        ZT_data.GB_B_connect = bytes1[1].SelectBit(3);
                         int a = 1;
                         ZT_data.TB_hight = (float)S7.Net.Types.Double.FromByteArray(bytes1.Skip(a).Take(4).ToArray());
                         ZT_data.TB_weight = (float)S7.Net.Types.Double.FromByteArray(bytes1.Skip(a += 4).Take(4).ToArray());
@@ -96,13 +100,13 @@ namespace AnBRobotSystem.Core
                         calc_weight_speed();
                         if(LGB_A_carIn==false&& ZT_data.GB_A_carIn==true)
                         {
-                            
-                            //db_plc_helper.updata_table("RealTime_Car_Bag", "mid_weight", Mes_GB_weight.ToString(), "ID", "A");
+                            //向mes索要火车数据，并将数据更新到表中
                             string sqltext = string.Format("UPDATE RealTime_Car_Bag SET in_time='{0}',init_weight= '{1}',mid_weight='{2}',number='{3}' WHERE ID= 'A'", in_time, GB_initwit, GB_initwit, GB_num);
                             db_plc_helper.MultithreadExecuteNonQuery(sqltext);
                         }
                         if (LGB_B_carIn == false && ZT_data.GB_B_carIn == true)
                         {
+                            //向mes索要火车数据，并将数据更新到表中
                             string sqltext = string.Format("UPDATE RealTime_Car_Bag SET in_time='{0}',init_weight= '{1}',mid_weight='{2}',number='{3}' WHERE ID= 'B'", in_time, GB_initwit, GB_initwit, GB_num);
                             db_plc_helper.MultithreadExecuteNonQuery(sqltext);
                         }

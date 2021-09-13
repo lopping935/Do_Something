@@ -35,11 +35,11 @@
             this.ZTL_uiLedLabel1 = new System.Windows.Forms.Label();
             this.uiLabel4 = new Sunny.UI.UILabel();
             this.uiLabel13 = new Sunny.UI.UILabel();
-            this.uiLight7 = new Sunny.UI.UILight();
-            this.uiLight6 = new Sunny.UI.UILight();
+            this.GB_limt_pos = new Sunny.UI.UILight();
+            this.GB_0_pos = new Sunny.UI.UILight();
             this.uiLabel7 = new Sunny.UI.UILabel();
             this.uiLabel5 = new Sunny.UI.UILabel();
-            this.uiLight5 = new Sunny.UI.UILight();
+            this.GB_get_pow = new Sunny.UI.UILight();
             this.GBSJ_uiLight = new Sunny.UI.UILight();
             this.GCDW_uiLight = new Sunny.UI.UILight();
             this.ZTW_uiLabel = new Sunny.UI.UILabel();
@@ -83,9 +83,18 @@
             this.uiLabel10 = new Sunny.UI.UILabel();
             this.uiLabel9 = new Sunny.UI.UILabel();
             this.uiLabel8 = new Sunny.UI.UILabel();
+            this.uiGroupBox4 = new Sunny.UI.UIGroupBox();
+            this.TB_R_weight = new Sunny.UI.UITextBox();
+            this.GB_R_speed = new Sunny.UI.UITextBox();
+            this.uiLabel24 = new Sunny.UI.UILabel();
+            this.GB_R_speed4 = new Sunny.UI.UILabel();
+            this.uiLabel25 = new Sunny.UI.UILabel();
+            this.GB_R_angle = new Sunny.UI.UITextBox();
+            this.uiButton1 = new Sunny.UI.UIButton();
             this.uiGroupBox1.SuspendLayout();
             this.uiGroupBox2.SuspendLayout();
             this.uiGroupBox3.SuspendLayout();
+            this.uiGroupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiGroupBox1
@@ -96,11 +105,11 @@
             this.uiGroupBox1.Controls.Add(this.ZTL_uiLedLabel1);
             this.uiGroupBox1.Controls.Add(this.uiLabel4);
             this.uiGroupBox1.Controls.Add(this.uiLabel13);
-            this.uiGroupBox1.Controls.Add(this.uiLight7);
-            this.uiGroupBox1.Controls.Add(this.uiLight6);
+            this.uiGroupBox1.Controls.Add(this.GB_limt_pos);
+            this.uiGroupBox1.Controls.Add(this.GB_0_pos);
             this.uiGroupBox1.Controls.Add(this.uiLabel7);
             this.uiGroupBox1.Controls.Add(this.uiLabel5);
-            this.uiGroupBox1.Controls.Add(this.uiLight5);
+            this.uiGroupBox1.Controls.Add(this.GB_get_pow);
             this.uiGroupBox1.Controls.Add(this.GBSJ_uiLight);
             this.uiGroupBox1.Controls.Add(this.GCDW_uiLight);
             this.uiGroupBox1.Controls.Add(this.ZTW_uiLabel);
@@ -127,7 +136,7 @@
             // 
             this.GNTL_uiLedLabel.AutoSize = true;
             this.GNTL_uiLedLabel.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.GNTL_uiLedLabel.Location = new System.Drawing.Point(750, 43);
+            this.GNTL_uiLedLabel.Location = new System.Drawing.Point(728, 43);
             this.GNTL_uiLedLabel.Name = "GNTL_uiLedLabel";
             this.GNTL_uiLedLabel.Size = new System.Drawing.Size(29, 29);
             this.GNTL_uiLedLabel.TabIndex = 52;
@@ -137,7 +146,7 @@
             // 
             this.MG_uiLedLabel.AutoSize = true;
             this.MG_uiLedLabel.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MG_uiLedLabel.Location = new System.Drawing.Point(672, 43);
+            this.MG_uiLedLabel.Location = new System.Drawing.Point(657, 43);
             this.MG_uiLedLabel.Name = "MG_uiLedLabel";
             this.MG_uiLedLabel.Size = new System.Drawing.Size(29, 29);
             this.MG_uiLedLabel.TabIndex = 51;
@@ -147,7 +156,7 @@
             // 
             this.GW_uiLedLabel.AutoSize = true;
             this.GW_uiLedLabel.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.GW_uiLedLabel.Location = new System.Drawing.Point(502, 43);
+            this.GW_uiLedLabel.Location = new System.Drawing.Point(490, 43);
             this.GW_uiLedLabel.Name = "GW_uiLedLabel";
             this.GW_uiLedLabel.Size = new System.Drawing.Size(29, 29);
             this.GW_uiLedLabel.TabIndex = 50;
@@ -157,7 +166,7 @@
             // 
             this.ZTL_uiLedLabel1.AutoSize = true;
             this.ZTL_uiLedLabel1.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ZTL_uiLedLabel1.Location = new System.Drawing.Point(273, 43);
+            this.ZTL_uiLedLabel1.Location = new System.Drawing.Point(250, 43);
             this.ZTL_uiLedLabel1.Name = "ZTL_uiLedLabel1";
             this.ZTL_uiLedLabel1.Size = new System.Drawing.Size(29, 29);
             this.ZTL_uiLedLabel1.TabIndex = 39;
@@ -183,29 +192,29 @@
             this.uiLabel13.Text = "是否满罐";
             this.uiLabel13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // uiLight7
+            // GB_limt_pos
             // 
-            this.uiLight7.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLight7.Location = new System.Drawing.Point(1008, 37);
-            this.uiLight7.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiLight7.Name = "uiLight7";
-            this.uiLight7.OnColor = System.Drawing.Color.Red;
-            this.uiLight7.Radius = 35;
-            this.uiLight7.Size = new System.Drawing.Size(35, 35);
-            this.uiLight7.TabIndex = 47;
-            this.uiLight7.Text = "uiLight7";
+            this.GB_limt_pos.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.GB_limt_pos.Location = new System.Drawing.Point(1008, 37);
+            this.GB_limt_pos.MinimumSize = new System.Drawing.Size(1, 1);
+            this.GB_limt_pos.Name = "GB_limt_pos";
+            this.GB_limt_pos.OnColor = System.Drawing.Color.Red;
+            this.GB_limt_pos.Radius = 35;
+            this.GB_limt_pos.Size = new System.Drawing.Size(35, 35);
+            this.GB_limt_pos.TabIndex = 47;
+            this.GB_limt_pos.Text = " ";
             // 
-            // uiLight6
+            // GB_0_pos
             // 
-            this.uiLight6.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLight6.Location = new System.Drawing.Point(913, 37);
-            this.uiLight6.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiLight6.Name = "uiLight6";
-            this.uiLight6.OnColor = System.Drawing.Color.Red;
-            this.uiLight6.Radius = 35;
-            this.uiLight6.Size = new System.Drawing.Size(35, 35);
-            this.uiLight6.TabIndex = 46;
-            this.uiLight6.Text = "uiLight6";
+            this.GB_0_pos.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.GB_0_pos.Location = new System.Drawing.Point(913, 37);
+            this.GB_0_pos.MinimumSize = new System.Drawing.Size(1, 1);
+            this.GB_0_pos.Name = "GB_0_pos";
+            this.GB_0_pos.OnColor = System.Drawing.Color.Red;
+            this.GB_0_pos.Radius = 35;
+            this.GB_0_pos.Size = new System.Drawing.Size(35, 35);
+            this.GB_0_pos.TabIndex = 46;
+            this.GB_0_pos.Text = "uiLight6";
             // 
             // uiLabel7
             // 
@@ -227,17 +236,17 @@
             this.uiLabel5.Text = "罐车0位";
             this.uiLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // uiLight5
+            // GB_get_pow
             // 
-            this.uiLight5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLight5.Location = new System.Drawing.Point(833, 37);
-            this.uiLight5.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiLight5.Name = "uiLight5";
-            this.uiLight5.OnColor = System.Drawing.Color.Red;
-            this.uiLight5.Radius = 35;
-            this.uiLight5.Size = new System.Drawing.Size(35, 35);
-            this.uiLight5.TabIndex = 43;
-            this.uiLight5.Text = "uiLight5";
+            this.GB_get_pow.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.GB_get_pow.Location = new System.Drawing.Point(833, 37);
+            this.GB_get_pow.MinimumSize = new System.Drawing.Size(1, 1);
+            this.GB_get_pow.Name = "GB_get_pow";
+            this.GB_get_pow.OnColor = System.Drawing.Color.Red;
+            this.GB_get_pow.Radius = 35;
+            this.GB_get_pow.Size = new System.Drawing.Size(35, 35);
+            this.GB_get_pow.TabIndex = 43;
+            this.GB_get_pow.Text = "GB_get_pow";
             // 
             // GBSJ_uiLight
             // 
@@ -649,6 +658,7 @@
             // 
             // uiTextBox2
             // 
+            this.uiTextBox2.ButtonSymbol = 61761;
             this.uiTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.uiTextBox2.DoubleValue = 50D;
             this.uiTextBox2.FillColor = System.Drawing.Color.White;
@@ -675,9 +685,11 @@
             this.hum_chose_GB.Size = new System.Drawing.Size(72, 35);
             this.hum_chose_GB.TabIndex = 19;
             this.hum_chose_GB.Text = "确认";
+            this.hum_chose_GB.Click += new System.EventHandler(this.hum_chose_GB_Click);
             // 
             // uiTextBox1
             // 
+            this.uiTextBox1.ButtonSymbol = 61761;
             this.uiTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.uiTextBox1.DoubleValue = 50D;
             this.uiTextBox1.FillColor = System.Drawing.Color.White;
@@ -748,22 +760,136 @@
             this.uiLabel8.Text = "折铁罐位";
             this.uiLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // uiGroupBox4
+            // 
+            this.uiGroupBox4.Controls.Add(this.uiButton1);
+            this.uiGroupBox4.Controls.Add(this.uiLabel25);
+            this.uiGroupBox4.Controls.Add(this.GB_R_angle);
+            this.uiGroupBox4.Controls.Add(this.GB_R_speed4);
+            this.uiGroupBox4.Controls.Add(this.uiLabel24);
+            this.uiGroupBox4.Controls.Add(this.GB_R_speed);
+            this.uiGroupBox4.Controls.Add(this.TB_R_weight);
+            this.uiGroupBox4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiGroupBox4.Location = new System.Drawing.Point(551, 395);
+            this.uiGroupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiGroupBox4.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiGroupBox4.Name = "uiGroupBox4";
+            this.uiGroupBox4.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiGroupBox4.Size = new System.Drawing.Size(652, 180);
+            this.uiGroupBox4.TabIndex = 35;
+            this.uiGroupBox4.Text = "测试仿真";
+            this.uiGroupBox4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TB_R_weight
+            // 
+            this.TB_R_weight.ButtonSymbol = 61761;
+            this.TB_R_weight.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TB_R_weight.DoubleValue = 80D;
+            this.TB_R_weight.FillColor = System.Drawing.Color.White;
+            this.TB_R_weight.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.TB_R_weight.IntValue = 80;
+            this.TB_R_weight.Location = new System.Drawing.Point(39, 89);
+            this.TB_R_weight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TB_R_weight.Maximum = 2147483647D;
+            this.TB_R_weight.Minimum = -2147483648D;
+            this.TB_R_weight.MinimumSize = new System.Drawing.Size(1, 1);
+            this.TB_R_weight.Name = "TB_R_weight";
+            this.TB_R_weight.Size = new System.Drawing.Size(56, 29);
+            this.TB_R_weight.TabIndex = 25;
+            this.TB_R_weight.Text = "80";
+            this.TB_R_weight.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // GB_R_speed
+            // 
+            this.GB_R_speed.ButtonSymbol = 61761;
+            this.GB_R_speed.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.GB_R_speed.DoubleValue = 50D;
+            this.GB_R_speed.FillColor = System.Drawing.Color.White;
+            this.GB_R_speed.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.GB_R_speed.IntValue = 50;
+            this.GB_R_speed.Location = new System.Drawing.Point(122, 89);
+            this.GB_R_speed.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.GB_R_speed.Maximum = 2147483647D;
+            this.GB_R_speed.Minimum = -2147483648D;
+            this.GB_R_speed.MinimumSize = new System.Drawing.Size(1, 1);
+            this.GB_R_speed.Name = "GB_R_speed";
+            this.GB_R_speed.Size = new System.Drawing.Size(56, 29);
+            this.GB_R_speed.TabIndex = 25;
+            this.GB_R_speed.Text = "50";
+            this.GB_R_speed.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel24
+            // 
+            this.uiLabel24.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel24.Location = new System.Drawing.Point(26, 54);
+            this.uiLabel24.Name = "uiLabel24";
+            this.uiLabel24.Size = new System.Drawing.Size(80, 23);
+            this.uiLabel24.TabIndex = 26;
+            this.uiLabel24.Text = "铁包实时重";
+            this.uiLabel24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // GB_R_speed4
+            // 
+            this.GB_R_speed4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.GB_R_speed4.Location = new System.Drawing.Point(112, 54);
+            this.GB_R_speed4.Name = "GB_R_speed4";
+            this.GB_R_speed4.Size = new System.Drawing.Size(74, 23);
+            this.GB_R_speed4.TabIndex = 27;
+            this.GB_R_speed4.Text = "钢包时速度";
+            this.GB_R_speed4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel25
+            // 
+            this.uiLabel25.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel25.Location = new System.Drawing.Point(196, 54);
+            this.uiLabel25.Name = "uiLabel25";
+            this.uiLabel25.Size = new System.Drawing.Size(74, 23);
+            this.uiLabel25.TabIndex = 29;
+            this.uiLabel25.Text = "钢包时角";
+            this.uiLabel25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // GB_R_angle
+            // 
+            this.GB_R_angle.ButtonSymbol = 61761;
+            this.GB_R_angle.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.GB_R_angle.DoubleValue = 50D;
+            this.GB_R_angle.FillColor = System.Drawing.Color.White;
+            this.GB_R_angle.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.GB_R_angle.IntValue = 50;
+            this.GB_R_angle.Location = new System.Drawing.Point(206, 89);
+            this.GB_R_angle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.GB_R_angle.Maximum = 2147483647D;
+            this.GB_R_angle.Minimum = -2147483648D;
+            this.GB_R_angle.MinimumSize = new System.Drawing.Size(1, 1);
+            this.GB_R_angle.Name = "GB_R_angle";
+            this.GB_R_angle.Size = new System.Drawing.Size(56, 29);
+            this.GB_R_angle.TabIndex = 28;
+            this.GB_R_angle.Text = "50";
+            this.GB_R_angle.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiButton1
+            // 
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiButton1.Location = new System.Drawing.Point(542, 123);
+            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Size = new System.Drawing.Size(100, 35);
+            this.uiButton1.TabIndex = 30;
+            this.uiButton1.Text = "test";
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
+            // 
             // Main_process
             // 
-            this.AllowShowTitle = false;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1298, 844);
-            this.ControlBox = false;
+            this.Controls.Add(this.uiGroupBox4);
             this.Controls.Add(this.uiGroupBox3);
             this.Controls.Add(this.uiGroupBox2);
             this.Controls.Add(this.uiGroupBox1);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Main_process";
-            this.Padding = new System.Windows.Forms.Padding(0);
-            this.ShowTitle = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "折铁流程";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_process_FormClosing);
@@ -773,6 +899,7 @@
             this.uiGroupBox2.ResumeLayout(false);
             this.uiGroupBox2.PerformLayout();
             this.uiGroupBox3.ResumeLayout(false);
+            this.uiGroupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -786,11 +913,11 @@
         private System.Windows.Forms.Label ZTL_uiLedLabel1;
         private Sunny.UI.UILabel uiLabel4;
         private Sunny.UI.UILabel uiLabel13;
-        private Sunny.UI.UILight uiLight7;
-        private Sunny.UI.UILight uiLight6;
+        private Sunny.UI.UILight GB_limt_pos;
+        private Sunny.UI.UILight GB_0_pos;
         private Sunny.UI.UILabel uiLabel7;
         private Sunny.UI.UILabel uiLabel5;
-        private Sunny.UI.UILight uiLight5;
+        private Sunny.UI.UILight GB_get_pow;
         private Sunny.UI.UILight GBSJ_uiLight;
         private Sunny.UI.UILight GCDW_uiLight;
         private Sunny.UI.UILabel ZTW_uiLabel;
@@ -834,6 +961,14 @@
         private Sunny.UI.UILabel uiLabel10;
         private Sunny.UI.UILabel uiLabel9;
         private Sunny.UI.UILabel uiLabel8;
+        private Sunny.UI.UIGroupBox uiGroupBox4;
+        private Sunny.UI.UILabel uiLabel25;
+        private Sunny.UI.UITextBox GB_R_angle;
+        private Sunny.UI.UILabel GB_R_speed4;
+        private Sunny.UI.UILabel uiLabel24;
+        private Sunny.UI.UITextBox GB_R_speed;
+        private Sunny.UI.UITextBox TB_R_weight;
+        private Sunny.UI.UIButton uiButton1;
     }
 }
 

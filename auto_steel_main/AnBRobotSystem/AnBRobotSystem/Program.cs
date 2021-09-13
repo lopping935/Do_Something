@@ -14,7 +14,7 @@ namespace AnBRobotSystem
         private static System.Threading.Mutex mutex;
         public static object obj = new object();
         public static int program_flag = 0;//折铁线程中的中间变量
-        public static int model_flag = 0;//1000 报错
+        public static int model_flag = 1000;//是否有折铁正在进行
 
         public static int GB_chose_flag = 0;
         public static string GB_station = "";

@@ -19,7 +19,7 @@ namespace AnBRobotSystem.ChildForm
         public Fauto_Form()
         {
             InitializeComponent();
-            vmProcedureConfigControl1.InitControl();
+            vmProcedureConfigControl1.InitializeLifetimeService();
             Tiebao_vmRenderControl1.ModuleSource = AnBRobotSystem.MdiParent.process_TB;
             Guankou_vmRenderControl2.ModuleSource = AnBRobotSystem.MdiParent.process_GK;
         }

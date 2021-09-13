@@ -15,10 +15,11 @@ using System.Net.Sockets;
 using System.Threading;
 using AnBRobotSystem;
 using logtest;
+using AnBRobotSystem.Core;
 
 namespace AnBRobotSystem.ChildForm
 {
-    public partial class Main_process : Sunny.UI.UIForm
+    public partial class Main_process : Sunny.UI.UIPage
     {
         Thread update_control;
         bool flag=false;
@@ -95,10 +96,27 @@ namespace AnBRobotSystem.ChildForm
                             GNTL_uiLedLabel.Invoke(new Action(() => { GNTL_uiLedLabel.Text = "0"; }));
 
                         }
+                        if (AnBRobotSystem.MdiParent.zt_state.GB_0_limt)
+                            GB_0_pos.OnColor = Color.Green;
+                        else
+                            GB_0_pos.OnColor = Color.Red;
+                        if (AnBRobotSystem.MdiParent.zt_state.GB_120_limt)
+                            GB_limt_pos.OnColor = Color.Red;
+                        else
+                            GB_limt_pos.OnColor = Color.Green;
+                        if (AnBRobotSystem.MdiParent.zt_state.GB_connect)
+                            GB_get_pow.OnColor = Color.Green;
+                        else
+                            GB_get_pow.OnColor = Color.Red;
+
+
                     }
                     else
                     {
                         Thread.Sleep(1000);
+                        GB_0_pos.OnColor = Color.Red;
+                        GB_limt_pos.OnColor = Color.Red;
+                        GB_get_pow.OnColor = Color.Red;
                         ZT_mision.OnColor = Color.Gray;
                         TB_uiLight.OnColor = Color.Red;
                         TBK_uiLight.OnColor = Color.Red;
@@ -142,11 +160,12 @@ namespace AnBRobotSystem.ChildForm
         {
             try
             {
-                if (A_chose.Checked)
+                if (A_chose.Checked)//A_chose.Checked
                 {
                     Program.GB_station = "A";
                     Program.GB_chose_flag = 1;
                     writelistview("罐选择", "选择A罐", "log");
+                    ShowSuccessTip("A罐被选中");
 
                 }
                 else if (B_chose.Checked)
@@ -154,10 +173,11 @@ namespace AnBRobotSystem.ChildForm
                     Program.GB_station = "B";
                     Program.GB_chose_flag = 1;
                     writelistview("罐选择", "选择B罐", "log");
+                    ShowInfoTip("B罐被选中");
                 }
                 else
                 {
-                    MessageBox.Show("错误", "数据设置有失败！");
+                    ShowErrorDialog("选罐失败，请重新选择！");
                 }
                 
             }
@@ -166,6 +186,24 @@ namespace AnBRobotSystem.ChildForm
                 LogHelper.WriteLog("数据更新界面出差", e1);
             }
             
+        }
+
+        private void uiButton1_Click(object sender, EventArgs e)
+        {
+
+            PLCdata.ZT_data.GB_posA = true;
+            PLCdata.ZT_data.GB_A_0_limt = true;
+            PLCdata.ZT_data.GB_A_120_limt = false;
+            PLCdata.ZT_data.GB_A_connect = true;
+            PLCdata.ZT_data.GB_A_num = 34;
+            PLCdata.ZT_data.GB_A_Rspeed = Single.Parse(GB_R_speed.Text);
+            PLCdata.ZT_data.GB_A_angle =Single.Parse( GB_R_angle.Text);
+
+            PLCdata.ZT_data.TB_num = 6;
+            PLCdata.ZT_data.TB_pos = true;
+            PLCdata.ZT_data.TB_weight = Single.Parse(TB_R_weight.Text);
+
+
         }
     }
 
