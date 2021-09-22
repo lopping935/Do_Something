@@ -11,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AnBRobotSystem</RootNamespace>
     <AssemblyName>AnBRobotSystem</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -34,15 +34,15 @@
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\..\..\..\ProjSetup\Auto_steel\newvm\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>3</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <Prefer32Bit>false</Prefer32Bit>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -714,7 +714,9 @@
     <Compile Include="Core\Vison_code.cs" />
     <Compile Include="Utlis\Auto_steel_helper.cs" />
     <Compile Include="Utlis\DBMTaskshelper.cs" />
+    <Compile Include="Utlis\GroupSDK.cs" />
     <Compile Include="Utlis\LogHelper.cs" />
+    <Compile Include="Utlis\MagHelper.cs" />
     <Compile Include="Utlis\MyMeans.cs" />
     <Compile Include="ChildForm\PasswordConfig.cs">
       <SubType>Form</SubType>

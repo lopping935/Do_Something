@@ -33,14 +33,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.vmProcedureConfigControl1 = new VMControls.Winform.Release.VmProcedureConfigControl();
+            this.TL_vmRenderControl1 = new VMControls.Winform.Release.VmRenderControl();
             this.SuspendLayout();
             // 
             // Guankou_vmRenderControl2
             // 
             this.Guankou_vmRenderControl2.BackColor = System.Drawing.Color.Black;
             this.Guankou_vmRenderControl2.ImageSource = null;
-            this.Guankou_vmRenderControl2.Location = new System.Drawing.Point(418, 97);
+            this.Guankou_vmRenderControl2.Location = new System.Drawing.Point(456, 80);
             this.Guankou_vmRenderControl2.ModuleSource = null;
             this.Guankou_vmRenderControl2.Name = "Guankou_vmRenderControl2";
             this.Guankou_vmRenderControl2.Size = new System.Drawing.Size(400, 300);
@@ -50,7 +50,7 @@
             // 
             this.Tiebao_vmRenderControl1.BackColor = System.Drawing.Color.Black;
             this.Tiebao_vmRenderControl1.ImageSource = null;
-            this.Tiebao_vmRenderControl1.Location = new System.Drawing.Point(12, 97);
+            this.Tiebao_vmRenderControl1.Location = new System.Drawing.Point(39, 80);
             this.Tiebao_vmRenderControl1.ModuleSource = null;
             this.Tiebao_vmRenderControl1.Name = "Tiebao_vmRenderControl1";
             this.Tiebao_vmRenderControl1.Size = new System.Drawing.Size(400, 300);
@@ -60,7 +60,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(55, 50);
+            this.label1.Location = new System.Drawing.Point(101, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(274, 29);
             this.label1.TabIndex = 7;
@@ -70,7 +70,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(475, 50);
+            this.label2.Location = new System.Drawing.Point(506, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(274, 29);
             this.label2.TabIndex = 8;
@@ -80,19 +80,22 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(948, 50);
+            this.label3.Location = new System.Drawing.Point(1006, 28);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 29);
             this.label3.TabIndex = 11;
-            this.label3.Text = "处理流程";
+            this.label3.Text = "铁流检测";
             // 
-            // vmProcedureConfigControl1
+            // TL_vmRenderControl1
             // 
-            this.vmProcedureConfigControl1.Location = new System.Drawing.Point(834, 97);
-            this.vmProcedureConfigControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.vmProcedureConfigControl1.Name = "vmProcedureConfigControl1";
-            this.vmProcedureConfigControl1.Size = new System.Drawing.Size(375, 300);
-            this.vmProcedureConfigControl1.TabIndex = 10;
+            this.TL_vmRenderControl1.BackColor = System.Drawing.Color.Black;
+            this.TL_vmRenderControl1.ImageSource = null;
+            this.TL_vmRenderControl1.Location = new System.Drawing.Point(884, 80);
+            this.TL_vmRenderControl1.Margin = new System.Windows.Forms.Padding(5);
+            this.TL_vmRenderControl1.ModuleSource = null;
+            this.TL_vmRenderControl1.Name = "TL_vmRenderControl1";
+            this.TL_vmRenderControl1.Size = new System.Drawing.Size(400, 300);
+            this.TL_vmRenderControl1.TabIndex = 12;
             // 
             // Fauto_Form
             // 
@@ -100,9 +103,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1298, 541);
+            this.ClientSize = new System.Drawing.Size(1298, 651);
+            this.Controls.Add(this.TL_vmRenderControl1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.vmProcedureConfigControl1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Guankou_vmRenderControl2);
@@ -112,6 +115,8 @@
             this.ShowTitle = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "视觉图像";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Fauto_Form_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fauto_Form_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,6 +129,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private VMControls.Winform.Release.VmProcedureConfigControl vmProcedureConfigControl1;
+        private VMControls.Winform.Release.VmRenderControl TL_vmRenderControl1;
     }
 }

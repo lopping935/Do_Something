@@ -141,9 +141,10 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.uiDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.uiDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiDataGridView1.EnableHeadersVisualStyles = false;
             this.uiDataGridView1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.uiDataGridView1.Location = new System.Drawing.Point(5, 35);
+            this.uiDataGridView1.Location = new System.Drawing.Point(5, 0);
             this.uiDataGridView1.Name = "uiDataGridView1";
             this.uiDataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -159,7 +160,7 @@
             this.uiDataGridView1.RowTemplate.Height = 23;
             this.uiDataGridView1.SelectedIndex = -1;
             this.uiDataGridView1.ShowGridLine = true;
-            this.uiDataGridView1.Size = new System.Drawing.Size(1053, 501);
+            this.uiDataGridView1.Size = new System.Drawing.Size(1053, 536);
             this.uiDataGridView1.TabIndex = 1;
             // 
             // uiContextMenuStrip1
@@ -200,15 +201,13 @@
             // Real_data
             // 
             this.AllowAddControlOnTitle = true;
-            this.AllowShowTitle = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1063, 541);
             this.Controls.Add(this.uiDataGridView1);
             this.Name = "Real_data";
-            this.Padding = new System.Windows.Forms.Padding(5, 35, 5, 5);
-            this.ShowTitle = true;
+            this.Padding = new System.Windows.Forms.Padding(5, 0, 5, 5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "折铁实时数据";
             this.Load += new System.EventHandler(this.Real_data_Load);

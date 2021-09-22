@@ -35,11 +35,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.uiButton1 = new Sunny.UI.UIButton();
             this.uiDatetimePicker2 = new Sunny.UI.UIDatetimePicker();
             this.uiLabel2 = new Sunny.UI.UILabel();
             this.uiDatetimePicker1 = new Sunny.UI.UIDatetimePicker();
             this.uiLabel1 = new Sunny.UI.UILabel();
-            this.uiButton1 = new Sunny.UI.UIButton();
             this.uiDataGridView1 = new Sunny.UI.UIDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -62,7 +62,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 35);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -73,7 +73,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.uiDataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(1063, 506);
+            this.splitContainer1.Size = new System.Drawing.Size(1063, 541);
             this.splitContainer1.SplitterDistance = 62;
             this.splitContainer1.TabIndex = 24;
             // 
@@ -92,7 +92,20 @@
             this.uiPanel1.Name = "uiPanel1";
             this.uiPanel1.Size = new System.Drawing.Size(1063, 59);
             this.uiPanel1.TabIndex = 2;
+            this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiButton1
+            // 
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiButton1.Location = new System.Drawing.Point(844, 12);
+            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Size = new System.Drawing.Size(100, 35);
+            this.uiButton1.TabIndex = 4;
+            this.uiButton1.Text = "查询";
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
             // 
             // uiDatetimePicker2
             // 
@@ -119,6 +132,7 @@
             this.uiLabel2.Location = new System.Drawing.Point(474, 22);
             this.uiLabel2.Name = "uiLabel2";
             this.uiLabel2.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel2.Style = Sunny.UI.UIStyle.Custom;
             this.uiLabel2.TabIndex = 2;
             this.uiLabel2.Text = "结束时间：";
             this.uiLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -148,21 +162,10 @@
             this.uiLabel1.Location = new System.Drawing.Point(38, 18);
             this.uiLabel1.Name = "uiLabel1";
             this.uiLabel1.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel1.Style = Sunny.UI.UIStyle.Custom;
             this.uiLabel1.TabIndex = 0;
             this.uiLabel1.Text = "开始时间：";
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // uiButton1
-            // 
-            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(844, 12);
-            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton1.Name = "uiButton1";
-            this.uiButton1.Size = new System.Drawing.Size(100, 35);
-            this.uiButton1.TabIndex = 4;
-            this.uiButton1.Text = "查询";
-            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
             // 
             // uiDataGridView1
             // 
@@ -198,12 +201,11 @@
             this.uiDataGridView1.RowTemplate.Height = 23;
             this.uiDataGridView1.SelectedIndex = -1;
             this.uiDataGridView1.ShowGridLine = true;
-            this.uiDataGridView1.Size = new System.Drawing.Size(1063, 440);
+            this.uiDataGridView1.Size = new System.Drawing.Size(1063, 475);
             this.uiDataGridView1.TabIndex = 0;
             // 
             // ModelSet
             // 
-            this.AllowShowTitle = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
@@ -211,8 +213,6 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.button1);
             this.Name = "ModelSet";
-            this.Padding = new System.Windows.Forms.Padding(0, 35, 0, 0);
-            this.ShowTitle = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "历史记录查询";
             this.splitContainer1.Panel1.ResumeLayout(false);

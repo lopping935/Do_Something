@@ -40,6 +40,7 @@
             this.timerLog = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.uiNavBar1 = new Sunny.UI.UINavBar();
+            this.uiButton1 = new Sunny.UI.UIButton();
             this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
             this.uiLabel5 = new Sunny.UI.UILabel();
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
@@ -71,7 +72,7 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter1.Location = new System.Drawing.Point(0, 899);
+            this.splitter1.Location = new System.Drawing.Point(0, 974);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(1481, 3);
             this.splitter1.TabIndex = 8;
@@ -81,7 +82,7 @@
             // 
             this.splitter2.Location = new System.Drawing.Point(0, 35);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(3, 864);
+            this.splitter2.Size = new System.Drawing.Size(3, 939);
             this.splitter2.TabIndex = 12;
             this.splitter2.TabStop = false;
             // 
@@ -111,6 +112,7 @@
             // uiNavBar1
             // 
             this.uiNavBar1.BackColor = System.Drawing.Color.LightCyan;
+            this.uiNavBar1.Controls.Add(this.uiButton1);
             this.uiNavBar1.Controls.Add(this.uiSymbolButton2);
             this.uiNavBar1.Controls.Add(this.uiLabel5);
             this.uiNavBar1.Controls.Add(this.uiSymbolButton1);
@@ -128,9 +130,21 @@
             this.uiNavBar1.MenuSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.uiNavBar1.MenuStyle = Sunny.UI.UIMenuStyle.Custom;
             this.uiNavBar1.Name = "uiNavBar1";
-            this.uiNavBar1.Size = new System.Drawing.Size(1478, 97);
+            this.uiNavBar1.Size = new System.Drawing.Size(1478, 87);
             this.uiNavBar1.TabIndex = 28;
             this.uiNavBar1.Text = "uiNavBar1";
+            // 
+            // uiButton1
+            // 
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiButton1.Location = new System.Drawing.Point(877, 24);
+            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Size = new System.Drawing.Size(100, 35);
+            this.uiButton1.TabIndex = 49;
+            this.uiButton1.Text = "测试";
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
             // 
             // uiSymbolButton2
             // 
@@ -140,7 +154,7 @@
             this.uiSymbolButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiSymbolButton2.ForeColor = System.Drawing.Color.Maroon;
             this.uiSymbolButton2.ImageInterval = 3;
-            this.uiSymbolButton2.Location = new System.Drawing.Point(1053, 27);
+            this.uiSymbolButton2.Location = new System.Drawing.Point(1053, 18);
             this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton2.Name = "uiSymbolButton2";
             this.uiSymbolButton2.Radius = 40;
@@ -155,7 +169,7 @@
             // uiLabel5
             // 
             this.uiLabel5.Font = new System.Drawing.Font("隶书", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel5.Location = new System.Drawing.Point(1249, 71);
+            this.uiLabel5.Location = new System.Drawing.Point(1249, 59);
             this.uiLabel5.Name = "uiLabel5";
             this.uiLabel5.Size = new System.Drawing.Size(100, 23);
             this.uiLabel5.TabIndex = 47;
@@ -170,7 +184,7 @@
             this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiSymbolButton1.ForeColor = System.Drawing.Color.Maroon;
             this.uiSymbolButton1.ImageInterval = 3;
-            this.uiSymbolButton1.Location = new System.Drawing.Point(1231, 27);
+            this.uiSymbolButton1.Location = new System.Drawing.Point(1231, 18);
             this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton1.Name = "uiSymbolButton1";
             this.uiSymbolButton1.Radius = 40;
@@ -185,7 +199,7 @@
             // uiLabel4
             // 
             this.uiLabel4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel4.Location = new System.Drawing.Point(117, 55);
+            this.uiLabel4.Location = new System.Drawing.Point(117, 44);
             this.uiLabel4.Name = "uiLabel4";
             this.uiLabel4.Size = new System.Drawing.Size(333, 23);
             this.uiLabel4.TabIndex = 46;
@@ -195,7 +209,7 @@
             // uiLabel3
             // 
             this.uiLabel3.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel3.Location = new System.Drawing.Point(116, 27);
+            this.uiLabel3.Location = new System.Drawing.Point(116, 16);
             this.uiLabel3.Name = "uiLabel3";
             this.uiLabel3.Size = new System.Drawing.Size(322, 25);
             this.uiLabel3.TabIndex = 45;
@@ -205,7 +219,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::AnBRobotSystem.Properties.Resources.山钢图标98;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(104, 78);
             this.pictureBox1.TabIndex = 44;
@@ -214,7 +228,7 @@
             // uiLabel2
             // 
             this.uiLabel2.Font = new System.Drawing.Font("隶书", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel2.Location = new System.Drawing.Point(664, 75);
+            this.uiLabel2.Location = new System.Drawing.Point(664, 63);
             this.uiLabel2.Name = "uiLabel2";
             this.uiLabel2.Size = new System.Drawing.Size(100, 23);
             this.uiLabel2.TabIndex = 43;
@@ -227,7 +241,7 @@
             this.uiLedDisplay1.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLedDisplay1.ForeColor = System.Drawing.Color.Lime;
             this.uiLedDisplay1.IntervalOn = 3;
-            this.uiLedDisplay1.Location = new System.Drawing.Point(584, 27);
+            this.uiLedDisplay1.Location = new System.Drawing.Point(584, 18);
             this.uiLedDisplay1.Name = "uiLedDisplay1";
             this.uiLedDisplay1.Size = new System.Drawing.Size(251, 41);
             this.uiLedDisplay1.TabIndex = 42;
@@ -236,7 +250,7 @@
             // uiLabel1
             // 
             this.uiLabel1.Font = new System.Drawing.Font("隶书", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel1.Location = new System.Drawing.Point(1062, 71);
+            this.uiLabel1.Location = new System.Drawing.Point(1062, 59);
             this.uiLabel1.Name = "uiLabel1";
             this.uiLabel1.Size = new System.Drawing.Size(100, 23);
             this.uiLabel1.TabIndex = 28;
@@ -251,19 +265,16 @@
             this.uiTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.uiTabControl1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiTabControl1.ItemSize = new System.Drawing.Size(150, 40);
-            this.uiTabControl1.Location = new System.Drawing.Point(3, 682);
+            this.uiTabControl1.Location = new System.Drawing.Point(3, 757);
             this.uiTabControl1.MainPage = "";
             this.uiTabControl1.MenuStyle = Sunny.UI.UIMenuStyle.Custom;
             this.uiTabControl1.Name = "uiTabControl1";
             this.uiTabControl1.SelectedIndex = 0;
             this.uiTabControl1.Size = new System.Drawing.Size(1478, 217);
             this.uiTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.uiTabControl1.Style = Sunny.UI.UIStyle.Custom;
             this.uiTabControl1.TabBackColor = System.Drawing.Color.LightCyan;
             this.uiTabControl1.TabIndex = 37;
             this.uiTabControl1.TabSelectedColor = System.Drawing.Color.Transparent;
-            this.uiTabControl1.TabSelectedForeColor = System.Drawing.Color.Black;
-            this.uiTabControl1.TabSelectedHighColor = System.Drawing.Color.Black;
             this.uiTabControl1.TabUnSelectedForeColor = System.Drawing.Color.Black;
             // 
             // tabPage4
@@ -364,8 +375,8 @@
             this.uiNavMenu1.FullRowSelect = true;
             this.uiNavMenu1.HoverColor = System.Drawing.Color.Transparent;
             this.uiNavMenu1.ItemHeight = 50;
-            this.uiNavMenu1.Location = new System.Drawing.Point(3, 132);
-            this.uiNavMenu1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.uiNavMenu1.Location = new System.Drawing.Point(3, 122);
+            this.uiNavMenu1.Margin = new System.Windows.Forms.Padding(0);
             this.uiNavMenu1.MenuStyle = Sunny.UI.UIMenuStyle.Custom;
             this.uiNavMenu1.Name = "uiNavMenu1";
             treeNode1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -385,7 +396,7 @@
             this.uiNavMenu1.SecondBackColor = System.Drawing.Color.Transparent;
             this.uiNavMenu1.SelectedColor = System.Drawing.Color.OliveDrab;
             this.uiNavMenu1.ShowLines = false;
-            this.uiNavMenu1.Size = new System.Drawing.Size(154, 550);
+            this.uiNavMenu1.Size = new System.Drawing.Size(159, 635);
             this.uiNavMenu1.TabIndex = 41;
             this.uiNavMenu1.MenuItemClick += new Sunny.UI.UINavMenu.OnMenuItemClick(this.uiNavMenu1_MenuItemClick);
             // 
@@ -394,7 +405,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1481, 902);
+            this.ClientSize = new System.Drawing.Size(1481, 977);
             this.Controls.Add(this.uiNavMenu1);
             this.Controls.Add(this.uiTabControl1);
             this.Controls.Add(this.uiNavBar1);
@@ -448,5 +459,6 @@
         private Sunny.UI.UILabel uiLabel5;
         private Sunny.UI.UISymbolButton uiSymbolButton1;
         private Sunny.UI.UISymbolButton uiSymbolButton2;
+        private Sunny.UI.UIButton uiButton1;
     }
 }

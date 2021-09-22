@@ -14,7 +14,7 @@ namespace AnBRobotSystem.Utlis
     public class dbTaskHelper
     {
         DbHelper db;
-        public  string constring = "Data Source=.;Initial Catalog=AutoSteel;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000";
+        public  string constring = "Data Source=127.0.0.1;Initial Catalog=AutoSteel;User ID=sa; Password=6923263;Enlist=true;Pooling=true;Max Pool Size=300;Min Pool Size=0;Connection Lifetime=300;packet size=1000";
         private static object obj = new object();
         public dbTaskHelper()
         {

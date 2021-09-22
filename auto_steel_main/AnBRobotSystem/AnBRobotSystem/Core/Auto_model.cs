@@ -74,7 +74,6 @@ namespace AnBRobotSystem.Core
         {
             try
             {
-
                 one_ZT.Has_mission = true;
                 if (Program.GB_chose_flag == 1)//人工选罐
                 {
@@ -199,6 +198,8 @@ namespace AnBRobotSystem.Core
                         one_ZT.TB_num = PLCdata.ZT_data.TB_num;
                         one_ZT.TB_need_weight = m1.need_ibag_weight;
                         one_ZT.TB_on_pos = PLCdata.ZT_data.TB_pos;
+                        one_ZT.TB_hight = PLCdata.ZT_data.TB_hight;
+                        one_ZT.TB_Init_weight = PLCdata.ZT_data.TB_weight;
 
 
                         if (m1.F_flag == "F" && m1.fish_station != "ER")
@@ -222,8 +223,6 @@ namespace AnBRobotSystem.Core
                                         one_ZT.GB_GK_vision = true;
                                         one_ZT.GB_have_wight = m1.fish_weight;
                                         threadflag = true;
-                                        GC.Collect();
-                                        GC.SuppressFinalize(this);
                                         full_thread = new Thread(process_fmodel_full);
                                         full_thread.Start();
                                         //Thread.Sleep(50000);
@@ -415,7 +414,6 @@ namespace AnBRobotSystem.Core
 
                             if (MdiParent.gk1.set_GK_contiu() == false)
                             {
-
                                 writelisview("模型", "启动罐口连续边缘检测出错", "log");
                                 Program.model_flag = 1000;
                                 // threadflag = false;
@@ -454,7 +452,7 @@ namespace AnBRobotSystem.Core
                             }
                             if (edge_value.Count >= 5)
                             {
-                                if (edge_value[2] - edge_value[0] > 0 && edge_value[5] - edge_value[3] > 0)
+                                if (edge_value[2] - edge_value[0] > 0 && edge_value[4] - edge_value[2] > 0)
                                 {
                                     MdiParent.process_TL.ContinuousRunEnable = true;
                                     MdiParent.process_GK.ContinuousRunEnable = false;
@@ -462,12 +460,16 @@ namespace AnBRobotSystem.Core
                                     one_ZT.GB_edge = true;
 
                                 }
+                                else
+                                {
+                                    writelisview("模型", "连续边缘检测结果异常！", "log");
+                                    MdiParent.process_GK.ContinuousRunEnable = false;
+                                    Program.model_flag = 1000;
+                                }
                             }
                             else
                             {
-                                writelisview("模型", "连续边缘检测结果异常！", "log");
-                                MdiParent.process_GK.ContinuousRunEnable = false;
-                                Program.model_flag = 1000;
+                                Program.program_flag = 2;
                             }
 
                         }

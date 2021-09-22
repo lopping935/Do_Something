@@ -41,7 +41,8 @@ namespace AnBRobotSystem.ChildForm
             {
                 while (flag)
                 {
-                    
+                    ////静态模型状态更新
+
                     if (AnBRobotSystem.MdiParent.zt_state.Has_mission)
                     {
                         if(ZT_mision.OnColor==Color.Red)
@@ -108,8 +109,32 @@ namespace AnBRobotSystem.ChildForm
                             GB_get_pow.OnColor = Color.Green;
                         else
                             GB_get_pow.OnColor = Color.Red;
-
-
+                        //动态模型状态更新
+                        //罐口边缘
+                        if (AnBRobotSystem.MdiParent.zt_state.GB_edge)
+                            GK_edge.OnColor = Color.Green;
+                        else
+                            GK_edge.OnColor = Color.Red;
+                        //铁流有无
+                        if (AnBRobotSystem.MdiParent.zt_state.TL)
+                            GB_TL.OnColor = Color.Green;
+                        else
+                            GB_TL.OnColor = Color.Red;
+                        //铁流入包
+                        if (AnBRobotSystem.MdiParent.zt_state.TL_in_TB)
+                            TB_getiron.OnColor = Color.Green;
+                        else
+                            TB_getiron.OnColor = Color.Red;
+                        //折铁返回
+                        if (AnBRobotSystem.MdiParent.zt_state.ZT_back)
+                            GB_back.OnColor = Color.Green;
+                        else
+                            GB_back.OnColor = Color.Red;
+                        //折铁完成
+                        if (AnBRobotSystem.MdiParent.zt_state.ZT_OK)
+                            ZT_finsh.OnColor = Color.Green;
+                        else
+                            ZT_finsh.OnColor = Color.Red;
                     }
                     else
                     {
@@ -127,6 +152,13 @@ namespace AnBRobotSystem.ChildForm
                         MG_uiLedLabel.Invoke(new Action(() => { MG_uiLedLabel.Text = "N"; }));
                         GNTL_uiLedLabel.Invoke(new Action(() => { GNTL_uiLedLabel.Text = "0"; }));
                         //writelistview("test", "test", "err");
+                        //动态模型状态置位
+                        GK_edge.OnColor = Color.Red;
+                        GB_TL.OnColor = Color.Red;
+                        TB_getiron.OnColor = Color.Red;
+                        GB_back.OnColor = Color.Red;
+                        ZT_finsh.OnColor = Color.Red;
+
                     }
 
                 }
@@ -204,6 +236,12 @@ namespace AnBRobotSystem.ChildForm
             PLCdata.ZT_data.TB_weight = Single.Parse(TB_R_weight.Text);
 
 
+        }
+
+        private void uiButton2_Click(object sender, EventArgs e)
+        {
+            PLCdata.ZT_data.GB_A_angle += 100;
+            GB_R_angle.Text = PLCdata.ZT_data.GB_A_angle.ToString();
         }
     }
 

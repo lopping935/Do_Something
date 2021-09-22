@@ -78,6 +78,7 @@
             this.uiLabel9 = new Sunny.UI.UILabel();
             this.uiLabel8 = new Sunny.UI.UILabel();
             this.uiGroupBox4 = new Sunny.UI.UIGroupBox();
+            this.uiButton2 = new Sunny.UI.UIButton();
             this.uiButton1 = new Sunny.UI.UIButton();
             this.uiLabel25 = new Sunny.UI.UILabel();
             this.GB_R_angle = new Sunny.UI.UITextBox();
@@ -688,6 +689,7 @@
             // 
             // uiGroupBox4
             // 
+            this.uiGroupBox4.Controls.Add(this.uiButton2);
             this.uiGroupBox4.Controls.Add(this.uiButton1);
             this.uiGroupBox4.Controls.Add(this.uiLabel25);
             this.uiGroupBox4.Controls.Add(this.GB_R_angle);
@@ -696,26 +698,38 @@
             this.uiGroupBox4.Controls.Add(this.GB_R_speed);
             this.uiGroupBox4.Controls.Add(this.TB_R_weight);
             this.uiGroupBox4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiGroupBox4.Location = new System.Drawing.Point(551, 395);
+            this.uiGroupBox4.Location = new System.Drawing.Point(551, 411);
             this.uiGroupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiGroupBox4.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox4.Name = "uiGroupBox4";
             this.uiGroupBox4.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox4.Size = new System.Drawing.Size(652, 180);
+            this.uiGroupBox4.Size = new System.Drawing.Size(652, 164);
             this.uiGroupBox4.TabIndex = 35;
             this.uiGroupBox4.Text = "测试仿真";
             this.uiGroupBox4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiButton2
+            // 
+            this.uiButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiButton2.Location = new System.Drawing.Point(542, 107);
+            this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton2.Name = "uiButton2";
+            this.uiButton2.Size = new System.Drawing.Size(100, 35);
+            this.uiButton2.TabIndex = 31;
+            this.uiButton2.Text = "动态增加";
+            this.uiButton2.Click += new System.EventHandler(this.uiButton2_Click);
             // 
             // uiButton1
             // 
             this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(542, 123);
+            this.uiButton1.Location = new System.Drawing.Point(542, 42);
             this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton1.Name = "uiButton1";
             this.uiButton1.Size = new System.Drawing.Size(100, 35);
             this.uiButton1.TabIndex = 30;
-            this.uiButton1.Text = "test";
+            this.uiButton1.Text = "全部赋值";
             this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
             // 
             // uiLabel25
@@ -889,6 +903,7 @@
         private Sunny.UI.UITextBox GB_R_speed;
         private Sunny.UI.UITextBox TB_R_weight;
         private Sunny.UI.UIButton uiButton1;
+        private Sunny.UI.UIButton uiButton2;
     }
 }
 
