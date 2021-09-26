@@ -53,7 +53,7 @@ namespace AnBRobotSystem.Core
         Thread full_thread, nfull_thread;
         public bool threadflag = false;
         public ZT_Date one_ZT = new ZT_Date();
-        Single limt_angle = 0;
+        Single limt_angle = 2000;
         public List<float> edge_value = new List<float>(5);
         public Auto_model()
         {
@@ -325,7 +325,7 @@ namespace AnBRobotSystem.Core
             try
             {
                 //模型计算获取开流倾角
-                limt_angle = 20;
+                limt_angle = 2000;
                 return true;
             }
             catch (Exception e)
@@ -386,6 +386,7 @@ namespace AnBRobotSystem.Core
                 #region
                 while (threadflag)
                 {
+                    Thread.Sleep(500);
                     setvalue(one_ZT.GB_station);
                     dbhlper.updata_table("RealTime_Car_Bag", "mid_weight", (one_ZT.GB_have_wight - (one_ZT.TB_weight - one_ZT.TB_Init_weight)).ToString(), "ID", one_ZT.GB_station);
                     //////模型计算给定速度  现在是直接给定
@@ -412,18 +413,18 @@ namespace AnBRobotSystem.Core
                         {
                             MdiParent.GK_global.SetGlobalVar("GK_pos", one_ZT.GB_station);
 
-                            if (MdiParent.gk1.set_GK_contiu() == false)
-                            {
-                                writelisview("模型", "启动罐口连续边缘检测出错", "log");
-                                Program.model_flag = 1000;
-                                // threadflag = false;
-                                //  break;
-                            }
-                            else
-                            {
-                                Program.program_flag = 2;//连接检测炉口阶段
-                                writelisview("模型", "启动罐口连续边缘检测！", "log");
-                            }
+                            //if (MdiParent.gk1.set_GK_contiu() == false)
+                            //{
+                            //    writelisview("模型", "启动罐口连续边缘检测出错", "log");
+                            //    Program.model_flag = 1000;
+                            //    // threadflag = false;
+                            //    //  break;
+                            //}
+                            //else
+                            //{
+                            Program.program_flag = 2;//连接检测炉口阶段
+                            writelisview("模型", "启动罐口连续边缘检测！", "log");
+                            //}
                         }
                         else
                         {
@@ -445,17 +446,18 @@ namespace AnBRobotSystem.Core
                             else
                             {
                                 writelisview("模型", "视觉连续检测罐口边缘失败！", "log");
-                                MdiParent.process_GK.ContinuousRunEnable = false;
+                                //MdiParent.process_GK.ContinuousRunEnable = false;
                                 Program.model_flag = 1000;
                                 // threadflag = false;
                                 // break;
                             }
                             if (edge_value.Count >= 5)
                             {
-                                if (edge_value[2] - edge_value[0] > 0 && edge_value[4] - edge_value[2] > 0)
+                                //实际应该大于0  测试改为==0
+                                if (edge_value[2] - edge_value[0] ==0  && edge_value[4] - edge_value[2] == 0)
                                 {
-                                    MdiParent.process_TL.ContinuousRunEnable = true;
-                                    MdiParent.process_GK.ContinuousRunEnable = false;
+                                    //MdiParent.process_TL.ContinuousRunEnable = true;
+                                    //MdiParent.process_GK.ContinuousRunEnable = false;
                                     Program.program_flag = 3;
                                     one_ZT.GB_edge = true;
 

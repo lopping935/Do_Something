@@ -45,24 +45,35 @@ namespace AnBRobotSystem
         public static int a = 0;
         public VideoCapture camer_cap;
         string SolutionPath = @"E:\ProjSetup\Auto_steel\newvm\autosteelvm.sol";
+
+        Thread plc_updata = new Thread(PLCdata.Read_PLC_data);
         // manage_steel m1 = new manage_steel();
         //Auto_model atuomodel = new Auto_model();
 
         public MdiParent()
         {
-            InitializeComponent();
-            uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[0], 61459);
-            uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[1], 61501);
-            uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[2], 61555);
-            uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[3], 61712);
-            form = this;
-            LogHelper.WriteLog("star program");
-            tb1.writelistview = mainlog;
-            gk1.writelistview = mainlog;
-
-            LoadSolution();
-
-           
+            try
+            {
+                InitializeComponent();
+                uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[0], 61459);
+                uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[1], 61501);
+                uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[2], 61555);
+                uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[3], 61712);
+                form = this;
+                LogHelper.WriteLog("star program");
+                tb1.writelistview = mainlog;
+                gk1.writelistview = mainlog;
+                tl1.writelistview1 = mainlog;
+                LoadSolution();
+                PLCdata.writelog = mainlog;
+                PLCdata.initplc();
+                plc_updata.Start();
+            }
+            catch(Exception e)
+            {
+                mainlog("主窗体", "主窗体初始化错误！", "err");
+                LogHelper.WriteLog("主窗体",e);
+            }
         }
         private void MdiParent_Load(object sender, EventArgs e)
         {
@@ -212,7 +223,7 @@ namespace AnBRobotSystem
         #region//时钟
         private void FreshTimer_Tick(object sender, EventArgs e)
         {
-            //PLCdata.calc_weight_speed();
+           // PLCdata.Read_PLC_data();
             if (atuomodel != null)
                 zt_state = atuomodel.one_ZT;
             else
@@ -272,7 +283,21 @@ namespace AnBRobotSystem
             bool result=tl1.TL_light_result();
             bool get = tl1.Get_iron;
         }
-        
+
+        private void alarm_timer_Tick(object sender, EventArgs e)
+        {
+            if(Program.model_flag!=1000)
+            {
+                Program.model_flag = 1000;
+                ShowErrorDialog("折铁过程发生错误！");
+            }
+            if (Program.GB_data_flag == 1000)
+            {
+                Program.GB_data_flag = 0;
+                ShowErrorDialog("折铁过程发生错误！");
+            }
+        }
+
         private void uiSymbolButton2_Click(object sender, EventArgs e)//开始折铁按钮
         {
             if (Program.model_flag != 1000)

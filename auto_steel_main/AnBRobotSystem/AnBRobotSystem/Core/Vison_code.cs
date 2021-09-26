@@ -29,7 +29,7 @@ namespace AnBRobotSystem.Core
         public bool Tiebao_ok = false;
         public Tiebao()
         {
-          //  updata1 = MdiParent.form.mainlog;
+            //  updata1 = MdiParent.form.mainlog;
         }
    
         public bool TB_init_result()
@@ -194,6 +194,7 @@ namespace AnBRobotSystem.Core
                 { 
                     if(GB_flag=="A")
                     {
+                        MdiParent.process_GK.Run();
                         IntResultInfo GB_A_edg_result = MdiParent.process_GK.GetIntOutputResult("GB_A_edg");
                         IntResultInfo GB_A_edg_R_result = MdiParent.process_GK.GetIntOutputResult("GB_A_edg_R");
                         int GB_A_edg_R = GB_A_edg_R_result.pIntValue[0];
@@ -213,6 +214,7 @@ namespace AnBRobotSystem.Core
                     }
                     else
                     {
+                        MdiParent.process_GK.Run();
                         IntResultInfo GB_B_edg_result = MdiParent.process_GK.GetIntOutputResult("GB_B_edg");
                         IntResultInfo GB_B_edg_R_result = MdiParent.process_GK.GetIntOutputResult("GB_B_edg_R");
                         int GB_B_edg_R = GB_B_edg_R_result.pIntValue[0];
@@ -245,8 +247,8 @@ namespace AnBRobotSystem.Core
     {
         private GroupSDK.DelegateNewFrame NewFrame = null;
         public MagDevice m1 = new MagDevice(IntPtr.Zero);
-
-        public updatelistiew writelistview;
+       
+        public updatelistiew writelistview1;
         public bool Get_iron = false;
         public bool task_run_flag = false;
         public double area = 0;
@@ -473,7 +475,7 @@ namespace AnBRobotSystem.Core
                 }
                 else
                 {
-                    
+                    //MdiParent.process_TL.Run();
                     Play(m1);
                     Bitmap b1 = m1.GetOutputBMPBitmap();
                     uint dataLen = (uint)(b1.Width * b1.Height * 3);
@@ -486,16 +488,17 @@ namespace AnBRobotSystem.Core
                     int blob_num = blob_num_info.pIntValue[0];
                     if (blob_num == 1)
                     {
-                        // string strMsg = "铁流检测结果:成功";
-                        // writelistview("铁流视觉", strMsg, "log");
                         Get_iron = true;
+                        string strMsg = "铁流检测结果:成功";
+                        writelistview1("铁流视觉", strMsg, "log");
+                        
                         return true;
 
                     }
                     else
                     {
-                        //string strMsg = "铁流检测结果:失败";
-                        // writelistview("铁流视觉", strMsg, "log");
+                        string strMsg = "铁流检测结果:失败";
+                        writelistview1("铁流视觉", strMsg, "log");
                         Get_iron = false;
                         return true;
                     }

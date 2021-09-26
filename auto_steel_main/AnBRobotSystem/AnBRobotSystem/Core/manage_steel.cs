@@ -86,18 +86,10 @@ namespace AnBRobotSystem.Core
                 {
                     if (Convert.ToString(dr["ID"]).Trim() == "A")
                     {
-
                         TimeA_Fish = Convert.ToDateTime(dr["in_time"]);
                         AFinit_weight = Convert.ToSingle(dr["init_weight"]);
                         AF_mid_weight = Convert.ToSingle(dr["mid_weight"]);
                         fish_numA = dr["number"].ToString().Trim();
-                    }
-                    if (Convert.ToString(dr["ID"]).Trim() == "B")
-                    {
-                        TimeB_Fish = Convert.ToDateTime(dr["in_time"]);
-                        BFinit_weight = Convert.ToSingle(dr["init_weight"]);
-                        BF_mid_weight = Convert.ToSingle(dr["mid_weight"]);
-                        fish_numB = dr["number"].ToString();
                     }
                 }
                 dr.Close();

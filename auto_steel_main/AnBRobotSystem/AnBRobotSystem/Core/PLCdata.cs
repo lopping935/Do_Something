@@ -7,6 +7,8 @@ using S7.Net;
 using System.Configuration;
 using logtest;
 using AnBRobotSystem.Utlis;
+using System.Data.Common;
+
 namespace AnBRobotSystem.Core
 {
     public struct plcdata
@@ -38,87 +40,204 @@ namespace AnBRobotSystem.Core
    
     public static class PLCdata
     {
-
+        public static updatelistiew writelog;
         public static dbTaskHelper db_plc_helper=new dbTaskHelper();
         public static float TB_weight_speed = 0;
         public static List<Single> weight_sp_list = new List<Single>(4);
     
         public static Int16 speed = 0;
         public static bool connect;
-        public static bool LGB_A_carIn;
-        public static bool LGB_B_carIn;
+        public static bool LGB_A_carIn,LGB_A_getpow;
+        public static bool LGB_B_carIn, LGB_B_getpow;
         public static Single Mes_GB_weight = 0;
         static string PLCIP = ConfigurationManager.ConnectionStrings["PLCIP"].ConnectionString;
         public static Plc plc300;
         //mes数据暂存
-        public static DateTime in_time;
-        public static string GB_initwit,GB_num;
+        public static DateTime in_time=new DateTime();
+        public static string pathway="A",GB_initwit="520",GB_num="34";
         
 
         //折铁plc数据对象
         public static plcdata ZT_data = new plcdata();
         public static void initplc()
         {
-            plc300 = new Plc(CpuType.S7300, PLCIP, 0, 2);
-            plc300.Open();//创建PLC实例
+            try
+            {
+                //plc300 = new Plc(CpuType.S7300, PLCIP, 0, 2);
+                plc300 = new Plc(CpuType.S71200, PLCIP, 0, 1);
+                plc300.Open();//创建PLC实例
+                writelog("plc", "plc初始化完成！", "log");
+            }
+            catch(Exception e)
+            {
+                writelog("plc", "plc 初始化错误！", "err");
+                LogHelper.WriteLog("plc初始化出错！", e);
+            }
+
         }
         //读取plc数据并更新mes表格数据
        
         public static void Read_PLC_data()
         {
-            try
+            while (true)
             {
-                while (true)
+                try
                 {
-                    
-                    System.Threading.Thread.Sleep(500);
+                    System.Threading.Thread.Sleep(1000);
                     connect = (bool)plc300.IsConnected;
                     if (connect)
                     {
-                        byte[] bytes1 = plc300.ReadBytes(DataType.DataBlock, 80, 74, 8);
-                        ZT_data.TB_pos = bytes1[0].SelectBit(0);
-                        ZT_data.GB_posA = bytes1[0].SelectBit(1);
-                        ZT_data.GB_posA = bytes1[0].SelectBit(2);
-                        ZT_data.GB_A_0_limt = bytes1[0].SelectBit(3);
-                        ZT_data.GB_A_120_limt = bytes1[0].SelectBit(4);
-                        ZT_data.GB_B_0_limt = bytes1[0].SelectBit(5);
-                        ZT_data.GB_B_120_limt = bytes1[0].SelectBit(6);
-                        ZT_data.GB_A_carIn = bytes1[1].SelectBit(0);
-                        ZT_data.GB_B_carIn = bytes1[1].SelectBit(1);
-                        ZT_data.GB_A_connect = bytes1[1].SelectBit(2);
-                        ZT_data.GB_B_connect = bytes1[1].SelectBit(3);
-                        int a = 1;
-                        ZT_data.TB_hight = (float)S7.Net.Types.Double.FromByteArray(bytes1.Skip(a).Take(4).ToArray());
-                        ZT_data.TB_weight = (float)S7.Net.Types.Double.FromByteArray(bytes1.Skip(a += 4).Take(4).ToArray());
-                        ZT_data.TB_num = (Int16)S7.Net.Types.Int.FromByteArray(bytes1.Skip(a += 4).Take(2).ToArray());
-                        ZT_data.GB_A_num = (Int16)S7.Net.Types.Int.FromByteArray(bytes1.Skip(a += 2).Take(2).ToArray());
-                        ZT_data.GB_B_num = (Int16)S7.Net.Types.Int.FromByteArray(bytes1.Skip(a += 2).Take(2).ToArray());
-                        ZT_data.GB_A_angle = (float)S7.Net.Types.Double.FromByteArray(bytes1.Skip(a += 2).Take(4).ToArray());
-                        ZT_data.GB_B_angle = (float)S7.Net.Types.Double.FromByteArray(bytes1.Skip(a += 4).Take(4).ToArray());
-                        ZT_data.GB_A_Rspeed = (float)S7.Net.Types.Double.FromByteArray(bytes1.Skip(a += 4).Take(4).ToArray());
-                        ZT_data.GB_B_Rspeed = (float)S7.Net.Types.Double.FromByteArray(bytes1.Skip(a += 4).Take(4).ToArray());
+                        ZT_data = (plcdata)plc300.ReadStruct(typeof(plcdata), 2);
                         calc_weight_speed();
-                        if(LGB_A_carIn==false&& ZT_data.GB_A_carIn==true)
-                        {
-                            //向mes索要火车数据，并将数据更新到表中
-                            string sqltext = string.Format("UPDATE RealTime_Car_Bag SET in_time='{0}',init_weight= '{1}',mid_weight='{2}',number='{3}' WHERE ID= 'A'", in_time, GB_initwit, GB_initwit, GB_num);
-                            db_plc_helper.MultithreadExecuteNonQuery(sqltext);
-                        }
-                        if (LGB_B_carIn == false && ZT_data.GB_B_carIn == true)
-                        {
-                            //向mes索要火车数据，并将数据更新到表中
-                            string sqltext = string.Format("UPDATE RealTime_Car_Bag SET in_time='{0}',init_weight= '{1}',mid_weight='{2}',number='{3}' WHERE ID= 'B'", in_time, GB_initwit, GB_initwit, GB_num);
-                            db_plc_helper.MultithreadExecuteNonQuery(sqltext);
-                        }
+                      //  updata_mes_data();
+                       // updata_RealTime_Car_Bag_data();
                         LGB_A_carIn = ZT_data.GB_A_carIn;
                         LGB_B_carIn = ZT_data.GB_B_carIn;
+                        LGB_A_getpow = ZT_data.GB_A_connect;
+                        LGB_B_getpow = ZT_data.GB_B_connect;
                     }
+                    else
+                    {
+                        writelog("plc", "plc连接失败！", "log");
+                        System.Threading.Thread.Sleep(5000);
+                        plc300.Open();
+                    }
+                
+                }
+                catch(Exception e)
+                {
+                    writelog("plc", "plc数据读取错误！", "err");
+                    LogHelper.WriteLog("PLC读取数据", e);
+                }
+            }
+        }
+        //更新mes记录表内容
+        public static void updata_mes_data()
+        {
+            try
+            {
+                if (LGB_A_carIn == false && ZT_data.GB_A_carIn == true)
+                {
+                    in_time = DateTime.Now;
+                    //当火车一到来时，将向mes索要火车数据，并将数据更新到MES_Data表中，当插电机器人插电时，将从MES_Data表中拷贝数据到RealTime_Car_Bag表中
+                    string sqltext = string.Format("insert into [MES_Data] VALUES ('{0}','{1}','{2}','{3}','N')", pathway, in_time, GB_initwit, GB_num);
+                    db_plc_helper.MultithreadExecuteNonQuery(sqltext);
+                    writelog("MES_Data表更新", "A道有新罐车到来", "log");
+                }
+                if (LGB_B_carIn == false && ZT_data.GB_B_carIn == true)
+                {
+                    string sqltext = string.Format("insert into [MES_Data] VALUES ('{0}','{1}','{2}','{3}','N')", pathway, in_time, GB_initwit, GB_num);
+                    db_plc_helper.MultithreadExecuteNonQuery(sqltext);
+                    writelog("MES_Data表更新", "B道有新罐车到来", "log");
+                }
+
+            }
+            catch (Exception e)
+            {
+                writelog("MES_Data表更新", "MES_Data表更新出错", "err");
+                LogHelper.WriteLog("MES_Data表更新出错", e);
+            }
+            
+        }
+        ////更新罐包管理系统实时表内容
+        public static void updata_RealTime_Car_Bag_data()
+        {
+            try
+            {
+                Int64 ID = 0;
+                DateTime in_time = new DateTime();
+                string GB_initweight = "", GB_num = "";
+                if (LGB_A_getpow == false && ZT_data.GB_A_connect == true)
+                {
+                    string sqltext = string.Format("select * from MES_Data where data_flag='N' and number='{0}' and pathway='A'", ZT_data.GB_A_num);
+                    DbDataReader dr = db_plc_helper.MultithreadDataReader(sqltext);
+                    if (dr.HasRows)
+                    {
+                        int number = 0;
+                        while (dr.Read())
+                        {
+                            number++;
+                            if (number == 1)
+                            {
+                                ID = Convert.ToInt64((dr["ID"]));
+                                in_time = Convert.ToDateTime((dr["in_time"]));
+                                GB_initweight = (dr["init_weight"]).ToString().Trim();
+                                GB_num = (dr["number"]).ToString().Trim();
+                            }
+                            else
+                            {
+                                Program.GB_data_flag = 1000;
+                                writelog("RealTime_Car_Bag", "A道罐包数据存在冲突，已自动消除！", "log");
+                                sqltext = string.Format("UPDATE MES_Data set data_flag='R' where data_flag='N' and pathway='A'");
+                                db_plc_helper.MultithreadExecuteNonQuery(sqltext);
+
+                                return;
+                            }
+                        }
+
+                        //当火车一到来时，将向mes索要火车数据，并将数据更新到MES_Data表中，当插电机器人插电时，将从MES_Data表中拷贝数据到RealTime_Car_Bag表中
+                        sqltext = string.Format("UPDATE RealTime_Car_Bag SET in_time='{0}',init_weight= '{1}',mid_weight='{2}',number='{3}' WHERE ID= 'A'", in_time, GB_initweight, GB_initweight, GB_num);
+                        db_plc_helper.MultithreadExecuteNonQuery(sqltext);
+                        writelog("RealTime_Car_Bag", "A道罐包管理数据更新", "log");
+                        sqltext = string.Format("UPDATE MES_Data set data_flag='R' where ID={0}", ID);
+                        db_plc_helper.MultithreadExecuteNonQuery(sqltext);
+                    }
+                    else
+                    {
+                        Program.GB_data_flag = 1000;
+                    }
+
+                }
+                if (LGB_B_getpow == false && ZT_data.GB_B_connect == true)
+                {
+                    string sqltext = string.Format("select * from MES_Data where data_flag='N' and number='{0}' and pathway='B'", ZT_data.GB_B_num);
+                    DbDataReader dr = db_plc_helper.MultithreadDataReader(sqltext);
+                    if (dr.HasRows)
+                    {
+                        int number = 0;
+                        while (dr.Read())
+                        {
+                            number++;
+                            if (number == 1)
+                            {
+                                if (Convert.ToString(dr["ID"]).Trim() == "A")
+                                {
+                                    ID = Convert.ToInt64((dr["ID"]));
+                                    in_time = Convert.ToDateTime((dr["in_time"]));
+                                    GB_initweight = (dr["init_weight"]).ToString().Trim();
+                                    GB_num = (dr["number"]).ToString().Trim();
+                                }
+                            }
+                            else
+                            {
+                                Program.GB_data_flag = 1000;
+                                writelog("RealTime_Car_Bag", "B道罐包数据存在冲突，已自动消除！", "log");
+                                sqltext = string.Format("UPDATE MES_Data set data_flag='R' where data_flag='N' and pathway='B'");
+                                db_plc_helper.MultithreadExecuteNonQuery(sqltext);
+                                break;
+                            }
+                        }
+
+                        //当火车一到来时，将向mes索要火车数据，并将数据更新到MES_Data表中，当插电机器人插电时，将从MES_Data表中拷贝数据到RealTime_Car_Bag表中
+                        sqltext = string.Format("UPDATE RealTime_Car_Bag SET in_time='{0}',init_weight= '{1}',mid_weight='{2}',number='{3}' WHERE ID= 'A'", in_time, GB_initweight, GB_initweight, GB_num);
+                        db_plc_helper.MultithreadExecuteNonQuery(sqltext);
+                        sqltext = string.Format("UPDATE MES_Data set data_flag='R' where ID={0}",ID);
+                        db_plc_helper.MultithreadExecuteNonQuery(sqltext);
+                        writelog("RealTime_Car_Bag", "B道罐包管理数据更新", "log");
+                    }
+                    else
+                    {
+                        Program.GB_data_flag = 1000;
+                    }
+
                 }
             }
             catch(Exception e)
             {
-                LogHelper.WriteLog("PLC读取数据", e);
-            }  
+                writelog("RealTime_Car_Bag", "更新新罐数据错误", "err");
+                LogHelper.WriteLog("RealTime_Car_Bag更新新罐", e);
+            }
+            
         }
         public static Int16 set_speed(string flag,Int16 speed)
         {
@@ -126,19 +245,14 @@ namespace AnBRobotSystem.Core
             {
                 if(flag == "A")
                 {
-                    //ErrorCode err = plc300.Write("DB1.DBI20", speed);
-                    //return (Int16)err;
-                    ZT_data.GB_A_speed = 20;
-                    return 0;
+                    ErrorCode err = plc300.Write("DB2.DBD24", speed);
+                    return (Int16)err;
                 }
                 else
                 {
-                    ZT_data.GB_B_speed = 20;
-                    return 0;
-                    //ErrorCode err = plc300.Write("DB1.DBI20", speed);
-                    //return (Int16)err;
+                    ErrorCode err = plc300.Write("DB2.DBD28", speed);
+                    return (Int16)err;
                 }
-                
             }
             catch (Exception e)
             {

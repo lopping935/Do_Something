@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("折铁流程");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("视觉图像");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("历史记录");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("实时数据");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("折铁流程");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("视觉图像");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("历史记录");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("实时数据");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MdiParent));
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.splitter2 = new System.Windows.Forms.Splitter();
@@ -62,6 +62,7 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.uiNavMenu1 = new Sunny.UI.UINavMenu();
+            this.alarm_timer = new System.Windows.Forms.Timer(this.components);
             this.uiNavBar1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.uiTabControl1.SuspendLayout();
@@ -379,26 +380,32 @@
             this.uiNavMenu1.Margin = new System.Windows.Forms.Padding(0);
             this.uiNavMenu1.MenuStyle = Sunny.UI.UIMenuStyle.Custom;
             this.uiNavMenu1.Name = "uiNavMenu1";
-            treeNode1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            treeNode1.Name = "节点0";
-            treeNode1.Text = "折铁流程";
-            treeNode2.Name = "节点1";
-            treeNode2.Text = "视觉图像";
-            treeNode3.Name = "节点2";
-            treeNode3.Text = "历史记录";
-            treeNode4.Name = "节点3";
-            treeNode4.Text = "实时数据";
+            treeNode5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            treeNode5.Name = "节点0";
+            treeNode5.Text = "折铁流程";
+            treeNode6.Name = "节点1";
+            treeNode6.Text = "视觉图像";
+            treeNode7.Name = "节点2";
+            treeNode7.Text = "历史记录";
+            treeNode8.Name = "节点3";
+            treeNode8.Text = "实时数据";
             this.uiNavMenu1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.uiNavMenu1.SecondBackColor = System.Drawing.Color.Transparent;
             this.uiNavMenu1.SelectedColor = System.Drawing.Color.OliveDrab;
             this.uiNavMenu1.ShowLines = false;
             this.uiNavMenu1.Size = new System.Drawing.Size(159, 635);
             this.uiNavMenu1.TabIndex = 41;
             this.uiNavMenu1.MenuItemClick += new Sunny.UI.UINavMenu.OnMenuItemClick(this.uiNavMenu1_MenuItemClick);
+            // 
+            // alarm_timer
+            // 
+            this.alarm_timer.Enabled = true;
+            this.alarm_timer.Interval = 2000;
+            this.alarm_timer.Tick += new System.EventHandler(this.alarm_timer_Tick);
             // 
             // MdiParent
             // 
@@ -460,5 +467,6 @@
         private Sunny.UI.UISymbolButton uiSymbolButton1;
         private Sunny.UI.UISymbolButton uiSymbolButton2;
         private Sunny.UI.UIButton uiButton1;
+        private System.Windows.Forms.Timer alarm_timer;
     }
 }
