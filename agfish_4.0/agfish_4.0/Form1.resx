@@ -121,16 +121,6 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button_BH.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAD2SURBVEhL7Ze/CoJQFId7HSFoa65Rl56hXkKioa21
-        B2gLohdJDUoqaO8PoVNDEgiinjzBhZscbmZ6G/IHH4jn8Pu86GJN0Q01wUkASaBLRbFMKcNBMTUonUos
-        jUosjULEzeESZqYLjYFFzikKE2O2Jw9aoxW5k0Yoni4cCKP4WZo113sA3cme7OMRij+VsgRhDJ3xhuxk
-        CMV5gifufXtiFj+IoN43yR2EvePd2YP2aE3upMkk9vyQnDNQPLcK/KpZ3onzUIlfyBv7cCP7eEoRY6g+
-        HqEYnzxP7KNH9vEIxWVSiaXxn+Jf/MK4KNbwgrtZNhdFN7QHtK8PjSq3Js4AAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="Recognition.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m

@@ -1,25 +1,16 @@
 ﻿using iMVS_6000PlatformSDKCS;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Text.RegularExpressions;
 using FrontedUI;
 using System.IO;
 using System.Net.Sockets;
-using System.Net;
 using OPCAutomation;
 //using FrontedUI;
 using logtest;
-using log4net;
-using log4net.Config;
 using DBTaskHelper;
 using System.Diagnostics;
 
@@ -92,7 +83,7 @@ namespace AGFish
             InitializeComponent();
             curPictureBox1 = pictureBoxImg1;
             curPictureBox2 = pictureBox1;
-            Initopc();
+            //Initopc();
             dbhelper = new dbTaskHelper();
 
         }
@@ -207,7 +198,7 @@ namespace AGFish
                 buttonOpenVM_Click(null, null);                
                 buttonLoadSolution_Click(null, null);
                 Thread.Sleep(2000);
-                button1_Click_1(null, null);
+                //button1_Click_1(null, null);
 
             }
              catch(Exception e1)
@@ -231,7 +222,7 @@ namespace AGFish
                 return;
             }
 
-            string VMPath = "D:\\Program Files\\VisionMaster3.2.0\\Applications\\VisionMaster.exe";
+            string VMPath = "C:\\Program Files\\VisionMaster3.4.0\\Applications\\VisionMaster.exe";
             int iRet = ImvsPlatformSDK_API.IMVS_PF_StartVisionMaster_CS(m_handle, VMPath, nWaitTime);
             if (ImvsSdkPFDefine.IMVS_EC_OK != iRet)
             {
@@ -432,12 +423,6 @@ namespace AGFish
 
                 }
                 AGFishOPCClient.WriteItem(1.ToString(), xintiao);
-                //DateTime dt = DateTime.Now;               
-                //if (string.Format("{0:T}", dt)=="00:00:00")
-                //{
-                //    LogHelper.Dele_LOGFile();
-                //}
-
             }
             catch (Exception ex)
             {
@@ -648,7 +633,7 @@ namespace AGFish
        * @fn           接收回调结果数据（模块结果）
        ****************************************************************************/
         Bitmap bmp,bmp1;
-      
+      //回调结果数据  发送给plc
         internal void UpdateDataModuResutOutput(ImvsSdkPFDefine.IMVS_PF_MODU_RES_INFO struResultInfo)
         {
             if (null == struResultInfo.pData)
@@ -667,12 +652,7 @@ namespace AGFish
                         imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
                         imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
                         imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
-                        //本地图像测试 ImvsSdkPFDefine.MODU_NAME_LOCALIMAGEVIEW
-                        //ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO stLocalImgInfo = (ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_LOCALIMAGEVIEW_MODU_INFO));
-                        //imageData1.Width = stLocalImgInfo.stImgInfo.iWidth;
-                        //imageData1.Height = stLocalImgInfo.stImgInfo.iHeight;
-                        //imagebytes1 = IntPtr2Bytes(stLocalImgInfo.stImgInfo.pImgData, stLocalImgInfo.stImgInfo.iImgDataLen);
-
+                       
                         if (imageData1.Width != 0 && imageData1.Height != 0 && imagebytes1 != null)
                         {
                             uint ImageLenth = (uint)(imageData1.Width * imageData1.Height);
@@ -745,7 +725,95 @@ namespace AGFish
                         {
                             AGFishOPCClient.WriteItem("4", VisionCodeA);
                         }
-                        //curPictureBox1.Invoke(new Action(() => { curPictureBox1.Image = bmp1; }));
+                        break;
+                    default: break;
+                }
+            }
+            if (struResultInfo.nProcessID == 10002)
+            {
+                switch (struResultInfo.strModuleName)//struResultInfo.nModuleID
+                {
+
+
+                    case ImvsSdkPFDefine.MODU_NAME_CAMERAMODULE:
+                        //相机图像
+                        ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO stCameraImgInfo = (ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_CAMERAMODULE_INFO));
+                        imageData1.Width = stCameraImgInfo.stImgInfo.iWidth;
+                        imageData1.Height = stCameraImgInfo.stImgInfo.iHeight;
+                        imagebytes1 = IntPtr2Bytes(stCameraImgInfo.stImgInfo.pImgData, stCameraImgInfo.stImgInfo.iImgDataLen);
+
+                        if (imageData1.Width != 0 && imageData1.Height != 0 && imagebytes1 != null)
+                        {
+                            uint ImageLenth = (uint)(imageData1.Width * imageData1.Height);
+                            if (ImageLenth != imagebytes1.Length)
+                            {
+                                break;
+                            }
+                        }
+                        imageData1.ImageBuffer = imagebytes1;
+                        if (imageData1.ImageBuffer != null)
+                        {
+                            bmp1 = imageData1.ImageDataToBitmap().GetArgb32BitMap();
+                            curPictureBox1.Invoke(new Action(() => { curPictureBox1.Image = bmp1; }));
+                        }
+                        else
+                        {
+                            vmstrimgflag = 50;
+                            Exception e = null;
+                            LogHelper.WriteLog("字符相机获取图像失败，尝试重启", e);
+                        }
+                        break;
+                    #region ocr
+                    case ImvsSdkPFDefine.MODU_NAME_OCRMODU:
+                        ImvsSdkPFDefine.IMVS_PF_OCR_MODU_INFO Rec_OCR = (ImvsSdkPFDefine.IMVS_PF_OCR_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_OCR_MODU_INFO));
+                        int strnum = Rec_OCR.iRecogResultNum;
+                        ImvsSdkPFDefine.IMVS_PF_OCR_RES_INFO[] Rec_String = Rec_OCR.pstOCRResInfo;
+
+                        if (strnum > 0)
+                        {
+                            ImvsSdkPFDefine.IMVS_PF_REGION Rect = Rec_String[0].stDetectRegion;
+                            string s1 = Rec_String[0].strTextInfo;
+                            txt_count1.Text = s1;
+                            Car_num = s1;
+                            AGFishOPCClient.WriteItem(s1, Product_Type);
+                            //AGFishOPCClient.WriteItem(5.ToString(), Product_Type);
+                            if (Rec_String[0].iCharNum == 3)
+                                AGFishOPCClient.WriteItem(1.ToString(), FlatCodeA);
+
+                            using (var g = bmp1.CreateGraphic())
+                            {
+                                g.DrawRect(Color.GreenYellow, 3, new PointF(Rect.stCenterPt.fPtX, Rect.stCenterPt.fPtY), Rect.fWidth, Rect.fHeight, Rect.fAngle);
+                            }
+                        }
+                        curPictureBox1.Invoke(new Action(() => { curPictureBox1.Image = bmp1; }));
+                        break;
+                    #endregion
+                    case ImvsSdkPFDefine.MODU_NAME_OCRDLMODU:
+                        ImvsSdkPFDefine.IMVS_PF_OCRDL_MODU_INFO Rec_DLOCR = (ImvsSdkPFDefine.IMVS_PF_OCRDL_MODU_INFO)Marshal.PtrToStructure(struResultInfo.pData, typeof(ImvsSdkPFDefine.IMVS_PF_OCRDL_MODU_INFO));
+                        ImvsSdkPFDefine.IMVS_PF_OCRDL_RESULT_INFO[] Rec_DLOCRrult = Rec_DLOCR.pstOcrDLResInfo;
+                        int dlstrnum = Rec_DLOCR.iOcrDLResNum;
+
+                        if (dlstrnum > 0)
+                        {
+                            AGFishOPCClient.WriteItem("5", VisionCodeA);
+                            string dlstr = Rec_DLOCRrult[0].strFontInfo;
+                            txt_count1.Text = dlstr;
+                            if (dlstr.Length == 2)
+                            {
+                                Car_num = dlstr;
+                                AGFishOPCClient.WriteItem(dlstr, Product_Type);
+                                AGFishOPCClient.WriteItem(1.ToString(), FlatCodeA);
+                            }
+                            else
+                            {
+                                AGFishOPCClient.WriteItem("", Product_Type);
+                                AGFishOPCClient.WriteItem(0.ToString(), FlatCodeA);
+                            }
+                        }
+                        else
+                        {
+                            AGFishOPCClient.WriteItem("4", VisionCodeA);
+                        }
                         break;
                     default: break;
                 }
@@ -985,6 +1053,12 @@ namespace AGFish
 
         static string work_result = "0";
         static string pianyistr = "", banautostr = "";
+
+        private void button_BH_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void timer_savedata_Tick(object sender, EventArgs e)
         {
             string priod_done = "",alarmtime="";
