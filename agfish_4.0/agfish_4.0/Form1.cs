@@ -15,6 +15,25 @@ using VM.PlatformSDKCS;
 
 namespace AGFish
 {
+    public struct agfish_plc
+    {
+        //public static OPCItem xintiao;
+        //public static OPCItem VisionCode;
+        //public static OPCItem VisionCodeA;
+        //public static OPCItem FlatCode;
+        //public static OPCItem FlatCodeA;
+        //public static OPCItem Product_Type;
+        //public static OPCItem Pro_X;
+        //public static OPCItem Pro_Y;
+        //public static OPCItem Pro_Z;
+        //public static OPCItem Pro_RX;
+        //public static OPCItem banauto;
+        //public static OPCItem pianyi;
+        ////记录plc数据
+        //public static OPCItem Data_chge_flag;
+        //public static OPCItem PLC_Data;
+        //public static OPCItem Alarm;
+    }
     public partial class Form1 : Form
     {
 
@@ -151,6 +170,67 @@ namespace AGFish
             //    banautostr = "";
             //}
         }
+
+        private void LocationExecuteOnce_Click(object sender, EventArgs e)
+        {
+            string strMsg = null;//
+
+            try
+            {
+                if (null == process1_DW) return;
+                process1_DW.Run();
+
+                FloatResultInfo single_px_info = process1_DW.GetFloatOutputResult("single_px");                                          //升级
+                float x = single_px_info.pFloatValue[0];
+                x = (float)Math.Round(x, 3);
+
+                FloatResultInfo single_py_info = process1_DW.GetFloatOutputResult("single_py");                                          //升级
+                float y = single_py_info.pFloatValue[0];
+                y = (float)Math.Round(y, 3);
+
+                FloatResultInfo single_angel_info = process1_DW.GetFloatOutputResult("single_angel");                                    //升级
+                float angel = single_angel_info.pFloatValue[0];
+                angel = (float)Math.Round(angel, 3);
+                txt_sdzs1.Text= x.ToString()+","+ y.ToString();
+
+            }
+            catch (VmException ex)
+            {
+                strMsg = "getresult failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
+                //txt_message.AppendText(strMsg + "\r\n");
+                listBoxMsg.Items.Add(strMsg);
+                listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+                //LogHelper.WriteLog(strMsg, ex);
+                return;
+            }
+        }
+
+        private void Recognition_Click(object sender, EventArgs e)
+        {
+            string strMsg = null;//
+            try
+            {
+                if (null == process1_DW) return;
+                process1_DW.Run();
+                StringResultInfo pxinfo = process1_GH.GetStringOutputResult("one");                                           //输出string类型信息
+                StringValueInfo x = pxinfo.astStringValue[0];
+                StringValueInfo y = pxinfo.astStringValue[1];
+                StringValueInfo z = pxinfo.astStringValue[2];
+                StringValueInfo w = pxinfo.astStringValue[2];
+                txt_count1.Text = x.strValue;
+            }
+            catch(VmException ex)
+            {
+                strMsg = "getresult failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
+                //txt_message.AppendText(strMsg + "\r\n");
+                listBoxMsg.Items.Add(strMsg);
+                listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+                //LogHelper.WriteLog(strMsg, ex);
+                return;
+            }
+          
+        }
+
         //开启vm
         private void buttonOpenVM_Click(object sender, EventArgs e)
         {
@@ -165,7 +245,12 @@ namespace AGFish
                 VmSolution.Import(SolutionPath4, "");
                 mSolutionIsLoad = true;
                 process1_DW = (VmProcedure)VmSolution.Instance["流程1"];
+                process1_BH = (VmProcedure)VmSolution.Instance["流程2"];
+                process1_GH= (VmProcedure)VmSolution.Instance["流程3"];
                 vmRenderControl1.ModuleSource = process1_DW;
+                vmRenderControl2.ModuleSource = process1_BH;
+                vmRenderControl3.ModuleSource = process1_GH;
+
             }
             catch (VmException ex)
             {
@@ -188,7 +273,44 @@ namespace AGFish
         //关闭vm
         private void buttonCloseVM_Click(object sender, EventArgs e)
         {
+            string strMsg = null;
 
+            try
+            {
+                if (mSolutionIsLoad == true)
+                {
+                    VmSolution.Instance.CloseSolution();
+                    mSolutionIsLoad = false;  // 代表方案已经关闭
+                }
+                else
+                {
+                    strMsg = "No solution file.";
+                    //txt_message.AppendText(strMsg + "\r\n");
+                    listBoxMsg.Items.Add(strMsg);
+                    listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+
+                    return;
+                }
+
+            }
+            catch (VmException ex)
+            {
+                strMsg = "CloseSolution failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
+                //txt_message.AppendText(strMsg + "\r\n");
+                listBoxMsg.Items.Add(strMsg);
+                listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+                return;
+            }
+            strMsg = "CloseSolution success";
+            //txt_message.AppendText(strMsg + "\r\n");
+            listBoxMsg.Items.Add(strMsg);
+            listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+
+
+            /****************************************************************************
+            * @fn           4.0的关闭方案
+            * @fn           Close solution
+            ****************************************************************************/
         }
 
         private void button1_Click_1(object sender, EventArgs e)

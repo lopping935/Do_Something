@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer_deleterizhi = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.listBoxMsg = new System.Windows.Forms.ListBox();
             this.buttonOpenVM = new System.Windows.Forms.Button();
             this.buttonCloseVM = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -42,6 +43,9 @@
             this.labelProgress = new System.Windows.Forms.Label();
             this.buttonLoadSolution = new System.Windows.Forms.Button();
             this.buttonShowHideVM = new System.Windows.Forms.Button();
+            this.vmRenderControl3 = new VMControls.Winform.Release.VmRenderControl();
+            this.vmRenderControl2 = new VMControls.Winform.Release.VmRenderControl();
+            this.vmRenderControl1 = new VMControls.Winform.Release.VmRenderControl();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Recognition = new System.Windows.Forms.Button();
@@ -52,10 +56,10 @@
             this.LocationExecuteOnce = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.timer_savedata = new System.Windows.Forms.Timer(this.components);
-            this.vmRenderControl1 = new VMControls.Winform.Release.VmRenderControl();
-            this.vmRenderControl2 = new VMControls.Winform.Release.VmRenderControl();
-            this.vmRenderControl3 = new VMControls.Winform.Release.VmRenderControl();
-            this.listBoxMsg = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1_BH = new System.Windows.Forms.Button();
+            this.textBox1_BH = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -90,6 +94,10 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.label6);
+            this.splitContainer1.Panel2.Controls.Add(this.button1_BH);
+            this.splitContainer1.Panel2.Controls.Add(this.textBox1_BH);
+            this.splitContainer1.Panel2.Controls.Add(this.label7);
             this.splitContainer1.Panel2.Controls.Add(this.vmRenderControl3);
             this.splitContainer1.Panel2.Controls.Add(this.vmRenderControl2);
             this.splitContainer1.Panel2.Controls.Add(this.vmRenderControl1);
@@ -106,6 +114,15 @@
             this.splitContainer1.Size = new System.Drawing.Size(1904, 1041);
             this.splitContainer1.SplitterDistance = 523;
             this.splitContainer1.TabIndex = 182;
+            // 
+            // listBoxMsg
+            // 
+            this.listBoxMsg.FormattingEnabled = true;
+            this.listBoxMsg.ItemHeight = 12;
+            this.listBoxMsg.Location = new System.Drawing.Point(61, 341);
+            this.listBoxMsg.Name = "listBoxMsg";
+            this.listBoxMsg.Size = new System.Drawing.Size(396, 604);
+            this.listBoxMsg.TabIndex = 38;
             // 
             // buttonOpenVM
             // 
@@ -205,6 +222,36 @@
             this.buttonShowHideVM.Text = "显示/隐藏 VisionMaster";
             this.buttonShowHideVM.UseVisualStyleBackColor = true;
             // 
+            // vmRenderControl3
+            // 
+            this.vmRenderControl3.BackColor = System.Drawing.Color.Black;
+            this.vmRenderControl3.ImageSource = null;
+            this.vmRenderControl3.Location = new System.Drawing.Point(945, 341);
+            this.vmRenderControl3.ModuleSource = null;
+            this.vmRenderControl3.Name = "vmRenderControl3";
+            this.vmRenderControl3.Size = new System.Drawing.Size(400, 300);
+            this.vmRenderControl3.TabIndex = 186;
+            // 
+            // vmRenderControl2
+            // 
+            this.vmRenderControl2.BackColor = System.Drawing.Color.Black;
+            this.vmRenderControl2.ImageSource = null;
+            this.vmRenderControl2.Location = new System.Drawing.Point(502, 341);
+            this.vmRenderControl2.ModuleSource = null;
+            this.vmRenderControl2.Name = "vmRenderControl2";
+            this.vmRenderControl2.Size = new System.Drawing.Size(400, 300);
+            this.vmRenderControl2.TabIndex = 185;
+            // 
+            // vmRenderControl1
+            // 
+            this.vmRenderControl1.BackColor = System.Drawing.Color.Black;
+            this.vmRenderControl1.ImageSource = null;
+            this.vmRenderControl1.Location = new System.Drawing.Point(49, 341);
+            this.vmRenderControl1.ModuleSource = null;
+            this.vmRenderControl1.Name = "vmRenderControl1";
+            this.vmRenderControl1.Size = new System.Drawing.Size(400, 300);
+            this.vmRenderControl1.TabIndex = 184;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -219,7 +266,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(785, 182);
+            this.label4.Location = new System.Drawing.Point(507, 179);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(239, 33);
             this.label4.TabIndex = 181;
@@ -228,17 +275,18 @@
             // Recognition
             // 
             this.Recognition.Image = ((System.Drawing.Image)(resources.GetObject("Recognition.Image")));
-            this.Recognition.Location = new System.Drawing.Point(1039, 182);
+            this.Recognition.Location = new System.Drawing.Point(761, 179);
             this.Recognition.Name = "Recognition";
             this.Recognition.Size = new System.Drawing.Size(36, 36);
             this.Recognition.TabIndex = 20;
             this.Recognition.UseVisualStyleBackColor = true;
+            this.Recognition.Click += new System.EventHandler(this.Recognition_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(94, 176);
+            this.label3.Location = new System.Drawing.Point(48, 179);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(239, 33);
             this.label3.TabIndex = 180;
@@ -247,7 +295,7 @@
             // txt_count1
             // 
             this.txt_count1.Font = new System.Drawing.Font("宋体", 24F);
-            this.txt_count1.Location = new System.Drawing.Point(981, 255);
+            this.txt_count1.Location = new System.Drawing.Point(703, 252);
             this.txt_count1.Name = "txt_count1";
             this.txt_count1.Size = new System.Drawing.Size(193, 44);
             this.txt_count1.TabIndex = 176;
@@ -256,7 +304,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 24F);
-            this.label1.Location = new System.Drawing.Point(785, 266);
+            this.label1.Location = new System.Drawing.Point(507, 263);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 33);
             this.label1.TabIndex = 177;
@@ -265,7 +313,7 @@
             // txt_sdzs1
             // 
             this.txt_sdzs1.Font = new System.Drawing.Font("宋体", 24F);
-            this.txt_sdzs1.Location = new System.Drawing.Point(294, 255);
+            this.txt_sdzs1.Location = new System.Drawing.Point(248, 258);
             this.txt_sdzs1.Name = "txt_sdzs1";
             this.txt_sdzs1.Size = new System.Drawing.Size(210, 44);
             this.txt_sdzs1.TabIndex = 178;
@@ -273,17 +321,18 @@
             // LocationExecuteOnce
             // 
             this.LocationExecuteOnce.Image = ((System.Drawing.Image)(resources.GetObject("LocationExecuteOnce.Image")));
-            this.LocationExecuteOnce.Location = new System.Drawing.Point(364, 171);
+            this.LocationExecuteOnce.Location = new System.Drawing.Point(318, 174);
             this.LocationExecuteOnce.Name = "LocationExecuteOnce";
             this.LocationExecuteOnce.Size = new System.Drawing.Size(36, 36);
             this.LocationExecuteOnce.TabIndex = 18;
             this.LocationExecuteOnce.UseVisualStyleBackColor = true;
+            this.LocationExecuteOnce.Click += new System.EventHandler(this.LocationExecuteOnce_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 24F);
-            this.label2.Location = new System.Drawing.Point(94, 266);
+            this.label2.Location = new System.Drawing.Point(48, 269);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(159, 33);
             this.label2.TabIndex = 179;
@@ -294,44 +343,42 @@
             this.timer_savedata.Enabled = true;
             this.timer_savedata.Tick += new System.EventHandler(this.timer_savedata_Tick);
             // 
-            // vmRenderControl1
+            // label6
             // 
-            this.vmRenderControl1.BackColor = System.Drawing.Color.Black;
-            this.vmRenderControl1.ImageSource = null;
-            this.vmRenderControl1.Location = new System.Drawing.Point(49, 341);
-            this.vmRenderControl1.ModuleSource = null;
-            this.vmRenderControl1.Name = "vmRenderControl1";
-            this.vmRenderControl1.Size = new System.Drawing.Size(400, 300);
-            this.vmRenderControl1.TabIndex = 184;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(939, 168);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(239, 33);
+            this.label6.TabIndex = 190;
+            this.label6.Text = "包号字符单动：";
             // 
-            // vmRenderControl2
+            // button1_BH
             // 
-            this.vmRenderControl2.BackColor = System.Drawing.Color.Black;
-            this.vmRenderControl2.ImageSource = null;
-            this.vmRenderControl2.Location = new System.Drawing.Point(502, 341);
-            this.vmRenderControl2.ModuleSource = null;
-            this.vmRenderControl2.Name = "vmRenderControl2";
-            this.vmRenderControl2.Size = new System.Drawing.Size(400, 300);
-            this.vmRenderControl2.TabIndex = 185;
+            this.button1_BH.Image = ((System.Drawing.Image)(resources.GetObject("button1_BH.Image")));
+            this.button1_BH.Location = new System.Drawing.Point(1193, 168);
+            this.button1_BH.Name = "button1_BH";
+            this.button1_BH.Size = new System.Drawing.Size(36, 36);
+            this.button1_BH.TabIndex = 187;
+            this.button1_BH.UseVisualStyleBackColor = true;
             // 
-            // vmRenderControl3
+            // textBox1_BH
             // 
-            this.vmRenderControl3.BackColor = System.Drawing.Color.Black;
-            this.vmRenderControl3.ImageSource = null;
-            this.vmRenderControl3.Location = new System.Drawing.Point(945, 341);
-            this.vmRenderControl3.ModuleSource = null;
-            this.vmRenderControl3.Name = "vmRenderControl3";
-            this.vmRenderControl3.Size = new System.Drawing.Size(400, 300);
-            this.vmRenderControl3.TabIndex = 186;
+            this.textBox1_BH.Font = new System.Drawing.Font("宋体", 24F);
+            this.textBox1_BH.Location = new System.Drawing.Point(1135, 241);
+            this.textBox1_BH.Name = "textBox1_BH";
+            this.textBox1_BH.Size = new System.Drawing.Size(193, 44);
+            this.textBox1_BH.TabIndex = 188;
             // 
-            // listBoxMsg
+            // label7
             // 
-            this.listBoxMsg.FormattingEnabled = true;
-            this.listBoxMsg.ItemHeight = 12;
-            this.listBoxMsg.Location = new System.Drawing.Point(61, 341);
-            this.listBoxMsg.Name = "listBoxMsg";
-            this.listBoxMsg.Size = new System.Drawing.Size(396, 604);
-            this.listBoxMsg.TabIndex = 38;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("宋体", 24F);
+            this.label7.Location = new System.Drawing.Point(939, 252);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(159, 33);
+            this.label7.TabIndex = 189;
+            this.label7.Text = "包号字符:";
             // 
             // Form1
             // 
@@ -383,6 +430,10 @@
         private VMControls.Winform.Release.VmRenderControl vmRenderControl2;
         private VMControls.Winform.Release.VmRenderControl vmRenderControl1;
         private System.Windows.Forms.ListBox listBoxMsg;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1_BH;
+        private System.Windows.Forms.TextBox textBox1_BH;
+        private System.Windows.Forms.Label label7;
     }
 }
 
