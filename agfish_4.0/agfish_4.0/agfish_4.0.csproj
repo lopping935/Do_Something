@@ -198,6 +198,10 @@
       <HintPath>..\..\..\..\ProjSetup\agfish_4.0\Module(sp)\x64\Location\IMVSCaliperModu\IMVSCaliperModuCs.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\ProjSetup\agfish_4.0\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="S7.Net, Version=0.13.0.0, Culture=neutral, PublicKeyToken=d5812d469e84c693, processorArchitecture=MSIL">
       <HintPath>..\packages\S7netplus.0.13.0\lib\net452\S7.Net.dll</HintPath>
     </Reference>
@@ -284,6 +288,10 @@
     <Reference Include="Apps.ColorFun">
       <HintPath>..\..\..\..\ProjSetup\agfish_4.0\myLibs\Apps.ColorFun.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="SQLPublicClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\ProjSetup\agfish_4.0\SQLPublicClass.dll</HintPath>
     </Reference>
     <Reference Include="VM.Core">
       <HintPath>..\..\..\..\ProjSetup\agfish_4.0\myLibs\VM.Core.dll</HintPath>
@@ -585,12 +593,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBMTaskshelper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

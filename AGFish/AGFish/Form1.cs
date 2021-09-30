@@ -402,7 +402,7 @@ namespace AGFish
         {
             try
             {
-                object location = AGFishOPCClient.ReadItem(VisionCode);
+                object location = AGFishOPCClient.ReadItem(VisionCode);//定位flag
                 object recogizestr = AGFishOPCClient.ReadItem(VisionCodeA);
                 if (location.ToString() == "1" || location.ToString() == "2" || location.ToString() == "3" || location.ToString() == "4" || location.ToString() == "5")
                 {

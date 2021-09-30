@@ -43,6 +43,10 @@
             this.labelProgress = new System.Windows.Forms.Label();
             this.buttonLoadSolution = new System.Windows.Forms.Button();
             this.buttonShowHideVM = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1_BH = new System.Windows.Forms.Button();
+            this.textBox1_BH = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.vmRenderControl3 = new VMControls.Winform.Release.VmRenderControl();
             this.vmRenderControl2 = new VMControls.Winform.Release.VmRenderControl();
             this.vmRenderControl1 = new VMControls.Winform.Release.VmRenderControl();
@@ -56,10 +60,6 @@
             this.LocationExecuteOnce = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.timer_savedata = new System.Windows.Forms.Timer(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.button1_BH = new System.Windows.Forms.Button();
-            this.textBox1_BH = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -71,6 +71,7 @@
             // 
             this.timer_deleterizhi.Enabled = true;
             this.timer_deleterizhi.Interval = 1000;
+            this.timer_deleterizhi.Tick += new System.EventHandler(this.timer_deleterizhi_Tick);
             // 
             // splitContainer1
             // 
@@ -165,6 +166,7 @@
             this.buttonCloseSolution.TabIndex = 31;
             this.buttonCloseSolution.Text = "关闭方案";
             this.buttonCloseSolution.UseVisualStyleBackColor = true;
+            this.buttonCloseSolution.Click += new System.EventHandler(this.buttonCloseSolution_Click);
             // 
             // groupBoxShowAndHide
             // 
@@ -221,6 +223,44 @@
             this.buttonShowHideVM.TabIndex = 36;
             this.buttonShowHideVM.Text = "显示/隐藏 VisionMaster";
             this.buttonShowHideVM.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(939, 168);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(239, 33);
+            this.label6.TabIndex = 190;
+            this.label6.Text = "包号字符单动：";
+            // 
+            // button1_BH
+            // 
+            this.button1_BH.Image = ((System.Drawing.Image)(resources.GetObject("button1_BH.Image")));
+            this.button1_BH.Location = new System.Drawing.Point(1193, 168);
+            this.button1_BH.Name = "button1_BH";
+            this.button1_BH.Size = new System.Drawing.Size(36, 36);
+            this.button1_BH.TabIndex = 187;
+            this.button1_BH.UseVisualStyleBackColor = true;
+            this.button1_BH.Click += new System.EventHandler(this.button1_BH_Click);
+            // 
+            // textBox1_BH
+            // 
+            this.textBox1_BH.Font = new System.Drawing.Font("宋体", 24F);
+            this.textBox1_BH.Location = new System.Drawing.Point(1135, 241);
+            this.textBox1_BH.Name = "textBox1_BH";
+            this.textBox1_BH.Size = new System.Drawing.Size(193, 44);
+            this.textBox1_BH.TabIndex = 188;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("宋体", 24F);
+            this.label7.Location = new System.Drawing.Point(939, 252);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(159, 33);
+            this.label7.TabIndex = 189;
+            this.label7.Text = "包号字符:";
             // 
             // vmRenderControl3
             // 
@@ -342,43 +382,6 @@
             // 
             this.timer_savedata.Enabled = true;
             this.timer_savedata.Tick += new System.EventHandler(this.timer_savedata_Tick);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("宋体", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(939, 168);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(239, 33);
-            this.label6.TabIndex = 190;
-            this.label6.Text = "包号字符单动：";
-            // 
-            // button1_BH
-            // 
-            this.button1_BH.Image = ((System.Drawing.Image)(resources.GetObject("button1_BH.Image")));
-            this.button1_BH.Location = new System.Drawing.Point(1193, 168);
-            this.button1_BH.Name = "button1_BH";
-            this.button1_BH.Size = new System.Drawing.Size(36, 36);
-            this.button1_BH.TabIndex = 187;
-            this.button1_BH.UseVisualStyleBackColor = true;
-            // 
-            // textBox1_BH
-            // 
-            this.textBox1_BH.Font = new System.Drawing.Font("宋体", 24F);
-            this.textBox1_BH.Location = new System.Drawing.Point(1135, 241);
-            this.textBox1_BH.Name = "textBox1_BH";
-            this.textBox1_BH.Size = new System.Drawing.Size(193, 44);
-            this.textBox1_BH.TabIndex = 188;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("宋体", 24F);
-            this.label7.Location = new System.Drawing.Point(939, 252);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 33);
-            this.label7.TabIndex = 189;
-            this.label7.Text = "包号字符:";
             // 
             // Form1
             // 
