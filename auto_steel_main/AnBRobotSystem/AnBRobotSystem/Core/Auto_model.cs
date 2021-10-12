@@ -539,7 +539,6 @@ namespace AnBRobotSystem.Core
                             else
                             {
                                 //返回点
-                                
                                 Program.program_flag = 5;
                                 one_ZT.ZT_back = true;
                                 writelisview("模型", "启动返回程序！", "log");
@@ -547,6 +546,8 @@ namespace AnBRobotSystem.Core
                         }
 
                     }
+             
+                    //折铁返回  罐内有足够铁量时的返回程序
                     if (Program.program_flag == 5 && MdiParent.tl1.TL_light_result() == true)
                     {
                         if (one_ZT.TB_weight > 260 && one_ZT.TB_weight < 270)
