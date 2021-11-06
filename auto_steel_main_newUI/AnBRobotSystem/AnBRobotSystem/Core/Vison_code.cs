@@ -259,7 +259,7 @@ namespace AnBRobotSystem.Core
         {
             m1.Initialize();
             CreateDevice();
-            m1.LinkCamera("192.168.1.3", 2000);
+            m1.LinkCamera("140.80.0.127", 2000);
         }
 
         #region 热成像仪数据处理函数

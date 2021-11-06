@@ -92,7 +92,7 @@ namespace AnBRobotSystem.Utlis
         {
             lock(obj)
             {
-                string sql = string.Format("INSERT INTO {0} (REC_CREATE_TIME,CONTENT) VALUES ('{1}','{2}')", tablename, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
+                string sql = string.Format("INSERT INTO {0} (time,logtext) VALUES ('{1}','{2}')", tablename, DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss")), str);
                 this.MultithreadExecuteNonQuery(sql);
             }
             

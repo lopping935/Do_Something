@@ -41,6 +41,7 @@
             this.Guankou_vmRenderControl2.BackColor = System.Drawing.Color.Black;
             this.Guankou_vmRenderControl2.ImageSource = null;
             this.Guankou_vmRenderControl2.Location = new System.Drawing.Point(456, 80);
+            this.Guankou_vmRenderControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Guankou_vmRenderControl2.ModuleSource = null;
             this.Guankou_vmRenderControl2.Name = "Guankou_vmRenderControl2";
             this.Guankou_vmRenderControl2.Size = new System.Drawing.Size(400, 300);
@@ -51,6 +52,7 @@
             this.Tiebao_vmRenderControl1.BackColor = System.Drawing.Color.Black;
             this.Tiebao_vmRenderControl1.ImageSource = null;
             this.Tiebao_vmRenderControl1.Location = new System.Drawing.Point(39, 80);
+            this.Tiebao_vmRenderControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Tiebao_vmRenderControl1.ModuleSource = null;
             this.Tiebao_vmRenderControl1.Name = "Tiebao_vmRenderControl1";
             this.Tiebao_vmRenderControl1.Size = new System.Drawing.Size(400, 300);
@@ -60,9 +62,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(101, 28);
+            this.label1.Location = new System.Drawing.Point(103, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 29);
+            this.label1.Size = new System.Drawing.Size(350, 37);
             this.label1.TabIndex = 7;
             this.label1.Text = "铁包口图像处理结果";
             // 
@@ -70,9 +72,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(506, 28);
+            this.label2.Location = new System.Drawing.Point(508, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(274, 29);
+            this.label2.Size = new System.Drawing.Size(350, 37);
             this.label2.TabIndex = 8;
             this.label2.Text = "罐口口图像处理结果";
             // 
@@ -80,9 +82,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(1006, 28);
+            this.label3.Location = new System.Drawing.Point(1008, 37);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 29);
+            this.label3.Size = new System.Drawing.Size(165, 37);
             this.label3.TabIndex = 11;
             this.label3.Text = "铁流检测";
             // 
@@ -100,18 +102,25 @@
             // Fauto_Form
             // 
             this.AllowShowTitle = false;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1298, 651);
+            this.ControlBox = false;
             this.Controls.Add(this.TL_vmRenderControl1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Guankou_vmRenderControl2);
             this.Controls.Add(this.Tiebao_vmRenderControl1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Fauto_Form";
-            this.Padding = new System.Windows.Forms.Padding(0);
+            this.Padding = new System.Windows.Forms.Padding(2);
+            this.ShowDragStretch = true;
+            this.ShowInTaskbar = false;
+            this.ShowRadius = false;
             this.ShowTitle = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "视觉图像";

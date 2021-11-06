@@ -55,7 +55,7 @@ namespace AGFish
     {
         VmProcedure process1_DW, process1_GH, process1_BH;
 
-        string SolutionPath4 = @"E:\ProjSetup\agfish_4.0\agfish.sol";                                //别忘了改路径
+        string SolutionPath4 = @"C:\Users\agfish\ProjSetup\agfish_4.0\agfishps.sol";                                //别忘了改路径
 
         public byte location_flag=0;
         bool mSolutionIsLoad = false;
@@ -80,7 +80,21 @@ namespace AGFish
         public Form1()
         {
             InitializeComponent();
-           // plc_init();
+            try
+            {
+                buttonOpenVM_Click(null, null);
+                plc_init();
+                //3D相机
+                button1_Click_1(null,null);
+            }
+            catch
+            {
+                string strMsg = "初始化程序出错！";
+                //txt_message.AppendText(strMsg + "\r\n");
+                listBoxMsg.Items.Add(strMsg);
+                listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+            }
+            
         }
       
         
@@ -88,8 +102,8 @@ namespace AGFish
         {
             try
             {
-                //plc300 = new Plc(CpuType.S7300, PLCIP, 0, 2);
-                plc300 = new Plc(CpuType.S71200, "127.0.0.1", 0, 1);
+                plc300 = new Plc(CpuType.S7300, "192.168.100.10", 0, 2);
+                //plc300 = new Plc(CpuType.S71200, "127.0.0.1", 0, 1);
                 plc300.Open();//创建PLC实例
                 string strMsg = "成功打开PLC！";
                 listBoxMsg.Items.Add(strMsg);
@@ -114,104 +128,141 @@ namespace AGFish
                 if (null == process1_DW) return;
                 process1_DW.Run();
 
-                FloatResultInfo single_px_info = process1_DW.GetFloatOutputResult("single_px");                                          
-                xpos = single_px_info.pFloatValue[0];
-                xpos = (float)Math.Round(xpos, 3);
 
-                FloatResultInfo single_py_info = process1_DW.GetFloatOutputResult("single_py");                                          
-                ypos = single_py_info.pFloatValue[0];
-                ypos = (float)Math.Round(ypos, 3);
-
-                FloatResultInfo single_angel_info = process1_DW.GetFloatOutputResult("single_angel");                                    
-                rz = single_angel_info.pFloatValue[0];
-                rz = (float)Math.Round(rz, 3);
-
-                txt_sdzs1.Text=  xpos.ToString()+","+ ypos.ToString();
-                strMsg= DateTime.Now.ToString() + ":" + xpos.ToString() + "," + ypos.ToString();
-                
-                plc300.Write("DB8.DBD8", xpos);//x
-                plc300.Write("DB8.DBD12", ypos);//y
-                plc300.Write("DB8.DBD20", rz);//rz
-                switch(location_flag)
+                IntResultInfo onpoint_model_status = process1_DW.GetIntOutputResult("statu");
+                if (onpoint_model_status.pIntValue[0] == 1)
                 {
-                    case 1:
-                        if(-600 < xpos && xpos < 600 && xpos != 0)
-                        {
+                    FloatResultInfo single_px_info = process1_DW.GetFloatOutputResult("single_px");
+                    xpos = single_px_info.pFloatValue[0];
+                    xpos = (float)Math.Round(xpos, 3);
+
+                    FloatResultInfo single_py_info = process1_DW.GetFloatOutputResult("single_py");
+                    ypos = single_py_info.pFloatValue[0];
+                    ypos = (float)Math.Round(ypos, 3);
+
+                    FloatResultInfo single_angel_info = process1_DW.GetFloatOutputResult("single_angel");
+                    rz = single_angel_info.pFloatValue[0];
+                    rz = (float)Math.Round(rz, 3);
+
+                    txt_sdzs1.Text = xpos.ToString() + "," + ypos.ToString();
+                    string logtime = DateTime.Now.ToString() + ":";
+                    strMsg = xpos.ToString() + "," + ypos.ToString();
+
+                    plc300.Write("DB8.DBD8", xpos);//x
+                    plc300.Write("DB8.DBD12", ypos);//y
+                    plc300.Write("DB8.DBD20", rz);//rz
+                    switch (location_flag)
+                    {
+                        case 1:
+                            if (-600 < xpos && xpos < 600 && xpos != 0)
+                            {
+                                location_flag = 0;
+                                plc300.Write("DB8.DBB0", (byte)10);//
+                                plc300.Write("DB8.DBB1", (byte)1);//rz
+                                listBoxMsg.Items.Add(logtime + "第一次成功：" + strMsg);
+                                listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+                            }
+                            else
+                            {
+                                location_flag = 0;
+                                plc300.Write("DB8.DBB0", (byte)10);//
+                                plc300.Write("DB8.DBB1", (byte)0);//rz
+                                listBoxMsg.Items.Add(logtime + "第一次失败：" + strMsg);
+                                listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+                            }
+                            break;
+                        case 2:
+                            if (-100 < xpos && xpos < 100 && xpos != 0)
+                            {
+                                location_flag = 0;
+                                plc300.Write("DB8.DBB0", (byte)6);//
+                                plc300.Write("DB8.DBB1", (byte)1);//rz
+                                listBoxMsg.Items.Add(logtime + "第二次成功：" + strMsg);
+                                listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+                            }
+                            else
+                            {
+                                location_flag = 0;
+                                plc300.Write("DB8.DBB0", (byte)6);//
+                                plc300.Write("DB8.DBB1", (byte)0);//rz
+                                listBoxMsg.Items.Add(logtime + "第二次失败：" + strMsg);
+                                listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+                            }
+                            break;
+                        case 3:
+                            if (-100 < xpos && xpos < 100 && xpos != 0)
+                            {
+                                location_flag = 0;
+                                plc300.Write("DB8.DBB0", (byte)7);//
+                                plc300.Write("DB8.DBB1", (byte)1);//rz
+                                listBoxMsg.Items.Add(logtime + "第三次成功：" + strMsg);
+                                listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+                            }
+                            else
+                            {
+                                location_flag = 0;
+                                plc300.Write("DB8.DBB0", (byte)7);//
+                                plc300.Write("DB8.DBB1", (byte)0);//rz
+                                listBoxMsg.Items.Add(logtime + "第三次失败：" + strMsg);
+                                listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+                            }
+                            break;
+                        case 4:
+                            if (-100 < xpos && xpos < 100 && xpos != 0)
+                            {
+                                location_flag = 0;
+                                plc300.Write("DB8.DBB0", (byte)8);//
+                                plc300.Write("DB8.DBB1", (byte)1);//rz
+                                listBoxMsg.Items.Add(logtime + "第四次成功：" + strMsg);
+                                listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+                            }
+                            else
+                            {
+                                location_flag = 0;
+                                plc300.Write("DB8.DBB0", (byte)8);//
+                                plc300.Write("DB8.DBB1", (byte)0);//rz
+                                listBoxMsg.Items.Add(logtime + "第四次失败：" + strMsg);
+                                listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+                            }
+                            break;
+                        default:
                             location_flag = 0;
-                            plc300.Write("DB8.DBB1", 1);//rz
-                            listBoxMsg.Items.Add("第一次成功："+strMsg);
+                            plc300.Write("DB8.DBB1", (byte)0);//rz
+                            listBoxMsg.Items.Add(logtime + "错误标识：" + strMsg);
                             listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
-                        }
-                        else
-                        {
-                            location_flag = 0;
-                            plc300.Write("DB8.DBB1", 0);//rz
-                            listBoxMsg.Items.Add("第一次失败：" + strMsg);
-                            listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
-                        }
-                        break;
-                    case 2:
-                        if (-100 < xpos && xpos < 100 && xpos != 0)
-                        {
-                            location_flag = 0;
-                            plc300.Write("DB8.DBB1", 1);//rz
-                            listBoxMsg.Items.Add("第二次成功：" + strMsg);
-                            listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
-                        }
-                        else
-                        {
-                            location_flag = 0;
-                            plc300.Write("DB8.DBB1", 0);//rz
-                            listBoxMsg.Items.Add("第二次失败：" + strMsg);
-                            listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
-                        }
-                        break;
-                    case 3:
-                        if (-100 < xpos && xpos < 100 && xpos != 0)
-                        {
-                            location_flag = 0;
-                            plc300.Write("DB8.DBB1", 1);//rz
-                            listBoxMsg.Items.Add("第三次成功：" + strMsg);
-                            listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
-                        }
-                        else
-                        {
-                            location_flag = 0;
-                            plc300.Write("DB8.DBB1", 0);//rz
-                            listBoxMsg.Items.Add("第三次失败：" + strMsg);
-                            listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
-                        }
-                        break;
-                    case 4:
-                        if (-100 < xpos && xpos < 100 && xpos != 0)
-                        {
-                            location_flag = 0;
-                            plc300.Write("DB8.DBB1", 1);//rz
-                            listBoxMsg.Items.Add("第四次成功：" + strMsg);
-                            listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
-                        }
-                        else
-                        {
-                            location_flag = 0;
-                            plc300.Write("DB8.DBB1", 0);//rz
-                            listBoxMsg.Items.Add("第四次失败：" + strMsg);
-                            listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
-                        }
-                        break;
-                    default:
-                        location_flag = 0;
-                        plc300.Write("DB8.DBB1", 0);//rz
-                        listBoxMsg.Items.Add("错误标识：" + strMsg);
-                        listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
-                        break;
+                            break;
+                    }
                 }
+                else
+                {
+                    if(location_flag!=0)
+                    {
+                        location_flag = 0;
+                        plc300.Write("DB8.DBB0", (byte)0);//rz
+                        plc300.Write("DB8.DBB1", (byte)0);//rz
+                        listBoxMsg.Items.Add(DateTime.Now.ToString() + ":错误标识：" + strMsg);
+                        listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+                    }
+                    else
+                    {
+                        location_flag = 0;
+                        plc300.Write("DB8.DBB0", (byte)0);//rz
+                        plc300.Write("DB8.DBB1", (byte)0);//rz
+                        listBoxMsg.Items.Add(DateTime.Now.ToString() + ":测试标识：" + strMsg);
+                        listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+                    }
+                    
+                }
+
+               
                     
 
 
             }
-            catch (VmException ex)
+            catch (Exception ex)
             {
-                strMsg = "getresult failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
+                location_flag = 0;
+                strMsg = "getresult failed. ";
                 //txt_message.AppendText(strMsg + "\r\n");
                 listBoxMsg.Items.Add(strMsg);
                 listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
@@ -237,16 +288,16 @@ namespace AGFish
                     {
                         GB_num = x.strValue;
                         txt_count1.Text = x.strValue;
-                        plc300.Write("DB9.DBB2", int.Parse(x.strValue));//plc罐号
-                        plc300.Write("DB9.DBB1", 1);//plc罐号写入成功
+                        plc300.Write("DB9.DBB2", (byte)(int.Parse(x.strValue)));//plc罐号
+                        plc300.Write("DB9.DBB1", (byte)1);//plc罐号写入成功
                         strMsg = DateTime.Now.ToString() + ":成功识别罐号:" + x.strValue;
                         listBoxMsg.Items.Add(strMsg);
                         listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
                     }
                     else
                     {
-                        plc300.Write("DB9.DBB2", 0);//plc罐号
-                        plc300.Write("DB9.DBB1", 0);//plc罐号写入成功
+                        plc300.Write("DB9.DBB2", (byte)0);//plc罐号
+                        plc300.Write("DB9.DBB1", (byte)0);//plc罐号写入成功
                         strMsg = DateTime.Now.ToString() + ":失败识别罐号:" + x.strValue;
                         listBoxMsg.Items.Add(strMsg);
                         listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
@@ -255,17 +306,17 @@ namespace AGFish
                 }
                 else
                 {
-                    plc300.Write("DB9.DBB2", 0);//plc罐号
-                    plc300.Write("DB9.DBB1", 0);//plc罐号写入成功
+                    plc300.Write("DB9.DBB2", (byte)0);//plc罐号
+                    plc300.Write("DB9.DBB1", (byte)0);//plc罐号写入成功
                     strMsg = DateTime.Now.ToString() + ":失败识别罐号，模块运行错误";
                     listBoxMsg.Items.Add(strMsg);
                     listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
                 }
                 
             }
-            catch(VmException ex)
+            catch(Exception ex)
             {
-                strMsg = "罐号识别错误 " + Convert.ToString(ex.errorCode, 16);
+                strMsg = "罐号识别错误 ";
                 //txt_message.AppendText(strMsg + "\r\n");
                 listBoxMsg.Items.Add(strMsg);
                 listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
@@ -279,27 +330,27 @@ namespace AGFish
             string strMsg = null;//
             try
             {
-                if (null == process1_GH) return;
-                    process1_GH.Run();
-                IntResultInfo status = process1_GH.GetIntOutputResult("statu");
+                if (null == process1_BH) return;
+                    process1_BH.Run();
+                IntResultInfo status = process1_BH.GetIntOutputResult("statu");
                 if (status.pIntValue[0] == 1)
                 {
-                    StringResultInfo pxinfo = process1_GH.GetStringOutputResult("GH_str");                                           //输出string类型信息
+                    StringResultInfo pxinfo = process1_BH.GetStringOutputResult("BH_str");                                           //输出string类型信息
                     StringValueInfo x = pxinfo.astStringValue[0];
                     if (x.strValue.Length == 2)
                     {
                         txt_count1.Text = x.strValue;
-                        plc300.Write("DB9.DBB2", int.Parse(x.strValue));//plc罐号
-                        plc300.Write("DB9.DBB1", 1);//plc罐号写入成功
-                        strMsg = DateTime.Now.ToString() + ":成功识别罐号:" + x.strValue;
+                        plc300.Write("DB9.DBB5", (byte)(int.Parse(x.strValue)));//plc罐号
+                        plc300.Write("DB9.DBB4", (byte)1);//plc罐号写入成功
+                        strMsg = DateTime.Now.ToString() + ":成功识别包号:" + x.strValue;
                         listBoxMsg.Items.Add(strMsg);
                         listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
                     }
                     else
                     {
-                        plc300.Write("DB9.DBB2", 0);//plc罐号
-                        plc300.Write("DB9.DBB1", 0);//plc罐号写入成功
-                        strMsg = DateTime.Now.ToString() + ":失败识别罐号:" + x.strValue;
+                        plc300.Write("DB9.DBB5", (byte)0);//plc罐号
+                        plc300.Write("DB9.DBB4", (byte)0);//plc罐号写入成功
+                        strMsg = DateTime.Now.ToString() + ":失败识别包号:" + x.strValue;
                         listBoxMsg.Items.Add(strMsg);
                         listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
                     }
@@ -307,16 +358,16 @@ namespace AGFish
                 }
                 else
                 {
-                    plc300.Write("DB9.DBB2", 0);//plc罐号
-                    plc300.Write("DB9.DBB1", 0);//plc罐号写入成功
-                    strMsg = DateTime.Now.ToString() + ":失败识别罐号，模块运行错误";
+                    plc300.Write("DB9.DBB5", (byte)0);//plc罐号
+                    plc300.Write("DB9.DBB4", (byte)0);//plc罐号写入成功
+                    strMsg = DateTime.Now.ToString() + ":失败识别包号，模块运行错误";
                     listBoxMsg.Items.Add(strMsg);
                     listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
                 }
             }
-            catch (VmException ex)
+            catch (Exception ex)
             {
-                strMsg = "罐号识别错误 " + Convert.ToString(ex.errorCode, 16);
+                strMsg = "罐号识别错误 ";
                 //txt_message.AppendText(strMsg + "\r\n");
                 listBoxMsg.Items.Add(strMsg);
                 listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
@@ -334,24 +385,29 @@ namespace AGFish
                     GH_num = (GH_Plc)plc300.ReadStruct(typeof(GH_Plc), 9);
                     if(location.VisionCode>=1&& location.VisionCode <= 4)//定位
                     {
+                        plc300.Write("DB8.DBB0", (byte)0);//
                         location_flag = location.VisionCode;
                         LocationExecuteOnce_Click(null, null);
-                        plc300.Write("DB8.DBB0",(Int16)0);//
+                        
                     }
                     if (GH_num.VisionCodeA ==1)//罐号识别
                     {
+                        plc300.Write("DB9.DBB0", (byte)5);//
                         Recognition_Click(null, null);
-                        plc300.Write("DB9.DBB0", (Int16)0);//
+                        
                     }
                     if (GH_num.VisionCodeB== 1)//包号识别
                     {
+                        plc300.Write("DB9.DBB3", (byte)0);//置位VisionCode
                         button1_BH_Click(null, null);
-                        plc300.Write("DB9.DBB3", (Int16)0);//置位VisionCode
+                        
                     }
                 }
                 else
                 {
-
+                    string strMsg = DateTime.Now.ToString() + ":连接PLC失败！";
+                    listBoxMsg.Items.Add(strMsg);
+                    listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
                 }
             }
             catch(Exception e1)
@@ -395,6 +451,32 @@ namespace AGFish
             //txt_message.AppendText(strMsg + "\r\n");
             listBoxMsg.Items.Add(strMsg);
             listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+        }
+
+        private void buttonShowHideVM_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonLoadSolution_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Process[] proc = Process.GetProcessesByName("Cognex.Designer.VisionPro.Runtime");
+            for(int i=0;i<proc.Length;i++)
+            {
+                proc[i].Kill();
+            }
+            buttonCloseVM_Click(null,null);
+
         }
 
         private void timer_savedata_Tick(object sender, EventArgs e)
@@ -447,7 +529,7 @@ namespace AGFish
                 {
                     priod_done = "";
                     //AGFishOPCClient.WriteItem(0.ToString(), Alarm);
-                    plc300.Write("DB8.DBB7", 0);//置位报警信号
+                    plc300.Write("DB8.DBB7", (byte)0);//置位报警信号
                     string power_off = "1";
                     string sqltext1 = string.Format("insert into aglog values('{0}',{1},{2},{3},{4},'{5}','{6}','{7}','{8}',", GB_num, xpos, ypos, zpos, rz, work_result, pianyistr, banautostr, power_off);
                     string sqltext2 = "";
@@ -496,7 +578,7 @@ namespace AGFish
 
             try
             {
-                VmSolution.Import(SolutionPath4, "");
+                VmSolution.Import(SolutionPath4, "18663481379");
                 mSolutionIsLoad = true;
                 process1_DW = (VmProcedure)VmSolution.Instance["流程1"];
                 process1_GH = (VmProcedure)VmSolution.Instance["流程2"];
@@ -547,31 +629,24 @@ namespace AGFish
                 }
 
             }
-            catch (VmException ex)
+            catch (Exception ex)
             {
-                strMsg = "CloseSolution failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
+                strMsg = "CloseSolution failed. ";
                 //txt_message.AppendText(strMsg + "\r\n");
                 listBoxMsg.Items.Add(strMsg);
                 listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
                 return;
             }
-            strMsg = "CloseSolution success";
-            //txt_message.AppendText(strMsg + "\r\n");
-            listBoxMsg.Items.Add(strMsg);
-            listBoxMsg.TopIndex = listBoxMsg.Items.Count - 1;
+        
 
 
-            /****************************************************************************
-            * @fn           4.0的关闭方案
-            * @fn           Close solution
-            ****************************************************************************/
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            //Process pr = new Process();//声明一个进程类对象
-            //pr.StartInfo.FileName = @"C:\Runtime\PANYUANHANBIAO\PANYUANCESHI.exe";
-            //pr.Start();
+            Process pr = new Process();//声明一个进程类对象
+            pr.StartInfo.FileName = @"C:\Runtime\PANYUANHANBIAO\PANYUANCESHI.exe";
+            pr.Start();
         }
 
        

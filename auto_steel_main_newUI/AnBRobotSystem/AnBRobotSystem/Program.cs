@@ -14,7 +14,8 @@ namespace AnBRobotSystem
         private static System.Threading.Mutex mutex;
         public static object obj = new object();
         public static int program_flag = 0;//折铁线程中的中间变量
-        public static int model_flag = 1000;//是否有折铁正在进行
+        public static int ZT_err_flag = 0;//折铁线程中的中间变量
+        public static int ZT_thread_flag = 1000;//是否有折铁正在进行  有折铁程序就等于1 没有折铁线程就等于1000
         public static int GB_data_flag = 0;//折铁过程中数据  主要是mes方面数据自动更新发生错误时
         public static int GB_chose_flag = 0;
         public static string GB_station = "";

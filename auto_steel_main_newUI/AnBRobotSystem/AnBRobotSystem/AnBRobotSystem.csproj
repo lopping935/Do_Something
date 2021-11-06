@@ -712,10 +712,16 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\Vison_code.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utlis\Auto_steel_helper.cs" />
     <Compile Include="Utlis\DBMTaskshelper.cs" />
     <Compile Include="Utlis\GroupSDK.cs" />
     <Compile Include="Utlis\LogHelper.cs" />
+    <Compile Include="Utlis\log_light.cs" />
     <Compile Include="Utlis\MagHelper.cs" />
     <Compile Include="Utlis\MyMeans.cs" />
     <Compile Include="ChildForm\PasswordConfig.cs">
@@ -764,14 +770,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="ChildForm\UserInfor.resx">
       <DependentUpon>UserInfor.cs</DependentUpon>
     </EmbeddedResource>
@@ -795,13 +796,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\山钢图标140.png" />
-    <None Include="Resources\山钢图标130.png" />
+    <None Include="Rs\xianfish.png" />
     <None Include="Resources\山钢图标98.png" />
+    <Content Include="Resources\okfish.png" />
+    <Content Include="Resources\xianfish.png" />
+    <None Include="Rs\3铁流.png" />
+    <None Include="Rs\4铁流.png" />
+    <None Include="Rs\3dis铁流.png" />
+    <None Include="Rs\4dis铁流.png" />
     <Content Include="Rs\Gear.png" />
     <Content Include="Rs\green.png" />
     <Content Include="Rs\kchart .ico" />
     <Content Include="Rs\DataManage.ico" />
+    <Content Include="Rs\okfish.png" />
     <Content Include="Rs\red.png" />
   </ItemGroup>
   <ItemGroup>

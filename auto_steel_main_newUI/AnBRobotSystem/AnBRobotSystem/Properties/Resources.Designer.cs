@@ -63,9 +63,9 @@ namespace AnBRobotSystem.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap 山钢图标130 {
+        internal static System.Drawing.Bitmap _3dis铁流 {
             get {
-                object obj = ResourceManager.GetObject("山钢图标130", resourceCulture);
+                object obj = ResourceManager.GetObject("3dis铁流", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace AnBRobotSystem.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap 山钢图标140 {
+        internal static System.Drawing.Bitmap _3铁流 {
             get {
-                object obj = ResourceManager.GetObject("山钢图标140", resourceCulture);
+                object obj = ResourceManager.GetObject("3铁流", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,39 @@ namespace AnBRobotSystem.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap 山钢图标98 {
+        internal static System.Drawing.Bitmap _4dis铁流 {
             get {
-                object obj = ResourceManager.GetObject("山钢图标98", resourceCulture);
+                object obj = ResourceManager.GetObject("4dis铁流", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _4铁流 {
+            get {
+                object obj = ResourceManager.GetObject("4铁流", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap okfish {
+            get {
+                object obj = ResourceManager.GetObject("okfish", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap xianfish {
+            get {
+                object obj = ResourceManager.GetObject("xianfish", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

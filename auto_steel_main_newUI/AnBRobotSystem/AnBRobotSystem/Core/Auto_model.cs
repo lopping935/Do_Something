@@ -42,6 +42,8 @@ namespace AnBRobotSystem.Core
         public bool TL_in_TB;//铁流进入铁包
         public bool ZT_back;//折铁返回点确定
         public bool ZT_OK;//折铁完成
+
+        public float ZT_reqweight;
     }
 
     public class Auto_model 
@@ -77,12 +79,13 @@ namespace AnBRobotSystem.Core
                 one_ZT.Has_mission = true;
                 if (Program.GB_chose_flag == 1)//人工选罐
                 {
-
-                    Program.model_flag = 1;
+                    
+                    Program.ZT_thread_flag = 1;
                     Program.GB_chose_flag = 0;
                     //one_ZT.Has_mission = true;
                     if (m1.get_TB_data() && m1.get_GB_data_manual(Program.GB_station))
                     {
+                        dbhlper.inser_log("ZT_log", "人工选"+ Program.GB_station);
                         setvalue(Program.GB_station);
                         one_ZT.TB_num = PLCdata.ZT_data.TB_num;
                         one_ZT.TB_need_weight = m1.need_ibag_weight;
@@ -91,6 +94,7 @@ namespace AnBRobotSystem.Core
                         one_ZT.TB_Init_weight = PLCdata.ZT_data.TB_weight;
                         if (m1.F_flag == "F" && m1.fish_station != "ER")
                         {
+
                             one_ZT.GB_capacity = m1.F_flag;
                             one_ZT.GB_station = m1.fish_station;
                             one_ZT.GB_have_wight = m1.fish_weight;
@@ -99,6 +103,7 @@ namespace AnBRobotSystem.Core
                             if (MdiParent.tb1.TB_init_result())
                             {
                                 writelisview("铁包口", "铁包口视觉检测正常!", "log");
+                                dbhlper.inser_log("ZT_log", "铁包口视觉检测正常");
                                 one_ZT.TB_BK_vision = true;
                                 if (null != MdiParent.GK_global)
                                 {
@@ -107,6 +112,7 @@ namespace AnBRobotSystem.Core
                                     if (MdiParent.gk1.GK_init_result(m1.fish_station))
                                     {
                                         writelisview("罐包口", "罐包口视觉检测正常！", "log");
+                                        dbhlper.inser_log("ZT_log", "罐包口视觉检测正常");
                                         one_ZT.GB_GK_vision = true;
                                         one_ZT.GB_have_wight = m1.fish_weight;
                                         threadflag = true;
@@ -117,9 +123,10 @@ namespace AnBRobotSystem.Core
                                     else
                                     {
                                         one_ZT.Has_mission = false;
-                                        writelisview("罐包口", "罐包口视觉检测异常！", "log");
+                                        Program.ZT_err_flag = 1;
+                                        writelisview("罐包口", "罐包口视觉检测异常-1！", "log");
                                         one_ZT.GB_GK_vision = false;
-                                        Program.model_flag = 1000;
+                                        Program.ZT_thread_flag = 1000;
                                         threadflag = false;
                                     }
                                 }
@@ -128,7 +135,7 @@ namespace AnBRobotSystem.Core
                                     one_ZT.Has_mission = false;
                                     writelisview("罐口相机", "罐口相机全局变量选择失败！", "log");
                                     one_ZT.GB_GK_vision = false;
-                                    Program.model_flag = 1000;
+                                    Program.ZT_thread_flag = 1000;
                                     threadflag = false;
                                 }
 
@@ -140,7 +147,7 @@ namespace AnBRobotSystem.Core
                                 one_ZT.Has_mission = false;
                                 writelisview("铁包口", "铁包口视觉检测异常!", "log");
                                 one_ZT.TB_BK_vision = false;
-                                Program.model_flag = 1000;
+                                Program.ZT_thread_flag = 1000;
                                 threadflag = false;
                             }
 
@@ -168,7 +175,7 @@ namespace AnBRobotSystem.Core
                                 one_ZT.Has_mission = false;
                                 writelisview("铁包口", "铁包口视觉检测失败!", "log");
                                 one_ZT.TB_BK_vision = false;
-                                Program.model_flag = 1000;
+                                Program.ZT_thread_flag = 1000;
                                 threadflag = false;
                             }
                         }
@@ -176,7 +183,7 @@ namespace AnBRobotSystem.Core
                         {
                             one_ZT.Has_mission = false;
                             writelisview("折铁模型", "折铁初始化条件错误!", "log");
-                            Program.model_flag = 1000;
+                            Program.ZT_thread_flag = 1000;
                             threadflag = false;
                         }
                     }
@@ -184,13 +191,13 @@ namespace AnBRobotSystem.Core
                     {
                         one_ZT.Has_mission = false;
                         writelisview("罐包管理", "罐包管理系统出差!", "log");
-                        Program.model_flag = 1000;
+                        Program.ZT_thread_flag = 1000;
                         threadflag = false;
                     }
                 }
                 else if (Program.GB_chose_flag == 2)//自动选罐
                 {
-                    Program.model_flag = 1;
+                    Program.ZT_thread_flag = 1;
                     Program.GB_chose_flag = 0;
                     if (m1.get_TB_data() && m1.get_GB_data())
                     {
@@ -232,7 +239,7 @@ namespace AnBRobotSystem.Core
                                         one_ZT.Has_mission = false;
                                         writelisview("罐包口", "罐包口视觉检测异常！", "log");
                                         one_ZT.GB_GK_vision = false;
-                                        Program.model_flag = 1000;
+                                        Program.ZT_thread_flag = 1000;
                                         threadflag = false;
                                     }
                                 }
@@ -241,7 +248,7 @@ namespace AnBRobotSystem.Core
                                     one_ZT.Has_mission = false;
                                     writelisview("罐口相机", "罐口相机全局变量选择失败！", "log");
                                     one_ZT.GB_GK_vision = false;
-                                    Program.model_flag = 1000;
+                                    Program.ZT_thread_flag = 1000;
                                     threadflag = false;
                                 }
                             }
@@ -250,7 +257,7 @@ namespace AnBRobotSystem.Core
                                 one_ZT.Has_mission = false;
                                 writelisview("铁包口", "铁包口视觉检测异常!", "log");
                                 one_ZT.TB_BK_vision = false;
-                                Program.model_flag = 1000;
+                                Program.ZT_thread_flag = 1000;
                                 threadflag = false;
                             }
                         }
@@ -277,7 +284,7 @@ namespace AnBRobotSystem.Core
                                 one_ZT.Has_mission = false;
                                 writelisview("铁包口", "铁包口视觉检测失败!", "log");
                                 one_ZT.TB_BK_vision = false;
-                                Program.model_flag = 1000;
+                                Program.ZT_thread_flag = 1000;
                                 threadflag = false;
                             }
                         }
@@ -285,7 +292,7 @@ namespace AnBRobotSystem.Core
                         {
                             one_ZT.Has_mission = false;
                             writelisview("折铁模型", "折铁初始化条件错误!", "log");
-                            Program.model_flag = 1000;
+                            Program.ZT_thread_flag = 1000;
                             threadflag = false;
                         }
                     }
@@ -293,7 +300,7 @@ namespace AnBRobotSystem.Core
                     {
                         one_ZT.Has_mission = false;
                         writelisview("罐包管理", "罐包管理系统出错!", "log");
-                        Program.model_flag = 1000;
+                        Program.ZT_thread_flag = 1000;
                         threadflag = false;
                     }
                 }
@@ -307,7 +314,7 @@ namespace AnBRobotSystem.Core
             {
                 Thread.Sleep(1000);
                 //writelisview("折铁模型", "选择核心模型程序出错!", "err");
-                Program.model_flag = 1000;
+                Program.ZT_thread_flag = 1000;
                 LogHelper.WriteLog("选择核心模型程序出错！", e);
             }
             finally
@@ -396,7 +403,7 @@ namespace AnBRobotSystem.Core
                         if (speed_flag != 0)
                         {
                             writelisview("模型", "速度设置错误，错误代码：" + speed_flag.ToString(), "log");
-                            Program.model_flag = 1000;
+                            Program.ZT_thread_flag = 1000;
                             //threadflag = false;
                             //break;
                         }
@@ -416,7 +423,7 @@ namespace AnBRobotSystem.Core
                             //if (MdiParent.gk1.set_GK_contiu() == false)
                             //{
                             //    writelisview("模型", "启动罐口连续边缘检测出错", "log");
-                            //    Program.model_flag = 1000;
+                            //    Program.ZT_thread_flag = 1000;
                             //    // threadflag = false;
                             //    //  break;
                             //}
@@ -429,7 +436,7 @@ namespace AnBRobotSystem.Core
                         else
                         {
                             writelisview("模型", "选择边缘检测相机出错！", "log");
-                            Program.model_flag = 1000;
+                            Program.ZT_thread_flag = 1000;
                         }
                     }
                     ///获取罐口边缘检测结果 计算炉口边缘 亮度
@@ -447,7 +454,7 @@ namespace AnBRobotSystem.Core
                             {
                                 writelisview("模型", "视觉连续检测罐口边缘失败！", "log");
                                 //MdiParent.process_GK.ContinuousRunEnable = false;
-                                Program.model_flag = 1000;
+                                Program.ZT_thread_flag = 1000;
                                 // threadflag = false;
                                 // break;
                             }
@@ -466,7 +473,7 @@ namespace AnBRobotSystem.Core
                                 {
                                     writelisview("模型", "连续边缘检测结果异常！", "log");
                                     MdiParent.process_GK.ContinuousRunEnable = false;
-                                    Program.model_flag = 1000;
+                                    Program.ZT_thread_flag = 1000;
                                 }
                             }
                             else
@@ -482,7 +489,7 @@ namespace AnBRobotSystem.Core
                         if (MdiParent.tl1.TL_light_result() == false)
                         {
                             writelisview("模型", "铁流检测程序运行错误！！", "log");
-                            Program.model_flag = 1000;
+                            Program.ZT_thread_flag = 1000;
                         }
                         else
                         {
@@ -501,7 +508,7 @@ namespace AnBRobotSystem.Core
                     {
                         if (MdiParent.tl1.Get_iron == true)
                         {
-                            if (one_ZT.TB_weight < 240)
+                            if (one_ZT.TB_weight < one_ZT.ZT_reqweight*0.85)
                             {
                                 if (PLCdata.TB_weight_speed < 1.6)
                                 {
@@ -519,7 +526,7 @@ namespace AnBRobotSystem.Core
                                 }
 
                             }
-                            else if (one_ZT.TB_weight > 240 && one_ZT.TB_weight < 260)
+                            else if (one_ZT.TB_weight > one_ZT.ZT_reqweight * 0.85 && one_ZT.TB_weight < one_ZT.ZT_reqweight * 0.92)
                             {
                                 if (PLCdata.TB_weight_speed < 1)
                                 {
@@ -550,7 +557,7 @@ namespace AnBRobotSystem.Core
                     //折铁返回  罐内有足够铁量时的返回程序
                     if (Program.program_flag == 5 && MdiParent.tl1.TL_light_result() == true)
                     {
-                        if (one_ZT.TB_weight > 260 && one_ZT.TB_weight < 270)
+                        if (one_ZT.TB_weight > one_ZT.ZT_reqweight * 0.92 && one_ZT.TB_weight < one_ZT.ZT_reqweight * 0.96)
                         {
                             if (PLCdata.TB_weight_speed < 0.5)
                             {
@@ -568,7 +575,7 @@ namespace AnBRobotSystem.Core
                             }
 
                         }
-                        else if (one_ZT.TB_weight > 270 && one_ZT.TB_weight < 280)
+                        else if (one_ZT.TB_weight > one_ZT.ZT_reqweight * 0.96 && one_ZT.TB_weight < one_ZT.ZT_reqweight)
                         {
                             if (PLCdata.TB_weight_speed < 0.5)
                             {
@@ -600,7 +607,7 @@ namespace AnBRobotSystem.Core
                     }
                     else if (Program.program_flag == 6 && MdiParent.tl1.TL_light_result() == false)
                     {
-                        Program.model_flag = 1001;
+                        Program.ZT_thread_flag = 1001;
                         Program.GB_chose_flag = 0;
                         one_ZT.Has_mission = false;
                         MdiParent.process_TL.ContinuousRunEnable = false;
@@ -634,7 +641,7 @@ namespace AnBRobotSystem.Core
                         else
                         {
                             PLCdata.set_speed(one_ZT.GB_station, 0);
-                            Program.model_flag = 1001;
+                            Program.ZT_thread_flag = 1000;
                             Program.GB_chose_flag = 0;
                             one_ZT.Has_mission = false;
                             MdiParent.process_TL.ContinuousRunEnable = false;
@@ -657,7 +664,7 @@ namespace AnBRobotSystem.Core
                     //    last_flag = Program.program_flag;
                     //}
                     #endregion
-                    if (Program.model_flag == 1000)
+                    if (Program.ZT_thread_flag == 1000)
                     {
                         Thread.Sleep(3000);
                         writelisview("模型", "折铁失败！！", "log");
@@ -676,7 +683,7 @@ namespace AnBRobotSystem.Core
                 MdiParent.process_GK.ContinuousRunEnable = false;
                 MdiParent.process_TL.ContinuousRunEnable = false;
                 writelisview("模型", "折铁模型发生程序失败！！", "log");
-                Program.model_flag = 1000;
+                Program.ZT_thread_flag = 1000;
                 threadflag = false;
                 LogHelper.WriteLog("折铁线程", e);
             }
@@ -709,7 +716,7 @@ namespace AnBRobotSystem.Core
                         if (speed_flag != 0)
                         {
                             writelisview("模型", "速度设置错误，错误代码：" + speed_flag.ToString(), "log");
-                            Program.model_flag = 1000;
+                            Program.ZT_thread_flag = 1000;
                             //threadflag = false;
                             //break;
                         }
@@ -726,7 +733,7 @@ namespace AnBRobotSystem.Core
                         if (MdiParent.tl1.TL_light_result() == false)
                         {
                             writelisview("模型", "铁流检测程序运行错误！！", "log");
-                            Program.model_flag = 1000;
+                            Program.ZT_thread_flag = 1000;
                         }
                         else
                         {
@@ -839,7 +846,7 @@ namespace AnBRobotSystem.Core
                     }
                     else if (Program.program_flag == 6 && MdiParent.tl1.TL_light_result() == false)
                     {
-                        Program.model_flag = 1001;
+                        Program.ZT_thread_flag = 1001;
                         Program.GB_chose_flag = 0;
                         one_ZT.Has_mission = false;
                         MdiParent.process_TL.ContinuousRunEnable = false;
@@ -873,7 +880,7 @@ namespace AnBRobotSystem.Core
                         else
                         {
                             PLCdata.set_speed(one_ZT.GB_station, 0);
-                            Program.model_flag = 1001;
+                            Program.ZT_thread_flag = 1001;
                             Program.GB_chose_flag = 0;
                             one_ZT.Has_mission = false;
                             MdiParent.process_TL.ContinuousRunEnable = false;
@@ -896,7 +903,7 @@ namespace AnBRobotSystem.Core
                     //    last_flag = Program.program_flag;
                     //}
                     #endregion
-                    if (Program.model_flag == 1000)
+                    if (Program.ZT_thread_flag == 1000)
                     {
                         Thread.Sleep(3000);
                         writelisview("模型", "折铁失败！！", "log");
@@ -915,7 +922,7 @@ namespace AnBRobotSystem.Core
                 MdiParent.process_GK.ContinuousRunEnable = false;
                 MdiParent.process_TL.ContinuousRunEnable = false;
                 writelisview("模型", "折铁模型发生程序失败！！", "log");
-                Program.model_flag = 1000;
+                Program.ZT_thread_flag = 1000;
                 threadflag = false;
                 LogHelper.WriteLog("折铁线程", e);
             }
