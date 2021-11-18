@@ -28,10 +28,7 @@ namespace AnBRobotSystem.Utlis
             plc300.Close();
         } //断开
 
-        public bool PlcIsAvailable()
-        {
-            return plc300.IsAvailable;
-        }  //是否可用
+
 
         public bool PlcIsConnected()
         {

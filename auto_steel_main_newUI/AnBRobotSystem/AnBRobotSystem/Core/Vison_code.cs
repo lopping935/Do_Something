@@ -7,6 +7,7 @@ using VM.Core;
 using logtest;
 using AnBRobotSystem;
 using AnBRobotSystem.Utlis;
+using System.Threading;
 using VM.PlatformSDKCS;
 using OpenCvSharp;
 using System.Drawing;
@@ -113,13 +114,13 @@ namespace AnBRobotSystem.Core
                         int GB_A_GK = GB_A_GK_result.pIntValue[0];
                         if (GB_A_GK == 1)
                         {
-                            string strMsg = "罐口检测结果:成功";
+                            string strMsg = "4号罐口检测结果:成功";
                             writelistview("罐口视觉", strMsg, "log");
                             return true;
                         }
                         else
                         {
-                            string strMsg = "罐口检测结果:失败";
+                            string strMsg = "4号罐口检测结果:失败";
                             writelistview("罐口视觉", strMsg, "log");
                             return false;
                         }
@@ -140,13 +141,13 @@ namespace AnBRobotSystem.Core
                         int GB_B_GK = GB_B_GK_result.pIntValue[0];
                         if (GB_B_GK == 1)
                         {
-                            string strMsg = "罐口检测结果:成功";
+                            string strMsg = "3号罐口检测结果:成功";
                             writelistview("罐口视觉", strMsg, "log");
                             return true;
                         }
                         else
                         {
-                            string strMsg = "罐口检测结果:失败";
+                            string strMsg = "3号罐口检测结果:失败";
                             writelistview("罐口视觉", strMsg, "log");
                             return false;
                         }
@@ -249,17 +250,23 @@ namespace AnBRobotSystem.Core
         public MagDevice m1 = new MagDevice(IntPtr.Zero);
        
         public updatelistiew writelistview1;
+        public string TL_station = "";
         public bool Get_iron = false;
-        public bool task_run_flag = false;
+        public bool TL_run_flag = false;
         public double area = 0;
         public static string shape = "";
         public VideoCapture camer_cap;
-
+        public Thread TieLiu_dect;
+        public static float last_Atlare = 0;
+        public static float last_Btlare = 0;
+        public static string lastTL_station="";
         public TieLiu()
         {
             m1.Initialize();
             CreateDevice();
-            m1.LinkCamera("140.80.0.127", 2000);
+            m1.LinkCamera("192.168.100.50", 2000);
+            TieLiu_dect = new Thread(TL_light_result);
+            TieLiu_dect.Start();
         }
 
         #region 热成像仪数据处理函数
@@ -442,7 +449,7 @@ namespace AnBRobotSystem.Core
             param.intBMPHeight = (uint)cam_info.intVideoHeight;
             param.intColorbarWidth = 20;
             param.intColorbarHeight = 100;
-            mDevice.SetSubsectionEnlargePara(30, 60000, 0, 255);
+            mDevice.SetSubsectionEnlargePara(300000, 500000, 0, 255);
             if (mDevice.StartProcessImage(param, NewFrame, (uint)GroupSDK.STREAM_TYPE.STREAM_TEMPERATURE, IntPtr.Zero))
             {
                 mDevice.SetColorPalette(GroupSDK.COLOR_PALETTE.GRAY1);
@@ -454,64 +461,90 @@ namespace AnBRobotSystem.Core
         #endregion
         public void get_tl_img()
         {
-            //Thread.Sleep(500);
             Play(m1);
             Bitmap b1 = m1.GetOutputBMPBitmap();
             uint dataLen = (uint)(b1.Width * b1.Height * 3);
             byte[] imagedata = Bitmap2Byte_clor(b1);
             ImageBaseData StImg = new ImageBaseData(imagedata, dataLen, b1.Width, b1.Height, 2);
             MdiParent.TL_img_sdk.SetImageData(StImg);
-            MdiParent.process_TL.Run();
         }
-        public bool TL_light_result()
+        public void TL_light_result()
         {
-            
-            try
+            while(true)
             {
-                
-                 if (null == MdiParent.process_TL)
+                try
                 {
-                    return false;
-                }
-                else
-                {
-                    //MdiParent.process_TL.Run();
-                    Play(m1);
-                    Bitmap b1 = m1.GetOutputBMPBitmap();
-                    uint dataLen = (uint)(b1.Width * b1.Height * 3);
-                    byte[] imagedata = Bitmap2Byte_clor(b1);
-                   
-                    ImageBaseData StImg = new ImageBaseData(imagedata, dataLen, b1.Width, b1.Height, 2);
-                    MdiParent.TL_img_sdk.SetImageData(StImg);
-                    MdiParent.process_TL.Run();
-                    IntResultInfo blob_num_info = MdiParent.process_TL.GetIntOutputResult("blob_num");
-                    int blob_num = blob_num_info.pIntValue[0];
-                    if (blob_num == 1)
-                    {
-                        Get_iron = true;
-                        string strMsg = "铁流检测结果:成功";
-                        writelistview1("铁流视觉", strMsg, "log");
-                        
-                        return true;
 
+                    Thread.Sleep(1000);
+                    if (null == MdiParent.process_TL)
+                    {
+                        TL_run_flag = false;
                     }
                     else
                     {
-                        string strMsg = "铁流检测结果:失败";
-                        writelistview1("铁流视觉", strMsg, "log");
-                        Get_iron = false;
-                        return true;
+                        //热成像仪取图，并通过sdk方法给vm
+                        get_tl_img();
+                        //运行vm并获取结果
+                        MdiParent.process_TL.Run();
+                        int A_blobstate = MdiParent.process_TL.GetIntOutputResult("A_blobstate").pIntValue[0];
+                        int B_blobstate = MdiParent.process_TL.GetIntOutputResult("B_blobstate").pIntValue[0];
+                        float A_tl_are = MdiParent.process_TL.GetFloatOutputResult("A_tl").pFloatValue[0];
+                        float B_tl_are = MdiParent.process_TL.GetFloatOutputResult("B_tl").pFloatValue[0];
+                        if (A_blobstate == 0 && B_blobstate == 0)
+                        {
+                            if(last_Atlare-A_tl_are>200|| MdiParent.PLCdata1.TB_weight_speed>0.05|| last_Btlare - B_tl_are > 200)
+                            {
+                                TL_station = lastTL_station;
+                                Get_iron = true;
+                            }
+                            else
+                            {
+                                TL_station = "";
+                                Get_iron = false;
+                            }
+                        }
+                        else if(A_blobstate > 0 && B_blobstate > 0)
+                        {
+                            if (last_Atlare - A_tl_are > 200 || MdiParent.PLCdata1.TB_weight_speed > 0.1 || last_Btlare - B_tl_are > 200)
+                            {
+                                TL_station = lastTL_station;
+                                Get_iron = true;
+                            }
+                            else
+                            {
+                                TL_station = "";
+                                Get_iron = false;
+                            }
+                        }
+                        else if(A_blobstate > 0)
+                        {
+                            TL_station = "A";
+                            Get_iron = true;
+                        }
+                        else
+                        {
+                            TL_station = "B";
+                            Get_iron = true;
+                        }
+                        last_Atlare = A_tl_are;
+                        last_Btlare = B_tl_are;
+                        lastTL_station = TL_station;
+                        TL_run_flag = true;
                     }
+                }
+                catch (VmException ex)
+                {
+                    writelistview1("铁流视觉", "铁流检查程序运行失败！", "log");
+                    string strMsg = "SaveSolution failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
+                    LogHelper.WriteLog(strMsg, ex);
+                    Get_iron = false;
+                    TL_run_flag = false;
+                   // string strMsg = "铁流检测结果:失败";
 
+                    // return false;
                 }
             }
-            catch (VmException ex)
-            {
-                string strMsg = "SaveSolution failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
-                LogHelper.WriteLog(strMsg, ex);
-                Get_iron = false;
-                return false;
-            }
+            
 
         }
        

@@ -43,26 +43,29 @@ namespace AnBRobotSystem.ChildForm
         {
             #region 折铁位
             //铁包状态
-           
-            if (PLCdata.ZT_data.TB_pos == false)
+           try
+            {
+
+            
+            if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_pos == false)
             {
                 zt_Panel1.Enabled = true;
                 
                 zt_ScrollingText1.Active = true;
                 zt_ScrollingText1.ForeColor = Color.Red;
                 tb_limit.Color = Color.LightGreen;
-                if ((int)PLCdata.ZT_data.TB_weight > 90)
+                if ((int)AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight > 90)
                 {
                     uiProcessBar1.Enabled = true;
-                    uiProcessBar1.Value = (int)PLCdata.ZT_data.TB_weight - 90;
+                    uiProcessBar1.Value = (int)AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight - 90;
                 }
                 else
                     uiProcessBar1.Value = 0;
-                TB_weight.Text = PLCdata.ZT_data.TB_weight.ToString();
+                TB_weight.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight.ToString();
                
-                ZT_tbnum.Text = PLCdata.ZT_data.TB_num.ToString();
+                ZT_tbnum.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_num.ToString();
 
-                if (PLCdata.TB_weight_speed != 0 && PLCdata.ZT_data.GB_A_angle > 1200)
+                if (AnBRobotSystem.MdiParent.tl1.TL_station=="A")
                 {
                     uiImageButton1.Visible = true;
                     uiImageButton1.Enabled = !uiImageButton1.Enabled;
@@ -73,7 +76,7 @@ namespace AnBRobotSystem.ChildForm
 
                 }
 
-                if (PLCdata.TB_weight_speed != 0 && PLCdata.ZT_data.GB_B_angle > 500)
+                if (AnBRobotSystem.MdiParent.tl1.TL_station == "B")
                 {
                     uiImageButton2.Visible = true;
                     uiImageButton2.Enabled = !uiImageButton2.Enabled;
@@ -93,17 +96,20 @@ namespace AnBRobotSystem.ChildForm
                 TB_weight.Text = "0";
                 uiProcessBar1.Value = 0;
                 ZT_tbnum.Text = "0";
-            }
+                uiImageButton1.Visible = false;
+                uiImageButton2.Visible = false;
+
+             }
             
             //罐车A
-            if (PLCdata.ZT_data.GB_A_carIn==true)
+            if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_carIn==true)
             {
                 train1_coming.Color = Color.LightGreen;
                 GBA_img.Enabled = true;
                 //读取实时数据库更新 罐重
                 string A_nowweight=uidb.read_table_onefield("mid_weight", "RealTime_Car_Bag", "ID", "A");
                 GBA_now_weight.Text = A_nowweight;
-                
+                ui_gba_angle.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_angle.ToString();
             }
             else
             {
@@ -112,8 +118,8 @@ namespace AnBRobotSystem.ChildForm
                 //读取实时数据库更新 罐重
                 GBA_now_weight.Text = "0";
             }
-            GBA_num.Text = PLCdata.ZT_data.GB_A_num.ToString();
-            if (PLCdata.ZT_data.GB_A_connect == true)
+            GBA_num.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_num.ToString();
+            if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_connect == true)
             {
                 GBA_getpow.Color = Color.LightGreen;
             }
@@ -122,7 +128,7 @@ namespace AnBRobotSystem.ChildForm
 
 
             //罐车B
-            if (PLCdata.ZT_data.GB_B_carIn == true)
+            if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_B_carIn == true)
             {
                 train2_coming.Color = Color.LightGreen;
                 GBB_img.Enabled = true;
@@ -130,7 +136,8 @@ namespace AnBRobotSystem.ChildForm
                 //读取实时数据库更新 罐重
                 string B_nowweight = uidb.read_table_onefield("mid_weight", "RealTime_Car_Bag", "ID", "B");
                 GBB_now_weight.Text = B_nowweight;
-            }
+                ui_gbb_angle.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_B_angle.ToString();
+                }
             else
             {
                 train2_coming.Color = Color.Silver;
@@ -138,8 +145,8 @@ namespace AnBRobotSystem.ChildForm
                 //读取实时数据库更新 罐重
                 GBB_now_weight.Text = "0";
             }
-            GBB_num.Text = PLCdata.ZT_data.GB_B_num.ToString();
-            if (PLCdata.ZT_data.GB_B_connect == true)
+            GBB_num.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_B_num.ToString();
+            if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_B_connect == true)
             {
                 GBB_getpow.Color = Color.LightGreen;
             }
@@ -147,17 +154,17 @@ namespace AnBRobotSystem.ChildForm
                 GBB_getpow.Color = Color.Silver;
             #endregion
             #region 测温位更新
-            if(PLCdata.ZT_data.TB_on_tempos==false)
+            if(AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_on_tempos==false)
             {
                 cw_Panel2.Enabled = true;
-                CW_tbnum.Text = PLCdata.ZT_data.TB_num.ToString();
+                CW_tbnum.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_num.ToString();
 
-                temp_weight.Text = PLCdata.ZT_data.TB_weight.ToString();
+                temp_weight.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight.ToString();
                 
-                if ((int)PLCdata.ZT_data.TB_weight > 90)
+                if ((int)AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight > 90)
                 {
                     uiProcessBar2.Enabled = true;
-                    uiProcessBar2.Value = (int)PLCdata.ZT_data.TB_weight - 90;
+                    uiProcessBar2.Value = (int)AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight - 90;
                 }
                 else
                 {
@@ -178,16 +185,16 @@ namespace AnBRobotSystem.ChildForm
             }
             #endregion
             #region 吊装位更新
-            if (PLCdata.ZT_data.TB_on_DZpos == false)
+            if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_on_DZpos == false)
             {
                 dz_Panel3.Enabled = true;
-                DZ_tbnum.Text = PLCdata.ZT_data.TB_num.ToString();
-                dz_weight.Text = PLCdata.ZT_data.TB_weight.ToString();
+                DZ_tbnum.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_num.ToString();
+                dz_weight.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight.ToString();
                 
-                if ((int)PLCdata.ZT_data.TB_weight > 90)
+                if ((int)AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight > 90)
                 {
                     uiProcessBar3.Enabled = true;
-                    uiProcessBar3.Value = (int)PLCdata.ZT_data.TB_weight - 90;
+                    uiProcessBar3.Value = (int)AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight - 90;
                 }
                 else
                 {
@@ -208,6 +215,11 @@ namespace AnBRobotSystem.ChildForm
                 uiProcessBar3.Enabled = false;
                 uiScrollingText3.Active = false;
                 uiScrollingText3.ForeColor = Color.Silver;
+            }
+            }
+        catch(Exception e)
+            {
+                LogHelper.WriteLog("界面更新错误！", e);
             }
             #endregion
         }
@@ -249,19 +261,20 @@ namespace AnBRobotSystem.ChildForm
         }
         public void update()
         {
-            try
-            {
+           
                 while (flag)
-                {
-                    //更新前端界面
-                    ui_updata();
-
-                }
-            }
-            catch (Exception e)
             {
-                LogHelper.WriteLog("数据更新界面出差", e);
-            }
+                    try
+                { //更新前端界面
+                    ui_updata();
+                }
+                catch (Exception e)
+                {
+                    LogHelper.WriteLog("数据更新界面出差", e);
+                }
+
+             }
+            
             
             
         }
@@ -317,26 +330,26 @@ namespace AnBRobotSystem.ChildForm
 
         private void uiButton1_Click(object sender, EventArgs e)
         {
-            //PLCdata.ZT_data.GB_A_carIn = true;
-            //PLCdata.ZT_data.GB_posA = true;
-            //PLCdata.ZT_data.GB_A_0_limt = true;
-            //PLCdata.ZT_data.GB_A_120_limt = false;
-            //PLCdata.ZT_data.GB_A_connect = true;
-            //PLCdata.ZT_data.GB_A_num = 34;
-            //PLCdata.ZT_data.GB_A_Rspeed = Single.Parse(GB_R_speed.Text);
-            //PLCdata.ZT_data.GB_A_angle =Single.Parse( GB_R_angle.Text);
+            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_carIn = true;
+            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_posA = true;
+            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_0_limt = true;
+            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_120_limt = true;
+            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_connect = true;
+            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_num = 34;
+            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_Rspeed = Single.Parse(GB_R_speed.Text);
+            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_angle = Single.Parse(GB_R_angle.Text);
 
-            //PLCdata.ZT_data.TB_num = 6;
-            //PLCdata.ZT_data.TB_pos = true;
-            //PLCdata.ZT_data.TB_weight = Single.Parse(TB_R_weight.Text);
+            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_num = 6;
+            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_pos = false;
+            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight = Single.Parse(TB_R_weight.Text);
 
         }
 
         private void uiButton2_Click(object sender, EventArgs e)
         {
-            PLCdata.ZT_data.GB_A_angle += 10;
-            PLCdata.ZT_data.TB_weight += 50;
-            GB_R_angle.Text = PLCdata.ZT_data.GB_A_angle.ToString();
+            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_angle += 10;
+            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight += 50;
+            GB_R_angle.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_angle.ToString();
         }
 
         private void uiGroupBox1_Click(object sender, EventArgs e)
@@ -358,6 +371,8 @@ namespace AnBRobotSystem.ChildForm
 
 
         }
+
+      
     }
 
 }

@@ -251,6 +251,10 @@
     <Reference Include="OpenCvSharp.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
       <HintPath>..\..\packages\OpenCvSharp4.4.5.3.20210817\lib\net461\OpenCvSharp.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="S7.Net, Version=0.13.0.0, Culture=neutral, PublicKeyToken=d5812d469e84c693, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ProjSetup\Auto_steel\newvm\S7.Net.dll</HintPath>
+    </Reference>
     <Reference Include="SendDatasModuleCs">
       <HintPath>..\..\..\..\..\ProjSetup\Auto_steel\newvm\Module(sp)\x64\Communication\SendDatasModule\SendDatasModuleCs.dll</HintPath>
       <Private>False</Private>
@@ -648,10 +652,6 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="S7.Net, Version=0.2.0.0, Culture=neutral, PublicKeyToken=d5812d469e84c693, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\output\S7.Net.dll</HintPath>
-    </Reference>
     <Reference Include="SQLPublicClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\output\SQLPublicClass.dll</HintPath>

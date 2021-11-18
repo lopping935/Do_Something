@@ -29,36 +29,42 @@ namespace AnBRobotSystem.Core
         {
             try
             {
-                if (PLCdata.ZT_data.TB_pos == true)
+                //writelisview("罐包管理系统", "计算所需铁水", "log");
+                if (MdiParent.PLCdata1.ZT_data.TB_pos == true)//在位时为false  设为true方便调试
                 {
-                    realtime_weight = PLCdata.ZT_data.TB_weight;
+                    realtime_weight = MdiParent.PLCdata1.ZT_data.TB_weight;
 
                     if (realtime_weight == 0)
                     {
-                        ibag_flag = "ER";
-                        return false;
+                        ibag_flag = "称故障！";
+                        writelisview("罐包管理系统", "称故障错误！", "log");
+                        return true;
                     }
-                    else if (realtime_weight > 280)
+                    else if (realtime_weight > 580)
                     {
                         ibag_flag = "F";
+                        writelisview("罐包管理系统", "铁包满包！", "log");
+
                         return false;
                     }
-                    else if (realtime_weight > 70 && realtime_weight < 280)
+                    else if (realtime_weight > 70 && realtime_weight < 580)
                     {
                         ibag_flag = "NF";
-                        need_ibag_weight = 280 - realtime_weight;
+                        need_ibag_weight = 580 - realtime_weight;
                         writelisview("罐包管理系统", "计算所需铁水", "log");
                         return true;
                     }
                     else
                     {
                         ibag_flag = "ER";
+                        writelisview("罐包管理系统", "铁包重量计算错误！", "log");
                         return false;
                     }
                 }
                 else
                 {
-                    ibag_flag = "ER";
+                    ibag_flag = "铁水包不在折铁位！";
+                    writelisview("罐包管理系统", "铁水包不在折铁位！", "log");
                     return false;
                 }
 
@@ -101,7 +107,7 @@ namespace AnBRobotSystem.Core
                         fish_station = "A";
                         fish_num = fish_numA;
                         train_in_time = TimeA_Fish;
-                        if (PLCdata.ZT_data.GB_posA == true && PLCdata.ZT_data.GB_A_connect == true && PLCdata.ZT_data.GB_A_0_limt == true&& PLCdata.ZT_data.GB_A_120_limt == false&& fish_num == (PLCdata.ZT_data.GB_A_num).ToString())
+                        if (MdiParent.PLCdata1.ZT_data.GB_posA == true && MdiParent.PLCdata1.ZT_data.GB_A_connect == true && MdiParent.PLCdata1.ZT_data.GB_A_0_limt == true&& MdiParent.PLCdata1.ZT_data.GB_A_120_limt == false&& fish_num == (MdiParent.PLCdata1.ZT_data.GB_A_num).ToString())
                         {
                             if (AF_mid_weight == AFinit_weight)
                             {
@@ -128,7 +134,7 @@ namespace AnBRobotSystem.Core
                         fish_station = "B";
                         fish_num = fish_numB;
                         train_in_time = TimeB_Fish;
-                        if (PLCdata.ZT_data.GB_posB == true && PLCdata.ZT_data.GB_B_connect == true && PLCdata.ZT_data.GB_B_0_limt == true && PLCdata.ZT_data.GB_B_120_limt == false && fish_num == (PLCdata.ZT_data.GB_B_num).ToString())
+                        if (MdiParent.PLCdata1.ZT_data.GB_posB == true && MdiParent.PLCdata1.ZT_data.GB_B_connect == true && MdiParent.PLCdata1.ZT_data.GB_B_0_limt == true && MdiParent.PLCdata1.ZT_data.GB_B_120_limt == false && fish_num == (MdiParent.PLCdata1.ZT_data.GB_B_num).ToString())
                         {
                             if (BF_mid_weight == BFinit_weight)
                             {
@@ -157,7 +163,7 @@ namespace AnBRobotSystem.Core
                     fish_station = "A";
                     train_in_time = TimeA_Fish;
                     fish_num = fish_numA;
-                    if (PLCdata.ZT_data.GB_posA == true && PLCdata.ZT_data.GB_A_connect == true && PLCdata.ZT_data.GB_A_0_limt == true && PLCdata.ZT_data.GB_A_120_limt == false && fish_num == (PLCdata.ZT_data.GB_A_num).ToString())
+                    if (MdiParent.PLCdata1.ZT_data.GB_posA == true && MdiParent.PLCdata1.ZT_data.GB_A_connect == true && MdiParent.PLCdata1.ZT_data.GB_A_0_limt == true && MdiParent.PLCdata1.ZT_data.GB_A_120_limt == false && fish_num == (MdiParent.PLCdata1.ZT_data.GB_A_num).ToString())
                     {
                         if (AF_mid_weight == AFinit_weight)
                         {
@@ -184,7 +190,7 @@ namespace AnBRobotSystem.Core
                     fish_station = "B";
                     train_in_time = TimeB_Fish;
                     fish_num = fish_numB;
-                    if (PLCdata.ZT_data.GB_posB == true && PLCdata.ZT_data.GB_B_connect == true && PLCdata.ZT_data.GB_B_0_limt == true && PLCdata.ZT_data.GB_B_120_limt == false && fish_num == (PLCdata.ZT_data.GB_B_num).ToString())
+                    if (MdiParent.PLCdata1.ZT_data.GB_posB == true && MdiParent.PLCdata1.ZT_data.GB_B_connect == true && MdiParent.PLCdata1.ZT_data.GB_B_0_limt == true && MdiParent.PLCdata1.ZT_data.GB_B_120_limt == false && fish_num == (MdiParent.PLCdata1.ZT_data.GB_B_num).ToString())
                     {
                         if (BF_mid_weight == BFinit_weight)
                         {
@@ -248,54 +254,108 @@ namespace AnBRobotSystem.Core
                     fish_num = dr["number"].ToString().Trim();
                 }
                 dr.Close();
-
-                if (GB_ID == "A")
-                {
-                    fish_num = (PLCdata.ZT_data.GB_A_num).ToString();
-                    fish_station = "A";
-                    if (PLCdata.ZT_data.GB_posA == true && PLCdata.ZT_data.GB_A_connect == true && PLCdata.ZT_data.GB_A_0_limt == true && PLCdata.ZT_data.GB_A_120_limt == false && fish_num == (PLCdata.ZT_data.GB_A_num).ToString())
-                        condition_flag = true;
-                    else
-                        condition_flag = false;
-                }
-                else
-                {
-                    fish_station = "B";
-                    if (PLCdata.ZT_data.GB_posB == true && PLCdata.ZT_data.GB_B_connect == true && PLCdata.ZT_data.GB_B_0_limt == true && PLCdata.ZT_data.GB_B_120_limt == false && fish_num == (PLCdata.ZT_data.GB_B_num).ToString())
-                        condition_flag = true;
-                    else
-                        condition_flag = false;
-
-                }
+                //判断罐车重量是否正确，有无铁水
                 if (AF_mid_weight != 0)
                 {
-                    if (condition_flag==true)
+                    if (AF_mid_weight == AFinit_weight)
                     {
-                        if (AF_mid_weight == AFinit_weight)
-                        {
-                            F_flag = "F";
-                            fish_weight = AFinit_weight;
-                            fish_init_weight = AFinit_weight;
-                        }
-                        else
-                        {
-                            F_flag = "NF";
-                            fish_weight = AF_mid_weight;
-                            fish_init_weight = AFinit_weight;
-                        }
+                        fish_weight = AFinit_weight;
+                        fish_init_weight = AFinit_weight;
                     }
                     else
                     {
+                        fish_weight = AF_mid_weight;
+                        fish_init_weight = AFinit_weight;
+                    }
+                }
+                else
+                {
+                    F_flag = "ER";
+                    fish_station = "ER";
+                    writelisview("手动罐数据", "鱼雷罐重量有误！", "log");
+                }
+                
+                if (GB_ID == "A")
+                {
+                    //fish_num = (PLCdata.ZT_data.GB_A_num).ToString();
+                    fish_station = "A";
+                  
+                    if(MdiParent.PLCdata1.ZT_data.GB_A_connect==true)
+                    {
+                        writelisview("手动罐数据", "4号位罐车得电！", "log");
+                        //if(fish_num == (PLCdata.ZT_data.GB_A_num).ToString())
+                        //{
+                            writelisview("手动罐数据", "鱼雷罐号确认成功！", "log");
+                            if(MdiParent.PLCdata1.ZT_data.GB_A_0_limt == false&& MdiParent.PLCdata1.ZT_data.GB_A_120_limt == true)
+                            {
+                                F_flag = "F";
+                                fish_weight = AFinit_weight;
+                                fish_init_weight = AFinit_weight;
+                                writelisview("手动罐数据", "鱼雷罐满罐！", "log");
+                                return true;
+                            }
+                            else
+                            {
+                                F_flag = "NF";
+                                fish_weight = AFinit_weight;
+                                fish_init_weight = AFinit_weight;
+                                writelisview("手动罐数据", "鱼雷罐不满罐！", "log");
+                                return true;
+                            }
+                        //}
+                        //else
+                        //{
+                       //     writelisview("手动罐数据", "鱼雷罐号确认失败！", "log");
+                      //      return false;
+                      //  }
+                       
+                    }
+                    else
+                    {
+                        writelisview("手动罐数据", "4号位罐车失电0！", "log");
                         return false;
                     }
                 }
                 else
                 {
-                    fish_station = "ER";
-                    F_flag = "ER";
-                    return false;
+                    fish_station = "B";
+                    if (MdiParent.PLCdata1.ZT_data.GB_B_connect == true)
+                    {
+                        writelisview("手动罐数据", "3号位罐车得电！", "log");
+                        //if (fish_num == (PLCdata.ZT_data.GB_B_num).ToString())
+                       // {
+                            writelisview("手动罐数据", "3号鱼雷罐号确认成功！", "log");
+                            if (MdiParent.PLCdata1.ZT_data.GB_B_0_limt == false && MdiParent.PLCdata1.ZT_data.GB_B_120_limt == true)
+                            {
+                                F_flag = "F";
+                                fish_weight = AFinit_weight;
+                                fish_init_weight = AFinit_weight;
+                                writelisview("手动罐数据", "3号鱼雷罐满罐！", "log");
+                                return true;
+                            }
+                            else
+                            {
+                                F_flag = "NF";
+                                fish_weight = AFinit_weight;
+                                fish_init_weight = AFinit_weight;
+                                writelisview("手动罐数据", "3号鱼雷罐不满罐！", "log");
+                                return true;
+                            }
+                       // }
+                        //else
+                        //{
+                        //    writelisview("手动罐数据", "3号鱼雷罐号确认失败！", "log");
+                        //    return false;
+                        //}
+                    }
+                    else
+                    {
+                        writelisview("手动罐数据", "3号位罐车失电0！", "log");
+                        return false;
+                    }
                 }
-                return true;
+                
+                
 
 
             }

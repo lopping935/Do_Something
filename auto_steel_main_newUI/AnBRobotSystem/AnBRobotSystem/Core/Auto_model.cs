@@ -76,6 +76,9 @@ namespace AnBRobotSystem.Core
         {
             try
             {
+                //给plc写入自动本次折铁开始信号
+                MdiParent.PLCdata1.plczt_statflag = 1;
+                
                 one_ZT.Has_mission = true;
                 if (Program.GB_chose_flag == 1)//人工选罐
                 {
@@ -87,11 +90,11 @@ namespace AnBRobotSystem.Core
                     {
                         dbhlper.inser_log("ZT_log", "人工选"+ Program.GB_station);
                         setvalue(Program.GB_station);
-                        one_ZT.TB_num = PLCdata.ZT_data.TB_num;
+                        one_ZT.TB_num = MdiParent.PLCdata1.ZT_data.TB_num;
                         one_ZT.TB_need_weight = m1.need_ibag_weight;
-                        one_ZT.TB_on_pos = PLCdata.ZT_data.TB_pos;
-                        one_ZT.TB_hight = PLCdata.ZT_data.TB_hight;
-                        one_ZT.TB_Init_weight = PLCdata.ZT_data.TB_weight;
+                        one_ZT.TB_on_pos = MdiParent.PLCdata1.ZT_data.TB_pos;
+                        one_ZT.TB_hight = MdiParent.PLCdata1.ZT_data.TB_hight;
+                        one_ZT.TB_Init_weight = MdiParent.PLCdata1.ZT_data.TB_weight;
                         if (m1.F_flag == "F" && m1.fish_station != "ER")
                         {
 
@@ -159,7 +162,7 @@ namespace AnBRobotSystem.Core
                             one_ZT.GB_have_wight = m1.fish_weight;
                             one_ZT.GB_full_wight = m1.fish_init_weight;
                             one_ZT.GB_train_in_times = m1.train_in_time;
-                            if (MdiParent.tb1.TB_init_result())
+                            if (true)//MdiParent.tb1.TB_init_result()
                             {
                                 writelisview("铁包口", "铁包口视觉检测正常!", "log");
                                 one_ZT.TB_BK_vision = true;
@@ -202,11 +205,11 @@ namespace AnBRobotSystem.Core
                     if (m1.get_TB_data() && m1.get_GB_data())
                     {
                         m1.dbhlper.close_conn();
-                        one_ZT.TB_num = PLCdata.ZT_data.TB_num;
+                        one_ZT.TB_num = MdiParent.PLCdata1.ZT_data.TB_num;
                         one_ZT.TB_need_weight = m1.need_ibag_weight;
-                        one_ZT.TB_on_pos = PLCdata.ZT_data.TB_pos;
-                        one_ZT.TB_hight = PLCdata.ZT_data.TB_hight;
-                        one_ZT.TB_Init_weight = PLCdata.ZT_data.TB_weight;
+                        one_ZT.TB_on_pos = MdiParent.PLCdata1.ZT_data.TB_pos;
+                        one_ZT.TB_hight = MdiParent.PLCdata1.ZT_data.TB_hight;
+                        one_ZT.TB_Init_weight = MdiParent.PLCdata1.ZT_data.TB_weight;
 
 
                         if (m1.F_flag == "F" && m1.fish_station != "ER")
@@ -349,32 +352,32 @@ namespace AnBRobotSystem.Core
 
         public void setvalue(string flag)
         {
-            one_ZT.TB_hight = PLCdata.ZT_data.TB_hight;
-            one_ZT.TB_weight = PLCdata.ZT_data.TB_weight;
+            one_ZT.TB_hight = MdiParent.PLCdata1.ZT_data.TB_hight;
+            one_ZT.TB_weight = MdiParent.PLCdata1.ZT_data.TB_weight;
             if (flag == "A")
             {
-                one_ZT.GB_angle = PLCdata.ZT_data.GB_A_angle;
-                one_ZT.GB_num = PLCdata.ZT_data.GB_A_num;
-                one_ZT.GB_0_limt = PLCdata.ZT_data.GB_A_0_limt;
-                one_ZT.GB_120_limt = PLCdata.ZT_data.GB_A_120_limt;
-                one_ZT.GB_on_pos = PLCdata.ZT_data.GB_posA;
-                one_ZT.GB_speed = PLCdata.ZT_data.GB_A_Rspeed;
-                one_ZT.GB_connect = PLCdata.ZT_data.GB_A_connect;
+                one_ZT.GB_angle = MdiParent.PLCdata1.ZT_data.GB_A_angle;
+                one_ZT.GB_num = MdiParent.PLCdata1.ZT_data.GB_A_num;
+                one_ZT.GB_0_limt = MdiParent.PLCdata1.ZT_data.GB_A_0_limt;
+                one_ZT.GB_120_limt = MdiParent.PLCdata1.ZT_data.GB_A_120_limt;
+                one_ZT.GB_on_pos = MdiParent.PLCdata1.ZT_data.GB_posA;
+                one_ZT.GB_speed = MdiParent.PLCdata1.ZT_data.GB_A_speed;//不用真实  真实值变动太大
+                one_ZT.GB_connect = MdiParent.PLCdata1.ZT_data.GB_A_connect;
             }
             else
             {
-                one_ZT.GB_angle = PLCdata.ZT_data.GB_B_angle;
-                one_ZT.GB_num = PLCdata.ZT_data.GB_B_num;
-                one_ZT.GB_0_limt = PLCdata.ZT_data.GB_B_0_limt;
-                one_ZT.GB_120_limt = PLCdata.ZT_data.GB_B_120_limt;
-                one_ZT.GB_on_pos = PLCdata.ZT_data.GB_posB;
-                one_ZT.GB_speed = PLCdata.ZT_data.GB_B_Rspeed;
-                one_ZT.GB_connect = PLCdata.ZT_data.GB_B_connect;
+                one_ZT.GB_angle = MdiParent.PLCdata1.ZT_data.GB_B_angle;
+                one_ZT.GB_num = MdiParent.PLCdata1.ZT_data.GB_B_num;
+                one_ZT.GB_0_limt = MdiParent.PLCdata1.ZT_data.GB_B_0_limt;
+                one_ZT.GB_120_limt = MdiParent.PLCdata1.ZT_data.GB_B_120_limt;
+                one_ZT.GB_on_pos = MdiParent.PLCdata1.ZT_data.GB_posB;
+                one_ZT.GB_speed = MdiParent.PLCdata1.ZT_data.GB_A_speed;
+                one_ZT.GB_connect = MdiParent.PLCdata1.ZT_data.GB_B_connect;
             }
 
 
         }
-        public void process_fmodel_full()
+        public async void process_fmodel_full()
         {
             int last_flag = 0;
             setvalue(one_ZT.GB_station);
@@ -399,7 +402,7 @@ namespace AnBRobotSystem.Core
                     //////模型计算给定速度  现在是直接给定
                     if (Program.program_flag == 0)
                     {
-                        Int16 speed_flag = PLCdata.set_speed(one_ZT.GB_station, 20);
+                        short speed_flag=await MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 20);
                         if (speed_flag != 0)
                         {
                             writelisview("模型", "速度设置错误，错误代码：" + speed_flag.ToString(), "log");
@@ -461,7 +464,7 @@ namespace AnBRobotSystem.Core
                             if (edge_value.Count >= 5)
                             {
                                 //实际应该大于0  测试改为==0
-                                if (edge_value[2] - edge_value[0] ==0  && edge_value[4] - edge_value[2] == 0)
+                                if (edge_value[2] - edge_value[0] == 0 && edge_value[4] - edge_value[2] == 0)
                                 {
                                     //MdiParent.process_TL.ContinuousRunEnable = true;
                                     //MdiParent.process_GK.ContinuousRunEnable = false;
@@ -484,63 +487,72 @@ namespace AnBRobotSystem.Core
                         }
                     }
                     //模型计算开流极限角度  开启铁流检测
-                    if (Program.program_flag == 3 && one_ZT.GB_angle < limt_angle)
+                    if (Program.program_flag == 3)
                     {
-                        if (MdiParent.tl1.TL_light_result() == false)
+                        if (one_ZT.GB_angle < limt_angle)
                         {
-                            writelisview("模型", "铁流检测程序运行错误！！", "log");
-                            Program.ZT_thread_flag = 1000;
+                            if (true)//MdiParent.tl1.TL_light_result() == false
+                            {
+                                writelisview("模型", "铁流检测程序运行错误！！", "log");
+                                Program.ZT_thread_flag = 1000;
+                            }
+                            else
+                            {
+                                if (MdiParent.tl1.Get_iron == true)
+                                {
+                                    Program.program_flag = 4;
+                                    one_ZT.TL = true;
+                                    one_ZT.TL_in_TB = true;
+                                    writelisview("模型", "开流成功！", "log");
+                                }
+                            }
                         }
                         else
                         {
-                            if (MdiParent.tl1.Get_iron == true)
-                            {
-                                Program.program_flag = 4;
-                                one_ZT.TL = true;
-                                one_ZT.TL_in_TB = true;
-                                writelisview("模型", "开流成功！", "log");
-                            }
+                            writelisview("模型", "角度超限未检测到铁流！", "log");
+                            Program.ZT_thread_flag = 1000;
                         }
+
                     }
 
                     //正向全速倾倒
-                    if (Program.program_flag == 4 && MdiParent.tl1.TL_light_result() == true)
+                    if (Program.program_flag == 4)//&& MdiParent.tl1.TL_light_result() == true
                     {
                         if (MdiParent.tl1.Get_iron == true)
                         {
-                            if (one_ZT.TB_weight < one_ZT.ZT_reqweight*0.85)
+                            if (one_ZT.TB_weight < one_ZT.ZT_reqweight * 0.85)
                             {
-                                if (PLCdata.TB_weight_speed < 1.6)
+                                if (MdiParent.PLCdata1.TB_weight_speed < 1.6)
                                 {
                                     if (one_ZT.GB_speed == 20)
                                         Program.program_flag = 4;
                                     else
-                                        PLCdata.set_speed(one_ZT.GB_station, 20);
+                                         MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 20);
                                 }
                                 else
                                 {
                                     if (one_ZT.GB_speed == 0)
                                         Program.program_flag = 4;
                                     else
-                                        PLCdata.set_speed(one_ZT.GB_station, 0);
+                                         MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 0);
                                 }
 
                             }
                             else if (one_ZT.TB_weight > one_ZT.ZT_reqweight * 0.85 && one_ZT.TB_weight < one_ZT.ZT_reqweight * 0.92)
                             {
-                                if (PLCdata.TB_weight_speed < 1)
+                                if (MdiParent.PLCdata1.TB_weight_speed < 1)
                                 {
                                     if (one_ZT.GB_speed == 10)
                                         Program.program_flag = 4;
                                     else
-                                        PLCdata.set_speed(one_ZT.GB_station, 10);
+                                        MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 10);
                                 }
                                 else
                                 {
                                     if (one_ZT.GB_speed == 0)
                                         Program.program_flag = 4;
                                     else
-                                        PLCdata.set_speed(one_ZT.GB_station, 0);
+                                        MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 0);
                                 }
                             }
                             else
@@ -553,43 +565,43 @@ namespace AnBRobotSystem.Core
                         }
 
                     }
-             
-                    //折铁返回  罐内有足够铁量时的返回程序
-                    if (Program.program_flag == 5 && MdiParent.tl1.TL_light_result() == true)
+
+                    //折铁返回罐内有足够铁量时的返回程序
+                    if (Program.program_flag == 5)//&& MdiParent.tl1.TL_light_result() == true
                     {
                         if (one_ZT.TB_weight > one_ZT.ZT_reqweight * 0.92 && one_ZT.TB_weight < one_ZT.ZT_reqweight * 0.96)
                         {
-                            if (PLCdata.TB_weight_speed < 0.5)
+                            if (MdiParent.PLCdata1.TB_weight_speed < 0.5)
                             {
                                 if (one_ZT.GB_speed == -20)
                                     Program.program_flag = 5;
                                 else
-                                    PLCdata.set_speed(one_ZT.GB_station, -20);
+                                    MdiParent.PLCdata1.set_speed(one_ZT.GB_station, -20);
                             }
                             else
                             {
                                 if (one_ZT.GB_speed == 0)
                                     Program.program_flag = 5;
                                 else
-                                    PLCdata.set_speed(one_ZT.GB_station, 0);
+                                    MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 0);
                             }
 
                         }
                         else if (one_ZT.TB_weight > one_ZT.ZT_reqweight * 0.96 && one_ZT.TB_weight < one_ZT.ZT_reqweight)
                         {
-                            if (PLCdata.TB_weight_speed < 0.5)
+                            if (MdiParent.PLCdata1.TB_weight_speed < 0.5)
                             {
                                 if (one_ZT.GB_speed == -10)
                                     Program.program_flag = 5;
                                 else
-                                    PLCdata.set_speed(one_ZT.GB_station, -10);
+                                    MdiParent.PLCdata1.set_speed(one_ZT.GB_station, -10);
                             }
                             else
                             {
                                 if (one_ZT.GB_speed == 0)
                                     Program.program_flag = 5;
                                 else
-                                    PLCdata.set_speed(one_ZT.GB_station, 0);
+                                    MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 0);
                             }
                         }
                         else
@@ -598,14 +610,14 @@ namespace AnBRobotSystem.Core
                             Program.program_flag = 6;
                         }
                     }
-                    if (Program.program_flag == 6 && MdiParent.tl1.TL_light_result() == true)
+                    if (Program.program_flag == 6)//&& MdiParent.tl1.TL_light_result() == true
                     {
-                        if (PLCdata.speed == -20)
+                        if (MdiParent.PLCdata1.speed == -20)
                             Program.program_flag = 6;
                         else
-                            PLCdata.set_speed(one_ZT.GB_station, -20);
+                            MdiParent.PLCdata1.set_speed(one_ZT.GB_station, -20);
                     }
-                    else if (Program.program_flag == 6 && MdiParent.tl1.TL_light_result() == false)
+                    else if (Program.program_flag == 6)//&& MdiParent.tl1.TL_light_result() == false
                     {
                         Program.ZT_thread_flag = 1001;
                         Program.GB_chose_flag = 0;
@@ -614,7 +626,7 @@ namespace AnBRobotSystem.Core
                         writelisview("模型", "折铁完成！", "log");
                         DateTime afterDT = System.DateTime.Now;
                         TimeSpan ts = afterDT.Subtract(beforDT);
-                        sqltext = string.Format("UPDATE RealTime SET stoptime= '{0}',fall_time='{1}',fall_weight='{2}' WHERE startime= '{3}'", afterDT, ts.TotalMinutes.ToString(), (one_ZT.TB_weight - one_ZT.TB_Init_weight).ToString(),beforDT);
+                        sqltext = string.Format("UPDATE RealTime SET stoptime= '{0}',fall_time='{1}',fall_weight='{2}' WHERE startime= '{3}'", afterDT, ts.TotalMinutes.ToString(), (one_ZT.TB_weight - one_ZT.TB_Init_weight).ToString(), beforDT);
                         dbhlper.MultithreadExecuteNonQuery(sqltext);
                         break;
                     }
@@ -629,25 +641,25 @@ namespace AnBRobotSystem.Core
                         //是否到达0位
                         if (one_ZT.GB_0_limt == false)
                         {
-                            if (PLCdata.speed == -20)
+                            if (MdiParent.PLCdata1.speed == -20)
                             {
                                 Program.program_flag = 7;
                             }
                             else
                             {
-                                PLCdata.set_speed(one_ZT.GB_station, -20);
+                                MdiParent.PLCdata1.set_speed(one_ZT.GB_station, -20);
                             }
                         }
                         else
                         {
-                            PLCdata.set_speed(one_ZT.GB_station, 0);
+                            MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 0);
                             Program.ZT_thread_flag = 1000;
                             Program.GB_chose_flag = 0;
                             one_ZT.Has_mission = false;
                             MdiParent.process_TL.ContinuousRunEnable = false;
                             DateTime afterDT = System.DateTime.Now;
                             TimeSpan ts = afterDT.Subtract(beforDT);
-                            sqltext = string.Format("UPDATE RealTime SET stoptime= '{0}',fall_time='{1}',fall_weight='{2}' WHERE startime= '{3}'", afterDT, ts.TotalMinutes.ToString(),(one_ZT.TB_weight-one_ZT.TB_Init_weight).ToString(), beforDT);
+                            sqltext = string.Format("UPDATE RealTime SET stoptime= '{0}',fall_time='{1}',fall_weight='{2}' WHERE startime= '{3}'", afterDT, ts.TotalMinutes.ToString(), (one_ZT.TB_weight - one_ZT.TB_Init_weight).ToString(), beforDT);
                             dbhlper.MultithreadExecuteNonQuery(sqltext);
                             writelisview("模型", "铁包到达0位！", "log");
                             break;
@@ -689,7 +701,7 @@ namespace AnBRobotSystem.Core
             }
 
         }
-        public void process_model_half()
+        public async void process_model_half()
         {
             int last_flag = 0;
             setvalue(one_ZT.GB_station);
@@ -707,15 +719,19 @@ namespace AnBRobotSystem.Core
                 #region
                 while (threadflag)
                 {
+                    Thread.Sleep(500);
                     setvalue(one_ZT.GB_station);
                     dbhlper.updata_table("RealTime_Car_Bag", "mid_weight", (one_ZT.GB_have_wight - (one_ZT.TB_weight - one_ZT.TB_Init_weight)).ToString(), "ID", one_ZT.GB_station);
                     //////模型计算给定速度  现在是直接给定
                     if (Program.program_flag == 0)
                     {
-                        Int16 speed_flag = PLCdata.set_speed(one_ZT.GB_station, 20);
-                        if (speed_flag != 0)
+                        //Int16 speed_flag = PLCdata.set_speed(one_ZT.GB_station, 100);
+                        //Int16 speed_flag = (Int16)PLCdata.plc300.Write("DB50.DBD26", (Single)40);
+                        short speed_flag = await MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 20);
+
+                        if (speed_flag !=0)
                         {
-                            writelisview("模型", "速度设置错误，错误代码：" + speed_flag.ToString(), "log");
+                            writelisview("模型", "速度设置错误", "log");
                             Program.ZT_thread_flag = 1000;
                             //threadflag = false;
                             //break;
@@ -727,108 +743,126 @@ namespace AnBRobotSystem.Core
                     }
 
 
-                    //模型计算开流极限角度  开启铁流检测
-                    if (Program.program_flag == 3 && one_ZT.GB_angle < limt_angle)
+                    ////模型计算开流极限角度  开启铁流检测
+                    //if (Program.program_flag == 3 && one_ZT.GB_angle < limt_angle)
+                    //{
+                    //    if (MdiParent.tl1.TL_light_result() == false)
+                    //    {
+                    //        writelisview("模型", "铁流检测程序运行错误！！", "log");
+                    //        Program.ZT_thread_flag = 1000;
+                    //    }
+                    //    else
+                    //    {
+                    //        if (MdiParent.tl1.Get_iron == true)
+                    //        {
+                    //            Program.program_flag = 4;
+                    //            writelisview("模型", "开流成功！", "log");
+                    //        }
+                    //    }
+                    //}
+
+                    //正向全速倾倒
+                    if (Program.program_flag == 3)
                     {
-                        if (MdiParent.tl1.TL_light_result() == false)
+                        if(MdiParent.tl1.Get_iron == true || MdiParent.PLCdata1.TB_weight_speed > 0.05)
                         {
-                            writelisview("模型", "铁流检测程序运行错误！！", "log");
-                            Program.ZT_thread_flag = 1000;
+                            Program.program_flag = 4;
                         }
                         else
                         {
-                            if (MdiParent.tl1.Get_iron == true)
+                            if(one_ZT.GB_angle>2000)
                             {
-                                Program.program_flag = 4;
-                                writelisview("模型", "开流成功！", "log");
+                                Program.program_flag = 6;
                             }
                         }
-                    }
 
-                    //正向全速倾倒
-                    if (Program.program_flag == 4 && MdiParent.tl1.TL_light_result() == true)
+                    }
+                    if (Program.program_flag == 4)//&& MdiParent.tl1.TL_light_result() == true
                     {
                         if (MdiParent.tl1.Get_iron == true)
                         {
-                            if (one_ZT.TB_weight < 240)
+                            if (one_ZT.TB_weight < one_ZT.ZT_reqweight * 0.85)
                             {
-                                if (PLCdata.TB_weight_speed < 1.6)
+                                if (MdiParent.PLCdata1.TB_weight_speed < 1.6)
                                 {
                                     if (one_ZT.GB_speed == 20)
                                         Program.program_flag = 4;
                                     else
-                                        PLCdata.set_speed(one_ZT.GB_station, 20);
+                                        MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 20);
                                 }
                                 else
                                 {
                                     if (one_ZT.GB_speed == 0)
                                         Program.program_flag = 4;
                                     else
-                                        PLCdata.set_speed(one_ZT.GB_station, 0);
+                                        MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 0);
                                 }
 
                             }
-                            else if (one_ZT.TB_weight > 240 && one_ZT.TB_weight < 260)
+                            else if (one_ZT.TB_weight > one_ZT.ZT_reqweight * 0.85 && one_ZT.TB_weight < one_ZT.ZT_reqweight * 0.92)
                             {
-                                if (PLCdata.TB_weight_speed < 1)
+                                if (MdiParent.PLCdata1.TB_weight_speed < 1)
                                 {
                                     if (one_ZT.GB_speed == 10)
                                         Program.program_flag = 4;
                                     else
-                                        PLCdata.set_speed(one_ZT.GB_station, 10);
+                                        MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 10);
                                 }
                                 else
                                 {
                                     if (one_ZT.GB_speed == 0)
                                         Program.program_flag = 4;
                                     else
-                                        PLCdata.set_speed(one_ZT.GB_station, 0);
+                                        MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 0);
                                 }
                             }
                             else
                             {
                                 //返回点
-                                writelisview("模型", "启动返回程序！", "log");
                                 Program.program_flag = 5;
+                                one_ZT.ZT_back = true;
+                                writelisview("模型", "启动返回程序！", "log");
                             }
                         }
 
                     }
-                    if (Program.program_flag == 5 && MdiParent.tl1.TL_light_result() == true)
+
+                    //折铁返回罐内有足够铁量时的返回程序
+                    if (Program.program_flag == 5)//&& MdiParent.tl1.TL_light_result() == true
                     {
-                        if (one_ZT.TB_weight > 260 && one_ZT.TB_weight < 270)
+                        if (one_ZT.TB_weight > one_ZT.ZT_reqweight * 0.92 && one_ZT.TB_weight < one_ZT.ZT_reqweight * 0.96)
                         {
-                            if (PLCdata.TB_weight_speed < 0.5)
+                            if (MdiParent.PLCdata1.TB_weight_speed < 0.5)
                             {
                                 if (one_ZT.GB_speed == -20)
                                     Program.program_flag = 5;
                                 else
-                                    PLCdata.set_speed(one_ZT.GB_station, -20);
+                                    MdiParent.PLCdata1.set_speed(one_ZT.GB_station, -20);
                             }
                             else
                             {
                                 if (one_ZT.GB_speed == 0)
                                     Program.program_flag = 5;
                                 else
-                                    PLCdata.set_speed(one_ZT.GB_station, 0);
+                                    MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 0);
                             }
 
                         }
-                        else if (one_ZT.TB_weight > 270 && one_ZT.TB_weight < 280)
+                        else if (one_ZT.TB_weight > one_ZT.ZT_reqweight * 0.96 && one_ZT.TB_weight < one_ZT.ZT_reqweight)
                         {
-                            if (PLCdata.TB_weight_speed < 0.5)
+                            if (MdiParent.PLCdata1.TB_weight_speed < 0.5)
                             {
                                 if (one_ZT.GB_speed == -10)
                                     Program.program_flag = 5;
                                 else
-                                    PLCdata.set_speed(one_ZT.GB_station, -10);
+                                    MdiParent.PLCdata1.set_speed(one_ZT.GB_station, -10);
                             }
                             else
                             {
                                 if (one_ZT.GB_speed == 0)
                                     Program.program_flag = 5;
                                 else
-                                    PLCdata.set_speed(one_ZT.GB_station, 0);
+                                    MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 0);
                             }
                         }
                         else
@@ -837,14 +871,14 @@ namespace AnBRobotSystem.Core
                             Program.program_flag = 6;
                         }
                     }
-                    if (Program.program_flag == 6 && MdiParent.tl1.TL_light_result() == true)
+                    if (Program.program_flag == 6)//&& MdiParent.tl1.TL_light_result() == true
                     {
-                        if (PLCdata.speed == -20)
+                        if (MdiParent.PLCdata1.speed == -20)
                             Program.program_flag = 6;
                         else
-                            PLCdata.set_speed(one_ZT.GB_station, -20);
+                            MdiParent.PLCdata1.set_speed(one_ZT.GB_station, -20);
                     }
-                    else if (Program.program_flag == 6 && MdiParent.tl1.TL_light_result() == false)
+                    else if (Program.program_flag == 6)//&& MdiParent.tl1.TL_light_result() == false
                     {
                         Program.ZT_thread_flag = 1001;
                         Program.GB_chose_flag = 0;
@@ -858,7 +892,7 @@ namespace AnBRobotSystem.Core
                         break;
                     }
                     //检测罐角度，当超过设定或极限角度时应返回
-                    if (one_ZT.GB_angle > 13000 || one_ZT.GB_120_limt == true)
+                    if (one_ZT.GB_angle > 2300 || one_ZT.GB_120_limt == false)
                     {
                         writelisview("模型", "折铁到达极限角度！", "log");
                         Program.program_flag = 7;
@@ -868,18 +902,18 @@ namespace AnBRobotSystem.Core
                         //是否到达0位
                         if (one_ZT.GB_0_limt == false)
                         {
-                            if (PLCdata.speed == -20)
+                            if (one_ZT.GB_speed == -20)
                             {
                                 Program.program_flag = 7;
                             }
                             else
                             {
-                                PLCdata.set_speed(one_ZT.GB_station, -20);
+                                MdiParent.PLCdata1.set_speed(one_ZT.GB_station, -20);
                             }
                         }
                         else
                         {
-                            PLCdata.set_speed(one_ZT.GB_station, 0);
+                            MdiParent.PLCdata1.set_speed(one_ZT.GB_station, 0);
                             Program.ZT_thread_flag = 1001;
                             Program.GB_chose_flag = 0;
                             one_ZT.Has_mission = false;
@@ -928,7 +962,7 @@ namespace AnBRobotSystem.Core
             }
         }
 
-        }
+    }
 
     }
 

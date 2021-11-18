@@ -61,6 +61,9 @@
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.alarm_timer = new System.Windows.Forms.Timer(this.components);
             this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.uiTitlePanel1 = new Sunny.UI.UITitlePanel();
             this.uiTitlePanel2 = new Sunny.UI.UITitlePanel();
             this.hum_chose_GB = new Sunny.UI.UIButton();
@@ -219,7 +222,7 @@
             // 
             // uiLabel5
             // 
-            this.uiLabel5.Font = new System.Drawing.Font("隶书", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel5.Location = new System.Drawing.Point(185, 105);
             this.uiLabel5.Name = "uiLabel5";
             this.uiLabel5.Size = new System.Drawing.Size(113, 23);
@@ -248,7 +251,7 @@
             // 
             // uiLabel1
             // 
-            this.uiLabel1.Font = new System.Drawing.Font("隶书", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel1.Location = new System.Drawing.Point(6, 105);
             this.uiLabel1.Name = "uiLabel1";
             this.uiLabel1.Size = new System.Drawing.Size(113, 23);
@@ -315,17 +318,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "日期";
-            this.columnHeader1.Width = 133;
+            this.columnHeader1.Width = 240;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "类型";
-            this.columnHeader3.Width = 120;
+            this.columnHeader3.Width = 150;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "描述";
-            this.columnHeader4.Width = 317;
+            this.columnHeader4.Width = 100;
             // 
             // tabPage5
             // 
@@ -373,11 +376,14 @@
             // 
             // alarm_timer
             // 
-            this.alarm_timer.Interval = 2000;
+            this.alarm_timer.Interval = 1000;
             this.alarm_timer.Tick += new System.EventHandler(this.alarm_timer_Tick);
             // 
             // uiPanel1
             // 
+            this.uiPanel1.Controls.Add(this.button3);
+            this.uiPanel1.Controls.Add(this.button2);
+            this.uiPanel1.Controls.Add(this.button1);
             this.uiPanel1.Controls.Add(this.uiTitlePanel1);
             this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F);
@@ -389,6 +395,35 @@
             this.uiPanel1.TabIndex = 44;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(43, 647);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(122, 32);
+            this.button3.TabIndex = 48;
+            this.button3.Text = "plcwritetest";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(206, 589);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(104, 37);
+            this.button2.TabIndex = 47;
+            this.button2.Text = "gk";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(32, 589);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 37);
+            this.button1.TabIndex = 46;
+            this.button1.Text = "tb";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // uiTitlePanel1
             // 
@@ -457,10 +492,10 @@
             // 
             this.reqweight_uiTextBox1.ButtonSymbol = 61761;
             this.reqweight_uiTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.reqweight_uiTextBox1.DoubleValue = 50D;
+            this.reqweight_uiTextBox1.DoubleValue = 280D;
             this.reqweight_uiTextBox1.FillColor = System.Drawing.Color.White;
             this.reqweight_uiTextBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.reqweight_uiTextBox1.IntValue = 50;
+            this.reqweight_uiTextBox1.IntValue = 280;
             this.reqweight_uiTextBox1.Location = new System.Drawing.Point(222, 55);
             this.reqweight_uiTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reqweight_uiTextBox1.Maximum = 2147483647D;
@@ -470,7 +505,7 @@
             this.reqweight_uiTextBox1.Size = new System.Drawing.Size(56, 34);
             this.reqweight_uiTextBox1.Style = Sunny.UI.UIStyle.Custom;
             this.reqweight_uiTextBox1.TabIndex = 32;
-            this.reqweight_uiTextBox1.Text = "50";
+            this.reqweight_uiTextBox1.Text = "280";
             this.reqweight_uiTextBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.reqweight_uiTextBox1.TextChanged += new System.EventHandler(this.reqweight_uiTextBox1_TextChanged);
             // 
@@ -485,7 +520,7 @@
             this.B_chose.Size = new System.Drawing.Size(90, 29);
             this.B_chose.Style = Sunny.UI.UIStyle.Custom;
             this.B_chose.TabIndex = 31;
-            this.B_chose.Text = "B罐位";
+            this.B_chose.Text = "3号罐位";
             // 
             // A_chose
             // 
@@ -498,7 +533,7 @@
             this.A_chose.Size = new System.Drawing.Size(90, 29);
             this.A_chose.Style = Sunny.UI.UIStyle.Custom;
             this.A_chose.TabIndex = 28;
-            this.A_chose.Text = "A罐位";
+            this.A_chose.Text = "4号罐位";
             // 
             // uiLabel9
             // 
@@ -599,5 +634,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
     }
 }

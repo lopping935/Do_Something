@@ -50,6 +50,8 @@
             this.uiProcessBar1 = new Sunny.UI.UIProcessBar();
             this.zt_ScrollingText1 = new Sunny.UI.UIScrollingText();
             this.zt_Panel1 = new Sunny.UI.UIPanel();
+            this.uiImageButton2 = new Sunny.UI.UIImageButton();
+            this.uiImageButton1 = new Sunny.UI.UIImageButton();
             this.uiGroupBox6 = new Sunny.UI.UIGroupBox();
             this.ZT_tbnum = new Sunny.UI.UILabel();
             this.uiLabel15 = new Sunny.UI.UILabel();
@@ -67,7 +69,9 @@
             this.uiLabel5 = new Sunny.UI.UILabel();
             this.GBK_vision = new Sunny.UI.UILedBulb();
             this.uiGroupBox2 = new Sunny.UI.UIGroupBox();
+            this.ui_gbb_angle = new Sunny.UI.UILabel();
             this.uiLabel2 = new Sunny.UI.UILabel();
+            this.uiLabel26 = new Sunny.UI.UILabel();
             this.uiLabel3 = new Sunny.UI.UILabel();
             this.uiLabel7 = new Sunny.UI.UILabel();
             this.uiLabel14 = new Sunny.UI.UILabel();
@@ -76,6 +80,8 @@
             this.GBB_num = new Sunny.UI.UILabel();
             this.train2_coming = new Sunny.UI.UILedBulb();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
+            this.ui_gba_angle = new Sunny.UI.UILabel();
+            this.uiLabel27 = new Sunny.UI.UILabel();
             this.GBA_getpow = new Sunny.UI.UILedBulb();
             this.GBA_num = new Sunny.UI.UILabel();
             this.uiLabel19 = new Sunny.UI.UILabel();
@@ -84,6 +90,8 @@
             this.uiLabel11 = new Sunny.UI.UILabel();
             this.train1_coming = new Sunny.UI.UILedBulb();
             this.uiLabel1 = new Sunny.UI.UILabel();
+            this.GBB_img = new Sunny.UI.UIImageButton();
+            this.GBA_img = new Sunny.UI.UIImageButton();
             this.cw_Panel2 = new Sunny.UI.UIPanel();
             this.temp_weight = new Sunny.UI.UILabel();
             this.uiLabel21 = new Sunny.UI.UILabel();
@@ -99,23 +107,19 @@
             this.uiProcessBar3 = new Sunny.UI.UIProcessBar();
             this.uiScrollingText3 = new Sunny.UI.UIScrollingText();
             this.uiButton3 = new Sunny.UI.UIButton();
-            this.uiImageButton2 = new Sunny.UI.UIImageButton();
-            this.uiImageButton1 = new Sunny.UI.UIImageButton();
-            this.GBB_img = new Sunny.UI.UIImageButton();
-            this.GBA_img = new Sunny.UI.UIImageButton();
             this.uiGroupBox3.SuspendLayout();
             this.uiGroupBox4.SuspendLayout();
             this.zt_Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uiImageButton2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiImageButton1)).BeginInit();
             this.uiGroupBox6.SuspendLayout();
             this.uiGroupBox5.SuspendLayout();
             this.uiGroupBox2.SuspendLayout();
             this.uiGroupBox1.SuspendLayout();
-            this.cw_Panel2.SuspendLayout();
-            this.dz_Panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uiImageButton2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GBB_img)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GBA_img)).BeginInit();
+            this.cw_Panel2.SuspendLayout();
+            this.dz_Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiGroupBox3
@@ -436,6 +440,36 @@
             this.zt_Panel1.Text = null;
             this.zt_Panel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // uiImageButton2
+            // 
+            this.uiImageButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiImageButton2.Enabled = false;
+            this.uiImageButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiImageButton2.Image = global::AnBRobotSystem.Properties.Resources._3铁流;
+            this.uiImageButton2.ImageDisabled = global::AnBRobotSystem.Properties.Resources._3dis铁流;
+            this.uiImageButton2.Location = new System.Drawing.Point(368, 183);
+            this.uiImageButton2.Name = "uiImageButton2";
+            this.uiImageButton2.Size = new System.Drawing.Size(64, 123);
+            this.uiImageButton2.TabIndex = 76;
+            this.uiImageButton2.TabStop = false;
+            this.uiImageButton2.Text = null;
+            this.uiImageButton2.Visible = false;
+            // 
+            // uiImageButton1
+            // 
+            this.uiImageButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiImageButton1.Enabled = false;
+            this.uiImageButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiImageButton1.Image = global::AnBRobotSystem.Properties.Resources._4铁流;
+            this.uiImageButton1.ImageDisabled = global::AnBRobotSystem.Properties.Resources._4dis铁流;
+            this.uiImageButton1.Location = new System.Drawing.Point(217, 183);
+            this.uiImageButton1.Name = "uiImageButton1";
+            this.uiImageButton1.Size = new System.Drawing.Size(71, 123);
+            this.uiImageButton1.TabIndex = 75;
+            this.uiImageButton1.TabStop = false;
+            this.uiImageButton1.Text = null;
+            this.uiImageButton1.Visible = false;
+            // 
             // uiGroupBox6
             // 
             this.uiGroupBox6.Controls.Add(this.ZT_tbnum);
@@ -626,7 +660,9 @@
             // 
             // uiGroupBox2
             // 
+            this.uiGroupBox2.Controls.Add(this.ui_gbb_angle);
             this.uiGroupBox2.Controls.Add(this.uiLabel2);
+            this.uiGroupBox2.Controls.Add(this.uiLabel26);
             this.uiGroupBox2.Controls.Add(this.uiLabel3);
             this.uiGroupBox2.Controls.Add(this.uiLabel7);
             this.uiGroupBox2.Controls.Add(this.uiLabel14);
@@ -640,11 +676,22 @@
             this.uiGroupBox2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox2.Name = "uiGroupBox2";
             this.uiGroupBox2.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox2.Size = new System.Drawing.Size(163, 171);
+            this.uiGroupBox2.Size = new System.Drawing.Size(163, 246);
             this.uiGroupBox2.Style = Sunny.UI.UIStyle.Custom;
             this.uiGroupBox2.TabIndex = 64;
             this.uiGroupBox2.Text = "3号罐车状态";
             this.uiGroupBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ui_gbb_angle
+            // 
+            this.ui_gbb_angle.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.ui_gbb_angle.Location = new System.Drawing.Point(87, 176);
+            this.ui_gbb_angle.Name = "ui_gbb_angle";
+            this.ui_gbb_angle.Size = new System.Drawing.Size(68, 23);
+            this.ui_gbb_angle.Style = Sunny.UI.UIStyle.Custom;
+            this.ui_gbb_angle.TabIndex = 83;
+            this.ui_gbb_angle.Text = "0";
+            this.ui_gbb_angle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // uiLabel2
             // 
@@ -657,6 +704,18 @@
             this.uiLabel2.TabIndex = 85;
             this.uiLabel2.Text = "罐号：";
             this.uiLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel26
+            // 
+            this.uiLabel26.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel26.Location = new System.Drawing.Point(10, 176);
+            this.uiLabel26.Name = "uiLabel26";
+            this.uiLabel26.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.uiLabel26.Size = new System.Drawing.Size(76, 23);
+            this.uiLabel26.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel26.TabIndex = 82;
+            this.uiLabel26.Text = "倾角：";
+            this.uiLabel26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // uiLabel3
             // 
@@ -735,6 +794,8 @@
             // 
             // uiGroupBox1
             // 
+            this.uiGroupBox1.Controls.Add(this.ui_gba_angle);
+            this.uiGroupBox1.Controls.Add(this.uiLabel27);
             this.uiGroupBox1.Controls.Add(this.GBA_getpow);
             this.uiGroupBox1.Controls.Add(this.GBA_num);
             this.uiGroupBox1.Controls.Add(this.uiLabel19);
@@ -749,12 +810,35 @@
             this.uiGroupBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox1.Name = "uiGroupBox1";
             this.uiGroupBox1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox1.Size = new System.Drawing.Size(153, 182);
+            this.uiGroupBox1.Size = new System.Drawing.Size(153, 246);
             this.uiGroupBox1.Style = Sunny.UI.UIStyle.Custom;
             this.uiGroupBox1.TabIndex = 63;
             this.uiGroupBox1.Text = "4号罐车状态";
             this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiGroupBox1.Click += new System.EventHandler(this.uiGroupBox1_Click);
+            // 
+            // ui_gba_angle
+            // 
+            this.ui_gba_angle.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.ui_gba_angle.Location = new System.Drawing.Point(82, 176);
+            this.ui_gba_angle.Name = "ui_gba_angle";
+            this.ui_gba_angle.Size = new System.Drawing.Size(68, 23);
+            this.ui_gba_angle.Style = Sunny.UI.UIStyle.Custom;
+            this.ui_gba_angle.TabIndex = 79;
+            this.ui_gba_angle.Text = "0";
+            this.ui_gba_angle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel27
+            // 
+            this.uiLabel27.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel27.Location = new System.Drawing.Point(5, 176);
+            this.uiLabel27.Name = "uiLabel27";
+            this.uiLabel27.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.uiLabel27.Size = new System.Drawing.Size(76, 23);
+            this.uiLabel27.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel27.TabIndex = 78;
+            this.uiLabel27.Text = "倾角：";
+            this.uiLabel27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // GBA_getpow
             // 
@@ -803,7 +887,7 @@
             // GBA_now_weight
             // 
             this.GBA_now_weight.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.GBA_now_weight.Location = new System.Drawing.Point(82, 143);
+            this.GBA_now_weight.Location = new System.Drawing.Point(82, 139);
             this.GBA_now_weight.Name = "GBA_now_weight";
             this.GBA_now_weight.Size = new System.Drawing.Size(55, 23);
             this.GBA_now_weight.Style = Sunny.UI.UIStyle.Custom;
@@ -814,7 +898,7 @@
             // uiLabel11
             // 
             this.uiLabel11.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel11.Location = new System.Drawing.Point(5, 143);
+            this.uiLabel11.Location = new System.Drawing.Point(5, 139);
             this.uiLabel11.Name = "uiLabel11";
             this.uiLabel11.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.uiLabel11.Size = new System.Drawing.Size(76, 23);
@@ -842,6 +926,34 @@
             this.uiLabel1.TabIndex = 62;
             this.uiLabel1.Text = "插电：";
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // GBB_img
+            // 
+            this.GBB_img.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GBB_img.Enabled = false;
+            this.GBB_img.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.GBB_img.Image = ((System.Drawing.Image)(resources.GetObject("GBB_img.Image")));
+            this.GBB_img.ImageDisabled = ((System.Drawing.Image)(resources.GetObject("GBB_img.ImageDisabled")));
+            this.GBB_img.Location = new System.Drawing.Point(388, 39);
+            this.GBB_img.Name = "GBB_img";
+            this.GBB_img.Size = new System.Drawing.Size(178, 90);
+            this.GBB_img.TabIndex = 56;
+            this.GBB_img.TabStop = false;
+            this.GBB_img.Text = null;
+            // 
+            // GBA_img
+            // 
+            this.GBA_img.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GBA_img.Enabled = false;
+            this.GBA_img.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.GBA_img.Image = ((System.Drawing.Image)(resources.GetObject("GBA_img.Image")));
+            this.GBA_img.ImageDisabled = ((System.Drawing.Image)(resources.GetObject("GBA_img.ImageDisabled")));
+            this.GBA_img.Location = new System.Drawing.Point(127, 39);
+            this.GBA_img.Name = "GBA_img";
+            this.GBA_img.Size = new System.Drawing.Size(175, 90);
+            this.GBA_img.TabIndex = 55;
+            this.GBA_img.TabStop = false;
+            this.GBA_img.Text = null;
             // 
             // cw_Panel2
             // 
@@ -1054,64 +1166,6 @@
             this.uiButton3.Text = "清除赋值";
             this.uiButton3.Click += new System.EventHandler(this.uiButton3_Click);
             // 
-            // uiImageButton2
-            // 
-            this.uiImageButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiImageButton2.Enabled = false;
-            this.uiImageButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiImageButton2.Image = global::AnBRobotSystem.Properties.Resources._3铁流;
-            this.uiImageButton2.ImageDisabled = global::AnBRobotSystem.Properties.Resources._3dis铁流;
-            this.uiImageButton2.Location = new System.Drawing.Point(368, 183);
-            this.uiImageButton2.Name = "uiImageButton2";
-            this.uiImageButton2.Size = new System.Drawing.Size(64, 123);
-            this.uiImageButton2.TabIndex = 76;
-            this.uiImageButton2.TabStop = false;
-            this.uiImageButton2.Text = null;
-            this.uiImageButton2.Visible = false;
-            // 
-            // uiImageButton1
-            // 
-            this.uiImageButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiImageButton1.Enabled = false;
-            this.uiImageButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiImageButton1.Image = global::AnBRobotSystem.Properties.Resources._4铁流;
-            this.uiImageButton1.ImageDisabled = global::AnBRobotSystem.Properties.Resources._4dis铁流;
-            this.uiImageButton1.Location = new System.Drawing.Point(217, 183);
-            this.uiImageButton1.Name = "uiImageButton1";
-            this.uiImageButton1.Size = new System.Drawing.Size(71, 123);
-            this.uiImageButton1.TabIndex = 75;
-            this.uiImageButton1.TabStop = false;
-            this.uiImageButton1.Text = null;
-            this.uiImageButton1.Visible = false;
-            // 
-            // GBB_img
-            // 
-            this.GBB_img.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GBB_img.Enabled = false;
-            this.GBB_img.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.GBB_img.Image = ((System.Drawing.Image)(resources.GetObject("GBB_img.Image")));
-            this.GBB_img.ImageDisabled = ((System.Drawing.Image)(resources.GetObject("GBB_img.ImageDisabled")));
-            this.GBB_img.Location = new System.Drawing.Point(388, 39);
-            this.GBB_img.Name = "GBB_img";
-            this.GBB_img.Size = new System.Drawing.Size(178, 90);
-            this.GBB_img.TabIndex = 56;
-            this.GBB_img.TabStop = false;
-            this.GBB_img.Text = null;
-            // 
-            // GBA_img
-            // 
-            this.GBA_img.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GBA_img.Enabled = false;
-            this.GBA_img.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.GBA_img.Image = ((System.Drawing.Image)(resources.GetObject("GBA_img.Image")));
-            this.GBA_img.ImageDisabled = ((System.Drawing.Image)(resources.GetObject("GBA_img.ImageDisabled")));
-            this.GBA_img.Location = new System.Drawing.Point(127, 39);
-            this.GBA_img.Name = "GBA_img";
-            this.GBA_img.Size = new System.Drawing.Size(175, 90);
-            this.GBA_img.TabIndex = 55;
-            this.GBA_img.TabStop = false;
-            this.GBA_img.Text = null;
-            // 
             // Main_process
             // 
             this.AllowShowTitle = false;
@@ -1144,16 +1198,16 @@
             this.uiGroupBox3.ResumeLayout(false);
             this.uiGroupBox4.ResumeLayout(false);
             this.zt_Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uiImageButton2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiImageButton1)).EndInit();
             this.uiGroupBox6.ResumeLayout(false);
             this.uiGroupBox5.ResumeLayout(false);
             this.uiGroupBox2.ResumeLayout(false);
             this.uiGroupBox1.ResumeLayout(false);
-            this.cw_Panel2.ResumeLayout(false);
-            this.dz_Panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uiImageButton2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiImageButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GBB_img)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GBA_img)).EndInit();
+            this.cw_Panel2.ResumeLayout(false);
+            this.dz_Panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1233,6 +1287,10 @@
         private Sunny.UI.UILabel uiLabel23;
         private Sunny.UI.UIImageButton uiImageButton2;
         private Sunny.UI.UIImageButton uiImageButton1;
+        private Sunny.UI.UILabel ui_gbb_angle;
+        private Sunny.UI.UILabel uiLabel26;
+        private Sunny.UI.UILabel ui_gba_angle;
+        private Sunny.UI.UILabel uiLabel27;
     }
 }
 

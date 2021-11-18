@@ -31,6 +31,7 @@ namespace AnBRobotSystem
 
     public partial class MdiParent :Sunny.UI.UIForm
     {
+        public static PLCdata PLCdata1=new PLCdata();
         public static MdiParent form;
         public static Tiebao tb1=new Tiebao();
         public static GuanKou gk1 = new GuanKou();
@@ -44,9 +45,9 @@ namespace AnBRobotSystem
         public static GlobalVariableModuleTool GK_global;
         public static int a = 0;
         public VideoCapture camer_cap;
-        string SolutionPath = @"E:\ProjSetup\Auto_steel\newvm\autosteelvm.sol";
+        string SolutionPath = @"C:\ProjSetup\Auto_steel\newvm\autosteelvm.sol";
 
-        Thread plc_updata = new Thread(PLCdata.Read_PLC_data);
+       // Thread plc_updata = new Thread(PLCdata.Read_PLC_data);
         // manage_steel m1 = new manage_steel();
         //Auto_model atuomodel = new Auto_model();
 
@@ -71,8 +72,8 @@ namespace AnBRobotSystem
                 gk1.writelistview = mainlog;
                 tl1.writelistview1 = mainlog;
                 LoadSolution();
-                PLCdata.writelog = mainlog;
-                PLCdata.initplc();
+                PLCdata1.writelog = mainlog;
+                PLCdata1.initplc();
                 timerLog.Enabled = true;
                 FreshTimer.Enabled = true;
                 alarm_timer.Enabled = true;
@@ -82,13 +83,14 @@ namespace AnBRobotSystem
             {
                 mainlog("主窗体", "主窗体初始化错误！", "err");
                 LogHelper.WriteLog("主窗体",e);
+                
             }
         }
         private void MdiParent_Load(object sender, EventArgs e)
         {
             FreshTimer.Start();
             timerLog.Start();
-            plc_updata.Start();
+            //plc_updata.Start();
             this.WindowState = FormWindowState.Normal;
             OpenChildForm(GetFromHandle("数据配置"), "数据配置");
           //  uiLedDisplay1.Text = DateTime.Now.ToString("HH:mm:ss").Trim();            
@@ -120,9 +122,9 @@ namespace AnBRobotSystem
         {
             if(flag=="log")
             {
-                ListViewItem iteme1 = new ListViewItem(DateTime.Now.ToString());
+                ListViewItem iteme1 = new ListViewItem(strmsg);
+                iteme1.SubItems.Add(DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy"));
                 iteme1.SubItems.Add(model);
-                iteme1.SubItems.Add(strmsg);
                 listView1.Invoke(new Action(() => { listView1.Items.Insert(0, iteme1); }));
             }
             else if(flag=="err")
@@ -305,9 +307,9 @@ namespace AnBRobotSystem
         
         private void uiButton1_Click(object sender, EventArgs e)
         {
-            tl1.get_tl_img();
-            bool result=tl1.TL_light_result();
-            bool get = tl1.Get_iron;
+           // tl1.get_tl_img();
+           // bool result=tl1.TL_light_result();
+           // bool get = tl1.Get_iron;
         }
 
         private void alarm_timer_Tick(object sender, EventArgs e)
@@ -317,6 +319,7 @@ namespace AnBRobotSystem
             //    Program.ZT_thread_flag = 1000;
             //   // ShowErrorDialog("折铁过程发生错误！");
             //}
+           // PLCdata1.Read_PLC_data();
             if (Program.GB_data_flag == 1000)
             {
                 Program.GB_data_flag = 0;
@@ -357,26 +360,51 @@ namespace AnBRobotSystem
         //重量设置限制
         private void reqweight_uiTextBox1_TextChanged(object sender, EventArgs e)
         {
-            if (PLCdata.ZT_data.TB_weight < 80)
+            if (PLCdata1.ZT_data.TB_weight < 80)
             {
-                if (reqweight_uiTextBox1.IntValue + 80 > 280)
-                {
-                    reqweight_uiTextBox1.IntValue = 0;
-                    ShowErrorDialog("重量错误，重量超过总重限制！");
-                }
-
+                
+                    ShowErrorDialog("无空包重，设置折铁为最大值！");
+                    reqweight_uiTextBox1.IntValue = 280;
             }
             else
             {
-                if (reqweight_uiTextBox1.IntValue + PLCdata.ZT_data.TB_weight > 280)
+                if (reqweight_uiTextBox1.IntValue + PLCdata1.ZT_data.TB_weight > 280)
                 {
                     reqweight_uiTextBox1.IntValue = 0;
                     ShowErrorDialog("重量错误，重量超过总重限制！");
                 }
+                else
+                {
+                    reqweight_uiTextBox1.IntValue = reqweight_uiTextBox1.IntValue + (int) PLCdata1.ZT_data.TB_weight;
+                }
+
             }
         }
 
-        private void uiSymbolButton2_Click(object sender, EventArgs e)//开始折铁按钮
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(A_chose.Checked)
+            {
+                GK_global.SetGlobalVar("GK_pos", "A");
+                gk1.GK_init_result("A");
+            }
+            else
+            {
+                GK_global.SetGlobalVar("GK_pos", "B");
+                gk1.GK_init_result("B");
+            }
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //PLCdata1.write_startsignal();
+            //PLCdata1.plczt_speedflag = "A,20";
+            PLCdata1. set_speed("A", 150);
+        }
+
+        //开始折铁按钮
+        private void uiSymbolButton2_Click(object sender, EventArgs e)
         {
             if (Program.ZT_thread_flag != 1000)
             {
@@ -401,7 +429,7 @@ namespace AnBRobotSystem
 
             }
             atuomodel = new Auto_model();
-            if(reqweight_uiTextBox1.IntValue==0)
+            if(reqweight_uiTextBox1.IntValue==280)
             {
                 atuomodel.one_ZT.ZT_reqweight = 280;//设置本次需折铁量
             }

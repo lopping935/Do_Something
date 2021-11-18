@@ -40,7 +40,7 @@
             // 
             this.Guankou_vmRenderControl2.BackColor = System.Drawing.Color.Black;
             this.Guankou_vmRenderControl2.ImageSource = null;
-            this.Guankou_vmRenderControl2.Location = new System.Drawing.Point(456, 80);
+            this.Guankou_vmRenderControl2.Location = new System.Drawing.Point(475, 80);
             this.Guankou_vmRenderControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Guankou_vmRenderControl2.ModuleSource = null;
             this.Guankou_vmRenderControl2.Name = "Guankou_vmRenderControl2";
@@ -51,7 +51,7 @@
             // 
             this.Tiebao_vmRenderControl1.BackColor = System.Drawing.Color.Black;
             this.Tiebao_vmRenderControl1.ImageSource = null;
-            this.Tiebao_vmRenderControl1.Location = new System.Drawing.Point(39, 80);
+            this.Tiebao_vmRenderControl1.Location = new System.Drawing.Point(48, 80);
             this.Tiebao_vmRenderControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Tiebao_vmRenderControl1.ModuleSource = null;
             this.Tiebao_vmRenderControl1.Name = "Tiebao_vmRenderControl1";
@@ -108,16 +108,16 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1298, 651);
             this.ControlBox = false;
+            this.Controls.Add(this.Tiebao_vmRenderControl1);
             this.Controls.Add(this.TL_vmRenderControl1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Guankou_vmRenderControl2);
-            this.Controls.Add(this.Tiebao_vmRenderControl1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Fauto_Form";
-            this.Padding = new System.Windows.Forms.Padding(2);
+            this.Padding = new System.Windows.Forms.Padding(2, 0, 2, 2);
             this.ShowDragStretch = true;
             this.ShowInTaskbar = false;
             this.ShowRadius = false;

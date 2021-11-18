@@ -95,16 +95,16 @@ namespace record_data
                     string log = "30" + "\",\"" + weight.ToString() + "\",\"" + realangle.ToString() + "\",\""  + fish_full_weight.ToString();
                     LogHelper.WriteLog(log);
                 }
-                else if(TB_onpos==false && weight > 70 && weight-lastweight>0.1&& realangle>0)
-                {
-                    Console.WriteLine("记录一条数据");
-                    string log = "0" + "\",\"" + weight.ToString() + "\",\"" + realangle.ToString() + "\",\""  + fish_full_weight.ToString();
-                    LogHelper.WriteLog(log);
-                }
-                else
-                {
+                //else if(TB_onpos==false && weight > 70 && weight-lastweight>0.1&& realangle>0)
+                //{
+                //    Console.WriteLine("记录一条数据");
+                //    string log = "0" + "\",\"" + weight.ToString() + "\",\"" + realangle.ToString() + "\",\""  + fish_full_weight.ToString();
+                //    LogHelper.WriteLog(log);
+                //}
+                //else
+                //{
                     
-                }
+                //}
             }
 
         }

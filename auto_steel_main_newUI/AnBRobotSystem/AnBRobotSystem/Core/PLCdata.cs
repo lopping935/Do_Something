@@ -8,6 +8,8 @@ using System.Configuration;
 using logtest;
 using AnBRobotSystem.Utlis;
 using System.Data.Common;
+using System.Diagnostics;
+using System.Threading;
 
 namespace AnBRobotSystem.Core
 {
@@ -27,7 +29,7 @@ namespace AnBRobotSystem.Core
         public bool GB_B_120_limt;//罐车120限位
         public bool GB_A_carIn;//火车到来信号  当前考虑是激光测距仪  如果不稳定可以考虑用插电代替
         public bool GB_B_carIn;
-        public bool back1;
+        public bool ZT_start_signal;//给plc的自动折铁开始信号 db50.dbx3.5
         public bool back2;
         public bool back3;
         public float TB_hight;//铁水液位
@@ -37,8 +39,8 @@ namespace AnBRobotSystem.Core
         public Int16 GB_B_num;//罐车包号
         public Single GB_A_angle;//a实时倾角
         public Single GB_B_angle;//
-        public Single GB_A_speed;//A设定速度
-        public Single GB_B_speed;//B设定速度
+        public Single GB_A_speed;//A设定速度 db50.dbd26
+        public Single GB_B_speed;//B设定速度db50.dbd30
         public Single GB_A_Rspeed ;//A真实速度
         public Single GB_B_Rspeed;//B真实速度
 
@@ -47,30 +49,32 @@ namespace AnBRobotSystem.Core
 
     }
     
-    public static class PLCdata
+    public class PLCdata
     {
-        public static LogManager my_log = new LogManager();
-        public static updatelistiew writelog;
-        public static dbTaskHelper db_plc_helper=new dbTaskHelper();
-        public static float TB_weight_speed = 0;
-        public static List<Single> weight_sp_list = new List<Single>(4);
+        public  LogManager my_log = new LogManager();
+        public  updatelistiew writelog;
+        public  dbTaskHelper db_plc_helper=new dbTaskHelper();
+        public  float TB_weight_speed = 0;
+        public  List<Single> weight_sp_list = new List<Single>(4);
     
-        public static Int16 speed = 0;
-        public static bool connect;
-        public static bool LGB_A_carIn,LGB_A_getpow;
-        public static bool LGB_B_carIn, LGB_B_getpow;
-        public static Single Mes_GB_weight = 0;
+        public  Int16 speed = 0;
+        public  bool connect;
+        public  bool LGB_A_carIn,LGB_A_getpow;
+        public  bool LGB_B_carIn, LGB_B_getpow;
+        public  Single Mes_GB_weight = 0;
         static string PLCIP = ConfigurationManager.ConnectionStrings["PLCIP"].ConnectionString;
         public static Plc plc300;
         //mes数据暂存
-        public static DateTime in_time=new DateTime();
-        public static string pathway="A",GB_initwit="520",GB_num="34";
-        
+        public  DateTime in_time=new DateTime();
+        public  string pathway="A",GB_initwit="520",GB_num="34";
 
+        public string plczt_speedflag="";
+        public string plczt_sped_setok = "";
+        public int plczt_statflag = 0;
         //折铁plc数据对象
-        public static plcdata ZT_data = new plcdata();
-        
-        public static void initplc()
+        public  plcdata ZT_data = new plcdata();
+        public static Thread plc_updata ;
+        public  void initplc()
         {
             try
             {
@@ -80,6 +84,8 @@ namespace AnBRobotSystem.Core
                 plc300 = new Plc(CpuType.S7300, PLCIP, 0, 2);
                // plc300 = new Plc(CpuType.S71200, PLCIP, 0, 1);
                 plc300.Open();//创建PLC实例
+                plc_updata = new Thread(Read_PLC_data);
+                plc_updata.Start();
                 writelog("plc", "plc初始化完成！", "log");
             }
             catch(Exception e)
@@ -89,26 +95,46 @@ namespace AnBRobotSystem.Core
             }
 
         }
+        public  void still_read()
+        {
+            while(true)
+            {
+                Thread.Sleep(1000);
+                Read_PLC_data();
+            }
+        }
         //读取plc数据并更新mes表格数据
-        
-        public static void Read_PLC_data()
+        public  float lastvale=0;
+        public  void write_startsignal()
+        {
+            plc300.Write("DB50.DBX3.5", true);
+        }
+        public async void Read_PLC_data()
         {
             while (true)
             {
                 try
                 {
-                    System.Threading.Thread.Sleep(1000);
+                    //Stopwatch sw = new Stopwatch();
+                    System.Threading.Thread.Sleep(200);
                     connect = (bool)plc300.IsConnected;
-                    if (connect)
+                    if (true)
                     {
-                        ZT_data = (plcdata)plc300.ReadStruct(typeof(plcdata), 50);
+                        // sw.Start();
+                        // Task<plcdata> t = new Task({ }); plc300.ReadStructAsync(typeof(plcdata), 50);
+                        // ZT_data = (plcdata)await Task<plcdata>.Run(() => { return plc300.ReadStructAsync(typeof(plcdata), 50);});
+                        ZT_data = (plcdata)await plc300.ReadStructAsync(typeof(plcdata), 50);
+                      
+                        //sw.Stop();
+                       // writelog("plc", sw.ElapsedMilliseconds.ToString(), "err");
+                      
                         calc_weight_speed();
-                        if(TB_weight_speed>0)
+                        if (TB_weight_speed > 0 && ZT_data.TB_pos == false)
                         {
                             string log = TB_weight_speed.ToString();
                             LogManager.WriteLog(LogFile.Trace, log);
                         }
-                       
+
                         //LogHelper.WriteLog(log);
                         //  updata_mes_data();
                         // updata_RealTime_Car_Bag_data();
@@ -121,11 +147,11 @@ namespace AnBRobotSystem.Core
                     {
                         writelog("plc", "plc数据读取失败！", "log");
                         //System.Threading.Thread.Sleep(5000);
-                        plc300.Open();
+                       // plc300.Open();
                     }
-                
+
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     writelog("plc", "plc数据读取错误！", "err");
                     LogHelper.WriteLog("PLC读取数据", e);
@@ -133,7 +159,7 @@ namespace AnBRobotSystem.Core
             }
         }
         //更新mes记录表内容
-        public static void updata_mes_data()
+        public  void updata_mes_data()
         {
             try
             {
@@ -161,7 +187,7 @@ namespace AnBRobotSystem.Core
             
         }
         ////更新罐包管理系统实时表内容
-        public static void updata_RealTime_Car_Bag_data()
+        public  void updata_RealTime_Car_Bag_data()
         {
             try
             {
@@ -260,30 +286,30 @@ namespace AnBRobotSystem.Core
             }
             
         }
-        public static Int16 set_speed(string flag,Int16 speed)
+        public async Task<short> set_speed(string flag, Single speed)
         {
             try
             {
-                if(flag == "A")
+                if (flag == "A")
                 {
-                    ErrorCode err = plc300.Write("DB2.DBD24", speed);
-                    return (Int16)err;
+                    await plc300.WriteAsync("DB50.DBD26", speed);
+                    return (Int16)0;
                 }
                 else
                 {
-                    ErrorCode err = plc300.Write("DB2.DBD28", speed);
-                    return (Int16)err;
+                    await plc300.WriteAsync("DB50.DBD30", speed);
+                    return (Int16)0;
                 }
             }
             catch (Exception e)
             {
-                LogHelper.WriteLog("PLC写入速度",e);
+                LogHelper.WriteLog("PLC写入速度", e);
                 return 1000;
             }
-            
+
         }
         //持续计算铁包重量
-        public static Single calc_weight_speed()
+        public  Single calc_weight_speed()
         {
             try
             {
