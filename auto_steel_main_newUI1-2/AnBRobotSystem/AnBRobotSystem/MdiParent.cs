@@ -29,7 +29,7 @@ using AnBRobotSystem.Utlis;
 namespace AnBRobotSystem
 {
     public delegate void updatelistiew(string a, string b,string c);
-
+    public delegate void main_void_fun();
     public partial class MdiParent :Sunny.UI.UIForm
     {
         public dbTaskHelper uidbhelper=new dbTaskHelper();
@@ -50,6 +50,8 @@ namespace AnBRobotSystem
         string SolutionPath = @"C:\ProjSetup\Auto_steel\newvm\autosteelvm.sol";
         public static float Last_GB_A_angle = 0, Last_GB_B_angle = 0;
         public static bool updata_GBA_fulweight = false, updata_GBB_fulweight = false;
+
+        
 
         // Thread plc_updata = new Thread(PLCdata.Read_PLC_data);
         // manage_steel m1 = new manage_steel();
@@ -146,9 +148,9 @@ namespace AnBRobotSystem
             }
             else if(flag=="err")
             {
-                ListViewItem iteme1 = new ListViewItem(DateTime.Now.ToString());
+                ListViewItem iteme1 = new ListViewItem(strmsg);
+                iteme1.SubItems.Add(DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy"));
                 iteme1.SubItems.Add(model);
-                iteme1.SubItems.Add(strmsg);
                 listView4.Invoke(new Action(() => { listView4.Items.Insert(0, iteme1); }));
             }
             
@@ -179,23 +181,6 @@ namespace AnBRobotSystem
                     form.Activate();
             }
         }
-        //侧边栏 窗体切换代码
-        /*private void uiNavMenu1_MenuItemClick(TreeNode node, Sunny.UI.NavMenuItem item, int pageIndex)
-        {
-            if (node == null)
-                return;
-            Form form = null;
-            if (node.Text != "")
-            {
-                form = GetFromHandle(node.Text);
-                if (form!=null && form.Visible==false)
-                {
-                    OpenChildForm(form, node.Text);
-                }
-                else
-                    form.Activate();
-            }
-        }*/
         //获取窗体句柄
         private Form GetFromHandle(string FromName)
         {
@@ -233,7 +218,7 @@ namespace AnBRobotSystem
                     if (childfrom.Name == "Main_process")
                         return childfrom;
                 }
-                return new Main_process(mainlog);
+                return new Main_process(mainlog, A_back, B_back);
             }
             else
             {
@@ -242,7 +227,7 @@ namespace AnBRobotSystem
                     if (childfrom.Name == "Main_process")
                         return childfrom;
                 }
-                return new Main_process(mainlog);
+                return new Main_process(mainlog, A_back, B_back);
             }        
         }
 
@@ -275,6 +260,15 @@ namespace AnBRobotSystem
                 zt_state = atuomodel.one_ZT;
             else
                 zt_state.Has_mission = false;
+
+            if(PLCdata1.connect)
+            {
+                PLC_connect_state.Color = Color.Green;
+            }
+            else
+            {
+                PLC_connect_state.Color = Color.Red;
+            }
 
             if (Program.ZT_thread_flag == 1000)
             {
@@ -391,7 +385,7 @@ namespace AnBRobotSystem
        
         private void alarm_timer_Tick(object sender, EventArgs e)
         {
-            uiTextBox_weightspeed.Text = PLCdata1.TB_weight_speed.ToString();
+           // uiTextBox_weightspeed.Text = PLCdata1.TB_weight_speed.ToString();
             if (Program.GB_data_flag == 1000)
             {
                 Program.GB_data_flag = 0;
@@ -439,6 +433,13 @@ namespace AnBRobotSystem
                 ShowErrorDialog("无空包重时，只能设置折铁为最大值！");
 
             }
+            //else if (PLCdata1.ZT_data.TB_weight == 0)//PLCdata1.ZT_data.TB_weight < 80
+            //{
+
+            //    reqweight_uiTextBox1.IntValue = 285;
+            //    ShowErrorDialog("无空包重时，只能设置折铁为最大值！");
+
+            //}
             else
             {
                 if (reqweight_uiTextBox1.IntValue > 300)
@@ -456,30 +457,54 @@ namespace AnBRobotSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(A_chose.Checked)
+            if (A_chose.Checked)
             {
-                GK_global.SetGlobalVar("GK_pos", PLCdata1.ZT_data.GB_A_num.ToString());
                 gk1.GK_station = "A";
                 gk1.start_GK_state = true;
-                //gk1.GK_light_result("A");
-
-                LogHelper.WriteLog("testtesttesttesttest");
             }
             else
             {
-                GK_global.SetGlobalVar("GK_pos", PLCdata1.ZT_data.GB_B_num.ToString());
                 gk1.GK_station = "B";
                 gk1.start_GK_state = true;
-                //gk1.GK_light_result("B");
             }
-            
+
         }
 
-        private void button3_Click(object sender, EventArgs e)
+       
+
+        //一键回罐程序
+        public void A_back()
         {
-            //PLCdata1.write_startsignal();
-            //PLCdata1.plczt_speedflag = "A,20";
-            PLCdata1. set_speed("A", 150);
+            if (Program.ZT_thread_flag != 1000)
+            {
+                mainlog("折铁按键", "折铁程序正在运行，请勿重复点击！", "log");
+                return;
+            }
+            Program.GB_station = "A";
+            Program.GB_chose_flag = 4;
+            atuomodel.init_ZT_data();
+            atuomodel.one_ZT.ZT_reqweight = -50;//设置本次需折铁量
+            Program.program_flag = 0;
+            atuomodel.chose_process();
+        }
+        public void B_back()
+        {
+            if (Program.ZT_thread_flag != 1000)
+            {
+                mainlog("折铁按键", "折铁程序正在运行，请勿重复点击！", "log");
+                return;
+            }
+            Program.GB_station = "B";
+            Program.GB_chose_flag = 5;
+            atuomodel.init_ZT_data();
+            atuomodel.one_ZT.ZT_reqweight = -50;//设置本次需折铁量
+            Program.program_flag = 0;
+            atuomodel.chose_process();
+        }
+
+        private void PLC_connect_state_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void set_weight_Click(object sender, EventArgs e)
@@ -521,18 +546,9 @@ namespace AnBRobotSystem
             else if(Program.GB_chose_flag !=1)
             {
                 MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
-                DialogResult dr = MessageBox.Show("确定要自动选罐吗?", "退出系统", messButton);
-                if (dr == DialogResult.OK)
-                {
-                    Program.GB_chose_flag = 2;
-                    // this.Close();
-                }
-                else
-                {
-                    Program.GB_chose_flag = 3;
-                    //this.Close();
-                    return;
-                }
+                DialogResult dr = MessageBox.Show("请先选择折铁位置", "退出系统", messButton);
+                Program.GB_chose_flag = 3;
+                return;
             }
             atuomodel.init_ZT_data();
             if(reqweight_uiTextBox1.IntValue==280)
@@ -551,6 +567,7 @@ namespace AnBRobotSystem
 
         private void uiSymbolButton1_Click_1(object sender, EventArgs e)//退出折铁按钮
         {
+            Program.ZT_auto_back = 0;
             PLCdata1.reset_start();
             Program.ZT_thread_flag = 1000;
             zt_state.Has_mission = false;

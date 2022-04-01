@@ -40,8 +40,10 @@
             this.timerLog = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.uiNavBar1 = new Sunny.UI.UINavBar();
-            this.weight_speed_text = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.PLC_connect_state = new Sunny.UI.UILedBulb();
+            this.uiLabel9 = new Sunny.UI.UILabel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.uiLabel4 = new Sunny.UI.UILabel();
             this.uiLabel3 = new Sunny.UI.UILabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -62,7 +64,14 @@
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.alarm_timer = new System.Windows.Forms.Timer(this.components);
             this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.uiTitlePanel4 = new Sunny.UI.UITitlePanel();
+            this.uiTitlePanel3 = new Sunny.UI.UITitlePanel();
+            this.uiTitlePanel1 = new Sunny.UI.UITitlePanel();
             this.uiTitlePanel2 = new Sunny.UI.UITitlePanel();
+            this.uiLabel11 = new Sunny.UI.UILabel();
+            this.uiLabel10 = new Sunny.UI.UILabel();
+            this.uiLabel8 = new Sunny.UI.UILabel();
+            this.uiLabel7 = new Sunny.UI.UILabel();
             this.set_weight = new Sunny.UI.UIButton();
             this.text_B_train_full_weight = new Sunny.UI.UITextBox();
             this.uiLabel6 = new Sunny.UI.UILabel();
@@ -72,29 +81,23 @@
             this.reqweight_uiTextBox1 = new Sunny.UI.UITextBox();
             this.B_chose = new Sunny.UI.UIRadioButton();
             this.A_chose = new Sunny.UI.UIRadioButton();
-            this.uiLabel9 = new Sunny.UI.UILabel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.uiTitlePanel3 = new Sunny.UI.UITitlePanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.uiTitlePanel1 = new Sunny.UI.UITitlePanel();
             this.uiNavBar1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.uiTabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
             this.uiPanel1.SuspendLayout();
-            this.uiTitlePanel2.SuspendLayout();
+            this.uiTitlePanel4.SuspendLayout();
             this.uiTitlePanel3.SuspendLayout();
             this.uiTitlePanel1.SuspendLayout();
+            this.uiTitlePanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter1.Location = new System.Drawing.Point(0, 821);
+            this.splitter1.Location = new System.Drawing.Point(0, 949);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(1612, 3);
+            this.splitter1.Size = new System.Drawing.Size(1643, 10);
             this.splitter1.TabIndex = 8;
             this.splitter1.TabStop = false;
             // 
@@ -102,7 +105,7 @@
             // 
             this.splitter2.Location = new System.Drawing.Point(0, 35);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(3, 786);
+            this.splitter2.Size = new System.Drawing.Size(3, 914);
             this.splitter2.TabIndex = 12;
             this.splitter2.TabStop = false;
             // 
@@ -130,8 +133,10 @@
             // uiNavBar1
             // 
             this.uiNavBar1.BackColor = System.Drawing.Color.LightCyan;
-            this.uiNavBar1.Controls.Add(this.weight_speed_text);
-            this.uiNavBar1.Controls.Add(this.label1);
+            this.uiNavBar1.Controls.Add(this.PLC_connect_state);
+            this.uiNavBar1.Controls.Add(this.uiLabel9);
+            this.uiNavBar1.Controls.Add(this.button2);
+            this.uiNavBar1.Controls.Add(this.button1);
             this.uiNavBar1.Controls.Add(this.uiLabel4);
             this.uiNavBar1.Controls.Add(this.uiLabel3);
             this.uiNavBar1.Controls.Add(this.pictureBox1);
@@ -161,26 +166,52 @@
             treeNode3,
             treeNode4});
             this.uiNavBar1.NodeSize = new System.Drawing.Size(120, 40);
-            this.uiNavBar1.Size = new System.Drawing.Size(1609, 87);
+            this.uiNavBar1.Size = new System.Drawing.Size(1640, 87);
             this.uiNavBar1.TabIndex = 28;
             this.uiNavBar1.Text = "uiNavBar1";
             this.uiNavBar1.NodeMouseClick += new Sunny.UI.UINavBar.OnNodeMouseClick(this.uiNavBar1_NodeMouseClick);
             // 
-            // weight_speed_text
+            // PLC_connect_state
             // 
-            this.weight_speed_text.Location = new System.Drawing.Point(732, 30);
-            this.weight_speed_text.Name = "weight_speed_text";
-            this.weight_speed_text.Size = new System.Drawing.Size(108, 34);
-            this.weight_speed_text.TabIndex = 80;
+            this.PLC_connect_state.Color = System.Drawing.Color.Red;
+            this.PLC_connect_state.Location = new System.Drawing.Point(859, 24);
+            this.PLC_connect_state.Name = "PLC_connect_state";
+            this.PLC_connect_state.Size = new System.Drawing.Size(61, 38);
+            this.PLC_connect_state.TabIndex = 100;
+            this.PLC_connect_state.Text = "uiLedBulb3";
             // 
-            // label1
+            // uiLabel9
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(631, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 27);
-            this.label1.TabIndex = 79;
-            this.label1.Text = "重量增速：";
+            this.uiLabel9.Font = new System.Drawing.Font("微软雅黑", 20F, System.Drawing.FontStyle.Bold);
+            this.uiLabel9.Location = new System.Drawing.Point(720, 24);
+            this.uiLabel9.Name = "uiLabel9";
+            this.uiLabel9.Size = new System.Drawing.Size(160, 34);
+            this.uiLabel9.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel9.TabIndex = 99;
+            this.uiLabel9.Text = "一级通讯：";
+            this.uiLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(424, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(104, 37);
+            this.button2.TabIndex = 82;
+            this.button2.Text = "gk";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(424, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 37);
+            this.button1.TabIndex = 81;
+            this.button1.Text = "tb";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // uiLabel4
             // 
@@ -286,7 +317,7 @@
             this.uiTabControl1.Name = "uiTabControl1";
             this.uiTabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.uiTabControl1.SelectedIndex = 0;
-            this.uiTabControl1.Size = new System.Drawing.Size(358, 188);
+            this.uiTabControl1.Size = new System.Drawing.Size(358, 223);
             this.uiTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.uiTabControl1.Style = Sunny.UI.UIStyle.Custom;
             this.uiTabControl1.StyleCustomMode = true;
@@ -302,7 +333,7 @@
             this.tabPage4.Controls.Add(this.listView1);
             this.tabPage4.Location = new System.Drawing.Point(0, 35);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(358, 153);
+            this.tabPage4.Size = new System.Drawing.Size(358, 188);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "折铁进程";
             // 
@@ -321,7 +352,7 @@
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(358, 153);
+            this.listView1.Size = new System.Drawing.Size(358, 188);
             this.listView1.TabIndex = 41;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -344,10 +375,9 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.White;
-            this.tabPage5.Controls.Add(this.listView4);
             this.tabPage5.Location = new System.Drawing.Point(0, 35);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(358, 153);
+            this.tabPage5.Size = new System.Drawing.Size(358, 188);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "折铁警报";
             // 
@@ -358,14 +388,16 @@
             this.columnHeader10,
             this.columnHeader11});
             this.listView4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView4.ForeColor = System.Drawing.Color.DeepPink;
             this.listView4.FullRowSelect = true;
+            this.listView4.GridLines = true;
             this.listView4.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listView4.HideSelection = false;
-            this.listView4.Location = new System.Drawing.Point(0, 0);
+            this.listView4.Location = new System.Drawing.Point(0, 35);
             this.listView4.MultiSelect = false;
             this.listView4.Name = "listView4";
             this.listView4.ShowItemToolTips = true;
-            this.listView4.Size = new System.Drawing.Size(358, 153);
+            this.listView4.Size = new System.Drawing.Size(361, 142);
             this.listView4.TabIndex = 6;
             this.listView4.UseCompatibleStateImageBehavior = false;
             this.listView4.View = System.Windows.Forms.View.Details;
@@ -373,17 +405,17 @@
             // columnHeader9
             // 
             this.columnHeader9.Text = "日期";
-            this.columnHeader9.Width = 200;
+            this.columnHeader9.Width = 240;
             // 
             // columnHeader10
             // 
             this.columnHeader10.Text = "类型";
-            this.columnHeader10.Width = 120;
+            this.columnHeader10.Width = 150;
             // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "描述";
-            this.columnHeader11.Width = 317;
+            this.columnHeader11.Width = 100;
             // 
             // alarm_timer
             // 
@@ -392,11 +424,8 @@
             // 
             // uiPanel1
             // 
-            this.uiPanel1.Controls.Add(this.uiTitlePanel2);
-            this.uiPanel1.Controls.Add(this.button3);
+            this.uiPanel1.Controls.Add(this.uiTitlePanel4);
             this.uiPanel1.Controls.Add(this.uiTitlePanel3);
-            this.uiPanel1.Controls.Add(this.button2);
-            this.uiPanel1.Controls.Add(this.button1);
             this.uiPanel1.Controls.Add(this.uiTitlePanel1);
             this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F);
@@ -404,13 +433,72 @@
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(358, 699);
+            this.uiPanel1.Size = new System.Drawing.Size(358, 827);
             this.uiPanel1.TabIndex = 44;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // uiTitlePanel4
+            // 
+            this.uiTitlePanel4.Controls.Add(this.listView4);
+            this.uiTitlePanel4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
+            this.uiTitlePanel4.Location = new System.Drawing.Point(-3, 655);
+            this.uiTitlePanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTitlePanel4.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiTitlePanel4.Name = "uiTitlePanel4";
+            this.uiTitlePanel4.Padding = new System.Windows.Forms.Padding(0, 35, 0, 0);
+            this.uiTitlePanel4.Size = new System.Drawing.Size(361, 177);
+            this.uiTitlePanel4.TabIndex = 47;
+            this.uiTitlePanel4.Text = "折铁警示";
+            this.uiTitlePanel4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.uiTitlePanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiTitlePanel3
+            // 
+            this.uiTitlePanel3.Controls.Add(this.uiTabControl1);
+            this.uiTitlePanel3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTitlePanel3.Location = new System.Drawing.Point(0, 432);
+            this.uiTitlePanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTitlePanel3.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiTitlePanel3.Name = "uiTitlePanel3";
+            this.uiTitlePanel3.Size = new System.Drawing.Size(358, 223);
+            this.uiTitlePanel3.TabIndex = 46;
+            this.uiTitlePanel3.Text = null;
+            this.uiTitlePanel3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.uiTitlePanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiTitlePanel3.TitleHeight = 0;
+            // 
+            // uiTitlePanel1
+            // 
+            this.uiTitlePanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.uiTitlePanel1.Controls.Add(this.uiSymbolButton2);
+            this.uiTitlePanel1.Controls.Add(this.uiLabel5);
+            this.uiTitlePanel1.Controls.Add(this.uiSymbolButton1);
+            this.uiTitlePanel1.Controls.Add(this.uiLabel1);
+            this.uiTitlePanel1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTitlePanel1.Location = new System.Drawing.Point(1, 252);
+            this.uiTitlePanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTitlePanel1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiTitlePanel1.Name = "uiTitlePanel1";
+            this.uiTitlePanel1.Padding = new System.Windows.Forms.Padding(0, 35, 0, 0);
+            this.uiTitlePanel1.RectColor = System.Drawing.Color.Transparent;
+            this.uiTitlePanel1.Size = new System.Drawing.Size(358, 171);
+            this.uiTitlePanel1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiTitlePanel1.StyleCustomMode = true;
+            this.uiTitlePanel1.TabIndex = 45;
+            this.uiTitlePanel1.Text = "折铁控制";
+            this.uiTitlePanel1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.uiTitlePanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiTitlePanel1.TitleColor = System.Drawing.Color.Beige;
+            this.uiTitlePanel1.TitleForeColor = System.Drawing.Color.Brown;
+            // 
             // uiTitlePanel2
             // 
+            this.uiTitlePanel2.Controls.Add(this.uiLabel11);
+            this.uiTitlePanel2.Controls.Add(this.uiLabel10);
+            this.uiTitlePanel2.Controls.Add(this.uiLabel8);
+            this.uiTitlePanel2.Controls.Add(this.uiLabel7);
             this.uiTitlePanel2.Controls.Add(this.set_weight);
             this.uiTitlePanel2.Controls.Add(this.text_B_train_full_weight);
             this.uiTitlePanel2.Controls.Add(this.uiLabel6);
@@ -420,9 +508,8 @@
             this.uiTitlePanel2.Controls.Add(this.reqweight_uiTextBox1);
             this.uiTitlePanel2.Controls.Add(this.B_chose);
             this.uiTitlePanel2.Controls.Add(this.A_chose);
-            this.uiTitlePanel2.Controls.Add(this.uiLabel9);
             this.uiTitlePanel2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTitlePanel2.Location = new System.Drawing.Point(0, 167);
+            this.uiTitlePanel2.Location = new System.Drawing.Point(3, 124);
             this.uiTitlePanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTitlePanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiTitlePanel2.Name = "uiTitlePanel2";
@@ -437,6 +524,50 @@
             this.uiTitlePanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiTitlePanel2.TitleColor = System.Drawing.Color.Beige;
             this.uiTitlePanel2.TitleForeColor = System.Drawing.Color.Brown;
+            // 
+            // uiLabel11
+            // 
+            this.uiLabel11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
+            this.uiLabel11.Location = new System.Drawing.Point(265, 42);
+            this.uiLabel11.Name = "uiLabel11";
+            this.uiLabel11.Size = new System.Drawing.Size(89, 28);
+            this.uiLabel11.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel11.TabIndex = 43;
+            this.uiLabel11.Text = "3.点击确认";
+            this.uiLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel10
+            // 
+            this.uiLabel10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
+            this.uiLabel10.Location = new System.Drawing.Point(131, 42);
+            this.uiLabel10.Name = "uiLabel10";
+            this.uiLabel10.Size = new System.Drawing.Size(128, 28);
+            this.uiLabel10.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel10.TabIndex = 42;
+            this.uiLabel10.Text = "2.设定目标重量";
+            this.uiLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel8
+            // 
+            this.uiLabel8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
+            this.uiLabel8.Location = new System.Drawing.Point(8, 42);
+            this.uiLabel8.Name = "uiLabel8";
+            this.uiLabel8.Size = new System.Drawing.Size(89, 28);
+            this.uiLabel8.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel8.TabIndex = 41;
+            this.uiLabel8.Text = "1.选择位置";
+            this.uiLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLabel7
+            // 
+            this.uiLabel7.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel7.Location = new System.Drawing.Point(131, 78);
+            this.uiLabel7.Name = "uiLabel7";
+            this.uiLabel7.Size = new System.Drawing.Size(51, 59);
+            this.uiLabel7.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel7.TabIndex = 38;
+            this.uiLabel7.Text = "目标\r\n重量";
+            this.uiLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // set_weight
             // 
@@ -513,7 +644,7 @@
             // 
             this.hum_chose_GB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.hum_chose_GB.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.hum_chose_GB.Location = new System.Drawing.Point(283, 102);
+            this.hum_chose_GB.Location = new System.Drawing.Point(269, 91);
             this.hum_chose_GB.MinimumSize = new System.Drawing.Size(1, 1);
             this.hum_chose_GB.Name = "hum_chose_GB";
             this.hum_chose_GB.Size = new System.Drawing.Size(72, 35);
@@ -530,7 +661,7 @@
             this.reqweight_uiTextBox1.FillColor = System.Drawing.Color.White;
             this.reqweight_uiTextBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.reqweight_uiTextBox1.IntValue = 285;
-            this.reqweight_uiTextBox1.Location = new System.Drawing.Point(222, 55);
+            this.reqweight_uiTextBox1.Location = new System.Drawing.Point(189, 92);
             this.reqweight_uiTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reqweight_uiTextBox1.Maximum = 2147483647D;
             this.reqweight_uiTextBox1.Minimum = -2147483648D;
@@ -547,115 +678,35 @@
             // 
             this.B_chose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.B_chose.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.B_chose.Location = new System.Drawing.Point(32, 108);
+            this.B_chose.Location = new System.Drawing.Point(16, 108);
             this.B_chose.MinimumSize = new System.Drawing.Size(1, 1);
             this.B_chose.Name = "B_chose";
             this.B_chose.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.B_chose.Size = new System.Drawing.Size(101, 29);
             this.B_chose.Style = Sunny.UI.UIStyle.Custom;
             this.B_chose.TabIndex = 31;
-            this.B_chose.Text = "3号罐车";
+            this.B_chose.Text = "3号位";
             // 
             // A_chose
             // 
             this.A_chose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.A_chose.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.A_chose.Location = new System.Drawing.Point(32, 60);
+            this.A_chose.Location = new System.Drawing.Point(16, 73);
             this.A_chose.MinimumSize = new System.Drawing.Size(1, 1);
             this.A_chose.Name = "A_chose";
             this.A_chose.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.A_chose.Size = new System.Drawing.Size(104, 29);
             this.A_chose.Style = Sunny.UI.UIStyle.Custom;
             this.A_chose.TabIndex = 28;
-            this.A_chose.Text = "4号罐车";
-            // 
-            // uiLabel9
-            // 
-            this.uiLabel9.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel9.Location = new System.Drawing.Point(164, 61);
-            this.uiLabel9.Name = "uiLabel9";
-            this.uiLabel9.Size = new System.Drawing.Size(80, 23);
-            this.uiLabel9.Style = Sunny.UI.UIStyle.Custom;
-            this.uiLabel9.TabIndex = 29;
-            this.uiLabel9.Text = "重量：";
-            this.uiLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(206, 664);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(122, 32);
-            this.button3.TabIndex = 48;
-            this.button3.Text = "plcwritetest";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // uiTitlePanel3
-            // 
-            this.uiTitlePanel3.Controls.Add(this.uiTabControl1);
-            this.uiTitlePanel3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTitlePanel3.Location = new System.Drawing.Point(0, 417);
-            this.uiTitlePanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTitlePanel3.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiTitlePanel3.Name = "uiTitlePanel3";
-            this.uiTitlePanel3.Size = new System.Drawing.Size(358, 188);
-            this.uiTitlePanel3.TabIndex = 46;
-            this.uiTitlePanel3.Text = null;
-            this.uiTitlePanel3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.uiTitlePanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uiTitlePanel3.TitleHeight = 0;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(32, 613);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 37);
-            this.button2.TabIndex = 47;
-            this.button2.Text = "gk";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(32, 656);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 37);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "tb";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // uiTitlePanel1
-            // 
-            this.uiTitlePanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.uiTitlePanel1.Controls.Add(this.uiSymbolButton2);
-            this.uiTitlePanel1.Controls.Add(this.uiLabel5);
-            this.uiTitlePanel1.Controls.Add(this.uiSymbolButton1);
-            this.uiTitlePanel1.Controls.Add(this.uiLabel1);
-            this.uiTitlePanel1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTitlePanel1.Location = new System.Drawing.Point(0, 2);
-            this.uiTitlePanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTitlePanel1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiTitlePanel1.Name = "uiTitlePanel1";
-            this.uiTitlePanel1.Padding = new System.Windows.Forms.Padding(0, 35, 0, 0);
-            this.uiTitlePanel1.RectColor = System.Drawing.Color.Transparent;
-            this.uiTitlePanel1.Size = new System.Drawing.Size(358, 164);
-            this.uiTitlePanel1.Style = Sunny.UI.UIStyle.Custom;
-            this.uiTitlePanel1.StyleCustomMode = true;
-            this.uiTitlePanel1.TabIndex = 45;
-            this.uiTitlePanel1.Text = "折铁控制";
-            this.uiTitlePanel1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.uiTitlePanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uiTitlePanel1.TitleColor = System.Drawing.Color.Beige;
-            this.uiTitlePanel1.TitleForeColor = System.Drawing.Color.Brown;
+            this.A_chose.Text = "4号位";
             // 
             // MdiParent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1612, 824);
+            this.ClientSize = new System.Drawing.Size(1643, 959);
+            this.Controls.Add(this.uiTitlePanel2);
             this.Controls.Add(this.uiPanel1);
             this.Controls.Add(this.uiNavBar1);
             this.Controls.Add(this.splitter2);
@@ -665,6 +716,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(1920, 1100);
             this.Name = "MdiParent";
             this.ShowRadius = false;
             this.Text = "";
@@ -672,15 +724,14 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MdiParent_FormClosed);
             this.Load += new System.EventHandler(this.MdiParent_Load);
             this.uiNavBar1.ResumeLayout(false);
-            this.uiNavBar1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.uiTabControl1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
             this.uiPanel1.ResumeLayout(false);
-            this.uiTitlePanel2.ResumeLayout(false);
+            this.uiTitlePanel4.ResumeLayout(false);
             this.uiTitlePanel3.ResumeLayout(false);
             this.uiTitlePanel1.ResumeLayout(false);
+            this.uiTitlePanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -716,20 +767,23 @@
         private Sunny.UI.UITextBox reqweight_uiTextBox1;
         private Sunny.UI.UIRadioButton B_chose;
         private Sunny.UI.UIRadioButton A_chose;
-        private Sunny.UI.UILabel uiLabel9;
         public System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
         private Sunny.UI.UIButton set_weight;
         private Sunny.UI.UITextBox text_B_train_full_weight;
         private Sunny.UI.UILabel uiLabel6;
         private Sunny.UI.UITextBox text_A_train_full_weight;
         private Sunny.UI.UILabel uiLabel2;
-        private System.Windows.Forms.TextBox weight_speed_text;
-        private System.Windows.Forms.Label label1;
+        private Sunny.UI.UILabel uiLabel11;
+        private Sunny.UI.UILabel uiLabel10;
+        private Sunny.UI.UILabel uiLabel8;
+        private Sunny.UI.UILabel uiLabel7;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private Sunny.UI.UILedBulb PLC_connect_state;
+        private Sunny.UI.UILabel uiLabel9;
+        private Sunny.UI.UITitlePanel uiTitlePanel4;
     }
 }

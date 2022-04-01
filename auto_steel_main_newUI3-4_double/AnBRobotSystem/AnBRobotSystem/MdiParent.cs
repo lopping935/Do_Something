@@ -1,0 +1,645 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.Common;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using AnBRobotSystem.ChildForm;
+using System.Collections;
+using System.ServiceProcess;
+using System.Diagnostics;
+using SQLPublicClass;
+using System.Reflection;
+using logtest;
+using System.Runtime.InteropServices;
+using System.Threading;
+using AnBRobotSystem.Core;
+using VM.Core;
+using VM.PlatformSDKCS;
+using System.Threading.Tasks;
+using GlobalVariableModuleCs;
+using OpenCvSharp;
+using SDK;
+using ImageSourceModuleCs;
+using AnBRobotSystem.Utlis;
+
+namespace AnBRobotSystem
+{
+    public delegate void updatelistiew(string a, string b,string c);
+    public delegate void main_void_fun();
+    public partial class MdiParent :Sunny.UI.UIForm
+    {
+        public dbTaskHelper uidbhelper=new dbTaskHelper();
+        public static PLCdata PLCdata1=new PLCdata();
+        public static MdiParent form;
+        public static Tiebao tb1=new Tiebao();
+        public static GuanKou gk1 = new GuanKou();
+        public static TieLiu tl1 = new TieLiu();
+        //  public static Auto_model autoprocess = new Auto_model();
+        public static ZT_Date zt_state = new ZT_Date();
+        public static Auto_model atuomodel=new Auto_model();
+        public static bool mSolutionIsLoad = false;  //true 代表方案加载成功，false 代表方案关闭
+        public static VmProcedure process_TB, process_GK, process_GKB, process_TL, process4;
+        public static ImageSourceModuleTool TL_img_sdk;
+        public static GlobalVariableModuleTool GK_global;
+        public static int a = 0;
+        public VideoCapture camer_cap;
+        string SolutionPath = @"C:\ProjSetup\Auto_steel\newvm\autosteelvm.sol";
+        public static float Last_GB_A_angle = 0, Last_GB_B_angle = 0;
+
+        public static bool updata_GBA_fulweight = false, updata_GBB_fulweight = false;
+
+
+        public MdiParent()
+        {
+            try
+            {
+                InitializeComponent();
+                //侧边栏 sysmbol设计
+                //uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[0], 61459);
+                //uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[1], 61501);
+                //uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[2], 61555);
+                //uiNavMenu1.SetNodeSymbol(uiNavMenu1.Nodes[3], 61712);
+
+                uiNavBar1.SetNodeSymbol(uiNavBar1.Nodes[0], 61459);
+                uiNavBar1.SetNodeSymbol(uiNavBar1.Nodes[1], 61501);
+                uiNavBar1.SetNodeSymbol(uiNavBar1.Nodes[2], 61555);
+                uiNavBar1.SetNodeSymbol(uiNavBar1.Nodes[3], 61712);
+               
+                
+                form = this;
+                LogHelper.WriteLog("star program");
+                tb1.writelistview = mainlog;
+                gk1.writelistview = mainlog;
+                tl1.writelistview1 = mainlog;
+                atuomodel.writelisview = mainlog;
+                atuomodel.m1.writelisview = mainlog;
+                LoadSolution();
+                PLCdata1.writelog = mainlog;
+                PLCdata1.initplc();
+                timerLog.Enabled = true;
+                FreshTimer.Enabled = true;
+                alarm_timer.Enabled = true;
+            }
+            catch(Exception e)
+            {
+                mainlog("主窗体", "主窗体初始化错误！", "err");
+                LogHelper.WriteLog("主窗体",e);
+                
+            }
+        }
+        private void MdiParent_Load(object sender, EventArgs e)
+        {
+            FreshTimer.Start();
+            timerLog.Start();
+            //plc_updata.Start();
+            this.WindowState = FormWindowState.Normal;
+            OpenChildForm(GetFromHandle("数据配置"), "数据配置");
+          //  uiLedDisplay1.Text = DateTime.Now.ToString("HH:mm:ss").Trim();            
+        }
+        private void LoadSolution() 
+        {
+            string strMsg = null;
+            int nProgress = 0;           
+            try
+            {
+                VmSolution.Import(SolutionPath,"");
+                
+                process_TB = (VmProcedure)VmSolution.Instance["流程1"];
+                process_GK = (VmProcedure)VmSolution.Instance["流程2"];
+                process_TL = (VmProcedure)VmSolution.Instance["流程3"];
+                process_GKB = (VmProcedure)VmSolution.Instance["流程4"];
+                TL_img_sdk = (ImageSourceModuleTool)VmSolution.Instance["流程3.图像源1"];
+                GK_global = (GlobalVariableModuleTool)VmSolution.Instance["全局变量1"];
+                mainlog("main", "视觉平台启动成功！", "log");
+                mSolutionIsLoad = true;
+                vmprocess_runtest();
+            }
+            catch (VmException ex)
+            {
+                strMsg = "LoadSolution failed. Error Code: " + Convert.ToString(ex.errorCode, 16);
+                LogHelper.WriteLog(strMsg, ex);
+                return;
+            }
+
+
+        }
+        public void vmprocess_runtest()
+        {
+            if(mSolutionIsLoad)
+            {
+                gk1.GK_runtest();
+                tl1.tl_runtest();
+            }
+        }
+        public void mainlog(string model,string strmsg,string flag)
+        {
+            if(flag=="log")
+            {
+                ListViewItem iteme1 = new ListViewItem(strmsg);
+                iteme1.SubItems.Add(DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy"));
+                iteme1.SubItems.Add(model);
+                listView1.Invoke(new Action(() => { listView1.Items.Insert(0, iteme1); }));
+            }
+            else if(flag=="err")
+            {
+                ListViewItem iteme1 = new ListViewItem(DateTime.Now.ToString());
+                iteme1.SubItems.Add(model);
+                iteme1.SubItems.Add(strmsg);
+                listView4.Invoke(new Action(() => { listView4.Items.Insert(0, iteme1); }));
+            }
+            
+        }
+        public void errlog(string model, string strmsg)
+        {
+            ListViewItem iteme1 = new ListViewItem(DateTime.Now.ToString());
+            iteme1.SubItems.Add(model);
+            iteme1.SubItems.Add(strmsg);
+            listView4.Invoke(new Action(() => { listView1.Items.Insert(0, iteme1); }));
+        }
+
+        #region//窗体切换
+       //标题栏  窗体切换代码
+        private void uiNavBar1_NodeMouseClick(TreeNode node, int menuIndex, int pageIndex)
+        {
+            if (node == null)
+                return;
+            Form form = null;
+            if (node.Text != "")
+            {
+                form = GetFromHandle(node.Text);
+                if (form != null && form.Visible == false)
+                {
+                    OpenChildForm(form, node.Text);
+                }
+                else
+                    form.Activate();
+            }
+        }
+        //侧边栏 窗体切换代码
+        /*private void uiNavMenu1_MenuItemClick(TreeNode node, Sunny.UI.NavMenuItem item, int pageIndex)
+        {
+            if (node == null)
+                return;
+            Form form = null;
+            if (node.Text != "")
+            {
+                form = GetFromHandle(node.Text);
+                if (form!=null && form.Visible==false)
+                {
+                    OpenChildForm(form, node.Text);
+                }
+                else
+                    form.Activate();
+            }
+        }*/
+        //获取窗体句柄
+        private Form GetFromHandle(string FromName)
+        {
+            if (FromName == "实时数据")
+            {
+                foreach (Form childfrom in this.MdiChildren)
+                {
+                    if (childfrom.Name == "Real_data")
+                        return childfrom;
+                }
+                return new Real_data();
+            }   
+            else if (FromName == "视觉图像")
+            {
+                foreach (Form childfrom in this.MdiChildren)
+                {
+                    if (childfrom.Name == "Fauto_Form")
+                        return childfrom;
+                }
+                return new Fauto_Form();
+            }
+            else if (FromName == "历史记录")
+            {
+                foreach (Form childfrom in this.MdiChildren)
+                {
+                    if (childfrom.Name == "ModelSet")
+                        return childfrom;
+                }
+                return new ModelSet();
+            }  
+            else if (FromName == "折铁流程")
+            {
+                foreach (Form childfrom in this.MdiChildren)
+                {
+                    if (childfrom.Name == "Main_process")
+                        return childfrom;
+                }
+                return new Main_process(mainlog, A_back,B_back);
+            }
+            else
+            {
+                foreach (Form childfrom in this.MdiChildren)
+                {
+                    if (childfrom.Name == "Main_process")
+                        return childfrom;
+                }
+                return new Main_process(mainlog, A_back, B_back);
+            }        
+        }
+
+        private void OpenChildForm(Form frm, string frmName)
+        {
+            if (frm == null) return;
+            Form opcFrm = frm;
+            opcFrm.WindowState = FormWindowState.Maximized;
+            this.Text = "自动折铁系统 - [" + frmName + "]";
+           // opcFrm.TopLevel = false;
+            opcFrm.MdiParent = this;
+            opcFrm.Show();
+        }
+
+        void closechild()
+        {
+            foreach (Form  childfrom in this.MdiChildren)
+            {
+                childfrom.Close();
+            }
+ 
+        }
+        #endregion
+        #region//时钟
+        int threadclocl = 0;
+        private void FreshTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (atuomodel.one_ZT != null)
+                    zt_state = atuomodel.one_ZT;
+                else
+                    zt_state.Has_mission = false;
+
+                if (PLCdata1.connect)
+                {
+                    PLC_connect_state.Color = Color.Green;
+                }
+                else
+                {
+                    PLC_connect_state.Color = Color.Red;
+                }
+
+                if (Program.ZT_thread_flag == 1000)
+                {
+                    if (atuomodel.full_thread != null)
+                    {
+                        if ( atuomodel.full_thread.IsAlive)
+                        {
+                            if(threadclocl > 10)
+                            {
+                                threadclocl = 0;
+                                atuomodel.full_thread.Abort();
+                                atuomodel.full_thread.Join();
+                            }
+                            else
+                            {
+                                threadclocl++;
+                            }
+                            
+                        }
+                        else
+                        {
+                            atuomodel.full_thread = null;
+                        }
+
+                            
+                    }
+                    if (atuomodel.nfull_thread != null)
+                    {
+                        if (atuomodel.nfull_thread.IsAlive)
+                        {
+                            if (threadclocl > 10)
+                            {
+                                threadclocl = 0;
+                                atuomodel.nfull_thread.Abort();
+                                atuomodel.nfull_thread.Join();
+                            }
+                            else
+                            {
+                                threadclocl++;
+                            }
+
+                        }
+                        else
+                        {
+                            atuomodel.nfull_thread = null;
+                        }
+                    }
+                }
+
+
+                if (Last_GB_A_angle == 0 || Last_GB_B_angle == 0)
+                {
+                    Last_GB_A_angle = PLCdata1.ZT_data.GB_A_angle;
+                    Last_GB_B_angle = PLCdata1.ZT_data.GB_B_angle;
+                }
+                if (Last_GB_A_angle - PLCdata1.ZT_data.GB_A_angle > 400)
+                {
+                    Last_GB_A_angle = PLCdata1.ZT_data.GB_A_angle;
+                    MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+                    DialogResult dr = MessageBox.Show("4号折铁角度发生错误，请检查！", "退出系统", messButton);
+                }
+                else
+                {
+                    Last_GB_A_angle = PLCdata1.ZT_data.GB_A_angle;
+                }
+                if (Last_GB_B_angle - PLCdata1.ZT_data.GB_B_angle > 400)
+                {
+                    Last_GB_B_angle = PLCdata1.ZT_data.GB_B_angle;
+                    MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+                    DialogResult dr = MessageBox.Show("3号折铁角度发生错误，请检查！", "退出系统", messButton);
+                }
+                else
+                {
+                    Last_GB_B_angle = PLCdata1.ZT_data.GB_B_angle;
+                }
+            }
+            catch(Exception e1)
+            {
+                LogHelper.WriteLog("定时器更新", e1);
+            }
+        
+            
+
+        }
+      
+        //服务消息更改
+        private void timerLog_Tick(object sender, EventArgs e)
+        {
+            int count = 0;
+            if (listView1.Items.Count > 100)
+            {
+                count = listView1.Items.Count;
+                while (listView1.Items.Count > 10)
+
+                {
+                     count -=1;
+                    this.listView1.Items.RemoveAt(count);
+                }
+            }
+        } 
+        #endregion
+
+        #region//下方状态栏切换
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (tabControl1.SelectedTab.Name == "tabPage3")
+            //{
+            //    try
+            //    {
+                   
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show( ex.Message);
+            //    }
+            //}
+        }
+        #endregion
+        #region//主窗体开关程序
+        private void MdiParent_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
+       
+
+        
+        private void uiButton1_Click(object sender, EventArgs e)
+        {
+           // tl1.get_tl_img();
+           // bool result=tl1.TL_light_result();
+           // bool get = tl1.Get_iron;
+        }
+
+        private void alarm_timer_Tick(object sender, EventArgs e)
+        {
+            //if(Program.ZT_thread_flag!=1000)
+            //{
+            //    Program.ZT_thread_flag = 1000;
+            //   // ShowErrorDialog("折铁过程发生错误！");
+            //}
+            // PLCdata1.Read_PLC_data();
+            //weight_speed_text.Text = PLCdata1.TB_weight_speed.ToString();
+            if (Program.GB_data_flag == 1000)
+            {
+                Program.GB_data_flag = 0;
+                ShowErrorDialog("折铁过程发生错误！");
+            }
+        }
+
+        private void hum_chose_GB_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (A_chose.Checked)//A_chose.Checked
+                {
+                    Program.GB_station = "A";
+                    Program.GB_chose_flag = 1;
+                    mainlog("罐选择", "选择A罐", "log");
+                    ShowSuccessTip("A罐被选中");
+
+                }
+                else if (B_chose.Checked)
+                {
+                    Program.GB_station = "B";
+                    Program.GB_chose_flag = 1;
+                    mainlog("罐选择", "选择B罐", "log");
+                    ShowInfoTip("B罐被选中");
+                }
+                else
+                {
+                     ShowErrorDialog("选罐失败，请重新选择！");
+                }
+
+            }
+            catch (Exception e1)
+            {
+                LogHelper.WriteLog("数据更新界面出差", e1);
+            }
+        }
+        //重量设置限制
+        private void reqweight_uiTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (PLCdata1.ZT_data.TB_weight < 80)//PLCdata1.ZT_data.TB_weight < 80
+            {
+
+                reqweight_uiTextBox1.IntValue = 285;
+                ShowErrorDialog("无空包重时，只能设置折铁为最大值！");
+
+            }
+            else
+            {
+                if (reqweight_uiTextBox1.IntValue > 300)
+                {
+                    reqweight_uiTextBox1.IntValue = 0;
+                    ShowErrorDialog("重量错误，重量超过总重限制！");
+                }
+                else
+                {
+                    //reqweight_uiTextBox1.IntValue = reqweight_uiTextBox1.IntValue + (int) PLCdata1.ZT_data.TB_weight;
+                }
+
+            }
+        }
+
+        
+
+       
+
+       
+        public void B_back()
+        {
+            if (Program.ZT_thread_flag != 1000)
+            {
+                mainlog("折铁按键", "折铁程序正在运行，请勿重复点击！", "log");
+                return;
+            }
+            Program.GB_station = "B";
+            Program.GB_chose_flag = 5;
+            atuomodel.init_ZT_data();
+            atuomodel.one_ZT.ZT_reqweight = -50;//设置本次需折铁量
+            Program.program_flag = 0;
+            atuomodel.chose_process();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (A_chose.Checked)
+            {
+                gk1.GK_station = "A";
+                gk1.start_GK_state = true;
+            }
+            else
+            {
+                gk1.GK_station = "B";
+                gk1.start_GK_state = true;
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        public void A_back()
+        {
+            if (Program.ZT_thread_flag != 1000)
+            {
+                mainlog("折铁按键", "折铁程序正在运行，请勿重复点击！", "log");
+                return;
+            }
+            Program.GB_station = "A";
+            Program.GB_chose_flag = 4;
+            atuomodel.init_ZT_data();
+            atuomodel.one_ZT.ZT_reqweight = -50;//设置本次需折铁量
+            Program.program_flag = 0;
+            atuomodel.chose_process();
+        }
+        
+
+        private void set_weight_Click(object sender, EventArgs e)
+        {
+            if(text_A_train_full_weight.IntValue!=0)
+            {
+                //PLCdata1.GB_A_init_weight = text_A_train_full_weight.IntValue;
+                // PLCdata1.GB_A_remind_weight = text_A_train_full_weight.IntValue;
+                
+                string sqltext = string.Format("insert into [MES_Data] VALUES ('{0}','{1}','{2}','{3}','N')", "A", DateTime.Now.ToString(), text_A_train_full_weight.Text,"");
+                uidbhelper.MultithreadExecuteNonQuery(sqltext);
+                text_A_train_full_weight.IntValue = 0;
+                //手动更新罐车总重标志
+                updata_GBA_fulweight = true;
+
+            }
+            if(text_B_train_full_weight.IntValue != 0)
+            {
+                //PLCdata1.GB_B_init_weight = text_B_train_full_weight.IntValue;
+               // PLCdata1.GB_B_remind_weight = text_B_train_full_weight.IntValue;
+                string sqltext = string.Format("insert into [MES_Data] VALUES ('{0}','{1}','{2}','{3}','N')", "B", DateTime.Now.ToString(), text_B_train_full_weight.Text, "");
+                uidbhelper.MultithreadExecuteNonQuery(sqltext);
+                text_B_train_full_weight.IntValue = 0;
+                updata_GBB_fulweight = true;
+            }
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tb1.TB_init_result();
+        }
+
+        //开始折铁按钮
+        private void uiSymbolButton2_Click(object sender, EventArgs e)
+        {
+            if (Program.ZT_thread_flag != 1000)
+            {
+                mainlog("折铁按键", "折铁程序正在运行，请勿重复点击！", "log");
+                return;
+            }
+            else if(Program.GB_chose_flag !=1)
+            {
+                MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+                DialogResult dr = MessageBox.Show("确定要自动选罐吗?", "退出系统", messButton);
+                if (dr == DialogResult.OK)
+                {
+                    Program.GB_chose_flag = 2;
+                    // this.Close();
+                }
+                else
+                {
+                    Program.GB_chose_flag = 3;
+                    //this.Close();
+                    return;
+                }
+
+            }
+            //atuomodel = new Auto_model();
+            atuomodel.init_ZT_data();
+            if(reqweight_uiTextBox1.IntValue==280)
+            {
+                atuomodel.one_ZT.ZT_reqweight = 280;//设置本次需折铁量
+            }
+            else
+            {
+                atuomodel.one_ZT.ZT_reqweight = reqweight_uiTextBox1.IntValue;
+            }
+            
+            //atuomodel.writelisview = mainlog;
+    
+            Program.program_flag = 0;
+            atuomodel.chose_process();        
+    }
+        //退出折铁按钮
+        private void uiSymbolButton1_Click_1(object sender, EventArgs e)
+        {
+            Program.ZT_auto_back = 0;
+            PLCdata1.reset_start();
+            Program.ZT_thread_flag = 1000;
+            zt_state.Has_mission = false;
+            Program.GB_chose_flag = 0;
+            //process_GK.ContinuousRunEnable = false;
+        }
+       
+
+
+        private void MdiParent_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            VmSolution.Instance.Dispose();
+            this.Dispose();
+            Application.Exit();
+            
+        }
+
+        #endregion
+       
+      
+
+    }
+}

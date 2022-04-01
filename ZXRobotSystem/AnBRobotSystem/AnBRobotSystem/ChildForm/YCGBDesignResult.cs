@@ -330,9 +330,9 @@ namespace AnBRobotSystem.ChildForm
                 }
                 for (int i = 0; i <countn; i++)
                 {
-                    DataGridViewRow row = dataGridView1.Rows[i];
-                    IMP_FINISH = int.Parse(row.Cells[16].Value.ToString()); 
-                    switch(IMP_FINISH)
+                    DataGridViewRow row = dataGridView1.Rows[i];//可以取出表中任意一行数据
+                    IMP_FINISH = int.Parse(row.Cells[16].Value.ToString()); //row.Cells[16].Value.ToString()通过这个row.Cells[X]就可以找到那个值  下面分析就好
+                    switch (IMP_FINISH)
                     {
                         case 0:
                             dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Red;

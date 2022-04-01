@@ -26,13 +26,18 @@ namespace AnBRobotSystem.ChildForm
         bool flag = false;
         public updatelistiew writelistview;
         dbTaskHelper uidb = new dbTaskHelper();
-        public Main_process(updatelistiew up1)
+        public main_void_fun Aa_back, Bb_back;
+        public Main_process(updatelistiew up1, main_void_fun a_back, main_void_fun b_back)
         {
 
             InitializeComponent();
+            //TB_weight.Parent = uiProcessBar1;
+           // TB_weight.BackColor = Color.Transparent;
             main_tl_vmRenderControl1.ModuleSource = AnBRobotSystem.MdiParent.process_TL;
             Control.CheckForIllegalCrossThreadCalls = false;
             writelistview = up1;
+            Aa_back = a_back;
+            Bb_back = b_back;
             update_control = new Thread(update);
             flag = true;
             update_control.IsBackground = true;
@@ -47,7 +52,7 @@ namespace AnBRobotSystem.ChildForm
             try
             {
 
-               // weight_speed_text.Text = AnBRobotSystem.MdiParent.PLCdata1.TB_weight_speed.ToString();
+                // weight_speed_text.Text = AnBRobotSystem.MdiParent.PLCdata1.TB_weight_speed.ToString();
                 if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_pos == false)
                 {
                     zt_Panel1.Enabled = true;
@@ -55,8 +60,8 @@ namespace AnBRobotSystem.ChildForm
                     zt_ScrollingText1.ForeColor = Color.Red;
                     tb_limit.Color = Color.LightGreen;
                     TB_weight.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight.ToString();
-                    TB_hight.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_LIQID.ToString();
-                    ZT_tbnum.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_num.ToString();
+                    TB_hight.Text = (5404 - AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_LIQID).ToString();
+                    //ZT_tbnum.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_num.ToString();
                     if ((int)AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight > 90)
                     {
                         uiProcessBar1.Enabled = true;
@@ -74,14 +79,14 @@ namespace AnBRobotSystem.ChildForm
                     }
                     else
                     {
-                       // uiImageButton1.Visible = false;
+                        // uiImageButton1.Visible = false;
 
                     }
 
                     if (AnBRobotSystem.MdiParent.tl1.TL_station == "B")
                     {
                         //uiImageButton2.Visible = true;
-                       // uiImageButton2.Enabled = !uiImageButton2.Enabled;
+                        // uiImageButton2.Enabled = !uiImageButton2.Enabled;
                     }
                     else
                     {
@@ -98,7 +103,7 @@ namespace AnBRobotSystem.ChildForm
                     TB_weight.Text = "0";
                     TB_hight.Text = "0";
                     uiProcessBar1.Value = 0;
-                    ZT_tbnum.Text = "0";
+                    //ZT_tbnum.Text = "0";
                     //uiImageButton1.Visible = false;
                     //uiImageButton2.Visible = false;
 
@@ -107,95 +112,142 @@ namespace AnBRobotSystem.ChildForm
                 //罐车A
                 if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_carIn == true)
                 {
-                    train1_coming.Color = Color.LightGreen;
+                    //train1_coming.Color = Color.LightGreen;
                     GBA_img.Enabled = true;
-                    //读取实时数据库更新 罐重
-                    //string A_nowweight=uidb.read_table_onefield("mid_weight", "RealTime_Car_Bag", "ID", "A");
-                    // GBA_now_weight.Text = A_nowweight;
+                    GBA_num.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_num.ToString();
                     GBA_now_weight.Text = AnBRobotSystem.MdiParent.PLCdata1.GB_A_remind_weight.ToString();
                     ui_gba_angle.Text = Math.Round((AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_angle / 20), 2).ToString();
                 }
                 else
                 {
-                    train1_coming.Color = Color.Silver;
+                    //train1_coming.Color = Color.Silver;
                     GBA_img.Enabled = false;
-                    //读取实时数据库更新 罐重
                     GBA_now_weight.Text = "0";
+                    GBA_num.Text = "0";
+                    ui_gba_angle.Text = "0";
                 }
-                GBA_num.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_num.ToString();
+
                 if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_connect == true)
                 {
                     GBA_getpow.Color = Color.LightGreen;
+
+                    if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_0_limt)
+                    {
+                        A_0_uiLedBulb1.Color = Color.Silver;
+                    }
+                    else
+                        A_0_uiLedBulb1.Color = Color.LightGreen;
+
+                    if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_120_limt)
+                    {
+                        A_120_uiLedBulb2.Color = Color.Silver;
+                    }
+                    else
+                        A_120_uiLedBulb2.Color = Color.LightGreen;
                 }
                 else
+                {
+                    A_120_uiLedBulb2.Color = Color.Silver;
+                    A_0_uiLedBulb1.Color = Color.Silver;
                     GBA_getpow.Color = Color.Silver;
+                }
+
+
 
 
                 //罐车B
                 if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_B_carIn == true)
                 {
-                    train2_coming.Color = Color.LightGreen;
+                    //train2_coming.Color = Color.LightGreen;
                     GBB_img.Enabled = true;
-
-                    //读取实时数据库更新 罐重
-                    // string B_nowweight = uidb.read_table_onefield("mid_weight", "RealTime_Car_Bag", "ID", "B");
-                    // GBB_now_weight.Text = B_nowweight;
+                    GBB_num.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_B_num.ToString();
                     GBB_now_weight.Text = AnBRobotSystem.MdiParent.PLCdata1.GB_B_remind_weight.ToString();
                     ui_gbb_angle.Text = Math.Round((AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_B_angle / 20), 2).ToString();
                 }
                 else
                 {
-                    train2_coming.Color = Color.Silver;
+                    //train2_coming.Color = Color.Silver;
                     GBB_img.Enabled = false;
-                    //读取实时数据库更新 罐重
                     GBB_now_weight.Text = "0";
+                    GBB_num.Text = "0";
+                    ui_gbb_angle.Text = "0";
                 }
-                GBB_num.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_B_num.ToString();
+
                 if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_B_connect == true)
                 {
                     GBB_getpow.Color = Color.LightGreen;
+                    if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_B_0_limt)
+                    {
+                        B_0_uiLedBulb5.Color = Color.Silver;
+                    }
+                    else
+                        B_0_uiLedBulb5.Color = Color.LightGreen;
+
+                    if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_B_120_limt)
+                    {
+                        B_120_uiLedBulb4.Color = Color.Silver;
+                    }
+                    else
+                        B_120_uiLedBulb4.Color = Color.LightGreen;
                 }
                 else
+                {
+                    B_0_uiLedBulb5.Color = Color.Silver;
+                    B_120_uiLedBulb4.Color = Color.Silver;
                     GBB_getpow.Color = Color.Silver;
+                }
+                    
                 //折铁实时显示
                 if (AnBRobotSystem.MdiParent.zt_state.Has_mission)
                 {
-                    zt_gb.Text = AnBRobotSystem.MdiParent.zt_state.GB_station;
-                    if (AnBRobotSystem.MdiParent.zt_state.TB_BK_vision)
-                        TBK_vision.Color = Color.LightGreen;
-                    else
-                        TBK_vision.Color = Color.Silver;
+                    aim_weight_uiLabel3.Text = AnBRobotSystem.MdiParent.atuomodel.one_ZT.ZT_reqweight.ToString();
+                    weight_speed_uiLabel.Text = AnBRobotSystem.MdiParent.PLCdata1.TB_weight_speed.ToString();
+                    //zt_gb.Text = AnBRobotSystem.MdiParent.zt_state.GB_station;
 
-                    if (AnBRobotSystem.MdiParent.zt_state.GB_GK_vision)
-                        GBK_vision.Color = Color.LightGreen;
-                    else
-                        GBK_vision.Color = Color.Silver;
-
-                    if (AnBRobotSystem.MdiParent.tl1.Get_iron)
-                        TL.Color = Color.LightGreen;
-                    else
-                        TL.Color = Color.Silver;
                     if (AnBRobotSystem.MdiParent.zt_state.GB_station == "A")
                     {
-                        switch (AnBRobotSystem.MdiParent.zt_state.GB_speed)
+                        if (AnBRobotSystem.MdiParent.zt_state.TB_BK_vision)
+                            A_TBK_vision.Color = Color.LightGreen;
+                        else
+                            A_TBK_vision.Color = Color.Silver;
+
+                        if (AnBRobotSystem.MdiParent.zt_state.GB_GK_vision)
+                            A_GBK_vision.Color = Color.LightGreen;
+                        else
+                            A_GBK_vision.Color = Color.Silver;
+
+                        if (AnBRobotSystem.MdiParent.tl1.Get_iron)
+                            A_TL.Color = Color.LightGreen;
+                        else
+                            A_TL.Color = Color.Silver;
+                        if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.ZT_PLC_hum_A)
+                            A_MODEL.Color = Color.LightGreen;
+                        else
+                            A_MODEL.Color = Color.Silver;
+
+                        switch ( AnBRobotSystem.MdiParent.zt_state.GB_speed.ToString())
                         {
                             //361703  低速倾翻
                             //361699高度倾翻
                             //361702 低速返回
                             //361698 高速返回
-                            case 20:
+                            case "20":
+                                A_back.SymbolColor = Color.Transparent;
                                 A_go.Symbol = 361699;
                                 A_go.SymbolColor = Color.Red;
                                 break;
-                            case 10:
+                            case "10":
+                                A_back.SymbolColor = Color.Transparent;
                                 A_go.Symbol = 361703;
                                 A_go.SymbolColor = Color.Red;
                                 break;
-                            case -20:
+                            case "-20":
+                                A_go.SymbolColor = Color.Transparent;
                                 A_back.Symbol = 361698;
                                 A_back.SymbolColor = Color.Green;
                                 break;
-                            case -10:
+                            case "-10":
+                                A_go.SymbolColor = Color.Transparent;
                                 A_back.Symbol = 361702;
                                 A_back.SymbolColor = Color.Green;
                                 break;
@@ -207,25 +259,47 @@ namespace AnBRobotSystem.ChildForm
                     }
                     else if (AnBRobotSystem.MdiParent.zt_state.GB_station == "B")
                     {
-                        switch (AnBRobotSystem.MdiParent.zt_state.GB_speed)
+                        if (AnBRobotSystem.MdiParent.zt_state.TB_BK_vision)
+                            B_TBK_vision.Color = Color.LightGreen;
+                        else
+                            B_TBK_vision.Color = Color.Silver;
+
+                        if (AnBRobotSystem.MdiParent.zt_state.GB_GK_vision)
+                            B_GBK_vision.Color = Color.LightGreen;
+                        else
+                            B_GBK_vision.Color = Color.Silver;
+
+                        if (AnBRobotSystem.MdiParent.tl1.Get_iron)
+                            B_TL.Color = Color.LightGreen;
+                        else
+                            B_TL.Color = Color.Silver;
+                        if (AnBRobotSystem.MdiParent.PLCdata1.ZT_data.ZT_PLC_hum_B)
+                            B_MODEL.Color = Color.LightGreen;
+                        else
+                            B_MODEL.Color = Color.Silver;
+                        switch (AnBRobotSystem.MdiParent.zt_state.GB_speed.ToString())
                         {
                             //361703  低速倾翻
                             //361699高度倾翻
                             //361702 低速返回
                             //361698 高速返回
-                            case 20:
+                            case "20":
+                                B_back.SymbolColor = Color.Transparent;
                                 B_go.Symbol = 361699;
                                 B_go.SymbolColor = Color.Red;
                                 break;
-                            case 10:
+                            case "10":
+                                B_back.SymbolColor = Color.Transparent;
                                 B_go.Symbol = 361703;
                                 B_go.SymbolColor = Color.Red;
                                 break;
-                            case -20:
+                            case "-20":
+                                B_go.SymbolColor = Color.Transparent;
                                 B_back.Symbol = 361698;
                                 B_back.SymbolColor = Color.Green;
                                 break;
-                            case -10:
+                            case "-10":
+                                B_go.SymbolColor = Color.Transparent;
                                 B_back.Symbol = 361702;
                                 B_back.SymbolColor = Color.Green;
                                 break;
@@ -245,9 +319,19 @@ namespace AnBRobotSystem.ChildForm
                 }
                 else
                 {
-                    TBK_vision.Color = Color.Silver;
-                    GBK_vision.Color = Color.Silver;
-                    TL.Color = Color.Silver;
+                    aim_weight_uiLabel3.Text = "0";
+                    A_TBK_vision.Color = Color.Silver;
+                    A_GBK_vision.Color = Color.Silver;
+                    A_TL.Color = Color.Silver;
+                    B_TBK_vision.Color = Color.Silver;
+                    B_GBK_vision.Color = Color.Silver;
+                    B_TL.Color = Color.Silver;
+                    A_go.SymbolColor = Color.Transparent;
+                    A_back.SymbolColor = Color.Transparent;
+                    B_go.SymbolColor = Color.Transparent;
+                    B_back.SymbolColor = Color.Transparent;
+                    A_MODEL.Color = Color.Silver;
+                    B_MODEL.Color = Color.Silver;
                 }
                 #endregion
             #region 测温位更新
@@ -324,18 +408,18 @@ namespace AnBRobotSystem.ChildForm
         {
             if (AnBRobotSystem.MdiParent.zt_state.Has_mission)
             {
-                zt_gb.Text = AnBRobotSystem.MdiParent.zt_state.GB_station;
+                //zt_gb.Text = AnBRobotSystem.MdiParent.zt_state.GB_station;
                 if (AnBRobotSystem.MdiParent.zt_state.TB_BK_vision)
-                    TBK_vision.Color = Color.LightGreen;
+                    A_TBK_vision.Color = Color.LightGreen;
                 else
-                    TBK_vision.Color = Color.Silver;
+                    A_TBK_vision.Color = Color.Silver;
                 if (AnBRobotSystem.MdiParent.zt_state.GB_GK_vision)
-                    GBK_vision.Color = Color.LightGreen;
+                    A_GBK_vision.Color = Color.LightGreen;
                 else
-                    GBK_vision.Color = Color.Silver;
+                    A_GBK_vision.Color = Color.Silver;
                 if (AnBRobotSystem.MdiParent.zt_state.TL)
                 {
-                    TL.Color = Color.LightGreen;
+                    A_TL.Color = Color.LightGreen;
                     if (AnBRobotSystem.MdiParent.zt_state.GB_station == "A")
                     {
                     }
@@ -346,7 +430,7 @@ namespace AnBRobotSystem.ChildForm
                 }
                 else
                 {
-                    TL.Color = Color.Silver;
+                    A_TL.Color = Color.Silver;
                 }
 
 
@@ -363,9 +447,10 @@ namespace AnBRobotSystem.ChildForm
             {
                 try
                 { //更新前端界面
+                    Thread.Sleep(100);
                     ui_updata();
-                    textBox1_time_sp.Text = AnBRobotSystem.MdiParent.PLCdata1.swmilltime.ToString() + ":" + AnBRobotSystem.MdiParent.PLCdata1.runtime;
-                    textBox1_plc.Text= AnBRobotSystem.MdiParent.PLCdata1.swmilltime1.ToString()+":" + AnBRobotSystem.MdiParent.PLCdata1.runtime1+":"+ AnBRobotSystem.MdiParent.PLCdata1.taskw;
+                    //textBox1_time_sp.Text = AnBRobotSystem.MdiParent.PLCdata1.swmilltime.ToString() + ":" + AnBRobotSystem.MdiParent.PLCdata1.runtime;
+                   // textBox1_plc.Text= AnBRobotSystem.MdiParent.PLCdata1.swmilltime1.ToString()+":" + AnBRobotSystem.MdiParent.PLCdata1.runtime1+":"+ AnBRobotSystem.MdiParent.PLCdata1.taskw;
                 }
                 catch (Exception e)
                 {
@@ -399,25 +484,25 @@ namespace AnBRobotSystem.ChildForm
         {
             try
             {
-                if (A_chose.Checked)//A_chose.Checked
-                {
-                    Program.GB_station = "A";
-                    Program.GB_chose_flag = 1;
-                    writelistview("罐选择", "选择A罐", "log");
-                    //ShowSuccessTip("A罐被选中");
+                //if (A_chose.Checked)//A_chose.Checked
+                //{
+                //    Program.GB_station = "A";
+                //    Program.GB_chose_flag = 1;
+                //    writelistview("罐选择", "选择A罐", "log");
+                //    //ShowSuccessTip("A罐被选中");
 
-                }
-                else if (B_chose.Checked)
-                {
-                    Program.GB_station = "B";
-                    Program.GB_chose_flag = 1;
-                    writelistview("罐选择", "选择B罐", "log");
-                    //ShowInfoTip("B罐被选中");
-                }
-                else
-                {
-                    // ShowErrorDialog("选罐失败，请重新选择！");
-                }
+                //}
+                //else if (B_chose.Checked)
+                //{
+                //    Program.GB_station = "B";
+                //    Program.GB_chose_flag = 1;
+                //    writelistview("罐选择", "选择B罐", "log");
+                //    //ShowInfoTip("B罐被选中");
+                //}
+                //else
+                //{
+                //    // ShowErrorDialog("选罐失败，请重新选择！");
+                //}
 
             }
             catch (Exception e1)
@@ -440,7 +525,7 @@ namespace AnBRobotSystem.ChildForm
 
             AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_num = 6;
             AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_pos = false;
-            AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight = Single.Parse(TB_R_weight.Text);
+            //AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight = Single.Parse(TB_R_weight.Text);
 
         }
 
@@ -448,7 +533,7 @@ namespace AnBRobotSystem.ChildForm
         {
             AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_angle += 20;
             AnBRobotSystem.MdiParent.PLCdata1.ZT_data.TB_weight += 0;
-            GB_R_angle.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_angle.ToString();
+           // GB_R_angle.Text = AnBRobotSystem.MdiParent.PLCdata1.ZT_data.GB_A_angle.ToString();
         }
 
         private void uiGroupBox1_Click(object sender, EventArgs e)
@@ -489,6 +574,15 @@ namespace AnBRobotSystem.ChildForm
         private void Main_process_Load(object sender, EventArgs e)
         {
                
+        }
+        private void uiButton1_Click_1(object sender, EventArgs e)
+        {
+            Aa_back();
+        }
+
+        private void uiButton1_back_Click(object sender, EventArgs e)
+        {
+            Bb_back();
         }
     }
 

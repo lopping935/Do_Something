@@ -40,14 +40,14 @@ namespace AnBRobotSystem.Core
                         writelisview("罐包管理系统", "称故障错误！", "log");
                         return true;
                     }
-                    else if (realtime_weight > 285)
+                    else if (realtime_weight > 295)
                     {
                         ibag_flag = "F";
                         writelisview("罐包管理系统", "铁包满包！", "log");
 
                         return false;
                     }
-                    else if (realtime_weight > 70 && realtime_weight < 285)
+                    else if (realtime_weight > 70 && realtime_weight < 295)
                     {
                         ibag_flag = "NF";
                         need_ibag_weight = MdiParent.atuomodel.one_ZT.ZT_reqweight - realtime_weight;

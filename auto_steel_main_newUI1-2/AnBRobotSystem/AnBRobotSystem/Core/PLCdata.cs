@@ -32,7 +32,7 @@ namespace AnBRobotSystem.Core
         public bool GB_B_carIn;
         public bool ZT_start_signal;//给plc的自动折铁开始信号 db50.dbx3.5
         public bool ZT_mission_run;
-        public bool ZT_PLC_hum;
+        public bool ZT_PLC_hum_A;
         public float TB_hight;//铁水液位
         public float TB_weight;//铁水包重量
         public Int16 TB_num;//铁水包号
@@ -42,7 +42,7 @@ namespace AnBRobotSystem.Core
         public Single GB_B_angle;//
         public Single GB_A_speed;//A设定速度 db50.dbd26
         public Single GB_B_speed;//B设定速度db50.dbd30
-        public Single GB_A_Real_weight ;//A罐真实速度
+        public Single GB_A_Real_weight;//A罐真实速度
         public Single GB_B_Real_weight;//B罐真实速度
         public Single TB_LIQID;//铁包液位
         public Int16 ZT_station_flag;//折铁位置
@@ -57,17 +57,23 @@ namespace AnBRobotSystem.Core
         public bool GBB_low_speed_fwd;
         public bool GBB_high_speed_back;
         public bool GBB_low_speed_back;
-        
-        public bool BACK1;
+
+        //public bool GHA_VISION_CODE;
+        //public bool GHB_VISION_CODE;
+
+        public bool ZT_PLC_hum_B;
         public bool BACK2;
         public bool BACK3;
         public bool MODEL_RESET;
-        public Int16 end;
+        public bool GBA_TL;
+        public bool GBB_TL;
+        public Single TB_WEIGHT_SPEED;
+        public Int16 TB_aim_weight;
 
-        public static explicit operator plcdata(Task<object> v)
-        {
-            throw new NotImplementedException();
-        }
+        //public static explicit operator plcdata(Task<object> v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
     
     public class PLCdata
@@ -138,16 +144,39 @@ namespace AnBRobotSystem.Core
 
         }
         #region 主要工作线程
-
+        
         //实时将鱼雷罐剩余总重写入sql表中  
         public void GB_weight_calc()
         {
+            Int16 heart_count = 0;//心跳计数
             while(true)
             {
+                heart_count += 1;
+                if (heart_count > 32000)
+                    heart_count = 0;
                 Thread.Sleep(1000);
                 sw1.Restart();
                 runtime += 1;
-                plc300.WriteAsync("DB50.DBW0.0", (Int16)1);
+                //plc300.WriteAsync("DB50.DBW0.0", (Int16)1);
+                //写入数据
+                if (MdiParent.tl1.TL_station == "A")
+                {
+                    plc300.WriteAsync("DB50.DBX59.4", MdiParent.tl1.Get_iron);
+                }
+                else if (MdiParent.tl1.TL_station == "B")
+                {
+                    plc300.WriteAsync("DB50.DBX59.5", MdiParent.tl1.Get_iron);
+                }
+                else
+                {
+                    plc300.WriteAsync("DB50.DBX59.4", false);
+                    plc300.WriteAsync("DB50.DBX59.5", false);
+                }
+
+                plc300.WriteAsync("DB50.DBD60", (Single)TB_weight_speed);
+                //写入心跳数据
+                plc300.WriteAsync("DB50.DBW0", heart_count);
+
                 updata_RealTime_Car_Bag_plc();
                 LGB_A_carIn = ZT_data.GB_A_carIn;
                 LGB_B_carIn = ZT_data.GB_B_carIn;
@@ -171,17 +200,17 @@ namespace AnBRobotSystem.Core
                 try
                 {
                     //System.Threading.Thread.Sleep(400);
-                    DateTime bf = DateTime.Now;
+                   // DateTime bf = DateTime.Now;
                     //sw1.Reset();
-                    sw1.Restart();
-                    taskw += 1;
+                   // sw1.Restart();
+                  //  taskw += 1;
                     connect = (bool)plc300.IsConnected;
                     if (connect)
                     {
                         Task.Run(() =>
                         {
                             ZT_data = (plcdata)plc300.ReadStruct(typeof(plcdata), 50);
-                            runtime1 += 1;
+                    //        runtime1 += 1;
                         });
                         //ZT_data =(plcdata)await plc300.ReadStructAsync(typeof(plcdata), 50);
                         Delay(800);
@@ -196,14 +225,15 @@ namespace AnBRobotSystem.Core
                         Thread.Sleep(5000);
                         plc300.Open();
                     }
-                    sw1.Stop();
+                    //sw1.Stop();
 
-                    DateTime af = DateTime.Now;
-                    swmilltime1 = af.Subtract(bf).TotalMilliseconds;
+                    //DateTime af = DateTime.Now;
+                    //swmilltime1 = af.Subtract(bf).TotalMilliseconds;
 
                 }
                 catch (Exception e)
                 {
+
                     writelog("plc", "plc数据读取错误！", "err");
                     LogHelper.WriteLog("PLC读取数据", e);
                 }
@@ -279,6 +309,7 @@ namespace AnBRobotSystem.Core
         {
 
             await plc300.WriteAsync("DB50.DBX59.3", true);
+
 
         }
         public async void write_startsignal()
@@ -362,7 +393,11 @@ namespace AnBRobotSystem.Core
             }
             
         }
-       
+        //发送目标重量给plc
+        public void TO_plc_aim_weight(Int16 aim_weight)
+        {
+            plc300.WriteAsync("DB50.DBW60", aim_weight);
+        }
         //更新mes记录表内容
         public  void updata_mes_data()
         {
@@ -605,12 +640,12 @@ namespace AnBRobotSystem.Core
             if ((MdiParent.tl1.Get_iron || TB_weight_speed > 0.09))//&& ZT_data.TB_pos == false  
             {
                 int hum_speed = hum_speed_calc(MdiParent.tl1.TL_station);
-                string head = "时间,折铁增重速度,铁包总重,铁包液位,罐车倾角,折铁位置,铁流有无判断,铁包位置,罐包剩余重量,人工速度,自动速度";
+                string head = "时间,折铁增重速度,铁包总重,铁包液位,罐车倾角,折铁位置,铁流有无判断,铁包位置,罐包剩余重量,人工速度,自动速度,当前状态";
                 string log = TB_weight_speed.ToString() + "," + ZT_data.TB_weight.ToString() + "," + ZT_data.TB_LIQID.ToString() + ",";
                 if (MdiParent.tl1.TL_station == "A")
-                    log += Math.Round((ZT_data.GB_A_angle / 20), 2).ToString() + ",2号" + "," + MdiParent.tl1.Get_iron.ToString() + "," + ZT_data.TB_pos.ToString() + "," + GB_A_remind_weight + "," + hum_speed + "," + ZT_data.GB_A_speed;
+                    log += Math.Round((ZT_data.GB_A_angle / 20), 2).ToString() + ",2号" + "," + MdiParent.tl1.Get_iron.ToString() + "," + ZT_data.TB_pos.ToString() + "," + GB_A_remind_weight + "," + hum_speed + "," + ZT_data.GB_A_speed + "," + Program.program_flag.ToString() + "," + Program.testcode ;
                 else if (MdiParent.tl1.TL_station == "B")
-                    log += Math.Round((ZT_data.GB_B_angle / 20), 2).ToString() + ",1号" + "," + MdiParent.tl1.Get_iron.ToString() + "," + ZT_data.TB_pos.ToString() + "," + GB_B_remind_weight + "," + hum_speed + "," + ZT_data.GB_B_speed;
+                    log += Math.Round((ZT_data.GB_B_angle / 20), 2).ToString() + ",1号" + "," + MdiParent.tl1.Get_iron.ToString() + "," + ZT_data.TB_pos.ToString() + "," + GB_B_remind_weight + "," + hum_speed + "," + ZT_data.GB_B_speed + "," + Program.program_flag.ToString() + "," + Program.testcode ;
                 else
                     log += MdiParent.tl1.Get_iron.ToString() + "," + ZT_data.TB_pos.ToString() + "," + ZT_data.TB_pos.ToString() + "," + GB_B_remind_weight;
                 my_log.WriteLogcsv(LogFile.Trace, log, head);
