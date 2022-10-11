@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfToolBoxItemInfo>
+ <ToolBoxItemInfo Name="图像" Category="基础" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.ImageControlWPF" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/图像.png" /> 
+<ToolBoxItemInfo Name="运行控制" Category="基础" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.ControllerButtons" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/运行控制.png" /> 
+<ToolBoxItemInfo Name="运行状态" Category="基础" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.StatusControl" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/运行状态.png" /> 
+<ToolBoxItemInfo Name="OK/NG" Category="基础" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.OKNGControl" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/ok和ng.png" /> 
+<ToolBoxItemInfo Name="文本框" Category="基础" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.Label" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/文本框.png" /> 
+<ToolBoxItemInfo Name="表格" Category="基础" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.TableControl" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/表格.png" />
+  <ToolBoxItemInfo Name="按钮" Category="基础" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.CommandButton" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/按钮.png" />
+  <ToolBoxItemInfo Name="打开方案" Category="基础" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.OpenSolution" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/按钮.png" />
+  <ToolBoxItemInfo Name="子界面" Category="基础" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.SubWindowButton" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/按钮.png" />
+  <!--<ToolBoxItemInfo Name="整数参数设置" Category="基础" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.IntegerParamSetter" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/文本框.png" />
+  <ToolBoxItemInfo Name="浮点数参数设置" Category="基础" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.FloatParamSetter" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/文本框.png" />-->
+  <ToolBoxItemInfo Name="开关控制" Category="基础" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.BooleanParamSetter" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/ic_开关控制.png" />
+  <ToolBoxItemInfo Name="输入框" Category="基础" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.NumbericParamSetter" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/ic_输入框.png" />
+  <ToolBoxItemInfo Name="图片" Category="其他" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.PicBox" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/图片.png" />
+  <ToolBoxItemInfo Name="矩形" Category="其他" Assembly="FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" TypeName="FrontedUI.Controls.GroupBox" icon="pack://SiteOfOrigin:,,,/Resources/Fronted/矩形.png" />
+</ArrayOfToolBoxItemInfo>

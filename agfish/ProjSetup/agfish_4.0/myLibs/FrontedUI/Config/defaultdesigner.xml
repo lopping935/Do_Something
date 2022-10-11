@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Object type="FrontedUI.Controls.RootControl, FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UserControl1" children="Controls">
+  <Object type="FrontedUI.Controls.ImageControlWPF, FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ImageControlWPF2" children="Controls">
+    <Property name="BorderStyle">FixedSingle</Property>
+    <Property name="BindingPath" />
+    <Property name="FitToParent">True</Property>
+    <Property name="BorderColor">33, 33, 33</Property>
+    <Property name="BackColor">Control</Property>
+    <Property name="Location">16, 16</Property>
+    <Property name="Name">ImageControlWPF2</Property>
+    <Property name="Size">690, 392</Property>
+  </Object>
+  <Object type="FrontedUI.Controls.OKNGControl, FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="OKNGControl1" children="Controls">
+    <Property name="OKStyle">
+      <Property name="Font">Microsoft YaHei, 23pt, style=Bold</Property>
+      <Property name="FontColor">254, 254, 254</Property>
+      <Property name="DisplayText">OK</Property>
+      <Property name="BorderColor">0, 143, 44</Property>
+      <Property name="FillBrush">11, 182, 60</Property>
+      <Property name="Thickness">3</Property>
+    </Property>
+    <Property name="NGStyle">
+      <Property name="Font">Microsoft YaHei, 23pt, style=Bold</Property>
+      <Property name="FontColor">254, 254, 254</Property>
+      <Property name="DisplayText">NG</Property>
+      <Property name="BorderColor">166, 31, 31</Property>
+      <Property name="FillBrush">223, 40, 40</Property>
+      <Property name="Thickness">3</Property>
+    </Property>
+    <Property name="BindingPath" />
+    <Property name="Location">610, 423</Property>
+    <Property name="Name">OKNGControl1</Property>
+    <Property name="Size">80, 80</Property>
+  </Object>
+  <Object type="FrontedUI.Controls.ControllerButtons, FrontedUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ControllerButtons1" children="Controls">
+    <Property name="BorderColor"></Property>
+    <Property name="FillColor">230, 230, 230</Property>
+    <Property name="ButtonColor">39, 39, 40</Property>
+    <Property name="Location">36, 432</Property>
+    <Property name="Name">ControllerButtons1</Property>
+    <Property name="Size">495, 60</Property>
+  </Object>
+  <Property name="BackColor">56, 56, 56</Property>
+  <Property name="AutoScaleDimensions">13, 28</Property>
+  <Property name="Name">UserControl1</Property>
+  <Property name="Size">722, 534</Property>
+</Object>

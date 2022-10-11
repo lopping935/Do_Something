@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMappingItem>
+  <MappingItem Category="property_displayname" Name="Width" Display="宽度" />
+  <MappingItem Category="property_displayname" Name="Height" Display="高度" />
+  <MappingItem Category="property_displayname" Name="Background" Display="背景" />
+  <MappingItem Category="property_displayname" Name="Margin" Display="边距" />
+  <MappingItem Category="property_displayname" Name="Foreground" Display="字体颜色" />
+  <MappingItem Category="property_displayname" Name="Header" Display="标题" />
+  <MappingItem Category="property_displayname" Name="Font" Display="字体" />
+  <MappingItem Category="property_displayname" Name="BorderThickness" Display="边框厚度" />
+  <MappingItem Category="property_displayname" Name="BorderBrush" Display="边框颜色" />
+  <MappingItem Category="property_displayname" Name="ImageData" Display="图像源" />
+  <MappingItem Category="property_category" Name="ImageData" Display="数据" />  
+  <MappingItem Category="property_category" Name="Width" Display="外观" />
+  <MappingItem Category="property_category" Name="BorderBrush" Display="外观" />
+  <MappingItem Category="property_category" Name="BorderThickness" Display="外观" />
+  <MappingItem Category="property_category" Name="Height" Display="外观" />
+  <MappingItem Category="property_category" Name="Background" Display="外观" />
+  <MappingItem Category="property_category" Name="Font" Display="外观" />
+  <MappingItem Category="property_category" Name="Header" Display="外观" />
+  <MappingItem Category="property_category" Name="Margin" Display="布局"/>
+</ArrayOfMappingItem>

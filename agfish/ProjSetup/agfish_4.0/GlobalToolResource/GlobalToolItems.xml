@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GlobalToolDataItem>
+  <items>
+    <!--部分隐藏项，用于显示在工具栏-->
+    <GlobalToolDataItem>
+      <isDisplayInMenu>false</isDisplayInMenu>
+      <items>
+	  
+	  <GlobalToolDataItem>
+          <name>Lang_CommSet</name>
+          <methodName>CommSet</methodName>
+		  <isShowExternal>true</isShowExternal>
+          <toolGroupItemInfo>
+            <groupName>group1</groupName>
+            <priority>5</priority>
+          </toolGroupItemInfo>
+          <imageEnablePath>GlobalToolResource\ToolBar\ic_通信管理_normal.png</imageEnablePath>
+          <imageDisablePath>GlobalToolResource\ToolBar\ic_通信管理_disable.png</imageDisablePath>
+        </GlobalToolDataItem>
+        <!--控制器管理-->
+        <GlobalToolDataItem>
+          <name>Lang_ControllerSet</name>
+          <methodName>LightSet</methodName>
+		  <isShowExternal>true</isShowExternal>
+          <toolGroupItemInfo>
+            <groupName>group1</groupName>
+            <priority>1</priority>
+          </toolGroupItemInfo>
+          <imageEnablePath>GlobalToolResource\ToolBar\ic_topbar_视觉控制器_normal.png</imageEnablePath>
+          <imageDisablePath>GlobalToolResource\ToolBar\ic_topbar_视觉控制器_disable.png</imageDisablePath>
+        </GlobalToolDataItem>
+        <!--相机设置-->
+        <GlobalToolDataItem>
+          <name>Lang_CameraSet</name>
+          <methodName>CameraSet</methodName>
+		  <isShowExternal>true</isShowExternal>
+          <toolGroupItemInfo>
+            <groupName>group1</groupName>
+            <priority>0</priority>
+          </toolGroupItemInfo>
+          <imageEnablePath>GlobalToolResource\ToolBar\ic_topbar_camera_normal.png</imageEnablePath>
+          <imageDisablePath>GlobalToolResource\ToolBar\ic_topbar_camera_disable.png</imageDisablePath>
+        </GlobalToolDataItem>
+		
+        <!--全局变量-->
+        <GlobalToolDataItem>
+          <name>Lang_GlobalVariable</name>
+          <methodName>GlobalVariable</methodName>
+		  <isShowExternal>true</isShowExternal>
+          <toolGroupItemInfo>
+            <groupName>group1</groupName>
+            <priority>2</priority>
+          </toolGroupItemInfo>
+          <imageEnablePath>GlobalToolResource\ToolBar\ic_全局变量_normal.png</imageEnablePath>
+          <imageDisablePath>GlobalToolResource\ToolBar\ic_全局变量_disable.png</imageDisablePath>
+        </GlobalToolDataItem>
+
+        <!--全局脚本-->
+        <GlobalToolDataItem>
+          <name>Lang_GlobalScript</name>
+          <methodName>GlobalScript</methodName>
+		  <isShowExternal>true</isShowExternal>
+          <toolGroupItemInfo>
+            <groupName>group1</groupName>
+            <priority>3</priority>
+          </toolGroupItemInfo>
+          <imageEnablePath>GlobalToolResource\ToolBar\ic_script_normal.png</imageEnablePath>
+          <imageDisablePath>GlobalToolResource\ToolBar\ic_script_disable.png</imageDisablePath>
+        </GlobalToolDataItem>
+
+        <!--全局触发-->
+        <GlobalToolDataItem>
+          <name>Lang_GlobalTrigger</name>
+          <methodName>GlobalTrigger</methodName>
+		  <isShowExternal>true</isShowExternal>
+          <toolGroupItemInfo>
+            <groupName>group1</groupName>
+            <priority>4</priority>
+          </toolGroupItemInfo>
+          <imageEnablePath>GlobalToolResource\ToolBar\ic_topbar_全局触发_normal.png</imageEnablePath>
+          <imageDisablePath>GlobalToolResource\ToolBar\ic_topbar_全局触发_disable.png</imageDisablePath>
+        </GlobalToolDataItem>
+
+      </items>
+    </GlobalToolDataItem>
+  </items>
+</GlobalToolDataItem>
+
+
+
