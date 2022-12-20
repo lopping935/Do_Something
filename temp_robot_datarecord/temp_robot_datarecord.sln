@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.1321
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "temp_robot_datarecord", "temp_robot_datarecord\temp_robot_datarecord.csproj", "{4EAA7316-A89E-4560-9089-E4E8AB3951CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GH_Utils", "GH_Utlis\GH_Utils.csproj", "{D498A2D0-32A4-4FE7-BC81-CB78161D1671}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vision_Utlisplus", "GH_Utlisplus\Vision_Utlisplus.csproj", "{DB8F60B5-CFC1-45BD-B2DA-07743C74C0B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{4EAA7316-A89E-4560-9089-E4E8AB3951CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EAA7316-A89E-4560-9089-E4E8AB3951CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EAA7316-A89E-4560-9089-E4E8AB3951CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D498A2D0-32A4-4FE7-BC81-CB78161D1671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D498A2D0-32A4-4FE7-BC81-CB78161D1671}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D498A2D0-32A4-4FE7-BC81-CB78161D1671}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D498A2D0-32A4-4FE7-BC81-CB78161D1671}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB8F60B5-CFC1-45BD-B2DA-07743C74C0B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB8F60B5-CFC1-45BD-B2DA-07743C74C0B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB8F60B5-CFC1-45BD-B2DA-07743C74C0B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB8F60B5-CFC1-45BD-B2DA-07743C74C0B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
