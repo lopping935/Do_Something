@@ -33,7 +33,7 @@ namespace Vision_Utlis
             xdoc = new XDocument();
             xdoc = XDocument.Load(Xpath);
         }
-        //13:37
+
         /// <summary>
         /// 查询子节点的值
         /// </summary>
