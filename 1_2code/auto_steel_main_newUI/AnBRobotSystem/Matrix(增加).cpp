@@ -2,33 +2,34 @@
 #include <math.h>
 #include <string.h>
 #include <fstream.h>
-// ±¾³ÌĞòÊµÏÖmatrixÀà
-// ¶ÔmatrixÀàµÄ¶¨Òå
+// æœ¬ç¨‹åºå®ç°matrixç±»
+// å¯¹matrixç±»çš„å®šä¹‰
+//
 07.#include "matrix.h"
 08.
-09.matrix::matrix(buffer * b): // È±Ê¡¹¹Ôìº¯Êı£¬²úÉú0ĞĞ0ÁĞ¿Õ¾ØÕó
+09.matrix::matrix(buffer * b): // ç¼ºçœæ„é€ å‡½æ•°ï¼Œäº§ç”Ÿ0è¡Œ0åˆ—ç©ºçŸ©é˜µ
 10. rownum(0),colnum(0),istrans(0),isneg(0),issym(0)
 11.{
-12. if(b){ // ÈçÓÃ»§¸ø³öb£¬ÔòÊ¹ÓÃb×÷ÎªÊı¾İ»º´æ
+12. if(b){ // å¦‚ç”¨æˆ·ç»™å‡ºbï¼Œåˆ™ä½¿ç”¨bä½œä¸ºæ•°æ®ç¼“å­˜
 13.buf=b;
 14. buf->alloc(0);
 15. }
-16. else // ·ñÔò£¬²úÉúÒ»¸öĞÂµÄ»º´æ£¬Àà±ğÊÇµ±Ç°È±Ê¡µÄ»º´æÀà
+16. else // å¦åˆ™ï¼Œäº§ç”Ÿä¸€ä¸ªæ–°çš„ç¼“å­˜ï¼Œç±»åˆ«æ˜¯å½“å‰ç¼ºçœçš„ç¼“å­˜ç±»
 17.buf = getnewbuffer(0);
 18.}
 19.
-20.matrix::matrix(size_t n, buffer * b): // ²úÉún½×µ¥Î»·½Õó
+20.matrix::matrix(size_t n, buffer * b): // äº§ç”Ÿné˜¶å•ä½æ–¹é˜µ
 21.rownum(n),colnum(1),istrans(0),isneg(0),issym(0)
 22.{
-23. if(b){ // ÈçÓÃ»§¸ø³öb£¬ÔòÊ¹ÓÃb×÷ÎªÊı¾İ»º´æ
+23. if(b){ // å¦‚ç”¨æˆ·ç»™å‡ºbï¼Œåˆ™ä½¿ç”¨bä½œä¸ºæ•°æ®ç¼“å­˜
 24.buf=b;
 25. buf->alloc(n);
 26. }
-27. else // ·ñÔò£¬²úÉúÒ»¸öĞÂµÄ»º´æ£¬Àà±ğÊÇµ±Ç°È±Ê¡µÄ»º´æÀà
+27. else // å¦åˆ™ï¼Œäº§ç”Ÿä¸€ä¸ªæ–°çš„ç¼“å­˜ï¼Œç±»åˆ«æ˜¯å½“å‰ç¼ºçœçš„ç¼“å­˜ç±»
 28.buf = getnewbuffer(n);
 29.}
 30.
-31.matrix unit(size_t n) // ²úÉún½×µ¥Î»¾ØÕó
+31.matrix unit(size_t n) // äº§ç”Ÿné˜¶å•ä½çŸ©é˜µ
 32.{
 33. if(n==0) throw TMESSAGE("n must larger than 0n");
 34. matrix m(n,n);
@@ -44,58 +45,58 @@
 44.matrix::matrix(size_t r, size_t c, buffer * b):
 45. rownum(r),colnum(c),istrans(0),isneg(0),issym(0)
 46.{
-47. if(b){ // ÈçÓÃ»§¸ø³öb£¬ÔòÊ¹ÓÃb×÷ÎªÊı¾İ»º´æ
+47. if(b){ // å¦‚ç”¨æˆ·ç»™å‡ºbï¼Œåˆ™ä½¿ç”¨bä½œä¸ºæ•°æ®ç¼“å­˜
 48.buf=b;
 49. buf->alloc(r*c);
 50. }
-51. else // ·ñÔò£¬²úÉúÒ»¸öĞÂµÄ»º´æ£¬Àà±ğÊÇµ±Ç°È±Ê¡µÄ»º´æÀà
+51. else // å¦åˆ™ï¼Œäº§ç”Ÿä¸€ä¸ªæ–°çš„ç¼“å­˜ï¼Œç±»åˆ«æ˜¯å½“å‰ç¼ºçœçš„ç¼“å­˜ç±»
 52.buf = getnewbuffer(r*c);
 53.}
 54.
-55.matrix::matrix(matrix& m) // ¿½±´¹¹Ôìº¯Êı
+55.matrix::matrix(matrix& m) // æ‹·è´æ„é€ å‡½æ•°
 56.{
-57. rownum = m.rownum; // ¿½±´ĞĞÊıÓëÁĞÊı
+57. rownum = m.rownum; // æ‹·è´è¡Œæ•°ä¸åˆ—æ•°
 58. colnum = m.colnum;
-59. istrans = m.istrans; // ¿½±´×ªÖÃ±ê¼Ç
-60. isneg = m.isneg; // ¿½±´¸ºÖµ±ê¼Ç
-61. issym = m.issym; // ¿½±´¶Ô³Æ±ê¼Ç
-62. buf = m.buf; // ÉèÖÃÖ¸ÏòÏàÍ¬»º´æµÄÖ¸Õë
-63. buf->refnum++; // »º´æµÄÒıÓÃÊıÔö1
+59. istrans = m.istrans; // æ‹·è´è½¬ç½®æ ‡è®°
+60. isneg = m.isneg; // æ‹·è´è´Ÿå€¼æ ‡è®°
+61. issym = m.issym; // æ‹·è´å¯¹ç§°æ ‡è®°
+62. buf = m.buf; // è®¾ç½®æŒ‡å‘ç›¸åŒç¼“å­˜çš„æŒ‡é’ˆ
+63. buf->refnum++; // ç¼“å­˜çš„å¼•ç”¨æ•°å¢1
 64.}
 65.
-66.matrix::matrix(const char * filename, buffer * b): // ´ÓÊı¾İÎÄ¼ş¹¹Ôì¾ØÕó
+66.matrix::matrix(const char * filename, buffer * b): // ä»æ•°æ®æ–‡ä»¶æ„é€ çŸ©é˜µ
 67. istrans(0), isneg(0), issym(0)
 68.{
 69. char label[10];
-70. ifstream in(filename); // ´ò¿ªÎÄ¼şÁ÷
-71. in >> label; // ÎÄ¼ş¿ªÊ¼±ØĞëÓĞmatrix¹Ø¼ü´Ê
+70. ifstream in(filename); // æ‰“å¼€æ–‡ä»¶æµ
+71. in >> label; // æ–‡ä»¶å¼€å§‹å¿…é¡»æœ‰matrixå…³é”®è¯
 72. if(strcmp(label, "matrix")!=0) throw TMESSAGE("format error!");
-73. in >> rownum >> colnum; // ¶ÁÈ¡ĞĞÊıºÍÁĞÊı
+73. in >> rownum >> colnum; // è¯»å–è¡Œæ•°å’Œåˆ—æ•°
 74. if(!in.good()) throw TMESSAGE("read file error!");
-75. // ÉêÇë»ò²úÉú»º´æ
+75. // ç”³è¯·æˆ–äº§ç”Ÿç¼“å­˜
 76. if(b) { buf=b;
 77. buf->alloc(rownum*colnum);
 78. }
 79. else buf = getnewbuffer(rownum*colnum);
 80. size_t line;
-81. for(size_t i=0; i<rownum; i++) { // ÒÀ´Î°´ĞĞ¶ÁÈ¡
-82.in >> line; // ¶ÁĞĞºÅ
+81. for(size_t i=0; i<rownum; i++) { // ä¾æ¬¡æŒ‰è¡Œè¯»å–
+82.in >> line; // è¯»è¡Œå·
 83.if(line != i+1) throw TMESSAGE("format error!");
 84. in.width(sizeof(label));
-85. in >> label; // ĞĞºÅºó¸úÃ°ºÅ
+85. in >> label; // è¡Œå·åè·Ÿå†’å·
 86.if(label[0] != ':') throw TMESSAGE("format error!");
 87. DOUBLE a;
-88. for(size_t j=0; j<colnum; j++) { // ¶ÁÈ¡Ò»ĞĞÊı¾İ
+88. for(size_t j=0; j<colnum; j++) { // è¯»å–ä¸€è¡Œæ•°æ®
 89.in >> a;
 90. set(i,j,a);
 91. }
 92. if(!in.good()) throw TMESSAGE("read file error!");
 93. }
-94. checksym(); // ¼ì²éÊÇ·ñÎª¶Ô³ÆÕó
+94. checksym(); // æ£€æŸ¥æ˜¯å¦ä¸ºå¯¹ç§°é˜µ
 95.}
 96.
 97.matrix::matrix(void * data, size_t r, size_t c, buffer * b):
-98. rownum(r),colnum(c),istrans(0),isneg(0),issym(0) // Êı¾İ¹¹Ôìº¯Êı
+98. rownum(r),colnum(c),istrans(0),isneg(0),issym(0) // æ•°æ®æ„é€ å‡½æ•°
 99.{
 100. if(b){
 101. buf=b;
@@ -104,9 +105,9 @@
 104. else
 105. buf = getnewbuffer(r*c);
 106. DOUBLE * d = (DOUBLE *)data;
-107. for(size_t i=0; i<r*c; i++)  // ÕâÀï½øĞĞÊı¾İ¿½±´£¬Òò´ËÔ­Êı¾İµÄÄÚ´æÊÇ¿ÉÒÔÊÍ·ÅµÄ
+107. for(size_t i=0; i<r*c; i++)  // è¿™é‡Œè¿›è¡Œæ•°æ®æ‹·è´ï¼Œå› æ­¤åŸæ•°æ®çš„å†…å­˜æ˜¯å¯ä»¥é‡Šæ”¾çš„
 108.buf->set(i,d[i]);
-109. checksym(); // ¼ì²éÊÇ·ñÎª¶Ô³ÆÕó
+109. checksym(); // æ£€æŸ¥æ˜¯å¦ä¸ºå¯¹ç§°é˜µ
 110.}
 111.
 112.DOUBLE matrix::operator()(size_t r, size_t c)
@@ -116,24 +117,24 @@
 116. return value(r,c);
 117.}
 118.
-119.matrix& matrix::operator=(matrix& m)  // ¸³ÖµÖØÔØ
+119.matrix& matrix::operator=(matrix& m)  // èµ‹å€¼é‡è½½
 120.{
-121. rownum = m.rownum; //  ĞĞÊıºÍÁĞÊıµÄ¿½±´
+121. rownum = m.rownum; //  è¡Œæ•°å’Œåˆ—æ•°çš„æ‹·è´
 122. colnum = m.colnum;
-123. istrans = m.istrans; // ×ªÖÃ±êÖ¾µÄ¿½±´
-124. isneg = m.isneg; // È¡¸º±êÖ¾µÄ¿½±´
-125. issym = m.issym; // ¶Ô³Æ±êÖ¾µÄ¿½±´
-126. if(buf == m.buf)  // Èç¹ûÔ­»º´æÓëmµÄ»º´æÒ»Ñù£¬Ôò·µ»Ø
+123. istrans = m.istrans; // è½¬ç½®æ ‡å¿—çš„æ‹·è´
+124. isneg = m.isneg; // å–è´Ÿæ ‡å¿—çš„æ‹·è´
+125. issym = m.issym; // å¯¹ç§°æ ‡å¿—çš„æ‹·è´
+126. if(buf == m.buf)  // å¦‚æœåŸç¼“å­˜ä¸mçš„ç¼“å­˜ä¸€æ ·ï¼Œåˆ™è¿”å›
 127.return (*this);
-128. buf->refnum--; // Ô­»º´æ²»Í¬£¬ÔòÔ­»º´æµÄÒıÓÃÊı¼õ1
-129. if(!buf->refnum)delete buf; // ¼õ1ºóµÄÔ­»º´æÈç¹ûÒıÓÃÊıÎª0£¬ÔòÉ¾³ıÔ­»º´æ
-130. buf = m.buf; // ½«Ô­»º´æÖ¸ÕëÖ¸ÏòmµÄ»º´æ
-131. buf->refnum++; // ĞÂ»º´æµÄÒıÓÃÊıÔö1
-132. checksym(); // ¼ì²éÊÇ·ñÎª¶Ô³ÆÕó
-133. return (*this); // ·µ»Ø×Ô¼ºµÄÒıÓÃ
+128. buf->refnum--; // åŸç¼“å­˜ä¸åŒï¼Œåˆ™åŸç¼“å­˜çš„å¼•ç”¨æ•°å‡1
+129. if(!buf->refnum)delete buf; // å‡1åçš„åŸç¼“å­˜å¦‚æœå¼•ç”¨æ•°ä¸º0ï¼Œåˆ™åˆ é™¤åŸç¼“å­˜
+130. buf = m.buf; // å°†åŸç¼“å­˜æŒ‡é’ˆæŒ‡å‘mçš„ç¼“å­˜
+131. buf->refnum++; // æ–°ç¼“å­˜çš„å¼•ç”¨æ•°å¢1
+132. checksym(); // æ£€æŸ¥æ˜¯å¦ä¸ºå¯¹ç§°é˜µ
+133. return (*this); // è¿”å›è‡ªå·±çš„å¼•ç”¨
 134.}
 135.
-136.matrix& matrix::operator=(DOUBLE a) // Í¨¹ı¸³ÖµÔËËã·û½«¾ØÕóËùÓĞÔªËØÉèÎªa
+136.matrix& matrix::operator=(DOUBLE a) // é€šè¿‡èµ‹å€¼è¿ç®—ç¬¦å°†çŸ©é˜µæ‰€æœ‰å…ƒç´ è®¾ä¸ºa
 137.{
 138. if(rownum == 0 || colnum == 0) return (*this);
 139. for(size_t i=0; i<rownum; i++)
@@ -143,22 +144,22 @@
 143. return (*this);
 144.}
 145.
-146.matrix matrix::operator-() // ¾ØÕóÇó¸º£¬²úÉú¸º¾ØÕó
+146.matrix matrix::operator-() // çŸ©é˜µæ±‚è´Ÿï¼Œäº§ç”Ÿè´ŸçŸ©é˜µ
 147.{
 148. matrix mm(*this);
 149. mm.neg();
 150. return mm;
 151.}
 152.
-153.ostream& operator<<(ostream& o, matrix& m) // Á÷Êä³öÔËËã·û
+153.ostream& operator<<(ostream& o, matrix& m) // æµè¾“å‡ºè¿ç®—ç¬¦
 154.{
-155. // ÏÈÊä³ö¹Ø¼ü×Ömatrix,È»ºóÊÇĞĞºÅ£¬ÖÆ±í·û£¬ÁĞºÅ£¬»»ĞĞ
+155. // å…ˆè¾“å‡ºå…³é”®å­—matrix,ç„¶åæ˜¯è¡Œå·ï¼Œåˆ¶è¡¨ç¬¦ï¼Œåˆ—å·ï¼Œæ¢è¡Œ
 156. o << "matrix " << m.rownum << 't' << m.colnum << endl;
-157. for(size_t i=0; i<m.rownum; i++) { // ÒÀ´ÎÊä³ö¸÷ĞĞ
-158.o<< (i+1) <<':'; // ĞĞºÅºó¸úÃ°ºÅ¡£×¢ÒâÊä³öµÄĞĞºÅÊÇ´Ó1¿ªÊ¼
-159.// ÊÇÄÚ²¿±à³ÌµÄĞĞºÅ¼Ó1
-160. size_t k=8; // ºóÃæÊäÈëÒ»ĞĞµÄÄÚÈİ£¬Ã¿´ÎÒ»ĞĞÊı×Ö³¬¹ı°Ë¸öÊ±
-161.// ¾Í»»Ò»ĞĞ
+157. for(size_t i=0; i<m.rownum; i++) { // ä¾æ¬¡è¾“å‡ºå„è¡Œ
+158.o<< (i+1) <<':'; // è¡Œå·åè·Ÿå†’å·ã€‚æ³¨æ„è¾“å‡ºçš„è¡Œå·æ˜¯ä»1å¼€å§‹
+159.// æ˜¯å†…éƒ¨ç¼–ç¨‹çš„è¡Œå·åŠ 1
+160. size_t k=8; // åé¢è¾“å…¥ä¸€è¡Œçš„å†…å®¹ï¼Œæ¯æ¬¡ä¸€è¡Œæ•°å­—è¶…è¿‡å…«ä¸ªæ—¶
+161.// å°±æ¢ä¸€è¡Œ
 162.for(size_t j=0; j<m.colnum; j++) {
 163. o<<'t'<<m.value(i,j);
 164. if(--k==0) {
@@ -166,43 +167,43 @@
 166. o<<endl;
 167. }
 168. }
-169. o<<endl; // Ã¿ĞĞ½áÊøÊ±Ò²»»ĞĞ
+169. o<<endl; // æ¯è¡Œç»“æŸæ—¶ä¹Ÿæ¢è¡Œ
 170. }
 171. return o;
 172.}
 173.
-174.istream& operator>>(istream& in, matrix& m) // Á÷ÊäÈëÔËËã·û
+174.istream& operator>>(istream& in, matrix& m) // æµè¾“å…¥è¿ç®—ç¬¦
 175.{
 176. char label[10];
 177. in.width(sizeof(label));
-178. in >> label; // ÊäÈëmatrix¹Ø¼ü×Ö
+178. in >> label; // è¾“å…¥matrixå…³é”®å­—
 179. if(strcmp(label, "matrix")!=0)
 180. throw TMESSAGE("format error!n");
-181. in >> m.rownum >> m.colnum; // ÊäÈëĞĞºÅºÍÁĞºÅ
+181. in >> m.rownum >> m.colnum; // è¾“å…¥è¡Œå·å’Œåˆ—å·
 182. if(!in.good()) throw TMESSAGE("read file error!");
-183. m.buf->refnum--; // Ô­»º´æÒıÓÃÊı¼õ1
-184. if(!m.buf->refnum) delete m.buf; // ÈçÔ­»º´æÒıÓÃÊıÎª0£¬ÔòÉ¾È¥Ô­»º´æ
-185. m.isneg = m.istrans = 0; // ×ªÖÃºÍÈ¡¸º±êÖ¾ÇåÁã
-186. m.buf = getnewbuffer(m.rownum*m.colnum); // °´È±Ê¡×ÓÀà²úÉúĞÂ»º´æ
-187. size_t line; // °´¾ØÕóĞĞÊäÈë
+183. m.buf->refnum--; // åŸç¼“å­˜å¼•ç”¨æ•°å‡1
+184. if(!m.buf->refnum) delete m.buf; // å¦‚åŸç¼“å­˜å¼•ç”¨æ•°ä¸º0ï¼Œåˆ™åˆ å»åŸç¼“å­˜
+185. m.isneg = m.istrans = 0; // è½¬ç½®å’Œå–è´Ÿæ ‡å¿—æ¸…é›¶
+186. m.buf = getnewbuffer(m.rownum*m.colnum); // æŒ‰ç¼ºçœå­ç±»äº§ç”Ÿæ–°ç¼“å­˜
+187. size_t line; // æŒ‰çŸ©é˜µè¡Œè¾“å…¥
 188. for(size_t i=0; i<m.rownum; i++) {
-189. in >> line; // ÏÈÊäÈëĞĞºÅ
+189. in >> line; // å…ˆè¾“å…¥è¡Œå·
 190.if(line != i+1) throw TMESSAGE("format error!n");
-191. in.width(sizeof(label)); // ĞĞºÅºóÓ¦¸úÃ°ºÅ
+191. in.width(sizeof(label)); // è¡Œå·ååº”è·Ÿå†’å·
 192.in >> label;
 193. if(label[0] != ':') throw TMESSAGE("format error!n");
-194. DOUBLE a; // ËæºóÊÇ±¾ĞĞµÄ¸÷¸öÊıÖµ
+194. DOUBLE a; // éšåæ˜¯æœ¬è¡Œçš„å„ä¸ªæ•°å€¼
 195.for(size_t j=0; j<m.colnum; j++) {
 196. in >> a;
 197. m.set(i,j,a);
 198. }
 199. if(!in.good()) throw TMESSAGE("read file error!");
 200. }
-201. m.checksym(); // ¼ì²éÊÇ·ñÎª¶Ô³ÆÕó
+201. m.checksym(); // æ£€æŸ¥æ˜¯å¦ä¸ºå¯¹ç§°é˜µ
 202. return in;
 203.}
 204.
-205.matrix& matrix::operator*=(DOUBLE a) // ¾ØÕóÊı³Ë³£Êıa£¬½á¹û·ÅÔÚÔ­¾ØÕó
+205.matrix& matrix::operator*=(DOUBLE a) // çŸ©é˜µæ•°ä¹˜å¸¸æ•°aï¼Œç»“æœæ”¾åœ¨åŸçŸ©é˜µ
 206.{
 207. for(size_t i=0; i<rownum; i++)
 208. for(size_t j=0; j<colnum; j++)
@@ -210,7 +211,7 @@
 210. return (*this);
 211.}
 212.
-213.matrix matrix::operator*(DOUBLE a) // ¾ØÕóÊı³Ë³£Êıa£¬Ô­¾ØÕóÄÚÈİ²»±ä£¬·µ»ØÒ»ĞÂ¾ØÕó
+213.matrix matrix::operator*(DOUBLE a) // çŸ©é˜µæ•°ä¹˜å¸¸æ•°aï¼ŒåŸçŸ©é˜µå†…å®¹ä¸å˜ï¼Œè¿”å›ä¸€æ–°çŸ©é˜µ
 214.{
 215. matrix m(rownum, colnum);
 216. for(size_t i=0; i<rownum; i++)
@@ -219,23 +220,23 @@
 219. return m;
 220.}
 221.
-222.matrix matrix::operator+(matrix& m) // ¾ØÕóÏà¼Ó£¬²úÉúÒ»ĞÂµÄ¾ØÕó²¢·µ»ØËü
+222.matrix matrix::operator+(matrix& m) // çŸ©é˜µç›¸åŠ ï¼Œäº§ç”Ÿä¸€æ–°çš„çŸ©é˜µå¹¶è¿”å›å®ƒ
 223.{
-224. if(rownum != m.rownum || colnum != m.colnum) // ¶ÔÓ¦ĞĞÁĞ±ØĞëÏàÍ¬
+224. if(rownum != m.rownum || colnum != m.colnum) // å¯¹åº”è¡Œåˆ—å¿…é¡»ç›¸åŒ
 225.throw TMESSAGE("can not do add of matrixn");
-226. matrix mm(rownum, colnum); // ²úÉúÒ»Í¬×Ô¼ºÍ¬ĞÎµÄ¾ØÕó
+226. matrix mm(rownum, colnum); // äº§ç”Ÿä¸€åŒè‡ªå·±åŒå½¢çš„çŸ©é˜µ
 227. DOUBLE a;
-228. for(size_t i=0; i<rownum; i++) // ÇóºÍ
+228. for(size_t i=0; i<rownum; i++) // æ±‚å’Œ
 229. for(size_t j=0; j<colnum; j++)
 230. {
 231. a = value(i,j)+m.value(i,j);
 232. mm.set(i,j,a);
 233. }
-234. mm.checksym(); // ¼ì²éÊÇ·ñÎª¶Ô³ÆÕó
+234. mm.checksym(); // æ£€æŸ¥æ˜¯å¦ä¸ºå¯¹ç§°é˜µ
 235. return mm;
 236.}
 237.
-238.matrix& matrix::operator+=(matrix &m) // ¾ØÕóÇóºÍ£¬×Ô¼ºÄÚÈİ¸Ä±äÎªºÍ
+238.matrix& matrix::operator+=(matrix &m) // çŸ©é˜µæ±‚å’Œï¼Œè‡ªå·±å†…å®¹æ”¹å˜ä¸ºå’Œ
 239.{
 240. DOUBLE a;
 241. for(size_t i=0; i<rownum; i++)
@@ -244,12 +245,12 @@
 244. a = value(i,j)+m.value(i,j);
 245. set(i,j,a);
 246. }
-247. checksym(); // ¼ì²éÊÇ·ñÎª¶Ô³ÆÕó
+247. checksym(); // æ£€æŸ¥æ˜¯å¦ä¸ºå¯¹ç§°é˜µ
 248. return (*this);
 249.}
 250.
-251.matrix matrix::operator+(DOUBLE a) // ¾ØÕó¼Ó³£Êı£¬Ö¸Ã¿Ò»ÔªËØ¼ÓÒ»¹Ì¶¨µÄ³£Êı£¬²úÉú
-252.// ĞÂ¾ØÕó£¬Ô­¾ØÕó²»±ä
+251.matrix matrix::operator+(DOUBLE a) // çŸ©é˜µåŠ å¸¸æ•°ï¼ŒæŒ‡æ¯ä¸€å…ƒç´ åŠ ä¸€å›ºå®šçš„å¸¸æ•°ï¼Œäº§ç”Ÿ
+252.// æ–°çŸ©é˜µï¼ŒåŸçŸ©é˜µä¸å˜
 253.{
 254. matrix m(rownum, colnum);
 255. for(size_t i=0; i<rownum; i++)
@@ -258,7 +259,7 @@
 258. return m;
 259.}
 260.
-261.matrix& matrix::operator+=(DOUBLE a) // ¾ØÕó×ÔÉí¼Ó³£Êı£¬×ÔÉíÄÚÈİ¸Ä±ä
+261.matrix& matrix::operator+=(DOUBLE a) // çŸ©é˜µè‡ªèº«åŠ å¸¸æ•°ï¼Œè‡ªèº«å†…å®¹æ”¹å˜
 262.{
 263. for(size_t i=0; i<rownum; i++)
 264. for(size_t j=0; j<colnum; j++)
@@ -266,55 +267,55 @@
 266. return (*this);
 267.}
 268.
-269.matrix operator-(DOUBLE a, matrix& m) { // ³£Êı¼õ¾ØÕó£¬²úÉúĞÂµÄ¾ØÕó
+269.matrix operator-(DOUBLE a, matrix& m) { // å¸¸æ•°å‡çŸ©é˜µï¼Œäº§ç”Ÿæ–°çš„çŸ©é˜µ
 270. return (-m)+a;
 271.};
 272.
 273.
-274.matrix matrix::operator-(matrix& m) // ¾ØÕóÏà¼õ£¬²úÉúĞÂµÄ¾ØÕó
+274.matrix matrix::operator-(matrix& m) // çŸ©é˜µç›¸å‡ï¼Œäº§ç”Ÿæ–°çš„çŸ©é˜µ
 275.{
-276. matrix mm(*this); // ²úÉúÒ»Í¬×Ô¼ºÍ¬ĞÎµÄ¾ØÕó
-277. mm += (-m); // ¼ÓÉÏÏàÓ¦µÄ¸º¾ØÕó
+276. matrix mm(*this); // äº§ç”Ÿä¸€åŒè‡ªå·±åŒå½¢çš„çŸ©é˜µ
+277. mm += (-m); // åŠ ä¸Šç›¸åº”çš„è´ŸçŸ©é˜µ
 278. return mm;
 279.}
 280.
-281.matrix& matrix::operator-=(matrix& m) // ¾ØÕóÏà¼õ£¬½á¹ûĞŞ¸ÄÔ­¾ØÕó
+281.matrix& matrix::operator-=(matrix& m) // çŸ©é˜µç›¸å‡ï¼Œç»“æœä¿®æ”¹åŸçŸ©é˜µ
 282.{
 283. (*this) += (-m);
 284. return (*this);
 285.}
 286.
-287.matrix matrix::operator*(matrix& m) // ¾ØÕóÏà³Ë£¬Ô­¾ØÕóÄÚÈİ²»±ä£¬²úÉúÒ»ĞÂ¾ØÕó
+287.matrix matrix::operator*(matrix& m) // çŸ©é˜µç›¸ä¹˜ï¼ŒåŸçŸ©é˜µå†…å®¹ä¸å˜ï¼Œäº§ç”Ÿä¸€æ–°çŸ©é˜µ
 288.{
-289. if(colnum != m.rownum) // ±ØĞëÂú×ãÏà³ËÌõ¼ş
+289. if(colnum != m.rownum) // å¿…é¡»æ»¡è¶³ç›¸ä¹˜æ¡ä»¶
 290.throw TMESSAGE("can not multiply!");
-291. matrix mm(rownum,m.colnum); // ¼ÆËã²¢²úÉúÒ»ºÏÒªÇóµÄ¾ØÕó·Å³Ë»ı
+291. matrix mm(rownum,m.colnum); // è®¡ç®—å¹¶äº§ç”Ÿä¸€åˆè¦æ±‚çš„çŸ©é˜µæ”¾ä¹˜ç§¯
 292. DOUBLE a;
-293. for(size_t i=0; i<rownum; i++) // ¼ÆËã³Ë»ı
+293. for(size_t i=0; i<rownum; i++) // è®¡ç®—ä¹˜ç§¯
 294. for(size_t j=0; j<m.colnum; j++){
 295. a = 0.0;
 296. for(size_t k=0; k<colnum; k++)
 297. a += value(i,k)*m.value(k,j);
 298. mm.set(i,j,a);
 299. }
-300. mm.checksym(); // ¼ì²éÊÇ·ñÎª¶Ô³ÆÕó
-301. return mm; // ·µ»Ø³Ë»ı
+300. mm.checksym(); // æ£€æŸ¥æ˜¯å¦ä¸ºå¯¹ç§°é˜µ
+301. return mm; // è¿”å›ä¹˜ç§¯
 302.}
 303.
-304.matrix& matrix::operator*=(matrix& m) // ¾ØÕóÏà³Ë£¬×Ô¼ºĞŞ¸Ä³É»ı¾ØÕó
+304.matrix& matrix::operator*=(matrix& m) // çŸ©é˜µç›¸ä¹˜ï¼Œè‡ªå·±ä¿®æ”¹æˆç§¯çŸ©é˜µ
 305.{
 306. (*this) = (*this)*m;
 307. return (*this);
 308.}
 309.
-310.matrix matrix::t()  // ¾ØÕó×ªÖÃ£¬²úÉúĞÂµÄ¾ØÕó
+310.matrix matrix::t()  // çŸ©é˜µè½¬ç½®ï¼Œäº§ç”Ÿæ–°çš„çŸ©é˜µ
 311.{
 312. matrix mm(*this);
 313. mm.trans();
 314. return mm;
 315.}
 316.
-317.int matrix::isnear(matrix& m, double e) // ¼ì²é¶ş¾ØÕóÊÇ·ñ½üËÆÏàµÈ
+317.int matrix::isnear(matrix& m, double e) // æ£€æŸ¥äºŒçŸ©é˜µæ˜¯å¦è¿‘ä¼¼ç›¸ç­‰
 318.{
 319. if(rownum != m.rownum || colnum != m.colnum) return 0;
 320. for(size_t i=0; i< rownum; i++)
@@ -323,13 +324,13 @@
 323. return 1;
 324.}
 325.
-326.int matrix::isnearunit(double e) // ¼ì²é¾ØÕóÊÇ·ñ½üËÆÎªµ¥Î»¾ØÕó
+326.int matrix::isnearunit(double e) // æ£€æŸ¥çŸ©é˜µæ˜¯å¦è¿‘ä¼¼ä¸ºå•ä½çŸ©é˜µ
 327.{
 328. if(rownum != colnum) return 0;
 329. return isnear(unit(rownum), e);
 330.}
 331.
-332.matrix matrix::row(size_t r) // ÌáÈ¡µÚrĞĞĞĞÏòÁ¿
+332.matrix matrix::row(size_t r) // æå–ç¬¬rè¡Œè¡Œå‘é‡
 333.{
 334. matrix mm(1, colnum);
 335. for(int i=0; i< colnum; i++)
@@ -337,7 +338,7 @@
 337. return mm;
 338.}
 339.
-340.matrix matrix::col(size_t c) // ÌáÈ¡µÚcÁĞÁĞÏòÁ¿
+340.matrix matrix::col(size_t c) // æå–ç¬¬cåˆ—åˆ—å‘é‡
 341.{
 342. matrix mm(rownum, 1);
 343. for(int i=0; i< rownum; i++)
@@ -345,7 +346,7 @@
 345. return mm;
 346.}
 347.
-348.void matrix::swapr(size_t r1, size_t r2, size_t k) // ½»»»¾ØÕór1ºÍr2Á½ĞĞ
+348.void matrix::swapr(size_t r1, size_t r2, size_t k) // äº¤æ¢çŸ©é˜µr1å’Œr2ä¸¤è¡Œ
 349.{
 350. DOUBLE a;
 351. for(size_t i=k; i<colnum; i++) {
@@ -355,7 +356,7 @@
 355. }
 356.}
 357.
-358.void matrix::swapc(size_t c1, size_t c2, size_t k) // ½»»»c1ºÍc2Á½ÁĞ
+358.void matrix::swapc(size_t c1, size_t c2, size_t k) // äº¤æ¢c1å’Œc2ä¸¤åˆ—
 359.{
 360. DOUBLE a;
 361. for(size_t i=k; i<colnum; i++) {
@@ -365,7 +366,7 @@
 365. }
 366.}
 367.
-368.DOUBLE matrix::maxabs(size_t &r, size_t &c, size_t k) // ÇóµÚkĞĞºÍµÚkÁĞºóµÄÖ÷Ôª¼°Î»ÖÃ
+368.DOUBLE matrix::maxabs(size_t &r, size_t &c, size_t k) // æ±‚ç¬¬kè¡Œå’Œç¬¬kåˆ—åçš„ä¸»å…ƒåŠä½ç½®
 369.{
 370. DOUBLE a=0.0;
 371. for(size_t i=k;i<rownum;i++)
@@ -376,53 +377,53 @@
 376. return a;
 377.}
 378.
-379.size_t matrix::zgsxy(matrix & m, int fn) // ½øĞĞÖ÷¸ßË¹ÏûÔªÔËËã£¬fnÎª²ÎÊı£¬È±Ê¡Îª0
-380. /* ±¾¾ØÕóÆäÊµÊÇ³£ÊıÕó£¬¶ø¾ØÕóm±ØĞëÊÇ·½Õó
-381. ÔËËã¹ı³ÌÆäÊµÊÇ¶Ô±¾¾ØÕóºÍmÍ¬Ê±×÷ĞĞ³õµÈ±ä»»£¬
-382. ÔËËã½á¹ûmµÄ¶Ô½ÇÏßÏà³Ë½«ÊÇĞĞÁĞÊ½£¬¶ø±¾¾ØÕóÔò±ä»»³É
-383. ×Ô¼ºµÄÔ­¾ØÕó±»mµÄÄæÕó×ó³Ë£¬mµÄÖÈ±»·µ»Ø£¬Èç¹ûÖÈµÈÓÚ½×Êı
-384. Ôò±¾¾ØÕóÖĞµÄÄÚÈİÒÑ¾­ÊÇÎ¨Ò»½â
+379.size_t matrix::zgsxy(matrix & m, int fn) // è¿›è¡Œä¸»é«˜æ–¯æ¶ˆå…ƒè¿ç®—ï¼Œfnä¸ºå‚æ•°ï¼Œç¼ºçœä¸º0
+380. /* æœ¬çŸ©é˜µå…¶å®æ˜¯å¸¸æ•°é˜µï¼Œè€ŒçŸ©é˜µmå¿…é¡»æ˜¯æ–¹é˜µ
+381. è¿ç®—è¿‡ç¨‹å…¶å®æ˜¯å¯¹æœ¬çŸ©é˜µå’ŒmåŒæ—¶ä½œè¡Œåˆç­‰å˜æ¢ï¼Œ
+382. è¿ç®—ç»“æœmçš„å¯¹è§’çº¿ç›¸ä¹˜å°†æ˜¯è¡Œåˆ—å¼ï¼Œè€Œæœ¬çŸ©é˜µåˆ™å˜æ¢æˆ
+383. è‡ªå·±çš„åŸçŸ©é˜µè¢«mçš„é€†é˜µå·¦ä¹˜ï¼Œmçš„ç§©è¢«è¿”å›ï¼Œå¦‚æœç§©ç­‰äºé˜¶æ•°
+384. åˆ™æœ¬çŸ©é˜µä¸­çš„å†…å®¹å·²ç»æ˜¯å”¯ä¸€è§£
 385. */
 386.{
-387. if(rownum != m.rownum || m.rownum != m.colnum) // ±¾¾ØÕóĞĞÊı±ØĞëÓëmÏàµÈ
-388.// ÇÒm±ØĞëÊÇ·½Õó
+387. if(rownum != m.rownum || m.rownum != m.colnum) // æœ¬çŸ©é˜µè¡Œæ•°å¿…é¡»ä¸mç›¸ç­‰
+388.// ä¸”må¿…é¡»æ˜¯æ–¹é˜µ
 389.throw TMESSAGE("can not divide!");
-390. lbuffer * bb = getnewlbuffer(rownum); // ²úÉúÒ»Î¬ÊıÎªĞĞÊıµÄ³¤ÕûÊı»º´æÇø
-391. lbuffer & b = (*bb); // ÓÃÒıÓÃµÄ°ì·¨Ê¹ÏÂÃæµÄ³ÌĞòÈİÒ×¶®
+390. lbuffer * bb = getnewlbuffer(rownum); // äº§ç”Ÿä¸€ç»´æ•°ä¸ºè¡Œæ•°çš„é•¿æ•´æ•°ç¼“å­˜åŒº
+391. lbuffer & b = (*bb); // ç”¨å¼•ç”¨çš„åŠæ³•ä½¿ä¸‹é¢çš„ç¨‹åºå®¹æ˜“æ‡‚
 392. size_t is;
 393. DOUBLE a;
 394. size_t i,j,rank=0;
-395. for(size_t k=0; k<rownum; k++) { // ´ÓµÚ0ĞĞµ½µÚkĞĞ½øĞĞÖ÷¸ßË¹ÏûÔª
-396.if(m.maxabs(is, i, k)==0) // ÇómÖĞµÚk¼¶Ö÷Ôª£¬Ö÷ÔªËùÔÚµÄĞĞ£¬ÁĞ´æÔÚis,iÖĞ
-397.break; // Èç¹ûÖ÷ÔªÎªÁã£¬Ôòm²»¿ÉÄæ£¬ÔËËãÊ§°Ü
-398.rank = k+1; // rank´æ·Åµ±Ç°µÄ½×Êı
-399.b.retrieve(k) = i;  // ½«³¤ÕûÊı»º´æÇøµÄµÚk¸öÖµÉèÎªi
+395. for(size_t k=0; k<rownum; k++) { // ä»ç¬¬0è¡Œåˆ°ç¬¬kè¡Œè¿›è¡Œä¸»é«˜æ–¯æ¶ˆå…ƒ
+396.if(m.maxabs(is, i, k)==0) // æ±‚mä¸­ç¬¬kçº§ä¸»å…ƒï¼Œä¸»å…ƒæ‰€åœ¨çš„è¡Œï¼Œåˆ—å­˜åœ¨is,iä¸­
+397.break; // å¦‚æœä¸»å…ƒä¸ºé›¶ï¼Œåˆ™mä¸å¯é€†ï¼Œè¿ç®—å¤±è´¥
+398.rank = k+1; // rankå­˜æ”¾å½“å‰çš„é˜¶æ•°
+399.b.retrieve(k) = i;  // å°†é•¿æ•´æ•°ç¼“å­˜åŒºçš„ç¬¬kä¸ªå€¼è®¾ä¸ºi
 400. if(i != k)
-401. m.swapc(k, i); // ½»»»mÖĞi,kÁ½ÁĞ
+401. m.swapc(k, i); // äº¤æ¢mä¸­i,kä¸¤åˆ—
 402.if(is != k) {
-403. m.swapr(k, is, k); // ½»»»mÖĞi,kÁ½ĞĞ,´ÓkÁĞÒÔºó½»»»
-404.swapr(k, is); // ½»»»±¾¾ØÕóÖĞi,kÁ½ĞĞ
+403. m.swapr(k, is, k); // äº¤æ¢mä¸­i,kä¸¤è¡Œ,ä»kåˆ—ä»¥åäº¤æ¢
+404.swapr(k, is); // äº¤æ¢æœ¬çŸ©é˜µä¸­i,kä¸¤è¡Œ
 405.}
-406.a = m.value(k,k);  // È¡³öÖ÷ÔªÔªËØ
-407.for (j=k+1;j<rownum;j++) // ±¾ÒâÊÇ½«mµÄµÚkĞĞ³ıÒÔÖ÷Ôª
-408.// µ«Ö»Ğè°ÑµÚkĞĞµÄµÚk+1ÁĞÒÔÉÏ³ıÒÔÖ÷Ôª¼´¿É
-409.// ÕâÑù»¹±£ÁôÁËÖ÷Ôª×÷ĞĞÁĞÊ½ÔËËãÓÃ
+406.a = m.value(k,k);  // å–å‡ºä¸»å…ƒå…ƒç´ 
+407.for (j=k+1;j<rownum;j++) // æœ¬æ„æ˜¯å°†mçš„ç¬¬kè¡Œé™¤ä»¥ä¸»å…ƒ
+408.// ä½†åªéœ€æŠŠç¬¬kè¡Œçš„ç¬¬k+1åˆ—ä»¥ä¸Šé™¤ä»¥ä¸»å…ƒå³å¯
+409.// è¿™æ ·è¿˜ä¿ç•™äº†ä¸»å…ƒä½œè¡Œåˆ—å¼è¿ç®—ç”¨
 410.m.set(k,j,m.value(k,j)/a);
-411. for (j=0;j<colnum;j++) // ½«±¾¾ØÕóµÄµÚkĞĞ³ıÒÔÖ÷Ôª
+411. for (j=0;j<colnum;j++) // å°†æœ¬çŸ©é˜µçš„ç¬¬kè¡Œé™¤ä»¥ä¸»å…ƒ
 412.set(k,j,value(k,j)/a);
-413. // ÉÏÃæÁ½²½Ïàµ±ÓÚ½«mºÍ±¾¾ØÕó¹¹³ÉµÄÔö¹ã¾ØÕóµÚkĞĞ³ıÒÔÖ÷Ôª
-414.// ÏÂÃæ¶ÔÔö¹ã¾ØÕó×÷ĞĞ»ù±¾³õµÈ±ä»»Ê¹µÚkĞĞµÄÆäÓàÁĞ¾ùÎªÁã
-415.// µ«0ÖµÎŞ±ØÒª¼ÆËã£¬Òò´Ë´ÓµÚk+1ÁĞ¿ªÊ¼¼ÆËã
-416.for(j=k+1;j<rownum;j++) // j´ú±íÁĞ£¬±¾¾ØÕóµÄĞĞÊı¾ÍÊÇmµÄÁĞÊı
-417.for(i=0;i<rownum;i++) //i´ú±íĞĞ£¬ÒÀ´Î¶Ô¸÷ĞĞ¼ÆËã£¬kĞĞ³ıÍâ
+413. // ä¸Šé¢ä¸¤æ­¥ç›¸å½“äºå°†må’Œæœ¬çŸ©é˜µæ„æˆçš„å¢å¹¿çŸ©é˜µç¬¬kè¡Œé™¤ä»¥ä¸»å…ƒ
+414.// ä¸‹é¢å¯¹å¢å¹¿çŸ©é˜µä½œè¡ŒåŸºæœ¬åˆç­‰å˜æ¢ä½¿ç¬¬kè¡Œçš„å…¶ä½™åˆ—å‡ä¸ºé›¶
+415.// ä½†0å€¼æ— å¿…è¦è®¡ç®—ï¼Œå› æ­¤ä»ç¬¬k+1åˆ—å¼€å§‹è®¡ç®—
+416.for(j=k+1;j<rownum;j++) // jä»£è¡¨åˆ—ï¼Œæœ¬çŸ©é˜µçš„è¡Œæ•°å°±æ˜¯mçš„åˆ—æ•°
+417.for(i=0;i<rownum;i++) //iä»£è¡¨è¡Œï¼Œä¾æ¬¡å¯¹å„è¡Œè®¡ç®—ï¼Œkè¡Œé™¤å¤–
 418.if(i!=k)
 419. m.set(i,j,m.value(i,j)-m.value(i,k)*m.value(k,j));
-420. // ¶Ô±¾¾ØÕóÒà×÷Í¬ÑùµÄ¼ÆËã
+420. // å¯¹æœ¬çŸ©é˜µäº¦ä½œåŒæ ·çš„è®¡ç®—
 421.for(j=0;j<colnum;j++)
 422. for(i=0;i<rownum;i++)
 423. if(i!=k)
 424. set(i,j,value(i,j)-m.value(i,k)*value(k,j));
-425. } // Ö÷¸ßË¹ÏûÔªÑ­»·k½áÊø
+425. } // ä¸»é«˜æ–¯æ¶ˆå…ƒå¾ªç¯kç»“æŸ
 426. if(fn == 1) {
 427. for(j=0; j<rank; j++)
 428. for(i=0; i<rownum; i++)
@@ -432,41 +433,41 @@
 432. for(k = rank; k>0; k--)
 433.m.swapc(k-1,(size_t)b[k-1]);
 434. }
-435. for(k = rank; k>0; k--) // ½«±¾¾ØÕóÖĞµÄ¸÷ĞĞ°´bÖĞÄÚÈİ½øĞĞµ÷½Ú
+435. for(k = rank; k>0; k--) // å°†æœ¬çŸ©é˜µä¸­çš„å„è¡ŒæŒ‰bä¸­å†…å®¹è¿›è¡Œè°ƒèŠ‚
 436.if(b[k-1] != k-1)
-437. swapr(k-1,(size_t)b[k-1]); // ĞĞ½»»»
-438. delete bb; // ÊÍ·Å³¤ÕûÊı»º´æ
-439. return rank; // ·µ»ØmmµÄÖÈ
+437. swapr(k-1,(size_t)b[k-1]); // è¡Œäº¤æ¢
+438. delete bb; // é‡Šæ”¾é•¿æ•´æ•°ç¼“å­˜
+439. return rank; // è¿”å›mmçš„ç§©
 440.}
 441.
-442.matrix& matrix::operator/=(matrix m) // ÀûÓÃÖØÔØµÄ³ı·¨·ûºÅ/=À´½â·½³Ì
-443. // ±¾¾ØÕóÉèÎªd,Ôò·½³ÌÎªmx=d,¿¼ÂÇ½âĞ´³Éx=d/mµÄĞÎÊ½£¬
-444. // ¶ø·½³ÌµÄ½âÒ²´æ·ÅÔÚdÖĞ£¬ÔòÊµ¼Ê±à³ÌÊ±Ğ´d/=m
+442.matrix& matrix::operator/=(matrix m) // åˆ©ç”¨é‡è½½çš„é™¤æ³•ç¬¦å·/=æ¥è§£æ–¹ç¨‹
+443. // æœ¬çŸ©é˜µè®¾ä¸ºd,åˆ™æ–¹ç¨‹ä¸ºmx=d,è€ƒè™‘è§£å†™æˆx=d/mçš„å½¢å¼ï¼Œ
+444. // è€Œæ–¹ç¨‹çš„è§£ä¹Ÿå­˜æ”¾åœ¨dä¸­ï¼Œåˆ™å®é™…ç¼–ç¨‹æ—¶å†™d/=m
 445.{
-446. if(zgsxy(m)!=rownum) // ÈçÖÈ²»µÈÓÚmµÄ½×Êı£¬Ôò·½³ÌÎŞ½â
+446. if(zgsxy(m)!=rownum) // å¦‚ç§©ä¸ç­‰äºmçš„é˜¶æ•°ï¼Œåˆ™æ–¹ç¨‹æ— è§£
 447.throw TMESSAGE("can not divide!");
 448. return *this;
 449.}
 450.
-451.matrix matrix::operator/(matrix m) // ×ó³ËmµÄÄæ¾ØÕó²úÉúĞÂ¾ØÕó
+451.matrix matrix::operator/(matrix m) // å·¦ä¹˜mçš„é€†çŸ©é˜µäº§ç”Ÿæ–°çŸ©é˜µ
 452.{
-453. m.inv(); // mµÄÄæ¾ØÕó
+453. m.inv(); // mçš„é€†çŸ©é˜µ
 454. return (*this)*m;
 455.}
 456.
-457.matrix& matrix::inv() // ÓÃÈ«Ñ¡Ö÷Ôª¸ßË¹-Ô¼µ±·¨ÇóÄæ¾ØÕó
+457.matrix& matrix::inv() // ç”¨å…¨é€‰ä¸»å…ƒé«˜æ–¯-çº¦å½“æ³•æ±‚é€†çŸ©é˜µ
 458.{
 459. if(rownum != colnum || rownum == 0)
 460. throw TMESSAGE("Can not calculate inverse");
 461. size_t i,j,k;
 462.  DOUBLE d,p;
-463. lbuffer * isp = getnewlbuffer(rownum); // ²úÉúÒ»Î¬ÊıÎªĞĞÊıµÄ³¤ÕûÊı»º´æÇø
-464. lbuffer * jsp = getnewlbuffer(rownum); // ²úÉúÒ»Î¬ÊıÎªĞĞÊıµÄ³¤ÕûÊı»º´æÇø
-465. lbuffer& is = *isp; // Ê¹ÓÃÒıÓÃÊ¹³ÌĞò¿´ÆğÀ´·½±ã
+463. lbuffer * isp = getnewlbuffer(rownum); // äº§ç”Ÿä¸€ç»´æ•°ä¸ºè¡Œæ•°çš„é•¿æ•´æ•°ç¼“å­˜åŒº
+464. lbuffer * jsp = getnewlbuffer(rownum); // äº§ç”Ÿä¸€ç»´æ•°ä¸ºè¡Œæ•°çš„é•¿æ•´æ•°ç¼“å­˜åŒº
+465. lbuffer& is = *isp; // ä½¿ç”¨å¼•ç”¨ä½¿ç¨‹åºçœ‹èµ·æ¥æ–¹ä¾¿
 466. lbuffer& js = *jsp;
 467. for(k=0; k<rownum; k++)
 468. {
-469. d = maxabs(i, j, k); // È«Ö÷ÔªµÄÎ»ÖÃºÍÖµ
+469. d = maxabs(i, j, k); // å…¨ä¸»å…ƒçš„ä½ç½®å’Œå€¼
 470.is[k] = i;
 471. js[k] = j;
 472. if(d==0.0) {
@@ -493,18 +494,18 @@
 493. }
 494.  delete isp;
 495.  delete jsp;
-496. checksym(); // ¼ì²éÊÇ·ñÎª¶Ô³ÆÕó
+496. checksym(); // æ£€æŸ¥æ˜¯å¦ä¸ºå¯¹ç§°é˜µ
 497.  return (*this);
 498.}
 499.
-500.matrix matrix::operator~() // ÇóÄæ¾ØÕó£¬µ«²úÉúĞÂ¾ØÕó
+500.matrix matrix::operator~() // æ±‚é€†çŸ©é˜µï¼Œä½†äº§ç”Ÿæ–°çŸ©é˜µ
 501.{
 502. matrix m(*this);
 503. m.inv();
 504. return m;
 505.}
 506.
-507.matrix operator/(DOUBLE a, matrix& m) // ÇóÄæ¾ØÕóÔÙ³Ë³£Êı
+507.matrix operator/(DOUBLE a, matrix& m) // æ±‚é€†çŸ©é˜µå†ä¹˜å¸¸æ•°
 508.{
 509. matrix mm(m);
 510. mm.inv();
@@ -512,19 +513,19 @@
 512. return mm;
 513.}
 514.
-515.matrix& matrix::operator/=(DOUBLE a) // ËùÓĞÔªËØ³ËaµÄµ¹Êı£¬×ÔÉí¸Ä±ä
+515.matrix& matrix::operator/=(DOUBLE a) // æ‰€æœ‰å…ƒç´ ä¹˜açš„å€’æ•°ï¼Œè‡ªèº«æ”¹å˜
 516.{
 517. return operator*=(1/a);
 518.}
 519.
-520.matrix matrix::operator/(DOUBLE a) // ËùÓĞÔªËØ³ËaµÄµ¹Êı£¬²úÉúĞÂµÄ¾ØÕó
+520.matrix matrix::operator/(DOUBLE a) // æ‰€æœ‰å…ƒç´ ä¹˜açš„å€’æ•°ï¼Œäº§ç”Ÿæ–°çš„çŸ©é˜µ
 521.{
 522. matrix m(*this);
 523. m/=a;
 524. return m;
 525.}
 526.
-527.DOUBLE matrix::det(DOUBLE err) // ÇóĞĞÁĞÊ½µÄÖµ
+527.DOUBLE matrix::det(DOUBLE err) // æ±‚è¡Œåˆ—å¼çš„å€¼
 528.{
 529. if(rownum != colnum || rownum == 0)
 530. throw TMESSAGE("Can not calculate det");
@@ -533,12 +534,12 @@
 533. return m.detandrank(rank, err);
 534.}
 535.
-536.size_t matrix::rank(DOUBLE err) // Çó¾ØÕóµÄÖÈ
+536.size_t matrix::rank(DOUBLE err) // æ±‚çŸ©é˜µçš„ç§©
 537.{
 538. if(rownum==0 || colnum==0)return 0;
 539. size_t k;
 540. k = rownum > colnum ? colnum : rownum;
-541. matrix m(k,k); // ²úÉúk½×·½Õó
+541. matrix m(k,k); // äº§ç”Ÿké˜¶æ–¹é˜µ
 542. for(size_t i=0; i<k; i++)
 543. for(size_t j=0; j<k; j++)
 544. m.set(i,j,value(i,j));
@@ -547,7 +548,7 @@
 547. return r;
 548.}
 549.
-550.DOUBLE matrix::detandrank(size_t & rank, DOUBLE err) // Çó·½ÕóµÄĞĞÁĞÊ½ºÍÖÈ
+550.DOUBLE matrix::detandrank(size_t & rank, DOUBLE err) // æ±‚æ–¹é˜µçš„è¡Œåˆ—å¼å’Œç§©
 551.{
 552. if(rownum != colnum || rownum == 0)
 553. throw TMESSAGE("calculate det and rank error!");
@@ -558,8 +559,8 @@
 558.  for (k=0; k<rownum-1; k++)
 559. {
 560. q = maxabs(is, js, k);
-561. if(q<err) return 0.0; // ÈçÖ÷ÔªÌ«Ğ¡£¬ÔòĞĞÁĞÊ½µÄÖµ±»ÈÏÎªÊÇ0
-562. rank++; // ÖÈÔö1
+561. if(q<err) return 0.0; // å¦‚ä¸»å…ƒå¤ªå°ï¼Œåˆ™è¡Œåˆ—å¼çš„å€¼è¢«è®¤ä¸ºæ˜¯0
+562. rank++; // ç§©å¢1
 563. if(is!=k) { f=-f; swapr(k,is,k); }
 564. if(js!=k) { f=-f; swapc(k,js,k); }
 565. q = value(k,k);
@@ -576,24 +577,24 @@
 576. return f*detv*q;
 577.}
 578.
-579.void matrix::checksym() // ¼ì²éºÍ³¢ÊÔµ÷Õû¾ØÕóµ½¶Ô³Æ¾ØÕó
+579.void matrix::checksym() // æ£€æŸ¥å’Œå°è¯•è°ƒæ•´çŸ©é˜µåˆ°å¯¹ç§°çŸ©é˜µ
 580.{
-581. issym = 0; // ÏÈ¼ÙÉè¾ØÕó·Ç¶Ô³Æ
-582. if(rownum != colnum) return; // ĞĞÁĞ²»µÈµ±È»²»ÊÇ¶Ô³Æ¾ØÕó
+581. issym = 0; // å…ˆå‡è®¾çŸ©é˜µéå¯¹ç§°
+582. if(rownum != colnum) return; // è¡Œåˆ—ä¸ç­‰å½“ç„¶ä¸æ˜¯å¯¹ç§°çŸ©é˜µ
 583. DOUBLE a,b;
-584. for(size_t i=1; i<rownum; i++) // ´ÓµÚ¶şĞĞ¿ªÊ¼¼ì²é
-585. for(size_t j=0; j<i; j++) // ´ÓµÚÒ»ÁĞµ½µÚi-1ÁĞ
+584. for(size_t i=1; i<rownum; i++) // ä»ç¬¬äºŒè¡Œå¼€å§‹æ£€æŸ¥
+585. for(size_t j=0; j<i; j++) // ä»ç¬¬ä¸€åˆ—åˆ°ç¬¬i-1åˆ—
 586. {
 587.a = value(i,j);
 588. b = value(j,i);
-589. if( fabs(a-b) >= defaulterr ) return; // ·¢ÏÖ²»¶Ô³Æ£¬·µ»Ø
-590.if(a!=b)set(i,j,b); // ²î±ğºÜĞ¡¾Í½øĞĞÎ¢µ÷
+589. if( fabs(a-b) >= defaulterr ) return; // å‘ç°ä¸å¯¹ç§°ï¼Œè¿”å›
+590.if(a!=b)set(i,j,b); // å·®åˆ«å¾ˆå°å°±è¿›è¡Œå¾®è°ƒ
 591. }
-592. issym = 1; // ·ûºÏ¶Ô³ÆÕó±ê×¼
+592. issym = 1; // ç¬¦åˆå¯¹ç§°é˜µæ ‡å‡†
 593.}
 594.
-595.void matrix::house(buffer & b, buffer & c)// ÓÃºÀË¹ºÉ¶ûµÂ±ä»»½«¶Ô³ÆÕó±äÎª¶Ô³ÆÈı¶Ô
-596.// ½ÇÕó£¬b·µ»ØÖ÷¶Ô½ÇÏßÔªËØ£¬c·µ»Ø´Î¶Ô½ÇÏßÔªËØ
+595.void matrix::house(buffer & b, buffer & c)// ç”¨è±ªæ–¯è·å°”å¾·å˜æ¢å°†å¯¹ç§°é˜µå˜ä¸ºå¯¹ç§°ä¸‰å¯¹
+596.// è§’é˜µï¼Œbè¿”å›ä¸»å¯¹è§’çº¿å…ƒç´ ï¼Œcè¿”å›æ¬¡å¯¹è§’çº¿å…ƒç´ 
 597.{
 598. if(!issym) throw TMESSAGE("not symatry");
 599. size_t i,j,k;
@@ -660,7 +661,7 @@
 660.}
 661.
 662.void matrix::trieigen(buffer& b, buffer& c, size_t l, DOUBLE eps)
-663. // ¼ÆËãÈı¶Ô½ÇÕóµÄÈ«²¿ÌØÕ÷ÖµÓëÌØÕ÷ÏòÁ¿
+663. // è®¡ç®—ä¸‰å¯¹è§’é˜µçš„å…¨éƒ¨ç‰¹å¾å€¼ä¸ç‰¹å¾å‘é‡
 664.{ size_t i,j,k,m,it;
 665. double d,f,h,g,p,r,e,s;
 666. c[rownum-1]=0.0; d=0.0; f=0.0;
@@ -729,14 +730,14 @@
 729.}
 730.
 731.matrix matrix::eigen(matrix & eigenvalue, DOUBLE eps, size_t l)
-732.  // ¼ÆËã¶Ô³ÆÕóµÄÈ«²¿ÌØÕ÷ÏòÁ¿ºÍÌØÕ÷Öµ
-733.// ·µ»Ø°´ÁĞÅÅ·ÅµÄÌØÕ÷ÏòÁ¿£¬¶øeigenvalue½«·µ»ØÒ»Î¬¾ØÕó£¬ÎªËùÓĞÌØÕ÷Öµ
-734.// ×é³ÉµÄÁĞÏòÁ¿
+732.  // è®¡ç®—å¯¹ç§°é˜µçš„å…¨éƒ¨ç‰¹å¾å‘é‡å’Œç‰¹å¾å€¼
+733.// è¿”å›æŒ‰åˆ—æ’æ”¾çš„ç‰¹å¾å‘é‡ï¼Œè€Œeigenvalueå°†è¿”å›ä¸€ç»´çŸ©é˜µï¼Œä¸ºæ‰€æœ‰ç‰¹å¾å€¼
+734.// ç»„æˆçš„åˆ—å‘é‡
 735.{
 736. if(!issym) throw TMESSAGE("it is not symetic matrix");
-737. eigenvalue = matrix(rownum); // ²úÉúnĞĞ1ÁĞÏòÁ¿×¼±¸·ÅÖÃÌØÕ÷Öµ
-738. matrix m(*this); // ¸´ÖÆ×Ô¼º²úÉúÒ»ĞÂ¾ØÕó
-739. if(rownum == 1) { // Èç¹ûÖ»ÓĞ1X1¾ØÕó£¬ÔòÌØÕ÷ÏòÁ¿Îª1£¬ÌØÕ÷ÖµÎªvalue(0,0)
+737. eigenvalue = matrix(rownum); // äº§ç”Ÿnè¡Œ1åˆ—å‘é‡å‡†å¤‡æ”¾ç½®ç‰¹å¾å€¼
+738. matrix m(*this); // å¤åˆ¶è‡ªå·±äº§ç”Ÿä¸€æ–°çŸ©é˜µ
+739. if(rownum == 1) { // å¦‚æœåªæœ‰1X1çŸ©é˜µï¼Œåˆ™ç‰¹å¾å‘é‡ä¸º1ï¼Œç‰¹å¾å€¼ä¸ºvalue(0,0)
 740. m.set(0,0,1.0);
 741. eigenvalue.set(0,value(0,0));
 742. return m;
@@ -744,14 +745,14 @@
 744. buffer * b, *c;
 745. b = getnewbuffer(rownum);
 746. c = getnewbuffer(rownum);
-747. m.house(*b,*c); // ×ª»»³ÉÈı¶Ô½ÇÕó
-748. m.trieigen(*b,*c,l,eps); // Ëã³öÌØÕ÷ÏòÁ¿ºÍÌØÕ÷Öµ
-749. for(size_t i=0; i<rownum; i++) // ¸´ÖÆbµÄÄÚÈİµ½eigenvalueÖĞ
+747. m.house(*b,*c); // è½¬æ¢æˆä¸‰å¯¹è§’é˜µ
+748. m.trieigen(*b,*c,l,eps); // ç®—å‡ºç‰¹å¾å‘é‡å’Œç‰¹å¾å€¼
+749. for(size_t i=0; i<rownum; i++) // å¤åˆ¶bçš„å†…å®¹åˆ°eigenvalueä¸­
 750.eigenvalue.set(i,(*b)[i]);
 751. return m;
 752.}
 753.
-754.void matrix::hessenberg() // ½«Ò»°ãÊµ¾ØÕóÔ¼»¯ÎªºÕÉê²®¸ñ¾ØÕó
+754.void matrix::hessenberg() // å°†ä¸€èˆ¬å®çŸ©é˜µçº¦åŒ–ä¸ºèµ«ç”³ä¼¯æ ¼çŸ©é˜µ
 755.{
 756.  size_t i,j,k;
 757.  double d,t;
@@ -791,11 +792,11 @@
 791.}
 792.
 793.void matrix::qreigen(matrix & u1, matrix & v1, size_t jt, DOUBLE eps)
-794. // ÇóÒ»°ãÊµ¾ØÕóµÄËùÓĞÌØÕ÷¸ù
-795.// aºÍb¾ù·µ»ØrownumĞĞÒ»ÁĞµÄÁĞÏòÁ¿¾ØÕó£¬·µ»ØËùÓĞÌØÕ÷¸ùµÄÊµ²¿ºÍĞé²¿
+794. // æ±‚ä¸€èˆ¬å®çŸ©é˜µçš„æ‰€æœ‰ç‰¹å¾æ ¹
+795.// aå’Œbå‡è¿”å›rownumè¡Œä¸€åˆ—çš„åˆ—å‘é‡çŸ©é˜µï¼Œè¿”å›æ‰€æœ‰ç‰¹å¾æ ¹çš„å®éƒ¨å’Œè™šéƒ¨
 796.{
 797. matrix a(*this);
-798. a.hessenberg(); // ÏÈËã³öºÕÉê²®¸ñ¾ØÕó
+798. a.hessenberg(); // å…ˆç®—å‡ºèµ«ç”³ä¼¯æ ¼çŸ©é˜µ
 799. u1 = matrix(rownum);
 800. v1 = matrix(rownum);
 801. buffer * uu = getnewbuffer(rownum);
@@ -925,9 +926,9 @@
 925. delete vv;
 926.}
 927.
-928.DOUBLE gassrand(int rr) // ·µ»ØÒ»Áã¾ùÖµµ¥Î»·½²îµÄÕıÌ¬·Ö²¼Ëæ»úÊı
+928.DOUBLE gassrand(int rr) // è¿”å›ä¸€é›¶å‡å€¼å•ä½æ–¹å·®çš„æ­£æ€åˆ†å¸ƒéšæœºæ•°
 929.{
-930. static DOUBLE r=3.0; // ÖÖ×Ó
+930. static DOUBLE r=3.0; // ç§å­
 931. if(rr) r = rr;
 932. int i,m;
 933. DOUBLE s,w,v,t;
@@ -941,7 +942,7 @@
 941. return(t);
 942.}
 943.
-944.gassvector::gassvector(matrix & r): //r±ØĞëÊÇÕı¶¨¶Ô³ÆÕó£¬ÎªÕıÌ¬Ëæ»úÏòÁ¿µÄĞ­·½²î
+944.gassvector::gassvector(matrix & r): //rå¿…é¡»æ˜¯æ­£å®šå¯¹ç§°é˜µï¼Œä¸ºæ­£æ€éšæœºå‘é‡çš„åæ–¹å·®
 945. a(r)
 946.{
 947. if(r.rownum != r.colnum) throw TMESSAGE("must be a sqare matrix");
@@ -955,7 +956,7 @@
 955. }
 956.}
 957.
-958.matrix gassvector::operator()(matrix & r) // ·µ»Ø¸ø¶¨Ğ­·½²î¾ØÕóµÄÕıÌ¬Ëæ»úÏòÁ¿
+958.matrix gassvector::operator()(matrix & r) // è¿”å›ç»™å®šåæ–¹å·®çŸ©é˜µçš„æ­£æ€éšæœºå‘é‡
 959.{
 960. a = r;
 961. matrix evalue;
@@ -966,13 +967,13 @@
 966. for(size_t j=0; j<a.rownum; j++)
 967. a.set(j,i,a.value(j,i)*e);
 968. }
-969. matrix rr(a.rownum); // ²úÉúÁĞÏòÁ¿
+969. matrix rr(a.rownum); // äº§ç”Ÿåˆ—å‘é‡
 970. for(i=0; i<a.rownum; i++)
 971. rr.set(i,gassrand());
 972. return a*rr;
 973.}
 974.
-975.matrix gassvector::operator()() // ·µ»ØÒÑÉè¶¨µÄĞ­·½²î¾ØÕóµÄÕıÌ¬Ëæ»úÏòÁ¿
+975.matrix gassvector::operator()() // è¿”å›å·²è®¾å®šçš„åæ–¹å·®çŸ©é˜µçš„æ­£æ€éšæœºå‘é‡
 976.{
 977. matrix rr(a.rownum);
 978. for(size_t i=0; i<a.rownum; i++)
@@ -980,7 +981,7 @@
 980. return a*rr;
 981.}
 982.
-983.void gassvector::setdata(matrix & r) // ¸ù¾İĞ­·½²î¾ØÕóÉèÖÃÔöÒæ¾ØÕó
+983.void gassvector::setdata(matrix & r) // æ ¹æ®åæ–¹å·®çŸ©é˜µè®¾ç½®å¢ç›ŠçŸ©é˜µ
 984.{
 985. if(!r.issym) throw TMESSAGE("r must be symetic!");
 986. a = r;
@@ -994,7 +995,7 @@
 994. }
 995.}
 996.
-997.int matrix::ispositive() // ÅĞ¶¨¾ØÕóÊÇ·ñ¶Ô³Æ·Ç¸º¶¨Õó£¬ÈçÊÇ·µ»Ø1£¬·ñÔò·µ»Ø0
+997.int matrix::ispositive() // åˆ¤å®šçŸ©é˜µæ˜¯å¦å¯¹ç§°éè´Ÿå®šé˜µï¼Œå¦‚æ˜¯è¿”å›1ï¼Œå¦åˆ™è¿”å›0
 998.{
 999. if(!issym) return 0;
 1000. matrix ev;
@@ -1004,8 +1005,8 @@
 1004. return 1;
 1005.}
 1006.
-1007.matrix matrix::cholesky(matrix& dd) // ÓÃÇÇÀïË¹»ù·Ö½â·¨Çó¶Ô³ÆÕı¶¨ÕóµÄÏßĞÔ
-1008.// ·½³Ì×éax=d·µ»Ø·½³Ì×éµÄ½â£¬±¾ÉíÎªa£¬¸Ä±äÎª·Ö½âÕóu,d²»±ä
+1007.matrix matrix::cholesky(matrix& dd) // ç”¨ä¹”é‡Œæ–¯åŸºåˆ†è§£æ³•æ±‚å¯¹ç§°æ­£å®šé˜µçš„çº¿æ€§
+1008.// æ–¹ç¨‹ç»„ax=dè¿”å›æ–¹ç¨‹ç»„çš„è§£ï¼Œæœ¬èº«ä¸ºaï¼Œæ”¹å˜ä¸ºåˆ†è§£é˜µu,dä¸å˜
 1009.{
 1010. if(!issym) throw TMESSAGE("not symetic!");
 1011. if(dd.rownum != colnum) throw TMESSAGE("dd's rownum not right!");
@@ -1065,8 +1066,8 @@
 1065.}
 1066.
 1067.DOUBLE lineopt(matrix& aa,matrix& bb, matrix& cc, matrix & xx)
-1068. // ÏßĞÔ¹æ»®×îÓÅµãÑ°ÕÒ³ÌĞò£¬aaÎªmXn²»µÈÊ½Ô¼ÊøÌõ¼ş×ó¶ËÏµÊı¾ØÕó£¬bbÎª²»µÈÊ½Ô¼Êø
-1069. // Ìõ¼şµÄÓÒ¶ËÏî£¬ÎªmÎ¬ÏòÁ¿£¬ccÎªÄ¿±êº¯ÊıÏµÊı£¬nÎ¬ÏòÁ¿£¬xx·µ»Ø¼«Ğ¡µã£¬ÎªnÎ¬ÏòÁ¿
+1068. // çº¿æ€§è§„åˆ’æœ€ä¼˜ç‚¹å¯»æ‰¾ç¨‹åºï¼Œaaä¸ºmXnä¸ç­‰å¼çº¦æŸæ¡ä»¶å·¦ç«¯ç³»æ•°çŸ©é˜µï¼Œbbä¸ºä¸ç­‰å¼çº¦æŸ
+1069. // æ¡ä»¶çš„å³ç«¯é¡¹ï¼Œä¸ºmç»´å‘é‡ï¼Œccä¸ºç›®æ ‡å‡½æ•°ç³»æ•°ï¼Œnç»´å‘é‡ï¼Œxxè¿”å›æå°ç‚¹ï¼Œä¸ºnç»´å‘é‡
 1070.{
 1071. if(aa.rownum != bb.rownum || aa.colnum != cc.rownum ||
 1072. aa.colnum != xx.rownum) throw TMESSAGE("dimenstion not right!");
